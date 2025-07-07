@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toffee</title>
+  <!-- Include Video.js CSS -->
+  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+  <style>
+    /* General styles */
+    body, html {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+    }
+    .min-h-screen {
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background-color: #1a0920;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-image {
+      height: 40px;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .sign-in-btn {
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    .sign-in-btn:hover {
+      background-color: #f50057;
+    }
+
+    /* Content */
+    .content {
+      padding: 1rem;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+    .channels-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .channel {
+      width: 22%;
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 9999px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, #7b1fa2, #ff4081);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+    }
+    .channel img {
+      width: 100%;
+      height: auto;
+    }
+    .channel-quality {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      font-size: 0.5rem;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #1a0920;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-items {
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+    }
+    .nav-item {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      text-align: center;
+    }
+    .nav-item:hover {
+      color: white;
+    }
+
+    /* Responsive Video Player */
+    .video-container {
+      margin: 1rem auto;
+      width: 100%;
+      max-width: 640px;
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+    .video-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+
+    /* Footer Styling */
+    .footer {
+      background-color: #1a0920;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: auto;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-section h4 {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+    .store-links img {
+      width: 120px;
+      margin: 0.5rem;
+    }
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+    }
+    .social-icons a:hover {
+      color: #ff4081;
+    }
+    .copyright {
+    	Margin-bottom: 40px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-black text-white">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="https://toffeelive.com/logo.svg" alt="Toffee Logo" width="120" height="40" class="logo-image">
+    </div>
+    <div class="header-actions">
+      <button class="sign-in-btn">Sign in</button>
+    </div>
+  </header>
+
+  <!-- Responsive Video Player -->
+  <div class="video-container">
+    <video id="videoPlayer" class="video-js vjs-default-skin" controls preload="auto"></video>
+  </div>
+
+  <main class="content">
+    <!-- Sports Channels -->
+    <section>
+      <h2 class="section-title">Sports Channels</h2>
+      <div class="channels-grid">
+        <div class="channel" data-url="http://bdix.sadman.app.tc/ZeeBangla/index.m3u8">
+          <img src="https://toffeelive.com/_next/image?url=https%3A%2F%2Fimages.toffeelive.com%2Fimages%2Fprogram%2F603%2Flogo%2F240x240%2Fmobile_logo_237244001666780563.png&w=256&q=75" alt="Sony Sports 1">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="http://bdix.sadman.app.tc/ZeeBangla/index.m3u8">
+          <img src="https://toffeelive.com/_next/image?url=https%3A%2F%2Fimages.toffeelive.com%2Fimages%2Fprogram%2F603%2Flogo%2F240x240%2Fmobile_logo_237244001666780563.png&w=256&q=75" alt="Sony Sports 2">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="http://bdix.sadman.app.tc/ZeeBangla/index.m3u8">
+          <img src="https://toffeelive.com/_next/image?url=https%3A%2F%2Fimages.toffeelive.com%2Fimages%2Fprogram%2F603%2Flogo%2F240x240%2Fmobile_logo_237244001666780563.png&w=256&q=75" alt="Sony Sports 3">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="http://bdix.sadman.app.tc/ZeeBangla/index.m3u8">
+          <img src="https://toffeelive.com/_next/image?url=https%3A%2F%2Fimages.toffeelive.com%2Fimages%2Fprogram%2F603%2Flogo%2F240x240%2Fmobile_logo_237244001666780563.png&w=256&q=75" alt="Sony Sports 5">
+          <span class="channel-quality">HD</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Entertainment Channels -->
+    <section>
+      <h2 class="section-title">Entertainment Channels</h2>
+      <div class="channels-grid">
+        <div class="channel" data-url="http://bdix.sadman.app.tc/ZeeBangla/index.m3u8">
+          <img src="https://toffeelive.com/_next/image?url=https%3A%2F%2Fimages.toffeelive.com%2Fimages%2Fprogram%2F603%2Flogo%2F240x240%2Fmobile_logo_237244001666780563.png&w=256&q=75" alt="Sony Set">
+        </div>
+        <div class="channel" data-url="http://bdix.sadman.app.tc/ZeeBangla/index.m3u8">
+          <img src="https://toffeelive.com/_next/image?url=https%3A%2F%2Fimages.toffeelive.com%2Fimages%2Fprogram%2F603%2Flogo%2F240x240%2Fmobile_logo_237244001666780563.png&w=256&q=75" alt="Sony Set HD">
+        </div>
+        <div class="channel" data-url="http://bdix.sadman.app.tc/ZeeBangla/index.m3u8">
+          <img src="https://toffeelive.com/_next/image?url=https%3A%2F%2Fimages.toffeelive.com%2Fimages%2Fprogram%2F603%2Flogo%2F240x240%2Fmobile_logo_237244001666780563.png&w=256&q=75" alt="Sony Max">
+        </div>
+        <div class="channel" data-url="https://hello-people-tv-proxy.tiiny.io/?url=http://bdix.sadman.app.tc/ZeeBangla/index.m3u8">
+          <img src="https://toffeelive.com/_next/image?url=https%3A%2F%2Fimages.toffeelive.com%2Fimages%2Fprogram%2F603%2Flogo%2F240x240%2Fmobile_logo_237244001666780563.png&w=256&q=75" alt="Sony Max HD">
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>TOFFEE</h4>
+      <div class="footer-links">
+        <a href="#">About Us</a>
+        <a href="#">FAQ's</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Creator's Policy</a>
+        <a href="#">Get Android TV APK</a>
+      </div>
+    </div>
+  <div class="footer-content">
+    <img src="https://toffeelive.com/logo.svg" alt="Toffee Logo" width="120">
+    <p class="copyright">Copyright © 2024 TOFFEE. All rights reserved.<br>Power By Hello People Tv</p>
+  </div>
+</footer>
+
+
+</body>
+</html>
+
+ 
+<!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <div class="nav-items">
+      <a href="#" class="nav-item">Home</a>
+      <a href="#" class="nav-item">Live</a>
+      <a href="#" class="nav-item">Premium</a>
+      <a href="#" class="nav-item">Movies</a>
+      <a href="#" class="nav-item">Sports</a>
+    </div>
+  </nav>
+
+  <!-- Include Video.js JavaScript -->
+  <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+  <script>
+    // Initialize the Video.js player
+    var player = videojs('videoPlayer');
+
+    // Function to load and play the m3u8 URL
+    function loadVideo(url) {
+      player.src({
+        src: url,
+        type: 'application/x-mpegURL'
+      });
+      player.play();
+    }
+
+    // Event listener for each channel
+    document.querySelectorAll('.channel').forEach(channel => {
+      channel.addEventListener('click', () => {
+        const url = channel.getAttribute('data-url');
+        loadVideo(url);
+      });
+    });
+  </script>
+</body>
+</html>
+
