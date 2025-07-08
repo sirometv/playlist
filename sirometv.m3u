@@ -41,7 +41,7 @@ http://103.230.105.252:1935/live/ntv/index.m3u8
 #EXTINF:-1 tvg-id="BD" tvg-name="Channel 24 " tvg-logo="https://i.postimg.cc/9fNLHQjX/Screenshot-1.jpg" group-title="Bangladeshi",Channel 24 
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/channel24-sg-e8e.stream/playlist.m3u8
 
-#EXTINF:-1 tvg-id="BD" tvg-name="DEEN TV" tvg-logo="https://i.postimg.cc/9fNLHQjX/Screenshot-1.jpg" group-title="Bangladeshi",DEEN TV 
+#EXTINF:-1 tvg-id="BD" tvg-name="DEEN TV" tvg-logo="https://i.postimg.cc/SKjwM5Ss/Screenshot-1.jpg" group-title="Bangladeshi",DEEN TV 
 https://ap02.iqplay.tv:8082/iqb8002/d33ntv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="SA TV" tvg-logo="https://i.postimg.cc/HLzNdJ19/j4-Jb-G0-LMQQGBHQzp2a-BOPA.png" group-title="Bangladeshi",SA TV
@@ -51,7 +51,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 http://38.96.178.201/live/GaziTV/index.m3u8,
 http://isp.top10bhaluka.com/tv/stream.m3u8?id=SATV
 
-#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/9fNLHQjX/Screenshot-1.jpg" group-title="Bangladeshi,T Sports
+#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/Hx75zHSQ/T-Sports-logo.png" group-title="Bangladeshi,T Sports
 http://38.96.178.201/live/TSports/index.m3u8,
 https://live20.bozztv.com/akamaissh101/ssh101/starsports/chunks.m3u8,
 http://38.96.178.201/live/ASports/index.m3u8,
@@ -79,8 +79,8 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-id="BD" tvg-name="Boishakhi TV" tvg-logo="https://i.postimg.cc/JhsX4g9Y/LWVVEDW3-R-Gx5-UXvrjth4g.png" group-title="Bangladeshi",Boishakhi TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/boishakhitv-org.stream/playlist.m3u8
 
-#EXTINF:-1 tvg-id="BD" tvg-name="Boishakhi Plus" tvg-logo="https://i.postimg.cc/7Y4SMK2b/w5-F7y-Eo-TSzm-Yhe3cuf-Vq-Q.png" group-title="Bangladeshi",Channel 24 
-https://example.com/atnnews-good.m3u8
+#EXTINF:-1 tvg-id="BD" tvg-name="Boishakhi Plus" tvg-logo="https://i.postimg.cc/7Y4SMK2b/w5-F7y-Eo-TSzm-Yhe3cuf-Vq-Q.png" group-title="Bangladeshi",Boishakhi Plus
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/boishakhitv-org.stream/playlist.m3u8
 
 
 
@@ -93,7 +93,38 @@ https://example.com/atnnews-good.m3u8
 
 
 
-https://broken-link1.com/stream.m3u8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #EXTINF:-1 tvg-id="channel1" tvg-name="ATN News (Backup 2)" tvg-logo="https://yourdomain.com/logos/atnnews.png" group-title="News",ATN News (Backup 2)
 https://broken-link2.com/stream.m3u8
 
