@@ -18,7 +18,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/songsodtv-world.stream/playlist.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="Jamuna TV" tvg-logo="https://github.com/sirometv/icon/raw/main/Bangla/Jamuna_TV.jpg" group-title="Bangladeshi",Jamuna TV
-https://example.com/atnnews-good.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/jamuna-test-sample-ok.stream/playlist.m3u8
 
 
 #EXTINF:-1 tvg-id="BD" tvg-name="SOMOY TV" tvg-logo="https://github.com/sirometv/icon/raw/main/Bangla/Somoy_TV .png" group-title="Bangladeshi",SOMOY TV
@@ -52,11 +52,22 @@ http://38.96.178.201/live/GaziTV/index.m3u8,
 http://isp.top10bhaluka.com/tv/stream.m3u8?id=SATV
 
 #EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/Dz2zS5T1/T-Sports-logo.png" group-title="Bangladeshi,T Sports
-http://38.96.178.201/live/TSports/index.m3u8,
-https://live20.bozztv.com/akamaissh101/ssh101/starsports/chunks.m3u8,
-http://38.96.178.201/live/ASports/index.m3u8,
-http://38.96.178.201/live/PTVSports/index.m3u8,
-http://125.209.88.166:45793/BRN/TenSports.stream/playlist.m3u8,
+http://38.96.178.201/live/TSports/index.m3u8
+
+#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/Dz2zS5T1/T-Sports-logo.png" group-title="Bangladeshi,T Sports
+https://live20.bozztv.com/akamaissh101/ssh101/starsports/chunks.m3u8
+
+
+#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/Dz2zS5T1/T-Sports-logo.png" group-title="Bangladeshi,T Sports
+http://38.96.178.201/live/ASports/index.m3u8
+
+#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/Dz2zS5T1/T-Sports-logo.png" group-title="Bangladeshi,T Sports
+http://38.96.178.201/live/PTVSports/index.m3u8
+
+#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/Dz2zS5T1/T-Sports-logo.png" group-title="Bangladeshi,T Sports
+http://125.209.88.166:45793/BRN/TenSports.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/Dz2zS5T1/T-Sports-logo.png" group-title="Bangladeshi,T Sports
 http://125.209.88.166:45793/BRN/ArySports.stream/playlist.m3u8
 
 
