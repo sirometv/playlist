@@ -1516,7 +1516,7 @@ https://tataplay.slivcdn.com/hls/live/2011671/SETHD/master.m3u8
 https://tataplay.slivcdn.com/hls/live/2011749/SABHD/master.m3u8
 
 
-#EXTINF:-1, tvg-logo="https://static.epg.best/gb/Colors.uk.png"Group-title="COLORS HD",COLORS HD
+#EXTINF:-1, tvg-logo="https://static.epg.best/gb/Colors.png" group-title="COLORS HD",COLORS HD
 https://tatatv.stevosure123.workers.dev/video.m3u8?id=11635
 
 
@@ -2396,8 +2396,7 @@ https://tatatv.stevosure123.workers.dev/video.m3u8?id=11674
 https://tatatv.stevosure123.workers.dev/video.m3u8?id=2771
 #EXTINF:-1,RISTEY CINEPLEX
 https://tatatv.stevosure123.workers.dev/video.m3u8?id=11622
-#EXTINF:-1, tvg-logo="https://static.epg.best/gb/Colors.uk.png"Group-title= COLORS HD
-https://tatatv.stevosure123.workers.dev/video.m3u8?id=11635
+
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/J4n7YN2D/Colors.jpg" group-title="India",Dangal
 https://live-dangal.akamaized.net/liveabr/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/J4n7YN2D/Colors.jpg" group-title="India",Dangal 2
