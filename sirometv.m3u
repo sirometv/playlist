@@ -69,6 +69,12 @@ http://38.96.178.201/live/GaziTV/index.m3u8
 #EXTINF:-1 tvg-id="BD" tvg-name="GTV" tvg-logo="https://i.postimg.cc/Hx75zHSQ/T-Sports-logo.png" group-title="Bangladeshi", GTV
 http://isp.top10bhaluka.com/tv/stream.m3u8?id=SATV
 
+
+#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/90NBJ4rQ/T-Sports-logo.png" group-title="Bangladeshi",T Sports
+https://live-test.tsports.com/live-01/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=1753355546300~hmac=8aecf966aa984fcf01e752ceb05c62ddf5d7d101765039b398ac0555fe268988
+
+
+
 #EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/90NBJ4rQ/T-Sports-logo.png" group-title="Bangladeshi",T Sports
 https://tvsen5.aynaott.com/Ptvsports/tracks-v1a1/mono.ts.m3u8
 
