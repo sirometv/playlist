@@ -186,24 +186,14 @@ https://iptvbd.live/rajdhanitv/1080.m3u8
 
 
 #EXTINF:-1 tvg-id="IN" tvg-name="Star Jalsha" tvg-logo="https://i.postimg.cc/KzbVKqfc/resized-300x175-ffffff-3.jpg" group-title="Indian-Bangla",Star Jalsha
-https://catchup.yuppcdn.net/amazonv2/36/preview/starjalsha/master/chunklist.m3u8
-
-#EXTINF:-1 tvg-id="IN" tvg-name="Star Jalsha" tvg-logo="https://i.postimg.cc/KzbVKqfc/resized-300x175-ffffff-3.jpg" group-title="Indian-Bangla",Star Jalsha
-https://smart.bengaldigital.live/Star-jalsha/index.m3u8
-
-#EXTINF:-1 tvg-id="IN" tvg-name="Star Jalsha" tvg-logo="https://i.postimg.cc/KzbVKqfc/resized-300x175-ffffff-3.jpg" group-title="Indian-Bangla",Star Jalsha
-https://tvsen5.aynaott.com/gUX8BJmNc2yF/index.m3u8
-
-#EXTINF:-1 tvg-id="IN" tvg-name="Star Jalsha" tvg-logo="https://i.postimg.cc/KzbVKqfc/resized-300x175-ffffff-3.jpg" group-title="Indian-Bangla",Star Jalsha
-http://kst.moonplex.net:8080/CH3/index.m3u8
-
-#EXTINF:-1 tvg-id="IN" tvg-name="Star Jalsha" tvg-logo="https://i.postimg.cc/KzbVKqfc/resized-300x175-ffffff-3.jpg" group-title="Indian-Bangla",Star Jalsha
+https://catchup.yuppcdn.net/amazonv2/36/preview/starjalsha/master/chunklist.m3u8,
+https://smart.bengaldigital.live/Star-jalsha/index.m3u8,
+https://tvsen5.aynaott.com/gUX8BJmNc2yF/index.m3u8,
+http://kst.moonplex.net:8080/CH3/index.m3u8,
 https://bajimath.com/sa/amarbdflix/stream.m3u8?id=STAR-JALSHA
 
 #EXTINF:-1 tvg-id="IN" tvg-name="Star Jalsha Cinema" tvg-logo="https://i.postimg.cc/ZKHz3yDF/resized-300x180-ffffff-11.jpg" group-title="Indian-Bangla",Star Jalsha Cinema
-http://4u.eagle4u.org:80/live/38%3A68%3Aa4%3A94%3Ab6%3A8c/66afcfoc4d/277425.m3u8
-
-#EXTINF:-1 tvg-id="IN" tvg-name="Star Jalsha Cinema" tvg-logo="https://i.postimg.cc/ZKHz3yDF/resized-300x180-ffffff-11.jpg" group-title="Indian-Bangla",Star Jalsha Cinema
+http://4u.eagle4u.org:80/live/38%3A68%3Aa4%3A94%3Ab6%3A8c/66afcfoc4d/277425.m3u8,
 http://kst.moonplex.net:8080/CH3/index.m3u8
 
 
@@ -214,9 +204,7 @@ https://bdix.fredflix.fun/live/208/master.m3u8
 
 
 #EXTINF:-1 tvg-id="IN" tvg-name="Zee Bangla Cinema" tvg-logo="https://i.postimg.cc/ZqDsVsYL/resized-300x175-transparent.png" group-title="Indian-Bangla",Zee Bangla Cinema
-https://smart.bengaldigital.live/Zee-Bangla-Cinema/tracks-v1a1/mono.m3u8
-
-#EXTINF:-1 tvg-id="IN" tvg-name="Zee Bangla Cinema" tvg-logo="https://i.postimg.cc/ZqDsVsYL/resized-300x175-transparent.png" group-title="Indian-Bangla",Zee Bangla Cinema
+https://smart.bengaldigital.live/Zee-Bangla-Cinema/tracks-v1a1/mono.m3u8,
 https://bdix.fredflix.fun/live/208/master.m3u8
 
 
