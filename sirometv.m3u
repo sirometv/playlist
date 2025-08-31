@@ -146,9 +146,10 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-id="BD" tvg-name="DBC News" tvg-logo="https://i.postimg.cc/Mpb4SNgY/resized-300x180-ffffff-23.jpg" group-title="Bangladeshi",DBC News
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/dbcnews.stream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/VkPQR2V6/image.jpg" group-title="Bangladeshi", Indipendent TV
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/VkPQR2V6/image.jpg" group-title="Bangladeshi", 
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/VkPQR2V6/image.jpg" group-title="Bangladeshi", Indipendent TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/independent-8-org.stream/playlist.m3u8
 http://103.122.252.100:8080/INDEPENDENT/tracks-v1a1/mono.m3u8
 
 
@@ -171,14 +172,25 @@ http://103.122.252.100:8080/INDEPENDENT/tracks-v1a1/mono.m3u8
 
 
 
-#EXTINF:-1 tvg-id="BD" tvg-name="Indipendent TV" tvg-logo="https://i.postimg.cc/xjvLtQmg/resized-300x180-ffffff-24.jpg" group-title="Bangladeshi",Indipendent TV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/independent-8-org.stream/playlist.m3u8
+
 
 #EXTINF:-1 tvg-id="BD" tvg-name="Bangla TV" tvg-logo="https://i.postimg.cc/Wp8hd1gR/resized-300x180-ffffff-25.jpg" group-title="Bangladeshi",Bangla TV
 https://tvsen6.aynaott.com/banglatv/index.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="Bangla TV Europe" tvg-logo="https://i.postimg.cc/3x4Rfj67/resized-300x180-ffffff-26.jpg" group-title="Bangladeshi",Bangla TV Europe
 https://byphdgllyk.gpcdn.net/hls/banglatveurope/0_1/index.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/jj4QnnGc/image.jpg" group-title="Bangladeshi", Desh TV
+https://bozztv.com/rongo/rongo-DeshTV/tracks-a1/mono.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/sxBsKfQD/resized-300x180-ffffff-9.jpg" group-title="Bangladeshi",Ekattor TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/ekattor.stream/playlist.m3u8
@@ -385,8 +397,28 @@ https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26
 
 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
+
+#EXTINF:-1 tvg-logo="" group-title="Documentary", 
+
+#EXTINF:-1 tvg-logo="" group-title="Documentaryi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Documentary", 
+
+#EXTINF:-1 tvg-logo="" group-title="Documentary", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Documentary", 
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/D02NbKjJ/image.jpg" group-title="Documentary", Discover Pakistan
+https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
+
+
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/v89tFjmf/image.jpg" group-title="Documentary",Animal Planet HD
 https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
+
