@@ -63,7 +63,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-id="BD" tvg-name="DEEN TV" tvg-logo="https://i.postimg.cc/3N9q7JNs/Screenshot-1-1.jpg" group-title="Bangladeshi",DEEN TV 
 https://ap02.iqplay.tv:8082/iqb8002/d33ntv/playlist.m3u8
 
-#EXTINF:-1 tvg-id="BD" tvg-name="SA TV" tvg-logo="https://i.postimg.cc/HLzNdJ19/j4-Jb-G0-LMQQGBHQzp2a-BOPA.png" group-title="Bangladeshi",SA TV
+#EXTINF:-1 tvg-id="BD" tvg-name="SA TV" tvg-logo="https://i.postimg.cc/d3n9nysb/image.jpg" group-title="Bangladeshi",SA TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/satvoff5666.stream/tracks-v1a1/mono.ts.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="GTV" tvg-logo="https://i.postimg.cc/Hx75zHSQ/T-Sports-logo.png" group-title="Bangladeshi", GTV
@@ -74,9 +74,6 @@ http://isp.top10bhaluka.com/tv/stream.m3u8?id=SATV
 
 
 #EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
-http://203.18.159.115:8081/TSPORTS/index.m3u8
-https://premierleageplnew2.akamaized.net/hls/live/2107109/tapmadenc-1/hdntl=exp=1756911171~acl=/*~data=hdntl~hmac=d092ab05f49ac83fb7edc4c7d16aa91ff1d22c737c48b0cb3f8e543df80b3935/level_1.m3u8
-https://tvsen6.aynaott.com/tsportsfhd/index.ts.m3u8
 https://tvsen5.aynaott.com/tsports/tracks-v1a1/mono.ts.m3u8
 http://103.122.252.100:8080/T-SPORTS/tracks-v1/index.fmp4.m3u8
 https://live20.bozztv.com/akamaissh101/ssh101/starsports/chunks.m3u8
@@ -90,18 +87,20 @@ http://38.180.133.31:8000/play/a0ov/index.m3u8
 https://tvsen6.aynaott.com/sportsfirsttv/index.m3u8
 https://tiger-hub.vercel.app/TYC_Sports-Argentina/tracks-v1a1/mono.m3u8
 https://tiger-hub.vercel.app/Arena-Sports/2/tracks-v1a1/mono.ts.m3u8
-http://103.122.252.100:8080/STAR-SPORTS-2/tracks-v1a1/mono.m3u8
+
+
+#EXTINF:-1 tvg-id="BD" tvg-name="" tvg-logo="https://i.postimg.cc/Vk0j0TtQ/image.jpg" group-title="Sports",Bahrain Sports 1
+https://5c7b683162943.streamlock.net/live/ngrp:sportsone_all/chunklist.m3u8
+
+#EXTINF:-1 tvg-id="BD" tvg-name="" tvg-logo="https://i.postimg.cc/yYkR25vg/image.jpg" group-title="Sports",Bahrain Sports 2
+https://5c7b683162943.streamlock.net/live/ngrp:bahrainsportstwo_all/playlist.m3u8
 
 
 
 
 
 
-
-
-
-
-#EXTINF:-1 tvg-id="BD" tvg-name="WWE" tvg-logo="https://i.postimg.cc/8CHDP43f/image.jpg" group-title="Bangladeshi",WWE
+#EXTINF:-1 tvg-id="BD" tvg-name="WWE" tvg-logo="https://i.postimg.cc/8CHDP43f/image.jpg" group-title="Sports",WWE
 https://smart.bengaldigital.live/WWE/index.m3u8
 
 
