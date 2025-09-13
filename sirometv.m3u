@@ -76,8 +76,6 @@ https://tvsen5.aynaott.com/Ravc7gPCZpxk/tracks-v1a1/mono.ts.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
 http://103.73.107.122:3255/TSportsHD/index.m3u8
-https://dai.google.com/ssai/event/Bplrxzp6SZSY0xB1rOkzVw/master.m3u8
-https://dai.google.com/ssai/event/pJ6I3XzMQfWtBeAnNd8e5w/master.m3u8
 https://tvsen5.aynaott.com/Ptvsports/index.m3u8
 https://edge3-moblive.yuppcdn.net/drm/smil:tencricketdrm.smil/index.m3u8
 https://tvsen5.aynaott.com/tsports/index.m3u8
@@ -88,6 +86,9 @@ https://dai.google.com/ssai/event/noB3YwyRQVm5K-y_47MrBA/master.m3u8
 https://live.dinesh29.com.np/stream/jiotvplus/sonyten5hd/stream_0.m3u8
 https://live20.bozztv.com/akamaissh101/ssh101/starsports/chunks.m3u8
 https://fl3.moveonjoy.com/WILLOW_CRICKET/index.m3u8
+
+
+#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",Star Sports Select
 https://live.dinesh29.com.np/stream/jiotvplus/starsportsselecthd1/master.m3u8
 https://live.dinesh29.com.np/stream/jiotvplus/starsportsselecthd2/master.m3u8
 
