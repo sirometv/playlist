@@ -2,7 +2,7 @@ name: Update M3U Playlist
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # প্রতি 5 মিনিটে চেক করবে
+    - cron: '*/1 * * * *'  # প্রতি 5 মিনিটে চেক করবে
   workflow_dispatch:  # ম্যানুয়ালি চালানোর জন্য
 
 jobs:
