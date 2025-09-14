@@ -18,7 +18,7 @@ jobs:
       # মূল playlist ডাউনলোড
       - name: Download source playlist
         run: |
-          curl -s -o movie.m3u https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u
+          curl -s -o update.m3u https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u
 
       # পরিবর্তন থাকলে commit এবং push
       - name: Commit and push if changed
