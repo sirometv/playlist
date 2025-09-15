@@ -124,6 +124,17 @@ https://tataplay.slivcdn.com/hls/live/2011670/SonyMaxhd/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/4xcpFkLt/image.jpg" group-title="Sports",Sony Sports 1
 https://tataplay.slivcdn.com/hls/live/2011739/TEN1SD/master.m3u8
+https://dish.slivcdn.com/hls/live/2011739-b/TEN1SD/master.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/SRbVQ6ZT/image.jpg" group-title="Sports", Sony Sports 2
+https://dish.slivcdn.com/hls/live/2020590-b/TEN2SD/master.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/1XX26c09/image.jpg" group-title="Sports", Sony Sports 3
+https://dish.slivcdn.com/hls/live/2020592-b/TEN3SD/master.m3u8
+
+
+
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/CMBPV1Kn/image.jpg" group-title="Sports", Sony Sports 4
@@ -131,20 +142,32 @@ https://tataplay.slivcdn.com/hls/live/2020437/ten4sd/master.m3u8
 https://tataplay.slivcdn.com/hls/live/2020589/ten4hd/master.m3u8
 
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Qxpw7t1K/image.jpg" group-title="Sports", Sony Sports 5
+https://dish.slivcdn.com/hls/live/2020594-b/SONYSIXSD/master.m3u8
+
+
+
+
+
+
+
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/1tpcdxv4/image.jpg" group-title="Sports",Sony Sports 1HD
 https://tataplay.slivcdn.com/hls/live/2011747/TEN1HD/master.m3u8
-
+https://dish.slivcdn.com/hls/live/2011747-b/TEN1HD/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/G21StxN8/image.jpg" group-title="Sports", Sony Sports 2HD
 https://tataplay.slivcdn.com/hls/live/2020434/TEN2HD/master.m3u8
+https://dish.slivcdn.com/hls/live/2020434-b/TEN2HD/master.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/cCWHF2zx/image.jpg" group-title="Sports", Sony Sports 3HD
 https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master.m3u8
-
+https://dish.slivcdn.com/hls/live/2020591-b/TEN3HD/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/L8LWpWQK/image.jpg" group-title="Sports", Sony Sports 5HD
 https://tataplay.slivcdn.com/hls/live/2020593/SONYSIXHD/master.m3u8
+https://dish.slivcdn.com/hls/live/2020593-b/SONYSIXHD/master.m3u8
 https://live.dinesh29.com.np/stream/jiotvplus/sonyten5hd/stream_0.m3u8
 
 
@@ -171,10 +194,29 @@ https://edge3-moblive.yuppcdn.net/drm/smil:tencricketdrm.smil/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rytcs49Y/image.jpg" group-title=""Sports", A Sports 
 https://bdixtv24.xyz/sports/m3u8.php/asportshd.m3u8
 
-#EXTINF:-1 tvg-id="BD" tvg-name="" tvg-logo="https://i.postimg.cc/Vk0j0TtQ/image.jpg" group-title="Sports",Bahrain Sports 1
+
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", SSC Sports 1
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", SSC Sports 2
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", SSC Sports 3
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", SSC Sports 4
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", SSC Sports 5
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", SSC Sports Ex
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", SSC Sports Ex
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Vk0j0TtQ/image.jpg" group-title="Sports", Bahrain Sports 1
 https://5c7b683162943.streamlock.net/live/ngrp:sportsone_all/chunklist.m3u8
 
-#EXTINF:-1 tvg-id="BD" tvg-name="" tvg-logo="https://i.postimg.cc/yYkR25vg/image.jpg" group-title="Sports",Bahrain Sports 2
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/yYkR25vg/image.jpg" group-title="Sports",Bahrain Sports 2
 https://5c7b683162943.streamlock.net/live/ngrp:bahrainsportstwo_all/playlist.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="" tvg-logo="https://i.postimg.cc/gkZ7mM0j/image.jpg" group-title="Sports",beIN SPORTS Xtra
