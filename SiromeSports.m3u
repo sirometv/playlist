@@ -3,6 +3,27 @@
 
 #EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
 http://103.73.107.122:3255/TSportsHD/index.m3u8
+
+#EXTM3U
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/16-by-xfireflix.png", Star Sports 1
+https://d15.epicquesthero.com:1686/hls/star1in.m3u8?md5=x3c_mS3dz4NgLi_f4pffWg&expires=1758117206
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/1-by-xfireflix.png", Star Sports 1 Hindi
+https://d11.epicquesthero.com:1686/hls/starhindi.m3u8?md5=3suDJNMHMHhMVddkDLF_6g&expires=1758117207
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/20-by-xfireflix.png", PTV Sports
+https://d11.epicquesthero.com:1686/hls/ptvpk.m3u8?md5=dIK10tIklpp70M7fozxf-g&expires=1758117207
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/38-by-xfireflix.png", Willow HD
+https://d14.epicquesthero.com:1686/hls/willowusa.m3u8?md5=c4RUSvvXqSGmgmCPByCVIw&expires=1758117207
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/8-by-xfireflix.png", Willow HD 2
+https://d11.epicquesthero.com:1686/hls/willowextra.m3u8?md5=ijZ2AzRwpEUS6cyK8kOOeQ&expires=1758117207
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/10-by-xfireflix.png", Ten Sports
+https://d13.epicquesthero.com:1686/hls/tenspk.m3u8?md5=6zpMuHThHR7mE9yStYgWhg&expires=1758117207
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/12-by-xfireflix.png", A Sports HD
+https://d11.epicquesthero.com:1686/hls/asportshd.m3u8?md5=Q09jT5n2OtLP8ksN-ymBCw&expires=1758117208
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/9-by-xfireflix.png", Sky Sports Cricket
+https://d15.epicquesthero.com:1686/hls/skyscric.m3u8?md5=CSNi7fSmw-0U-4NWregFiA&expires=1758117208
+
+
+
 #EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
 https://tataplay.slivcdn.com/hls/live/2011739/TEN1SD/master.m3u8
 #EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
