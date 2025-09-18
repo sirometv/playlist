@@ -32,23 +32,28 @@ http://103.73.107.122:3255/TSportsHD/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/4xcpFkLt/image.jpg" group-title="Sports",Sony Sports 1
+https://unxone.vercel.app/live/sonyten1-138.m3u8
 https://tataplay.slivcdn.com/hls/live/2011739/TEN1SD/master.m3u8
 https://dish.slivcdn.com/hls/live/2011739-b/TEN1SD/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/SRbVQ6ZT/image.jpg" group-title="Sports", Sony Sports 2
 https://dish.slivcdn.com/hls/live/2020590-b/TEN2SD/master.m3u8
+https://unxone.vercel.app/live/sonyten2-090.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/1XX26c09/image.jpg" group-title="Sports", Sony Sports 3
 https://dish.slivcdn.com/hls/live/2020592-b/TEN3SD/master.m3u8
+https://unxone.vercel.app/live/sonyten3-443.m3u8
 
 
 
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/CMBPV1Kn/image.jpg" group-title="Sports", Sony Sports 4
+https://unxone.vercel.app/live/sonyten4-153.m3u8
 https://tataplay.slivcdn.com/hls/live/2020437/ten4sd/master.m3u8
 https://tataplay.slivcdn.com/hls/live/2020589/ten4hd/master.m3u8
+
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Qxpw7t1K/image.jpg" group-title="Sports", Sony Sports 5
@@ -75,6 +80,7 @@ https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master.m3u8
 https://dish.slivcdn.com/hls/live/2020591-b/TEN3HD/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/L8LWpWQK/image.jpg" group-title="Sports", Sony Sports 5HD
+https://unxone.vercel.app/live/sonyten5-653.m3u8
 https://tataplay.slivcdn.com/hls/live/2020593/SONYSIXHD/master.m3u8
 https://dish.slivcdn.com/hls/live/2020593-b/SONYSIXHD/master.m3u8
 https://live.dinesh29.com.np/stream/jiotvplus/sonyten5hd/stream_0.m3u8
@@ -221,5 +227,6 @@ https://tiger-hub.vercel.app/TYC_Sports-Argentina/tracks-v1a1/mono.m3u8
 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports", 
+
 
 
