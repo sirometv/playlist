@@ -517,6 +517,9 @@ http://103.122.252.100:8080/SUN-BANGLA/tracks-v1a1/mono.m3u8
 http://103.122.252.100:8080/ENTER-10-BANGLA/tracks-v1a1/mono.m3u8
 https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_720p/chunks.m3u8
 
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", Sangeet Bangla
+https://aynapubluc.vercel.app/api/stream/75412270-ce20-4376-8e7f-21fc76f84ed4.m3u8
+
 
 #EXTINF:-1 tvg-id="IN" tvg-name="Sananda TV" tvg-logo="https://i.postimg.cc/nz9CtwQb/Zml-PBq-Aa-SHub218-Aqr7j-Q.jpg" group-title="Indian-Bangla",Sananda TV
 https://live.sanonda.tv/sanonda/tracks-v1a1/mono.m3u8
