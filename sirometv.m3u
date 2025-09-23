@@ -75,7 +75,8 @@ https://tvsen5.aynaott.com/Ravc7gPCZpxk/tracks-v1a1/mono.ts.m3u8
 http://103.73.107.122:3255/TSportsHD/index.m3u8
 
 
-#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
+#EXTINF:-1 tvg-id="BD" tvg-name="T Sports" tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
+
 https://aynapubluc.vercel.app/api/stream/fc95d30e-5323-4c12-bb38-7a1e3f04acc2.m3u8
 https://dish.slivcdn.com/hls/live/2011739-b/TEN1SD/master.m3u8
 https://dish.slivcdn.com/hls/live/2020590-b/TEN2SD/master.m3u8
@@ -118,9 +119,7 @@ http://fast.luckonline.eu/live/2Nw6SArNhs/9754302190/1372.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/vBXCdpZH/image.jpg" group-title="Sports", Sony LIV
 https://sonymtmnew.akamaized.net/v1/master/0085f7057986fc2f8467089bb19b8b7e4f1bf8d7/mediaT0f4aprod-PlaybackConfig/2118976/UCL_Real1609/ENG/std_lrh-800300010.m3u8?hdnea=exp=1758069004~acl=/*~id=39796082459539501003042237558624~hmac=5b11bce4f95af09f3eaa797bbfd8386474464a53d11aa3b0eec0f81f2e5fca37
-
 https://sonymtmnew.akamaized.net/v1/master/0085f7057986fc2f8467089bb19b8b7e4f1bf8d7/mediaT0f4aprod-PlaybackConfig/2118976/UCL_Real1609/TEL/std_lrh-800300010.m3u8?hdnea=exp=1758069004~acl=/*~id=39796082459539501003042237558624~hmac=5b11bce4f95af09f3eaa797bbfd8386474464a53d11aa3b0eec0f81f2e5fca37
-
 https://sonymtmnew.akamaized.net/v1/master/0085f7057986fc2f8467089bb19b8b7e4f1bf8d7/mediaTe0ffprod-PlaybackConfig/2118979/UCL_Benf1609/ENG/std_lrh-800300010.m3u8?hdnea=exp=1758069004~acl=/*~id=39796082459539501003042237558624~hmac=5b11bce4f95af09f3eaa797bbfd8386474464a53d11aa3b0eec0f81f2e5fca37
 
 
@@ -619,6 +618,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
