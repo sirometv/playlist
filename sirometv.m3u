@@ -479,28 +479,46 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 http://103.101.197.10:8989/M_Movies/index.m3u8
 
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/s2sfq5f4/image.jpg" group-title="Bangladeshi", Alpona TV
+https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/t4VDwVvJ/image.jpg" group-title="Bangladeshi", Channel A1
+https://iptvbd.live/channela1/1080.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/28FCv2fF/image.jpg" group-title="Bangladeshi", Shadin Bangla
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/shadinbd1.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", Vokta TV
+https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+
+
+
+
+
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Hnd3TG3J/UVQEXDrc-Sr-Jkm-GM7u-KQzw.jpg" group-title="Bangladeshi", Channel S UK
+https://cd198.anystream.uk:8082/hls/tvchsuk03/index.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/chsukoff.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/sXgSDV7Z/h-Yo-Rn4-VUSvuk-H2-Qv1-FU46w.jpg" group-title="Bangladeshi", Nandan TV
+https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/L5LkVh55/unnamed.png" group-title="Bangladeshi", Global TV
+https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/PfwxzWHB/falguni-tv-bd.png" group-title="Bangladeshi", Falguni TV
+https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/1XhDZddD/2022-10-01a-n16646394228436.png" group-title="Bangladeshi", Channel S BD
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/channels.stream/playlist.m3u8
+
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
-
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
-
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
-
-
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
-
-
-
-
-
-
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
-
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
-
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/mgT2WsKV/resized-300x180-ffffff-10.jpg" group-title="Bangladeshi",Rajdhani TV
@@ -516,8 +534,7 @@ http://tv.bdiptv.store:80/live/restreauuX58y/refstream/15346.m3u8
 
 
 
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", Ekhon TV
-https://tvsen6.aynaott.com/ekhontv/index.m3u8
+
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 
@@ -706,6 +723,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
