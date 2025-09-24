@@ -97,9 +97,10 @@ https://dish.slivcdn.com/hls/live/2020594-b/SONYSIXSD/master.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/1tpcdxv4/image.jpg" group-title="Sports",Sony Ten 1HD
-https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+#https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
 #https://tataplay.slivcdn.com/hls/live/2011747/TEN1HD/master.m3u8
 #https://dish.slivcdn.com/hls/live/2011747-b/TEN1HD/master.m3u8
+https://tiger-hub.vercel.app/SONY/Sports-1/tracks-v1a1/mono.ts.m3u8
 https://rex-streaming-tv.vercel.app/api/BDIX/NSLOCKY/4958.m3u8
 https://dtvxtream.com/sonyliv2/300256.m3u8
 http://b1g.ooo:80/live/rv/rv123/260989.ts
