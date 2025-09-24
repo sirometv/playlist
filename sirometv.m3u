@@ -60,7 +60,7 @@ https://ap02.iqplay.tv:8082/iqb8002/nt589v/chunks.m3u8
 #EXTINF:-1 tvg-id="BD" tvg-name="Channel 24 " tvg-logo="https://i.postimg.cc/WzjRTHnk/Screenshot-1.jpg" group-title="Bangladeshi",Channel 24 
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/channel24-sg-e8e.stream/playlist.m3u8
 
-#EXTINF:-1 tvg-id="BD" tvg-name="DEEN TV" tvg-logo="https://i.postimg.cc/3N9q7JNs/Screenshot-1-1.jpg" group-title="Bangladeshi",Deen TV 
+#EXTINF:-1 tvg-id="BD" tvg-name="DEEN TV" tvg-logo="https://i.postimg.cc/brbNjRG6/image.jpg" group-title="Bangladeshi",Deen TV 
 https://ap02.iqplay.tv:8082/iqb8002/d33ntv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="SA TV" tvg-logo="https://i.postimg.cc/d3n9nysb/image.jpg" group-title="Bangladeshi",SA TV
@@ -375,19 +375,52 @@ https://bozztv.com/rongo/rongo-DeshTV/tracks-a1/mono.m3u8
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/J09DNnXF/image.jpg" group-title="Bangladeshi", R TV
+https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", R TV Music
+https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/sxBsKfQD/resized-300x180-ffffff-9.jpg" group-title="Bangladeshi",Ekattor TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/ekattor.stream/playlist.m3u8
 https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705-audio_113352_eng=113200-video=1692000.m3u8
 
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Znyzpf2W/resized-298x168-ffffff.jpg" group-title="Bangladeshi",Kids Creation
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/kidscreation_test/playlist.m3u8
 https://flc2.technohaat.com/kidscreation_test/tracks-v1a1/mono.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/pdJT7Yj1/image.jpg" group-title="Bangladeshi", My TV
+https://mytvbangla.com/0.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/8Cj70MbY/image.jpg" group-title="Bangladeshi", Duronto
+https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/cLjx6jQD/image.jpg" group-title="Bangladeshi", Deepto TV
+https://byphdgllyk.gpcdn.net/hls/deeptotv/index.m3u8
+https://byphdgllyk.gpcdn.net/hls/deeptotv/0_1/index.m3u8?sessId=2597917
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/CLT6M4Bj/image.jpg" group-title="Bangladeshi", Mohona TV
+https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/zvKNbXFp/image.jpg" group-title="Bangladeshi", Ananda TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/anandatv.stream/playlist.m3u8
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/6QPTCqCN/image.jpg" group-title="Bangladeshi", Asian TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/asian-test-sample-ok-d.stream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/52Fxnwg4/image.jpg" group-title="Bangladeshi", Peace TV Bangla 
 https://dzkyvlfyge.erbvr.com/PeaceTvBangla/tracks-v3a1/mono.m3u8
@@ -406,8 +439,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/h4dRFSxs/image.jpg" group-title="Bangladeshi", Madani TV
 https://streaming.madanichannel.tv/static/streaming-playlists/hls/d3e49b76-ac06-4689-a641-9200445b647f/master.m3u8
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/pdJT7Yj1/image.jpg" group-title="Bangladeshi", My TV
-https://mytvbangla.com/0.m3u8
+
 
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
@@ -618,6 +650,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
