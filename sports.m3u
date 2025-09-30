@@ -27,7 +27,8 @@ https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
 https://live-en.aisports.cc/moviebox/device01/playlist.m3u8
 http://live.matribhumitv.com/matribhumi-sports/index.m3u8
 http://195.181.169.162:80/TEN_3_HD/index.mpd?token=test
-#https://aynapubluc.vercel.app/api/stream/fc95d30e-5323-4c12-bb38-7a1e3f04acc2.m3u8
+#https://aynapubluc.vercel.app/api/stream/fc95d30e-5323-4c12-bb38-7a1e3f04acc2.m3u8
+
 https://tiger-hub.vercel.app/SONY/Sports-1/tracks-v1a1/mono.ts.m3u8
 https://xfireflix.fun/file/opplex/stream.m3u8/?id=167590&e=.m3u8
 #http://c10.vfruitfairy.com/asia023/tracks-v1a1/mono.m3u8
@@ -157,9 +158,17 @@ https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/SKpZnCCD/image.jpg" group-title="Sports", Star Sports 2
 http://b1g.ooo:80/live/rv/rv123/260999.ts
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/SKpZnCCD/image.jpg" group-title="Sports", Star Sports 2 Hindi
+https://live.dinesh29.com.np/stream/jiotv/starsports2hindihd/stream_0.m3u8
+https://live.dinesh29.com.np/stream/jiotv/starsports2hindihd/stream_0.m3u8?uid=1902145411
+
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co.com/DPZRPqKs/Sirome-TV-4.jpg" group-title="Sports", Star Sports 3
 http://89.187.189.98/STARSPORTS3/index.m3u8
 
-
+#EXTINF:-1 tvg-logo="https://i.ibb.co.com/NngCmV9f/Sirome-TV-2.jpg" group-title="Sports", Star Khel
+https://live.dinesh29.com.np/stream/jiotv/starsportskhel/stream_0.m3u8
 
 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
@@ -400,6 +409,7 @@ https://d3pt6y87jk0q7u.cloudfront.net/cpanel/client_14/2025/video/1758184952.mp4
 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports-Highlights", 
+
 
 
 
