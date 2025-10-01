@@ -139,17 +139,21 @@ https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
 
 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/MZcKxyNm/image.jpg" group-title="Sports", Star Sports Select 1
+https://live.dinesh29.com.np/stream/jiotvplus/starsportsselect1/master.m3u8
 
 
-
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/MZcKxyNm/image.jpg" group-title="Sports", Star Sports Select 1HD
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/sXzz0j2X/image.jpg" group-title="Sports", Star Sports Select 1HD
 https://live.dinesh29.com.np/stream/jiotvplus/starsportsselecthd1/master.m3u8
 http://b1g.ooo:80/live/rv/rv123/261000.ts
 
-
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/HWS5v450/image.jpg" group-title="Sports",Star Sports Select 2HD
-https://live.dinesh29.com.np/stream/jiotvplus/starsportsselecthd2/master.m3u8
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/HWS5v450/image.jpg" group-title="Sports",Star Sports Select 2
+https://live.dinesh29.com.np/stream/jiotvplus/starsportsselect2/master.m3u8
 http://b1g.ooo:80/live/rv/rv123/261001.ts
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/7ZQMVhmz/image.jpg" group-title="Sports",Star Sports Select 2HD
+https://live.dinesh29.com.np/stream/jiotvplus/starsportsselecthd2/master.m3u8
 
 
 
@@ -158,16 +162,21 @@ http://b1g.ooo:80/live/rv/rv123/261001.ts
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Sx4trrVy/image.jpg" group-title="Sports", Star Sports 1
+https://live.dinesh29.com.np/stream/jiotvplus/starsportshd1/master.m3u8
 https://live20.bozztv.com/akamaissh101/ssh101/starsports/chunks.m3u8
 http://b1g.ooo:80/live/rv/rv123/260998.ts
 http://89.187.189.98/STARSPORTSTAMIL/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Sx9GNkyN/image.jpg" group-title="Sports", Star Sports 1 Tamil
+https://live.dinesh29.com.np/stream/jiotvplus/starsports1tamil/master.m3u8
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/85zmvH5B/image.jpg" group-title="Sports", Star Sports 1HINDI
 https://live.dinesh29.com.np/stream/jiotvplus/starsportshd1hindi/master.m3u8
-https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+#https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/SKpZnCCD/image.jpg" group-title="Sports", Star Sports 2
-http://b1g.ooo:80/live/rv/rv123/260999.ts
+https://live.dinesh29.com.np/stream/jiotvplus/starsportshd2/master.m3u8
+#http://b1g.ooo:80/live/rv/rv123/260999.ts
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/SKpZnCCD/image.jpg" group-title="Sports", Star Sports 2Hindi
 https://live.dinesh29.com.np/stream/jiotv/starsports2hindihd/stream_0.m3u8
@@ -221,7 +230,8 @@ http://b1g.ooo:80/live/rv/rv123/260994.ts
 #EXTINF:-1 tvg-logo="" group-title="Sports", Sky Sports Cricket
 http://b1g.ooo:80/live/rv/rv123/261002.ts
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/3RGCTxWM/image.jpg" group-title="Sports", EuroSports
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/3RGCTxWM/image.jpg" group-title="Sports", 
+EuroSports
 https://live.dinesh29.com.np/stream/jiotvplus/eurosporthd/master.m3u8
 
 #EXTINF:-1 tvg-logo="" group-title="Sports", 
@@ -420,6 +430,7 @@ https://d3pt6y87jk0q7u.cloudfront.net/cpanel/client_14/2025/video/1758184952.mp4
 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports-Highlights", 
+
 
 
 
