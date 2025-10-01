@@ -429,8 +429,19 @@ https://smart.bengaldigital.live/Zee-Bangla-Cinema/tracks-v1a1/mono.m3u8
 http://smart.bengaldigital.live/Zee-Bangla-Cinema/index.m3u8
 
 
-#EXTINF:-1 tvg-id="IN" tvg-name="Colors Bangla HD" tvg-logo="https://i.postimg.cc/WzQFwH4C/resized-300x180-ffffff-13.jpg" group-title="Indian-Bangla",Colors Bangla HD
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/5yQRdtm7/image.jpg" group-title="Indian-Bangla", Colors Bengali
+https://live.dinesh29.com.np/stream/jiotvplus/colorsbanglasd/master.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/tCzKNs7B/image.jpg" group-title="Indian-Bangla", Colors Bengali HD
+https://live.dinesh29.com.np/stream/jiotvplus/colorsbengalihd/master.m3u8
 https://catchup.yuppcdn.net/amazonv2/36/preview/colorsbanglahd/master/chunklist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/NFNCHHjQ/image.jpg" group-title="Indian-Bangla", Colors Bangla Cinema
+https://live.dinesh29.com.np/stream/jiotvplus/colorsbanglacinema/master.m3u8
+
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/mgNFmf82/image.jpg" group-title="Indian-Bangla", Sun Bangla
 http://103.122.252.100:8080/SUN-BANGLA/tracks-v1a1/mono.m3u8
@@ -569,6 +580,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
