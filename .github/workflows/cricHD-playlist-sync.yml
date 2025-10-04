@@ -1,4 +1,4 @@
-name: Sync CricHD Playlist with Logo Protection
+name: Sync CricHD Playlist - Custom Logos & Names
 
 on:
   schedule:
@@ -33,65 +33,79 @@ jobs:
           import re
           import json
           
-          # আপনার custom logos - সমস্ত চ্যানেলের জন্য
-          CUSTOM_LOGOS = {
+          # আপনার PERMANENT custom logos এবং channel names
+          # এগুলো কখনও change হবে না
+          CUSTOM_CHANNELS = {
+              # Format: 'ORIGINAL_CHANNEL_NAME': {'logo': 'YOUR_LOGO', 'name': 'YOUR_CUSTOM_NAME'}
+              
               # Star Sports Channels
-              'Star Sports 1': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              'Star Sports 1 Hindi': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              'PTV Sports': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              'Willow HD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              
-              'STAR SPORTS 1 HINDI': 'https://i.postimg.cc/85zmvH5B/image.jpg',
-              'STAR SPORTS 1 HINDI HD': 'https://i.postimg.cc/85zmvH5B/image.jpg',
-              'STAR SPORTS HINDI': 'https://i.postimg.cc/85zmvH5B/image.jpg',
-              
-              'STAR SPORTS 2': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              'STAR SPORTS 2 HD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              'STAR SPORTS 2 FHD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              
-              'STAR SPORTS 3': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              'STAR SPORTS 3 HD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'STAR SPORTS 1': {
+                  'logo': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+                  'name': 'Star Sports 1'
+              },
+              'STAR SPORTS 1 HD': {
+                  'logo': 'https://i.postimg.cc/Sx4trrVy/image.jpg', 
+                  'name': 'Star Sports 1 HD'
+              },
+              'STAR SPORTS 1 HINDI': {
+                  'logo': 'https://i.postimg.cc/85zmvH5B/image.jpg',
+                  'name': 'Star Sports 1 Hindi'
+              },
+              'STAR SPORTS 1 HINDI HD': {
+                  'logo': 'https://i.postimg.cc/85zmvH5B/image.jpg',
+                  'name': 'Star Sports 1 Hindi HD'
+              },
+              'STAR SPORTS 2': {
+                  'logo': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+                  'name': 'Star Sports 2'
+              },
+              'STAR SPORTS 2 HD': {
+                  'logo': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+                  'name': 'Star Sports 2 HD'
+              },
               
               # Willow Channels
-              'WILLOW HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'WILLOW HD 2': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'WILLOW': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'WILLOW FHD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'WILLOW HD': {
+                  'logo': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+                  'name': 'Willow HD'
+              },
+              'WILLOW HD 2': {
+                  'logo': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+                  'name': 'Willow HD 2'
+              },
               
               # PTV Sports
-              'PTV SPORTS': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
-              'PTV SPORTS HD': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
-              'PTV SPORTS FHD': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
+              'PTV SPORTS': {
+                  'logo': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
+                  'name': 'PTV Sports'
+              },
+              'PTV SPORTS HD': {
+                  'logo': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
+                  'name': 'PTV Sports HD'
+              },
               
               # Ten Sports
-              'TEN SPORTS': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
-              'TEN SPORTS HD': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
-              'TEN SPORTS FHD': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
+              'TEN SPORTS': {
+                  'logo': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
+                  'name': 'Ten Sports'
+              },
               
               # A Sports
-              'A SPORTS HD': 'https://i.postimg.cc/rytcs49Y/image.jpg',
-              'A SPORTS': 'https://i.postimg.cc/rytcs49Y/image.jpg',
-              'A SPORTS FHD': 'https://i.postimg.cc/rytcs49Y/image.jpg',
+              'A SPORTS HD': {
+                  'logo': 'https://i.postimg.cc/rytcs49Y/image.jpg',
+                  'name': 'A Sports HD'
+              },
               
               # Sky Sports
-              'SKY SPORTS CRICKET': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'SKY SPORTS CRICKET HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'SKY SPORTS CRICKET FHD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'SKY SPORTS CRICKET': {
+                  'logo': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+                  'name': 'Sky Sports Cricket'
+              },
               
-              # Sony Sports
-              'SONY ESPN': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'SONY ESPN HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'SONY SIX': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'SONY SIX HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              
-              # Other Sports Channels
-              'ESPN': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'ESPN HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'ESPN 2': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'ESPN 2 HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              # Add more channels as needed...
           }
           
-          print("=== STARTING SYNC ===")
+          print("=== STARTING SYNC (CUSTOM LOGOS & NAMES) ===")
           
           # 1. M3U ফাইল প্রসেসিং
           print("📺 Processing M3U file...")
@@ -99,131 +113,109 @@ jobs:
           m3u_response = requests.get(m3u_url)
           m3u_content = m3u_response.text
           
-          # প্রথমে M3U থেকে সমস্ত channel names বের করি
-          print("\n🔍 Analyzing channel names from M3U...")
           lines = m3u_content.split('\n')
-          channel_names = []
-          i = 0
-          while i < len(lines):
-              if lines[i].startswith('#EXTINF:-1'):
-                  channel_name = lines[i + 1] if i + 1 < len(lines) else ''
-                  if channel_name:
-                      channel_names.append(channel_name)
-                  i += 2
-              else:
-                  i += 1
-          
-          # Channel names এবং তাদের matching logos দেখি
-          print(f"📊 Found {len(channel_names)} channels in M3U")
-          print("\n🎯 Channel-Logo Matching Results:")
-          
-          matched_count = 0
-          unmatched_channels = []
-          
-          for channel_name in channel_names[:20]:  # প্রথম ২০টি চ্যানেল দেখি
-              channel_upper = channel_name.upper()
-              matched_logo = None
-              matched_key = None
-              
-              for custom_channel, logo_url in CUSTOM_LOGOS.items():
-                  if custom_channel in channel_upper:
-                      matched_logo = logo_url
-                      matched_key = custom_channel
-                      matched_count += 1
-                      break
-              
-              if matched_logo:
-                  print(f"✅ MATCHED: '{channel_name}' -> '{matched_key}'")
-              else:
-                  print(f"❌ NO MATCH: '{channel_name}'")
-                  unmatched_channels.append(channel_name)
-          
-          # এখন M3U process করি
-          print("\n🔄 Processing M3U with custom logos...")
           output_lines = []
           i = 0
-          logos_applied = 0
+          channels_processed = 0
+          custom_channels_used = 0
           
-          while i < len(lines):
-              line = lines[i]
-              
-              if line.startswith('#EXTINF:-1'):
-                  channel_name = lines[i + 1] if i + 1 < len(lines) else ''
-                  channel_upper = channel_name.upper()
-                  
-                  # Channel name থেকে exact matching logo বের করুন
-                  custom_logo = None
-                  for custom_channel, logo_url in CUSTOM_LOGOS.items():
-                      if custom_channel in channel_upper:
-                          custom_logo = logo_url
-                          break
-                  
-                  # যদি custom logo না মেলে, তাহলে error show করি
-                  if not custom_logo:
-                      print(f"⚠️  NO LOGO FOUND FOR: {channel_name}")
-                      # Default logo ব্যবহার না করে, original logo রাখি
-                      custom_logo = "https://i.postimg.cc/1RwSzp4q/image.jpg"  # Temporary default
-                  
-                  # শুধু tvg-logo replace করুন
-                  if 'tvg-logo=' in line:
-                      line = re.sub(r'tvg-logo=\"[^\"]*\"', f'tvg-logo=\"{custom_logo}\"', line)
-                  else:
-                      line = f'#EXTINF:-1 tvg-logo=\"{custom_logo}\",' + line.split(',', 1)[1] if ',' in line else line
-                  
-                  output_lines.append(line)
-                  
-                  # Channel name line যোগ করুন
-                  if i + 1 < len(lines):
-                      output_lines.append(lines[i + 1])
-                  
-                  logos_applied += 1
-                  i += 2
-                  
-              elif line.startswith('http'):
-                  # Stream URL - নতুন M3U থেকে নেওয়া হবে
-                  output_lines.append(line)
-                  i += 1
-                  
+          # প্রথমে M3U থেকে channel names এবং তাদের streaming URLs map করি
+          channel_url_map = {}
+          temp_i = 0
+          while temp_i < len(lines):
+              if lines[temp_i].startswith('#EXTINF:-1'):
+                  channel_name = lines[temp_i + 1] if temp_i + 1 < len(lines) else ''
+                  stream_url = lines[temp_i + 2] if temp_i + 2 < len(lines) else ''
+                  if channel_name and stream_url.startswith('http'):
+                      channel_url_map[channel_name.upper()] = stream_url
+                  temp_i += 2
               else:
-                  # অন্যান্য লাইন
-                  output_lines.append(line)
-                  i += 1
+                  temp_i += 1
           
-          # M3U ফাইল সেভ করুন
+          print(f"📊 Found {len(channel_url_map)} channels with streaming URLs")
+          
+          # এখন আমাদের custom M3U তৈরি করি
+          print("\n🔄 Creating custom M3U with permanent logos & names...")
+          
+          # M3U header
+          output_lines.append("#EXTM3U")
+          
+          # প্রতিটি custom channel এর জন্য entry তৈরি করি
+          for original_channel, custom_data in CUSTOM_CHANNELS.items():
+              custom_logo = custom_data['logo']
+              custom_name = custom_data['name']
+              
+              # এই channel এর streaming URL খুঁজে বের করি
+              stream_url = None
+              for channel_in_m3u, url in channel_url_map.items():
+                  if original_channel in channel_in_m3u:
+                      stream_url = url
+                      break
+              
+              if stream_url:
+                  # Custom EXTINF line তৈরি করি
+                  extinf_line = f'#EXTINF:-1 tvg-logo="{custom_logo}",{custom_name}'
+                  output_lines.append(extinf_line)
+                  output_lines.append(stream_url)
+                  
+                  custom_channels_used += 1
+                  print(f"✅ {custom_name} -> {stream_url[:50]}...")
+              else:
+                  print(f"⚠️  No stream URL found for: {original_channel}")
+          
+          # Final M3U সেভ করুন
           with open('CricHd.m3u', 'w', encoding='utf-8') as f:
               f.write('\n'.join(output_lines))
           
           print(f"\n📊 M3U Processing Summary:")
-          print(f"✅ Logos applied: {logos_applied}")
-          print(f"🔍 Channels analyzed: {len(channel_names)}")
-          print(f"❌ Unmatched channels: {len(unmatched_channels)}")
+          print(f"✅ Custom channels processed: {custom_channels_used}")
+          print(f"📺 Total streams found: {len(channel_url_map)}")
           
-          if unmatched_channels:
-              print(f"\n⚠️  Add these to CUSTOM_LOGOS:")
-              for channel in unmatched_channels[:10]:
-                  print(f"   '{channel.upper()}': 'your_logo_url_here',")
-          
-          # 2. JSON ফাইল প্রসেসিং
+          # 2. JSON ফাইল প্রসেসিং - শুধু streaming links আপডেট, logos এবং names custom
           print("\n📄 Processing JSON file...")
           json_url = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json"
           json_response = requests.get(json_url)
           json_data = json_response.json()
           
+          # নতুন JSON data তৈরি করি শুধু আমাদের custom channels দিয়ে
+          custom_json_data = []
           json_updated = 0
-          for item in json_data:
-              if 'name' in item:
-                  channel_upper = item['name'].upper()
-                  for custom_channel, logo_url in CUSTOM_LOGOS.items():
-                      if custom_channel in channel_upper:
-                          item['logo'] = logo_url
-                          json_updated += 1
-                          break
           
+          for original_channel, custom_data in CUSTOM_CHANNELS.items():
+              custom_logo = custom_data['logo']
+              custom_name = custom_data['name']
+              
+              # এই channel এর streaming URL খুঁজে বের করি JSON থেকে
+              stream_data = None
+              for item in json_data:
+                  if 'name' in item and original_channel in item['name'].upper():
+                      stream_data = item
+                      break
+              
+              if stream_data:
+                  # Custom JSON entry তৈরি করি
+                  custom_entry = {
+                      'name': custom_name,
+                      'id': stream_data.get('id', ''),
+                      'logo': custom_logo,  # আমাদের custom logo
+                      'link': stream_data.get('link', ''),  # শুধু stream link আপডেট
+                      'referer': stream_data.get('referer', ''),
+                      'origin': stream_data.get('origin', '')
+                  }
+                  custom_json_data.append(custom_entry)
+                  json_updated += 1
+                  print(f"✅ JSON: {custom_name}")
+          
+          # Custom JSON সেভ করুন
           with open('api.json', 'w', encoding='utf-8') as f:
-              json.dump(json_data, f, indent=2, ensure_ascii=False)
+              json.dump(custom_json_data, f, indent=2, ensure_ascii=False)
           
-          print(f"📊 JSON: {json_updated} logos updated")
-          print("\n🎉 SYNC COMPLETED!")
+          print(f"📊 JSON: {json_updated} custom entries created")
+          print("\n🎉 SYNC COMPLETED SUCCESSFULLY!")
+          print("✨ Features:")
+          print("   ✅ Only streaming links updated from second account")
+          print("   ✅ Logos and names are PERMANENTLY custom")
+          print("   ✅ Full control over channel presentation")
           EOF
           
           python sync_script.py
@@ -248,6 +240,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add CricHd.m3u api.json
-          git commit -m "🔄 Auto-sync: Updated with permanent custom logos"
+          git commit -m "🔄 Auto-sync: Streams updated + Permanent custom logos/names"
           git push
           echo "Sync completed successfully!"
