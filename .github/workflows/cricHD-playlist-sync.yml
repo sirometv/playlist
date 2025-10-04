@@ -39,68 +39,19 @@ jobs:
               # Format: 'ORIGINAL_CHANNEL_NAME': {'logo': 'YOUR_LOGO', 'name': 'YOUR_CUSTOM_NAME'}
               
               # Star Sports Channels
-              'STAR SPORTS 1': {
-                  'logo': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-                  'name': 'Star Sports 1'
-              },
-              'STAR SPORTS 1 HD': {
-                  'logo': 'https://i.postimg.cc/Sx4trrVy/image.jpg', 
-                  'name': 'Star Sports 1 HD'
-              },
-              'STAR SPORTS 1 HINDI': {
+              'Star Sports 1 Hindi': {
                   'logo': 'https://i.postimg.cc/85zmvH5B/image.jpg',
                   'name': 'Star Sports 1 Hindi'
               },
-              'STAR SPORTS 1 HINDI HD': {
-                  'logo': 'https://i.postimg.cc/85zmvH5B/image.jpg',
-                  'name': 'Star Sports 1 Hindi HD'
+              'PTV Sports': {
+                  'logo': 'https://i.postimg.cc/0QDHtZxg/image.jpg', 
+                  'name': 'PTV Sports'
               },
-              'STAR SPORTS 2': {
-                  'logo': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-                  'name': 'Star Sports 2'
-              },
-              'STAR SPORTS 2 HD': {
-                  'logo': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-                  'name': 'Star Sports 2 HD'
-              },
-              
-              # Willow Channels
-              'WILLOW HD': {
+              'Willow HD': {
                   'logo': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
                   'name': 'Willow HD'
               },
-              'WILLOW HD 2': {
-                  'logo': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-                  'name': 'Willow HD 2'
-              },
               
-              # PTV Sports
-              'PTV SPORTS': {
-                  'logo': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
-                  'name': 'PTV Sports'
-              },
-              'PTV SPORTS HD': {
-                  'logo': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
-                  'name': 'PTV Sports HD'
-              },
-              
-              # Ten Sports
-              'TEN SPORTS': {
-                  'logo': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
-                  'name': 'Ten Sports'
-              },
-              
-              # A Sports
-              'A SPORTS HD': {
-                  'logo': 'https://i.postimg.cc/rytcs49Y/image.jpg',
-                  'name': 'A Sports HD'
-              },
-              
-              # Sky Sports
-              'SKY SPORTS CRICKET': {
-                  'logo': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-                  'name': 'Sky Sports Cricket'
-              },
               
               # Add more channels as needed...
           }
