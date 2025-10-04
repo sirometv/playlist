@@ -33,35 +33,116 @@ jobs:
           import re
           import json
           
-          # আপনার custom logos - শুধুমাত্র এখান থেকে logos ব্যবহার হবে
+          # আপনার custom logos - সমস্ত চ্যানেলের জন্য
           CUSTOM_LOGOS = {
+              # Star Sports Channels
               'Star Sports 1': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              'Star Sports 1 Hindi': 'https://i.postimg.cc/85zmvH5B/image.jpg',
-              'PTV Sports': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
-              'Willow HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'WILLOW HD 2': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              'TEN SPORTS': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
-              'A SPORTS HD': 'https://i.postimg.cc/rytcs49Y/image.jpg',
-              'SKY SPORTS CRICKET': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-              # অন্যান্য চ্যানেলের জন্যও যোগ করুন
-              'STAR SPORTS 1 HD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              'STAR SPORTS 1 FHD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'Star Sports 1 Hindi': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'PTV Sports': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'Willow HD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              
+              'STAR SPORTS 1 HINDI': 'https://i.postimg.cc/85zmvH5B/image.jpg',
               'STAR SPORTS 1 HINDI HD': 'https://i.postimg.cc/85zmvH5B/image.jpg',
+              'STAR SPORTS HINDI': 'https://i.postimg.cc/85zmvH5B/image.jpg',
+              
+              'STAR SPORTS 2': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'STAR SPORTS 2 HD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'STAR SPORTS 2 FHD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              
+              'STAR SPORTS 3': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'STAR SPORTS 3 HD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              
+              # Willow Channels
+              'WILLOW HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'WILLOW HD 2': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'WILLOW': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'WILLOW FHD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              
+              # PTV Sports
+              'PTV SPORTS': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
               'PTV SPORTS HD': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
+              'PTV SPORTS FHD': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
+              
+              # Ten Sports
+              'TEN SPORTS': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
+              'TEN SPORTS HD': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
+              'TEN SPORTS FHD': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
+              
+              # A Sports
+              'A SPORTS HD': 'https://i.postimg.cc/rytcs49Y/image.jpg',
+              'A SPORTS': 'https://i.postimg.cc/rytcs49Y/image.jpg',
+              'A SPORTS FHD': 'https://i.postimg.cc/rytcs49Y/image.jpg',
+              
+              # Sky Sports
+              'SKY SPORTS CRICKET': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'SKY SPORTS CRICKET HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'SKY SPORTS CRICKET FHD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              
+              # Sony Sports
+              'SONY ESPN': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'SONY ESPN HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'SONY SIX': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'SONY SIX HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              
+              # Other Sports Channels
+              'ESPN': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'ESPN HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'ESPN 2': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'ESPN 2 HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
           }
           
           print("=== STARTING SYNC ===")
           
-          # 1. M3U ফাইল প্রসেসিং - শুধু URLs আপডেট, logos না
-          print("📺 Processing M3U file (URLs only)...")
+          # 1. M3U ফাইল প্রসেসিং
+          print("📺 Processing M3U file...")
           m3u_url = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u"
           m3u_response = requests.get(m3u_url)
           m3u_content = m3u_response.text
           
+          # প্রথমে M3U থেকে সমস্ত channel names বের করি
+          print("\n🔍 Analyzing channel names from M3U...")
           lines = m3u_content.split('\n')
+          channel_names = []
+          i = 0
+          while i < len(lines):
+              if lines[i].startswith('#EXTINF:-1'):
+                  channel_name = lines[i + 1] if i + 1 < len(lines) else ''
+                  if channel_name:
+                      channel_names.append(channel_name)
+                  i += 2
+              else:
+                  i += 1
+          
+          # Channel names এবং তাদের matching logos দেখি
+          print(f"📊 Found {len(channel_names)} channels in M3U")
+          print("\n🎯 Channel-Logo Matching Results:")
+          
+          matched_count = 0
+          unmatched_channels = []
+          
+          for channel_name in channel_names[:20]:  # প্রথম ২০টি চ্যানেল দেখি
+              channel_upper = channel_name.upper()
+              matched_logo = None
+              matched_key = None
+              
+              for custom_channel, logo_url in CUSTOM_LOGOS.items():
+                  if custom_channel in channel_upper:
+                      matched_logo = logo_url
+                      matched_key = custom_channel
+                      matched_count += 1
+                      break
+              
+              if matched_logo:
+                  print(f"✅ MATCHED: '{channel_name}' -> '{matched_key}'")
+              else:
+                  print(f"❌ NO MATCH: '{channel_name}'")
+                  unmatched_channels.append(channel_name)
+          
+          # এখন M3U process করি
+          print("\n🔄 Processing M3U with custom logos...")
           output_lines = []
           i = 0
-          channels_processed = 0
+          logos_applied = 0
           
           while i < len(lines):
               line = lines[i]
@@ -77,38 +158,34 @@ jobs:
                           custom_logo = logo_url
                           break
                   
-                  # যদি custom logo না মেলে, default logo ব্যবহার করুন
+                  # যদি custom logo না মেলে, তাহলে error show করি
                   if not custom_logo:
-                      custom_logo = "https://i.postimg.cc/1RwSzp4q/image.jpg"  # Default logo
+                      print(f"⚠️  NO LOGO FOUND FOR: {channel_name}")
+                      # Default logo ব্যবহার না করে, original logo রাখি
+                      custom_logo = "https://i.postimg.cc/1RwSzp4q/image.jpg"  # Temporary default
                   
-                  # IMPORTANT: শুধু tvg-logo replace করুন, অন্য কিছু না
-                  # নতুন M3U থেকে কোনো tvg-logo নেবেন না
+                  # শুধু tvg-logo replace করুন
                   if 'tvg-logo=' in line:
-                      # শুধুমাত্র tvg-logo replace করুন, বাকি attributes রাখুন
                       line = re.sub(r'tvg-logo=\"[^\"]*\"', f'tvg-logo=\"{custom_logo}\"', line)
                   else:
-                      # যদি tvg-logo না থাকে, তাহলে যোগ করুন
                       line = f'#EXTINF:-1 tvg-logo=\"{custom_logo}\",' + line.split(',', 1)[1] if ',' in line else line
                   
                   output_lines.append(line)
                   
-                  # Channel name line যোগ করুন (এটি নতুন M3U থেকে নেওয়া হবে)
+                  # Channel name line যোগ করুন
                   if i + 1 < len(lines):
                       output_lines.append(lines[i + 1])
                   
-                  channels_processed += 1
-                  print(f"✅ Channel: {channel_name}")
-                  print(f"   🖼️  Logo: {custom_logo}")
-                  
+                  logos_applied += 1
                   i += 2
                   
               elif line.startswith('http'):
-                  # Stream URL - এটি নতুন M3U থেকে নেওয়া হবে (আপডেট হবে)
+                  # Stream URL - নতুন M3U থেকে নেওয়া হবে
                   output_lines.append(line)
                   i += 1
                   
               else:
-                  # অন্যান্য লাইন (EXTM3U, ইত্যাদি) - নতুন M3U থেকে নেওয়া হবে
+                  # অন্যান্য লাইন
                   output_lines.append(line)
                   i += 1
           
@@ -116,9 +193,15 @@ jobs:
           with open('CricHd.m3u', 'w', encoding='utf-8') as f:
               f.write('\n'.join(output_lines))
           
-          print(f"📊 M3U: {channels_processed} channels processed")
-          print("ℹ️  Only streaming URLs updated from second account")
-          print("ℹ️  All logos from CUSTOM_LOGOS mapping")
+          print(f"\n📊 M3U Processing Summary:")
+          print(f"✅ Logos applied: {logos_applied}")
+          print(f"🔍 Channels analyzed: {len(channel_names)}")
+          print(f"❌ Unmatched channels: {len(unmatched_channels)}")
+          
+          if unmatched_channels:
+              print(f"\n⚠️  Add these to CUSTOM_LOGOS:")
+              for channel in unmatched_channels[:10]:
+                  print(f"   '{channel.upper()}': 'your_logo_url_here',")
           
           # 2. JSON ফাইল প্রসেসিং
           print("\n📄 Processing JSON file...")
@@ -130,23 +213,17 @@ jobs:
           for item in json_data:
               if 'name' in item:
                   channel_upper = item['name'].upper()
-                  
-                  # Custom logo খুঁজে বের করুন
                   for custom_channel, logo_url in CUSTOM_LOGOS.items():
                       if custom_channel in channel_upper:
-                          item['logo'] = logo_url  # শুধু logo আপডেট করুন
+                          item['logo'] = logo_url
                           json_updated += 1
-                          print(f"✅ JSON: {item['name']} -> {logo_url}")
                           break
           
-          # JSON ফাইল সেভ করুন
           with open('api.json', 'w', encoding='utf-8') as f:
               json.dump(json_data, f, indent=2, ensure_ascii=False)
           
           print(f"📊 JSON: {json_updated} logos updated")
-          print("\n🎉 SYNC COMPLETED SUCCESSFULLY!")
-          print("📺 Streaming URLs: Updated from second account")
-          print("🖼️  Logos: Always from your CUSTOM_LOGOS")
+          print("\n🎉 SYNC COMPLETED!")
           EOF
           
           python sync_script.py
@@ -171,6 +248,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add CricHd.m3u api.json
-          git commit -m "🔄 Auto-sync: Stream URLs updated + custom logos preserved"
+          git commit -m "🔄 Auto-sync: Updated with permanent custom logos"
           git push
           echo "Sync completed successfully!"
