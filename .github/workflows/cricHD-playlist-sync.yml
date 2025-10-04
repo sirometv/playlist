@@ -33,22 +33,27 @@ jobs:
           import re
           import json
           
-          # আপনার custom logos - এখানে সব চ্যানেলের লোগো দিন
+          # আপনার custom logos - শুধুমাত্র এখান থেকে logos ব্যবহার হবে
           CUSTOM_LOGOS = {
-              'STAR SPORTS 1': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-              'STAR SPORTS 1 HINDI': 'https://i.postimg.cc/85zmvH5B/image.jpg',
-              'PTV SPORTS': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
-              'WILLOW HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'Star Sports 1': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'Star Sports 1 Hindi': 'https://i.postimg.cc/85zmvH5B/image.jpg',
+              'PTV Sports': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
+              'Willow HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
               'WILLOW HD 2': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
               'TEN SPORTS': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
               'A SPORTS HD': 'https://i.postimg.cc/rytcs49Y/image.jpg',
               'SKY SPORTS CRICKET': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              # অন্যান্য চ্যানেলের জন্যও যোগ করুন
+              'STAR SPORTS 1 HD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'STAR SPORTS 1 FHD': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'STAR SPORTS 1 HINDI HD': 'https://i.postimg.cc/85zmvH5B/image.jpg',
+              'PTV SPORTS HD': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
           }
           
           print("=== STARTING SYNC ===")
           
-          # 1. M3U ফাইল প্রসেসিং
-          print("📺 Processing M3U file...")
+          # 1. M3U ফাইল প্রসেসিং - শুধু URLs আপডেট, logos না
+          print("📺 Processing M3U file (URLs only)...")
           m3u_url = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u"
           m3u_response = requests.get(m3u_url)
           m3u_content = m3u_response.text
@@ -65,41 +70,45 @@ jobs:
                   channel_name = lines[i + 1] if i + 1 < len(lines) else ''
                   channel_upper = channel_name.upper()
                   
-                  # Custom logo খুঁজে বের করুন
+                  # Channel name থেকে exact matching logo বের করুন
                   custom_logo = None
                   for custom_channel, logo_url in CUSTOM_LOGOS.items():
                       if custom_channel in channel_upper:
                           custom_logo = logo_url
                           break
                   
-                  # যদি custom logo না থাকে, default logo ব্যবহার করুন
+                  # যদি custom logo না মেলে, default logo ব্যবহার করুন
                   if not custom_logo:
-                      # Default logo logic - আপনি চাইলে এখানে একটি default logo দিতে পারেন
-                      custom_logo = "/"  # Default logo
+                      custom_logo = "https://i.postimg.cc/1RwSzp4q/image.jpg"  # Default logo
                   
-                  # LINE তৈরি করুন - সবসময় custom logo ব্যবহার করুন
+                  # IMPORTANT: শুধু tvg-logo replace করুন, অন্য কিছু না
+                  # নতুন M3U থেকে কোনো tvg-logo নেবেন না
                   if 'tvg-logo=' in line:
+                      # শুধুমাত্র tvg-logo replace করুন, বাকি attributes রাখুন
                       line = re.sub(r'tvg-logo=\"[^\"]*\"', f'tvg-logo=\"{custom_logo}\"', line)
                   else:
                       # যদি tvg-logo না থাকে, তাহলে যোগ করুন
-                      line = line.replace('#EXTINF:-1', f'#EXTINF:-1 tvg-logo=\"{custom_logo}\"')
+                      line = f'#EXTINF:-1 tvg-logo=\"{custom_logo}\",' + line.split(',', 1)[1] if ',' in line else line
                   
                   output_lines.append(line)
                   
-                  # Channel name line যোগ করুন
+                  # Channel name line যোগ করুন (এটি নতুন M3U থেকে নেওয়া হবে)
                   if i + 1 < len(lines):
                       output_lines.append(lines[i + 1])
                   
                   channels_processed += 1
-                  print(f"✅ {channel_name} -> {custom_logo}")
+                  print(f"✅ Channel: {channel_name}")
+                  print(f"   🖼️  Logo: {custom_logo}")
                   
                   i += 2
+                  
               elif line.startswith('http'):
-                  # Stream URL - এটি নতুন থেকে নেওয়া হবে (আপডেট হবে)
+                  # Stream URL - এটি নতুন M3U থেকে নেওয়া হবে (আপডেট হবে)
                   output_lines.append(line)
                   i += 1
+                  
               else:
-                  # অন্যান্য লাইন (EXTM3U, ইত্যাদি)
+                  # অন্যান্য লাইন (EXTM3U, ইত্যাদি) - নতুন M3U থেকে নেওয়া হবে
                   output_lines.append(line)
                   i += 1
           
@@ -108,9 +117,11 @@ jobs:
               f.write('\n'.join(output_lines))
           
           print(f"📊 M3U: {channels_processed} channels processed")
+          print("ℹ️  Only streaming URLs updated from second account")
+          print("ℹ️  All logos from CUSTOM_LOGOS mapping")
           
           # 2. JSON ফাইল প্রসেসিং
-          print("📄 Processing JSON file...")
+          print("\n📄 Processing JSON file...")
           json_url = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json"
           json_response = requests.get(json_url)
           json_data = json_response.json()
@@ -123,7 +134,7 @@ jobs:
                   # Custom logo খুঁজে বের করুন
                   for custom_channel, logo_url in CUSTOM_LOGOS.items():
                       if custom_channel in channel_upper:
-                          item['logo'] = logo_url
+                          item['logo'] = logo_url  # শুধু logo আপডেট করুন
                           json_updated += 1
                           print(f"✅ JSON: {item['name']} -> {logo_url}")
                           break
@@ -132,8 +143,10 @@ jobs:
           with open('api.json', 'w', encoding='utf-8') as f:
               json.dump(json_data, f, indent=2, ensure_ascii=False)
           
-          print(f"📊 JSON: {json_updated} items updated")
-          print("🎉 SYNC COMPLETED SUCCESSFULLY!")
+          print(f"📊 JSON: {json_updated} logos updated")
+          print("\n🎉 SYNC COMPLETED SUCCESSFULLY!")
+          print("📺 Streaming URLs: Updated from second account")
+          print("🖼️  Logos: Always from your CUSTOM_LOGOS")
           EOF
           
           python sync_script.py
@@ -158,6 +171,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add CricHd.m3u api.json
-          git commit -m "🔄 Auto-sync: Streams updated + custom logos"
+          git commit -m "🔄 Auto-sync: Stream URLs updated + custom logos preserved"
           git push
           echo "Sync completed successfully!"
