@@ -1,4 +1,4 @@
-name: CricHD Playlist and JSON Sync
+name: Sync CricHD Playlist with Logo Protection
 
 on:
   schedule:
@@ -18,17 +18,152 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Download M3U and JSON files
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Download and process both files with custom logos
         run: |
-          # Download M3U playlist
-          curl -s -L "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u" -o CricHd.m3u
+          python -c "
+          import requests
+          import re
+          import json
           
-          # Download JSON data
-          curl -s -L "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json" -o api.json
+          # Custom logo mapping - M3U এবং JSON উভয়ের জন্য
+          CUSTOM_LOGOS = {
+              'STAR SPORTS 1': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'STAR SPORTS 1 HINDI': 'https://i.postimg.cc/85zmvH5B/image.jpg',
+              'PTV Sports': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
+              'Willow HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'Willow HD 2': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'Ten Sports': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
+              'A Sports HD': 'https://i.postimg.cc/rytcs49Y/image.jpg',
+              'Sky Sports Cricket': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'Willow HD': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              # আপনার অন্যান্য চ্যানেলের লোগো যোগ করুন
+          }
           
-          echo "Download completed:"
-          echo "M3U: $(wc -l < CricHd.m3u) lines"
-          echo "JSON: $(wc -c < api.json) bytes"
+          print('=== Processing M3U Playlist ===')
+          # ১. M3U প্লেলিস্ট প্রসেসিং
+          new_playlist_url = 'https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u'
+          new_m3u_content = requests.get(new_playlist_url).text
+          
+          # বর্তমান M3U থেকে existing logos সংরক্ষণ করুন
+          try:
+              with open('CricHd.m3u', 'r', encoding='utf-8') as f:
+                  old_m3u_content = f.read()
+          except FileNotFoundError:
+              old_m3u_content = ''
+          
+          # পুরানো M3U থেকে logo-map তৈরি করুন
+          m3u_logo_map = {}
+          old_lines = old_m3u_content.split('\\n')
+          i = 0
+          while i < len(old_lines):
+              if old_lines[i].startswith('#EXTINF:-1'):
+                  extinf_line = old_lines[i]
+                  channel_name = old_lines[i + 1] if i + 1 < len(old_lines) else ''
+                  logo_match = re.search(r'tvg-logo=\"([^\"]*)\"', extinf_line)
+                  if logo_match and logo_match.group(1):
+                      m3u_logo_map[channel_name.upper()] = logo_match.group(1)
+                  i += 2
+              else:
+                  i += 1
+          
+          # Custom logos যোগ করুন (M3U এর জন্য)
+          for channel, logo in CUSTOM_LOGOS.items():
+              m3u_logo_map[channel.upper()] = logo
+          
+          # নতুন M3U প্রসেস করুন - শুধু URLs আপডেট হবে, logos সংরক্ষিত থাকবে
+          new_lines = new_m3u_content.split('\\n')
+          final_m3u_lines = []
+          i = 0
+          while i < len(new_lines):
+              line = new_lines[i]
+              if line.startswith('#EXTINF:-1'):
+                  channel_name = new_lines[i + 1] if i + 1 < len(new_lines) else ''
+                  channel_name_upper = channel_name.upper()
+                  
+                  # এই চ্যানেলের জন্য custom logo আছে কিনা চেক করুন
+                  current_logo = None
+                  for stored_channel, logo_url in m3u_logo_map.items():
+                      if stored_channel and channel_name_upper and stored_channel in channel_name_upper:
+                          current_logo = logo_url
+                          break
+                  
+                  # LINE আপডেট করুন
+                  if current_logo:
+                      if 'tvg-logo=' in line:
+                          line = re.sub(r'tvg-logo=\"[^\"]*\"', f'tvg-logo=\"{current_logo}\"', line)
+                      else:
+                          line = line.replace('#EXTINF:-1', f'#EXTINF:-1 tvg-logo=\"{current_logo}\"')
+                  
+                  final_m3u_lines.append(line)
+                  # Channel name line যোগ করুন
+                  if i + 1 < len(new_lines):
+                      final_m3u_lines.append(new_lines[i + 1])
+                  i += 2
+              elif line.startswith('http'):
+                  # Stream URL - এটি নতুন থেকে নেওয়া হবে (আপডেট হবে)
+                  final_m3u_lines.append(line)
+                  i += 1
+              else:
+                  # অন্যান্য লাইন (EXTM3U, ইত্যাদি)
+                  final_m3u_lines.append(line)
+                  i += 1
+          
+          # Final M3U সেভ করুন
+          with open('CricHd.m3u', 'w', encoding='utf-8') as f:
+              f.write('\\n'.join(final_m3u_lines))
+          
+          print(f'✅ M3U processed: {len(m3u_logo_map)} custom logos applied')
+          
+          print('=== Processing JSON File ===')
+          # ২. JSON ফাইল প্রসেসিং
+          json_url = 'https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json'
+          new_json_data = requests.get(json_url).json()
+          
+          # বর্তমান JSON থেকে existing data পড়ুন (যদি থাকে)
+          try:
+              with open('api.json', 'r', encoding='utf-8') as f:
+                  old_json_data = json.load(f)
+              # পুরানো JSON থেকে logo-map তৈরি করুন
+              json_logo_map = {}
+              for item in old_json_data:
+                  if 'name' in item and 'logo' in item:
+                      json_logo_map[item['name'].upper()] = item['logo']
+          except FileNotFoundError:
+              json_logo_map = {}
+          
+          # Custom logos যোগ করুন (JSON এর জন্য)
+          for channel, logo in CUSTOM_LOGOS.items():
+              json_logo_map[channel.upper()] = logo
+          
+          # নতুন JSON প্রসেস করুন - শুধু link আপডেট হবে, logos সংরক্ষিত থাকবে
+          for item in new_json_data:
+              if 'name' in item:
+                  channel_name_upper = item['name'].upper()
+                  
+                  # Custom logo চেক করুন
+                  for custom_channel, logo_url in json_logo_map.items():
+                      if custom_channel in channel_name_upper:
+                          item['logo'] = logo_url  # Custom logo সেট করুন
+                          break
+                  
+                  # 'link' field নতুন JSON থেকে নেওয়া হবে (আপডেট হবে)
+                  # অন্যান্য fields (id, referer, origin) নতুন থেকে নেওয়া হবে
+                  # শুধু logo আমাদের custom থাকবে
+          
+          # Final JSON সেভ করুন
+          with open('api.json', 'w', encoding='utf-8') as f:
+              json.dump(new_json_data, f, indent=2, ensure_ascii=False)
+          
+          print('✅ JSON processed: Custom logos applied, links updated')
+          print('🎉 Both M3U and JSON updated successfully!')
+          print('📺 Stream links updated from second account')
+          print('🖼️  Custom logos preserved in both files')
+          "
 
       - name: Check for changes
         id: check_changes
@@ -50,6 +185,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add CricHd.m3u api.json
-          git commit -m "🔄 Auto-sync: CricHD Playlist & JSON updates - $(date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "🔄 Smart Sync: URLs updated + custom logos - $(date +'%Y-%m-%d %H:%M:%S')"
           git push
-          echo "Sync completed successfully"
+          echo "Sync completed successfully!"
