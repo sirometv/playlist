@@ -2,28 +2,35 @@ name: Sync Playlist
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # প্রতি ৫ মিনিটে চলবে
+    - cron: "*/5 * * * *"
   workflow_dispatch:
-
-permissions:
-  contents: write   # ✅ Push করার অনুমতি দিলাম
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout this repo
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Download playlist from second account
+      - name: Download playlist
         run: |
-          curl -L "https://raw.githubusercontent.com/abusaeeidx/Ayna-Playlists-free-Version/main/playlist.m3u" -o update.m3u
+          wget -q -O update.m3u "https://raw.githubusercontent.com/abusaeeidx/Ayna-Playlists-free-Version/main/playlist.m3u"
 
-      - name: Commit and push changes
+      - name: Setup git config
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push if changed
+        run: |
           git add update.m3u
-          git commit -m "Auto-sync playlist from second account" || echo "No changes to commit"
-          git push
+          if ! git diff --staged --quiet; then
+            git commit -m "🔄 Auto-update: $(date +'%Y-%m-%d %H:%M:%S')"
+            git push
+            echo "Playlist updated successfully"
+          else
+            echo "No changes - skipping commit"
+          fi
