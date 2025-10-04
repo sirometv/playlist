@@ -1,3 +1,5 @@
 #EXTM3U
-#EXTINF:-1, Channel 1
-https://d4.merichunidya.com:1686/hls/ptvpk.m3u8?md5=MgJZKwLxoTP77DWu7xseAA&expires=1757882730
+#EXT-X-VERSION:3
+
+#EXT-X-STREAM-INF:PROGRAM-ID=1
+https://d4.merichunidya.com:1686/hls/star1in.m3u8?md5=qvkQr6jx7foab2XUDClPEg&expires=1759585153
