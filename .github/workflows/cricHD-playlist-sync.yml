@@ -2,11 +2,11 @@ name: Sync CricHD Playlist with Logo Protection
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/5 * * * *"  # প্রতি ৫ মিনিটে চলবে
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write # ✅ Push করার অনুমতি দিলাম
 
 jobs:
   sync:
