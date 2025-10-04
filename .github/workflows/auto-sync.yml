@@ -1,0 +1,26 @@
+name: Sync Playlist
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # প্রতি ৫ মিনিট পর পর চলবে
+  workflow_dispatch:        # ম্যানুয়ালি রান করার অপশন
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+
+      - name: Download playlist from second account
+        run: |
+          curl -L "https://raw.githubusercontent.com/abusaeeidx/Ayna-Playlists-free-Version/main/playlist.m3u" -o update.m3u
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add update.m3u
+          git commit -m "Auto-sync playlist from second account" || echo "No changes to commit"
+          git push
