@@ -34,11 +34,12 @@ jobs:
           import json
           
           # আপনার PERMANENT custom logos এবং channel names
-          # এগুলো কখনও change হবে না
           CUSTOM_CHANNELS = {
-              # Format: 'ORIGINAL_CHANNEL_NAME': {'logo': 'YOUR_LOGO', 'name': 'YOUR_CUSTOM_NAME'}
-              
               # Star Sports Channels
+              'Star Sports 1': {
+                  'logo': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+                  'name': 'Star Sports 1'
+              },
               'Star Sports 1 Hindi': {
                   'logo': 'https://i.postimg.cc/85zmvH5B/image.jpg',
                   'name': 'Star Sports 1 Hindi'
@@ -55,103 +56,120 @@ jobs:
               
               # Add more channels as needed...
           }
+          }
           
-          print("=== STARTING SYNC (CUSTOM LOGOS & NAMES) ===")
+          print("=== STARTING SYNC ===")
           
           # 1. M3U ফাইল প্রসেসিং
-          print("📺 Processing M3U file...")
+          print("📺 Downloading M3U file...")
           m3u_url = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u"
           m3u_response = requests.get(m3u_url)
           m3u_content = m3u_response.text
           
+          print("🔍 Analyzing M3U content...")
           lines = m3u_content.split('\n')
-          output_lines = []
-          i = 0
-          channels_processed = 0
-          custom_channels_used = 0
           
-          # প্রথমে M3U থেকে channel names এবং তাদের streaming URLs map করি
+          # M3U থেকে channel names এবং URLs extract করি
           channel_url_map = {}
-          temp_i = 0
-          while temp_i < len(lines):
-              if lines[temp_i].startswith('#EXTINF:-1'):
-                  channel_name = lines[temp_i + 1] if temp_i + 1 < len(lines) else ''
-                  stream_url = lines[temp_i + 2] if temp_i + 2 < len(lines) else ''
-                  if channel_name and stream_url.startswith('http'):
+          i = 0
+          while i < len(lines):
+              if lines[i].startswith('#EXTINF:-1') and i + 1 < len(lines):
+                  channel_name = lines[i + 1].strip()
+                  if i + 2 < len(lines) and lines[i + 2].startswith('http'):
+                      stream_url = lines[i + 2].strip()
                       channel_url_map[channel_name.upper()] = stream_url
-                  temp_i += 2
+                      print(f"   Found: {channel_name} -> {stream_url[:50]}...")
+                  i += 2
               else:
-                  temp_i += 1
+                  i += 1
           
-          print(f"📊 Found {len(channel_url_map)} channels with streaming URLs")
+          print(f"📊 Found {len(channel_url_map)} channels in source M3U")
           
-          # এখন আমাদের custom M3U তৈরি করি
-          print("\n🔄 Creating custom M3U with permanent logos & names...")
+          # আমাদের custom M3U তৈরি করি
+          print("\n🔄 Creating custom M3U...")
+          output_lines = ["#EXTM3U"]  # ✅ FIXED: Correct M3U header
           
-          # M3U header
-          output_lines.append("#EXTM3U")
+          custom_channels_used = 0
+          unmatched_channels = []
           
-          # প্রতিটি custom channel এর জন্য entry তৈরি করি
-          for original_channel, custom_data in CUSTOM_CHANNELS.items():
+          for custom_key, custom_data in CUSTOM_CHANNELS.items():
               custom_logo = custom_data['logo']
               custom_name = custom_data['name']
               
-              # এই channel এর streaming URL খুঁজে বের করি
-              stream_url = None
-              for channel_in_m3u, url in channel_url_map.items():
-                  if original_channel in channel_in_m3u:
-                      stream_url = url
+              # Source M3U থেকে matching channel খুঁজি
+              matched_url = None
+              matched_source_channel = None
+              
+              for source_channel, source_url in channel_url_map.items():
+                  if custom_key in source_channel:
+                      matched_url = source_url
+                      matched_source_channel = source_channel
                       break
               
-              if stream_url:
-                  # Custom EXTINF line তৈরি করি
+              if matched_url:
+                  # Custom entry তৈরি করি
                   extinf_line = f'#EXTINF:-1 tvg-logo="{custom_logo}",{custom_name}'
                   output_lines.append(extinf_line)
-                  output_lines.append(stream_url)
+                  output_lines.append(matched_url)
                   
                   custom_channels_used += 1
-                  print(f"✅ {custom_name} -> {stream_url[:50]}...")
+                  print(f"✅ ADDED: {custom_name}")
+                  print(f"   Source: {matched_source_channel}")
+                  print(f"   Logo: {custom_logo}")
+                  print(f"   URL: {matched_url[:50]}...")
               else:
-                  print(f"⚠️  No stream URL found for: {original_channel}")
+                  unmatched_channels.append(custom_key)
+                  print(f"❌ NO MATCH: {custom_key}")
           
           # Final M3U সেভ করুন
           with open('CricHd.m3u', 'w', encoding='utf-8') as f:
               f.write('\n'.join(output_lines))
           
-          print(f"\n📊 M3U Processing Summary:")
-          print(f"✅ Custom channels processed: {custom_channels_used}")
-          print(f"📺 Total streams found: {len(channel_url_map)}")
+          print(f"\n📊 M3U SUMMARY:")
+          print(f"✅ Custom channels added: {custom_channels_used}")
+          print(f"📺 Total source channels: {len(channel_url_map)}")
+          print(f"❌ Unmatched custom channels: {len(unmatched_channels)}")
           
-          # 2. JSON ফাইল প্রসেসিং - শুধু streaming links আপডেট, logos এবং names custom
+          if unmatched_channels:
+              print(f"\n⚠️  Unmatched channels (add to source M3U or adjust names):")
+              for channel in unmatched_channels:
+                  print(f"   - {channel}")
+          
+          # 2. JSON ফাইল প্রসেসিং
           print("\n📄 Processing JSON file...")
           json_url = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json"
           json_response = requests.get(json_url)
-          json_data = json_response.json()
+          source_json_data = json_response.json()
           
-          # নতুন JSON data তৈরি করি শুধু আমাদের custom channels দিয়ে
+          # Source JSON থেকে channel map তৈরি করি
+          source_json_map = {}
+          for item in source_json_data:
+              if 'name' in item:
+                  source_json_map[item['name'].upper()] = item
+          
+          # Custom JSON তৈরি করি
           custom_json_data = []
           json_updated = 0
           
-          for original_channel, custom_data in CUSTOM_CHANNELS.items():
+          for custom_key, custom_data in CUSTOM_CHANNELS.items():
               custom_logo = custom_data['logo']
               custom_name = custom_data['name']
               
-              # এই channel এর streaming URL খুঁজে বের করি JSON থেকে
-              stream_data = None
-              for item in json_data:
-                  if 'name' in item and original_channel in item['name'].upper():
-                      stream_data = item
+              # Source JSON থেকে matching channel খুঁজি
+              matched_json_item = None
+              for source_name, source_item in source_json_map.items():
+                  if custom_key in source_name:
+                      matched_json_item = source_item
                       break
               
-              if stream_data:
-                  # Custom JSON entry তৈরি করি
+              if matched_json_item:
                   custom_entry = {
                       'name': custom_name,
-                      'id': stream_data.get('id', ''),
-                      'logo': custom_logo,  # আমাদের custom logo
-                      'link': stream_data.get('link', ''),  # শুধু stream link আপডেট
-                      'referer': stream_data.get('referer', ''),
-                      'origin': stream_data.get('origin', '')
+                      'id': matched_json_item.get('id', custom_name.lower().replace(' ', '')),
+                      'logo': custom_logo,
+                      'link': matched_json_item.get('link', ''),
+                      'referer': matched_json_item.get('referer', ''),
+                      'origin': matched_json_item.get('origin', '')
                   }
                   custom_json_data.append(custom_entry)
                   json_updated += 1
@@ -161,15 +179,20 @@ jobs:
           with open('api.json', 'w', encoding='utf-8') as f:
               json.dump(custom_json_data, f, indent=2, ensure_ascii=False)
           
-          print(f"📊 JSON: {json_updated} custom entries created")
-          print("\n🎉 SYNC COMPLETED SUCCESSFULLY!")
-          print("✨ Features:")
-          print("   ✅ Only streaming links updated from second account")
-          print("   ✅ Logos and names are PERMANENTLY custom")
-          print("   ✅ Full control over channel presentation")
+          print(f"📊 JSON: {json_updated} entries created")
+          print("\n🎉 SYNC COMPLETED!")
+          print("✨ Only streaming URLs are updated from source")
+          print("✨ Logos and names are permanently custom")
           EOF
           
           python sync_script.py
+
+      - name: Check file content
+        run: |
+          echo "=== Checking M3U File ==="
+          head -10 CricHd.m3u
+          echo "=== Line Count ==="
+          wc -l CricHd.m3u
 
       - name: Check for changes
         id: check_changes
