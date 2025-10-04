@@ -3,7 +3,7 @@ name: Debug Sync - Manual Trigger
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/10 * * * *"  # প্রতি ১০ মিনিটে
+    - cron: "*/5 * * * *"  # প্রতি ৫ মিনিটে
 
 permissions:
   contents: write
