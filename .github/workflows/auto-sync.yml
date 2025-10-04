@@ -2,8 +2,11 @@ name: Sync Playlist
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # প্রতি ৫ মিনিট পর পর চলবে
-  workflow_dispatch:        # ম্যানুয়ালি রান করার অপশন
+    - cron: "*/5 * * * *"   # প্রতি ৫ মিনিটে চলবে
+  workflow_dispatch:
+
+permissions:
+  contents: write   # ✅ Push করার অনুমতি দিলাম
 
 jobs:
   sync:
