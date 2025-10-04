@@ -1,250 +1,73 @@
-name: Sync CricHD Playlist - Permanent Custom Logos & Names
+name: Debug Sync - Manual Trigger
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"
   workflow_dispatch:
+  schedule:
+    - cron: "*/10 * * * *"  # প্রতি ১০ মিনিটে
 
 permissions:
   contents: write
 
 jobs:
-  sync:
+  debug-sync:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-
-      - name: Install Python dependencies
-        run: pip install requests
-
-      - name: Create and run Python script
+      - name: Debug Info
         run: |
-          cat > sync_script.py << 'EOF'
-          import requests
-          import re
-          import json
-          
-          # আপনার PERMANENT custom configuration
-          # এগুলো কখনও change হবে না - আপনি manually set করবেন
-          CUSTOM_CONFIG = {
-              # Format: 
-              # 'SOURCE_CHANNEL_PATTERN': {
-              #     'logo': 'YOUR_PERMANENT_LOGO',
-              #     'name': 'YOUR_PERMANENT_NAME'
-              # }
-              
-              'STAR SPORTS 1': {
-                  'logo': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
-                  'name': 'Star Sports 1'
-              },
-              'STAR SPORTS 1 HINDI': {
-                  'logo': 'https://i.postimg.cc/85zmvH5B/image.jpg',
-                  'name': 'Star Sports 1 Hindi'
-              },
-              'PTV Sports': {
-                  'logo': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
-                  'name': 'PTV Sports'
-              },
-              'Willow HD': {
-                  'logo': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-                  'name': 'Willow HD'
-              },
-              'Willow HD 2': {
-                  'logo': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
-                  'name': 'Willow HD 2'
-              },
-              'Ten Sports': {
-                  'logo': 'https://i.postimg.cc/1tRmw0C2/image.jpg',
-                  'name': 'Ten Sports'
-              },
-              'A Sports HD': {
-                  'logo': 'https://i.postimg.cc/rytcs49Y/image.jpg',
-                  'name': A Sports HD'
-              },
-              'Sky Sports Cricket': {
-                  'logo': 'https://i.postimg.cc/ZnKgv6cq/image.jpg',
-                  'name': 'Sky Sports Cricket'
-              },
-              'Sky Sports Main Event': {
-                  'logo': 'https://i.postimg.cc/m21jXdtx/image.jpg',
-                  'name': 'Sky Sports Main Event'
-              },
-              'TNT 1': {
-                  'logo': 'https://i.postimg.cc/FztCGj4y/image.jpg',
-                  'name': 'TNT 1'
-              },
-              'TNT 2': {
-                  'logo': 'https://i.postimg.cc/HsNcN3K1/image.jpg',
-                  'name': 'TNT 2'
-              },
-              'TNT 3': {
-                  'logo': 'https://i.postimg.cc/9Q3XTkK0/image.jpg',
-                  'name': 'TNT 3'
-              },
-              'TNT 4': {
-                  'logo': 'https://i.postimg.cc/tRZYxFJr/image.jpg',
-                  'name': 'TNT 4'
-              },
-              # আরো channels যোগ করুন...
-          }
-          
-          print("=== STARTING SYNC (PERMANENT CUSTOM LOGOS & NAMES) ===")
-          
-          # 1. M3U ফাইল প্রসেসিং
-          print("📺 Downloading source M3U...")
-          m3u_url = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u"
-          m3u_response = requests.get(m3u_url)
-          m3u_content = m3u_response.text
-          
-          # Source M3U থেকে streaming URLs extract করি
-          print("🔍 Extracting streaming URLs from source...")
-          lines = m3u_content.split('\n')
-          source_urls = {}  # {channel_pattern: stream_url}
-          
-          i = 0
-          while i < len(lines):
-              if lines[i].startswith('#EXTINF:-1') and i + 1 < len(lines):
-                  source_channel_name = lines[i + 1].strip()
-                  if i + 2 < len(lines) and lines[i + 2].startswith('http'):
-                      stream_url = lines[i + 2].strip()
-                      source_urls[source_channel_name.upper()] = stream_url
-                  i += 2
-              else:
-                  i += 1
-          
-          print(f"📊 Found {len(source_urls)} streaming URLs in source")
-          
-          # আমাদের PERMANENT custom M3U তৈরি করি
-          print("\n🔄 Creating PERMANENT custom M3U...")
-          output_lines = ["#EXTM3U"]
-          
-          custom_entries_created = 0
-          
-          for source_pattern, custom_data in CUSTOM_CONFIG.items():
-              custom_logo = custom_data['logo']
-              custom_name = custom_data['name']
-              
-              # Source থেকে matching stream URL খুঁজি
-              matched_url = None
-              matched_source_channel = None
-              
-              for source_channel, stream_url in source_urls.items():
-                  if source_pattern in source_channel:
-                      matched_url = stream_url
-                      matched_source_channel = source_channel
-                      break
-              
-              if matched_url:
-                  # PERMANENT custom entry তৈরি করি
-                  extinf_line = f'#EXTINF:-1 tvg-logo="{custom_logo}",{custom_name}'
-                  output_lines.append(extinf_line)
-                  output_lines.append(matched_url)
-                  
-                  custom_entries_created += 1
-                  print(f"✅ {custom_name}")
-                  print(f"   🖼️  Logo: {custom_logo}")
-                  print(f"   📺 Source: {matched_source_channel}")
-                  print(f"   🔗 URL: {matched_url[:60]}...")
-              else:
-                  print(f"⚠️  No stream found for: {source_pattern}")
-          
-          # Final M3U সেভ করুন
-          with open('CricHd.m3u', 'w', encoding='utf-8') as f:
-              f.write('\n'.join(output_lines))
-          
-          print(f"\n📊 M3U SUMMARY:")
-          print(f"✅ Custom entries created: {custom_entries_created}")
-          print(f"📺 Source URLs available: {len(source_urls)}")
-          
-          # 2. JSON ফাইল প্রসেসিং - একই logic
-          print("\n📄 Processing JSON file...")
-          json_url = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json"
-          json_response = requests.get(json_url)
-          source_json_data = json_response.json()
-          
-          # Source JSON থেকে URLs extract করি
-          source_json_urls = {}
-          for item in source_json_data:
-              if 'name' in item and 'link' in item:
-                  source_json_urls[item['name'].upper()] = item
-          
-          # PERMANENT custom JSON তৈরি করি
-          custom_json_data = []
-          json_entries_created = 0
-          
-          for source_pattern, custom_data in CUSTOM_CONFIG.items():
-              custom_logo = custom_data['logo']
-              custom_name = custom_data['name']
-              
-              # Source JSON থেকে matching data খুঁজি
-              matched_json_item = None
-              for source_name, source_item in source_json_urls.items():
-                  if source_pattern in source_name:
-                      matched_json_item = source_item
-                      break
-              
-              if matched_json_item:
-                  custom_entry = {
-                      'name': custom_name,  # আপনার PERMANENT name
-                      'id': matched_json_item.get('id', custom_name.lower().replace(' ', '')),
-                      'logo': custom_logo,  # আপনার PERMANENT logo
-                      'link': matched_json_item.get('link', ''),  # শুধু এটাই আপডেট হবে
-                      'referer': matched_json_item.get('referer', ''),
-                      'origin': matched_json_item.get('origin', '')
-                  }
-                  custom_json_data.append(custom_entry)
-                  json_entries_created += 1
-                  print(f"✅ JSON: {custom_name}")
-          
-          # Custom JSON সেভ করুন
-          with open('api.json', 'w', encoding='utf-8') as f:
-              json.dump(custom_json_data, f, indent=2, ensure_ascii=False)
-          
-          print(f"📊 JSON: {json_entries_created} entries created")
-          print("\n🎉 SYNC COMPLETED SUCCESSFULLY!")
-          print("✨ ONLY streaming URLs are updated from source")
-          print("✨ Logos and names are PERMANENTLY custom")
-          print("✨ You have full control over presentation")
-          EOF
-          
-          python sync_script.py
+          echo "🕐 Current time: $(date)"
+          echo "📁 Files in repo:"
+          ls -la
+          echo "📊 Git status:"
+          git status
+          echo "🔄 Last commits:"
+          git log --oneline -5
 
-      - name: Verify output
+      - name: Check remote files timestamp
         run: |
-          echo "=== Verifying M3U File ==="
-          head -20 CricHd.m3u
-          echo "=== Total Lines ==="
-          wc -l CricHd.m3u
+          echo "🔍 Checking second account files..."
+          echo "M3U URL: https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u"
+          curl -s -I "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u" | grep -i "last-modified" || echo "No last-modified header"
+          echo "JSON URL: https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json"
+          curl -s -I "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json" | grep -i "last-modified" || echo "No last-modified header"
 
-      - name: Check for changes
-        id: check_changes
+      - name: Download and compare files
         run: |
-          changes=false
-          if ! git diff --quiet CricHd.m3u 2>/dev/null; then
-            changes=true
-            echo "M3U file changed"
+          # নতুন ফাইল ডাউনলোড
+          curl -s "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u" -o new_m3u.m3u
+          curl -s "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json" -o new_json.json
+          
+          echo "📈 File sizes:"
+          echo "New M3U: $(wc -l < new_m3u.m3u) lines"
+          echo "New JSON: $(wc -c < new_json.json) bytes"
+          
+          if [ -f "CricHd.m3u" ]; then
+            echo "Old M3U: $(wc -l < CricHd.m3u) lines"
+            echo "🔍 M3U differences:"
+            diff -u CricHd.m3u new_m3u.m3u | head -20 || echo "No significant differences"
           fi
-          if ! git diff --quiet api.json 2>/dev/null; then
-            changes=true
-            echo "JSON file changed"
+          
+          if [ -f "api.json" ]; then
+            echo "Old JSON: $(wc -c < api.json) bytes" 
+            echo "🔍 JSON differences:"
+            diff -u api.json new_json.json | head -20 || echo "No significant differences"
           fi
-          echo "changes=$changes" >> $GITHUB_OUTPUT
 
-      - name: Commit and push changes
-        if: steps.check_changes.outputs.changes == 'true'
+      - name: Force update if different
         run: |
+          # Logic to force update
+          cp new_m3u.m3u CricHd.m3u
+          cp new_json.json api.json
+          echo "✅ Files updated forcefully"
+          
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add CricHd.m3u api.json
-          git commit -m "🔄 Auto-sync: Streams updated + Permanent custom config"
+          git commit -m "🔄 Debug Sync: Force update - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
           git push
-          echo "Sync completed successfully!"
