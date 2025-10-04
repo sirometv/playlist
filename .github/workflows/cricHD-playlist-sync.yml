@@ -1,0 +1,55 @@
+name: CricHD Playlist and JSON Sync
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download M3U and JSON files
+        run: |
+          # Download M3U playlist
+          curl -s -L "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u" -o CricHd.m3u
+          
+          # Download JSON data
+          curl -s -L "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json" -o api.json
+          
+          echo "Download completed:"
+          echo "M3U: $(wc -l < CricHd.m3u) lines"
+          echo "JSON: $(wc -c < api.json) bytes"
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          changes=false
+          if ! git diff --exit-code CricHd.m3u; then
+            changes=true
+            echo "M3U file changed"
+          fi
+          if ! git diff --exit-code api.json; then
+            changes=true
+            echo "JSON file changed"
+          fi
+          echo "changes=$changes" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add CricHd.m3u api.json
+          git commit -m "🔄 Auto-sync: CricHD Playlist & JSON updates - $(date +'%Y-%m-%d %H:%M:%S')"
+          git push
+          echo "Sync completed successfully"
