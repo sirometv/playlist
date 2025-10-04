@@ -75,7 +75,7 @@ jobs:
                   # যদি custom logo না থাকে, default logo ব্যবহার করুন
                   if not custom_logo:
                       # Default logo logic - আপনি চাইলে এখানে একটি default logo দিতে পারেন
-                      custom_logo = "https://i.postimg.cc/1RwSzp4q/image.jpg"  # Default logo
+                      custom_logo = "/"  # Default logo
                   
                   # LINE তৈরি করুন - সবসময় custom logo ব্যবহার করুন
                   if 'tvg-logo=' in line:
