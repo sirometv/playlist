@@ -1,0 +1,73 @@
+name: Debug Sync - Manual Trigger
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/10 * * * *"  # প্রতি ১০ মিনিটে
+
+permissions:
+  contents: write
+
+jobs:
+  debug-sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Debug Info
+        run: |
+          echo "🕐 Current time: $(date)"
+          echo "📁 Files in repo:"
+          ls -la
+          echo "📊 Git status:"
+          git status
+          echo "🔄 Last commits:"
+          git log --oneline -5
+
+      - name: Check remote files timestamp
+        run: |
+          echo "🔍 Checking second account files..."
+          echo "M3U URL: https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u"
+          curl -s -I "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u" | grep -i "last-modified" || echo "No last-modified header"
+          echo "JSON URL: https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json"
+          curl -s -I "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json" | grep -i "last-modified" || echo "No last-modified header"
+
+      - name: Download and compare files
+        run: |
+          # নতুন ফাইল ডাউনলোড
+          curl -s "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u" -o new_m3u.m3u
+          curl -s "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json" -o new_json.json
+          
+          echo "📈 File sizes:"
+          echo "New M3U: $(wc -l < new_m3u.m3u) lines"
+          echo "New JSON: $(wc -c < new_json.json) bytes"
+          
+          if [ -f "CricHd.m3u" ]; then
+            echo "Old M3U: $(wc -l < CricHd.m3u) lines"
+            echo "🔍 M3U differences:"
+            diff -u CricHd.m3u new_m3u.m3u | head -20 || echo "No significant differences"
+          fi
+          
+          if [ -f "api.json" ]; then
+            echo "Old JSON: $(wc -c < api.json) bytes" 
+            echo "🔍 JSON differences:"
+            diff -u api.json new_json.json | head -20 || echo "No significant differences"
+          fi
+
+      - name: Force update if different
+        run: |
+          # Logic to force update
+          cp new_m3u.m3u CricHd.m3u
+          cp new_json.json api.json
+          echo "✅ Files updated forcefully"
+          
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add CricHd.m3u api.json
+          git commit -m "🔄 Debug Sync: Force update - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git push
