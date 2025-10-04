@@ -1,31 +1,3 @@
-name: Sync CricHD Playlist with Logo Protection
-
-on:
-  schedule:
-    - cron: "*/5 * * * *"
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  sync:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-
-      - name: Install Python dependencies
-        run: pip install requests
-
       - name: Download and process both files with custom logos
         run: |
           python -c "
@@ -46,174 +18,135 @@ jobs:
               'SKY SPORTS CRICKET': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
           }
           
-          print('=== Processing M3U Playlist ===')
-          # ১. M3U প্লেলিস্ট প্রসেসিং
-          new_playlist_url = 'https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u'
-          try:
-              response = requests.get(new_playlist_url)
-              response.raise_for_status()
-              new_m3u_content = response.text
-              print('✅ M3U downloaded successfully')
-          except Exception as e:
-              print(f'❌ M3U download failed: {e}')
-              exit(1)
-          
-          # বর্তমান M3U থেকে existing logos সংরক্ষণ করুন
-          m3u_logo_map = {}
-          if os.path.exists('CricHd.m3u'):
-              try:
-                  with open('CricHd.m3u', 'r', encoding='utf-8') as f:
-                      old_m3u_content = f.read()
-                  
-                  # পুরানো M3U থেকে logo-map তৈরি করুন
-                  old_lines = old_m3u_content.split('\n')
-                  i = 0
-                  while i < len(old_lines):
-                      if old_lines[i].startswith('#EXTINF:-1'):
-                          extinf_line = old_lines[i]
-                          channel_name = old_lines[i + 1] if i + 1 < len(old_lines) else ''
-                          logo_match = re.search(r'tvg-logo=\"([^\"]*)\"', extinf_line)
-                          if logo_match and logo_match.group(1):
-                              m3u_logo_map[channel_name.upper()] = logo_match.group(1)
-                          i += 2
-                      else:
-                          i += 1
-                  print(f'✅ Loaded {len(m3u_logo_map)} logos from existing M3U')
-              except Exception as e:
-                  print(f'⚠️ Could not read existing M3U: {e}')
-          else:
-              print('ℹ️ No existing M3U file found')
-          
-          # Custom logos যোগ করুন (M3U এর জন্য)
+          print('🔍 === DEBUG: CUSTOM LOGOS ===')
           for channel, logo in CUSTOM_LOGOS.items():
-              m3u_logo_map[channel.upper()] = logo
-          print(f'✅ Total {len(m3u_logo_map)} logos in mapping')
+              print(f'   {channel} -> {logo}')
           
-          # নতুন M3U প্রসেস করুন
-          new_lines = new_m3u_content.split('\n')
-          final_m3u_lines = []
+          # ১. M3U প্লেলিস্ট প্রসেসিং
+          print('\\n📺 === DEBUG: ANALYZING M3U CHANNEL NAMES ===')
+          new_playlist_url = 'https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u'
+          response = requests.get(new_playlist_url)
+          new_m3u_content = response.text
+          
+          # M3U তে actual channel names খুঁজে বের করুন
+          m3u_lines = new_m3u_content.split('\\n')
           i = 0
-          while i < len(new_lines):
-              line = new_lines[i].strip()
-              if not line:
-                  i += 1
-                  continue
-                  
+          channel_count = 0
+          matched_channels = []
+          unmatched_channels = []
+          
+          while i < len(m3u_lines):
+              line = m3u_lines[i]
               if line.startswith('#EXTINF:-1'):
-                  channel_name = new_lines[i + 1] if i + 1 < len(new_lines) else ''
+                  channel_name = m3u_lines[i + 1] if i + 1 < len(m3u_lines) else 'UNKNOWN'
                   channel_name_upper = channel_name.upper()
+                  channel_count += 1
                   
-                  # এই চ্যানেলের জন্য custom logo আছে কিনা চেক করুন
-                  current_logo = None
-                  for stored_channel, logo_url in m3u_logo_map.items():
-                      if stored_channel and channel_name_upper and stored_channel in channel_name_upper:
-                          current_logo = logo_url
+                  # Check for matching custom logo
+                  matched = False
+                  for custom_channel, logo_url in CUSTOM_LOGOS.items():
+                      if custom_channel in channel_name_upper:
+                          matched_channels.append((channel_name, custom_channel, logo_url))
+                          matched = True
                           break
                   
-                  # LINE আপডেট করুন
+                  if not matched:
+                      unmatched_channels.append(channel_name)
+                  
+                  i += 2
+              else:
+                  i += 1
+          
+          print(f'📊 Total channels found: {channel_count}')
+          print(f'✅ Matched channels: {len(matched_channels)}')
+          print(f'❌ Unmatched channels: {len(unmatched_channels)}')
+          
+          print('\\n🎯 === MATCHED CHANNELS ===')
+          for channel_name, custom_name, logo_url in matched_channels:
+              print(f'   ✅ \"{channel_name}\" -> \"{custom_name}\" -> {logo_url}')
+          
+          print('\\n⚠️ === UNMATCHED CHANNELS (First 10) ===')
+          for channel_name in unmatched_channels[:10]:
+              print(f'   ❌ \"{channel_name}\"')
+          
+          # ২. M3U প্রসেসিং WITH BETTER MATCHING
+          print('\\n🔄 === PROCESSING M3U WITH LOGOS ===')
+          final_m3u_lines = []
+          i = 0
+          logos_applied = 0
+          
+          while i < len(m3u_lines):
+              line = m3u_lines[i]
+              if line.startswith('#EXTINF:-1'):
+                  channel_name = m3u_lines[i + 1] if i + 1 < len(m3u_lines) else ''
+                  channel_name_upper = channel_name.upper()
+                  
+                  # IMPROVED MATCHING LOGIC
+                  current_logo = None
+                  matched_channel = None
+                  
+                  for custom_channel, logo_url in CUSTOM_LOGOS.items():
+                      # Multiple matching strategies
+                      if (custom_channel in channel_name_upper or 
+                          channel_name_upper in custom_channel or
+                          any(part in channel_name_upper for part in custom_channel.split())):
+                          current_logo = logo_url
+                          matched_channel = custom_channel
+                          break
+                  
+                  # Apply logo
                   if current_logo:
                       if 'tvg-logo=' in line:
                           line = re.sub(r'tvg-logo=\"[^\"]*\"', f'tvg-logo=\"{current_logo}\"', line)
                       else:
                           line = line.replace('#EXTINF:-1', f'#EXTINF:-1 tvg-logo=\"{current_logo}\"')
+                      
+                      logos_applied += 1
+                      print(f'   ✅ Applied logo to: \"{channel_name}\"')
                   
                   final_m3u_lines.append(line)
-                  # Channel name line যোগ করুন
-                  if i + 1 < len(new_lines):
-                      final_m3u_lines.append(new_lines[i + 1].strip())
+                  if i + 1 < len(m3u_lines):
+                      final_m3u_lines.append(m3u_lines[i + 1])
                   i += 2
-              elif line.startswith('http'):
-                  # Stream URL - এটি নতুন থেকে নেওয়া হবে (আপডেট হবে)
-                  final_m3u_lines.append(line)
-                  i += 1
               else:
-                  # অন্যান্য লাইন (EXTM3U, ইত্যাদি)
                   final_m3u_lines.append(line)
                   i += 1
           
           # Final M3U সেভ করুন
           with open('CricHd.m3u', 'w', encoding='utf-8') as f:
-              f.write('\n'.join(final_m3u_lines))
+              f.write('\\n'.join(final_m3u_lines))
           
-          print(f'✅ M3U processed: {len(final_m3u_lines)} lines written')
+          print(f'\\n📈 === M3U PROCESSING SUMMARY ===')
+          print(f'✅ Total logos applied: {logos_applied}')
+          print(f'📺 Total channels processed: {channel_count}')
           
-          print('=== Processing JSON File ===')
-          # ২. JSON ফাইল প্রসেসিং
+          # ৩. JSON প্রসেসিং (existing code)
+          print('\\n📄 === PROCESSING JSON FILE ===')
           json_url = 'https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json'
-          try:
-              response = requests.get(json_url)
-              response.raise_for_status()
-              new_json_data = response.json()
-              print('✅ JSON downloaded successfully')
-          except Exception as e:
-              print(f'❌ JSON download failed: {e}')
-              exit(1)
-          
-          # বর্তমান JSON থেকে existing data পড়ুন (যদি থাকে)
-          json_logo_map = {}
-          if os.path.exists('api.json'):
-              try:
-                  with open('api.json', 'r', encoding='utf-8') as f:
-                      old_json_data = json.load(f)
-                  # পুরানো JSON থেকে logo-map তৈরি করুন
-                  for item in old_json_data:
-                      if 'name' in item and 'logo' in item:
-                          json_logo_map[item['name'].upper()] = item['logo']
-                  print(f'✅ Loaded {len(json_logo_map)} logos from existing JSON')
-              except Exception as e:
-                  print(f'⚠️ Could not read existing JSON: {e}')
-          else:
-              print('ℹ️ No existing JSON file found')
+          new_json_data = requests.get(json_url).json()
           
           # Custom logos যোগ করুন (JSON এর জন্য)
+          json_logo_map = {}
           for channel, logo in CUSTOM_LOGOS.items():
               json_logo_map[channel.upper()] = logo
           
-          # নতুন JSON প্রসেস করুন
-          updated_count = 0
+          # JSON প্রসেস করুন
+          json_logos_applied = 0
           for item in new_json_data:
               if 'name' in item:
                   channel_name_upper = item['name'].upper()
-                  
-                  # Custom logo চেক করুন
                   for custom_channel, logo_url in json_logo_map.items():
                       if custom_channel in channel_name_upper:
                           item['logo'] = logo_url
-                          updated_count += 1
+                          json_logos_applied += 1
                           break
           
           # Final JSON সেভ করুন
           with open('api.json', 'w', encoding='utf-8') as f:
               json.dump(new_json_data, f, indent=2, ensure_ascii=False)
           
-          print(f'✅ JSON processed: {updated_count} logos updated')
-          print('🎉 Both M3U and JSON updated successfully!')
-          print('📺 Stream links updated from second account')
-          print('🖼️ Custom logos preserved in both files')
+          print(f'✅ JSON logos applied: {json_logos_applied}')
+          print('🎉 PROCESSING COMPLETED!')
+          print(f'📊 M3U: {logos_applied}/{channel_count} channels got custom logos')
+          print(f'📊 JSON: {json_logos_applied}/{len(new_json_data)} items got custom logos')
           "
-
-      - name: Check for changes
-        id: check_changes
-        run: |
-          changes=false
-          if ! git diff --quiet CricHd.m3u 2>/dev/null; then
-            changes=true
-            echo "M3U file changed"
-          fi
-          if ! git diff --quiet api.json 2>/dev/null; then
-            changes=true
-            echo "JSON file changed"
-          fi
-          echo "changes=$changes" >> $GITHUB_OUTPUT
-
-      - name: Commit and push changes
-        if: steps.check_changes.outputs.changes == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add CricHd.m3u api.json
-          git commit -m "🔄 Smart Sync: URLs updated + custom logos - $(date +'%Y-%m-%d %H:%M:%S')"
-          git push
-          echo "Sync completed successfully!"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
