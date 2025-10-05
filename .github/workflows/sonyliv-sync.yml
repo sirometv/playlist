@@ -1,0 +1,136 @@
+name: Sync SonyLiv Events - Advanced
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-sonyliv:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          
+      - name: Install Python dependencies
+        run: pip install requests
+          
+      - name: Convert SonyLiv JSON to M3U with filtering
+        run: |
+          python -c "
+          import requests
+          import json
+          import re
+          
+          print('=== ADVANCED SONY LIV SYNC ===')
+          
+          # SonyLiv JSON URL
+          sonyliv_url = 'https://raw.githubusercontent.com/abusaeeidx/SonyLiv-Event-Auto-update/main/sonyliv.json'
+          
+          try:
+              response = requests.get(sonyliv_url)
+              sonyliv_data = response.json()
+              print(f'✅ Downloaded {len(sonyliv_data)} events')
+          except Exception as e:
+              print(f'❌ Error: {e}')
+              exit(1)
+          
+          # Advanced configuration
+          CONFIG = {
+              'include_sports': True,
+              'include_movies': False,
+              'include_tv_shows': False,
+              'min_duration': 0,  # minutes
+          }
+          
+          # Custom logos by category
+          CATEGORY_LOGOS = {
+              'cricket': 'https://i.postimg.cc/Sx4trrVy/image.jpg',
+              'football': 'https://i.postimg.cc/85zmvH5B/image.jpg',
+              'sports': 'https://i.postimg.cc/1RwSzp4q/image.jpg',
+              'movie': 'https://i.postimg.cc/0QDHtZxg/image.jpg',
+              'default': 'https://i.postimg.cc/1RwSzp4q/image.jpg'
+          }
+          
+          # M3U content তৈরি করুন
+          m3u_content = ['#EXTM3U']
+          events_added = 0
+          filtered_out = 0
+          
+          for event in sonyliv_data:
+              try:
+                  event_name = event.get('name', '').strip()
+                  stream_url = event.get('link', '').strip()
+                  event_id = event.get('id', '')
+                  
+                  # Validation checks
+                  if not event_name or not stream_url:
+                      filtered_out += 1
+                      continue
+                      
+                  if not stream_url.startswith('http'):
+                      filtered_out += 1
+                      continue
+                  
+                  # Content filtering
+                  event_lower = event_name.lower()
+                  
+                  if not CONFIG['include_sports'] and any(word in event_lower for word in ['cricket', 'football', 'sports']):
+                      filtered_out += 1
+                      continue
+                  
+                  # Category এবং logo নির্ধারণ
+                  category = 'default'
+                  for cat in ['cricket', 'football', 'sports', 'movie']:
+                      if cat in event_lower:
+                          category = cat
+                          break
+                  
+                  event_logo = CATEGORY_LOGOS.get(category, CATEGORY_LOGOS['default'])
+                  
+                  # Safe channel name তৈরি করুন
+                  safe_name = re.sub(r'[^\w\s-]', '', event_name)
+                  safe_name = re.sub(r'[-\s]+', ' ', safe_name).strip()
+                  
+                  # M3U entry
+                  extinf_line = f'#EXTINF:-1 tvg-logo=\"{event_logo}\" group-title=\"{category.upper()}\",{safe_name}'
+                  
+                  m3u_content.append(extinf_line)
+                  m3u_content.append(stream_url)
+                  
+                  events_added += 1
+                  print(f'✅ [{category.upper()}] {safe_name}')
+                  
+              except Exception as e:
+                  print(f'⚠️ Skipped: {e}')
+                  continue
+          
+          # M3U ফাইল সেভ করুন
+          with open('SonyLiv-Events.m3u', 'w', encoding='utf-8') as f:
+              f.write('\\n'.join(m3u_content))
+          
+          print(f'\\n📊 SYNC SUMMARY:')
+          print(f'✅ Events added: {events_added}')
+          print(f'🚫 Filtered out: {filtered_out}')
+          print(f'📺 Source total: {len(sonyliv_data)}')
+          print('🎉 Advanced SonyLiv sync completed!')
+          "
+          
+      - name: Commit and push changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add SonyLiv-Events.m3u
+          git commit -m '🔄 SonyLiv Events sync - $(date +\"%Y-%m-%d %H:%M:%S\")' || echo 'No changes'
+          git push
