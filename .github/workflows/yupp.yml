@@ -6,6 +6,9 @@ on:
     - cron: '*/5 * * * *'
   workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
 
+permissions:
+  contents: write
+
 jobs:
   sync-playlist:
     runs-on: ubuntu-latest
@@ -13,29 +16,58 @@ jobs:
     steps:
     - name: Checkout current repository
       uses: actions/checkout@v4
-      
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Download YuppTV playlist (Secure)
       run: |
+        echo "📥 Downloading YuppTV playlist from secure source..."
         curl -s -L -o Yupp.m3u "${{ secrets.YUPPTV_PLAYLIST_URL }}"
+        
+        # ফাইল ডাউনলোড হয়েছে কিনা চেক করুন
+        if [ -f "Yupp.m3u" ] && [ -s "Yupp.m3u" ]; then
+          echo "✅ Playlist downloaded successfully"
+          echo "📊 File size: $(wc -l < Yupp.m3u) lines"
+        else
+          echo "❌ Error: Failed to download playlist"
+          exit 1
+        fi
         
     - name: Check if playlist changed
       id: check_changes
       run: |
-        if [ -f "Yupp.m3u" ]; then
-          if git diff --quiet Yupp.m3u; then
-            echo "changes_detected=false" >> $GITHUB_OUTPUT
-          else
-            echo "changes_detected=true" >> $GITHUB_OUTPUT
+        changes_detected=false
+        
+        if [ -f "Yupp.m3u" ] && [ -s "Yupp.m3u" ]; then
+          # ফাইল এক্সিস্ট করলে changes চেক করুন
+          if ! git diff --quiet Yupp.m3u; then
+            changes_detected=true
+            echo "🔄 Changes detected in Yupp.m3u"
           fi
         else
-          echo "changes_detected=true" >> $GITHUB_OUTPUT
+          changes_detected=true
+          echo "📝 New Yupp.m3u file will be created"
         fi
+        
+        echo "changes_detected=$changes_detected" >> $GITHUB_OUTPUT
         
     - name: Commit and push if changes
       if: steps.check_changes.outputs.changes_detected == 'true'
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add Yupp.m3u
-        git commit -m "Auto-update YuppTV playlist - $(date)"
+        
+        # Commit message with timestamp
+        commit_msg="🔄 Auto-update YuppTV playlist - $(date +'%Y-%m-%d %H:%M:%S')"
+        git commit -m "$commit_msg"
+        
+        echo "🚀 Pushing changes to repository..."
         git push
+        echo "✅ Playlist updated successfully!"
+        
+    - name: No changes detected
+      if: steps.check_changes.outputs.changes_detected == 'false'
+      run: |
+        echo "✅ No changes detected in playlist"
+        echo "🕐 Next check in 5 minutes"
