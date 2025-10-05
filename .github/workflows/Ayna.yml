@@ -1,0 +1,72 @@
+name: Sync Ayna Playlist - Advanced
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-ayna:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Download and process playlist
+      env:
+        SOURCE_URL: ${{ secrets.SIROMETV_AYNA }}
+      run: |
+        python - << 'EOF'
+        import requests
+        import re
+        
+        print("📥 Downloading Ayna playlist...")
+        
+        # Download from secret URL
+        response = requests.get("$SOURCE_URL")
+        
+        if response.status_code != 200:
+            print("❌ Failed to download playlist")
+            exit(1)
+            
+        content = response.text
+        print(f"✅ Downloaded successfully ({len(content.splitlines())} lines)")
+        
+        # Process content - remove specific header lines
+        lines = content.splitlines()
+        processed_lines = []
+        
+        skip_patterns = [
+            "# Created by @AbuSaeedX", 
+            "# Generated:"
+        ]
+        
+        for line in lines:
+            if not any(pattern in line for pattern in skip_patterns):
+                processed_lines.append(line)
+        
+        # Save processed content
+        with open('Ayna.m3u', 'w', encoding='utf-8') as f:
+            f.write('\n'.join(processed_lines))
+            
+        print(f"✅ Processing completed ({len(processed_lines)} lines after filtering)")
+        EOF
+        
+    - name: Commit and push changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add Ayna.m3u
+        git commit -m "🔄 Auto-update Ayna playlist - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+        git push
