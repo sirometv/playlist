@@ -1,4 +1,4 @@
-name: Debug Sync - Manual Trigger
+name: Debug Manual Trigger
 
 on:
   workflow_dispatch:
@@ -30,18 +30,25 @@ jobs:
           git log --oneline -5
 
       - name: Check remote files timestamp
+        env:
+          M3U_SOURCE_URL: ${{ secrets.CRIC_HD_LIVE }}
+          JSON_SOURCE_URL: ${{ secrets.CRIC_JSON_LIVE }}
         run: |
           echo "🔍 Checking second account files..."
-          echo "M3U URL: https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u"
-          curl -s -I "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u" | grep -i "last-modified" || echo "No last-modified header"
-          echo "JSON URL: https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json"
-          curl -s -I "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json" | grep -i "last-modified" || echo "No last-modified header"
+          echo "M3U URL: [SECRET - HIDDEN]"
+          curl -s -I "$M3U_SOURCE_URL" | grep -i "last-modified" || echo "No last-modified header"
+          echo "JSON URL: [SECRET - HIDDEN]" 
+          curl -s -I "$JSON_SOURCE_URL" | grep -i "last-modified" || echo "No last-modified header"
 
       - name: Download and compare files
+        env:
+          M3U_SOURCE_URL: ${{ secrets.CRIC_HD_LIVE }}
+          JSON_SOURCE_URL: ${{ secrets.CRIC_JSON_LIVE }}
         run: |
           # নতুন ফাইল ডাউনলোড
-          curl -s "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u" -o new_m3u.m3u
-          curl -s "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json" -o new_json.json
+          echo "📥 Downloading files from secure sources..."
+          curl -s "$M3U_SOURCE_URL" -o new_m3u.m3u
+          curl -s "$JSON_SOURCE_URL" -o new_json.json
           
           echo "📈 File sizes:"
           echo "New M3U: $(wc -l < new_m3u.m3u) lines"
@@ -51,23 +58,55 @@ jobs:
             echo "Old M3U: $(wc -l < CricHd.m3u) lines"
             echo "🔍 M3U differences:"
             diff -u CricHd.m3u new_m3u.m3u | head -20 || echo "No significant differences"
+          else
+            echo "❌ CricHd.m3u not found in current repo"
           fi
           
           if [ -f "api.json" ]; then
             echo "Old JSON: $(wc -c < api.json) bytes" 
             echo "🔍 JSON differences:"
             diff -u api.json new_json.json | head -20 || echo "No significant differences"
+          else
+            echo "❌ api.json not found in current repo"
           fi
 
       - name: Force update if different
         run: |
+          # Check if files actually exist and have content
+          if [ ! -f "new_m3u.m3u" ] || [ ! -s "new_m3u.m3u" ]; then
+            echo "❌ Error: new_m3u.m3u is empty or missing"
+            exit 1
+          fi
+          
+          if [ ! -f "new_json.json" ] || [ ! -s "new_json.json" ]; then
+            echo "❌ Error: new_json.json is empty or missing"
+            exit 1
+          fi
+          
           # Logic to force update
           cp new_m3u.m3u CricHd.m3u
           cp new_json.json api.json
           echo "✅ Files updated forcefully"
           
+          echo "📊 After update file sizes:"
+          echo "CricHd.m3u: $(wc -l < CricHd.m3u) lines"
+          echo "api.json: $(wc -c < api.json) bytes"
+          
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add CricHd.m3u api.json
+          git diff --staged --name-only
           git commit -m "🔄 Debug Sync: Force update - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
-          git push
+          
+          # Only push if there are changes
+          if git diff --quiet HEAD^ HEAD 2>/dev/null || [ $? -eq 1 ]; then
+            echo "🔄 Pushing changes to repository..."
+            git push
+          else
+            echo "ℹ️ No changes to push"
+          fi
+
+      - name: Cleanup temporary files
+        run: |
+          rm -f new_m3u.m3u new_json.json
+          echo "🧹 Temporary files cleaned up"
