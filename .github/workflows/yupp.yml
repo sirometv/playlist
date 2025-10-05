@@ -16,13 +16,13 @@ jobs:
       
     - name: Download YuppTV playlist (Secure)
       run: |
-        curl -s -L -o Yuppt.m3u "${{ secrets.YUPPTV_PLAYLIST_URL }}"
+        curl -s -L -o Yupp.m3u "${{ secrets.YUPPTV_PLAYLIST_URL }}"
         
     - name: Check if playlist changed
       id: check_changes
       run: |
-        if [ -f "Yuppt.m3u" ]; then
-          if git diff --quiet Yuppt.m3u; then
+        if [ -f "Yupp.m3u" ]; then
+          if git diff --quiet Yupp.m3u; then
             echo "changes_detected=false" >> $GITHUB_OUTPUT
           else
             echo "changes_detected=true" >> $GITHUB_OUTPUT
@@ -36,6 +36,6 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add Yuppt.m3u
+        git add Yupp.m3u
         git commit -m "Auto-update YuppTV playlist - $(date)"
         git push
