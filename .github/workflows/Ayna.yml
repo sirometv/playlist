@@ -1,4 +1,4 @@
-name: Ayna TV
+name: Sync Ayna Playlist - Advanced
 
 on:
   schedule:
@@ -48,7 +48,8 @@ jobs:
         processed_lines = []
         
         skip_patterns = [
-            "# Created by @AbuSaeedX", 
+            "# Created by @AbuSaeedX",
+            "# Total channels:", 
             "# Generated:"
         ]
         
