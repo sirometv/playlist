@@ -2,8 +2,9 @@ name: Ayna TV
 
 on:
   schedule:
+    # প্রতি ৫ মিনিট পর পর আপডেট হবে
     - cron: '*/5 * * * *'
-  workflow_dispatch:
+  workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
 
 permissions:
   contents: write
@@ -18,56 +19,99 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-        
-    - name: Download and process playlist
-      env:
-        SOURCE_URL: ${{ secrets.SIROMETV_AYNA }}
+    - name: Download original playlist
       run: |
-        python - << 'EOF'
-        import requests
-        import re
+        echo "🔄 Starting Ayna TV playlist sync..."
+        echo "📥 Downloading from secure source..."
         
-        print("📥 Downloading Ayna playlist...")
+        # সিক্রেট URL থেকে প্লেলিস্ট ডাউনলোড
+        curl -s -L -o original_playlist.m3u "${{ secrets.SIROMETV_AYNA }}"
         
-        # Download from secret URL
-        response = requests.get("$SOURCE_URL")
+        # ডাউনলোড সফল হয়েছে কিনা চেক
+        if [ ! -f "original_playlist.m3u" ] || [ ! -s "original_playlist.m3u" ]; then
+          echo "❌ ERROR: Playlist download failed!"
+          exit 1
+        fi
         
-        if response.status_code != 200:
-            print("❌ Failed to download playlist")
-            exit(1)
-            
-        content = response.text
-        print(f"✅ Downloaded successfully ({len(content.splitlines())} lines)")
+        ORIGINAL_LINES=$(wc -l < original_playlist.m3u)
+        echo "✅ Download successful - $ORIGINAL_LINES lines"
         
-        # Process content - remove specific header lines
-        lines = content.splitlines()
-        processed_lines = []
+    - name: Process and customize playlist
+      run: |
+        echo "🎨 Customizing playlist with Sirome TV branding..."
         
-        skip_patterns = [
-            "# Created by @AbuSaeedX",
-            "# Total channels:", 
-            "# Generated:"
-        ]
+        # চ্যানেল কাউন্ট সংগ্রহ
+        CHANNEL_COUNT=$(grep -c "#EXTINF:" original_playlist.m3u)
+        CURRENT_TIME=$(date +'%Y-%m-%d %H:%M:%S')
         
-        for line in lines:
-            if not any(pattern in line for pattern in skip_patterns):
-                processed_lines.append(line)
+        # নতুন কাস্টম হেডার তৈরি
+        echo "#EXTM3U" > Ayna.m3u
+        echo "# Sirome TV" >> Ayna.m3u
+        echo "# Total channels: $CHANNEL_COUNT" >> Ayna.m3u
+        echo "# Updated: $CURRENT_TIME" >> Ayna.m3u
+        echo "# Auto-sync: Every 5 minutes" >> Ayna.m3u
+        echo "" >> Ayna.m3u
         
-        # Save processed content
-        with open('Ayna.m3u', 'w', encoding='utf-8') as f:
-            f.write('\n'.join(processed_lines))
-            
-        print(f"✅ Processing completed ({len(processed_lines)} lines after filtering)")
-        EOF
+        # মূল কন্টেন্ট যোগ করুন (অনাকাঙ্ক্ষিত হেডার বাদ দিয়ে)
+        grep -v -E "(#EXTM3U|# Created by @AbuSaeedX|# Total channels:|# Generated:)" original_playlist.m3u >> Ayna.m3u
+        
+        # ফলাফল চেক
+        FINAL_LINES=$(wc -l < Ayna.m3u)
+        LINES_REMOVED=$((ORIGINAL_LINES - FINAL_LINES + 5))  # 5 lines আমরা নতুন হেডার যোগ করেছি
+        
+        echo "✨ Customization completed!"
+        echo "📊 Statistics:"
+        echo "   Original lines: $ORIGINAL_LINES"
+        echo "   Final lines: $FINAL_LINES"
+        echo "   Channels found: $CHANNEL_COUNT"
+        echo "   Header lines replaced: $LINES_REMOVED"
+        
+        # সাম্প্ল কন্টেন্ট দেখান
+        echo "🔍 Preview of customized playlist:"
+        head -8 Ayna.m3u
+        
+        # টেম্পোরারি ফাইল ক্লিনআপ
+        rm -f original_playlist.m3u
+        
+    - name: Verify processed file
+      run: |
+        echo "🔍 Verifying processed playlist..."
+        
+        if [ ! -f "Ayna.m3u" ] || [ ! -s "Ayna.m3u" ]; then
+          echo "❌ ERROR: Processed file is missing or empty!"
+          exit 1
+        fi
+        
+        FILE_SIZE=$(wc -c < Ayna.m3u)
+        LINES_COUNT=$(wc -l < Ayna.m3u)
+        CHANNELS=$(grep -c "#EXTINF:" Ayna.m3u)
+        
+        echo "✅ File verification passed!"
+        echo "📋 File details:"
+        echo "   Size: $FILE_SIZE bytes"
+        echo "   Lines: $LINES_COUNT"
+        echo "   Channels: $CHANNELS"
         
     - name: Commit and push changes
       run: |
+        echo "💾 Saving changes to repository..."
+        
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add Ayna.m3u
-        git commit -m "🔄 Auto-update Ayna playlist - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
-        git push
+        
+        # শুধু changes থাকলে commit করুন
+        if git diff --staged --quiet; then
+          echo "✅ No changes detected - playlist is up to date"
+        else
+          git commit -m "🔄 Ayna TV Auto Sync - $(date +'%Y-%m-%d %H:%M:%S')"
+          git push
+          echo "🎉 Successfully updated Ayna.m3u with Sirome TV branding!"
+          echo "🕐 Next auto-sync in 5 minutes"
+        fi
+        
+    - name: Cleanup on success
+      if: success()
+      run: |
+        echo "🧹 Cleanup completed"
+        echo "✅ Ayna TV sync workflow finished successfully!"
