@@ -46,9 +46,10 @@ jobs:
         
         # patterns for security
         PATTERN1=$(echo "Q3JlYXRlZCBieSB8VG90YWwgY2hhbm5lbHM6fEdlbmVyYXRlZDo=" | base64 -d)
-        PATTERN2=$(echo "Q3JlYXRlZCBieSB8VG90YWwgY2hhbm5lbHM6fEdlbmVyYXRlZDo=" | base64 -d)
+        PATTERN2=$(echo "I0VYVElORjotMSB0dmctbG9nbz0iaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0hlbGxvUGVvcGxUVjR5b3UvSVBUVi1QbGF5bGlzdC9jMjQ1MTQ2Y2QxNzhmOWRhM2NlMTRjY2ZlYzVjNjhjYWYxMzczMDI5L3gtZmlyZS1mbGl4LnBuZyIgZ3JvdXAtdGl0bGU9IkJZIFggZmlyZSBGbGl4IixYIGZpcmUgRmxpeA==" | base64 -d)
+        PATTERN3=$(echo "aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0hlbGxvUGVvcGxUVjR5b3UvbGl2ZS9yZWZzL2hlYWRzL21haW4vYnl4ZmlyZWZsaXgvQlktWC1GSVJFLUZMSVgubXA0" | base64 -d)
         
-        # New Header Make
+        # New Custom Header
         echo "#EXTM3U" > Ayna.m3u
         echo "# Sirome TV" >> Ayna.m3u
         echo "# Total channels: $CHANNEL_COUNT" >> Ayna.m3u
@@ -56,19 +57,56 @@ jobs:
         echo "# Powered-By: BDIX" >> Ayna.m3u
         echo "" >> Ayna.m3u
         
-        # মূল কন্টেন্ট যোগ করুন (Base64 decoded patterns ব্যবহার করে)
-        grep -v -E "(#EXTM3U|$PATTERN1|$PATTERN2)" original_playlist.m3u >> Ayna.m3u
+        # মূল কন্টেন্ট প্রসেসিং (Base64 decoded patterns ব্যবহার করে)
+        LINE_NUMBER=0
+        SKIP_NEXT_LINE=0
+        
+        while IFS= read -r line; do
+            LINE_NUMBER=$((LINE_NUMBER + 1))
+            
+            # চেক করুন যদি লাইনটি skip করতে হবে
+            if [ $SKIP_NEXT_LINE -eq 1 ]; then
+                SKIP_NEXT_LINE=0
+                continue
+            fi
+            
+            # PATTERN2 (X fire Flix EXTINF line) থাকলে skip করুন
+            if echo "$line" | grep -q "$PATTERN2"; then
+                echo "🚫 Removing X fire Flix channel: $line"
+                SKIP_NEXT_LINE=1
+                continue
+            fi
+            
+            # PATTERN3 (X fire Flix URL line) থাকলে skip করুন
+            if echo "$line" | grep -q "$PATTERN3"; then
+                echo "🚫 Removing X fire Flix URL"
+                continue
+            fi
+            
+            # PATTERN1 (header lines) থাকলে skip করুন
+            if echo "$line" | grep -q "$PATTERN1"; then
+                echo "🚫 Removing unwanted header: $line"
+                continue
+            fi
+            
+            # অন্য সব লাইন যোগ করুন
+            echo "$line" >> Ayna.m3u
+            
+        done < original_playlist.m3u
         
         # ফলাফল চেক
         FINAL_LINES=$(wc -l < Ayna.m3u)
+        FINAL_CHANNELS=$(grep -c "#EXTINF:" Ayna.m3u)
         LINES_REMOVED=$((ORIGINAL_LINES - FINAL_LINES + 5))  # 5 lines আমরা নতুন হেডার যোগ করেছি
         
         echo "✨ Customization completed!"
         echo "📊 Statistics:"
         echo "   Original lines: $ORIGINAL_LINES"
         echo "   Final lines: $FINAL_LINES"
-        echo "   Channels found: $CHANNEL_COUNT"
-        echo "   Header lines replaced: $LINES_REMOVED"
+        echo "   Original channels: $CHANNEL_COUNT"
+        echo "   Final channels: $FINAL_CHANNELS"
+        echo "   Removed channels: $((CHANNEL_COUNT - FINAL_CHANNELS))"
+        echo "   Total lines removed: $LINES_REMOVED"
         
         # সাম্প্ল কন্টেন্ট দেখান
         echo "🔍 Preview of customized playlist:"
