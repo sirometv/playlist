@@ -48,7 +48,7 @@ jobs:
         PATTERN1=$(echo "Q3JlYXRlZCBieSB8VG90YWwgY2hhbm5lbHM6fEdlbmVyYXRlZDo=" | base64 -d)
         PATTERN2=$(echo "Q3JlYXRlZCBieSB8VG90YWwgY2hhbm5lbHM6fEdlbmVyYXRlZDo=" | base64 -d)
         
-        # নতুন কাস্টম হেডার তৈরি
+        # New Header Make
         echo "#EXTM3U" > Ayna.m3u
         echo "# Sirome TV" >> Ayna.m3u
         echo "# Total channels: $CHANNEL_COUNT" >> Ayna.m3u
