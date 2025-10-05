@@ -1,4 +1,4 @@
-name: Sync CricHD Playlist - Flexible Mode
+name: CricHD Flexible Mode
 
 on:
   schedule:
@@ -35,6 +35,9 @@ jobs:
         run: pip install requests
 
       - name: Create and run Python script
+        env:
+          M3U_SOURCE_URL: ${{ secrets.CRIC_HD_LIVE }}
+          JSON_SOURCE_URL: ${{ secrets.CRIC_JSON_LIVE }}
         run: |
           cat > sync_script.py << 'EOF'
           import requests
@@ -85,7 +88,11 @@ jobs:
           
           # 1. M3U ফাইল প্রসেসিং
           print("📺 Downloading source M3U...")
-          m3u_url = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/ALL.m3u"
+          m3u_url = os.environ.get('M3U_SOURCE_URL')
+          json_url = os.environ.get('JSON_SOURCE_URL')
+          
+          print(f"Source URLs configured securely")
+          
           m3u_response = requests.get(m3u_url)
           m3u_content = m3u_response.text
           
@@ -150,7 +157,6 @@ jobs:
           
           # 2. JSON ফাইল প্রসেসিং
           print("\n📄 Processing JSON file...")
-          json_url = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json"
           json_response = requests.get(json_url)
           json_data = json_response.json()
           
@@ -171,7 +177,7 @@ jobs:
               json.dump(json_data, f, indent=2, ensure_ascii=False)
           
           print(f"\n🎉 SYNC COMPLETED!")
-          print(f"📺 Streaming URLs: Updated from second account")
+          print(f"📺 Streaming URLs: Updated from secure source")
           print(f"🖼️  Logos & Names: {SYNC_MODE.upper()} mode")
           EOF
           
