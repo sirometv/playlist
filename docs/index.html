@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playlists</title>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #333; }
+        .file-list { list-style: none; padding: 0; }
+        .file-list li { margin: 10px 0; }
+        .file-list a { 
+            text-decoration: none; 
+            color: #0366d6; 
+            font-size: 18px;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .file-list a:hover { background: #f6f8fa; }
+        .info { color: #666; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>📺 Available Playlists</h1>
+    <ul class="file-list">
+        <li><a href="./Yupp.m3u">YuppTV Playlist (Yupp.m3u)</a></li>
+        <li><a href="./CricHd.m3u">CricHD Playlist (CricHd.m3u)</a></li>
+        <li><a href="./api.json">API Data (api.json)</a></li>
+    </ul>
+    <div class="info">
+        <p>Last updated: <span id="timestamp">Loading...</span></p>
+        <p>Auto-updates every 5 minutes</p>
+    </div>
+    
+    <script>
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>
