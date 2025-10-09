@@ -256,6 +256,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/c19kwNbB/image.jpg" group-title="Bangladeshi", Gaan Bangla
+https://tplay.live/originals/bengali-beats/index.m3u8
 https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
 
 
@@ -442,6 +443,7 @@ https://tvsen5.aynaott.com/gUX8BJmNc2yF/index.m3u8
 https://aynapubluc.vercel.app/api/stream/f07177e9-d1a9-48b4-8e2e-1718d098bbfb.m3u8
 https://live.dinesh29.com.np/stream/jiotvplus/starjalshahd/stream_0.m3u8
 https://smart.bengaldigital.live/Star-jalsha/index.m3u8
+https://cloudfrontnet.vercel.app/tplay/playout/209627/master.m3u8
 
 
 
@@ -453,10 +455,13 @@ https://aynapubluc.vercel.app/api/stream/f07177e9-d1a9-48b4-8e2e-1718d098bbfb.m3
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/x8sgjYtH/resized-300x180-ffffff-12.jpg" group-title="Indian-Bangla", Zee Bangla
 https://tvsen5.aynaott.com/PNEb3v2q6GBk/index.m3u8
 https://catchup.yuppcdn.net/amazonv2/36/preview/zeebangla/master/chunklist.m3u8
+https://yupptvcatchupire.yuppcdn.net/preview/zeebangla/2500.m3u8
 http://103.175.242.10:8080/zeebangla/index.m3u8
 http://stvlive.net:8080/zeebangla/index.m3u8
 https://aynapubluc.vercel.app/api/stream/890a1a92-0602-4c2d-93ca-a2c43e7aec54.m3u8
 https://smart.bengaldigital.live/Zee-Bangla-Cinema/tracks-v1a1/mono.m3u8
+https://server.zillarbarta.com/ZBCINEMA/tracks-v1a1/mono.m3u8
+
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/ZqDsVsYL/resized-300x175-transparent.png" group-title="Indian-Bangla", Zee Bangla Cinema
@@ -478,6 +483,7 @@ http://smart.bengaldigital.live/Zee-Bangla-Cinema/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/5yQRdtm7/image.jpg" group-title="Indian-Bangla", Colors Bengali
 https://live.dinesh29.com.np/stream/jiotvplus/colorsbanglasd/master.m3u8
+https://yupptvcatchupire.yuppcdn.net/preview/colorsbanglahd/800.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/tCzKNs7B/image.jpg" group-title="Indian-Bangla", Colors Bengali HD
 https://live.dinesh29.com.np/stream/jiotvplus/colorsbengalihd/master.m3u8
@@ -490,6 +496,7 @@ https://live.dinesh29.com.np/stream/jiotvplus/colorsbanglacinema/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/mgNFmf82/image.jpg" group-title="Indian-Bangla", Sun Bangla
 http://103.122.252.100:8080/SUN-BANGLA/tracks-v1a1/mono.m3u8
+http://103.122.252.100:8080/SUN-BANGLA/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/bvWwS84s/image.jpg" group-title="Indian-Bangla", Sangeet Bangla
@@ -497,15 +504,39 @@ https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Sangeetbangla2/default/dash/Sangeet
 #https://aynapubluc.vercel.app/api/stream/75412270-ce20-4376-8e7f-21fc76f84ed4.m3u8
 
 
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Ss5tqm2x/image.jpg" group-title="Indian-Bangla", Sony Aat
+https://cloudfrontnet.vercel.app/tplay/playout/209611/master.m3u8
+
+
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
+
+
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
+
+
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/zBKwKxyv/resized-300x175-ffffff-1.jpg" group-title="Indian-Bangla",Enter 10 Bangla
 http://103.122.252.100:8080/ENTER-10-BANGLA/tracks-v1a1/mono.m3u8
 https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_720p/chunks.m3u8
+https://amg01448-samsungin-enterr10bangla-samsungin-ad-gg.amagi.tv/playlist/amg01448-samsungin-enterr10bangla-samsungin/playlist.m3u8
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/T3B9k5D7/image.jpg" group-title="Indian-Bangla", Tara TV
 https://live.dinesh29.com.np/stream/jiotv/taratv/stream_0.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/j2xCxYp2/image.jpg" group-title="Indian-Bangla", Tara Cinema
+http://103.145.48.150:90/laosat24/taratv/index.m3u8
+
+
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/MZrb8Q0B/image.jpg" group-title="Indian-Bangla", Akash Aath
 https://cdn-4.pishow.tv/live/969/master.m3u8
+
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/nz9CtwQb/Zml-PBq-Aa-SHub218-Aqr7j-Q.jpg" group-title="Indian-Bangla", Sananda TV
@@ -533,22 +564,37 @@ https://cdn-4.pishow.tv/live/969/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Kj2qw5QW/resized-300x180-ffffff-29.jpg" group-title="Indian-Bangla", News 18 বাংলা
 https://ythls.armelin.one/channel/UCbf0XHULBkTfv2hBjaaDw9Q.m3u8
+https://amg01448-samsungin-news18bangla-samsungin-ad-qy.amagi.tv/playlist/amg01448-samsungin-news18bangla-samsungin/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/hj76HvnX/resized-300x180-ffffff-28.jpg" group-title="Indian-Bangla", News 18 আসম
 https://ythls.armelin.one/channel/UCAjBd-r8JWfnRjfhg23nqLQ.m3u8
 
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/QtrvW8x9/image.jpg" group-title="Indian-Bangla", TV9 Bangla
+https://amg01448-samsungin-tv9bangla-samsungin-9lgnh.amagi.tv/playlist/amg01448-samsungin-tv9bangla-samsungin/playlist.m3u8
+https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8
 
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/cH9MGhzj/image.jpg" group-title="Indian-Bangla", R plus Gold
+https://cdn-4.pishow.tv/live/1231/1231_2.m3u8
+https://cdn-4.pishow.tv/live/1231/master.m3u8
+
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
 
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/cCG90C3G/image.jpg" group-title="Indian-Bangla", Zee 24 Ghanta
 https://live.dinesh29.com.np/stream/jiotvplus/zee24ghanta/master.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/9MfvCxxm/image.jpg" group-title="Indian-Bangla", DD Bangla
+https://d3eyhgoylams0m.cloudfront.net/v1/manifest/93ce20f0f52760bf38be911ff4c91ed02aa2fd92/ed7bd2c7-8d10-4051-b397-2f6b90f99acb/2e9e32a4-c4f7-49c3-96d6-c4e3660c7e3f/2.m3u8
+https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/52b998e9510d41c29ad2ceca8ea3d849/index.m3u8
 
 
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/NfVT45hL/image.jpg" group-title="Indian-Bangla", Ruposhi Bangla
+https://cdn-4.pishow.tv/live/1039/master.m3u8
 
 #EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
 
@@ -644,6 +690,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
