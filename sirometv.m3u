@@ -20,7 +20,11 @@ https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/kurani-kerim-dersleri-t
 #EXTINF:-1 tvg-id="BD" tvg-name="BTV National" tvg-logo="https://i.postimg.cc/KcwPJkXB/resized-300x180-transparent.png" group-title="Bangladeshi",BTV National
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/btvnational1.stream/tracks-v1a1/mono.ts.m3u8
 https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709-audio_113392_eng=113200-video=1692000.m3u8
+https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
+
 http://103.230.105.252:1935/live/btv/index.m3u8
+
+
 
 
 #EXTINF:-1 tvg-id="BD" tvg-name="BTV CTG" tvg-logo="https://i.postimg.cc/tRKSvR8Z/resized-300x180-ffffff.jpg" group-title="Bangladeshi",BTV CTG
@@ -52,6 +56,7 @@ http://stvlive.net:8080/somoy/index.m3u8
 http://210.4.72.204/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="NTV" tvg-logo="https://i.postimg.cc/P5jtHjvN/resized-300x180-ffffff-2.jpg" group-title="Bangladeshi",NTV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/index.m3u8
 http://103.230.105.252:1935/live/ntv/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/bv4VXzdB/resized-300x180-ffffff-3.jpg" group-title="Bangladeshi", NTV Europ
@@ -115,14 +120,17 @@ https://live20.bozztv.com/akamaissh101/ssh101/starsports/chunks.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/channel9hd.stream/playlist.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="Channel I" tvg-logo="https://i.postimg.cc/prkPFJ9L/image.jpg" group-title="Bangladeshi",Channel I
+https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/channeli-8-org.stream/playlist.m3u8
-https://tvsen6.aynaott.com/channeli/index.m3u8
+#https://tvsen6.aynaott.com/channeli/index.m3u8
 http://stvlive.net:8080/channeli/index.m3u8
 
 
 #EXTINF:-1 tvg-id="BD" tvg-name="Bangla Vision" tvg-logo="https://i.postimg.cc/t4ZFKFP9/resized-300x180-ffffff-4.jpg" group-title="Bangladeshi",Bangla Vision
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/banglav000.stream/playlist.m3u8
-http://stvlive.net:8080/banglavision/index.m3u8
+http://103.175.242.10:8080/banglavision/index.m3u8
+https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8
+#http://stvlive.net:8080/banglavision/index.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="Maasranga TV" tvg-logo="https://i.postimg.cc/9MWRQ94R/resized-300x180-ffffff-5.jpg" group-title="Bangladeshi",Maasranga TV
 https://mtv.sunplex.live/MAASRANGA-TV/tracks-v1a1/mono.m3u8
@@ -262,7 +270,8 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/sxBsKfQD/resized-300x180-ffffff-9.jpg" group-title="Bangladeshi",Ekattor TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/ekattor.stream/playlist.m3u8
-https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705-audio_113352_eng=113200-video=1692000.m3u8
+#https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/1705-audio_113352_eng=113200-video=1692000.m3u8
+https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/index.m3u8
 # সাইট হচ্ছেঃ https://119-ar.vercel.app/#channels
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/2ycJtMmp/image.jpg" group-title="Bangladeshi", Nagorik TV
@@ -304,6 +313,8 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/1XCyNdDW/image.jpg" group-title="Bangladeshi", Matri Bhumi
 http://103.101.197.10:8989/M_Movies/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/1X8rnG1y/image.jpg" group-title="Bangladeshi", Magic Bangla 
+https://jolshabd.com/live/mbanglatv/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/s2sfq5f4/image.jpg" group-title="Bangladeshi", Alpona TV
 https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
@@ -336,7 +347,9 @@ https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
 https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/Y0W5zNyH/image.jpg" group-title="Bangladeshi", Falguni TV
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/0NfkChgC/image.jpg" group-title="Bangladeshi", Deshi TV
+https://deshitv.deshitv24.net/live/myStream/playlist.m3u8
+http://208.86.19.13:81/514.stream/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Fs449qBg/image.jpg" group-title="Bangladeshi", Falguni TV
 https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
@@ -358,8 +371,7 @@ https://iptvbd.live/rajdhanitv/1080.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/FzDRXNkh/image.jpg" group-title="Bangladeshi", NAN TV
 http://tv.bdiptv.store:80/live/restreauuX58y/refstream/15346.m3u8
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/1X8rnG1y/image.jpg" group-title="Bangladeshi", Magic Bangla 
-https://jolshabd.com/live/mbanglatv/playlist.m3u8
+
 
 
 
@@ -488,10 +500,18 @@ https://cdn-4.pishow.tv/live/969/master.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/nz9CtwQb/Zml-PBq-Aa-SHub218-Aqr7j-Q.jpg" group-title="Indian-Bangla", Sananda TV
-https://live.sanonda.tv/sanonda/tracks-v1a1/mono.m3u8
+https://live.sanonda.tv/sanonda/index.m3u8
+https://smart.bengaldigital.live/Zee-Bangla/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/QM0BMFdf/image.jpg" group-title="Indian-Bangla", Amar Bangla
+https://live-stream.utkalbongo.com/utkalbongo/stream10/hls/amarbangla.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/amarbanglatv.stream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/t4FZYr51/2-C5-DZ9p-VXS.jpg" group-title="Indian-Bangla", Amar Bangla Digital
 https://live-stream.utkalbongo.com/utkalbongo/stream2/hls/amarbanglatwolivestream.m3u8
+
+
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/VLYK0ssr/l-XRw-SO-RTuq-SVs-LJCl-Hib-Q.jpg" group-title="Indian-Bangla", Bangla+
 https://live-stream.utkalbongo.com/hls/livebanglatvstream.m3u8
@@ -615,6 +635,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
