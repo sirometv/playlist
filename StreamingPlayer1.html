@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+        }
+        
+        /* Disable text selection and image drag */
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+        }
+        
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            padding: 10vh 30vw 0 30vw;
+        }
+        
+        /* Player */
+        .video-container {
+            flex: 0 0 70%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+        
+        .video-wrapper {
+            width: 100%;
+            flex: 1;
+            position: relative;
+            background: #000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #player {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        .video-watermark {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            bottom: 25%;
+            left: 10%;
+            z-index: 10;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
+        }
+        
+        .fullscreen .video-watermark {
+            width: 100px;
+            height: 100px;
+        }
+        
+        /* Controls */
+        .controls-container {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 12px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .url-input-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .url-input {
+            width: 70%;
+            padding: 12px 20px;
+            border: 2px solid #444;
+            background: #1a1a1a;
+            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .url-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25), inset 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            background: linear-gradient(145deg, #2d2d2d, #222);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(145deg, #007bff, #0056b3);
+        }
+        
+        .btn-success {
+            background: linear-gradient(145deg, #28a745, #1e7e34);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(145deg, #ffc107, #e0a800);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(145deg, #dc3545, #c82333);
+        }
+        
+        .btn-icon {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        
+        /* Animation for buttons */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            background: #28a745;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <!-- Player -->
+    <div class="video-container">
+        <div class="video-wrapper">
+            <img src="https://i.postimg.cc/d1hHy4ss/11.png" class="video-watermark" alt="logo">
+            <div id="player"></div>
+        </div>
+    </div>
+    
+    <!-- Controls -->
+    <div class="controls-container">
+        <div class="url-input-container">
+            <input type="text" id="url-input" class="url-input" placeholder="Enter streaming URL">
+        </div>
+        <div class="button-container">
+            <button id="play-button" class="btn btn-primary">
+                <span class="btn-icon">▶</span> Play Video
+            </button>
+            <button id="paste-button" class="btn btn-success">
+                <span class="btn-icon">📋</span> Paste
+            </button>
+            <button id="clear-button" class="btn btn-warning">
+                <span class="btn-icon">🗑️</span> Clear
+            </button>
+            <button id="refresh-button" class="btn btn-danger">
+                <span class="btn-icon">🔄</span> Refresh
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    // Global variables
+    let player;
+    let lastUrl = localStorage.getItem('lastVideoUrl') || '';
+
+    // Initialize player
+    function initPlayer(url) {
+        if (player) {
+            player.destroy();
+        }
+        
+        player = new Clappr.Player({
+            source: url,
+            parentId: "#player",
+            autoPlay: true,
+            mute: false,
+            width: "100%",
+            height: "100%",
+            poster: "https://i.postimg.cc/cJBhWxv5/3122396-ico-Copy.png"
+        });
+
+        // Add event listener for when video starts playing to fade out poster
+        player.on('play', function() {
+            const posterElement = document.querySelector('.poster');
+            if (posterElement) {
+                posterElement.style.opacity = '0';
+                setTimeout(() => {
+                    posterElement.style.display = 'none';
+                }, 1000);
+            }
+        });
+
+        // Handle fullscreen changes for logo
+        player.on('fullscreen', function(isFullscreen) {
+            const videoContainer = document.querySelector('.video-container');
+            if (isFullscreen) {
+                videoContainer.classList.add('fullscreen');
+            } else {
+                videoContainer.classList.remove('fullscreen');
+            }
+        });
+    }
+
+    // Play a channel
+    function playChannel(url) {
+        if (!url) {
+            showToast('Please enter a valid URL', 'warning');
+            return;
+        }
+        
+        showToast('Loading video...', 'info');
+        
+        if (player) {
+            player.load(url);
+            player.configure({ 
+                autoPlay: true, 
+                poster: "https://i.postimg.cc/cJBhWxv5/3122396-ico-Copy.png"
+            });
+        } else {
+            initPlayer(url);
+        }
+        
+        // Save URL to localStorage
+        localStorage.setItem('lastVideoUrl', url);
+    }
+
+    // Show toast notification
+    function showToast(message, type = 'info') {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        
+        // Set background color based on type
+        if (type === 'success') {
+            toast.style.background = '#28a745';
+        } else if (type === 'warning') {
+            toast.style.background = '#ffc107';
+            toast.style.color = '#212529';
+        } else if (type === 'error') {
+            toast.style.background = '#dc3545';
+        } else {
+            toast.style.background = '#007bff';
+        }
+        
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    // DOM elements
+    const urlInput = document.getElementById('url-input');
+    const playButton = document.getElementById('play-button');
+    const pasteButton = document.getElementById('paste-button');
+    const clearButton = document.getElementById('clear-button');
+    const refreshButton = document.getElementById('refresh-button');
+
+    // Event listeners
+    playButton.addEventListener('click', () => {
+        playChannel(urlInput.value);
+    });
+
+    pasteButton.addEventListener('click', async () => {
+        try {
+            const text = await navigator.clipboard.readText();
+            urlInput.value = text;
+            playChannel(text);
+            showToast('URL pasted successfully', 'success');
+        } catch (err) {
+            console.error('Failed to read clipboard contents: ', err);
+            showToast('Failed to paste from clipboard', 'error');
+        }
+    });
+
+    clearButton.addEventListener('click', () => {
+        urlInput.value = '';
+        urlInput.focus();
+        showToast('URL cleared', 'info');
+    });
+
+    refreshButton.addEventListener('click', () => {
+        if (lastUrl) {
+            urlInput.value = lastUrl;
+            playChannel(lastUrl);
+            showToast('Last URL restored', 'success');
+        } else {
+            showToast('No previous URL found', 'warning');
+        }
+    });
+
+    // Auto-play when URL changes
+    urlInput.addEventListener('input', () => {
+        if (urlInput.value.trim()) {
+            playButton.classList.add('pulse');
+        } else {
+            playButton.classList.remove('pulse');
+        }
+    });
+
+    urlInput.addEventListener('change', () => {
+        playChannel(urlInput.value);
+    });
+
+    // Load last URL on page load
+    window.addEventListener('load', () => {
+        if (lastUrl) {
+            urlInput.value = lastUrl;
+            // Auto-play the last URL after a short delay
+            setTimeout(() => {
+                playChannel(lastUrl);
+            }, 1000);
+        }
+        
+        // Add pulse effect to play button if there's content
+        if (urlInput.value.trim()) {
+            playButton.classList.add('pulse');
+        }
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+        // Ctrl/Cmd + V to paste
+        if ((e.ctrlKey || e.metaKey) && e.key === 'v') {
+            e.preventDefault();
+            pasteButton.click();
+        }
+        
+        // Ctrl/Cmd + L to focus URL input
+        if ((e.ctrlKey || e.metaKey) && e.key === 'l') {
+            e.preventDefault();
+            urlInput.focus();
+            urlInput.select();
+        }
+        
+        // Enter to play
+        if (e.key === 'Enter' && document.activeElement === urlInput) {
+            playButton.click();
+        }
+        
+        // Escape to clear
+        if (e.key === 'Escape' && document.activeElement === urlInput) {
+            clearButton.click();
+        }
+    });
+</script>
+</body>
+</html>
