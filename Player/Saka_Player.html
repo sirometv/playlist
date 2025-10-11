@@ -1,0 +1,124 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Sirome TV</title>     
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js" crossorigin="anonymous"></script>  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css" crossorigin="anonymous">  
+  <style>  
+   * { margin: 0; padding: 0; box-sizing: border-box; }  
+    html, body {  
+      background: #000;  
+      height: 100vh;  
+      width: 100vw;  
+      overflow: hidden;  
+      font-family: system-ui, -apple-system, sans-serif;  
+    }  
+    .shaka-video-container {  
+      position: absolute;  
+      inset: 0;  
+      width: 100%;  
+      height: 100%;  
+    }  
+    video {  
+      width: 100%;  
+      height: 100%;  
+      background: #000;  
+      object-fit: contain;  
+    }  
+    .shaka-spinner-container,  
+    .shaka-spinner,  
+    .shaka-spinner-svg {  
+      display: none !important;  
+      visibility: hidden !important;  
+      opacity: 0 !important;  
+    }  
+  </style>  
+</head>  
+<body>  
+  <div class="shaka-video-container" data-shaka-player>  
+    <video autoplay playsinline preload="metadata" poster="https://i.postimg.cc/cJBhWxv5/3122396-ico-Copy.png"></video>  
+  </div>  
+  
+  <script>  
+    document.addEventListener('DOMContentLoaded', async () => {  
+      shaka.polyfill.installAll();  
+  
+      if (!shaka.Player.isBrowserSupported()) {  
+        console.error('Browser not supported');  
+        return;  
+      }  
+  
+      const video = document.querySelector('video');  
+      const player = new shaka.Player();  
+      await player.attach(video);  
+  
+      const container = document.querySelector('.shaka-video-container');  
+      const ui = new shaka.ui.Overlay(player, container, video);  
+  
+      ui.configure({  
+        controlPanelElements: [  
+          'play_pause', 'time_and_duration', 'mute', 'volume',  
+          'spacer', 'language', 'captions', 'picture_in_picture',  
+          'quality', 'fullscreen'  
+        ],  
+        volumeBarColors: {  
+          base: 'rgba(255, 192, 203, 0.3)',  
+          level: 'rgb(255, 105, 180)'  
+        },  
+        seekBarColors: {  
+          base: 'rgba(255, 255, 0, 0.3)',  
+          buffered: 'rgba(255, 255, 0, 0.6)',  
+          played: 'rgb(255, 255, 0)'  
+        }  
+      });  
+  
+      // ✅ Your DRM Key + MPD URL  
+      let drmConfig = {  
+        clearKeys: {  
+          "ae7076b647133606b704d33e4cef5134": "810251515584cf71216d9a2d1ebf04bb"  
+        }  
+      };  
+  
+      let streamUrl = "https://anywhere.pwisetthon.com/http://103.151.60.204/T-Sports/tracks-v1a1/mono.m3u8";  
+  
+      player.configure({  
+        drm: drmConfig,  
+        streaming: {  
+          lowLatencyMode: true,  
+          bufferingGoal: 15,  
+          rebufferingGoal: 2,  
+          bufferBehind: 15,  
+          retryParameters: {  
+            timeout: 10000,  
+            maxAttempts: 5,  
+            baseDelay: 300,  
+            backoffFactor: 1.2  
+          },  
+          segmentRequestTimeout: 8000,  
+          segmentPrefetchLimit: 2,  
+          useNativeHlsOnSafari: true  
+        },  
+        manifest: {  
+          retryParameters: {  
+            timeout: 8000,  
+            maxAttempts: 3  
+          }  
+        }  
+      });  
+  
+      player.addEventListener('error', (event) => {  
+        console.error('Shaka Player Error:', event.detail);  
+      });  
+  
+      try {  
+        await player.load(streamUrl);  
+        console.log("Stream loaded successfully");  
+      } catch (error) {  
+        console.error('Load error:', error);  
+      }  
+    });  
+  </script>  
+</body>  
+</html>
