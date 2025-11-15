@@ -398,9 +398,10 @@ https://cloudfrontnet.vercel.app/tplay/playout/209902/master.m3u8
 http://tv.bdiptv.store:80/live/restreauuX58y/refstream/15346.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Zq9RHDTx/image.jpg" group-title="Bangladeshi", Ayna TV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/ayna.stream/tracks-v1a1/mono.m3u8?wmsAuthSign=
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/ayna.stream/tracks-v1a1/mono.m3u8
 
-
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/bNh4R60p/image.jpg" group-title="Bangladeshi", Toroni24 TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/toronitv.stream/tracks-v1a1/mono.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.ibb.co.com/hSWsQKP/Sirome-TV-7.jpg" group-title="Bangladeshi", Discovery Bangla
 https://live.dinesh29.com.np/stream/jiotv/discoverybengali/stream_0.m3u8
@@ -709,6 +710,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
