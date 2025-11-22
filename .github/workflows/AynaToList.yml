@@ -1,4 +1,4 @@
-name: T Sports
+name: Ayna To Listing
 
 on:
   schedule:
@@ -42,11 +42,65 @@ jobs:
         
         # চ্যানেল ম্যাপিং - আপনার প্রথম প্লেলিস্টের নাম : সেকেন্ড প্লেলিস্টে খুঁজবে এমন keywords
         CHANNEL_MAPPING = {
-            "T Sports": ["T Sports HD", "TSports", "Tsports", "TSPORTS", "T Sports", "T SPORTS HD", "tsportshd", "T Sports HD"],
-            # "Somoy TV": ["Somoy News TV", "Somoy TV"],
-            # এখানে আপনি আরো চ্যানেল যোগ করতে পারবেন
-            # "Channel Name in Main": ["keyword1", "keyword2", "keyword3"]
-        }
+    "T Sports": ["T Sports HD", "TSports", "Tsports", "TSPORTS", "T Sports", "T SPORTS HD", "tsportshd", "T Sports HD"],
+    "Somoy TV": ["Somoy News TV", "Somoy TV", "SOMOY TV", "somoy tv", "Somoy", "SOMOY"],
+    "Channel I": ["Channel I", "CHANNEL I", "channel i", "Channel-I", "CHANNEL-I"],
+    "ATN Bangla": ["ATN Bangla", "ATN BANGLA", "atn bangla", "ATN", "atn"],
+    "NTV": ["NTV", "ntv", "Ntv", "N TV"],
+    "RTV": ["RTV", "rtv", "Rtv"],
+    "BTV": ["BTV", "btv", "Bangladesh Television", "BTV HD"],
+    "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
+    "Boishakhi TV": ["Boishakhi TV", "BOISHAKHI TV", "boishakhi tv", "Boishakhi", "BOISHAKHI"],
+    "Independent TV": ["Independent TV", "INDEPENDENT TV", "independent tv", "Independent", "INDEPENDENT"],
+    "News24": ["News24", "NEWS24", "news24"],
+    "Ekattor TV": ["Ekattor TV", "EKATTOR TV", "ekattor tv", "Ekattor", "EKATTOR"],
+    "SATV": ["SATV", "satv", "Sa TV", "SA TV"],
+    "Duronto TV": ["Duronto TV", "DURONTO TV", "duronto tv", "Duronto", "DURONTO"],
+    "Deal TV": ["Deal TV", "DEAL TV", "deal tv", "Deal", "DEAL"],
+    "Channel 9": ["Channel 9", "CHANNEL 9", "channel 9", "Channel9", "CHANNEL9"],
+    "Bangla TV": ["Bangla TV", "BANGLA TV", "bangla tv", "Bangla", "BANGLA"],
+    "Sangsad TV": ["Sangsad TV", "SANGSAD TV", "sangsad tv", "Sangsad", "SANGSAD"],
+    "My TV": ["My TV", "MY TV", "my tv", "My", "MY"],
+    "Mohona TV": ["Mohona TV", "MOHONA TV", "mohona tv", "Mohona", "MOHONA"],
+    "Jamuna TV": ["Jamuna TV", "JAMUNA TV", "jamuna tv", "Jamuna", "JAMUNA"],
+    "Asian TV": ["Asian TV", "ASIAN TV", "asian tv", "Asian", "ASIAN"],
+    "Machranga TV": ["Machranga TV", "MACHRANGA TV", "machranga tv", "Machranga", "MACHRANGA"],
+    "DBC News": ["DBC News", "DBC NEWS", "dbc news", "DBC", "dbc"],
+    
+    # Indian Channels
+    "Star Jalsha": ["Star Jalsha", "STAR JALSHA", "star jalsha", "Jalsha", "JALSHA"],
+    "Zee Bangla": ["Zee Bangla", "ZEE BANGLA", "zee bangla", "Zee", "ZEE"],
+    "Colors Bangla": ["Colors Bangla", "COLORS BANGLA", "colors bangla", "Colors", "COLORS"],
+    "Sony Aath": ["Sony Aath", "SONY AATH", "sony aath", "Aath", "AATH"],
+    "Star Plus": ["Star Plus", "STAR PLUS", "star plus", "Star", "STAR"],
+    "Zee TV": ["Zee TV", "ZEE TV", "zee tv", "Zee", "ZEE"],
+    "Sony TV": ["Sony TV", "SONY TV", "sony tv", "Sony", "SONY"],
+    "Colors TV": ["Colors TV", "COLORS TV", "colors tv", "Colors", "COLORS"],
+    
+    # Sports Channels
+    "Star Sports": ["Star Sports", "STAR SPORTS", "star sports", "Star Sports 1", "Star Sports 2"],
+    "Sony Ten": ["Sony Ten", "SONY TEN", "sony ten", "Sony Ten 1", "Sony Ten 2"],
+    "ESPN": ["ESPN", "espn", "ESPN HD"],
+    
+    # News Channels
+    "CNN": ["CNN", "cnn", "CNN International", "CNN INT"],
+    "BBC World": ["BBC World", "BBC WORLD", "bbc world", "BBC", "bbc"],
+    "Al Jazeera": ["Al Jazeera", "AL JAZEERA", "al jazeera", "Aljazeera"],
+    
+    # Movie Channels
+    "HBO": ["HBO", "hbo", "HBO HD", "HBO Signature"],
+    "Star Movies": ["Star Movies", "STAR MOVIES", "star movies", "Star Movie"],
+    "Zee Cinema": ["Zee Cinema", "ZEE CINEMA", "zee cinema", "Z Cinema"],
+    
+    # Music Channels
+    "MTV": ["MTV", "mtv", "MTV HD"],
+    "VH1": ["VH1", "vh1", "VH1 HD"],
+    
+    # Kids Channels
+    "Cartoon Network": ["Cartoon Network", "CARTOON NETWORK", "cartoon network", "CN", "cn"],
+    "Pogo": ["Pogo", "POGO", "pogo", "POGO TV"],
+    "Disney": ["Disney", "DISNEY", "disney", "Disney Channel"]
+}
         
         def find_channel_url(source_file, keywords):
             """সোর্স প্লেলিস্ট থেকে চ্যানেল URL খুঁজে বের করে"""
