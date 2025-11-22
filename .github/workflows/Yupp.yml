@@ -35,12 +35,12 @@ jobs:
         BD_TIME_READABLE=$(TZ='Asia/Dhaka' date +'%A, %d %B %Y, %I:%M:%S %p Bangladesh Time')
         echo "🕐 Download started at: $BD_TIME_READABLE"
         
-        curl -s -L -o Yupp.m3u "${{ secrets.YUPPTV_PLAYLIST_URL }}"
+        curl -s -L -o original_yupp.m3u "${{ secrets.YUPPTV_PLAYLIST_URL }}"
         
         # ফাইল ডাউনলোড হয়েছে কিনা চেক করুন
-        if [ -f "Yupp.m3u" ] && [ -s "Yupp.m3u" ]; then
-          LINES_COUNT=$(wc -l < Yupp.m3u)
-          CHANNEL_COUNT=$(grep -c "#EXTINF:" Yupp.m3u 2>/dev/null || echo "0")
+        if [ -f "original_yupp.m3u" ] && [ -s "original_yupp.m3u" ]; then
+          LINES_COUNT=$(wc -l < original_yupp.m3u)
+          CHANNEL_COUNT=$(grep -c "#EXTINF:" original_yupp.m3u 2>/dev/null || echo "0")
           echo "✅ Playlist downloaded successfully"
           echo "📊 File details:"
           echo "   - Total lines: $LINES_COUNT"
@@ -51,42 +51,129 @@ jobs:
           exit 1
         fi
         
-    - name: Add Bangladesh time header to playlist
+    - name: Remove unwanted headers and add custom header
       run: |
-        echo "🕐 Adding Bangladesh time information to playlist..."
+        echo "🎨 Processing playlist - removing unwanted headers..."
         
-        if [ -f "Yupp.m3u" ] && [ -s "Yupp.m3u" ]; then
+        if [ -f "original_yupp.m3u" ] && [ -s "original_yupp.m3u" ]; then
           # বাংলাদেশের সময় সংগ্রহ
           BD_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S Bangladesh Time')
           BD_TIME_READABLE=$(TZ='Asia/Dhaka' date +'%A, %d %B %Y, %I:%M:%S %p Bangladesh Time')
-          CHANNEL_COUNT=$(grep -c "#EXTINF:" Yupp.m3u 2>/dev/null || echo "0")
+          CHANNEL_COUNT=$(grep -c "#EXTINF:" original_yupp.m3u 2>/dev/null || echo "0")
           
-          # টেম্পোরারি ফাইল তৈরি করুন
-          TEMP_FILE=$(mktemp)
+          echo "🔍 Removing unwanted headers and comments..."
           
-          # হেডার যোগ করুন
-          echo "#EXTM3U" > "$TEMP_FILE"
-          echo "# Yupp TV Playlist" >> "$TEMP_FILE"
-          echo "# Total Channels: $CHANNEL_COUNT" >> "$TEMP_FILE"
-          echo "# Updated: $BD_TIME" >> "$TEMP_FILE"
-          echo "# Local Time: $BD_TIME_READABLE" >> "$TEMP_FILE"
-          echo "# BDIX 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না। 🔴 All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source." >> "$TEMP_FILE"
-          echo "# Powered By: Sirome TV" >> "$TEMP_FILE"
-          echo "" >> "$TEMP_FILE"
+          # Python script ব্যবহার করে unwanted headers রিমুভ করুন
+          python3 - << 'EOF'
+          import re
           
-          # আসল কন্টেন্ট যোগ করুন
-          cat Yupp.m3u >> "$TEMP_FILE"
+          # Unwanted patterns to remove
+          unwanted_patterns = [
+              "By Abu SAEEID X Noob",
+              "Scrapped by @abusaeeidx", 
+              "Scrapped on",
+              "Credit must be given. Otherwise it will be closed"
+          ]
           
-          # টেম্পোরারি ফাইলটি মূল ফাইলে মুভ করুন
-          mv "$TEMP_FILE" Yupp.m3u
+          with open('original_yupp.m3u', 'r', encoding='utf-8') as f:
+              lines = f.readlines()
           
-          echo "✅ Bangladesh time header added successfully"
-          echo "🔍 First 5 lines of updated playlist:"
-          head -5 Yupp.m3u
+          filtered_lines = []
+          removed_count = 0
+          
+          for line in lines:
+              line_stripped = line.strip()
+              should_keep = True
+              
+              # Check if line contains any unwanted pattern
+              for pattern in unwanted_patterns:
+                  if pattern in line_stripped:
+                      print(f"🚫 Removing line: {line_stripped}")
+                      should_keep = False
+                      removed_count += 1
+                      break
+              
+              # Keep EXTINF and URL lines (actual content)
+              if should_keep and (line_stripped.startswith("#EXTINF:") or 
+                                 line_stripped.startswith("http") or 
+                                 line_stripped == "#EXTM3U" or
+                                 line_stripped == ""):
+                  filtered_lines.append(line)
+              elif should_keep and not line_stripped.startswith("#"):
+                  # Non-comment lines (URLs) keep them
+                  filtered_lines.append(line)
+          
+          print(f"✅ Removed {removed_count} unwanted lines")
+          print(f"📊 Keeping {len(filtered_lines)} lines")
+          
+          # নতুন হেডার সহ ফাইল তৈরি করুন
+          with open('Yupp.m3u', 'w', encoding='utf-8') as f:
+              # কাস্টম হেডার যোগ করুন
+              f.write("#EXTM3U\n")
+              f.write("# Yupp TV Playlist\n")
+              f.write("# Total Channels: {}\n".format(CHANNEL_COUNT))
+              f.write("# Updated: {}\n".format("$BD_TIME"))
+              f.write("# Local Time: {}\n".format("$BD_TIME_READABLE"))
+              f.write("# Auto-synced every 5 minutes\n")
+              f.write("# Powered By: Sirome TV 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না। 🔴 All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.\n")
+              f.write("\n")
+              
+              # ফিল্টার্ড কন্টেন্ট যোগ করুন
+              for line in filtered_lines:
+                  # শুধুমাত্র আসল #EXTM3U লাইন স্কিপ করুন (আমরা ইতিমধ্যে যোগ করেছি)
+                  if line.strip() == "#EXTM3U":
+                      continue
+                  f.write(line)
+          
+          EOF
+          
+          echo "✅ Playlist processing completed"
+          echo "🔍 First 10 lines of processed playlist:"
+          head -10 Yupp.m3u
+          
+          # টেম্পোরারি ফাইল ক্লিনআপ
+          rm -f original_yupp.m3u
+          
         else
-          echo "❌ Error: Yupp.m3u file not found or empty"
+          echo "❌ Error: Original playlist file not found"
           exit 1
         fi
+        
+    - name: Verify processed playlist
+      run: |
+        echo "🔍 Verifying processed playlist..."
+        
+        if [ ! -f "Yupp.m3u" ] || [ ! -s "Yupp.m3u" ]; then
+          echo "❌ ERROR: Processed file is missing or empty!"
+          exit 1
+        fi
+        
+        # চেক করুন যদি unwanted content এখনও আছে
+        if grep -q "By Abu SAEEID X Noob" Yupp.m3u; then
+          echo "❌ ERROR: Unwanted content 'By Abu SAEEID X Noob' still exists!"
+          exit 1
+        fi
+        
+        if grep -q "Scrapped by @abusaeeidx" Yupp.m3u; then
+          echo "❌ ERROR: Unwanted content 'Scrapped by @abusaeeidx' still exists!"
+          exit 1
+        fi
+        
+        if grep -q "Credit must be given" Yupp.m3u; then
+          echo "❌ ERROR: Unwanted content 'Credit must be given' still exists!"
+          exit 1
+        fi
+        
+        FILE_SIZE=$(wc -c < Yupp.m3u)
+        LINES_COUNT=$(wc -l < Yupp.m3u)
+        CHANNELS=$(grep -c "#EXTINF:" Yupp.m3u 2>/dev/null || echo "0")
+        
+        echo "✅ File verification passed!"
+        echo "📋 Final file details:"
+        echo "   - Size: $FILE_SIZE bytes"
+        echo "   - Lines: $LINES_COUNT"
+        echo "   - Channels: $CHANNELS"
+        echo "✅ All unwanted content successfully removed!"
         
     - name: Check if playlist changed
       id: check_changes
