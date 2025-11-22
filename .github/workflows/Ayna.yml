@@ -19,6 +19,13 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         
+    - name: Setup Bangladesh timezone
+      run: |
+        echo "🌏 Setting up Bangladesh timezone..."
+        # বাংলাদেশের টাইমজোন সেট আপ
+        sudo timedatectl set-timezone Asia/Dhaka
+        echo "✅ Bangladesh timezone set: $(date)"
+        
     - name: Download original playlist
       run: |
         echo "🔄 Starting Ayna TV playlist sync..."
@@ -42,14 +49,20 @@ jobs:
         
         # চ্যানেল কাউন্ট সংগ্রহ (প্রথমে রিমুভ করার আগে)
         CHANNEL_COUNT=$(grep -c "#EXTINF:" original_playlist.m3u)
-        CURRENT_TIME=$(date +'%Y-%m-%d %H:%M:%S')
+        
+        # বাংলাদেশের লোকাল টাইম সংগ্রহ
+        CURRENT_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S Bangladesh Time')
+        BD_TIME_READABLE=$(TZ='Asia/Dhaka' date +'%A, %d %B %Y, %I:%M:%S %p Bangladesh Time')
+        
+        echo "🕐 Current Bangladesh Time: $BD_TIME_READABLE"
         
         # নতুন কাস্টম হেডার তৈরি
         echo "#EXTM3U" > Ayna.m3u
         echo "# Sirome TV" >> Ayna.m3u
         echo "# Total channels: $CHANNEL_COUNT" >> Ayna.m3u
         echo "# Updated: $CURRENT_TIME" >> Ayna.m3u
-        echo "# Powered-By: BDIX 🔴 All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source." >> Ayna.m3u
+        echo "# Local Time: $BD_TIME_READABLE" >> Ayna.m3u
+        echo "# Powered-By: BDIX 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না। 🔴 All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source." >> Ayna.m3u
         echo "" >> Ayna.m3u
         
         # Python script ব্যবহার করে প্রসেসিং
@@ -177,6 +190,9 @@ jobs:
       run: |
         echo "💾 Saving changes to repository..."
         
+        # বাংলাদেশের টাইম দিয়ে commit message তৈরি
+        COMMIT_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S Bangladesh Time')
+        
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add Ayna.m3u
@@ -185,7 +201,7 @@ jobs:
         if git diff --staged --quiet; then
           echo "✅ No changes detected - playlist is up to date"
         else
-          git commit -m "🔄 Ayna TV Auto Sync - $(date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "🔄 Ayna TV Auto Sync - $COMMIT_TIME"
           git push
           echo "🎉 Successfully updated Ayna.m3u with Sirome TV branding!"
           echo "🕐 Next auto-sync in 5 minutes"
