@@ -49,7 +49,7 @@ jobs:
         echo "# Sirome TV" >> Ayna.m3u
         echo "# Total channels: $CHANNEL_COUNT" >> Ayna.m3u
         echo "# Updated: $CURRENT_TIME" >> Ayna.m3u
-        echo "# Powered-By: BDIX" >> Ayna.m3u
+        echo "# Powered-By: BDIX 🔴 All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source." >> Ayna.m3u
         echo "" >> Ayna.m3u
         
         # Python script ব্যবহার করে প্রসেসিং
