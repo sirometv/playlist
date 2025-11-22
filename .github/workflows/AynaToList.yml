@@ -2,8 +2,8 @@ name: Ayna To Listing
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
-  workflow_dispatch:
+    - cron: '*/5 * * * *'  # প্রতি ৫ মিনিট পরপর
+  workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
 
 permissions:
   contents: write
@@ -18,89 +18,62 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         
+    - name: Setup Bangladesh timezone
+      run: |
+        echo "🌏 Setting up Bangladesh timezone..."
+        sudo timedatectl set-timezone Asia/Dhaka
+        echo "✅ Bangladesh timezone set: $(TZ='Asia/Dhaka' date)"
+        
     - name: Download playlists
       run: |
         echo "📥 Downloading playlists..."
+        
+        # বাংলাদেশের সময় দেখান
+        BD_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S')
+        echo "🕐 Download started at: $BD_TIME (Bangladesh Time)"
+        
+        # মেইন প্লেলিস্ট এবং সোর্স প্লেলিস্ট ডাউনলোড
         curl -s -L -o main_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/sirometv.m3u"
         curl -s -L -o source_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/Ayna.m3u"
         
+        # ডাউনলোড ভেরিফিকেশন
         for file in main_playlist.m3u source_playlist.m3u; do
           if [ ! -f "$file" ] || [ ! -s "$file" ]; then
             echo "❌ ERROR: $file download failed!"
             exit 1
           fi
           LINES=$(wc -l < "$file")
-          echo "✅ $file downloaded - $LINES lines"
+          CHANNELS=$(grep -c "#EXTINF:" "$file" 2>/dev/null || echo "0")
+          echo "✅ $file downloaded - $LINES lines, $CHANNELS channels"
         done
         
     - name: Update multiple channels
       run: |
         echo "🔄 Updating multiple channels..."
         
+        # বাংলাদেশের সময় সংগ্রহ
+        BD_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S Bangladesh Time')
+        echo "🕐 Update process started at: $BD_TIME"
+        
         python3 - << 'EOF'
         import re
+        from datetime import datetime
+        
+        # বাংলাদেশের সময় সংগ্রহ
+        current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S Bangladesh Time')
         
         # চ্যানেল ম্যাপিং - আপনার প্রথম প্লেলিস্টের নাম : সেকেন্ড প্লেলিস্টে খুঁজবে এমন keywords
         CHANNEL_MAPPING = {
-    "T Sports": ["T Sports HD", "TSports", "Tsports", "TSPORTS", "T Sports", "T SPORTS HD", "tsportshd", "T Sports HD"],
-    "Somoy TV": ["Somoy News TV", "Somoy TV", "SOMOY TV", "somoy tv", "Somoy", "SOMOY"],
-    "Channel I": ["Channel I", "CHANNEL I", "channel i", "Channel-I", "CHANNEL-I"],
-    "ATN Bangla": ["ATN Bangla", "ATN BANGLA", "atn bangla", "ATN", "atn"],
-    "NTV": ["NTV", "ntv", "Ntv", "N TV"],
-    "RTV": ["RTV", "rtv", "Rtv"],
-    "BTV": ["BTV", "btv", "Bangladesh Television", "BTV HD"],
-    "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
-    "Boishakhi TV": ["Boishakhi TV", "BOISHAKHI TV", "boishakhi tv", "Boishakhi", "BOISHAKHI"],
-    "Independent TV": ["Independent TV", "INDEPENDENT TV", "independent tv", "Independent", "INDEPENDENT"],
-    "News24": ["News24", "NEWS24", "news24"],
-    "Ekattor TV": ["Ekattor TV", "EKATTOR TV", "ekattor tv", "Ekattor", "EKATTOR"],
-    "SATV": ["SATV", "satv", "Sa TV", "SA TV"],
-    "Duronto TV": ["Duronto TV", "DURONTO TV", "duronto tv", "Duronto", "DURONTO"],
-    "Deal TV": ["Deal TV", "DEAL TV", "deal tv", "Deal", "DEAL"],
-    "Channel 9": ["Channel 9", "CHANNEL 9", "channel 9", "Channel9", "CHANNEL9"],
-    "Bangla TV": ["Bangla TV", "BANGLA TV", "bangla tv", "Bangla", "BANGLA"],
-    "Sangsad TV": ["Sangsad TV", "SANGSAD TV", "sangsad tv", "Sangsad", "SANGSAD"],
-    "My TV": ["My TV", "MY TV", "my tv", "My", "MY"],
-    "Mohona TV": ["Mohona TV", "MOHONA TV", "mohona tv", "Mohona", "MOHONA"],
-    "Jamuna TV": ["Jamuna TV", "JAMUNA TV", "jamuna tv", "Jamuna", "JAMUNA"],
-    "Asian TV": ["Asian TV", "ASIAN TV", "asian tv", "Asian", "ASIAN"],
-    "Machranga TV": ["Machranga TV", "MACHRANGA TV", "machranga tv", "Machranga", "MACHRANGA"],
-    "DBC News": ["DBC News", "DBC NEWS", "dbc news", "DBC", "dbc"],
-    
-    # Indian Channels
-    "Star Jalsha": ["Star Jalsha", "STAR JALSHA", "star jalsha", "Jalsha", "JALSHA"],
-    "Zee Bangla": ["Zee Bangla", "ZEE BANGLA", "zee bangla", "Zee", "ZEE"],
-    "Colors Bangla": ["Colors Bangla", "COLORS BANGLA", "colors bangla", "Colors", "COLORS"],
-    "Sony Aath": ["Sony Aath", "SONY AATH", "sony aath", "Aath", "AATH"],
-    "Star Plus": ["Star Plus", "STAR PLUS", "star plus", "Star", "STAR"],
-    "Zee TV": ["Zee TV", "ZEE TV", "zee tv", "Zee", "ZEE"],
-    "Sony TV": ["Sony TV", "SONY TV", "sony tv", "Sony", "SONY"],
-    "Colors TV": ["Colors TV", "COLORS TV", "colors tv", "Colors", "COLORS"],
-    
-    # Sports Channels
-    "Star Sports": ["Star Sports", "STAR SPORTS", "star sports", "Star Sports 1", "Star Sports 2"],
-    "Sony Ten": ["Sony Ten", "SONY TEN", "sony ten", "Sony Ten 1", "Sony Ten 2"],
-    "ESPN": ["ESPN", "espn", "ESPN HD"],
-    
-    # News Channels
-    "CNN": ["CNN", "cnn", "CNN International", "CNN INT"],
-    "BBC World": ["BBC World", "BBC WORLD", "bbc world", "BBC", "bbc"],
-    "Al Jazeera": ["Al Jazeera", "AL JAZEERA", "al jazeera", "Aljazeera"],
-    
-    # Movie Channels
-    "HBO": ["HBO", "hbo", "HBO HD", "HBO Signature"],
-    "Star Movies": ["Star Movies", "STAR MOVIES", "star movies", "Star Movie"],
-    "Zee Cinema": ["Zee Cinema", "ZEE CINEMA", "zee cinema", "Z Cinema"],
-    
-    # Music Channels
-    "MTV": ["MTV", "mtv", "MTV HD"],
-    "VH1": ["VH1", "vh1", "VH1 HD"],
-    
-    # Kids Channels
-    "Cartoon Network": ["Cartoon Network", "CARTOON NETWORK", "cartoon network", "CN", "cn"],
-    "Pogo": ["Pogo", "POGO", "pogo", "POGO TV"],
-    "Disney": ["Disney", "DISNEY", "disney", "Disney Channel"]
-}
+            "T Sports": ["T Sports HD", "TSports", "Tsports", "TSPORTS", "T Sports", "T SPORTS HD", "tsportshd", "T Sports HD"],
+            "Somoy TV": ["Somoy News TV", "Somoy TV", "SOMOY TV", "somoy tv", "Somoy", "SOMOY"],
+            "Channel I": ["Channel I", "CHANNEL I", "channel i", "Channel-I", "CHANNEL-I"],
+            "ATN Bangla": ["ATN Bangla", "ATN BANGLA", "atn bangla", "ATN", "atn"],
+            "NTV": ["NTV", "ntv", "Ntv", "N TV"],
+            "RTV": ["RTV", "rtv", "Rtv"],
+            "BTV": ["BTV", "btv", "Bangladesh Television", "BTV HD"],
+            "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
+            # এখানে আরো চ্যানেল যোগ করুন
+        }
         
         def find_channel_url(source_file, keywords):
             """সোর্স প্লেলিস্ট থেকে চ্যানেল URL খুঁজে বের করে"""
@@ -141,8 +114,11 @@ jobs:
         with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
             main_content = f.read()
         
+        # হেডার আপডেট করুন
         updated_content = main_content
         update_count = 0
+        successful_updates = []
+        failed_updates = []
         
         # প্রতিটি চ্যানেলের জন্য আপডেট করুন
         for main_channel, search_keywords in CHANNEL_MAPPING.items():
@@ -152,17 +128,26 @@ jobs:
             if new_url:
                 updated_content = update_channel_url(updated_content, main_channel, new_url)
                 update_count += 1
+                successful_updates.append(main_channel)
             else:
                 print(f"⚠️ Skipping {main_channel} - no URL found")
+                failed_updates.append(main_channel)
+        
+        # আপডেটেড টাইম সহ হেডার যোগ করুন
+        header_comment = f"\n# Auto-updated from Ayna.m3u\n# Last Updated: {current_time}\n# Total Channels Updated: {update_count}\n"
         
         # আপডেট করা কন্টেন্ট সেভ করুন
         with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
             f.write(updated_content)
+            f.write(header_comment)
         
         print(f"\n🎉 Update Summary:")
         print(f"   Total channels processed: {len(CHANNEL_MAPPING)}")
         print(f"   Successfully updated: {update_count}")
         print(f"   Failed: {len(CHANNEL_MAPPING) - update_count}")
+        print(f"   Updated channels: {', '.join(successful_updates)}")
+        if failed_updates:
+            print(f"   Failed channels: {', '.join(failed_updates)}")
         
         EOF
         
@@ -175,15 +160,30 @@ jobs:
           exit 1
         fi
         
+        # চ্যানেল কাউন্ট চেক করুন
+        OLD_CHANNELS=$(grep -c "#EXTINF:" main_playlist.m3u 2>/dev/null || echo "0")
+        NEW_CHANNELS=$(grep -c "#EXTINF:" sirometv_updated.m3u 2>/dev/null || echo "0")
+        
+        echo "📊 Channel Count:"
+        echo "   Before: $OLD_CHANNELS channels"
+        echo "   After: $NEW_CHANNELS channels"
+        
+        if [ "$OLD_CHANNELS" -ne "$NEW_CHANNELS" ]; then
+          echo "⚠️ Warning: Channel count changed!"
+        fi
+        
         mv sirometv_updated.m3u sirometv.m3u
         
         # আপডেট করা চ্যানেলগুলো দেখান
-        echo "🔍 Updated channels:"
-        grep -A 1 -E "Somoy TV|T Sports" sirometv.m3u || echo "No matching channels found"
+        echo "🔍 Sample updated channels:"
+        grep -A 1 -E "T Sports|Somoy TV|Channel I" sirometv.m3u | head -6 || echo "No matching channels found"
         
     - name: Commit and push changes
       run: |
         echo "💾 Saving changes to repository..."
+        
+        # বাংলাদেশের সময় সংগ্রহ
+        COMMIT_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S Bangladesh Time')
         
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -192,12 +192,14 @@ jobs:
         if git diff --staged --quiet; then
           echo "✅ No changes detected - playlist is up to date"
         else
-          git commit -m "🔄 Auto Update Multiple Channels - $(date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "🔄 Auto Update Channels from Ayna - $COMMIT_TIME"
           git push
-          echo "🎉 Successfully updated channels!"
+          echo "🎉 Successfully updated channels from Ayna playlist!"
+          echo "🕐 Next auto-update in 5 minutes"
         fi
         
     - name: Cleanup
       run: |
         rm -f main_playlist.m3u source_playlist.m3u
         echo "✅ Cleanup completed!"
+        echo "🏁 Ayna to Listing workflow finished successfully!"
