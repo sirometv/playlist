@@ -64,14 +64,29 @@ jobs:
         
         # চ্যানেল ম্যাপিং - আপনার প্রথম প্লেলিস্টের নাম : সেকেন্ড প্লেলিস্টে খুঁজবে এমন keywords
         CHANNEL_MAPPING = {
-            "T Sports": ["T Sports HD", "TSports", "Tsports", "TSPORTS", "T Sports", "T SPORTS HD", "tsportshd", "T Sports HD"],
+            "BTV National": ["BTV NATIONAL HD", "BTV World"],
+            "BTV CTG": ["BTV CTG"],
             "Somoy TV": ["Somoy News TV", "Somoy TV", "SOMOY TV", "somoy tv", "Somoy", "SOMOY"],
-            "Channel I": ["Channel I", "CHANNEL I", "channel i", "Channel-I", "CHANNEL-I"],
+            "Jamuna TV": ["Jamuna TV", "JAMUNA"],
+            "NTV": ["NTV", "ntv", "Ntv", "NTV HD"],
+            "Ekushey TV": ["Ekushey TV", "Ekushey TV HD"],
+            "Channel 24 ": ["Channel 24 ", "Channel 24  HD"],
+            "Deen TV ": ["Deen TV "],
+            "SA TV": ["SA TV"],
+            "GTV": ["Gazi TV", "GTV", "G TV", "GTV HD", "Gazi TV HD", "Gtv", "Gtv HD", "GTVHD"],
+            "T Sports": ["T Sports HD", "TSports", "Tsports", "TSPORTS", "T Sports", "T SPORTS HD", "tsportshd", "T Sports HD"],
+            "Channel 9": ["Channel 9", "Channel 9 HD"],
+            "Channel I": ["Channel I", "CHANNEL I", "channel i HD", "Channel-I", "CHANNEL I HD"],
+            "Bangla Vision": ["Bangla Vision", "Bangla Vision HD"],
             "ATN Bangla": ["ATN Bangla", "ATN BANGLA", "atn bangla", "ATN", "atn"],
-            "NTV": ["NTV", "ntv", "Ntv", "N TV"],
             "RTV": ["RTV", "rtv", "Rtv"],
-            "BTV": ["BTV", "btv", "Bangladesh Television", "BTV HD"],
+            "Peace TV Bangla": ["Peace TV Bangla HD"],
+            "Rongeen TV": ["Rongeen TV"],
             "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
+            "Star Jalsha": ["Star Jalsha HD", "Star Jalsha"],
+            "Star Jalsha Movies": ["Star Jalsha Movies HD"],
+            "Zee Bangla": ["Zee Bangla International", "Zee Bangla"],
+            "Zee Bangla Cinema": ["Zee Bangla Cinema"],
             # এখানে আরো চ্যানেল যোগ করুন
         }
         
