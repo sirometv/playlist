@@ -1,4 +1,6 @@
 #EXTM3U
+# Sirome TV
+#🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
 
@@ -92,8 +94,7 @@ http://stvlive.net:8080/gtv/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
-https://bd-mc-fdlive.fancode.com/mumbai/138238_english_hls_3c279f8f2c31988_1ta-di_h264/index.m3u8
-https://anywhere.pwisetthon.com/http://103.240.44.26/T-Sports-HD/index.fmp4.m3u8
+https://tvsen7.aynascope.net/tsportshd/index.m3u8?e=1763813926&u=2d9bb344-6d25-4409-ae9d-9644abd0bc4d&token=e46810d574659b51eb59256f615ef1ff
 https://anywhere.pwisetthon.com/http://103.240.44.26/T-Sports-HD/index.m3u8
 https://premierleagpl23.akamaized.net/hls/live/2107108/testtapmad/level_0.m3u8
 https://live.inplyr.com/room/547345.m3u8
@@ -713,6 +714,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
