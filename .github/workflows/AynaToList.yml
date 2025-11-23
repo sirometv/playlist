@@ -79,9 +79,8 @@ jobs:
             "Channel 24": ["Channel 24", "Channel 24 HD"],
             "Deen TV": ["Deen TV"],
             "SATV": ["SA TV"],
-            "GTV": ["Gazi TV", "GTV HD", "GTV Sports"],
-            "T Sports": ["T Sports HD"],
-            "T-Sports": ["PTV Sports", "A sports"],
+            "GTV": ["Gazi TV"],
+            "T Sports": ["T Sports HD", "PTV Sports", "A sports"],
             "Channel 9": ["Channel 9", "Channel 9 HD"],
             "Channel I": ["Channel I", "CHANNEL I", "channel i HD", "Channel-I", "CHANNEL I HD"],
             "News 24": ["News 24 BD"],
@@ -102,9 +101,9 @@ jobs:
             "Rongeen TV": ["Rongeen TV"],
             "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
             "Star Jalsha": ["Star Jalsha HD", "Star Jalsha"],
-            "Star Jalsha Movies": ["Star Jalsha Movies HD"],
+            "Star-Jalsha Movies": [Star-Jalsha Movies"],
             "Zee Bangla": ["Zee Bangla International", "Zee Bangla"],
-            "Zee Bangla Cinema": ["Zee Bangla Cinema"],
+            "Zee-Bangla Cinema": ["Zee-Bangla Cinema"],
         }
         
         def find_channel_urls(source_file, keywords):
