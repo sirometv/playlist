@@ -52,6 +52,11 @@ jobs:
       with:
         python-version: '3.x'
         
+    - name: Install Python dependencies
+      run: |
+        echo "📦 Installing Python dependencies..."
+        python -m pip install --upgrade pip
+        
     - name: Update multiple channels
       run: |
         echo "🔄 Updating multiple channels..."
@@ -60,8 +65,10 @@ jobs:
         BD_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S Bangladesh Time')
         echo "🕐 Update process started at: $BD_TIME"
         
-        python3 - << 'EOF'
+        # Python script তৈরি করুন
+        cat > update_playlist.py << 'PYTHON_EOF'
         import re
+        import os
         from datetime import datetime
         
         # বাংলাদেশের সময় সংগ্রহ
@@ -111,15 +118,22 @@ jobs:
             "Zee-Bangla Cinema": ["Zee Bangla Cinema"],
         }
         
+        def read_file(file_path):
+            """ফাইল পড়ার জন্য বিভিন্ন encoding try করে"""
+            encodings = ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1']
+            for encoding in encodings:
+                try:
+                    with open(file_path, 'r', encoding=encoding) as f:
+                        return f.read()
+                except UnicodeDecodeError:
+                    continue
+            # যদি সব encoding fail হয়, binary mode এ read করুন
+            with open(file_path, 'rb') as f:
+                return f.read().decode('utf-8', errors='ignore')
+        
         def find_channel_urls(source_file, keywords):
             """সোর্স প্লেলিস্ট থেকে চ্যানেলের সকল URL খুঁজে বের করে"""
-            try:
-                with open(source_file, 'r', encoding='utf-8') as f:
-                    content = f.read()
-            except:
-                with open(source_file, 'r', encoding='latin-1') as f:
-                    content = f.read()
-            
+            content = read_file(source_file)
             found_urls = []
             
             # প্রতিটি keyword এর জন্য চেষ্টা করুন
@@ -134,6 +148,7 @@ jobs:
                         if clean_url and clean_url not in found_urls:
                             found_urls.append(clean_url)
                             print(f"✅ Found URL for keyword '{keyword}': {clean_url}")
+                            
                 except Exception as e:
                     print(f"⚠ Error searching for '{keyword}': {e}")
                     continue
@@ -141,12 +156,12 @@ jobs:
             return found_urls
         
         def update_channel_urls(main_content, channel_name, new_urls):
-            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের জন্য নতুন URL যোগ করে (পুরাতন Auto-updated URL মুছে)"""
+            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের জন্য নতুন URL যোগ করে"""
             if not new_urls:
                 print(f"⚠ No URLs found for {channel_name}, skipping update")
                 return main_content
             
-            # চ্যানেল ব্লক খুঁজে বের করুন - শুধু exact match
+            # চ্যানেল ব্লক খুঁজে বের করুন
             pattern = r'(#EXTINF:[^\n]*{}[^\n]*\n)((?:#AUTO-UPDATED[^\n]*\n)?(?:http[^\n]*\n)*)'.format(re.escape(channel_name))
             match = re.search(pattern, main_content, re.IGNORECASE)
             
@@ -154,39 +169,36 @@ jobs:
                 extinf_line = match.group(1)
                 existing_urls_block = match.group(2)
                 
-                # শুধু AUTO-UPDATED URL গুলো মুছে দিন, ম্যানুয়াল URLs রাখুন
+                # ম্যানুয়াল URLs আলাদা করুন (যেগুলোতে #AUTO-UPDATED ট্যাগ নেই)
                 lines = existing_urls_block.split('\n')
                 manual_urls = []
+                auto_updated_section = False
                 
                 for line in lines:
                     if line.startswith('#AUTO-UPDATED'):
-                        continue  # AUTO-UPDATED কমেন্ট স্কিপ করুন
-                    elif line.startswith('http'):
-                        # URL টি ম্যানুয়াল নাকি AUTO-UPDATED চেক করুন
-                        if not re.search(r'#AUTO-UPDATED', existing_urls_block) or line not in existing_urls_block:
-                            manual_urls.append(line)
+                        auto_updated_section = True
+                        continue
+                    elif line.startswith('http') and not auto_updated_section:
+                        manual_urls.append(line)
                     elif line.strip() and not line.startswith('#AUTO-UPDATED'):
                         manual_urls.append(line)
                 
                 # নতুন AUTO-UPDATED URL ব্লক তৈরি করুন (উপরে)
                 new_auto_block = ""
                 if new_urls:
-                    new_auto_block = "#AUTO-UPDATED - {}\\n".format(current_time)
+                    new_auto_block = f"#AUTO-UPDATED - {current_time}\n"
                     for url in new_urls:
-                        new_auto_block += url + "\\n"
+                        new_auto_block += url + "\n"
                 
                 # ম্যানুয়াল URL ব্লক রাখুন (নিচে)
-                manual_block = "\\n".join(manual_urls) + "\\n" if manual_urls else ""
+                manual_block = "\n".join(manual_urls) + "\n" if manual_urls else ""
                 
                 # সম্পূর্ণ নতুন ব্লক তৈরি করুন
                 new_complete_block = extinf_line + new_auto_block + manual_block
                 
                 # পুরাতন ব্লক রিপ্লেস করুন
-                updated_content = re.sub(
-                    re.escape(match.group(0)), 
-                    new_complete_block, 
-                    main_content
-                )
+                old_block = match.group(0)
+                updated_content = main_content.replace(old_block, new_complete_block)
                 
                 print(f"✅ Successfully updated {channel_name}")
                 print(f"   Auto URLs added: {len(new_urls)}")
@@ -196,13 +208,8 @@ jobs:
                 print(f"❌ {channel_name} not found in main playlist")
                 return main_content
         
-        try:
-            # মেইন প্লেলিস্ট লোড করুন
-            with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
-                main_content = f.read()
-        except:
-            with open('main_playlist.m3u', 'r', encoding='latin-1') as f:
-                main_content = f.read()
+        # মেইন প্লেলিস্ট লোড করুন
+        main_content = read_file('main_playlist.m3u')
         
         # আপডেট প্রসেস শুরু
         updated_content = main_content
@@ -212,7 +219,7 @@ jobs:
         
         # প্রতিটি চ্যানেলের জন্য আপডেট করুন
         for main_channel, search_keywords in CHANNEL_MAPPING.items():
-            print(f"\\n🔍 Processing: {main_channel}")
+            print(f"\n🔍 Processing: {main_channel}")
             new_urls = find_channel_urls('source_playlist.m3u', search_keywords)
             
             if new_urls:
@@ -224,14 +231,14 @@ jobs:
                 failed_updates.append(main_channel)
         
         # আপডেটেড টাইম সহ হেডার যোগ করুন
-        header_comment = f"\\n# Auto-updated from Ayna.m3u\\n# Last Updated: {current_time}\\n# Total Channels Updated: {update_count}\\n# Manual URLs are preserved, Auto URLs are on top\\n"
+        header_comment = f"\n# Auto-updated from Ayna.m3u\n# Last Updated: {current_time}\n# Total Channels Updated: {update_count}\n# Manual URLs are preserved, Auto URLs are on top\n"
         
         # আপডেট করা কন্টেন্ট সেভ করুন
         with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
             f.write(updated_content)
             f.write(header_comment)
         
-        print(f"\\n🎉 Update Summary:")
+        print(f"\n🎉 Update Summary:")
         print(f"   Total channels processed: {len(CHANNEL_MAPPING)}")
         print(f"   Successfully updated: {update_count}")
         print(f"   Failed: {len(failed_updates)}")
@@ -239,7 +246,10 @@ jobs:
         if failed_updates:
             print(f"   Failed channels: {', '.join(failed_updates)}")
         
-        EOF
+        PYTHON_EOF
+        
+        # Python script run করুন
+        python3 update_playlist.py
         
     - name: Verify and replace playlist
       run: |
@@ -270,6 +280,7 @@ jobs:
           echo ""
         done
         
+        # মূল ফাইল replace করুন
         mv sirometv_updated.m3u sirometv.m3u
         
     - name: Commit and push changes
@@ -294,6 +305,6 @@ jobs:
         
     - name: Cleanup
       run: |
-        rm -f main_playlist.m3u source_playlist.m3u
+        rm -f main_playlist.m3u source_playlist.m3u update_playlist.py
         echo "✅ Cleanup completed!"
         echo "🏁 Ayna to Listing workflow finished successfully!"
