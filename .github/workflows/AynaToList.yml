@@ -200,7 +200,7 @@ jobs:
             # সম্পূর্ণ নতুন ব্লক তৈরি করুন
             new_complete_block = extinf_line + new_auto_block + manual_block
             
-            # পুরাতন ব্লক রিপ্লেস করুন
+            # Simple String Replacement ব্যবহার করুন
             updated_content = main_content.replace(match.group(0), new_complete_block)
             
             print(f"✅ Successfully updated {channel_name}")
@@ -242,7 +242,7 @@ jobs:
                 print(f"⚠ No exact matches found for {main_channel}")
                 failed_updates.append(main_channel)
         
-        # Manual URLs সুরক্ষিত আছে কিনা চেক করুন
+        # Manual URLs Safety Check
         original_manual_count = len(re.findall(r'^http[^\n]*\n', original_content, re.MULTILINE))
         updated_manual_count = len(re.findall(r'^http[^\n]*\n', updated_content, re.MULTILINE))
         
@@ -294,19 +294,23 @@ jobs:
         echo "   Before: $OLD_CHANNELS channels"
         echo "   After: $NEW_CHANNELS channels"
         
-        # URL কাউন্ট চেক করুন
+        # Verification Step - URL কাউন্ট চেক করুন
         OLD_URLS=$(grep -c "^http" main_playlist.m3u 2>/dev/null || echo "0")
         NEW_URLS=$(grep -c "^http" sirometv_updated.m3u 2>/dev/null || echo "0")
         
-        echo "📊 URL Count:"
-        echo "   Before: $OLD_URLS URLs")
-        echo "   After: $NEW_URLS URLs")
+        echo "📊 URL Count Verification:"
+        echo "   Before: $OLD_URLS URLs"
+        echo "   After: $NEW_URLS URLs"
         
         if [ "$OLD_URLS" -gt "$NEW_URLS" ]; then
           echo "❌ WARNING: Some URLs were lost! Manual URLs may be affected."
         else
           echo "✅ URL count is safe"
         fi
+        
+        # AUTO-UPDATED কমেন্ট গুলো দেখান
+        AUTO_COUNT=$(grep -c "#AUTO-UPDATED" sirometv_updated.m3u 2>/dev/null || echo "0")
+        echo "🔄 Auto-updated channels: $AUTO_COUNT"
         
         # আপডেট করা চ্যানেলগুলো দেখান
         echo "🔍 Sample updated channels structure:"
