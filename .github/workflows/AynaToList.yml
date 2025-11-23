@@ -118,7 +118,7 @@ jobs:
             for keyword in keywords:
                 try:
                     # #EXTINF লাইনে keyword খুঁজুন এবং পরের URL নিন
-                    pattern = r'#EXTINF:[^\n]{}[^\n]\n(http[^\s]+)'.format(re.escape(keyword))
+                    pattern = r'#EXTINF:[^\n]*{}[^\n]*\n(http[^\s]+)'.format(re.escape(keyword))
                     matches = re.findall(pattern, content, re.IGNORECASE)
                     
                     for url in matches:
@@ -139,7 +139,7 @@ jobs:
                 return main_content
             
             # চ্যানেল ব্লক খুঁজে বের করুন
-            pattern = r'(#EXTINF:[^\n]{}[^\n]\n)((?:#AUTO-UPDATED[^\n]\n)?(?:http[^\n]\n)*)'.format(re.escape(channel_name))
+            pattern = r'(#EXTINF:[^\n]*{}[^\n]*\n)((?:#AUTO-UPDATED[^\n]*\n)?(?:http[^\n]*\n)*)'.format(re.escape(channel_name))
             match = re.search(pattern, main_content, re.IGNORECASE)
             
             if match:
