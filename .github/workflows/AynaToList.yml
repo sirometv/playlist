@@ -106,9 +106,9 @@ jobs:
             "Rongeen TV": ["Rongeen TV"],
             "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
             "Star Jalsha": ["Star Jalsha HD", "Star Jalsha"],
-            "Star Jalsha Movies": ["Star Jalsha Movies HD"],
+            "Star-Jalsha Movies": ["Star Jalsha Movies HD"],
             "Zee Bangla": ["Zee Bangla International", "Zee Bangla"],
-            "Zee Bangla Cinema": ["Zee Bangla Cinema"],
+            "Zee-Bangla Cinema": ["Zee Bangla Cinema"],
         }
         
         def find_channel_urls(source_file, keywords):
@@ -146,7 +146,7 @@ jobs:
                 print(f"⚠ No URLs found for {channel_name}, skipping update")
                 return main_content
             
-            # চ্যানেল ব্লক খুঁজে বের করুন
+            # চ্যানেল ব্লক খুঁজে বের করুন - শুধু exact match
             pattern = r'(#EXTINF:[^\n]*{}[^\n]*\n)((?:#AUTO-UPDATED[^\n]*\n)?(?:http[^\n]*\n)*)'.format(re.escape(channel_name))
             match = re.search(pattern, main_content, re.IGNORECASE)
             
@@ -154,30 +154,28 @@ jobs:
                 extinf_line = match.group(1)
                 existing_urls_block = match.group(2)
                 
-                # শুধু AUTO-UPDATED URL গুলো আলাদা করুন
+                # শুধু AUTO-UPDATED URL গুলো মুছে দিন, ম্যানুয়াল URLs রাখুন
                 lines = existing_urls_block.split('\n')
                 manual_urls = []
-                auto_urls = []
                 
                 for line in lines:
                     if line.startswith('#AUTO-UPDATED'):
                         continue  # AUTO-UPDATED কমেন্ট স্কিপ করুন
                     elif line.startswith('http'):
                         # URL টি ম্যানুয়াল নাকি AUTO-UPDATED চেক করুন
-                        if re.search(r'#AUTO-UPDATED', existing_urls_block) and line in existing_urls_block:
-                            auto_urls.append(line)
-                        else:
+                        if not re.search(r'#AUTO-UPDATED', existing_urls_block) or line not in existing_urls_block:
                             manual_urls.append(line)
-                    elif line.strip():
+                    elif line.strip() and not line.startswith('#AUTO-UPDATED'):
                         manual_urls.append(line)
                 
-                # নতুন AUTO-UPDATED URL ব্লক তৈরি করুন
+                # নতুন AUTO-UPDATED URL ব্লক তৈরি করুন (উপরে)
                 new_auto_block = ""
                 if new_urls:
                     new_auto_block = "#AUTO-UPDATED - {}\\n".format(current_time)
-                    new_auto_block += "\\n".join(new_urls) + "\\n"
+                    for url in new_urls:
+                        new_auto_block += url + "\\n"
                 
-                # ম্যানুয়াল URL ব্লক রাখুন
+                # ম্যানুয়াল URL ব্লক রাখুন (নিচে)
                 manual_block = "\\n".join(manual_urls) + "\\n" if manual_urls else ""
                 
                 # সম্পূর্ণ নতুন ব্লক তৈরি করুন
@@ -185,10 +183,9 @@ jobs:
                 
                 # পুরাতন ব্লক রিপ্লেস করুন
                 updated_content = re.sub(
-                    pattern, 
+                    re.escape(match.group(0)), 
                     new_complete_block, 
-                    main_content, 
-                    flags=re.IGNORECASE
+                    main_content
                 )
                 
                 print(f"✅ Successfully updated {channel_name}")
