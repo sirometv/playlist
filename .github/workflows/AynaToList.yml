@@ -67,28 +67,28 @@ jobs:
         # বাংলাদেশের সময় সংগ্রহ
         current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S Bangladesh Time')
         
-        # চ্যানেল ম্যাপিং - শুধু Exact Match হবে
+        # চ্যানেল ম্যাপিং - আপনার Main Playlist এর নাম : Source Playlist থেকে খুঁজবে এমন keywords
         CHANNEL_MAPPING = {
             "BTV National": ["BTV NATIONAL HD", "BTV World"],
             "BTV CTG": ["BTV CTG"],
-            "Somoy TV": ["Somoy TV"],
-            "Jamuna TV": ["Jamuna TV"],
-            "NTV BD": ["NTV"],
+            "Somoy TV": ["Somoy News TV", "Somoy TV", "SOMOY TV", "somoy tv", "Somoy", "SOMOY"],
+            "Jamuna TV": ["Jamuna TV", "JAMUNA"],
+            "NTV BD": ["NTV", "NTV HD"],
             "NTV-Europe": ["NTV Europe"],
-            "Ekushey TV": ["Ekushey TV"],
-            "Channel 24": ["Channel 24"],
+            "Ekushey TV": ["Ekushey TV", "Ekushey TV HD"],
+            "Channel 24": ["Channel 24", "Channel 24 HD"],
             "Deen TV": ["Deen TV"],
             "SATV": ["SA TV"],
-            "GTV": ["GTV"],
+            "GTV": ["Gazi TV", "GTV HD", "GTV Sports"],
             "T Sports": ["T Sports HD"],
-            "Channel 9": ["Channel 9"],
-            "Channel I": ["Channel I"],
+            "Channel 9": ["Channel 9", "Channel 9 HD"],
+            "Channel I": ["Channel I", "CHANNEL I", "channel i HD", "Channel-I", "CHANNEL I HD"],
             "News 24": ["News 24 BD"],
-            "Bangla Vision": ["Bangla Vision"],
+            "Bangla Vision": ["Bangla Vision", "Bangla Vision HD"],
             "ATN Bangla": ["ATN Bangla"],
             "ATN-Bangla News": ["ATN News"],
             "Asian TV": ["Asian TV"],
-            "RTV": ["RTV"],
+            "RTV": ["RTV", "rtv", "Rtv"],
             "Ekhon TV": ["Ekhon TV"],
             "Duronto": ["Duronto TV"],
             "Deepto TV": ["Deepto TV"],
@@ -104,15 +104,15 @@ jobs:
             "Ekattor TV": ["Ekattor TV"],
             "Peace TV Bangla": ["Peace TV Bangla HD"],
             "Rongeen TV": ["Rongeen TV"],
-            "Gaan Bangla": ["Gaan Bangla"],
-            "Star Jalsha": ["Star Jalsha"],
+            "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
+            "Star Jalsha": ["Star Jalsha HD", "Star Jalsha"],
             "Star-Jalsha Movies": ["Star Jalsha Movies HD"],
-            "Zee Bangla": ["Zee Bangla"],
+            "Zee Bangla": ["Zee Bangla International", "Zee Bangla"],
             "Zee-Bangla Cinema": ["Zee Bangla Cinema"],
         }
         
-        def find_exact_channel_urls(source_file, keywords):
-            """সোর্স প্লেলিস্ট থেকে শুধু Exact Match চ্যানেলের URL খুঁজে বের করে"""
+        def find_channel_urls(source_file, keywords):
+            """সোর্স প্লেলিস্ট থেকে চ্যানেলের সকল URL খুঁজে বের করে"""
             try:
                 with open(source_file, 'r', encoding='utf-8') as f:
                     content = f.read()
@@ -122,92 +122,82 @@ jobs:
             
             found_urls = []
             
-            # প্রতিটি keyword এর জন্য Exact Match করুন
+            # প্রতিটি keyword এর জন্য চেষ্টা করুন
             for keyword in keywords:
                 try:
-                    # Exact matching - শুধু সেই চ্যানেলগুলো নিন যেখানে keyword টি exact match
-                    pattern = r'#EXTINF:[^\n]*\b{}\b[^\n]*\n(http[^\s]+)'.format(re.escape(keyword))
+                    # #EXTINF লাইনে keyword খুঁজুন এবং পরের URL নিন
+                    pattern = r'#EXTINF:[^\n]{}[^\n]\n(http[^\s]+)'.format(re.escape(keyword))
                     matches = re.findall(pattern, content, re.IGNORECASE)
                     
                     for url in matches:
                         clean_url = url.strip()
                         if clean_url and clean_url not in found_urls:
                             found_urls.append(clean_url)
-                            print(f"✅ Found exact match URL for keyword '{keyword}': {clean_url}")
-                            
+                            print(f"✅ Found URL for keyword '{keyword}': {clean_url}")
                 except Exception as e:
                     print(f"⚠ Error searching for '{keyword}': {e}")
                     continue
             
             return found_urls
         
-        def update_channel_safely(main_content, channel_name, new_urls):
-            """মেইন প্লেলিস্টে চ্যানেল আপডেট করে - Manual URLs সম্পূর্ণ সুরক্ষিত"""
+        def update_channel_urls(main_content, channel_name, new_urls):
+            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের জন্য নতুন URL যোগ করে (পুরাতন Auto-updated URL মুছে)"""
             if not new_urls:
                 print(f"⚠ No URLs found for {channel_name}, skipping update")
                 return main_content
             
-            # চ্যানেলের সম্পূর্ণ ব্লক খুঁজে বের করুন
-            pattern = r'(#EXTINF:[^\n]*{}[^\n]*\n)((?:#AUTO-UPDATED[^\n]*\n)?(?:http[^\n]*\n)*)'.format(re.escape(channel_name))
+            # চ্যানেল ব্লক খুঁজে বের করুন
+            pattern = r'(#EXTINF:[^\n]{}[^\n]\n)((?:#AUTO-UPDATED[^\n]\n)?(?:http[^\n]\n)*)'.format(re.escape(channel_name))
             match = re.search(pattern, main_content, re.IGNORECASE)
             
-            if not match:
+            if match:
+                extinf_line = match.group(1)
+                existing_urls_block = match.group(2)
+                
+                # শুধু AUTO-UPDATED URL গুলো আলাদা করুন
+                lines = existing_urls_block.split('\n')
+                manual_urls = []
+                auto_urls = []
+                
+                for line in lines:
+                    if line.startswith('#AUTO-UPDATED'):
+                        continue  # AUTO-UPDATED কমেন্ট স্কিপ করুন
+                    elif line.startswith('http'):
+                        # URL টি ম্যানুয়াল নাকি AUTO-UPDATED চেক করুন
+                        if re.search(r'#AUTO-UPDATED', existing_urls_block) and line in existing_urls_block:
+                            auto_urls.append(line)
+                        else:
+                            manual_urls.append(line)
+                    elif line.strip():
+                        manual_urls.append(line)
+                
+                # নতুন AUTO-UPDATED URL ব্লক তৈরি করুন
+                new_auto_block = ""
+                if new_urls:
+                    new_auto_block = "#AUTO-UPDATED - {}\\n".format(current_time)
+                    new_auto_block += "\\n".join(new_urls) + "\\n"
+                
+                # ম্যানুয়াল URL ব্লক রাখুন
+                manual_block = "\\n".join(manual_urls) + "\\n" if manual_urls else ""
+                
+                # সম্পূর্ণ নতুন ব্লক তৈরি করুন
+                new_complete_block = extinf_line + new_auto_block + manual_block
+                
+                # পুরাতন ব্লক রিপ্লেস করুন
+                updated_content = re.sub(
+                    pattern, 
+                    new_complete_block, 
+                    main_content, 
+                    flags=re.IGNORECASE
+                )
+                
+                print(f"✅ Successfully updated {channel_name}")
+                print(f"   Auto URLs added: {len(new_urls)}")
+                print(f"   Manual URLs preserved: {len(manual_urls)}")
+                return updated_content
+            else:
                 print(f"❌ {channel_name} not found in main playlist")
                 return main_content
-            
-            extinf_line = match.group(1)
-            existing_block = match.group(2)
-            
-            # Manual URLs আলাদা করুন (যেগুলো #AUTO-UPDATED কমেন্টের সাথে নেই)
-            manual_urls = []
-            lines = existing_block.split('\n')
-            
-            i = 0
-            in_auto_section = False
-            
-            while i < len(lines):
-                line = lines[i].strip()
-                if not line:
-                    i += 1
-                    continue
-                    
-                if line.startswith('#AUTO-UPDATED'):
-                    in_auto_section = True
-                    i += 1
-                    # Skip all URLs after AUTO-UPDATED comment
-                    while i < len(lines) and lines[i].strip().startswith('http'):
-                        i += 1
-                    continue
-                elif line.startswith('http'):
-                    if not in_auto_section:
-                        manual_urls.append(line)
-                    i += 1
-                else:
-                    i += 1
-            
-            print(f"📊 Found {len(manual_urls)} manual URLs for {channel_name}")
-            
-            # নতুন AUTO-UPDATED ব্লক তৈরি করুন
-            new_auto_block = f"#AUTO-UPDATED - {current_time}\\n"
-            for url in new_urls:
-                new_auto_block += url + "\\n"
-            
-            # Manual URLs ব্লক
-            manual_block = ""
-            if manual_urls:
-                manual_block = "\\n".join(manual_urls) + "\\n"
-            
-            # সম্পূর্ণ নতুন ব্লক তৈরি করুন
-            new_complete_block = extinf_line + new_auto_block + manual_block
-            
-            # Simple String Replacement ব্যবহার করুন
-            updated_content = main_content.replace(match.group(0), new_complete_block)
-            
-            print(f"✅ Successfully updated {channel_name}")
-            print(f"   Auto URLs added: {len(new_urls)}")
-            print(f"   Manual URLs preserved: {len(manual_urls)}")
-            
-            return updated_content
         
         try:
             # মেইন প্লেলিস্ট লোড করুন
@@ -216,9 +206,6 @@ jobs:
         except:
             with open('main_playlist.m3u', 'r', encoding='latin-1') as f:
                 main_content = f.read()
-        
-        # Backup manual content
-        original_content = main_content
         
         # আপডেট প্রসেস শুরু
         updated_content = main_content
@@ -229,34 +216,15 @@ jobs:
         # প্রতিটি চ্যানেলের জন্য আপডেট করুন
         for main_channel, search_keywords in CHANNEL_MAPPING.items():
             print(f"\\n🔍 Processing: {main_channel}")
-            print(f"   Searching for exact matches: {search_keywords}")
-            
-            # শুধু Exact Match URLs নিন
-            new_urls = find_exact_channel_urls('source_playlist.m3u', search_keywords)
+            new_urls = find_channel_urls('source_playlist.m3u', search_keywords)
             
             if new_urls:
-                updated_content = update_channel_safely(updated_content, main_channel, new_urls)
+                updated_content = update_channel_urls(updated_content, main_channel, new_urls)
                 update_count += 1
                 successful_updates.append(main_channel)
             else:
-                print(f"⚠ No exact matches found for {main_channel}")
+                print(f"⚠ Skipping {main_channel} - no URL found")
                 failed_updates.append(main_channel)
-        
-        # Manual URLs Safety Check
-        original_manual_count = len(re.findall(r'^http[^\n]*\n', original_content, re.MULTILINE))
-        updated_manual_count = len(re.findall(r'^http[^\n]*\n', updated_content, re.MULTILINE))
-        
-        print(f"\\n🔒 Manual URLs Safety Check:")
-        print(f"   Before update: {original_manual_count} URLs")
-        print(f"   After update: {updated_manual_count} URLs")
-        
-        if original_manual_count > updated_manual_count:
-            print("❌ WARNING: Some manual URLs may have been lost!")
-            # Restore from backup if URLs are lost
-            updated_content = original_content
-            print("🔄 Restored original content to protect manual URLs")
-        else:
-            print("✅ Manual URLs are safe!")
         
         # আপডেটেড টাইম সহ হেডার যোগ করুন
         header_comment = f"\\n# Auto-updated from Ayna.m3u\\n# Last Updated: {current_time}\\n# Total Channels Updated: {update_count}\\n# Manual URLs are preserved, Auto URLs are on top\\n"
@@ -270,10 +238,9 @@ jobs:
         print(f"   Total channels processed: {len(CHANNEL_MAPPING)}")
         print(f"   Successfully updated: {update_count}")
         print(f"   Failed: {len(failed_updates)}")
-        if successful_updates:
-            print(f"   Updated channels: {', '.join(successful_updates)}")
+        print(f"   Updated channels: {', '.join(successful_updates)}")
         if failed_updates:
-            print(f"   No matches found for: {', '.join(failed_updates)}")
+            print(f"   Failed channels: {', '.join(failed_updates)}")
         
         EOF
         
@@ -294,29 +261,15 @@ jobs:
         echo "   Before: $OLD_CHANNELS channels"
         echo "   After: $NEW_CHANNELS channels"
         
-        # Verification Step - URL কাউন্ট চেক করুন
-        OLD_URLS=$(grep -c "^http" main_playlist.m3u 2>/dev/null || echo "0")
-        NEW_URLS=$(grep -c "^http" sirometv_updated.m3u 2>/dev/null || echo "0")
-        
-        echo "📊 URL Count Verification:"
-        echo "   Before: $OLD_URLS URLs"
-        echo "   After: $NEW_URLS URLs"
-        
-        if [ "$OLD_URLS" -gt "$NEW_URLS" ]; then
-          echo "❌ WARNING: Some URLs were lost! Manual URLs may be affected."
-        else
-          echo "✅ URL count is safe"
-        fi
-        
-        # AUTO-UPDATED কমেন্ট গুলো দেখান
-        AUTO_COUNT=$(grep -c "#AUTO-UPDATED" sirometv_updated.m3u 2>/dev/null || echo "0")
-        echo "🔄 Auto-updated channels: $AUTO_COUNT"
+        # AUTO-UPDATED URL গুলো দেখান
+        AUTO_URLS=$(grep -c "#AUTO-UPDATED" sirometv_updated.m3u 2>/dev/null || echo "0")
+        echo "🔄 Auto-updated URLs: $AUTO_URLS"
         
         # আপডেট করা চ্যানেলগুলো দেখান
         echo "🔍 Sample updated channels structure:"
-        for channel in "Mohona TV" "Bangla TV" "SATV"; do
+        for channel in "T Sports" "Somoy TV" "Channel I"; do
           echo "--- $channel ---"
-          grep -A 10 "$channel" sirometv_updated.m3u | head -11 || echo "Not found"
+          grep -A 5 "$channel" sirometv_updated.m3u | head -6 || echo "Not found"
           echo ""
         done
         
@@ -339,8 +292,7 @@ jobs:
           git commit -m "🔄 Auto Update Channels from Ayna - $COMMIT_TIME"
           git push
           echo "🎉 Successfully updated channels from Ayna playlist!"
-          echo "🔒 Manual URLs are completely safe!"
-          echo "🔍 Only exact matches updated"
+          echo "📝 Auto URLs added on top, Manual URLs preserved"
         fi
         
     - name: Cleanup
