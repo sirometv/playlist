@@ -1,0 +1,149 @@
+name: Ayna To T Sports
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-channels:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Download playlists
+      run: |
+        echo "📥 Downloading playlists..."
+        curl -s -L -o main_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/sirometv.m3u"
+        curl -s -L -o source_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/Ayna.m3u"
+        
+        for file in main_playlist.m3u source_playlist.m3u; do
+          if [ ! -f "$file" ] || [ ! -s "$file" ]; then
+            echo "❌ ERROR: $file download failed!"
+            exit 1
+          fi
+          LINES=$(wc -l < "$file")
+          echo "✅ $file downloaded - $LINES lines"
+        done
+        
+    - name: Update multiple channels
+      run: |
+        echo "🔄 Updating multiple channels..."
+        
+        python3 - << 'EOF'
+        import re
+        
+        # চ্যানেল ম্যাপিং - আপনার প্রথম প্লেলিস্টের নাম : সেকেন্ড প্লেলিস্টে খুঁজবে এমন keywords
+        CHANNEL_MAPPING = {
+            "T Sports": ["T Sports HD", "TSports", "Tsports", "TSPORTS", "T Sports", "T SPORTS HD", "tsportshd", "T Sports HD"],
+            # "Somoy TV": ["Somoy News TV", "Somoy TV"],
+            # এখানে আপনি আরো চ্যানেল যোগ করতে পারবেন
+            # "Channel Name in Main": ["keyword1", "keyword2", "keyword3"]
+        }
+        
+        def find_channel_url(source_file, keywords):
+            """সোর্স প্লেলিস্ট থেকে চ্যানেল URL খুঁজে বের করে"""
+            with open(source_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # সব keywords এর জন্য চেষ্টা করুন
+            for keyword in keywords:
+                pattern = r'#EXTINF:[^\n]*{}[^\n]*\n(http[^\n]+)'.format(re.escape(keyword))
+                match = re.search(pattern, content, re.IGNORECASE)
+                
+                if match:
+                    url = match.group(1).strip()
+                    print(f"✅ Found URL for keyword '{keyword}': {url}")
+                    return url
+            
+            print(f"❌ No URL found for keywords: {keywords}")
+            return None
+        
+        def update_channel_url(main_content, channel_name, new_url):
+            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের URL আপডেট করে"""
+            pattern = r'(#EXTINF:[^\n]*{}[^\n]*\n)(http[^\n]+)'.format(re.escape(channel_name))
+            
+            if re.search(pattern, main_content, re.IGNORECASE):
+                updated_content = re.sub(
+                    pattern, 
+                    r'\1' + new_url, 
+                    main_content, 
+                    flags=re.IGNORECASE
+                )
+                print(f"✅ Successfully updated {channel_name} URL")
+                return updated_content
+            else:
+                print(f"❌ {channel_name} not found in main playlist")
+                return main_content
+        
+        # মেইন প্লেলিস্ট লোড করুন
+        with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
+            main_content = f.read()
+        
+        updated_content = main_content
+        update_count = 0
+        
+        # প্রতিটি চ্যানেলের জন্য আপডেট করুন
+        for main_channel, search_keywords in CHANNEL_MAPPING.items():
+            print(f"\n🔍 Processing: {main_channel}")
+            new_url = find_channel_url('source_playlist.m3u', search_keywords)
+            
+            if new_url:
+                updated_content = update_channel_url(updated_content, main_channel, new_url)
+                update_count += 1
+            else:
+                print(f"⚠️ Skipping {main_channel} - no URL found")
+        
+        # আপডেট করা কন্টেন্ট সেভ করুন
+        with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
+            f.write(updated_content)
+        
+        print(f"\n🎉 Update Summary:")
+        print(f"   Total channels processed: {len(CHANNEL_MAPPING)}")
+        print(f"   Successfully updated: {update_count}")
+        print(f"   Failed: {len(CHANNEL_MAPPING) - update_count}")
+        
+        EOF
+        
+    - name: Verify and replace playlist
+      run: |
+        echo "🔍 Verifying updated playlist..."
+        
+        if [ ! -f "sirometv_updated.m3u" ] || [ ! -s "sirometv_updated.m3u" ]; then
+          echo "❌ ERROR: Updated playlist is missing or empty!"
+          exit 1
+        fi
+        
+        mv sirometv_updated.m3u sirometv.m3u
+        
+        # আপডেট করা চ্যানেলগুলো দেখান
+        echo "🔍 Updated channels:"
+        grep -A 1 -E "Somoy TV|T Sports" sirometv.m3u || echo "No matching channels found"
+        
+    - name: Commit and push changes
+      run: |
+        echo "💾 Saving changes to repository..."
+        
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add sirometv.m3u
+        
+        if git diff --staged --quiet; then
+          echo "✅ No changes detected - playlist is up to date"
+        else
+          git commit -m "🔄 Auto Update Multiple Channels - $(date +'%Y-%m-%d %H:%M:%S')"
+          git push
+          echo "🎉 Successfully updated channels!"
+        fi
+        
+    - name: Cleanup
+      run: |
+        rm -f main_playlist.m3u source_playlist.m3u
+        echo "✅ Cleanup completed!"
