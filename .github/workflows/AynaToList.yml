@@ -79,14 +79,11 @@ jobs:
             "Channel 24": ["Channel 24", "Channel 24 HD"],
             "Deen TV": ["Deen TV"],
             "SATV": ["SA TV"],
-            "GTV": ["Gazi TV"],
-            "T Sports": ["T Sports HD"],
+            "GTV": ["Gazi TV", "GTV HD", "GTV Sports"],
+            "T Sports": ["T Sports HD", "TSports", "Tsports", "TSPORTS", "T Sports", "T SPORTS HD", "tsportshd"],
             "Channel 9": ["Channel 9", "Channel 9 HD"],
             "Channel I": ["Channel I", "CHANNEL I", "channel i HD", "Channel-I", "CHANNEL I HD"],
             "News 24": ["News 24 BD"],
-            "Boishakhi TV": ["Boishakhi TV"],
-            "Boishakhi Plus": ["Boishakhi Plus"],
-            "Bijoy TV": ["Bijoy TV"],
             "Bangla Vision": ["Bangla Vision", "Bangla Vision HD"],
             "ATN Bangla": ["ATN Bangla"],
             "ATN-Bangla News": ["ATN News"],
@@ -101,9 +98,9 @@ jobs:
             "Rongeen TV": ["Rongeen TV"],
             "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
             "Star Jalsha": ["Star Jalsha HD", "Star Jalsha"],
-            "Star-Jalsha Movies": [Star-Jalsha Movies"],
+            "Star Jalsha Movies": ["Star Jalsha Movies HD"],
             "Zee Bangla": ["Zee Bangla International", "Zee Bangla"],
-            "Zee-Bangla Cinema": ["Zee-Bangla Cinema"],
+            "Zee Bangla Cinema": ["Zee Bangla Cinema"],
         }
         
         def find_channel_urls(source_file, keywords):
@@ -121,7 +118,7 @@ jobs:
             for keyword in keywords:
                 try:
                     # #EXTINF লাইনে keyword খুঁজুন এবং পরের URL নিন
-                    pattern = r'#EXTINF:[^\n]*{}[^\n]*\n(http[^\s]+)'.format(re.escape(keyword))
+                    pattern = r'#EXTINF:[^\n]{}[^\n]\n(http[^\s]+)'.format(re.escape(keyword))
                     matches = re.findall(pattern, content, re.IGNORECASE)
                     
                     for url in matches:
@@ -142,7 +139,7 @@ jobs:
                 return main_content
             
             # চ্যানেল ব্লক খুঁজে বের করুন
-            pattern = r'(#EXTINF:[^\n]*{}[^\n]*\n)((?:#AUTO-UPDATED[^\n]*\n)?(?:http[^\n]*\n)*)'.format(re.escape(channel_name))
+            pattern = r'(#EXTINF:[^\n]{}[^\n]\n)((?:#AUTO-UPDATED[^\n]\n)?(?:http[^\n]\n)*)'.format(re.escape(channel_name))
             match = re.search(pattern, main_content, re.IGNORECASE)
             
             if match:
