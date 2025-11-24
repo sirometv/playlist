@@ -33,9 +33,9 @@ jobs:
           echo "✅ $file downloaded - $LINES lines"
         done
         
-    - name: Update multiple channels
+    - name: Update T Sports Channel
       run: |
-        echo "🔄 Updating multiple channels..."
+        echo "🔄 Updating T Sports Channel..."
         
         python3 - << 'EOF'
         import re
@@ -198,14 +198,17 @@ jobs:
         if git diff --staged --quiet; then
           echo "✅ No changes detected - playlist is up to date"
         else
+          # বাংলাদেশের সময় নেওয়া
+          BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p Bangladesh Time')
+          
           # Check if manual or scheduled run
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            git commit -m "🔄 Manual Update: Added AUTO-UPDATED links - $(date +'%Y-%m-%d %H:%M:%S')"
+            git commit -m "🔄 Manual Update: Added T Sports AUTO-UPDATED links - $BANGLADESH_TIME"
           else
-            git commit -m "🔄 Scheduled Update: Replaced AUTO-UPDATED links - $(date +'%Y-%m-%d %H:%M:%S')"
+            git commit -m "🔄 Scheduled Update: Replaced T Sports AUTO-UPDATED links - $BANGLADESH_TIME"
           fi
           git push
-          echo "🎉 Successfully updated channels!"
+          echo "🎉 Successfully updated T Sports channel!"
         fi
         
     - name: Cleanup
