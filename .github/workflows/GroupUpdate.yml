@@ -1,0 +1,271 @@
+name: Groups Update
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-channels:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Download playlists
+      run: |
+        echo "📥 Downloading playlists..."
+        curl -s -L -o main_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/sirometvsports.m3u"
+        curl -s -L -o source_playlist.m3u "https://raw.githubusercontent.com/abusaeeidx/Mrgify-BDIX-IPTV/main/playlist.m3u"
+        
+        for file in main_playlist.m3u source_playlist.m3u; do
+          if [ ! -f "$file" ] || [ ! -s "$file" ]; then
+            echo "❌ ERROR: $file download failed!"
+            exit 1
+          fi
+          LINES=$(wc -l < "$file")
+          echo "✅ $file downloaded - $LINES lines"
+        done
+        
+    - name: Update Multiple Groups
+      run: |
+        echo "🔄 Updating Multiple Group Channels..."
+        
+        python3 - << 'EOF'
+        import re
+        from datetime import datetime
+        import pytz
+        
+        # ⚙️ CONFIGURATION - এখানে লাইন নম্বর এবং গ্রুপ টাইটেলগুলো পরিবর্তন করতে পারবেন
+        TARGET_LINE_NUMBER = 37  # আপনার ইচ্ছামত লাইন নম্বর পরিবর্তন করুন
+        
+        # গ্রুপ টাইটেলের লিস্ট - যতগুলো খুশি যোগ/বিয়োগ করতে পারবেন
+        TARGET_GROUP_TITLES = [
+            "Live Event",
+            "Cricket",
+            # "Football",    # uncomment করতে পারেন যদি প্রয়োজন হয়
+            # "Sports",      # uncomment করতে পারেন যদি প্রয়োজন হয়
+            # "Movies",      # uncomment করতে পারেন যদি প্রয়োজন হয়
+        ]
+        
+        def get_bangladesh_time():
+            """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
+            bangladesh_tz = pytz.timezone('Asia/Dhaka')
+            now = datetime.now(bangladesh_tz)
+            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
+        
+        def extract_group_channels(source_file, group_title):
+            """সোর্স প্লেলিস্ট থেকে নির্দিষ্ট গ্রুপের সব চ্যানেল extract করে"""
+            channels = []
+            
+            with open(source_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # নির্দিষ্ট গ্রুপের সব চ্যানেল খুঁজে বের করা
+            pattern = r'(#EXTINF:-1[^\n]*group-title="[^"]*{}[^"]*"[^\n]*\n)(http[^\n]+)'.format(re.escape(group_title))
+            
+            matches = re.finditer(pattern, content, re.IGNORECASE)
+            
+            for match in matches:
+                extinf_line = match.group(1).strip()
+                url_line = match.group(2).strip()
+                
+                # চ্যানেল নাম extract করা
+                channel_name_match = re.search(r',([^,\n]+)$', extinf_line)
+                channel_name = channel_name_match.group(1).strip() if channel_name_match else f"{group_title} Match"
+                
+                # tvg-logo extract করা
+                logo_match = re.search(r'tvg-logo="([^"]*)"', extinf_line)
+                tvg_logo = logo_match.group(1) if logo_match else "https://i.postimg.cc/7P04hWZh/image.jpg"
+                
+                channels.append({
+                    'extinf_line': extinf_line,
+                    'url_line': url_line,
+                    'channel_name': channel_name,
+                    'tvg_logo': tvg_logo,
+                    'group_title': group_title
+                })
+            
+            print(f"✅ Found {len(channels)} channels for group '{group_title}'")
+            return channels
+        
+        def force_groups_at_line(main_content, all_group_channels, target_line):
+            """সবসময় নির্দিষ্ট লাইনে সব গ্রুপের সেকশন রাখে"""
+            timestamp = get_bangladesh_time()
+            
+            # সব গ্রুপের জন্য combined section তৈরি করা
+            new_combined_section = f"#AUTO-UPDATED - Multiple Groups - {timestamp}\n"
+            
+            total_channels = 0
+            for group_title, channels in all_group_channels.items():
+                if channels:  # শুধু channels থাকলে যোগ করবে
+                    new_combined_section += f"# --- {group_title} Group ---\n"
+                    
+                    for channel in channels:
+                        # নতুন EXTINF লাইন তৈরি করা
+                        new_extinf_line = f'#EXTINF:-1 tvg-logo="{channel["tvg_logo"]}" group-title="{group_title}", {channel["channel_name"]}\n'
+                        new_combined_section += new_extinf_line
+                        new_combined_section += channel["url_line"] + "\n"
+                    
+                    total_channels += len(channels)
+                    print(f"📺 Added {len(channels)} channels for {group_title}")
+            
+            if total_channels == 0:
+                new_combined_section += "# No channels found for any group\n"
+            
+            # মেইন কন্টেন্টকে লাইনে ভাগ করা
+            lines = main_content.split('\n')
+            
+            # TARGET_LINE_NUMBER validation
+            if target_line < 1:
+                target_line = 1
+            if target_line > len(lines):
+                target_line = len(lines)
+            
+            print(f"📍 Target line: {target_line} (Total lines: {len(lines)})")
+            
+            # existing AUTO-UPDATED Multiple Groups section খুঁজে বের করা এবং সরানো
+            auto_updated_start = -1
+            auto_updated_end = -1
+            
+            # existing section এর শুরু এবং শেষ খুঁজা
+            for i, line in enumerate(lines):
+                if '#AUTO-UPDATED' in line and 'Multiple Groups' in line:
+                    auto_updated_start = i
+                    # section এর শেষ খুঁজা
+                    for j in range(i + 1, len(lines)):
+                        if not (lines[j].startswith('#EXTINF') or lines[j].startswith('http') or lines[j].startswith('# ---') or lines[j].strip() == ''):
+                            auto_updated_end = j
+                            break
+                    if auto_updated_end == -1:
+                        auto_updated_end = len(lines)
+                    break
+            
+            if auto_updated_start != -1:
+                print(f"🗑️ Removing existing Multiple Groups section (lines {auto_updated_start+1}-{auto_updated_end})")
+                # existing section সরানো
+                lines = lines[:auto_updated_start] + lines[auto_updated_end:]
+            
+            # নতুন section টার্গেট লাইনে যোগ করা
+            insert_position = target_line - 1  # 0-based index
+            
+            # যদি insert position existing removal এর পর পরিবর্তন হয়ে থাকে, adjust করা
+            if auto_updated_start != -1 and auto_updated_start < insert_position:
+                insert_position -= (auto_updated_end - auto_updated_start)
+            
+            if insert_position > len(lines):
+                insert_position = len(lines)
+            
+            new_lines = lines[:insert_position] + new_combined_section.split('\n') + lines[insert_position:]
+            updated_content = '\n'.join(new_lines)
+            
+            print(f"✅ Multiple Groups section positioned at line {target_line}")
+            
+            return updated_content, total_channels
+        
+        # মেইন প্লেলিস্ট লোড করুন
+        with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
+            main_content = f.read()
+        
+        # Check if manual run or scheduled
+        import os
+        is_manual_run = os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
+        
+        # প্রতিটি গ্রুপ টাইটেলের জন্য চ্যানেল extract করুন
+        all_group_channels = {}
+        total_found_channels = 0
+        
+        for group_title in TARGET_GROUP_TITLES:
+            print(f"\n🔍 Processing group: {group_title}")
+            channels = extract_group_channels('source_playlist.m3u', group_title)
+            all_group_channels[group_title] = channels
+            total_found_channels += len(channels)
+        
+        # মেইন প্লেলিস্ট আপডেট করুন - সবসময় TARGET_LINE_NUMBER এ রাখবে
+        updated_content, total_added_channels = force_groups_at_line(main_content, all_group_channels, TARGET_LINE_NUMBER)
+        
+        # আপডেট করা কন্টেন্ট সেভ করুন
+        with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
+            f.write(updated_content)
+        
+        print(f"\n🎉 Update Summary:")
+        print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
+        print(f"   Target line: {TARGET_LINE_NUMBER}")
+        print(f"   Total groups: {len(TARGET_GROUP_TITLES)}")
+        print(f"   Total channels found: {total_found_channels}")
+        print(f"   Total channels added: {total_added_channels}")
+        print(f"   Configuration:")
+        print(f"     - TARGET_LINE_NUMBER = {TARGET_LINE_NUMBER}")
+        print(f"     - TARGET_GROUP_TITLES = {TARGET_GROUP_TITLES}")
+        
+        # প্রতিটি গ্রুপের জন্য আলাদা summary
+        print(f"\n📊 Group-wise Summary:")
+        for group_title in TARGET_GROUP_TITLES:
+            channel_count = len(all_group_channels[group_title])
+            print(f"   📺 {group_title}: {channel_count} channels")
+        
+        EOF
+        
+    - name: Verify and replace playlist
+      run: |
+        echo "🔍 Verifying updated playlist..."
+        
+        if [ ! -f "sirometv_updated.m3u" ] || [ ! -s "sirometv_updated.m3u" ]; then
+          echo "❌ ERROR: Updated playlist is missing or empty!"
+          exit 1
+        fi
+        
+        # AUTO-UPDATED section এর অবস্থান চেক করা
+        echo "📍 Checking AUTO-UPDATED section position:"
+        grep -n "AUTO-UPDATED.*Multiple Groups" sirometv_updated.m3u
+        
+        mv sirometv_updated.m3u sirometvsports.m3u
+        
+        # আপডেট করা গ্রুপগুলো দেখান
+        echo "🔍 Updated groups and channels:"
+        echo "🏏 Cricket group:"
+        grep -A 1 'group-title="Cricket"' sirometvsports.m3u | head -4 || echo "  No Cricket channels found"
+        echo "📺 Live Event group:"
+        grep -A 1 'group-title="Live Event"' sirometvsports.m3u | head -4 || echo "  No Live Event channels found"
+        
+        echo "✅ Multiple groups section successfully positioned"
+        
+    - name: Commit and push changes
+      run: |
+        echo "💾 Saving changes to repository..."
+        
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add sirometvsports.m3u
+        
+        if git diff --staged --quiet; then
+          echo "✅ No changes detected - playlist is up to date"
+        else
+          BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
+          
+          # প্রতিটি গ্রুপের চ্যানেল সংখ্যা গণনা
+          CRICKET_COUNT=$(grep -c 'group-title="Cricket"' sirometvsports.m3u || echo "0")
+          LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometvsports.m3u || echo "0")
+          TOTAL_COUNT=$((CRICKET_COUNT + LIVE_EVENT_COUNT))
+          
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            git commit -m "🔄 Manual Update: Multiple Groups (Cricket: $CRICKET_COUNT, Live Event: $LIVE_EVENT_COUNT) - $BANGLADESH_TIME"
+          else
+            git commit -m "🔄 Scheduled Update: Multiple Groups (Cricket: $CRICKET_COUNT, Live Event: $LIVE_EVENT_COUNT) - $BANGLADESH_TIME"
+          fi
+          git push
+          echo "🎉 Successfully updated multiple groups at line 37!"
+          echo "   Cricket: $CRICKET_COUNT channels"
+          echo "   Live Event: $LIVE_EVENT_COUNT channels"
+        fi
+        
+    - name: Cleanup
+      run: |
+        rm -f main_playlist.m3u source_playlist.m3u
+        echo "✅ Cleanup completed!"
