@@ -54,7 +54,7 @@ jobs:
             """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
             bangladesh_tz = pytz.timezone('Asia/Dhaka')
             now = datetime.now(bangladesh_tz)
-            return now.strftime("%Y-%m-%d %I:%M:%S%p Bangladesh Time")
+            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
         
         def find_channel_url(source_file, keywords):
             """সোর্স প্লেলিস্ট থেকে চ্যানেল URL খুঁজে বের করে"""
@@ -198,14 +198,14 @@ jobs:
         if git diff --staged --quiet; then
           echo "✅ No changes detected - playlist is up to date"
         else
-          # বাংলাদেশের সময় নেওয়া
-          BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p Bangladesh Time')
+          # বাংলাদেশের সময় নেওয়া (BD Time format)
+          BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
           
           # Check if manual or scheduled run
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            git commit -m "🔄 Manual Update: Added T Sports AUTO-UPDATED links - $BANGLADESH_TIME"
+            git commit -m "🔄 Manual Update: Added T Sports - $BANGLADESH_TIME"
           else
-            git commit -m "🔄 Scheduled Update: Replaced T Sports AUTO-UPDATED links - $BANGLADESH_TIME"
+            git commit -m "🔄 Scheduled Update: Replaced T Sports - $BANGLADESH_TIME"
           fi
           git push
           echo "🎉 Successfully updated T Sports channel!"
