@@ -42,6 +42,9 @@ jobs:
         from datetime import datetime
         import pytz
         
+        # ⚙️ CONFIGURATION - এখানে লাইন নম্বর পরিবর্তন করতে পারবেন
+        TARGET_LINE_NUMBER = 37  # আপনার ইচ্ছামত লাইন নম্বর পরিবর্তন করুন
+        
         def get_bangladesh_time():
             """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
             bangladesh_tz = pytz.timezone('Asia/Dhaka')
@@ -82,44 +85,68 @@ jobs:
             print(f"✅ Found {len(channels)} Live Event channels in source playlist")
             return channels
         
-        def replace_live_event_section(main_content, live_event_channels, is_manual_run=False):
-            """মেইন প্লেলিস্টে Live Event সেকশন সম্পূর্ণ replace করে"""
+        def force_live_event_at_line(main_content, live_event_channels, target_line):
+            """সবসময় নির্দিষ্ট লাইনে Live Event সেকশন রাখে"""
             timestamp = get_bangladesh_time()
             
             # নতুন Live Event সেকশন তৈরি করা
             new_live_event_section = f"#AUTO-UPDATED - Live Event Group - {timestamp}\n"
             
             for channel in live_event_channels:
-                # নতুন EXTINF লাইন তৈরি করা - group-title="Live Event" নিশ্চিত করা
+                # নতুন EXTINF লাইন তৈরি করা
                 new_extinf_line = f'#EXTINF:-1 tvg-logo="{channel["tvg_logo"]}" group-title="Live Event", {channel["channel_name"]}\n'
                 new_live_event_section += new_extinf_line
-                new_live_event_section += channel["url_line"] + "\n\n"
+                new_live_event_section += channel["url_line"] + "\n"
             
-            # মেইন প্লেলিস্টে existing Live Event সেকশন খুঁজে বের করা
-            pattern = r'(#AUTO-UPDATED[^\n]*Live Event[^\n]*\n)(.*?)(?=\n#EXT|$)'
-            match = re.search(pattern, main_content, re.IGNORECASE | re.DOTALL)
+            # মেইন কন্টেন্টকে লাইনে ভাগ করা
+            lines = main_content.split('\n')
             
-            if match:
-                # যদি existing Live Event সেকশন থাকে, replace করবে
-                updated_content = re.sub(pattern, new_live_event_section, main_content, flags=re.IGNORECASE | re.DOTALL)
-                print("✅ Replaced existing Live Event section")
-            else:
-                # যদি existing Live Event সেকশন না থাকে, নতুন যোগ করবে
-                # প্রথমে মেইন প্লেলিস্টের শেষে যোগ করার চেষ্টা করা
-                if main_content.strip().endswith('#EXT'):
-                    updated_content = main_content + "\n\n" + new_live_event_section
-                else:
-                    updated_content = main_content + "\n" + new_live_event_section
-                print("✅ Added new Live Event section")
+            # TARGET_LINE_NUMBER validation
+            if target_line < 1:
+                target_line = 1
+            if target_line > len(lines):
+                target_line = len(lines)
+            
+            print(f"📍 Target line: {target_line} (Total lines: {len(lines)})")
+            
+            # existing AUTO-UPDATED Live Event section খুঁজে বের করা এবং সরানো
+            auto_updated_start = -1
+            auto_updated_end = -1
+            
+            # existing section এর শুরু এবং শেষ খুঁজা
+            for i, line in enumerate(lines):
+                if '#AUTO-UPDATED' in line and 'Live Event' in line:
+                    auto_updated_start = i
+                    # section এর শেষ খুঁজা
+                    for j in range(i + 1, len(lines)):
+                        if not (lines[j].startswith('#EXTINF') or lines[j].startswith('http') or lines[j].strip() == ''):
+                            auto_updated_end = j
+                            break
+                    if auto_updated_end == -1:
+                        auto_updated_end = len(lines)
+                    break
+            
+            if auto_updated_start != -1:
+                print(f"🗑️ Removing existing Live Event section (lines {auto_updated_start+1}-{auto_updated_end})")
+                # existing section সরানো
+                lines = lines[:auto_updated_start] + lines[auto_updated_end:]
+            
+            # নতুন section টার্গেট লাইনে যোগ করা
+            insert_position = target_line - 1  # 0-based index
+            
+            # যদি insert position existing removal এর পর পরিবর্তন হয়ে থাকে, adjust করা
+            if auto_updated_start != -1 and auto_updated_start < insert_position:
+                insert_position -= (auto_updated_end - auto_updated_start)
+            
+            if insert_position > len(lines):
+                insert_position = len(lines)
+            
+            new_lines = lines[:insert_position] + new_live_event_section.split('\n') + lines[insert_position:]
+            updated_content = '\n'.join(new_lines)
+            
+            print(f"✅ Live Event section positioned at line {target_line}")
             
             return updated_content
-        
-        def find_live_event_marker(main_content):
-            """মেইন প্লেলিস্টে Live Event মার্কার খুঁজে বের করা"""
-            # "Live Match" বা similar চ্যানেল খোঁজা
-            pattern = r'#EXTINF:-1[^\n]*Live[^\n]*\n(http[^\n]+)'
-            match = re.search(pattern, main_content, re.IGNORECASE)
-            return match
         
         # মেইন প্লেলিস্ট লোড করুন
         with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
@@ -134,15 +161,18 @@ jobs:
         
         if not live_event_channels:
             print("❌ No Live Event channels found in source playlist!")
-            # সোর্স ফাইল কন্টেন্ট দেখানো (ডিবাগিং এর জন্য)
-            with open('source_playlist.m3u', 'r', encoding='utf-8') as f:
-                source_content = f.read()
-                live_event_matches = re.findall(r'group-title="[^"]*Live Event[^"]*"', source_content, re.IGNORECASE)
-                print(f"Debug: Found {len(live_event_matches)} group-title mentions with 'Live Event'")
-            exit(1)
-        
-        # মেইন প্লেলিস্ট আপডেট করুন
-        updated_content = replace_live_event_section(main_content, live_event_channels, is_manual_run)
+            # খালি Live Event section যোগ করা
+            timestamp = get_bangladesh_time()
+            empty_section = f"#AUTO-UPDATED - Live Event Group - {timestamp}\n# No Live Event channels found in source\n"
+            
+            lines = main_content.split('\n')
+            insert_position = TARGET_LINE_NUMBER - 1 if TARGET_LINE_NUMBER <= len(lines) else len(lines)
+            new_lines = lines[:insert_position] + empty_section.split('\n') + lines[insert_position:]
+            updated_content = '\n'.join(new_lines)
+            
+        else:
+            # মেইন প্লেলিস্ট আপডেট করুন - সবসময় TARGET_LINE_NUMBER এ রাখবে
+            updated_content = force_live_event_at_line(main_content, live_event_channels, TARGET_LINE_NUMBER)
         
         # আপডেট করা কন্টেন্ট সেভ করুন
         with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
@@ -150,12 +180,9 @@ jobs:
         
         print(f"\n🎉 Update Summary:")
         print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
-        print(f"   Live Event channels added: {len(live_event_channels)}")
-        print(f"   First few channels:")
-        for i, channel in enumerate(live_event_channels[:3]):
-            print(f"     {i+1}. {channel['channel_name']}")
-        if len(live_event_channels) > 3:
-            print(f"     ... and {len(live_event_channels) - 3} more channels")
+        print(f"   Target line: {TARGET_LINE_NUMBER}")
+        print(f"   Live Event channels: {len(live_event_channels)}")
+        print(f"   Configuration: TARGET_LINE_NUMBER = {TARGET_LINE_NUMBER}")
         
         EOF
         
@@ -168,16 +195,13 @@ jobs:
           exit 1
         fi
         
-        # লাইন সংখ্যা চেক করা
-        OLD_LINES=$(wc -l < main_playlist.m3u)
-        NEW_LINES=$(wc -l < sirometv_updated.m3u)
-        echo "📊 Line count - Old: $OLD_LINES, New: $NEW_LINES, Difference: $((NEW_LINES - OLD_LINES))"
+        # AUTO-UPDATED section এর অবস্থান চেক করা
+        echo "📍 Checking AUTO-UPDATED section position:"
+        grep -n "AUTO-UPDATED.*Live Event" sirometv_updated.m3u
         
         mv sirometv_updated.m3u sirometvsports.m3u
         
-        # আপডেট করা Live Event গ্রুপ দেখান
-        echo "🔍 Updated Live Event group channels (first 5):"
-        grep -A 1 'group-title="Live Event"' sirometvsports.m3u | head -10 || echo "No Live Event channels found"
+        echo "✅ Live Event section successfully positioned"
         
     - name: Commit and push changes
       run: |
@@ -190,20 +214,16 @@ jobs:
         if git diff --staged --quiet; then
           echo "✅ No changes detected - playlist is up to date"
         else
-          # বাংলাদেশের সময় নেওয়া (BD Time format)
           BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
-          
-          # Live Event চ্যানেল সংখ্যা গণনা
           CHANNEL_COUNT=$(grep -c 'group-title="Live Event"' sirometvsports.m3u || echo "0")
           
-          # Check if manual or scheduled run
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             git commit -m "🔄 Manual Update: Live Event Group ($CHANNEL_COUNT channels) - $BANGLADESH_TIME"
           else
             git commit -m "🔄 Scheduled Update: Live Event Group ($CHANNEL_COUNT channels) - $BANGLADESH_TIME"
           fi
           git push
-          echo "🎉 Successfully updated Live Event group with $CHANNEL_COUNT channels!"
+          echo "🎉 Successfully updated Live Event group at line $TARGET_LINE_NUMBER!"
         fi
         
     - name: Cleanup
