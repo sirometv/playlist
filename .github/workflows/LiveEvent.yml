@@ -1,0 +1,261 @@
+name: Live Event Group To T Sports
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-channels:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Download playlists
+      run: |
+        echo "📥 Downloading playlists..."
+        curl -s -L -o main_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/sirometvsports.m3u"
+        curl -s -L -o source_playlist.m3u "https://raw.githubusercontent.com/abusaeeidx/Mrgify-BDIX-IPTV/main/playlist.m3u"
+        
+        for file in main_playlist.m3u source_playlist.m3u; do
+          if [ ! -f "$file" ] || [ ! -s "$file" ]; then
+            echo "❌ ERROR: $file download failed!"
+            exit 1
+          fi
+          LINES=$(wc -l < "$file")
+          echo "✅ $file downloaded - $LINES lines"
+        done
+        
+    - name: Update Live Event Group Channels
+      run: |
+        echo "🔄 Updating Live Event Group Channels..."
+        
+        python3 - << 'EOF'
+        import re
+        from datetime import datetime
+        import pytz
+        
+        # গ্রুপ টাইটেল ম্যাপিং - আপনার মেইন প্লেলিস্টের গ্রুপ টাইটেল : সোর্স প্লেলিস্টে খুঁজবে এমন গ্রুপ টাইটেল
+        GROUP_MAPPING = {
+            "Live Event": ["Live Event", "LIVE EVENT", "live event"],
+            # এখানে আপনি আরো গ্রুপ যোগ করতে পারবেন
+            # "Group Title in Main": ["group1", "group2", "group3"]
+        }
+        
+        def get_bangladesh_time():
+            """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
+            bangladesh_tz = pytz.timezone('Asia/Dhaka')
+            now = datetime.now(bangladesh_tz)
+            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
+        
+        def extract_channels_by_group(source_file, target_group):
+            """সোর্স প্লেলিস্ট থেকে নির্দিষ্ট গ্রুপের সব চ্যানেল extract করে"""
+            channels = []
+            
+            with open(source_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # গ্রুপ টাইটেল প্যাটার্ন
+            group_pattern = r'#EXTINF:-1[^\n]*group-title="{}"[^\n]*\n(http[^\n]+)'.format(re.escape(target_group))
+            
+            # সব ম্যাচ খুঁজে বের করুন
+            matches = re.findall(group_pattern, content, re.IGNORECASE)
+            
+            if matches:
+                print(f"✅ Found {len(matches)} channels in group '{target_group}'")
+                return matches
+            else:
+                # Alternative pattern (যদি group-title format ভিন্ন হয়)
+                alt_pattern = r'#EXTINF:-1[^\n]*group-title="[^"]*{}[^"]*"[^\n]*\n(http[^\n]+)'.format(re.escape(target_group))
+                alt_matches = re.findall(alt_pattern, content, re.IGNORECASE)
+                
+                if alt_matches:
+                    print(f"✅ Found {len(alt_matches)} channels in group (alternative pattern) '{target_group}'")
+                    return alt_matches
+                else:
+                    print(f"❌ No channels found for group: {target_group}")
+                    return []
+        
+        def find_channels_in_main_by_group(main_content, target_group):
+            """মেইন প্লেলিস্টে নির্দিষ্ট গ্রুপের সব চ্যানেল খুঁজে বের করে"""
+            channels = []
+            
+            # EXTINF লাইন এবং পরের URL লাইন একসাথে capture
+            pattern = r'(#EXTINF:-1[^\n]*group-title="[^"]*{}[^"]*"[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)?(http[^\n]*\n)'.format(re.escape(target_group))
+            
+            matches = re.finditer(pattern, main_content, re.IGNORECASE)
+            
+            for match in matches:
+                extinf_line = match.group(1).strip()
+                auto_updated_line = match.group(2).strip() if match.group(2) else None
+                url_line = match.group(3).strip()
+                
+                # চ্যানেল নাম extract করুন
+                channel_name_match = re.search(r',([^,\n]+)$', extinf_line)
+                channel_name = channel_name_match.group(1).strip() if channel_name_match else "Unknown"
+                
+                channels.append({
+                    'extinf_line': extinf_line,
+                    'auto_updated_line': auto_updated_line,
+                    'url_line': url_line,
+                    'channel_name': channel_name,
+                    'full_match': match.group(0),
+                    'start_pos': match.start(),
+                    'end_pos': match.end()
+                })
+            
+            print(f"🔍 Found {len(channels)} channels in main playlist for group '{target_group}'")
+            return channels
+        
+        def update_group_channels(main_content, main_group, source_urls, is_manual_run=False):
+            """মেইন প্লেলিস্টে নির্দিষ্ট গ্রুপের সব চ্যানেল আপডেট করে"""
+            timestamp = get_bangladesh_time()
+            updated_content = main_content
+            update_count = 0
+            
+            # মেইন প্লেলিস্টে এই গ্রুপের চ্যানেলগুলো খুঁজে বের করুন
+            main_channels = find_channels_in_main_by_group(main_content, main_group)
+            
+            if not main_channels:
+                print(f"❌ No channels found in main playlist for group: {main_group}")
+                return main_content, 0
+            
+            if not source_urls:
+                print(f"❌ No source URLs found for group: {main_group}")
+                return main_content, 0
+            
+            # পর্যাপ্ত URL নেই হলে warning
+            if len(source_urls) < len(main_channels):
+                print(f"⚠️ Warning: Only {len(source_urls)} source URLs for {len(main_channels)} main channels")
+            
+            # প্রতিটি চ্যানেল আপডেট করুন
+            for i, channel in enumerate(main_channels):
+                if i < len(source_urls):
+                    new_url = source_urls[i] + "\n"
+                    
+                    if is_manual_run:
+                        # Manual run: নতুন AUTO-UPDATED লাইন যোগ করবে (যদি না থাকে)
+                        if channel['auto_updated_line']:
+                            # AUTO-UPDATED already exists, replace it
+                            old_section = channel['extinf_line'] + "\n" + channel['auto_updated_line'] + "\n" + channel['url_line']
+                            new_section = channel['extinf_line'] + "\n" + f"#AUTO-UPDATED - {timestamp}\n" + new_url
+                            updated_content = updated_content.replace(old_section, new_section)
+                            print(f"✅ Manual run: Replaced AUTO-UPDATED link for {channel['channel_name']}")
+                        else:
+                            # No AUTO-UPDATED exists, add it
+                            old_section = channel['extinf_line'] + "\n" + channel['url_line']
+                            new_section = channel['extinf_line'] + "\n" + f"#AUTO-UPDATED - {timestamp}\n" + new_url
+                            updated_content = updated_content.replace(old_section, new_section)
+                            print(f"✅ Manual run: Added new AUTO-UPDATED link for {channel['channel_name']}")
+                    else:
+                        # Scheduled run: শুধু AUTO-UPDATED লাইনের URL রিপ্লেস করবে
+                        if channel['auto_updated_line']:
+                            old_section = channel['extinf_line'] + "\n" + channel['auto_updated_line'] + "\n" + channel['url_line']
+                            new_section = channel['extinf_line'] + "\n" + f"#AUTO-UPDATED - {timestamp}\n" + new_url
+                            updated_content = updated_content.replace(old_section, new_section)
+                            print(f"✅ Scheduled run: Replaced AUTO-UPDATED link for {channel['channel_name']}")
+                        else:
+                            # যদি AUTO-UPDATED না থাকে, নতুন যোগ করবে
+                            old_section = channel['extinf_line'] + "\n" + channel['url_line']
+                            new_section = channel['extinf_line'] + "\n" + f"#AUTO-UPDATED - {timestamp}\n" + new_url
+                            updated_content = updated_content.replace(old_section, new_section)
+                            print(f"✅ Scheduled run: Added AUTO-UPDATED link for {channel['channel_name']}")
+                    
+                    update_count += 1
+                else:
+                    print(f"⚠️ No source URL available for {channel['channel_name']}")
+            
+            return updated_content, update_count
+        
+        # মেইন প্লেলিস্ট লোড করুন
+        with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
+            main_content = f.read()
+        
+        # Check if manual run or scheduled
+        import os
+        is_manual_run = os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
+        
+        updated_content = main_content
+        total_update_count = 0
+        
+        # প্রতিটি গ্রুপের জন্য আপডেট করুন
+        for main_group, search_groups in GROUP_MAPPING.items():
+            print(f"\n🔍 Processing group: {main_group}")
+            print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
+            
+            source_urls = []
+            
+            # সব search groups থেকে URLs collect করুন
+            for search_group in search_groups:
+                print(f"   Searching in source group: {search_group}")
+                urls = extract_channels_by_group('source_playlist.m3u', search_group)
+                source_urls.extend(urls)
+            
+            if source_urls:
+                updated_content, update_count = update_group_channels(updated_content, main_group, source_urls, is_manual_run)
+                total_update_count += update_count
+                print(f"✅ Updated {update_count} channels in group '{main_group}'")
+            else:
+                print(f"⚠️ Skipping group {main_group} - no URLs found")
+        
+        # আপডেট করা কন্টেন্ট সেভ করুন
+        with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
+            f.write(updated_content)
+        
+        print(f"\n🎉 Update Summary:")
+        print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
+        print(f"   Total groups processed: {len(GROUP_MAPPING)}")
+        print(f"   Total channels updated: {total_update_count}")
+        
+        EOF
+        
+    - name: Verify and replace playlist
+      run: |
+        echo "🔍 Verifying updated playlist..."
+        
+        if [ ! -f "sirometv_updated.m3u" ] || [ ! -s "sirometv_updated.m3u" ]; then
+          echo "❌ ERROR: Updated playlist is missing or empty!"
+          exit 1
+        fi
+        
+        mv sirometv_updated.m3u sirometvsports.m3u
+        
+        # আপডেট করা গ্রুপ দেখান
+        echo "🔍 Updated Live Event group channels:"
+        grep -B 1 -A 2 'group-title="Live Event"' sirometvsports.m3u | head -20 || echo "No Live Event channels found"
+        
+    - name: Commit and push changes
+      run: |
+        echo "💾 Saving changes to repository..."
+        
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add sirometvsports.m3u
+        
+        if git diff --staged --quiet; then
+          echo "✅ No changes detected - playlist is up to date"
+        else
+          # বাংলাদেশের সময় নেওয়া (BD Time format)
+          BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
+          
+          # Check if manual or scheduled run
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            git commit -m "🔄 Manual Update: Live Event Group - $BANGLADESH_TIME"
+          else
+            git commit -m "🔄 Scheduled Update: Live Event Group - $BANGLADESH_TIME"
+          fi
+          git push
+          echo "🎉 Successfully updated Live Event group channels!"
+        fi
+        
+    - name: Cleanup
+      run: |
+        rm -f main_playlist.m3u source_playlist.m3u
+        echo "✅ Cleanup completed!"
