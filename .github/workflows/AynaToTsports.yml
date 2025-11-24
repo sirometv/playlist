@@ -78,68 +78,63 @@ jobs:
             """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের URL আপডেট করে"""
             timestamp = get_bangladesh_time()
             
+            # Pattern: #EXTINF লাইন যেখানে channel_name আছে
+            pattern_extinf = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
+            
+            match = re.search(pattern_extinf, main_content, re.IGNORECASE)
+            if not match:
+                print(f"❌ {channel_name} not found in main playlist")
+                return main_content
+            
+            extinf_line = match.group(1)
+            
             if is_manual_run:
-                # Manual run: নতুন লিংক তৈরি করে উপরে যোগ করবে
-                auto_updated_line = f"#AUTO-UPDATED - {timestamp}\n{new_url}\n"
+                # Manual run: নতুন AUTO-UPDATED লাইন যোগ করবে (যদি না থাকে)
+                auto_updated_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)'.format(re.escape(channel_name))
                 
-                # Pattern: #EXTINF লাইনের পরের সবকিছু (manual links সহ)
-                pattern = r'(#EXTINF:[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
-                
-                def replacement(match):
-                    extinf_line = match.group(1)
-                    return extinf_line + auto_updated_line
-                
-                if re.search(pattern, main_content, re.IGNORECASE):
-                    updated_content = re.sub(
-                        pattern, 
-                        replacement, 
-                        main_content, 
-                        flags=re.IGNORECASE
-                    )
-                    print(f"✅ Manual run: Added new AUTO-UPDATED link for {channel_name}")
-                    return updated_content
+                if re.search(auto_updated_pattern, main_content, re.IGNORECASE):
+                    # AUTO-UPDATED already exists, replace only the URL in AUTO-UPDATED section
+                    pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(http[^\n]*\n)'.format(re.escape(channel_name))
+                    
+                    def replacement(match):
+                        return match.group(1) + f"#AUTO-UPDATED - {timestamp}\n" + new_url + "\n"
+                    
+                    updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
+                    print(f"✅ Manual run: Replaced AUTO-UPDATED link for {channel_name}")
                 else:
-                    print(f"❌ {channel_name} not found in main playlist")
-                    return main_content
-            else:
-                # Scheduled run: শুধু AUTO-UPDATED লিংক রিপ্লেস করবে
-                auto_updated_line = f"#AUTO-UPDATED - {timestamp}\n{new_url}\n"
+                    # No AUTO-UPDATED exists, add it after EXTINF line
+                    auto_updated_line = f"#AUTO-UPDATED - {timestamp}\n{new_url}\n"
+                    pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
+                    
+                    def replacement(match):
+                        return match.group(1) + auto_updated_line
+                    
+                    updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
+                    print(f"✅ Manual run: Added new AUTO-UPDATED link for {channel_name}")
                 
-                # Pattern: #EXTINF লাইনের পর #AUTO-UPDATED লাইন এবং তার URL
-                pattern = r'(#EXTINF:[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(http[^\n]*\n)'.format(re.escape(channel_name))
+                return updated_content
+            else:
+                # Scheduled run: শুধু AUTO-UPDATED লাইনের URL রিপ্লেস করবে
+                pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(http[^\n]*\n)'.format(re.escape(channel_name))
                 
                 def replacement(match):
-                    extinf_line = match.group(1)
-                    return extinf_line + auto_updated_line
+                    return match.group(1) + f"#AUTO-UPDATED - {timestamp}\n" + new_url + "\n"
                 
                 if re.search(pattern, main_content, re.IGNORECASE):
-                    updated_content = re.sub(
-                        pattern, 
-                        replacement, 
-                        main_content, 
-                        flags=re.IGNORECASE
-                    )
+                    updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
                     print(f"✅ Scheduled run: Replaced AUTO-UPDATED link for {channel_name}")
                     return updated_content
                 else:
                     # যদি AUTO-UPDATED না থাকে, কিন্তু চ্যানেল থাকলে নতুন যোগ করবে
-                    pattern_extinf = r'(#EXTINF:[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
-                    if re.search(pattern_extinf, main_content, re.IGNORECASE):
-                        def add_auto_updated(match):
-                            extinf_line = match.group(1)
-                            return extinf_line + auto_updated_line
-                        
-                        updated_content = re.sub(
-                            pattern_extinf,
-                            add_auto_updated,
-                            main_content,
-                            flags=re.IGNORECASE
-                        )
-                        print(f"✅ Scheduled run: Added AUTO-UPDATED link for {channel_name}")
-                        return updated_content
-                    else:
-                        print(f"❌ {channel_name} not found in main playlist")
-                        return main_content
+                    auto_updated_line = f"#AUTO-UPDATED - {timestamp}\n{new_url}\n"
+                    pattern_extinf_only = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
+                    
+                    def add_auto_updated(match):
+                        return match.group(1) + auto_updated_line
+                    
+                    updated_content = re.sub(pattern_extinf_only, add_auto_updated, main_content, flags=re.IGNORECASE)
+                    print(f"✅ Scheduled run: Added AUTO-UPDATED link for {channel_name}")
+                    return updated_content
         
         # মেইন প্লেলিস্ট লোড করুন
         with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
