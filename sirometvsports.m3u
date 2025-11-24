@@ -8,7 +8,7 @@
 
 
 #EXTINF:-1 tvg-logo="" group-title="A Test",A Test
-#https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+#https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
 #https://raw.githubusercontent.com/sirometv/playlist/main/ptv.m3u8
 #https://sirometv.github.io/playlist/ptv.m3u8
 #https://anywhere.pwisetthon.com/এখানে থাকবে চ্যানেলের লিংক যেগুলো চ্যানেল সাপোর্ট করেনা অন্য প্লেয়ারে
@@ -34,16 +34,17 @@
 
 
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/7P04hWZh/image.jpg" group-title="Live Event", Live Match
+
+#https://anywhere.pwisetthon.com/এখানে থাকবে চ্যানেলের লিংক যেগুলো চ্যানেল সাপোর্ট করেনা অন্য প্লেয়ারে
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/Jzscthtd/image.jpg" group-title="Women World Cup", Live Event
-https://bd-mc-fdlive.fancode.com/mumbai/138238_english_hls_3c279f8f2c31988_1ta-di_h264/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Jzscthtd/image.jpg" group-title="All Cricket Match & League", Live Event
 https://anywhere.pwisetthon.com/http://103.240.44.26/T-Sports-HD/index.m3u8
-http://stvlive.net:8080/tsports1/index.m3u8
 https://premierleagpl23.akamaized.net/hls/live/2107108/testtapmad/master.m3u8
 https://premierleagpl23.akamaized.net/hls/live/2107108/Tapmad25879-ENC-300/master.m3u8
 https://live20.bozztv.com/akamaissh101/ssh101/venolie-lemar/playlist.m3u8
-https://wo.cma.footballii.ir/hls2/solh.m3u8
 #https://anywhere.pwisetthon.com/http://103.151.60.204/T-Sports/tracks-v1a1/mono.m3u8
 #https://smart.bengaldigital.live/AstroCricket/index.m3u8
 
@@ -55,9 +56,7 @@ https://wo.cma.footballii.ir/hls2/solh.m3u8
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
 
-#EXTINF:-1 tvg-logo="https://i.ibb.co.com/Ps2H8rFk/Sirome-TV-8.jpg" group-title="Football League", ALL
-https://premierleagpl23.akamaized.net/hls/live/2107108/testtapmad/master.m3u8
-https://wo.cma.footballii.ir/hls2/solh.m3u8
+#EXTINF:-1 tvg-logo="https://i.ibb.co.com/Ps2H8rFk/Sirome-TV-8.jpg" group-title="All Football Match & League", Football Match
 https://viamotionhsi.netplus.ch/live/eds/raisport1/browser-dash/raisport1.mpd
 https://amg01334-beinsportsllc-beinxtra-localnow-kcy6r.amagi.tv/playlistR576p.m3u8
 http://31.148.48.15/Match_Futbol_1_HD/index.m3u8?token=test
@@ -89,7 +88,7 @@ https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01444-tennischannelth-tennischannel
 #https://anywhere.pwisetthon.com/http://103.151.60.204/T-Sports/tracks-v1a1/mono.m3u8
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/MKy4RBvX/image.jpg" group-title="Fifa",Fifa
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/MKy4RBvX/image.jpg" group-title="Fifa World Cup",Fifa
 https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8
 https://37b4c228.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWZyX0ZJRkFQbHVzRnJlbmNoX0hMUw/playlist.m3u8
 https://4397879b.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWRlX0ZJRkFQbHVzR2VybWFuX0hMUw/playlist.m3u8
@@ -123,7 +122,7 @@ https://anywhere.pwisetthon.com/http://147.93.154.65/Bein3/index.m3u8
 #https://cdn.bdixtv24.vip/tsports/index.m3u8
 #http://stvlive.net:8080/tsports1/index.m3u8
 #https://vod.tsports.com/60e5d8274c29db1984d12d07b72a9d50/720/sub_index.m3u8
-#https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
 
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
@@ -175,19 +174,19 @@ https://dish.slivcdn.com/hls/live/2020594-b/SONYSIXSD/master.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/1tpcdxv4/image.jpg" group-title="Sports",Sony Ten 1HD
-#https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+#https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
 #https://tataplay.slivcdn.com/hls/live/2011747/TEN1HD/master.m3u8
 #https://dish.slivcdn.com/hls/live/2011747-b/TEN1HD/master.m3u8
 https://tiger-hub.vercel.app/SONY/Sports-1/tracks-v1a1/mono.ts.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/G21StxN8/image.jpg" group-title="Sports", Sony Ten 2HD
-https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
 #https://tataplay.slivcdn.com/hls/live/2020434/TEN2HD/master.m3u8
 #https://dish.slivcdn.com/hls/live/2020434-b/TEN2HD/master.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/cCWHF2zx/image.jpg" group-title="Sports", Sony Ten 3HD
-#https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+#https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
 http://195.181.169.162:80/TEN_3_HD/index.mpd?token=test
 #https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master.m3u8
 #https://dish.slivcdn.com/hls/live/2020591-b/TEN3HD/master.m3u8
@@ -195,7 +194,7 @@ http://195.181.169.162:80/TEN_3_HD/index.mpd?token=test
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/L8LWpWQK/image.jpg" group-title="Sports", Sony Ten 5HD
 http://103.175.242.10:8080/sonyten5/index.m3u8
 http://stvlive.net:8080/sonyten5/index.m3u8
-https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
 #https://unxone.vercel.app/live/sonyten5-653.m3u8
 #https://tataplay.slivcdn.com/hls/live/2020593/SONYSIXHD/master.m3u8
 #https://dish.slivcdn.com/hls/live/2020593-b/SONYSIXHD/master.m3u8
@@ -240,7 +239,7 @@ http://89.187.189.98/STARSPORTSTAMIL/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/85zmvH5B/image.jpg" group-title="Sports", Star Sports 1 HINDI
 https://starsportshindiii.pages.dev/index.m3u8
 https://live.dinesh29.com.np/stream/jiotvplus/starsportshd1hindi/master.m3u8
-#https://raw.githubusercontent.com/bdmenucss/Live/gh_pages/sorry.mp4
+#https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Sx9GNkyN/image.jpg" group-title="Sports", Star Sports 1 Tamil
 https://live.dinesh29.com.np/stream/jiotvplus/starsports1tamil/master.m3u8
@@ -457,8 +456,11 @@ https://liveakgr.alkassdigital.net/hls/live/2097037/Alkass6Shoof1ab/master.m3u8
 
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/3N78XqSg/image.jpg" group-title="Sports", FIFA Plus
-https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8
+
+
+
+
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Wp9C6KHT/image.jpg" group-title="Sports", Tennis Channel 
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01444-tennischannelth-tennischannelnl-samsungnl/playlist.m3u8
@@ -482,9 +484,27 @@ https://rtatv.akamaized.net/Content/HLS/Live/channel(RTA3)/variant.m3u8
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/BQRbTyMp/image.jpg" group-title="Sports", PSN 1 Sports
+https://cdn4.skygo.mn/live/disk1/SPSPrime/HLSv3-FTA/SPSPrime.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/c430SJBd/image.jpg" group-title="Sports", PSN 2 Sports
+https://cdn4.skygo.mn/live/disk1/SPSPlay/HLSv3-FTA/SPSPlay.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/1tLRGVrL/image.jpg" group-title="Sports", PSN 4 Sports
+https://cdn4.skygo.mn/live/disk1/SPSFight/HLSv3-FTA/SPSFight.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/FFyXW6rT/image.jpg" group-title="Sports", PSN 5 Sports
+https://cdn4.skygo.mn/live/disk1/SPSPlus/HLSv3-FTA/SPSPlus.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", 
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", 
 
 
 
+
+#🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 #EXTINF:-1 tvg-logo="" group-title="Sports", 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports", 
