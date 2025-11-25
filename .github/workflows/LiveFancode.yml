@@ -50,7 +50,7 @@ jobs:
         # কমপক্ষে একটি গ্রুপ active থাকতে হবে (uncomment করা)
         TARGET_GROUP_TITLES = [
             "Live Event",
-            "Cricket",    # uncomment করতে পারেন যদি প্রয়োজন হয়
+            "Akash Go",    # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Football",    # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Sports",      # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Movies",      # uncomment করতে পারেন যদি প্রয়োজন হয়
