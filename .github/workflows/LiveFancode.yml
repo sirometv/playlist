@@ -119,8 +119,10 @@ jobs:
             new_combined_section = f"#AUTO-UPDATED - Multiple Groups - {timestamp}\n"
             
             total_channels = 0
+            has_any_channels = False
+            
             for group_title, channels in all_group_channels.items():
-                if channels:  # শুধু channels থাকলে যোগ করবে
+                if channels and len(channels) > 0:  # শুধু channels থাকলে এবং empty না হলে যোগ করবে
                     new_combined_section += f"# --- {group_title} Group ---\n"
                     
                     for channel in channels:
@@ -130,9 +132,10 @@ jobs:
                         new_combined_section += channel["url_line"] + "\n"
                     
                     total_channels += len(channels)
+                    has_any_channels = True
                     print(f"📺 Added {len(channels)} channels for {group_title}")
             
-            if total_channels == 0:
+            if not has_any_channels:
                 new_combined_section += "# No channels found for any configured group\n"
                 print("⚠️ No channels found for any active group")
             
@@ -208,12 +211,23 @@ jobs:
         # প্রতিটি active গ্রুপ টাইটেলের জন্য চ্যানেল extract করুন
         all_group_channels = {}
         total_found_channels = 0
+        has_any_channels_found = False
         
         for group_title in active_groups:
             print(f"\n🔍 Processing group: {group_title}")
             channels = extract_group_channels('source_playlist.m3u', group_title)
-            all_group_channels[group_title] = channels
-            total_found_channels += len(channels)
+            # শুধু channels থাকলে all_group_channels এ যোগ করবে
+            if channels:
+                all_group_channels[group_title] = channels
+                total_found_channels += len(channels)
+                has_any_channels_found = True
+            else:
+                print(f"⚠️ No channels found for group '{group_title}', skipping...")
+        
+        # যদি কোন গ্রুপেই চ্যানেল না থাকে, তাহলে শুধু empty section যোগ করবে
+        if not has_any_channels_found:
+            print("⚠️ No channels found for any active group, creating empty section...")
+            all_group_channels = {"No Channels": []}
         
         # মেইন প্লেলিস্ট আপডেট করুন - সবসময় TARGET_LINE_NUMBER এ রাখবে
         updated_content, total_added_channels = force_groups_at_line(main_content, all_group_channels, TARGET_LINE_NUMBER)
@@ -235,27 +249,30 @@ jobs:
         # প্রতিটি গ্রুপের জন্য আলাদা summary
         print(f"\n📊 Group-wise Summary:")
         for group_title in active_groups:
-            channels = all_group_channels[group_title]
-            channel_count = len(channels)
-            status = "✅" if channel_count > 0 else "❌"
-            
-            if channels:
-                first_channel_name = channels[0]['channel_name']
-                naming_strategy = ""
-                if group_title == "Live Event":
-                    naming_strategy = "(all named 'Fancode')"
-                elif group_title == "Sports":
-                    naming_strategy = "(all named 'Sports Live')"
-                elif group_title == "Akash Go":
-                    naming_strategy = "(original names preserved)"
-                else:
-                    naming_strategy = "(original names)"
+            if group_title in all_group_channels:
+                channels = all_group_channels[group_title]
+                channel_count = len(channels)
+                status = "✅" if channel_count > 0 else "❌"
                 
-                print(f"   {status} {group_title}: {channel_count} channels {naming_strategy}")
-                if group_title == "Akash Go" and channel_count > 0:
-                    print(f"      Sample: {first_channel_name}")
+                if channel_count > 0:
+                    first_channel_name = channels[0]['channel_name']
+                    naming_strategy = ""
+                    if group_title == "Live Event":
+                        naming_strategy = "(all named 'Fancode')"
+                    elif group_title == "Sports":
+                        naming_strategy = "(all named 'Sports Live')"
+                    elif group_title == "Akash Go":
+                        naming_strategy = "(original names preserved)"
+                    else:
+                        naming_strategy = "(original names)"
+                    
+                    print(f"   {status} {group_title}: {channel_count} channels {naming_strategy}")
+                    if group_title == "Akash Go" and channel_count > 0:
+                        print(f"      Sample: {first_channel_name}")
+                else:
+                    print(f"   {status} {group_title}: {channel_count} channels")
             else:
-                print(f"   {status} {group_title}: {channel_count} channels")
+                print(f"   ❌ {group_title}: 0 channels (not found in source)")
         
         EOF
         
@@ -293,13 +310,8 @@ jobs:
         echo "🔍 Channel name verification:"
         if grep -q "group-title=\"Live Event\"" sirometvsports.m3u; then
             echo "✅ Live Event channels: All named 'Fancode'"
-        fi
-        if grep -q "group-title=\"Sports\"" sirometvsports.m3u; then
-            echo "✅ Sports channels: All named 'Sports Live'" 
-        fi
-        if grep -q "group-title=\"Akash Go\"" sirometvsports.m3u; then
-            echo "✅ Akash Go channels: Original names preserved"
-            grep "group-title=\"Akash Go\"" sirometvsports.m3u | head -1
+        else
+            echo "ℹ️ No Live Event channels found"
         fi
         
         echo "✅ Multiple groups section successfully updated!"
@@ -319,9 +331,6 @@ jobs:
           
           # প্রতিটি গ্রুপের চ্যানেল সংখ্যা গণনা
           LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometvsports.m3u || echo "0")
-          AKASH_GO_COUNT=$(grep -c 'group-title="Akash Go"' sirometvsports.m3u || echo "0")
-          SPORTS_COUNT=$(grep -c 'group-title="Sports"' sirometvsports.m3u || echo "0")
-          TOTAL_COUNT=$((LIVE_EVENT_COUNT + AKASH_GO_COUNT + SPORTS_COUNT))
           
           COMMIT_MESSAGE="🔄 "
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
@@ -330,15 +339,11 @@ jobs:
             COMMIT_MESSAGE+="Scheduled Update"
           fi
           
-          COMMIT_MESSAGE+=": Groups"
+          COMMIT_MESSAGE+=": Live Event Group"
           if [ "$LIVE_EVENT_COUNT" -gt "0" ]; then
-            COMMIT_MESSAGE+=" (Live Event: $LIVE_EVENT_COUNT)"
-          fi
-          if [ "$AKASH_GO_COUNT" -gt "0" ]; then
-            COMMIT_MESSAGE+=" (Akash Go: $AKASH_GO_COUNT)"
-          fi
-          if [ "$SPORTS_COUNT" -gt "0" ]; then
-            COMMIT_MESSAGE+=" (Sports: $SPORTS_COUNT)"
+            COMMIT_MESSAGE+=" ($LIVE_EVENT_COUNT channels)"
+          else
+            COMMIT_MESSAGE+=" (No channels found)"
           fi
           
           COMMIT_MESSAGE+=" - $BANGLADESH_TIME"
@@ -346,10 +351,12 @@ jobs:
           git commit -m "$COMMIT_MESSAGE"
           git push
           
-          echo "🎉 Successfully updated multiple groups at line 37!"
-          echo "   Live Event: $LIVE_EVENT_COUNT channels (named 'Fancode')"
-          echo "   Akash Go: $AKASH_GO_COUNT channels (original names)"
-          echo "   Sports: $SPORTS_COUNT channels (named 'Sports Live')"
+          echo "🎉 Successfully updated playlist at line 37!"
+          if [ "$LIVE_EVENT_COUNT" -gt "0" ]; then
+            echo "   Live Event: $LIVE_EVENT_COUNT channels (named 'Fancode')"
+          else
+            echo "   ℹ️ No Live Event channels found in source"
+          fi
         fi
         
     - name: Cleanup
