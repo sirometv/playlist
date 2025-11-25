@@ -44,15 +44,15 @@ jobs:
         
         # ⚙️ CONFIGURATION - এখানে লাইন নম্বর এবং গ্রুপ টাইটেলগুলো পরিবর্তন করতে পারবেন
         TARGET_LINE_NUMBER = 37  # আপনার ইচ্ছামত লাইন নম্বর পরিবর্তন করুন
-        DEFAULT_CHANNEL_NAME = "Fancode"  # সব চ্যানেলের জন্য ডিফল্ট নাম
         
         # গ্রুপ টাইটেলের লিস্ট - যতগুলো খুশি যোগ/বিয়োগ করতে পারবেন
         # কমপক্ষে একটি গ্রুপ active থাকতে হবে (uncomment করা)
         TARGET_GROUP_TITLES = [
             "Live Event",
+            # "Cricket",    # uncomment করতে পারেন যদি প্রয়োজন হয়
             "Akash Go",    # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Football",    # uncomment করতে পারেন যদি প্রয়োজন হয়
-            # "Sports",      # uncomment করতে পারেন যদি প্রয়োজন হয়
+            "Sports",      # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Movies",      # uncomment করতে পারেন যদি প্রয়োজন হয়
         ]
         
@@ -61,6 +61,21 @@ jobs:
             bangladesh_tz = pytz.timezone('Asia/Dhaka')
             now = datetime.now(bangladesh_tz)
             return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
+        
+        def get_channel_name_strategy(group_title, extinf_line):
+            """গ্রুপ অনুযায়ী চ্যানেল নামের strategy নির্ধারণ করে"""
+            # চ্যানেল নাম extract করা
+            channel_name_match = re.search(r',([^,\n]+)$', extinf_line)
+            original_name = channel_name_match.group(1).strip() if channel_name_match else ""
+            
+            if group_title == "Live Event":
+                return "Fancode"  # Live Event গ্রুপের জন্য ডিফল্ট নাম
+            elif group_title == "Sports":
+                return "Sports Live"  # Sports গ্রুপের জন্য ডিফল্ট নাম
+            elif group_title == "Akash Go":
+                return original_name  # Akash Go গ্রুপের জন্য আসল নাম রাখবে
+            else:
+                return original_name  # অন্যান্য গ্রুপের জন্য আসল নাম
         
         def extract_group_channels(source_file, group_title):
             """সোর্স প্লেলিস্ট থেকে নির্দিষ্ট গ্রুপের সব চ্যানেল extract করে"""
@@ -82,10 +97,14 @@ jobs:
                 logo_match = re.search(r'tvg-logo="([^"]*)"', extinf_line)
                 tvg_logo = logo_match.group(1) if logo_match else "https://i.postimg.cc/d1hHy4ss/11.png"
                 
+                # গ্রুপ অনুযায়ী চ্যানেল নাম নির্ধারণ
+                channel_name = get_channel_name_strategy(group_title, extinf_line)
+                
                 channels.append({
                     'extinf_line': extinf_line,
                     'url_line': url_line,
                     'tvg_logo': tvg_logo,
+                    'channel_name': channel_name,
                     'group_title': group_title
                 })
             
@@ -105,13 +124,13 @@ jobs:
                     new_combined_section += f"# --- {group_title} Group ---\n"
                     
                     for channel in channels:
-                        # নতুন EXTINF লাইন তৈরি করা - চ্যানেল নাম সবসময় DEFAULT_CHANNEL_NAME হবে
-                        new_extinf_line = f'#EXTINF:-1 tvg-logo="{channel["tvg_logo"]}" group-title="{group_title}", {DEFAULT_CHANNEL_NAME}\n'
+                        # নতুন EXTINF লাইন তৈরি করা - গ্রুপ অনুযায়ী চ্যানেল নাম
+                        new_extinf_line = f'#EXTINF:-1 tvg-logo="{channel["tvg_logo"]}" group-title="{group_title}", {channel["channel_name"]}\n'
                         new_combined_section += new_extinf_line
                         new_combined_section += channel["url_line"] + "\n"
                     
                     total_channels += len(channels)
-                    print(f"📺 Added {len(channels)} channels for {group_title} (all named '{DEFAULT_CHANNEL_NAME}')")
+                    print(f"📺 Added {len(channels)} channels for {group_title}")
             
             if total_channels == 0:
                 new_combined_section += "# No channels found for any configured group\n"
@@ -206,21 +225,37 @@ jobs:
         print(f"\n🎉 Update Summary:")
         print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
         print(f"   Target line: {TARGET_LINE_NUMBER}")
-        print(f"   Default channel name: '{DEFAULT_CHANNEL_NAME}'")
         print(f"   Total active groups: {len(active_groups)}")
         print(f"   Total channels found: {total_found_channels}")
         print(f"   Total channels added: {total_added_channels}")
         print(f"   Configuration:")
         print(f"     - TARGET_LINE_NUMBER = {TARGET_LINE_NUMBER}")
-        print(f"     - DEFAULT_CHANNEL_NAME = {DEFAULT_CHANNEL_NAME}")
         print(f"     - Active groups = {active_groups}")
         
         # প্রতিটি গ্রুপের জন্য আলাদা summary
         print(f"\n📊 Group-wise Summary:")
         for group_title in active_groups:
-            channel_count = len(all_group_channels[group_title])
+            channels = all_group_channels[group_title]
+            channel_count = len(channels)
             status = "✅" if channel_count > 0 else "❌"
-            print(f"   {status} {group_title}: {channel_count} channels (all named '{DEFAULT_CHANNEL_NAME}')")
+            
+            if channels:
+                first_channel_name = channels[0]['channel_name']
+                naming_strategy = ""
+                if group_title == "Live Event":
+                    naming_strategy = "(all named 'Fancode')"
+                elif group_title == "Sports":
+                    naming_strategy = "(all named 'Sports Live')"
+                elif group_title == "Akash Go":
+                    naming_strategy = "(original names preserved)"
+                else:
+                    naming_strategy = "(original names)"
+                
+                print(f"   {status} {group_title}: {channel_count} channels {naming_strategy}")
+                if group_title == "Akash Go" and channel_count > 0:
+                    print(f"      Sample: {first_channel_name}")
+            else:
+                print(f"   {status} {group_title}: {channel_count} channels")
         
         EOF
         
@@ -246,13 +281,26 @@ jobs:
         
         # আপডেট করা গ্রুপগুলো দেখান
         echo "🔍 Updated groups and channels:"
-        for group in "Live Event" "Cricket" "Football" "Sports" "Movies"; do
+        for group in "Live Event" "Akash Go" "Sports" "Cricket" "Football" "Movies"; do
             COUNT=$(grep -c "group-title=\"$group\"" sirometvsports.m3u || echo "0")
             if [ "$COUNT" -gt "0" ]; then
                 echo "📺 $group group: $COUNT channels"
                 grep -A 1 "group-title=\"$group\"" sirometvsports.m3u | head -2
             fi
         done
+        
+        # চ্যানেল নাম verification
+        echo "🔍 Channel name verification:"
+        if grep -q "group-title=\"Live Event\"" sirometvsports.m3u; then
+            echo "✅ Live Event channels: All named 'Fancode'"
+        fi
+        if grep -q "group-title=\"Sports\"" sirometvsports.m3u; then
+            echo "✅ Sports channels: All named 'Sports Live'" 
+        fi
+        if grep -q "group-title=\"Akash Go\"" sirometvsports.m3u; then
+            echo "✅ Akash Go channels: Original names preserved"
+            grep "group-title=\"Akash Go\"" sirometvsports.m3u | head -1
+        fi
         
         echo "✅ Multiple groups section successfully updated!"
         
@@ -269,18 +317,39 @@ jobs:
         else
           BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
           
-          # Live Event গ্রুপের চ্যানেল সংখ্যা গণনা (যেহেতু শুধু এইটি active)
+          # প্রতিটি গ্রুপের চ্যানেল সংখ্যা গণনা
           LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometvsports.m3u || echo "0")
+          AKASH_GO_COUNT=$(grep -c 'group-title="Akash Go"' sirometvsports.m3u || echo "0")
+          SPORTS_COUNT=$(grep -c 'group-title="Sports"' sirometvsports.m3u || echo "0")
+          TOTAL_COUNT=$((LIVE_EVENT_COUNT + AKASH_GO_COUNT + SPORTS_COUNT))
           
+          COMMIT_MESSAGE="🔄 "
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            git commit -m "🔄 Manual Update: Live Event Group ($LIVE_EVENT_COUNT channels) - $BANGLADESH_TIME"
+            COMMIT_MESSAGE+="Manual Update"
           else
-            git commit -m "🔄 Scheduled Update: Live Event Group ($LIVE_EVENT_COUNT channels) - $BANGLADESH_TIME"
+            COMMIT_MESSAGE+="Scheduled Update"
           fi
+          
+          COMMIT_MESSAGE+=": Groups"
+          if [ "$LIVE_EVENT_COUNT" -gt "0" ]; then
+            COMMIT_MESSAGE+=" (Live Event: $LIVE_EVENT_COUNT)"
+          fi
+          if [ "$AKASH_GO_COUNT" -gt "0" ]; then
+            COMMIT_MESSAGE+=" (Akash Go: $AKASH_GO_COUNT)"
+          fi
+          if [ "$SPORTS_COUNT" -gt "0" ]; then
+            COMMIT_MESSAGE+=" (Sports: $SPORTS_COUNT)"
+          fi
+          
+          COMMIT_MESSAGE+=" - $BANGLADESH_TIME"
+          
+          git commit -m "$COMMIT_MESSAGE"
           git push
-          echo "🎉 Successfully updated Live Event group at line 37!"
-          echo "   Live Event: $LIVE_EVENT_COUNT channels"
-          echo "   All channels named: 'Live Now'"
+          
+          echo "🎉 Successfully updated multiple groups at line 37!"
+          echo "   Live Event: $LIVE_EVENT_COUNT channels (named 'Fancode')"
+          echo "   Akash Go: $AKASH_GO_COUNT channels (original names)"
+          echo "   Sports: $SPORTS_COUNT channels (named 'Sports Live')"
         fi
         
     - name: Cleanup
