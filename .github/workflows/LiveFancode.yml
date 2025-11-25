@@ -1,4 +1,4 @@
-name: Live Fancode
+name: Groups Update
 
 on:
   schedule:
@@ -33,9 +33,9 @@ jobs:
           echo "✅ $file downloaded - $LINES lines"
         done
         
-    - name: Update Live Fancode
+    - name: Update Multiple Groups
       run: |
-        echo "🔄 Updating Live Fancode Channels..."
+        echo "🔄 Updating Multiple Group Channels..."
         
         python3 - << 'EOF'
         import re
@@ -47,14 +47,13 @@ jobs:
         DEFAULT_CHANNEL_NAME = "Live Now"  # সব চ্যানেলের জন্য ডিফল্ট নাম
         
         # গ্রুপ টাইটেলের লিস্ট - যতগুলো খুশি যোগ/বিয়োগ করতে পারবেন
+        # কমপক্ষে একটি গ্রুপ active থাকতে হবে (uncomment করা)
         TARGET_GROUP_TITLES = [
             "Live Event",
-            # "Bangla",
-            # "Sports",
-            # "Cricket",     # বন্ধ করতে চাইলে comment করুন
+            # "Cricket",    # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Football",    # uncomment করতে পারেন যদি প্রয়োজন হয়
+            # "Sports",      # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Movies",      # uncomment করতে পারেন যদি প্রয়োজন হয়
-            # "News",        # uncomment করতে পারেন যদি প্রয়োজন হয়
         ]
         
         def get_bangladesh_time():
@@ -115,7 +114,8 @@ jobs:
                     print(f"📺 Added {len(channels)} channels for {group_title} (all named '{DEFAULT_CHANNEL_NAME}')")
             
             if total_channels == 0:
-                new_combined_section += "# No channels found for any group\n"
+                new_combined_section += "# No channels found for any configured group\n"
+                print("⚠️ No channels found for any active group")
             
             # মেইন কন্টেন্টকে লাইনে ভাগ করা
             lines = main_content.split('\n')
@@ -176,11 +176,21 @@ jobs:
         import os
         is_manual_run = os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
         
-        # প্রতিটি গ্রুপ টাইটেলের জন্য চ্যানেল extract করুন
+        # Filter out commented groups (lines starting with #)
+        active_groups = [group for group in TARGET_GROUP_TITLES if not group.startswith('#')]
+        
+        if not active_groups:
+            print("❌ ERROR: No active groups found! Please uncomment at least one group in TARGET_GROUP_TITLES")
+            print("Current TARGET_GROUP_TITLES:", TARGET_GROUP_TITLES)
+            exit(1)
+        
+        print(f"🎯 Active groups: {active_groups}")
+        
+        # প্রতিটি active গ্রুপ টাইটেলের জন্য চ্যানেল extract করুন
         all_group_channels = {}
         total_found_channels = 0
         
-        for group_title in TARGET_GROUP_TITLES:
+        for group_title in active_groups:
             print(f"\n🔍 Processing group: {group_title}")
             channels = extract_group_channels('source_playlist.m3u', group_title)
             all_group_channels[group_title] = channels
@@ -197,17 +207,17 @@ jobs:
         print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
         print(f"   Target line: {TARGET_LINE_NUMBER}")
         print(f"   Default channel name: '{DEFAULT_CHANNEL_NAME}'")
-        print(f"   Total groups: {len(TARGET_GROUP_TITLES)}")
+        print(f"   Total active groups: {len(active_groups)}")
         print(f"   Total channels found: {total_found_channels}")
         print(f"   Total channels added: {total_added_channels}")
         print(f"   Configuration:")
         print(f"     - TARGET_LINE_NUMBER = {TARGET_LINE_NUMBER}")
         print(f"     - DEFAULT_CHANNEL_NAME = {DEFAULT_CHANNEL_NAME}")
-        print(f"     - TARGET_GROUP_TITLES = {TARGET_GROUP_TITLES}")
+        print(f"     - Active groups = {active_groups}")
         
         # প্রতিটি গ্রুপের জন্য আলাদা summary
         print(f"\n📊 Group-wise Summary:")
-        for group_title in TARGET_GROUP_TITLES:
+        for group_title in active_groups:
             channel_count = len(all_group_channels[group_title])
             status = "✅" if channel_count > 0 else "❌"
             print(f"   {status} {group_title}: {channel_count} channels (all named '{DEFAULT_CHANNEL_NAME}')")
@@ -236,26 +246,13 @@ jobs:
         
         # আপডেট করা গ্রুপগুলো দেখান
         echo "🔍 Updated groups and channels:"
-        for group in "Live Event" "Bangla" "Sports" "Cricket"; do
+        for group in "Live Event" "Cricket" "Football" "Sports" "Movies"; do
             COUNT=$(grep -c "group-title=\"$group\"" sirometvsports.m3u || echo "0")
             if [ "$COUNT" -gt "0" ]; then
                 echo "📺 $group group: $COUNT channels"
                 grep -A 1 "group-title=\"$group\"" sirometvsports.m3u | head -2
-            else
-                echo "❌ $group group: No channels found"
             fi
         done
-        
-        # চ্যানেল নাম verification
-        echo "🔍 Channel name verification:"
-        if grep -q "group-title=\"Live Event\"" sirometvsports.m3u; then
-            FIRST_CHANNEL=$(grep -A 1 "group-title=\"Live Event\"" sirometvsports.m3u | head -1)
-            if echo "$FIRST_CHANNEL" | grep -q "Live Now"; then
-                echo "✅ All channels have correct name: 'Live Now'"
-            else
-                echo "❌ Channel has different name"
-            fi
-        fi
         
         echo "✅ Multiple groups section successfully updated!"
         
@@ -272,44 +269,17 @@ jobs:
         else
           BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
           
-          # প্রতিটি গ্রুপের চ্যানেল সংখ্যা গণনা
+          # Live Event গ্রুপের চ্যানেল সংখ্যা গণনা (যেহেতু শুধু এইটি active)
           LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometvsports.m3u || echo "0")
-          BANGLA_COUNT=$(grep -c 'group-title="Bangla"' sirometvsports.m3u || echo "0")
-          SPORTS_COUNT=$(grep -c 'group-title="Sports"' sirometvsports.m3u || echo "0")
-          CRICKET_COUNT=$(grep -c 'group-title="Cricket"' sirometvsports.m3u || echo "0")
-          TOTAL_COUNT=$((LIVE_EVENT_COUNT + BANGLA_COUNT + SPORTS_COUNT + CRICKET_COUNT))
           
-          COMMIT_MESSAGE="🔄 "
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            COMMIT_MESSAGE+="Manual Update"
+            git commit -m "🔄 Manual Update: Live Event Group ($LIVE_EVENT_COUNT channels) - $BANGLADESH_TIME"
           else
-            COMMIT_MESSAGE+="Scheduled Update"
+            git commit -m "🔄 Scheduled Update: Live Event Group ($LIVE_EVENT_COUNT channels) - $BANGLADESH_TIME"
           fi
-          COMMIT_MESSAGE+=": Multiple Groups"
-          
-          # শুধু যে গ্রুপে চ্যানেল আছে তাদের যোগ করা
-          GROUPS=()
-          [ "$LIVE_EVENT_COUNT" -gt "0" ] && GROUPS+=("Live Event: $LIVE_EVENT_COUNT")
-          [ "$BANGLA_COUNT" -gt "0" ] && GROUPS+=("Bangla: $BANGLA_COUNT")
-          [ "$SPORTS_COUNT" -gt "0" ] && GROUPS+=("Sports: $SPORTS_COUNT")
-          [ "$CRICKET_COUNT" -gt "0" ] && GROUPS+=("Cricket: $CRICKET_COUNT")
-          
-          if [ ${#GROUPS[@]} -gt 0 ]; then
-            COMMIT_MESSAGE+=" (${GROUPS[*]})"
-          else
-            COMMIT_MESSAGE+=" (No channels)"
-          fi
-          
-          COMMIT_MESSAGE+=" - $BANGLADESH_TIME"
-          
-          git commit -m "$COMMIT_MESSAGE"
           git push
-          
-          echo "🎉 Successfully updated multiple groups at line 37!"
+          echo "🎉 Successfully updated Live Event group at line 37!"
           echo "   Live Event: $LIVE_EVENT_COUNT channels"
-          echo "   Bangla: $BANGLA_COUNT channels"
-          echo "   Sports: $SPORTS_COUNT channels"
-          echo "   Cricket: $CRICKET_COUNT channels"
           echo "   All channels named: 'Live Now'"
         fi
         
