@@ -33,9 +33,9 @@ jobs:
           echo "✅ $file downloaded - $LINES lines"
         done
         
-    - name: Update Multiple Groups
+    - name: Update Fancode Groups
       run: |
-        echo "🔄 Updating Multiple Group Channels..."
+        echo "🔄 Updating Fancode Channels..."
         
         python3 - << 'EOF'
         import re
@@ -44,7 +44,7 @@ jobs:
         
         # ⚙️ CONFIGURATION - এখানে লাইন নম্বর এবং গ্রুপ টাইটেলগুলো পরিবর্তন করতে পারবেন
         TARGET_LINE_NUMBER = 37  # আপনার ইচ্ছামত লাইন নম্বর পরিবর্তন করুন
-        DEFAULT_CHANNEL_NAME = "Live Now"  # সব চ্যানেলের জন্য ডিফল্ট নাম
+        DEFAULT_CHANNEL_NAME = "Fancode"  # সব চ্যানেলের জন্য ডিফল্ট নাম
         
         # গ্রুপ টাইটেলের লিস্ট - যতগুলো খুশি যোগ/বিয়োগ করতে পারবেন
         # কমপক্ষে একটি গ্রুপ active থাকতে হবে (uncomment করা)
@@ -80,7 +80,7 @@ jobs:
                 
                 # tvg-logo extract করা
                 logo_match = re.search(r'tvg-logo="([^"]*)"', extinf_line)
-                tvg_logo = logo_match.group(1) if logo_match else "https://i.postimg.cc/7P04hWZh/image.jpg"
+                tvg_logo = logo_match.group(1) if logo_match else "https://i.postimg.cc/d1hHy4ss/11.png"
                 
                 channels.append({
                     'extinf_line': extinf_line,
