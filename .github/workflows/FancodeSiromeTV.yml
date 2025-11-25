@@ -1,4 +1,4 @@
-name: Fancode SiromeTV
+name: Live Fancode
 
 on:
   schedule:
@@ -294,21 +294,21 @@ jobs:
         echo "📍 Checking AUTO-UPDATED sections:"
         grep -n "AUTO-UPDATED" sirometv_updated.m3u
         
-        mv sirometv_updated.m3u sirometvsports.m3u
+        mv sirometv_updated.m3u sirometv.m3u
         
         # আপডেট করা গ্রুপগুলো দেখান
         echo "🔍 Updated groups and channels:"
         for group in "Live Event" "Akash Go" "Sports" "Cricket" "Football" "Movies"; do
-            COUNT=$(grep -c "group-title=\"$group\"" sirometvsports.m3u || echo "0")
+            COUNT=$(grep -c "group-title=\"$group\"" sirometv.m3u || echo "0")
             if [ "$COUNT" -gt "0" ]; then
                 echo "📺 $group group: $COUNT channels"
-                grep -A 1 "group-title=\"$group\"" sirometvsports.m3u | head -2
+                grep -A 1 "group-title=\"$group\"" sirometv.m3u | head -2
             fi
         done
         
         # চ্যানেল নাম verification
         echo "🔍 Channel name verification:"
-        if grep -q "group-title=\"Live Event\"" sirometvsports.m3u; then
+        if grep -q "group-title=\"Live Event\"" sirometv.m3u; then
             echo "✅ Live Event channels: All named 'Fancode'"
         else
             echo "ℹ️ No Live Event channels found"
@@ -322,7 +322,7 @@ jobs:
         
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add sirometvsports.m3u
+        git add sirometv.m3u
         
         if git diff --staged --quiet; then
           echo "✅ No changes detected - playlist is up to date"
@@ -330,7 +330,7 @@ jobs:
           BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
           
           # প্রতিটি গ্রুপের চ্যানেল সংখ্যা গণনা
-          LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometvsports.m3u || echo "0")
+          LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometv.m3u || echo "0")
           
           COMMIT_MESSAGE="🔄 "
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
