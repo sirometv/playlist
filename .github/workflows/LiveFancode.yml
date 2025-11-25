@@ -1,4 +1,4 @@
-name: Groups Update
+name: Live Fancode
 
 on:
   schedule:
@@ -49,7 +49,7 @@ jobs:
         # গ্রুপ টাইটেলের লিস্ট - যতগুলো খুশি যোগ/বিয়োগ করতে পারবেন
         TARGET_GROUP_TITLES = [
             "Live Event",
-            "Cricket",
+            # "Cricket",    # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Football",    # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Sports",      # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Movies",      # uncomment করতে পারেন যদি প্রয়োজন হয়
