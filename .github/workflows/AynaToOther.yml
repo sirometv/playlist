@@ -47,6 +47,22 @@ jobs:
             "T Sports": ["T Sports HD", "A Sports", "PTV Sports"],
             "BTV National": ["BTV NATIONAL HD", "BTV World"],
             "BTV CTG": ["BTV CTG"],
+            "Channel 9": ["Channel 9"],
+            "Channel I": ["Channel I"],
+            "Bangla Vision": ["Bangla Vision"],
+            # "Maasranga TV": ["Maasranga TV"],  # uncomment করতে পারেন যদি প্রয়োজন হয়
+            "News 24": ["News 24 BD"], 
+            "Boishakhi TV": ["Boishakhi TV"],
+            #  "Boishakhi Plus": ["Boishakhi Plus"],  # uncomment করতে পারেন যদি প্রয়োজন হয়
+            "Bijoy TV": ["Bijoy TV"],
+            "ATN Bangla": ["ATN Bangla"],
+            "ATN-Bangla News": ["ATN News"],
+            "DBC News": ["DBC News"],
+            "Independent TV": ["Independent TV"],
+            "Bangla TV": ["Bangla TV"],
+            "Desh TV": ["Desh TV"],
+            "RTV": ["RTV"],
+            "My TV": ["My TV"],
             # "BTV NEWS": ["Somoy News TV", "Somoy TV"],  # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Somoy TV": ["Somoy News TV", "Somoy TV"],  # uncomment করতে পারেন যদি প্রয়োজন হয়
             # এখানে আপনি আরো চ্যানেল যোগ করতে পারবেন
