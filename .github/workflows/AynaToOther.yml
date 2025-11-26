@@ -44,9 +44,9 @@ jobs:
         
         # চ্যানেল ম্যাপিং - আপনার প্রথম প্লেলিস্টের নাম : সেকেন্ড প্লেলিস্টে খুঁজবে এমন keywords
         CHANNEL_MAPPING = {
-            "T Sports": ["T Sports HD", "A Sports", "T SPORTS HD"],
-            # "A Sports": ["A Sports"],
-            # "P TV": ["P TV"],
+            "T Sports": ["T Sports HD", "A Sports", "T SPORTS HD", "TSports", "Tsports", "TSPORTS", "T Sports", "tsportshd"],
+            "A Sports": ["A Sports"],
+            "P TV": ["P TV"],
             "BTV National": ["BTV NATIONAL HD", "BTV World"],
             "BTV CTG": ["BTV CTG"],
             # "BTV NEWS": ["Somoy News TV", "Somoy TV"],  # uncomment করতে পারেন যদি প্রয়োজন হয়
@@ -79,8 +79,8 @@ jobs:
                     
                     # প্রতিটি keyword এর জন্য exact match চেক করুন
                     for keyword in keywords:
-                        # Exact match এর জন্য regex প্যাটার্ন
-                        pattern = r'[,\|](?:\s*){}(?:\s*)(?:,|\||$)'.format(re.escape(keyword))
+                        # Exact match এর জন্য regex প্যাটার্ন - শুধুমাত্র standalone keyword match করবে
+                        pattern = r'(?:[,\|]|^)(?:\s*){}(?:\s*)(?:,|\||$)'.format(re.escape(keyword))
                         if re.search(pattern, channel_info, re.IGNORECASE):
                             # পরের লাইনে URL থাকবে
                             if i + 1 < len(lines) and lines[i + 1].startswith('http'):
@@ -184,6 +184,7 @@ jobs:
             if new_url:
                 updated_content = update_channel_url(updated_content, main_channel, new_url, is_manual_run)
                 update_count += 1
+                print(f"✅ Updated {main_channel} with URL from keyword match")
             else:
                 print(f"⚠️ Skipping {main_channel} - no exact match URL found")
         
