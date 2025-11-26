@@ -65,8 +65,6 @@ jobs:
             "My TV": ["My TV"],
             # "BTV NEWS": ["Somoy News TV", "Somoy TV"],  # uncomment করতে পারেন যদি প্রয়োজন হয়
             # "Somoy TV": ["Somoy News TV", "Somoy TV"],  # uncomment করতে পারেন যদি প্রয়োজন হয়
-            # এখানে আপনি আরো চ্যানেল যোগ করতে পারবেন
-            # "Channel Name in Main": ["exact_keyword1", "exact_keyword2", "exact_keyword3"]
         }
         
         def get_bangladesh_time():
@@ -82,8 +80,6 @@ jobs:
             
             # Exact match এর জন্য pattern তৈরি করুন
             for keyword in keywords:
-                # Exact match: শুধুমাত্র সেই নামের চ্যানেলই match করবে
-                # যেমন: "A Sports" শুধুমাত্র "A Sports" কে match করবে, "SHARJHA SPORTS" কে করবে না
                 exact_pattern = r'#EXTINF:[^\n]*\b{}\b[^\n]*\n(http[^\n]+)'.format(re.escape(keyword))
                 match = re.search(exact_pattern, content, re.IGNORECASE)
                 
@@ -96,7 +92,7 @@ jobs:
             return None
         
         def update_channel_with_multiple_links(main_content, channel_name, search_keywords, is_manual_run=False):
-            """একটি চ্যানেলের জন্য multiple links যোগ করে"""
+            """একটি চ্যানেলের জন্য multiple links যোগ করে (manual links intact রাখবে)"""
             timestamp = get_bangladesh_time()
             
             # Pattern: #EXTINF লাইন যেখানে channel_name আছে
@@ -123,51 +119,58 @@ jobs:
             for url in channel_urls:
                 multiple_urls_content += f"{url}\n"
             
+            # চ্যানেলের সম্পূর্ণ ব্লক খুঁজে বের করুন
+            channel_block_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(.*?)(?=#EXTINF|\Z)'.format(re.escape(channel_name))
+            channel_block_match = re.search(channel_block_pattern, main_content, re.IGNORECASE | re.DOTALL)
+            
+            if not channel_block_match:
+                print(f"❌ Could not extract channel block for {channel_name}")
+                return main_content, 0
+            
+            full_channel_block = channel_block_match.group(0)
+            extinf_line = channel_block_match.group(1)
+            existing_content = channel_block_match.group(2)
+            
             if is_manual_run:
-                # Manual run: নতুন AUTO-UPDATED লাইন যোগ করবে (যদি না থাকে)
-                auto_updated_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)'.format(re.escape(channel_name))
+                # Manual run: নতুন AUTO-UPDATED section যোগ করবে বা replace করবে
+                auto_updated_pattern = r'(#AUTO-UPDATED[^\n]*\n)(.*?)(?=#EXTINF|\Z|#AUTO-UPDATED)'
+                auto_updated_match = re.search(auto_updated_pattern, existing_content, re.IGNORECASE | re.DOTALL)
                 
-                if re.search(auto_updated_pattern, main_content, re.IGNORECASE):
-                    # AUTO-UPDATED already exists, replace the entire AUTO-UPDATED section
-                    pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(.*?)(?=#EXTINF|\Z)'.format(re.escape(channel_name))
-                    
-                    def replacement(match):
-                        return match.group(1) + multiple_urls_content
-                    
-                    updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE | re.DOTALL)
+                if auto_updated_match:
+                    # AUTO-UPDATED section exists, replace only the AUTO-UPDATED part
+                    updated_block = re.sub(auto_updated_pattern, multiple_urls_content, existing_content, flags=re.IGNORECASE | re.DOTALL)
                     print(f"✅ Manual run: Replaced AUTO-UPDATED section for {channel_name} with {len(channel_urls)} links")
                 else:
-                    # No AUTO-UPDATED exists, add it after EXTINF line
-                    pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
-                    
-                    def replacement(match):
-                        return match.group(1) + multiple_urls_content
-                    
-                    updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
+                    # No AUTO-UPDATED section exists, add it at the beginning of the links
+                    updated_block = multiple_urls_content + existing_content
                     print(f"✅ Manual run: Added new AUTO-UPDATED section for {channel_name} with {len(channel_urls)} links")
                 
+                # পুরো চ্যানেল ব্লক replace করুন
+                updated_content = main_content.replace(full_channel_block, extinf_line + updated_block)
                 return updated_content, len(channel_urls)
+                
             else:
-                # Scheduled run: শুধু AUTO-UPDATED লাইনের URLs রিপ্লেস করবে
-                pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(.*?)(?=#EXTINF|\Z)'.format(re.escape(channel_name))
+                # Scheduled run: শুধুমাত্র existing AUTO-UPDATED section-এর URLs replace করবে
+                auto_updated_pattern = r'(#AUTO-UPDATED[^\n]*\n)(.*?)(?=#EXTINF|\Z|#AUTO-UPDATED|http)'
+                auto_updated_match = re.search(auto_updated_pattern, existing_content, re.IGNORECASE | re.DOTALL)
                 
-                def replacement(match):
-                    return match.group(1) + multiple_urls_content
-                
-                if re.search(pattern, main_content, re.IGNORECASE | re.DOTALL):
-                    updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE | re.DOTALL)
-                    print(f"✅ Scheduled run: Replaced AUTO-UPDATED section for {channel_name} with {len(channel_urls)} links")
-                    return updated_content, len(channel_urls)
+                if auto_updated_match:
+                    # AUTO-UPDATED section exists, replace only the URLs inside AUTO-UPDATED
+                    current_auto_updated = auto_updated_match.group(0)
+                    new_auto_updated = f"#AUTO-UPDATED - Multiple Links - {timestamp}\n"
+                    for url in channel_urls:
+                        new_auto_updated += f"{url}\n"
+                    
+                    updated_block = existing_content.replace(current_auto_updated, new_auto_updated)
+                    print(f"✅ Scheduled run: Updated AUTO-UPDATED URLs for {channel_name} with {len(channel_urls)} links")
                 else:
-                    # যদি AUTO-UPDATED না থাকে, কিন্তু চ্যানেল থাকলে নতুন যোগ করবে
-                    pattern_extinf_only = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
-                    
-                    def add_auto_updated(match):
-                        return match.group(1) + multiple_urls_content
-                    
-                    updated_content = re.sub(pattern_extinf_only, add_auto_updated, main_content, flags=re.IGNORECASE)
+                    # No AUTO-UPDATED section exists, add it at the beginning
+                    updated_block = multiple_urls_content + existing_content
                     print(f"✅ Scheduled run: Added AUTO-UPDATED section for {channel_name} with {len(channel_urls)} links")
-                    return updated_content, len(channel_urls)
+                
+                # পুরো চ্যানেল ব্লক replace করুন
+                updated_content = main_content.replace(full_channel_block, extinf_line + updated_block)
+                return updated_content, len(channel_urls)
         
         # মেইন প্লেলিস্ট লোড করুন
         with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
@@ -228,10 +231,8 @@ jobs:
         if git diff --staged --quiet; then
           echo "✅ No changes detected - playlist is up to date"
         else
-          # বাংলাদেশের সময় নেওয়া (BD Time format)
           BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
           
-          # Check if manual or scheduled run
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             git commit -m "🔄 Manual Update: Multiple Links - $BANGLADESH_TIME"
           else
