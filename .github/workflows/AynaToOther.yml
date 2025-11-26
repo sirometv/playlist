@@ -1,0 +1,244 @@
+name: Ayna To T Sports & Other Channel 
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-channels:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Download playlists
+      run: |
+        echo "📥 Downloading playlists..."
+        curl -s -L -o main_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/sirometv.m3u"
+        curl -s -L -o source_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/Ayna.m3u"
+        
+        for file in main_playlist.m3u source_playlist.m3u; do
+          if [ ! -f "$file" ] || [ ! -s "$file" ]; then
+            echo "❌ ERROR: $file download failed!"
+            exit 1
+          fi
+          LINES=$(wc -l < "$file")
+          echo "✅ $file downloaded - $LINES lines"
+        done
+        
+    - name: Update T Sports Channel
+      run: |
+        echo "🔄 Updating T Sports Channel..."
+        
+        python3 - << 'EOF'
+        import re
+        from datetime import datetime
+        import pytz
+        
+        # চ্যানেল ম্যাপিং - আপনার প্রথম প্লেলিস্টের নাম : সেকেন্ড প্লেলিস্টে খুঁজবে এমন keywords
+        CHANNEL_MAPPING = {
+            "T Sports": ["T Sports HD", "A Sports", "T SPORTS HD"],
+            # "A Sports": ["A Sports"],
+            # "P TV": ["P TV"],
+            "BTV National": ["BTV NATIONAL HD", "BTV World"],
+            "BTV CTG": ["BTV CTG"],
+            # "BTV NEWS": ["Somoy News TV", "Somoy TV"],  # uncomment করতে পারেন যদি প্রয়োজন হয়
+            # "Somoy TV": ["Somoy News TV", "Somoy TV"],  # uncomment করতে পারেন যদি প্রয়োজন হয়
+            # এখানে আপনি আরো চ্যানেল যোগ করতে পারবেন
+            # "Channel Name in Main": ["keyword1", "keyword2", "keyword3"]
+        }
+        
+        def get_bangladesh_time():
+            """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
+            bangladesh_tz = pytz.timezone('Asia/Dhaka')
+            now = datetime.now(bangladesh_tz)
+            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
+        
+        def find_channel_url(source_file, keywords):
+            """সোর্স প্লেলিস্ট থেকে চ্যানেল URL খুঁজে বের করে - EXACT MATCH ONLY"""
+            with open(source_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # EXTINF লাইনগুলো আলাদা করুন
+            lines = content.split('\n')
+            found_urls = {}
+            
+            i = 0
+            while i < len(lines):
+                line = lines[i]
+                if line.startswith('#EXTINF:'):
+                    # EXTINF লাইনে চ্যানেলের নাম খুঁজুন
+                    channel_info = line
+                    
+                    # প্রতিটি keyword এর জন্য exact match চেক করুন
+                    for keyword in keywords:
+                        # Exact match এর জন্য regex প্যাটার্ন
+                        pattern = r'[,\|](?:\s*){}(?:\s*)(?:,|\||$)'.format(re.escape(keyword))
+                        if re.search(pattern, channel_info, re.IGNORECASE):
+                            # পরের লাইনে URL থাকবে
+                            if i + 1 < len(lines) and lines[i + 1].startswith('http'):
+                                url = lines[i + 1].strip()
+                                found_urls[keyword] = url
+                                print(f"✅ Exact match found for '{keyword}': {url}")
+                                break  # একটি keyword match হলে বাকিগুলো চেক করার দরকার নেই
+                    i += 2  # EXTINF এবং URL লাইন skip করুন
+                else:
+                    i += 1
+            
+            # Priority based on keyword order - প্রথম matching keyword এর URL return করুন
+            for keyword in keywords:
+                if keyword in found_urls:
+                    return found_urls[keyword]
+            
+            print(f"❌ No exact match found for keywords: {keywords}")
+            return None
+        
+        def update_channel_url(main_content, channel_name, new_url, is_manual_run=False):
+            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের URL আপডেট করে"""
+            timestamp = get_bangladesh_time()
+            
+            # Pattern: #EXTINF লাইন যেখানে channel_name আছে
+            pattern_extinf = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
+            
+            match = re.search(pattern_extinf, main_content, re.IGNORECASE)
+            if not match:
+                print(f"❌ {channel_name} not found in main playlist")
+                return main_content
+            
+            extinf_line = match.group(1)
+            
+            if is_manual_run:
+                # Manual run: নতুন AUTO-UPDATED লাইন যোগ করবে (যদি না থাকে)
+                auto_updated_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)'.format(re.escape(channel_name))
+                
+                if re.search(auto_updated_pattern, main_content, re.IGNORECASE):
+                    # AUTO-UPDATED already exists, replace only the URL in AUTO-UPDATED section
+                    pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(http[^\n]*\n)'.format(re.escape(channel_name))
+                    
+                    def replacement(match):
+                        return match.group(1) + f"#AUTO-UPDATED - {timestamp}\n" + new_url + "\n"
+                    
+                    updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
+                    print(f"✅ Manual run: Replaced AUTO-UPDATED link for {channel_name}")
+                else:
+                    # No AUTO-UPDATED exists, add it after EXTINF line
+                    auto_updated_line = f"#AUTO-UPDATED - {timestamp}\n{new_url}\n"
+                    pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
+                    
+                    def replacement(match):
+                        return match.group(1) + auto_updated_line
+                    
+                    updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
+                    print(f"✅ Manual run: Added new AUTO-UPDATED link for {channel_name}")
+                
+                return updated_content
+            else:
+                # Scheduled run: শুধু AUTO-UPDATED লাইনের URL রিপ্লেস করবে
+                pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(http[^\n]*\n)'.format(re.escape(channel_name))
+                
+                def replacement(match):
+                    return match.group(1) + f"#AUTO-UPDATED - {timestamp}\n" + new_url + "\n"
+                
+                if re.search(pattern, main_content, re.IGNORECASE):
+                    updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
+                    print(f"✅ Scheduled run: Replaced AUTO-UPDATED link for {channel_name}")
+                    return updated_content
+                else:
+                    # যদি AUTO-UPDATED না থাকে, কিন্তু চ্যানেল থাকলে নতুন যোগ করবে
+                    auto_updated_line = f"#AUTO-UPDATED - {timestamp}\n{new_url}\n"
+                    pattern_extinf_only = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
+                    
+                    def add_auto_updated(match):
+                        return match.group(1) + auto_updated_line
+                    
+                    updated_content = re.sub(pattern_extinf_only, add_auto_updated, main_content, flags=re.IGNORECASE)
+                    print(f"✅ Scheduled run: Added AUTO-UPDATED link for {channel_name}")
+                    return updated_content
+        
+        # মেইন প্লেলিস্ট লোড করুন
+        with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
+            main_content = f.read()
+        
+        # Check if manual run or scheduled
+        import os
+        is_manual_run = os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
+        
+        updated_content = main_content
+        update_count = 0
+        
+        # প্রতিটি চ্যানেলের জন্য আপডেট করুন
+        for main_channel, search_keywords in CHANNEL_MAPPING.items():
+            print(f"\n🔍 Processing: {main_channel}")
+            print(f"   Searching for exact matches: {search_keywords}")
+            print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
+            
+            new_url = find_channel_url('source_playlist.m3u', search_keywords)
+            
+            if new_url:
+                updated_content = update_channel_url(updated_content, main_channel, new_url, is_manual_run)
+                update_count += 1
+            else:
+                print(f"⚠️ Skipping {main_channel} - no exact match URL found")
+        
+        # আপডেট করা কন্টেন্ট সেভ করুন
+        with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
+            f.write(updated_content)
+        
+        print(f"\n🎉 Update Summary:")
+        print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
+        print(f"   Total channels processed: {len(CHANNEL_MAPPING)}")
+        print(f"   Successfully updated: {update_count}")
+        print(f"   Failed: {len(CHANNEL_MAPPING) - update_count}")
+        
+        EOF
+        
+    - name: Verify and replace playlist
+      run: |
+        echo "🔍 Verifying updated playlist..."
+        
+        if [ ! -f "sirometv_updated.m3u" ] || [ ! -s "sirometv_updated.m3u" ]; then
+          echo "❌ ERROR: Updated playlist is missing or empty!"
+          exit 1
+        fi
+        
+        mv sirometv_updated.m3u sirometv.m3u
+        
+        # আপডেট করা চ্যানেলগুলো দেখান
+        echo "🔍 Updated channels (showing EXTINF and next 3 lines):"
+        grep -A 3 -E "T Sports|A Sports|P TV" sirometv.m3u || echo "No matching channels found"
+        
+    - name: Commit and push changes
+      run: |
+        echo "💾 Saving changes to repository..."
+        
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add sirometv.m3u
+        
+        if git diff --staged --quiet; then
+          echo "✅ No changes detected - playlist is up to date"
+        else
+          # বাংলাদেশের সময় নেওয়া (BD Time format)
+          BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
+          
+          # Check if manual or scheduled run
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            git commit -m "🔄 Manual Update: Channel Links - $BANGLADESH_TIME"
+          else
+            git commit -m "🔄 Scheduled Update: Channel Links - $BANGLADESH_TIME"
+          fi
+          git push
+          echo "🎉 Successfully updated channel links!"
+        fi
+        
+    - name: Cleanup
+      run: |
+        rm -f main_playlist.m3u source_playlist.m3u
+        echo "✅ Cleanup completed!"
