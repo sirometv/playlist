@@ -44,9 +44,17 @@ jobs:
         
         # চ্যানেল ম্যাপিং - আপনার প্রথম প্লেলিস্টের নাম : সেকেন্ড প্লেলিস্টে খুঁজবে এমন exact keywords
         CHANNEL_MAPPING = {
-            "T Sports": ["T Sports HD", "A Sports", "PTV Sports"],
             "BTV National": ["BTV NATIONAL HD", "BTV World"],
             "BTV CTG": ["BTV CTG"],
+            "Jamuna TV": ["Jamuna TV"],
+            "Somoy TV": ["Somoy News TV"],
+            "NTV BD": ["NTV"],
+            "NTV-Europe": ["NTV Europe"],
+            "Channel 24": ["Channel 24"],
+            "Deen TV": ["Deen TV"],
+            "SATV": ["SA TV"],
+            "GTV": ["Gazi TV"],
+            "T Sports": ["T Sports HD", "A Sports", "PTV Sports"],
             "Channel 9": ["Channel 9"],
             "Channel I": ["Channel I"],
             "Bangla Vision": ["Bangla Vision"],
@@ -61,6 +69,15 @@ jobs:
             "Desh TV": ["Desh TV"],
             "RTV": ["RTV"],
             "My TV": ["My TV"],
+            "Peace TV Bangla": ["Peace TV Bangla HD"],
+            "Star Jalsha": ["Star Jalsha HD"],
+            "Star-Jalsha Movies": ["Star-Jalsha Movies"],
+            "Zee Bangla": ["Zee Bangla International"],
+            "Zee-Bangla Cinema": ["Zee-Bangla Cinema"],
+            "Akash Aath": ["Aakaash Bangla TV"],
+            # "Somoy TV": ["Somoy News TV", "Somoy TV"],  # uncomment করতে পারেন যদি প্রয়োজন হয়
+            # এখানে আপনি আরো চ্যানেল যোগ করতে পারবেন
+            # "Channel Name in Main": ["keyword1", "keyword2", "keyword3"]
         }
         
         def get_bangladesh_time():
