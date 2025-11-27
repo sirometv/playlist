@@ -103,9 +103,9 @@ jobs:
             
             # Multiple URLs এর জন্য content তৈরি করুন
             auto_updated_urls = "".join([f"{url}\n" for url in new_urls])
-            auto_updated_section = f"#AUTO-UPDATED - Multiple Links - {timestamp} 🔄\n{auto_updated_urls}#OLD-Link 🟡🟡🟡\n"
+            auto_updated_section = f"#AUTO-UPDATED - {timestamp} 🔄\n{auto_updated_urls}"
             
-            # চ্যানেলের সম্পূর্ণ ব্লক খুঁজে বের করুন
+            # চ্যানেলের সম্পূর্ণ ব্লক খুঁজে বের করুন (পরবর্তী #EXTINF বা ফাইল শেষ পর্যন্ত)
             channel_block_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(.*?)(?=#EXTINF|\Z)'.format(re.escape(channel_name))
             channel_block_match = re.search(channel_block_pattern, main_content, re.IGNORECASE | re.DOTALL)
             
@@ -116,34 +116,46 @@ jobs:
             full_channel_block = channel_block_match.group(0)
             existing_content = channel_block_match.group(2)
             
-            # OLD-Link section খুঁজে বের করুন
-            old_link_pattern = r'(#OLD-Link 🟡🟡🟡\n.*?)(?=#EXTINF|\Z)'
-            old_link_match = re.search(old_link_pattern, existing_content, re.DOTALL)
+            # শুধুমাত্র URL লাইনগুলি আলাদা করুন (কমেন্ট এবং খালি লাইন রাখুন)
+            lines = existing_content.split('\n')
+            working_urls = []  # কাজ করা URL (http/https দিয়ে শুরু)
+            comment_lines = []  # কমেন্ট লাইন (# দিয়ে শুরু কিন্তু #EXTINF না)
+            empty_lines = []    # খালি লাইন
             
-            if old_link_match:
-                # OLD-Link section exists, শুধু AUTO-UPDATED section টি replace করুন
-                old_link_section = old_link_match.group(1)
-                print(f"🔍 Found OLD-Link section, preserving manual links")
-                
-                # নতুন content তৈরি করুন - AUTO-UPDATED + OLD-Link section
-                new_channel_content = auto_updated_section + old_link_section
-            else:
-                # No OLD-Link section exists, পুরানো content টি OLD-Link হিসেবে রাখুন
-                print(f"🔍 No OLD-Link section found, converting existing links to OLD-Link")
-                
-                # Existing URLs খুঁজে বের করুন
-                existing_urls = re.findall(r'(https?://[^\s]+)', existing_content)
-                old_links_section = "\n".join(existing_urls) if existing_urls else ""
-                
-                new_channel_content = auto_updated_section + old_links_section
-                if existing_urls:
-                    new_channel_content += "\n"
+            for line in lines:
+                if line.startswith('http://') or line.startswith('https://'):
+                    working_urls.append(line)
+                elif line.startswith('#') and not line.startswith('#EXTINF'):
+                    comment_lines.append(line)
+                elif line.strip() == '':
+                    empty_lines.append(line)
+                else:
+                    # অন্য কোন লাইন থাকলে কমেন্ট হিসেবে বিবেচনা করুন
+                    comment_lines.append(line)
+            
+            # নতুন content তৈরি করুন
+            new_channel_content = auto_updated_section
+            
+            # পুরানো কাজ করা URL গুলি যোগ করুন
+            if working_urls:
+                new_channel_content += "\n".join(working_urls) + "\n"
+            
+            # কমেন্ট লাইনগুলি যোগ করুন
+            if comment_lines:
+                new_channel_content += "\n".join(comment_lines) + "\n"
+            
+            # খালি লাইনগুলি যোগ করুন
+            if empty_lines:
+                new_channel_content += "\n".join(empty_lines)
+                if not new_channel_content.endswith('\n'):
+                    new_channel_content += '\n'
             
             # পুরো চ্যানেল ব্লক replace করুন
             new_channel_block = extinf_line + new_channel_content
             updated_content = main_content.replace(full_channel_block, new_channel_block)
             
-            print(f"✅ Updated {channel_name} with {len(new_urls)} new links and preserved old links")
+            print(f"✅ Updated {channel_name} with {len(new_urls)} new links")
+            print(f"   Preserved {len(working_urls)} working URLs, {len(comment_lines)} comments, {len(empty_lines)} empty lines")
             return updated_content
         
         # মেইন প্লেলিস্ট লোড করুন
@@ -174,7 +186,7 @@ jobs:
                 updated_content = update_channel_url(updated_content, main_channel, channel_urls)
                 total_links_added += len(channel_urls)
             else:
-                print(f"⚠️ Skipping {channel_name} - no URLs found")
+                print(f"⚠️ Skipping {main_channel} - no URLs found")
         
         # আপডেট করা কন্টেন্ট সেভ করুন
         with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
@@ -196,11 +208,16 @@ jobs:
           exit 1
         fi
         
+        # মূল ফাইলের সাথে লাইন সংখ্যা তুলনা করুন
+        OLD_LINES=$(wc -l < "sirometv.m3u")
+        NEW_LINES=$(wc -l < "sirometv_updated.m3u")
+        echo "📊 Line count - Old: $OLD_LINES, New: $NEW_LINES"
+        
         mv sirometv_updated.m3u sirometv.m3u
         
         # আপডেট করা চ্যানেলগুলো দেখান
-        echo "🔍 Updated channels (showing EXTINF and next 15 lines):"
-        grep -A 15 -E "T Sports" sirometv.m3u || echo "No matching channels found"
+        echo "🔍 Updated T Sports channel (showing first 25 lines):"
+        grep -A 25 -E "T Sports" sirometv.m3u | head -25 || echo "No matching channels found"
         
     - name: Commit and push changes
       run: |
