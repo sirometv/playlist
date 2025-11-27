@@ -117,20 +117,26 @@ jobs:
             existing_content = channel_block_match.group(2)
             
             # AUTO-UPDATED section খুঁজে বের করুন (শুধুমাত্র exact match)
-            auto_updated_pattern = r'#AUTO-UPDATED - Multiple Links - [^\n]*\n(?:http[^\n]*\n)*'
+            # Pattern: #AUTO-UPDATED লাইন এবং তার পরের URLs (পরবর্তী #AUTO-UPDATED বা #EXTINF পর্যন্ত)
+            auto_updated_pattern = r'(#AUTO-UPDATED - Multiple Links - [^\n]*\n)((?:https?[^\n]*\n)*)'
             auto_updated_match = re.search(auto_updated_pattern, existing_content)
             
             if auto_updated_match:
                 # AUTO-UPDATED section exists, শুধু এই section টি replace করুন
-                auto_section = auto_updated_match.group(0)
+                auto_header = auto_updated_match.group(1)
+                auto_urls = auto_updated_match.group(2)
                 auto_start = auto_updated_match.start()
                 auto_end = auto_updated_match.end()
+                
+                print(f"🔍 Found existing AUTO-UPDATED section at position {auto_start}-{auto_end}")
+                print(f"🔍 AUTO-UPDATED content: {auto_header.strip()} + {len(auto_urls.strip().split(chr(10)))} URLs")
                 
                 # শুধুমাত্র AUTO-UPDATED section replace করুন
                 updated_existing_content = existing_content[:auto_start] + auto_updated_section + existing_content[auto_end:]
                 print(f"✅ Updated AUTO-UPDATED section for {channel_name} with {len(new_urls)} links")
             else:
                 # No AUTO-UPDATED section exists, নতুন section যোগ করুন manual links-এর উপরে
+                print(f"🔍 No AUTO-UPDATED section found, adding new one")
                 updated_existing_content = auto_updated_section + existing_content
                 print(f"✅ Added AUTO-UPDATED section for {channel_name} with {len(new_urls)} links")
             
@@ -193,8 +199,8 @@ jobs:
         mv sirometv_updated.m3u sirometv.m3u
         
         # আপডেট করা চ্যানেলগুলো দেখান
-        echo "🔍 Updated channels (showing EXTINF and next 10 lines):"
-        grep -A 10 -E "T Sports" sirometv.m3u || echo "No matching channels found"
+        echo "🔍 Updated channels (showing EXTINF and next 15 lines):"
+        grep -A 15 -E "T Sports" sirometv.m3u || echo "No matching channels found"
         
     - name: Commit and push changes
       run: |
