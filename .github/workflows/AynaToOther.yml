@@ -67,7 +67,7 @@ jobs:
             """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
             bangladesh_tz = pytz.timezone('Asia/Dhaka')
             now = datetime.now(bangladesh_tz)
-            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
+            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time") + " 🔄"
         
         def find_channel_url(source_file, keywords):
             """সোর্স প্লেলিস্ট থেকে চ্যানেল URL খুঁজে বের করে (exact match)"""
@@ -87,8 +87,8 @@ jobs:
             print(f"❌ No exact match found for keywords: {keywords}")
             return None
         
-        def update_channel_url(main_content, channel_name, new_urls):
-            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের URL আপডেট করে (manual links intact রাখবে)"""
+        def update_channel_url(main_content, channel_name, new_urls, is_manual_run=False):
+            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের URL আপডেট করে"""
             timestamp = get_bangladesh_time()
             
             # Pattern: #EXTINF লাইন যেখানে channel_name আছে
@@ -103,9 +103,9 @@ jobs:
             
             # Multiple URLs এর জন্য content তৈরি করুন
             auto_updated_urls = "".join([f"{url}\n" for url in new_urls])
-            auto_updated_section = f"#AUTO-UPDATED - {timestamp} 🔄\n{auto_updated_urls}"
+            auto_updated_section = f"#AUTO-UPDATED - Multiple Links - {timestamp}\n{auto_updated_urls}"
             
-            # চ্যানেলের সম্পূর্ণ ব্লক খুঁজে বের করুন (পরবর্তী #EXTINF বা ফাইল শেষ পর্যন্ত)
+            # চ্যানেলের সম্পূর্ণ ব্লক খুঁজে বের করুন
             channel_block_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(.*?)(?=#EXTINF|\Z)'.format(re.escape(channel_name))
             channel_block_match = re.search(channel_block_pattern, main_content, re.IGNORECASE | re.DOTALL)
             
@@ -116,46 +116,33 @@ jobs:
             full_channel_block = channel_block_match.group(0)
             existing_content = channel_block_match.group(2)
             
-            # শুধুমাত্র URL লাইনগুলি আলাদা করুন (কমেন্ট এবং খালি লাইন রাখুন)
-            lines = existing_content.split('\n')
-            working_urls = []  # কাজ করা URL (http/https দিয়ে শুরু)
-            comment_lines = []  # কমেন্ট লাইন (# দিয়ে শুরু কিন্তু #EXTINF না)
-            empty_lines = []    # খালি লাইন
+            # AUTO-UPDATED section খুঁজে বের করুন
+            auto_updated_pattern = r'(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)*)'
+            auto_updated_match = re.search(auto_updated_pattern, existing_content)
             
-            for line in lines:
-                if line.startswith('http://') or line.startswith('https://'):
-                    working_urls.append(line)
-                elif line.startswith('#') and not line.startswith('#EXTINF'):
-                    comment_lines.append(line)
-                elif line.strip() == '':
-                    empty_lines.append(line)
-                else:
-                    # অন্য কোন লাইন থাকলে কমেন্ট হিসেবে বিবেচনা করুন
-                    comment_lines.append(line)
-            
-            # নতুন content তৈরি করুন
-            new_channel_content = auto_updated_section
-            
-            # পুরানো কাজ করা URL গুলি যোগ করুন
-            if working_urls:
-                new_channel_content += "\n".join(working_urls) + "\n"
-            
-            # কমেন্ট লাইনগুলি যোগ করুন
-            if comment_lines:
-                new_channel_content += "\n".join(comment_lines) + "\n"
-            
-            # খালি লাইনগুলি যোগ করুন
-            if empty_lines:
-                new_channel_content += "\n".join(empty_lines)
-                if not new_channel_content.endswith('\n'):
-                    new_channel_content += '\n'
+            if auto_updated_match:
+                # AUTO-UPDATED section exists, শুধু URLs replace করুন
+                auto_header = auto_updated_match.group(1)
+                auto_urls = auto_updated_match.group(2)
+                auto_start = auto_updated_match.start()
+                auto_end = auto_updated_match.end()
+                
+                # নতুন AUTO-UPDATED section তৈরি করুন (শুধু timestamp update)
+                new_auto_header = f"#AUTO-UPDATED - Multiple Links - {timestamp}\n"
+                new_auto_section = new_auto_header + auto_updated_urls
+                
+                # শুধুমাত্র AUTO-UPDATED section replace করুন
+                updated_existing_content = existing_content[:auto_start] + new_auto_section + existing_content[auto_end:]
+                print(f"✅ {'Manual' if is_manual_run else 'Scheduled'} run: Updated AUTO-UPDATED URLs for {channel_name} with {len(new_urls)} links")
+            else:
+                # No AUTO-UPDATED section exists, নতুন section যোগ করুন manual links-এর উপরে
+                updated_existing_content = auto_updated_section + existing_content
+                print(f"✅ {'Manual' if is_manual_run else 'Scheduled'} run: Added AUTO-UPDATED section for {channel_name} with {len(new_urls)} links")
             
             # পুরো চ্যানেল ব্লক replace করুন
-            new_channel_block = extinf_line + new_channel_content
+            new_channel_block = extinf_line + updated_existing_content
             updated_content = main_content.replace(full_channel_block, new_channel_block)
             
-            print(f"✅ Updated {channel_name} with {len(new_urls)} new links")
-            print(f"   Preserved {len(working_urls)} working URLs, {len(comment_lines)} comments, {len(empty_lines)} empty lines")
             return updated_content
         
         # মেইন প্লেলিস্ট লোড করুন
@@ -183,7 +170,7 @@ jobs:
                     channel_urls.append(url)
             
             if channel_urls:
-                updated_content = update_channel_url(updated_content, main_channel, channel_urls)
+                updated_content = update_channel_url(updated_content, main_channel, channel_urls, is_manual_run)
                 total_links_added += len(channel_urls)
             else:
                 print(f"⚠️ Skipping {main_channel} - no URLs found")
@@ -208,16 +195,11 @@ jobs:
           exit 1
         fi
         
-        # মূল ফাইলের সাথে লাইন সংখ্যা তুলনা করুন
-        OLD_LINES=$(wc -l < "sirometv.m3u")
-        NEW_LINES=$(wc -l < "sirometv_updated.m3u")
-        echo "📊 Line count - Old: $OLD_LINES, New: $NEW_LINES"
-        
         mv sirometv_updated.m3u sirometv.m3u
         
         # আপডেট করা চ্যানেলগুলো দেখান
-        echo "🔍 Updated T Sports channel (showing first 25 lines):"
-        grep -A 25 -E "T Sports" sirometv.m3u | head -25 || echo "No matching channels found"
+        echo "🔍 Updated channels (showing EXTINF and next 10 lines):"
+        grep -A 10 -E "T Sports" sirometv.m3u || echo "No matching channels found"
         
     - name: Commit and push changes
       run: |
