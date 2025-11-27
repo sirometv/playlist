@@ -87,8 +87,8 @@ jobs:
             print(f"❌ No exact match found for keywords: {keywords}")
             return None
         
-        def update_channel_url(main_content, channel_name, new_urls, is_manual_run=False):
-            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের URL আপডেট করে"""
+        def update_channel_url(main_content, channel_name, new_urls):
+            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের URL আপডেট করে (manual links intact রাখবে)"""
             timestamp = get_bangladesh_time()
             
             # Pattern: #EXTINF লাইন যেখানে channel_name আছে
@@ -116,28 +116,23 @@ jobs:
             full_channel_block = channel_block_match.group(0)
             existing_content = channel_block_match.group(2)
             
-            # AUTO-UPDATED section খুঁজে বের করুন
-            auto_updated_pattern = r'(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)*)'
+            # AUTO-UPDATED section খুঁজে বের করুন (শুধুমাত্র exact match)
+            auto_updated_pattern = r'#AUTO-UPDATED - Multiple Links - [^\n]*\n(?:http[^\n]*\n)*'
             auto_updated_match = re.search(auto_updated_pattern, existing_content)
             
             if auto_updated_match:
-                # AUTO-UPDATED section exists, শুধু URLs replace করুন
-                auto_header = auto_updated_match.group(1)
-                auto_urls = auto_updated_match.group(2)
+                # AUTO-UPDATED section exists, শুধু এই section টি replace করুন
+                auto_section = auto_updated_match.group(0)
                 auto_start = auto_updated_match.start()
                 auto_end = auto_updated_match.end()
                 
-                # নতুন AUTO-UPDATED section তৈরি করুন (শুধু timestamp update)
-                new_auto_header = f"#AUTO-UPDATED - Multiple Links - {timestamp}\n"
-                new_auto_section = new_auto_header + auto_updated_urls
-                
                 # শুধুমাত্র AUTO-UPDATED section replace করুন
-                updated_existing_content = existing_content[:auto_start] + new_auto_section + existing_content[auto_end:]
-                print(f"✅ {'Manual' if is_manual_run else 'Scheduled'} run: Updated AUTO-UPDATED URLs for {channel_name} with {len(new_urls)} links")
+                updated_existing_content = existing_content[:auto_start] + auto_updated_section + existing_content[auto_end:]
+                print(f"✅ Updated AUTO-UPDATED section for {channel_name} with {len(new_urls)} links")
             else:
                 # No AUTO-UPDATED section exists, নতুন section যোগ করুন manual links-এর উপরে
                 updated_existing_content = auto_updated_section + existing_content
-                print(f"✅ {'Manual' if is_manual_run else 'Scheduled'} run: Added AUTO-UPDATED section for {channel_name} with {len(new_urls)} links")
+                print(f"✅ Added AUTO-UPDATED section for {channel_name} with {len(new_urls)} links")
             
             # পুরো চ্যানেল ব্লক replace করুন
             new_channel_block = extinf_line + updated_existing_content
@@ -170,7 +165,7 @@ jobs:
                     channel_urls.append(url)
             
             if channel_urls:
-                updated_content = update_channel_url(updated_content, main_channel, channel_urls, is_manual_run)
+                updated_content = update_channel_url(updated_content, main_channel, channel_urls)
                 total_links_added += len(channel_urls)
             else:
                 print(f"⚠️ Skipping {main_channel} - no URLs found")
