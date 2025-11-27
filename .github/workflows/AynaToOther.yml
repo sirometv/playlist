@@ -116,23 +116,33 @@ jobs:
             full_channel_block = channel_block_match.group(0)
             existing_content = channel_block_match.group(2)
             
-            # AUTO-UPDATED section খুঁজে বের করুন (শুধুমাত্র exact match)
-            # Pattern: #AUTO-UPDATED লাইন এবং তার পরের URLs (পরবর্তী #AUTO-UPDATED বা #EXTINF পর্যন্ত)
-            auto_updated_pattern = r'(#AUTO-UPDATED - Multiple Links - [^\n]*\n)((?:https?[^\n]*\n)*)'
-            auto_updated_match = re.search(auto_updated_pattern, existing_content)
+            # AUTO-UPDATED section খুঁজে বের করার জন্য line by line check করুন
+            lines = existing_content.split('\n')
+            auto_updated_start = -1
+            auto_updated_end = -1
             
-            if auto_updated_match:
+            for i, line in enumerate(lines):
+                if line.startswith('#AUTO-UPDATED - Multiple Links -'):
+                    auto_updated_start = i
+                    # AUTO-UPDATED section-এর শেষ খুঁজে বের করুন (পরবর্তী non-URL লাইন পর্যন্ত)
+                    for j in range(i + 1, len(lines)):
+                        if not lines[j].startswith('http'):
+                            auto_updated_end = j
+                            break
+                    if auto_updated_end == -1:
+                        auto_updated_end = len(lines)
+                    break
+            
+            if auto_updated_start != -1:
                 # AUTO-UPDATED section exists, শুধু এই section টি replace করুন
-                auto_header = auto_updated_match.group(1)
-                auto_urls = auto_updated_match.group(2)
-                auto_start = auto_updated_match.start()
-                auto_end = auto_updated_match.end()
+                print(f"🔍 Found AUTO-UPDATED section at lines {auto_updated_start}-{auto_updated_end}")
                 
-                print(f"🔍 Found existing AUTO-UPDATED section at position {auto_start}-{auto_end}")
-                print(f"🔍 AUTO-UPDATED content: {auto_header.strip()} + {len(auto_urls.strip().split(chr(10)))} URLs")
+                # নতুন content তৈরি করুন
+                new_lines = lines[:auto_updated_start]  # AUTO-UPDATED section-এর আগের অংশ
+                new_lines.extend(auto_updated_section.split('\n'))  # নতুন AUTO-UPDATED section
+                new_lines.extend(lines[auto_updated_end:])  # AUTO-UPDATED section-এর পরের অংশ (manual links)
                 
-                # শুধুমাত্র AUTO-UPDATED section replace করুন
-                updated_existing_content = existing_content[:auto_start] + auto_updated_section + existing_content[auto_end:]
+                updated_existing_content = '\n'.join(new_lines)
                 print(f"✅ Updated AUTO-UPDATED section for {channel_name} with {len(new_urls)} links")
             else:
                 # No AUTO-UPDATED section exists, নতুন section যোগ করুন manual links-এর উপরে
