@@ -106,6 +106,13 @@ jobs:
             cleaned_content = re.sub(duplicate_comment_pattern, '', channel_content)
             return cleaned_content
         
+        def remove_all_auto_updated_sections(channel_content):
+            """সমস্ত AUTO-UPDATED sections রিমুভ করে"""
+            # সমস্ত AUTO-UPDATED sections খুঁজে বের করুন
+            auto_updated_pattern = r'#AUTO-UPDATED[^\n]*\n(?:http[^\n]*\n)*'
+            cleaned_content = re.sub(auto_updated_pattern, '', channel_content)
+            return cleaned_content
+        
         def update_channel_in_playlist(main_content, channel_name, new_urls):
             """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেল আপডেট করে"""
             timestamp = get_bangladesh_time()
@@ -148,10 +155,6 @@ jobs:
             print(f"   Unique new URLs to add: {len(unique_new_urls)}")
             print(f"   Current duplicate URLs: {len(current_duplicate_urls)}")
             
-            # Check if AUTO-UPDATED section already exists
-            auto_updated_pattern = r'(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)*)'
-            auto_match = re.search(auto_updated_pattern, existing_content)
-            
             # বর্তমান ডুপ্লিকেট URLs এর জন্য কমেন্ট তৈরি করুন (যদি থাকে)
             duplicate_comment = ""
             if current_duplicate_urls:
@@ -160,8 +163,8 @@ jobs:
                     duplicate_comment += f"# {dup_url}\n"
                 print(f"   📝 Added comment for {len(current_duplicate_urls)} current duplicates")
             
+            # AUTO-UPDATED section তৈরি করুন
             if unique_new_urls:
-                # নতুন URLs থেকে AUTO-UPDATED section তৈরি করুন
                 auto_urls_text = "".join([f"{url}\n" for url in unique_new_urls])
                 
                 if len(unique_new_urls) > 1:
@@ -171,61 +174,48 @@ jobs:
                 
                 auto_section = auto_header + auto_urls_text
                 
-                if auto_match:
-                    # AUTO-UPDATED section exists
-                    if is_manual_run:
-                        # Manual run: নতুন URLs যোগ করুন existing AUTO-UPDATED section এর উপরে
-                        old_auto_section = auto_match.group(0)
-                        # Duplicate comment + নতুন AUTO-UPDATED section + পুরাতন AUTO-UPDATED section
-                        updated_auto_section = duplicate_comment + auto_section + old_auto_section
-                        updated_content = existing_content.replace(old_auto_section, updated_auto_section)
-                        print(f"✅ Manual run: Added {len(unique_new_urls)} new URLs to AUTO-UPDATED section")
-                    else:
-                        # Scheduled run: শুধু নতুন URLs যোগ করুন existing AUTO-UPDATED section এ
-                        old_auto_header = auto_match.group(1)
-                        old_auto_urls = auto_match.group(2)
-                        
-                        # Combine old and new URLs, remove duplicates
-                        all_urls = set()
-                        # পুরাতন URLs যোগ করুন
-                        for old_url in old_auto_urls.strip().split('\n'):
-                            if old_url and old_url.startswith('http'):
-                                all_urls.add(old_url)
-                        # নতুন URLs যোগ করুন
-                        for new_url in unique_new_urls:
-                            all_urls.add(new_url)
-                        
-                        # সাজানো URLs লিস্ট তৈরি করুন
-                        sorted_urls = sorted(list(all_urls))
-                        new_auto_urls_text = "".join([f"{url}\n" for url in sorted_urls])
-                        
-                        # নতুন header তৈরি করুন (timestamp update করুন)
-                        if len(sorted_urls) > 1:
-                            new_auto_header = f"#AUTO-UPDATED - Multiple Channel - {timestamp} 🔄🔄\n"
-                        else:
-                            new_auto_header = f"#AUTO-UPDATED - Channel - {timestamp} 🔄\n"
-                        
-                        new_auto_section = duplicate_comment + new_auto_header + new_auto_urls_text
-                        updated_content = existing_content.replace(old_auto_section, new_auto_section)
-                        print(f"✅ Scheduled run: Updated AUTO-UPDATED section with {len(sorted_urls)} URLs")
-                else:
-                    # No AUTO-UPDATED section exists - manual run
+                if is_manual_run:
+                    # Manual run: পুরাতন AUTO-UPDATED sections রিমুভ করে নতুন section যোগ করুন
+                    existing_content = remove_all_auto_updated_sections(existing_content)
                     updated_content = duplicate_comment + auto_section + existing_content
-                    print(f"✅ Manual run: Added AUTO-UPDATED section with {len(unique_new_urls)} new URLs")
+                    print(f"✅ Manual run: Replaced all AUTO-UPDATED sections with new {len(unique_new_urls)} URLs")
+                else:
+                    # Scheduled run: শুধুমাত্র প্রথম AUTO-UPDATED section replace করুন
+                    auto_updated_pattern = r'(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)*)'
+                    auto_match = re.search(auto_updated_pattern, existing_content)
+                    
+                    if auto_match:
+                        # প্রথম AUTO-UPDATED section replace করুন
+                        old_auto_section = auto_match.group(0)
+                        updated_content = existing_content.replace(old_auto_section, duplicate_comment + auto_section)
+                        print(f"✅ Scheduled run: Replaced first AUTO-UPDATED section with {len(unique_new_urls)} URLs")
+                    else:
+                        # কোনো AUTO-UPDATED section নেই, নতুন যোগ করুন
+                        updated_content = duplicate_comment + auto_section + existing_content
+                        print(f"✅ Scheduled run: Added new AUTO-UPDATED section with {len(unique_new_urls)} URLs")
             else:
                 # No new unique URLs found
-                if auto_match:
-                    # AUTO-UPDATED section আছে, শুধু duplicate comment যোগ করুন
-                    old_auto_section = auto_match.group(0)
-                    updated_content = existing_content.replace(old_auto_section, duplicate_comment + old_auto_section)
-                else:
-                    # শুধু duplicate comment যোগ করুন
+                if is_manual_run:
+                    # Manual run: পুরাতন AUTO-UPDATED sections রিমুভ করুন
+                    existing_content = remove_all_auto_updated_sections(existing_content)
                     updated_content = duplicate_comment + existing_content
-                
-                if current_duplicate_urls:
-                    print(f"ℹ️ No new URLs, added comment for {len(current_duplicate_urls)} duplicates")
+                    print(f"ℹ️ Manual run: Removed all AUTO-UPDATED sections, no new URLs")
                 else:
-                    print(f"ℹ️ No new URLs and no current duplicates for {channel_name}")
+                    # Scheduled run: শুধু duplicate comment যোগ করুন (পুরাতন AUTO-UPDATED sections রাখুন)
+                    auto_updated_pattern = r'(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)*)'
+                    auto_match = re.search(auto_updated_pattern, existing_content)
+                    
+                    if auto_match:
+                        # শুধু প্রথম AUTO-UPDATED section এর উপরে duplicate comment যোগ করুন
+                        old_auto_section = auto_match.group(0)
+                        updated_content = existing_content.replace(old_auto_section, duplicate_comment + old_auto_section)
+                    else:
+                        updated_content = duplicate_comment + existing_content
+                    
+                    if current_duplicate_urls:
+                        print(f"ℹ️ Scheduled run: No new URLs, added comment for {len(current_duplicate_urls)} duplicates")
+                    else:
+                        print(f"ℹ️ Scheduled run: No new URLs and no current duplicates for {channel_name}")
             
             # নতুন চ্যানেল ব্লক তৈরি করুন
             new_channel_block = extinf_line + updated_content
