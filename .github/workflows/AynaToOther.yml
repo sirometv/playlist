@@ -99,6 +99,13 @@ jobs:
             urls = re.findall(url_pattern, channel_content, re.MULTILINE)
             return set(urls)
         
+        def remove_old_duplicate_comments(channel_content):
+            """পুরাতন duplicate comments রিমুভ করে"""
+            # পুরাতন "Already Have These Channel Links" কমেন্ট প্যাটার্ন
+            duplicate_comment_pattern = r'# Already Have These Channel Links[^\n]*\n(?:# [^\n]*\n)*'
+            cleaned_content = re.sub(duplicate_comment_pattern, '', channel_content)
+            return cleaned_content
+        
         def update_channel_in_playlist(main_content, channel_name, new_urls):
             """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেল আপডেট করে"""
             timestamp = get_bangladesh_time()
@@ -120,27 +127,38 @@ jobs:
             existing_content = match.group(2)
             full_block = match.group(0)
             
+            # প্রথমে পুরাতন duplicate comments রিমুভ করুন
+            existing_content = remove_old_duplicate_comments(existing_content)
+            
             # Existing URLs extract করুন
             existing_urls = extract_existing_urls(existing_content)
             print(f"   Existing URLs in main playlist: {len(existing_urls)}")
             
             # ডুপ্লিকেট ফিল্টার করুন
             unique_new_urls = []
-            duplicate_urls = []
+            current_duplicate_urls = []
             
             for url in new_urls:
                 if url in existing_urls:
-                    duplicate_urls.append(url)
-                    print(f"   ⚠️ Duplicate found (skipping): {url}")
+                    current_duplicate_urls.append(url)
+                    print(f"   ⚠️ Current duplicate found: {url}")
                 else:
                     unique_new_urls.append(url)
             
             print(f"   Unique new URLs to add: {len(unique_new_urls)}")
-            print(f"   Duplicate URLs skipped: {len(duplicate_urls)}")
+            print(f"   Current duplicate URLs: {len(current_duplicate_urls)}")
             
             # Check if AUTO-UPDATED section already exists
             auto_updated_pattern = r'(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)*)'
             auto_match = re.search(auto_updated_pattern, existing_content)
+            
+            # বর্তমান ডুপ্লিকেট URLs এর জন্য কমেন্ট তৈরি করুন (যদি থাকে)
+            duplicate_comment = ""
+            if current_duplicate_urls:
+                duplicate_comment = f"# Already Have These Channel Links, No Need To Update - {timestamp}\n"
+                for dup_url in current_duplicate_urls:
+                    duplicate_comment += f"# {dup_url}\n"
+                print(f"   📝 Added comment for {len(current_duplicate_urls)} current duplicates")
             
             if unique_new_urls:
                 # নতুন URLs থেকে AUTO-UPDATED section তৈরি করুন
@@ -158,8 +176,8 @@ jobs:
                     if is_manual_run:
                         # Manual run: নতুন URLs যোগ করুন existing AUTO-UPDATED section এর উপরে
                         old_auto_section = auto_match.group(0)
-                        # শুধু নতুন URLs যোগ করুন, পুরাতন AUTO-UPDATED URLs রাখুন
-                        updated_auto_section = auto_section + old_auto_section
+                        # Duplicate comment + নতুন AUTO-UPDATED section + পুরাতন AUTO-UPDATED section
+                        updated_auto_section = duplicate_comment + auto_section + old_auto_section
                         updated_content = existing_content.replace(old_auto_section, updated_auto_section)
                         print(f"✅ Manual run: Added {len(unique_new_urls)} new URLs to AUTO-UPDATED section")
                     else:
@@ -187,37 +205,27 @@ jobs:
                         else:
                             new_auto_header = f"#AUTO-UPDATED - Channel - {timestamp} 🔄\n"
                         
-                        new_auto_section = new_auto_header + new_auto_urls_text
+                        new_auto_section = duplicate_comment + new_auto_header + new_auto_urls_text
                         updated_content = existing_content.replace(old_auto_section, new_auto_section)
                         print(f"✅ Scheduled run: Updated AUTO-UPDATED section with {len(sorted_urls)} URLs")
                 else:
                     # No AUTO-UPDATED section exists - manual run
-                    updated_content = auto_section + existing_content
+                    updated_content = duplicate_comment + auto_section + existing_content
                     print(f"✅ Manual run: Added AUTO-UPDATED section with {len(unique_new_urls)} new URLs")
-                
-                # ডুপ্লিকেট URLs এর জন্য কমেন্ট যোগ করুন
-                if duplicate_urls:
-                    duplicate_comment = f"# Already Have These Channel Links, No Need To Update - {timestamp}\n"
-                    for dup_url in duplicate_urls:
-                        duplicate_comment += f"# {dup_url}\n"
-                    updated_content = duplicate_comment + updated_content
             else:
                 # No new unique URLs found
-                updated_content = existing_content
-                if duplicate_urls:
-                    duplicate_comment = f"# Already Have These Channel Links, No Need To Update - {timestamp}\n"
-                    for dup_url in duplicate_urls:
-                        duplicate_comment += f"# {dup_url}\n"
-                    
-                    if auto_match:
-                        # AUTO-UPDATED section এর উপরে কমেন্ট যোগ করুন
-                        old_auto_section = auto_match.group(0)
-                        updated_content = existing_content.replace(old_auto_section, duplicate_comment + old_auto_section)
-                    else:
-                        # শুধু কমেন্ট যোগ করুন
-                        updated_content = duplicate_comment + existing_content
+                if auto_match:
+                    # AUTO-UPDATED section আছে, শুধু duplicate comment যোগ করুন
+                    old_auto_section = auto_match.group(0)
+                    updated_content = existing_content.replace(old_auto_section, duplicate_comment + old_auto_section)
+                else:
+                    # শুধু duplicate comment যোগ করুন
+                    updated_content = duplicate_comment + existing_content
                 
-                print(f"ℹ️ No new unique URLs to add for {channel_name}")
+                if current_duplicate_urls:
+                    print(f"ℹ️ No new URLs, added comment for {len(current_duplicate_urls)} duplicates")
+                else:
+                    print(f"ℹ️ No new URLs and no current duplicates for {channel_name}")
             
             # নতুন চ্যানেল ব্লক তৈরি করুন
             new_channel_block = extinf_line + updated_content
@@ -234,7 +242,7 @@ jobs:
         updated_content = main_content
         total_channels_updated = 0
         total_links_added = 0
-        total_duplicates_skipped = 0
+        total_duplicates_found = 0
         
         # প্রতিটি চ্যানেলের জন্য আপডেট করুন
         for main_channel, search_keywords in CHANNEL_MAPPING.items():
@@ -256,6 +264,15 @@ jobs:
                     existing_urls_after = extract_existing_urls(updated_content)
                     new_urls_count = len(existing_urls_after - existing_urls_before)
                     total_links_added += new_urls_count
+                    
+                # Count current duplicates for summary
+                channel_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(.*?)(?=#EXTINF|\Z)'.format(re.escape(main_channel))
+                channel_match = re.search(channel_pattern, updated_content, re.IGNORECASE | re.DOTALL)
+                if channel_match:
+                    channel_content = channel_match.group(2)
+                    existing_urls = extract_existing_urls(channel_content)
+                    current_duplicates = [url for url in channel_urls if url in existing_urls]
+                    total_duplicates_found += len(current_duplicates)
             else:
                 print(f"⚠️ Skipping {main_channel} - no URLs found")
         
@@ -268,7 +285,7 @@ jobs:
         print(f"   Total channels processed: {len(CHANNEL_MAPPING)}")
         print(f"   Total channels updated: {total_channels_updated}")
         print(f"   Total new links added: {total_links_added}")
-        print(f"   Total duplicates skipped: {total_duplicates_skipped}")
+        print(f"   Total current duplicates found: {total_duplicates_found}")
         
         EOF
         
@@ -311,12 +328,12 @@ jobs:
           BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
           
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            git commit -m "🔄 Manual Update: Channel Links with Duplicate Check - $BANGLADESH_TIME"
+            git commit -m "🔄 Manual Update: Channel Links with Smart Duplicate Check - $BANGLADESH_TIME"
           else
-            git commit -m "🔄 Scheduled Update: Channel Links with Duplicate Check - $BANGLADESH_TIME"
+            git commit -m "🔄 Scheduled Update: Channel Links with Smart Duplicate Check - $BANGLADESH_TIME"
           fi
           git push
-          echo "🎉 Successfully updated channel links with duplicate protection!"
+          echo "🎉 Successfully updated channel links with smart duplicate protection!"
         fi
         
     - name: Cleanup
