@@ -92,13 +92,20 @@ jobs:
             
             return urls
         
+        def extract_existing_urls(channel_content):
+            """চ্যানেল কন্টেন্ট থেকে existing URLs extract করে"""
+            # শুধুমাত্র URL লাইনগুলো extract করুন (কমেন্ট ছাড়া)
+            url_pattern = r'^(https?://[^\s#]+)$'
+            urls = re.findall(url_pattern, channel_content, re.MULTILINE)
+            return set(urls)
+        
         def update_channel_in_playlist(main_content, channel_name, new_urls):
             """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেল আপডেট করে"""
             timestamp = get_bangladesh_time()
             is_manual_run = os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
             
             print(f"🔄 Processing channel: {channel_name}")
-            print(f"   URLs to add: {len(new_urls)}")
+            print(f"   New URLs found: {len(new_urls)}")
             print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
             
             # চ্যানেল ব্লক খুঁজে বের করার pattern
@@ -113,36 +120,104 @@ jobs:
             existing_content = match.group(2)
             full_block = match.group(0)
             
-            # নতুন URLs থেকে AUTO-UPDATED section তৈরি করুন
-            auto_urls_text = "".join([f"{url}\n" for url in new_urls])
+            # Existing URLs extract করুন
+            existing_urls = extract_existing_urls(existing_content)
+            print(f"   Existing URLs in main playlist: {len(existing_urls)}")
             
-            if len(new_urls) > 1:
-                auto_header = f"#AUTO-UPDATED - Multiple Channel - {timestamp} 🔄🔄\n"
-            else:
-                auto_header = f"#AUTO-UPDATED - Channel - {timestamp} 🔄\n"
+            # ডুপ্লিকেট ফিল্টার করুন
+            unique_new_urls = []
+            duplicate_urls = []
             
-            auto_section = auto_header + auto_urls_text
+            for url in new_urls:
+                if url in existing_urls:
+                    duplicate_urls.append(url)
+                    print(f"   ⚠️ Duplicate found (skipping): {url}")
+                else:
+                    unique_new_urls.append(url)
+            
+            print(f"   Unique new URLs to add: {len(unique_new_urls)}")
+            print(f"   Duplicate URLs skipped: {len(duplicate_urls)}")
             
             # Check if AUTO-UPDATED section already exists
             auto_updated_pattern = r'(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)*)'
             auto_match = re.search(auto_updated_pattern, existing_content)
             
-            if auto_match:
-                # AUTO-UPDATED section exists - scheduled update
-                if is_manual_run:
-                    # Manual run: নতুন section যোগ করুন existing AUTO-UPDATED section এর উপরে
-                    updated_content = auto_section + existing_content
-                    print(f"✅ Manual run: Added new AUTO-UPDATED section with {len(new_urls)} links")
+            if unique_new_urls:
+                # নতুন URLs থেকে AUTO-UPDATED section তৈরি করুন
+                auto_urls_text = "".join([f"{url}\n" for url in unique_new_urls])
+                
+                if len(unique_new_urls) > 1:
+                    auto_header = f"#AUTO-UPDATED - Multiple Channel - {timestamp} 🔄🔄\n"
                 else:
-                    # Scheduled run: শুধু existing AUTO-UPDATED URLs replace করুন
-                    old_auto_section = auto_match.group(0)
-                    new_auto_section = auto_section
-                    updated_content = existing_content.replace(old_auto_section, new_auto_section)
-                    print(f"✅ Scheduled run: Replaced AUTO-UPDATED URLs with {len(new_urls)} links")
+                    auto_header = f"#AUTO-UPDATED - Channel - {timestamp} 🔄\n"
+                
+                auto_section = auto_header + auto_urls_text
+                
+                if auto_match:
+                    # AUTO-UPDATED section exists
+                    if is_manual_run:
+                        # Manual run: নতুন URLs যোগ করুন existing AUTO-UPDATED section এর উপরে
+                        old_auto_section = auto_match.group(0)
+                        # শুধু নতুন URLs যোগ করুন, পুরাতন AUTO-UPDATED URLs রাখুন
+                        updated_auto_section = auto_section + old_auto_section
+                        updated_content = existing_content.replace(old_auto_section, updated_auto_section)
+                        print(f"✅ Manual run: Added {len(unique_new_urls)} new URLs to AUTO-UPDATED section")
+                    else:
+                        # Scheduled run: শুধু নতুন URLs যোগ করুন existing AUTO-UPDATED section এ
+                        old_auto_header = auto_match.group(1)
+                        old_auto_urls = auto_match.group(2)
+                        
+                        # Combine old and new URLs, remove duplicates
+                        all_urls = set()
+                        # পুরাতন URLs যোগ করুন
+                        for old_url in old_auto_urls.strip().split('\n'):
+                            if old_url and old_url.startswith('http'):
+                                all_urls.add(old_url)
+                        # নতুন URLs যোগ করুন
+                        for new_url in unique_new_urls:
+                            all_urls.add(new_url)
+                        
+                        # সাজানো URLs লিস্ট তৈরি করুন
+                        sorted_urls = sorted(list(all_urls))
+                        new_auto_urls_text = "".join([f"{url}\n" for url in sorted_urls])
+                        
+                        # নতুন header তৈরি করুন (timestamp update করুন)
+                        if len(sorted_urls) > 1:
+                            new_auto_header = f"#AUTO-UPDATED - Multiple Channel - {timestamp} 🔄🔄\n"
+                        else:
+                            new_auto_header = f"#AUTO-UPDATED - Channel - {timestamp} 🔄\n"
+                        
+                        new_auto_section = new_auto_header + new_auto_urls_text
+                        updated_content = existing_content.replace(old_auto_section, new_auto_section)
+                        print(f"✅ Scheduled run: Updated AUTO-UPDATED section with {len(sorted_urls)} URLs")
+                else:
+                    # No AUTO-UPDATED section exists - manual run
+                    updated_content = auto_section + existing_content
+                    print(f"✅ Manual run: Added AUTO-UPDATED section with {len(unique_new_urls)} new URLs")
+                
+                # ডুপ্লিকেট URLs এর জন্য কমেন্ট যোগ করুন
+                if duplicate_urls:
+                    duplicate_comment = f"# Already Have These Channel Links, No Need To Update - {timestamp}\n"
+                    for dup_url in duplicate_urls:
+                        duplicate_comment += f"# {dup_url}\n"
+                    updated_content = duplicate_comment + updated_content
             else:
-                # No AUTO-UPDATED section exists - manual run
-                updated_content = auto_section + existing_content
-                print(f"✅ Manual run: Added AUTO-UPDATED section with {len(new_urls)} links")
+                # No new unique URLs found
+                updated_content = existing_content
+                if duplicate_urls:
+                    duplicate_comment = f"# Already Have These Channel Links, No Need To Update - {timestamp}\n"
+                    for dup_url in duplicate_urls:
+                        duplicate_comment += f"# {dup_url}\n"
+                    
+                    if auto_match:
+                        # AUTO-UPDATED section এর উপরে কমেন্ট যোগ করুন
+                        old_auto_section = auto_match.group(0)
+                        updated_content = existing_content.replace(old_auto_section, duplicate_comment + old_auto_section)
+                    else:
+                        # শুধু কমেন্ট যোগ করুন
+                        updated_content = duplicate_comment + existing_content
+                
+                print(f"ℹ️ No new unique URLs to add for {channel_name}")
             
             # নতুন চ্যানেল ব্লক তৈরি করুন
             new_channel_block = extinf_line + updated_content
@@ -159,6 +234,7 @@ jobs:
         updated_content = main_content
         total_channels_updated = 0
         total_links_added = 0
+        total_duplicates_skipped = 0
         
         # প্রতিটি চ্যানেলের জন্য আপডেট করুন
         for main_channel, search_keywords in CHANNEL_MAPPING.items():
@@ -169,9 +245,17 @@ jobs:
             channel_urls = find_channel_urls('source_playlist.m3u', search_keywords)
             
             if channel_urls:
+                original_content = updated_content
                 updated_content = update_channel_in_playlist(updated_content, main_channel, channel_urls)
-                total_channels_updated += 1
-                total_links_added += len(channel_urls)
+                
+                # Check if any changes were made
+                if original_content != updated_content:
+                    total_channels_updated += 1
+                    # Count how many new URLs were actually added
+                    existing_urls_before = extract_existing_urls(original_content)
+                    existing_urls_after = extract_existing_urls(updated_content)
+                    new_urls_count = len(existing_urls_after - existing_urls_before)
+                    total_links_added += new_urls_count
             else:
                 print(f"⚠️ Skipping {main_channel} - no URLs found")
         
@@ -180,9 +264,11 @@ jobs:
             f.write(updated_content)
         
         print(f"\n🎉 Update Summary:")
+        print(f"   Run type: {'Manual' if os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch' else 'Scheduled'}")
         print(f"   Total channels processed: {len(CHANNEL_MAPPING)}")
         print(f"   Total channels updated: {total_channels_updated}")
-        print(f"   Total links added/updated: {total_links_added}")
+        print(f"   Total new links added: {total_links_added}")
+        print(f"   Total duplicates skipped: {total_duplicates_skipped}")
         
         EOF
         
@@ -198,10 +284,18 @@ jobs:
         # মূল playlist backup করুন
         cp sirometv.m3u sirometv_backup.m3u 2>/dev/null || true
         
+        # মূল playlist এর line count check করুন
+        OLD_LINES=$(wc -l < sirometv.m3u)
+        NEW_LINES=$(wc -l < sirometv_updated.m3u)
+        echo "📊 Line count - Old: $OLD_LINES, New: $NEW_LINES"
+        
         mv sirometv_updated.m3u sirometv.m3u
         
         echo "🔍 Updated channels preview:"
-        grep -B1 -A15 "AUTO-UPDATED" sirometv.m3u | head -50 || echo "No AUTO-UPDATED sections found"
+        grep -B1 -A20 "AUTO-UPDATED" sirometv.m3u | head -60 || echo "No AUTO-UPDATED sections found"
+        
+        echo "🔍 Duplicate comments preview:"
+        grep -A5 "Already Have These Channel Links" sirometv.m3u | head -30 || echo "No duplicate comments found"
         
     - name: Commit and push changes
       run: |
@@ -217,12 +311,12 @@ jobs:
           BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
           
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            git commit -m "🔄 Manual Update: Channel Links - $BANGLADESH_TIME"
+            git commit -m "🔄 Manual Update: Channel Links with Duplicate Check - $BANGLADESH_TIME"
           else
-            git commit -m "🔄 Scheduled Update: Channel Links - $BANGLADESH_TIME"
+            git commit -m "🔄 Scheduled Update: Channel Links with Duplicate Check - $BANGLADESH_TIME"
           fi
           git push
-          echo "🎉 Successfully updated channel links!"
+          echo "🎉 Successfully updated channel links with duplicate protection!"
         fi
         
     - name: Cleanup
