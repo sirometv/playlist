@@ -127,119 +127,81 @@ jobs:
             
             return urls
         
-        def process_playlist(main_content):
-            """পুরো প্লেলিস্ট প্রসেস করে শুধু ম্যাপ করা চ্যানেলগুলো আপডেট করে"""
-            # প্রথমে পুরো প্লেলিস্টকে চ্যানেল ব্লকগুলাতে ভাগ করুন
-            channels = []
-            current_channel = []
+        def update_channel_safely(main_content, channel_name, channel_urls):
+            """একটি চ্যানেল আপডেট করে কিন্তু পুরানো লিংকগুলো সংরক্ষণ করে"""
+            if not channel_urls:
+                print(f"⚠️ No new URLs for {channel_name}, keeping everything as is")
+                return main_content
             
-            lines = main_content.split('\n')
-            for line in lines:
-                if line.startswith('#EXTINF:'):
-                    # যদি আগের চ্যানেল থাকে তাহলে সেভ করুন
-                    if current_channel:
-                        channels.append('\n'.join(current_channel))
-                        current_channel = []
-                current_channel.append(line)
+            timestamp = get_bangladesh_time()
+            refresh_emoji = "🔄" * len(channel_urls)
+            timestamp_with_emoji = f"{timestamp.split(' 🔄')[0]} {refresh_emoji}"
             
-            # শেষ চ্যানেলটিও সেভ করুন
-            if current_channel:
-                channels.append('\n'.join(current_channel))
+            print(f"📝 Updating {channel_name} with {len(channel_urls)} new URLs")
+            print(f"   Keeping ALL original links intact")
             
-            print(f"📊 Total channels found in playlist: {len(channels)}")
+            # চ্যানেলের পুরো ব্লক খুঁজুন
+            pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(.*?)(?=\n#EXTINF:-1|\Z)'.format(re.escape(channel_name))
+            match = re.search(pattern, main_content, re.IGNORECASE | re.DOTALL)
             
-            # এখন প্রতিটি চ্যানেল প্রসেস করুন
-            processed_channels = []
-            for i, channel_block in enumerate(channels):
-                # চ্যানেলের নাম খুঁজে বের করুন
-                lines = channel_block.split('\n')
-                channel_name = None
+            if not match:
+                print(f"❌ Channel {channel_name} not found")
+                return main_content
+            
+            extinf_line = match.group(1)
+            rest_of_block = match.group(2)
+            full_block = match.group(0)
+            
+            # পুরানো AUTO-UPDATED সেকশন খুঁজুন
+            auto_updated_pattern = r'(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)*)'
+            auto_match = re.search(auto_updated_pattern, rest_of_block)
+            
+            # নতুন AUTO-UPDATED সেকশন তৈরি করুন
+            new_auto_section = f"#AUTO-UPDATED - {channel_name} - {timestamp_with_emoji}\n"
+            for keyword, url in channel_urls:
+                new_auto_section += f"{url}\n"
+            
+            if auto_match:
+                print(f"✅ Found existing AUTO-UPDATED section, replacing only that")
+                # শুধু AUTO-UPDATED সেকশন রিপ্লেস করুন
+                old_auto_section = auto_match.group(0)
+                updated_rest = rest_of_block.replace(old_auto_section, new_auto_section)
+            else:
+                print(f"✅ No existing AUTO-UPDATED section, adding new one")
+                # EXTINF লাইনের পরেই নতুন AUTO-UPDATED সেকশন যোগ করুন
+                # কিন্তু আগের সব লিংক রাখুন
+                lines = rest_of_block.split('\n')
+                updated_lines = []
                 
+                # প্রথমে EXTINF লাইন রাখুন
+                updated_lines.append(extinf_line.strip())
+                
+                # তারপর নতুন AUTO-UPDATED সেকশন যোগ করুন
+                updated_lines.append(new_auto_section.strip())
+                
+                # তারপর বাকি সব লাইন যোগ করুন (পুরানো লিংকগুলো সহ)
                 for line in lines:
-                    if line.startswith('#EXTINF:'):
-                        # চ্যানেল নাম এক্সট্রাক্ট করুন
-                        match = re.search(r',\s*(.+?)(?:\s+tvg-id=|\s+tvg-name=|\s+tvg-logo=|\s+group-title=|\s*$)', line)
-                        if match:
-                            channel_name = match.group(1).strip()
-                        break
+                    if line.strip():  # ফাঁকা লাইন বাদ
+                        updated_lines.append(line)
                 
-                if not channel_name:
-                    # নাম না পেলে চ্যানেল ব্লকটি অপরিবর্তিত রাখুন
-                    processed_channels.append(channel_block)
-                    continue
-                
-                print(f"\n{'='*50}")
-                print(f"🔍 Processing channel {i+1}: {channel_name}")
-                
-                # চেক করুন এই চ্যানেলটি CHANNEL_MAPPING এ আছে কিনা
-                mapping_key = None
-                for map_key in CHANNEL_MAPPING.keys():
-                    # Case insensitive match
-                    if map_key.lower() == channel_name.lower() or map_key.lower() in channel_name.lower():
-                        mapping_key = map_key
-                        break
-                
-                if mapping_key:
-                    print(f"✅ This channel is in CHANNEL_MAPPING as: {mapping_key}")
-                    
-                    # সোর্স প্লেলিস্ট থেকে URL খুঁজুন
-                    channel_urls = find_channel_urls('source_playlist.m3u', CHANNEL_MAPPING[mapping_key])
-                    
-                    if channel_urls:
-                        timestamp = get_bangladesh_time()
-                        refresh_emoji = "🔄" * len(channel_urls)
-                        timestamp_with_emoji = f"{timestamp.split(' 🔄')[0]} {refresh_emoji}"
-                        
-                        # নতুন AUTO-UPDATED সেকশন তৈরি করুন
-                        new_auto_section = f"#AUTO-UPDATED - {mapping_key} - {timestamp_with_emoji}\n"
-                        for keyword, url in channel_urls:
-                            new_auto_section += f"{url}\n"
-                        
-                        # এখন চ্যানেল ব্লকটি আপডেট করুন
-                        # প্রথমে চেক করুন ইতিমধ্যে AUTO-UPDATED সেকশন আছে কিনা
-                        if "#AUTO-UPDATED" in channel_block:
-                            print(f"ℹ️ Replacing existing AUTO-UPDATED section")
-                            # পুরাতন AUTO-UPDATED সেকশন খুঁজে নতুনটা দিয়ে রিপ্লেস করুন
-                            pattern = r'(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)*)'
-                            if re.search(pattern, channel_block):
-                                # রিপ্লেস করুন
-                                updated_block = re.sub(pattern, new_auto_section, channel_block)
-                                processed_channels.append(updated_block)
-                            else:
-                                # প্যাটার্ন ম্যাচ না করলে নতুন যোগ করুন
-                                updated_block = channel_block + "\n" + new_auto_section
-                                processed_channels.append(updated_block)
-                        else:
-                            print(f"ℹ️ Adding new AUTO-UPDATED section")
-                            # AUTO-UPDATED সেকশন যোগ করুন
-                            # EXTINF লাইনের পরেই যোগ করতে হবে
-                            lines = channel_block.split('\n')
-                            updated_lines = []
-                            
-                            for line in lines:
-                                updated_lines.append(line)
-                                if line.startswith('#EXTINF:'):
-                                    # EXTINF লাইনের পরেই AUTO-UPDATED যোগ করুন
-                                    updated_lines.append(new_auto_section.strip())
-                            
-                            updated_block = '\n'.join(updated_lines)
-                            processed_channels.append(updated_block)
-                        
-                        print(f"✅ Updated {mapping_key} with {len(channel_urls)} URLs")
-                    else:
-                        print(f"⚠️ No URLs found for {mapping_key}, keeping original content")
-                        processed_channels.append(channel_block)
-                else:
-                    # CHANNEL_MAPPING এ নেই, অপরিবর্তিত রাখুন
-                    processed_channels.append(channel_block)
-                    print(f"ℹ️ Not in CHANNEL_MAPPING, keeping as is")
+                updated_rest = '\n'.join(updated_lines).replace(extinf_line, '')
             
-            # সব চ্যানেলগুলো আবার জোড়া দিন
-            return '\n'.join(processed_channels)
+            # পুরো ব্লক আপডেট করুন
+            updated_block = extinf_line + updated_rest
+            updated_content = main_content.replace(full_block, updated_block)
+            
+            print(f"✅ Successfully updated {channel_name}")
+            print(f"   - Added {len(channel_urls)} new URLs in AUTO-UPDATED")
+            print(f"   - Preserved ALL original links")
+            
+            return updated_content
         
         # মেইন প্লেলিস্ট লোড করুন
         with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
             main_content = f.read()
+        
+        # মূল কন্টেন্টের ব্যাকআপ নিন
+        original_content = main_content
         
         # Check if manual run or scheduled
         import os
@@ -248,45 +210,90 @@ jobs:
         print(f"📊 Run type: {'Manual' if is_manual_run else 'Scheduled'}")
         print(f"📊 Total channels in mapping: {len(CHANNEL_MAPPING)}")
         
-        # পুরো প্লেলিস্ট প্রসেস করুন
-        updated_content = process_playlist(main_content)
+        updated_content = main_content
+        total_updated = 0
+        
+        # প্রতিটি ম্যাপ করা চ্যানেলের জন্য আপডেট করুন
+        for main_channel, search_keywords in CHANNEL_MAPPING.items():
+            print(f"\n{'='*50}")
+            print(f"🔍 Processing: {main_channel}")
+            
+            # প্রথমে চেক করুন চ্যানেলটি মেইন প্লেলিস্টে আছে কিনা
+            if main_channel not in main_content and main_channel.upper() not in main_content.upper():
+                print(f"⚠️ Channel '{main_channel}' not found in main playlist, skipping")
+                continue
+            
+            # সোর্স থেকে URL খুঁজুন
+            channel_urls = find_channel_urls('source_playlist.m3u', search_keywords)
+            
+            if channel_urls:
+                # চ্যানেল আপডেট করুন (পুরানো লিংকগুলো সংরক্ষণ করে)
+                updated_content = update_channel_safely(updated_content, main_channel, channel_urls)
+                total_updated += 1
+            else:
+                print(f"⚠️ No new URLs found for {main_channel}, keeping existing content")
         
         # আপডেট করা কন্টেন্ট সেভ করুন
         with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
             f.write(updated_content)
         
-        # তুলনা করুন
-        original_lines = main_content.split('\n')
-        updated_lines = updated_content.split('\n')
-        
+        # আসল এবং আপডেটেড কন্টেন্টের মধ্যে পার্থক্য চেক করুন
         print(f"\n{'='*50}")
         print(f"🎉 Update Summary:")
         print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
-        print(f"   Original file lines: {len(original_lines)}")
-        print(f"   Updated file lines: {len(updated_lines)}")
-        print(f"   Line difference: {len(updated_lines) - len(original_lines)}")
+        print(f"   Channels processed: {len(CHANNEL_MAPPING)}")
+        print(f"   Channels successfully updated: {total_updated}")
         
-        # প্রথম 50 লাইনের তুলনা দেখান
-        print(f"\n📋 First 50 lines comparison:")
-        print(f"{'Original':^40} | {'Updated':^40}")
-        print("-" * 85)
+        # গুরুত্বপূর্ণ: আসল লিংকগুলো ঠিক আছে কিনা চেক করুন
+        print(f"\n🔍 Verification Check:")
         
-        for i in range(min(50, len(original_lines), len(updated_lines))):
-            orig = original_lines[i]
-            upd = updated_lines[i]
-            
-            if orig != upd:
-                print(f"CHANGE: {orig[:35]:35} | {upd[:35]:35}")
-            else:
-                print(f"SAME:   {orig[:35]:35} | {upd[:35]:35}")
+        # T Sports চ্যানেলের আসল লিংকগুলো চেক করুন
+        test_channel = "T Sports"
+        original_lines = original_content.split('\n')
+        updated_lines = updated_content.split('\n')
         
-        # CHANNEL_MAPPING এ থাকা চ্যানেলগুলো খুঁজে দেখান
-        print(f"\n📋 Checking CHANNEL_MAPPING channels:")
-        for channel in CHANNEL_MAPPING.keys():
-            if channel in updated_content:
-                print(f"✅ {channel} found in updated content")
-            else:
-                print(f"❌ {channel} NOT found in updated content")
+        # আসল কন্টেন্টে T Sports এর লিংকগুলো খুঁজুন
+        print(f"   Checking {test_channel} original links:")
+        in_t_sports = False
+        original_link_count = 0
+        
+        for i, line in enumerate(original_lines):
+            if test_channel in line and line.startswith('#EXTINF:'):
+                in_t_sports = True
+                continue
+            if in_t_sports and line.startswith('#EXTINF:'):
+                break
+            if in_t_sports and (line.startswith('http://') or line.startswith('https://')):
+                original_link_count += 1
+                print(f"     ✓ Original link {original_link_count}: {line[:60]}...")
+        
+        # আপডেটেড কন্টেন্টে T Sports এর লিংকগুলো খুঁজুন
+        print(f"\n   Checking {test_channel} updated links:")
+        in_t_sports = False
+        updated_link_count = 0
+        
+        for i, line in enumerate(updated_lines):
+            if test_channel in line and line.startswith('#EXTINF:'):
+                in_t_sports = True
+                continue
+            if in_t_sports and line.startswith('#EXTINF:'):
+                break
+            if in_t_sports and (line.startswith('http://') or line.startswith('https://')):
+                updated_link_count += 1
+                print(f"     ✓ Updated link {updated_link_count}: {line[:60]}...")
+        
+        print(f"\n   Result: Original had {original_link_count} links, Updated has {updated_link_count} links")
+        
+        if original_link_count <= updated_link_count:
+            print(f"   ✅ SUCCESS: All original links preserved!")
+        else:
+            print(f"   ⚠️ WARNING: Some original links might be missing")
+        
+        # লাইন সংখ্যা তুলনা
+        print(f"\n📊 Line Count Comparison:")
+        print(f"   Original: {len(original_lines)} lines")
+        print(f"   Updated:  {len(updated_lines)} lines")
+        print(f"   Difference: {len(updated_lines) - len(original_lines)} lines")
         
         EOF
         
@@ -307,32 +314,35 @@ jobs:
         echo "   Updated:  $UPDATED_SIZE lines"
         echo "   Difference: $((UPDATED_SIZE - ORIGINAL_SIZE)) lines"
         
-        # Check for AUTO-UPDATED entries
-        AUTO_COUNT=$(grep -c "#AUTO-UPDATED" sirometv_updated.m3u || true)
-        echo "📊 AUTO-UPDATED entries found: $AUTO_COUNT"
-        
-        # Check for specific channels
+        # Check if all original links are preserved
         echo ""
-        echo "🔍 Checking specific channels:"
-        echo "   T Sports:" $(grep -c "T Sports" sirometv_updated.m3u || true) "occurrences"
-        echo "   Channel 9:" $(grep -c "Channel 9" sirometv_updated.m3u || true) "occurrences"
-        echo "   Channel I:" $(grep -c "Channel I" sirometv_updated.m3u || true) "occurrences"
+        echo "🔍 Checking if original links are preserved:"
         
-        # Show the beginning of the file
-        echo ""
-        echo "🔍 First 30 lines of updated playlist:"
-        head -30 sirometv_updated.m3u
+        # T Sports এর আসল লিংকগুলো চেক করুন
+        echo "   T Sports original links count in original file:"
+        grep -A 10 "T Sports" main_playlist.m3u | grep -c "^http" || true
         
-        # Show T Sports section
-        echo ""
-        echo "🔍 T Sports section:"
-        grep -n -A 15 "T Sports" sirometv_updated.m3u | head -20 || echo "No T Sports found"
+        echo "   T Sports links count in updated file:"
+        grep -A 20 "T Sports" sirometv_updated.m3u | grep -c "^http" || true
         
-        # Show that all channels are preserved
+        # Show sample of T Sports section to verify
         echo ""
-        echo "🔍 Counting total channels (EXTINF lines):"
-        TOTAL_CHANNELS=$(grep -c "^#EXTINF:" sirometv_updated.m3u || true)
-        echo "   Total channels in updated: $TOTAL_CHANNELS"
+        echo "🔍 T Sports section in updated file (first 25 lines):"
+        grep -n -A 25 "T Sports" sirometv_updated.m3u | head -30 || echo "No T Sports found"
+        
+        # Count total channels in both files
+        echo ""
+        echo "📊 Total channel count:"
+        ORIGINAL_CHANNELS=$(grep -c "^#EXTINF:" main_playlist.m3u || true)
+        UPDATED_CHANNELS=$(grep -c "^#EXTINF:" sirometv_updated.m3u || true)
+        echo "   Original channels: $ORIGINAL_CHANNELS"
+        echo "   Updated channels: $UPDATED_CHANNELS"
+        
+        if [ "$ORIGINAL_CHANNELS" -eq "$UPDATED_CHANNELS" ]; then
+          echo "   ✅ All channels preserved!"
+        else
+          echo "   ⚠️ Channel count mismatch!"
+        fi
         
         mv sirometv_updated.m3u sirometv.m3u
         
@@ -352,12 +362,12 @@ jobs:
           
           # Check if manual or scheduled run
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            git commit -m "🔄 Manual Update: All Channels Preserved - $BANGLADESH_TIME"
+            git commit -m "🔄 Manual Update: Preserved All Original Links - $BANGLADESH_TIME"
           else
-            git commit -m "🔄 Scheduled Update: All Channels Preserved - $BANGLADESH_TIME"
+            git commit -m "🔄 Scheduled Update: Preserved All Original Links - $BANGLADESH_TIME"
           fi
           git push
-          echo "🎉 Successfully updated while preserving ALL channels!"
+          echo "🎉 Successfully updated while preserving ALL original links!"
         fi
         
     - name: Cleanup
