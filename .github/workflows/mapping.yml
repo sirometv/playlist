@@ -127,122 +127,83 @@ jobs:
             
             return urls
         
-        def update_channel_preserving_all(main_content, channel_name, channel_urls):
-            """একটি চ্যানেল আপডেট করে কিন্তু সবকিছু সংরক্ষণ করে"""
-            if not channel_urls:
-                print(f"⚠️ No new URLs for {channel_name}, keeping everything as is")
-                return main_content
-            
-            timestamp = get_bangladesh_time()
-            refresh_emoji = "🔄" * len(channel_urls)
-            timestamp_with_emoji = f"{timestamp.split(' 🔄')[0]} {refresh_emoji}"
-            
-            print(f"📝 Processing {channel_name} with {len(channel_urls)} new URLs")
-            
-            # চ্যানেলের শুরু এবং শেষ খুঁজে বের করুন
-            lines = main_content.split('\n')
-            channel_start = -1
-            channel_end = -1
-            
-            for i, line in enumerate(lines):
-                if line.startswith('#EXTINF:') and channel_name in line:
-                    channel_start = i
-                    # এই চ্যানেলের শেষ খুঁজে বের করুন (পরবর্তী EXTINF বা ফাইল শেষ)
-                    for j in range(i + 1, len(lines)):
-                        if lines[j].startswith('#EXTINF:'):
-                            channel_end = j - 1
-                            break
-                    if channel_end == -1:
-                        channel_end = len(lines) - 1
+        def process_channel_with_auto_updated(lines, start_idx, channel_name, new_urls, is_manual_run):
+            """একটি চ্যানেল প্রসেস করে AUTO-UPDATED সেকশন যোগ/আপডেট করে"""
+            # চ্যানেলের শেষ খুঁজে বের করুন (পরবর্তী EXTINF বা ফাইল শেষ)
+            end_idx = start_idx
+            for i in range(start_idx + 1, len(lines)):
+                if lines[i].startswith('#EXTINF:'):
+                    end_idx = i - 1
+                    break
+                if i == len(lines) - 1:
+                    end_idx = i
                     break
             
-            if channel_start == -1:
-                print(f"❌ Channel {channel_name} not found")
-                return main_content
+            print(f"   Channel block: lines {start_idx+1} to {end_idx+1}")
             
-            print(f"   Channel found at lines {channel_start} to {channel_end}")
+            # নতুন লাইন তৈরি করি
+            new_block_lines = []
             
-            # নতুন AUTO-UPDATED সেকশন তৈরি করুন
-            new_auto_section = f"#AUTO-UPDATED - {channel_name} - {timestamp_with_emoji}\n"
-            for keyword, url in channel_urls:
-                new_auto_section += f"{url}\n"
+            # EXTINF লাইন যোগ করি
+            new_block_lines.append(lines[start_idx])
             
-            # এখন চ্যানেল ব্লকের মধ্যে AUTO-UPDATED সেকশন খুঁজুন
-            auto_updated_found = False
+            # এখন AUTO-UPDATED সেকশন খুঁজি
             auto_updated_start = -1
             auto_updated_end = -1
             
-            for i in range(channel_start, channel_end + 1):
+            for i in range(start_idx + 1, end_idx + 1):
                 if lines[i].startswith('#AUTO-UPDATED'):
-                    auto_updated_found = True
                     auto_updated_start = i
-                    # AUTO-UPDATED সেকশনের শেষ খুঁজুন
-                    for j in range(i + 1, channel_end + 1):
-                        if not lines[j].startswith('http://') and not lines[j].startswith('https://'):
+                    # AUTO-UPDATED সেকশনের শেষ খুঁজি
+                    for j in range(i + 1, end_idx + 1):
+                        if not (lines[j].startswith('http://') or lines[j].startswith('https://')):
                             auto_updated_end = j - 1
                             break
                     if auto_updated_end == -1:
-                        auto_updated_end = channel_end
+                        auto_updated_end = end_idx
                     break
             
-            if auto_updated_found:
-                print(f"✅ Found existing AUTO-UPDATED section at lines {auto_updated_start} to {auto_updated_end}")
-                # শুধু AUTO-UPDATED সেকশন রিপ্লেস করুন
-                new_lines = []
-                for i in range(len(lines)):
-                    if auto_updated_start <= i <= auto_updated_end:
-                        if i == auto_updated_start:
-                            # AUTO-UPDATED সেকশনের লাইনগুলো যোগ করুন
-                            new_lines.extend(new_auto_section.strip().split('\n'))
-                    else:
-                        new_lines.append(lines[i])
+            timestamp = get_bangladesh_time()
+            refresh_emoji = "🔄" * len(new_urls) if new_urls else ""
+            timestamp_with_emoji = f"{timestamp.split(' 🔄')[0]} {refresh_emoji}"
+            
+            # নতুন AUTO-UPDATED সেকশন তৈরি করি
+            new_auto_section = f"#AUTO-UPDATED - {channel_name} - {timestamp_with_emoji}\n"
+            for keyword, url in new_urls:
+                new_auto_section += f"{url}\n"
+            
+            if auto_updated_start != -1:
+                print(f"   Found existing AUTO-UPDATED at line {auto_updated_start+1}")
+                # AUTO-UPDATED সেকশন replace করি
+                # প্রথমে EXTINF লাইনের পর থেকে auto_updated_start এর আগ পর্যন্ত সব লাইন যোগ করি
+                for i in range(start_idx + 1, auto_updated_start):
+                    new_block_lines.append(lines[i])
                 
-                updated_content = '\n'.join(new_lines)
+                # নতুন AUTO-UPDATED সেকশন যোগ করি
+                new_block_lines.extend(new_auto_section.strip().split('\n'))
+                
+                # auto_updated_end এর পর থেকে end_idx পর্যন্ত সব লাইন যোগ করি
+                for i in range(auto_updated_end + 1, end_idx + 1):
+                    new_block_lines.append(lines[i])
+                
                 print(f"   Replaced AUTO-UPDATED section")
             else:
-                print(f"ℹ️ No AUTO-UPDATED section found, adding after EXTINF line")
-                # EXTINF লাইনের পরেই নতুন AUTO-UPDATED সেকশন যোগ করুন
-                new_lines = []
-                for i in range(len(lines)):
-                    new_lines.append(lines[i])
-                    if i == channel_start:
-                        # EXTINF লাইনের পরেই নতুন সেকশন যোগ করুন
-                        new_lines.extend([''] + new_auto_section.strip().split('\n'))
+                print(f"   No AUTO-UPDATED section found, adding new one")
+                # EXTINF লাইনের পরেই নতুন AUTO-UPDATED সেকশন যোগ করি
+                # তারপর বাকি সব লাইন যোগ করি
+                new_block_lines.extend(new_auto_section.strip().split('\n'))
                 
-                updated_content = '\n'.join(new_lines)
+                # EXTINF লাইনের পরের সব লাইন যোগ করি
+                for i in range(start_idx + 1, end_idx + 1):
+                    new_block_lines.append(lines[i])
+                
                 print(f"   Added new AUTO-UPDATED section")
             
-            # ভেরিফিকেশন: আসল লিংকগুলো আছে কিনা চেক করুন
-            original_links = 0
-            updated_links = 0
-            
-            # আসল কন্টেন্টে এই চ্যানেলের লিংক
-            for i in range(channel_start, min(channel_end + 1, len(lines))):
-                if lines[i].startswith('http://') or lines[i].startswith('https://'):
-                    original_links += 1
-            
-            # আপডেটেড কন্টেন্টে এই চ্যানেলের লিংক
-            updated_lines = updated_content.split('\n')
-            for i in range(len(updated_lines)):
-                if updated_lines[i].startswith('http://') or updated_lines[i].startswith('https://'):
-                    updated_links += 1
-            
-            print(f"   Original links in channel: {original_links}")
-            print(f"   Updated links in channel: {updated_links}")
-            
-            if updated_links >= original_links:
-                print(f"   ✅ SUCCESS: All original links preserved!")
-            else:
-                print(f"   ⚠️ WARNING: Some links might be missing")
-            
-            return updated_content
+            return new_block_lines, end_idx
         
         # মেইন প্লেলিস্ট লোড করুন
         with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
             main_content = f.read()
-        
-        # আসল কন্টেন্টের ব্যাকআপ
-        original_content = main_content
         
         # Check if manual run or scheduled
         import os
@@ -251,150 +212,160 @@ jobs:
         print(f"📊 Run type: {'Manual' if is_manual_run else 'Scheduled'}")
         print(f"📊 Total channels in mapping: {len(CHANNEL_MAPPING)}")
         
-        updated_content = main_content
-        channels_updated = 0
-        
-        # লাইন বাই লাইন ভিত্তিতে কাজ করি
-        lines = original_content.split('\n')
-        current_channel = None
-        
-        # প্রথমে শুধু ম্যাপ করা চ্যানেলগুলোর জন্য URL খুঁজে রাখি
-        channel_urls_cache = {}
-        
-        for channel_name, keywords in CHANNEL_MAPPING.items():
-            print(f"\n🔍 Looking for URLs for: {channel_name}")
-            urls = find_channel_urls('source_playlist.m3u', keywords)
-            if urls:
-                channel_urls_cache[channel_name] = urls
-                print(f"   Cached {len(urls)} URLs for {channel_name}")
-        
-        # এখন লাইন বাই লাইন প্রসেস করি
-        print(f"\n{'='*50}")
-        print(f"🔍 Processing playlist line by line...")
-        
-        # নতুন লাইনের লিস্ট তৈরি করি
+        # লাইন বাই লাইন প্রসেস করি
+        lines = main_content.split('\n')
         new_lines = []
         i = 0
+        channels_updated = 0
         
         while i < len(lines):
             line = lines[i]
-            new_lines.append(line)
             
-            # EXTINF লাইন চেক করুন
+            # যদি EXTINF লাইন হয়
             if line.startswith('#EXTINF:'):
                 # কোন চ্যানেলের জন্য চেক করছি
+                current_channel = None
                 for channel_name in CHANNEL_MAPPING.keys():
                     if channel_name in line:
-                        print(f"\n✅ Found mapped channel: {channel_name} at line {i+1}")
-                        
-                        # এই চ্যানেলের জন্য URL আছে কিনা চেক করুন
-                        if channel_name in channel_urls_cache and channel_urls_cache[channel_name]:
-                            channel_urls = channel_urls_cache[channel_name]
-                            
-                            timestamp = get_bangladesh_time()
-                            refresh_emoji = "🔄" * len(channel_urls)
-                            timestamp_with_emoji = f"{timestamp.split(' 🔄')[0]} {refresh_emoji}"
-                            
-                            # নতুন AUTO-UPDATED সেকশন তৈরি করুন
-                            new_auto_section = f"#AUTO-UPDATED - {channel_name} - {timestamp_with_emoji}\n"
-                            for keyword, url in channel_urls:
-                                new_auto_section += f"{url}\n"
-                            
-                            # এখন চেক করুন পরবর্তী লাইনে AUTO-UPDATED আছে কিনা
-                            # পরবর্তী কিছু লাইন চেক করুন
-                            has_auto_updated = False
-                            check_index = i + 1
-                            auto_start = -1
-                            auto_end = -1
-                            
-                            while check_index < len(lines) and not lines[check_index].startswith('#EXTINF:'):
-                                if lines[check_index].startswith('#AUTO-UPDATED'):
-                                    has_auto_updated = True
-                                    auto_start = check_index
-                                    # AUTO-UPDATED সেকশনের শেষ খুঁজুন
-                                    for j in range(auto_start + 1, len(lines)):
-                                        if not (lines[j].startswith('http://') or lines[j].startswith('https://')):
-                                            auto_end = j - 1
-                                            break
-                                    if auto_end == -1:
-                                        auto_end = len(lines) - 1
-                                    break
-                                check_index += 1
-                            
-                            if has_auto_updated:
-                                print(f"   Found existing AUTO-UPDATED at line {auto_start+1}")
-                                # পুরানো AUTO-UPDATED সেকশন বাদ দিয়ে নতুনটা যোগ করি
-                                # প্রথমে বর্তমান লাইন পর্যন্ত যোগ করি
-                                temp_lines = new_lines[:-1]  # শেষ EXTINF লাইন বাদ
-                                
-                                # নতুন AUTO-UPDATED সেকশন যোগ করি
-                                temp_lines.append(line)  # EXTINF লাইন
-                                temp_lines.extend([''] + new_auto_section.strip().split('\n'))
-                                
-                                # এখন auto_start থেকে auto_end পর্যন্ত লাইন স্কিপ করি
-                                # এবং auto_end এর পরের লাইন থেকে আবার শুরু করি
-                                i = auto_end
-                                
-                                # new_lines আপডেট করি
-                                new_lines = temp_lines
-                                print(f"   Replaced AUTO-UPDATED section")
-                            else:
-                                # কোনো AUTO-UPDATED নেই, নতুন যোগ করি
-                                new_lines.extend([''] + new_auto_section.strip().split('\n'))
-                                print(f"   Added new AUTO-UPDATED section")
-                            
-                            channels_updated += 1
+                        current_channel = channel_name
                         break
+                
+                if current_channel:
+                    print(f"\n{'='*50}")
+                    print(f"🔍 Processing mapped channel: {current_channel} at line {i+1}")
+                    
+                    # এই চ্যানেলের জন্য URL খুঁজি
+                    new_urls = find_channel_urls('source_playlist.m3u', CHANNEL_MAPPING[current_channel])
+                    
+                    if new_urls:
+                        # চ্যানেল প্রসেস করি
+                        channel_block_lines, new_i = process_channel_with_auto_updated(
+                            lines, i, current_channel, new_urls, is_manual_run
+                        )
+                        
+                        # নতুন লাইনগুলো যোগ করি
+                        new_lines.extend(channel_block_lines)
+                        
+                        i = new_i
+                        channels_updated += 1
+                        print(f"✅ Updated {current_channel} with {len(new_urls)} new URLs")
+                    else:
+                        print(f"⚠️ No new URLs found for {current_channel}, keeping as is")
+                        # নতুন URL না থাকলে পুরো চ্যানেল ব্লক অপরিবর্তিত রাখি
+                        end_idx = i
+                        for j in range(i + 1, len(lines)):
+                            if lines[j].startswith('#EXTINF:'):
+                                end_idx = j - 1
+                                break
+                            if j == len(lines) - 1:
+                                end_idx = j
+                                break
+                        
+                        for j in range(i, end_idx + 1):
+                            new_lines.append(lines[j])
+                        
+                        i = end_idx
+                else:
+                    # ম্যাপ করা চ্যানেল না হলে অপরিবর্তিত রাখি
+                    new_lines.append(line)
+            else:
+                # EXTINF লাইন না হলে অপরিবর্তিত রাখি
+                new_lines.append(line)
             
             i += 1
         
-        # সব লাইন জোড়া দিন
+        # নতুন কন্টেন্ট তৈরি করি
         updated_content = '\n'.join(new_lines)
         
         # আপডেট করা কন্টেন্ট সেভ করুন
         with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
             f.write(updated_content)
         
-        # আসল এবং আপডেটেড কন্টেন্টের মধ্যে পার্থক্য চেক করুন
+        # ভেরিফিকেশন
         print(f"\n{'='*50}")
         print(f"🎉 Update Summary:")
         print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
-        print(f"   Total channels in mapping: {len(CHANNEL_MAPPING)}")
+        print(f"   Total mapped channels: {len(CHANNEL_MAPPING)}")
         print(f"   Channels updated: {channels_updated}")
         
-        # লাইন সংখ্যা এবং ফাঁকা লাইন চেক
-        original_lines = original_content.split('\n')
+        # আসল এবং আপডেটেড কন্টেন্ট তুলনা
+        original_lines = main_content.split('\n')
         updated_lines = updated_content.split('\n')
         
-        print(f"\n📊 Line Count Analysis:")
+        print(f"\n📊 File Comparison:")
         print(f"   Original lines: {len(original_lines)}")
         print(f"   Updated lines:  {len(updated_lines)}")
         
-        # ফাঁকা লাইন গণনা
-        original_empty = sum(1 for line in original_lines if line.strip() == '')
-        updated_empty = sum(1 for line in updated_lines if line.strip() == '')
+        # T Sports সেকশন চেক
+        print(f"\n🔍 Verifying T Sports section:")
         
-        print(f"   Original empty lines: {original_empty}")
-        print(f"   Updated empty lines:  {updated_empty}")
+        # আসল T Sports সেকশনে কতগুলো লিংক ছিল
+        in_t_sports = False
+        original_links = []
+        for line in original_lines:
+            if 'T Sports' in line and line.startswith('#EXTINF:'):
+                in_t_sports = True
+                continue
+            if in_t_sports and line.startswith('#EXTINF:'):
+                break
+            if in_t_sports and (line.startswith('http://') or line.startswith('https://')):
+                original_links.append(line)
         
-        if original_empty == updated_empty:
-            print(f"   ✅ All empty lines preserved!")
+        # আপডেটেড T Sports সেকশনে কতগুলো লিংক আছে
+        in_t_sports = False
+        updated_links = []
+        for line in updated_lines:
+            if 'T Sports' in line and line.startswith('#EXTINF:'):
+                in_t_sports = True
+                continue
+            if in_t_sports and line.startswith('#EXTINF:'):
+                break
+            if in_t_sports and (line.startswith('http://') or line.startswith('https://')):
+                updated_links.append(line)
+        
+        print(f"   Original T Sports links: {len(original_links)}")
+        print(f"   Updated T Sports links:  {len(updated_links)}")
+        
+        if len(updated_links) >= len(original_links):
+            print(f"   ✅ SUCCESS: All original links preserved!")
+            
+            # আসল লিংকগুলো আছে কিনা চেক
+            missing_links = []
+            for orig_link in original_links:
+                if orig_link not in updated_links:
+                    missing_links.append(orig_link)
+            
+            if missing_links:
+                print(f"   ⚠️ WARNING: {len(missing_links)} original links missing!")
+                for link in missing_links[:3]:
+                    print(f"      - {link[:60]}...")
+            else:
+                print(f"   ✅ Perfect: All {len(original_links)} original links are preserved")
         else:
-            print(f"   ⚠️ Empty line count changed: {updated_empty - original_empty}")
+            print(f"   ❌ ERROR: {len(original_links) - len(updated_links)} links lost!")
         
         # T Sports সেকশন দেখান
-        print(f"\n📋 Sample of T Sports section (first 30 lines):")
+        print(f"\n📋 T Sports section in updated file (first 25 lines after EXTINF):")
         in_section = False
         count = 0
         
         for line in updated_lines:
             if 'T Sports' in line and line.startswith('#EXTINF:'):
                 in_section = True
-            if in_section:
-                print(f"   {line}")
+                print(f"   [EXTINF]: {line}")
                 count += 1
-                if count >= 30:
+                continue
+            
+            if in_section:
+                if line.startswith('#EXTINF:'):
                     break
+                
+                if count < 25:
+                    if line.strip() == '':
+                        print(f"   [EMPTY LINE]")
+                    else:
+                        print(f"   {line}")
+                    count += 1
         
         EOF
         
@@ -407,40 +378,41 @@ jobs:
           exit 1
         fi
         
-        # ফাঁকা লাইন চেক
-        echo "📊 Checking empty line preservation:"
-        ORIGINAL_EMPTY=$(grep -c '^$' main_playlist.m3u || true)
-        UPDATED_EMPTY=$(grep -c '^$' sirometv_updated.m3u || true)
-        echo "   Original empty lines: $ORIGINAL_EMPTY"
-        echo "   Updated empty lines:  $UPDATED_EMPTY"
+        # T Sports সেকশনে আসল লিংক আছে কিনা চেক
+        echo "🔍 Checking if original links are preserved in T Sports:"
         
-        if [ "$ORIGINAL_EMPTY" -eq "$UPDATED_EMPTY" ]; then
-          echo "   ✅ All empty lines preserved!"
+        # আসল ফাইলে T Sports এর লিংকগুলো
+        echo "   Original links in T Sports section:"
+        awk '/T Sports/{p=1} p&&/^#EXTINF:/&&!/T Sports/{p=0} p&&/^http/{print "     - "$0}' main_playlist.m3u | head -10
+        
+        # আপডেটেড ফাইলে T Sports এর লিংকগুলো
+        echo "   Updated links in T Sports section:"
+        awk '/T Sports/{p=1} p&&/^#EXTINF:/&&!/T Sports/{p=0} p&&/^http/{print "     - "$0}' sirometv_updated.m3u | head -10
+        
+        # লিংক সংখ্যা তুলনা
+        ORIG_TS_LINKS=$(awk '/T Sports/{p=1} p&&/^#EXTINF:/&&!/T Sports/{p=0} p&&/^http/{count++} END{print count}' main_playlist.m3u)
+        UPD_TS_LINKS=$(awk '/T Sports/{p=1} p&&/^#EXTINF:/&&!/T Sports/{p=0} p&&/^http/{count++} END{print count}' sirometv_updated.m3u)
+        
+        echo ""
+        echo "📊 T Sports link count comparison:"
+        echo "   Original: $ORIG_TS_LINKS links"
+        echo "   Updated:  $UPD_TS_LINKS links"
+        
+        if [ "$UPD_TS_LINKS" -ge "$ORIG_TS_LINKS" ]; then
+          echo "   ✅ All original links preserved!"
         else
-          echo "   ⚠️ Empty line count changed by $((UPDATED_EMPTY - ORIGINAL_EMPTY))"
+          echo "   ❌ ERROR: $((ORIG_TS_LINKS - UPD_TS_LINKS)) links lost!"
         fi
         
-        # Show beginning of file with empty lines
+        # Show T Sports section structure
         echo ""
-        echo "🔍 First 40 lines (showing empty lines as [EMPTY]):"
-        head -40 sirometv_updated.m3u | while IFS= read -r line; do
-          if [ -z "$line" ]; then
-            echo "[EMPTY]"
-          else
-            echo "$line"
-          fi
-        done
+        echo "🔍 T Sports section structure:"
+        grep -n -B1 -A 15 "T Sports" sirometv_updated.m3u | head -25
         
-        # Check T Sports section
+        # Count AUTO-UPDATED sections
+        AUTO_COUNT=$(grep -c "#AUTO-UPDATED" sirometv_updated.m3u || true)
         echo ""
-        echo "🔍 T Sports section with line numbers:"
-        grep -n -B2 -A 20 "T Sports" sirometv_updated.m3u | head -35 || echo "No T Sports found"
-        
-        # Count total http links in T Sports section
-        echo ""
-        echo "📊 Counting links in T Sports section:"
-        TS_LINKS=$(awk '/T Sports/{p=1} p&&/^#EXTINF:/&&!/T Sports/{p=0} p&&/^http/{count++} END{print count}' sirometv_updated.m3u)
-        echo "   Total http links in T Sports: $TS_LINKS"
+        echo "📊 AUTO-UPDATED sections: $AUTO_COUNT"
         
         mv sirometv_updated.m3u sirometv.m3u
         
@@ -460,12 +432,12 @@ jobs:
           
           # Check if manual or scheduled run
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            git commit -m "🔄 Manual Update: Preserved Everything - $BANGLADESH_TIME"
+            git commit -m "🔄 Manual Update: Preserved ALL Original Links - $BANGLADESH_TIME"
           else
-            git commit -m "🔄 Scheduled Update: Preserved Everything - $BANGLADESH_TIME"
+            git commit -m "🔄 Scheduled Update: Preserved ALL Original Links - $BANGLADESH_TIME"
           fi
           git push
-          echo "🎉 Successfully updated while preserving EVERYTHING!"
+          echo "🎉 Successfully updated while preserving ALL original links!"
         fi
         
     - name: Cleanup
