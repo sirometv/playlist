@@ -44,9 +44,12 @@ jobs:
         
         # চ্যানেল ম্যাপিং - মেইন চ্যানেলের নাম : [সোর্স চ্যানেলের exact keywords]
         CHANNEL_MAPPING = {
-            "T Sports": ["T Sports HD", "A Sports", "PTV Sports"],
             "BTV National": ["BTV NATIONAL HD", "BTV World"],
             "BTV CTG": ["BTV CTG"],
+            "Somoy TV": ["Somoy News TV", "Somoy TV","SOMOY TV"],
+            "Channel 24": ["BTV CTG"],
+            "GTV": ["Gazi TV"],
+            "T Sports": ["T Sports HD", "A Sports", "PTV Sports"],
             "Channel 9": ["Channel 9"],
             "Channel I": ["Channel I"],
             "Bangla Vision": ["Bangla Vision"],
@@ -61,6 +64,14 @@ jobs:
             "Desh TV": ["Desh TV"],
             "RTV": ["RTV"],
             "My TV": ["My TV"],
+            "Ekattor TV": ["Ekattor TV"],
+            "Peace TV Bangla": ["Peace TV Bangla HD"],
+            "Rongeen TV": ["Rongeen TV"],
+            "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
+            "Star Jalsha": ["Star Jalsha HD", "Star Jalsha"],
+            "Star-Jalsha Movies": ["Star Jalsha Movies HD"],
+            "Zee Bangla": ["Zee Bangla International", "Zee Bangla"],
+            "Zee-Bangla Cinema": ["Zee Bangla Cinema"],
             # "Somoy TV": ["Somoy News TV", "Somoy TV"],
             # এখানে আপনি আরো চ্যানেল যোগ করতে পারবেন
             # "Channel Name in Main": ["exact_keyword1", "exact_keyword2", "exact_keyword3"]
