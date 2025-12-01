@@ -123,41 +123,67 @@ jobs:
             
             return urls
         
-        def find_existing_auto_updated_block(lines, main_extinf_idx, channel_name):
-            """মূল EXTINF এর ঠিক ২ লাইন উপরে AUTO-UPDATED ব্লক আছে কিনা খুঁজে"""
-            # মূল EXTINF থেকে ২ লাইন উপরে শুরু করে ১০ লাইন পর্যন্ত খুঁজি
-            search_start = max(0, main_extinf_idx - 15)
+        def find_or_create_auto_updated_block(lines, main_extinf_idx, channel_name, new_urls, original_extinf_line):
+            """মূল EXTINF এর ২ লাইন উপরে AUTO-UPDATED ব্লক খুঁজে বা তৈরি করে"""
             
-            for i in range(search_start, main_extinf_idx):
-                if lines[i].startswith('#EXTINF:') and channel_name in lines[i]:
-                    # পরের লাইন AUTO-UPDATED কিনা চেক করুন
-                    if i + 1 < len(lines) and '#AUTO-UPDATED' in lines[i + 1]:
-                        # এই ব্লকের শেষ খুঁজি
-                        block_end = i + 1  # EXTINF এবং AUTO-UPDATED লাইন
-                        # লিংকগুলো খুঁজি
-                        for j in range(i + 2, len(lines)):
-                            if j >= main_extinf_idx:  # মূল EXTINF এর কাছাকাছি চলে গেলে
-                                break
-                            if lines[j].startswith('http'):
-                                block_end = j
-                            else:
-                                break
-                        return i, block_end
-            return -1, -1
-        
-        def insert_auto_updated_block(lines, main_extinf_idx, channel_name, new_urls, original_extinf_line):
-            """মূল EXTINF এর ঠিক ২ লাইন উপরে নতুন AUTO-UPDATED ব্লক তৈরি করে"""
+            # ১. প্রথমে চেক করি কি এই EXTINF এর ২ লাইন উপরে AUTO-UPDATED ব্লক আছে কিনা
+            target_idx = max(0, main_extinf_idx - 2)
+            
+            # ২. যদি target_idx এ EXTINF আছে এবং তা AUTO-UPDATED ব্লকের অংশ
+            if target_idx < len(lines) and lines[target_idx].startswith('#EXTINF:') and channel_name in lines[target_idx]:
+                # পরের লাইন চেক করি AUTO-UPDATED কিনা
+                if target_idx + 1 < len(lines) and '#AUTO-UPDATED' in lines[target_idx + 1]:
+                    print(f"✅ Found existing AUTO-UPDATED block at line {target_idx+1}")
+                    
+                    # AUTO-UPDATED ব্লকের শেষ খুঁজি
+                    auto_block_end = target_idx + 1
+                    for j in range(target_idx + 2, len(lines)):
+                        if lines[j].startswith('http'):
+                            auto_block_end = j
+                        else:
+                            break
+                    
+                    print(f"   Replacing links from line {target_idx+3} to {auto_block_end+1}")
+                    
+                    # নতুন লাইন তৈরি
+                    new_lines = []
+                    
+                    # AUTO-UPDATED ব্লকের আগের অংশ
+                    for i in range(0, target_idx):
+                        new_lines.append(lines[i])
+                    
+                    # EXTINF লাইন (অপরিবর্তিত)
+                    new_lines.append(lines[target_idx])
+                    
+                    # নতুন AUTO-UPDATED লাইন
+                    timestamp = get_bangladesh_time()
+                    refresh_emoji = "🔄" * len(new_urls)
+                    new_lines.append(f"#AUTO-UPDATED 🔴 - {channel_name} - {timestamp} {refresh_emoji}")
+                    
+                    # নতুন লিংক
+                    for url in new_urls:
+                        new_lines.append(url)
+                    
+                    # AUTO-UPDATED ব্লকের পরের অংশ (পুরাতন লিংক বাদে)
+                    for i in range(auto_block_end + 1, len(lines)):
+                        new_lines.append(lines[i])
+                    
+                    return new_lines, target_idx
+            
+            # ৩. AUTO-UPDATED ব্লক না থাকলে তৈরি করি
+            print(f"🆕 Creating new AUTO-UPDATED block 2 lines above main EXTINF at line {main_extinf_idx+1}")
+            
             new_lines = []
             
-            # মূল EXTINF এর আগের অংশ যোগ করি
-            for j in range(0, main_extinf_idx):
-                new_lines.append(lines[j])
+            # মূল EXTINF এর আগের অংশ
+            for i in range(0, main_extinf_idx):
+                new_lines.append(lines[i])
             
             # ২ লাইন ফাঁকা (আপনার চাহিদা অনুযায়ী)
             new_lines.append("")
             new_lines.append("")
             
-            # EXTINF লাইন কপি করি (মূল EXTINF থেকে সম্পূর্ণ কপি)
+            # EXTINF লাইন কপি (মূল থেকে সম্পূর্ণ)
             new_lines.append(original_extinf_line)
             
             # AUTO-UPDATED লাইন
@@ -169,38 +195,11 @@ jobs:
             for url in new_urls:
                 new_lines.append(url)
             
-            # বাকি অংশ যোগ করি (মূল EXTINF সহ)
-            for j in range(main_extinf_idx, len(lines)):
-                new_lines.append(lines[j])
+            # মূল EXTINF এবং পরের অংশ
+            for i in range(main_extinf_idx, len(lines)):
+                new_lines.append(lines[i])
             
-            return new_lines
-        
-        def update_existing_auto_updated_block(lines, auto_start, auto_end, channel_name, new_urls):
-            """বিদ্যমান AUTO-UPDATED ব্লকের লিংকগুলো রিপ্লেস করে"""
-            new_lines = []
-            
-            # AUTO-UPDATED ব্লকের আগের অংশ যোগ করি
-            for j in range(0, auto_start):
-                new_lines.append(lines[j])
-            
-            # EXTINF লাইন (অপরিবর্তিত)
-            new_lines.append(lines[auto_start])
-            
-            # নতুন AUTO-UPDATED লাইন
-            timestamp = get_bangladesh_time()
-            refresh_emoji = "🔄" * len(new_urls)
-            new_lines.append(f"#AUTO-UPDATED 🔴 - {channel_name} - {timestamp} {refresh_emoji}")
-            
-            # নতুন লিংক
-            for url in new_urls:
-                new_lines.append(url)
-            
-            # AUTO-UPDATED ব্লকের পরের অংশ যোগ করি (পুরাতন লিংকগুলো বাদ দিয়ে)
-            # auto_end এর পর থেকে শুরু করি
-            for j in range(auto_end + 1, len(lines)):
-                new_lines.append(lines[j])
-            
-            return new_lines
+            return new_lines, main_extinf_idx + 4 + len(new_urls)  # ২ ফাঁকা + EXTINF + AUTO-UPDATED + লিংক
         
         # মেইন প্লেলিস্ট লোড করুন
         with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
@@ -208,66 +207,67 @@ jobs:
         
         lines = main_content.split('\n')
         
-        # প্রতিটি ম্যাপ করা চ্যানেল প্রসেস করি
+        # প্রতিটি চ্যানেল প্রসেস করার জন্য, প্রথমে সব মেইন EXTINF পজিশন খুঁজি
+        channel_positions = {}
+        
         for channel_name in CHANNEL_MAPPING.keys():
-            print(f"\n{'='*50}")
-            print(f"🔍 Processing channel: {channel_name}")
-            
-            # এই চ্যানেলের সব EXTINF পজিশন খুঁজি
-            channel_positions = []
+            positions = []
             for idx, line in enumerate(lines):
                 if line.startswith('#EXTINF:') and channel_name in line:
-                    channel_positions.append(idx)
+                    # এটা কি AUTO-UPDATED ব্লকের EXTINF নাকি মূল EXTINF?
+                    # চেক করি এর ২ লাইন নিচে একই চ্যানেলের আরেকটি EXTINF আছে কিনা
+                    is_main_extinf = True
+                    for j in range(idx + 1, min(idx + 4, len(lines))):
+                        if lines[j].startswith('#EXTINF:') and channel_name in lines[j]:
+                            # এর মানে idx এটা AUTO-UPDATED ব্লকের EXTINF
+                            is_main_extinf = False
+                            break
+                    
+                    if is_main_extinf:
+                        positions.append(idx)
             
-            if not channel_positions:
-                print(f"⚠️ Channel '{channel_name}' not found in main playlist")
+            if positions:
+                channel_positions[channel_name] = positions
+        
+        print(f"📊 Found {sum(len(v) for v in channel_positions.values())} main EXTINF positions")
+        
+        # প্রতিটি চ্যানেল প্রসেস করি
+        for channel_name in CHANNEL_MAPPING.keys():
+            if channel_name not in channel_positions:
+                print(f"\n⚠️ No main EXTINF found for: {channel_name}")
                 continue
             
-            print(f"✅ Found {len(channel_positions)} occurrences of '{channel_name}'")
+            print(f"\n{'='*50}")
+            print(f"🔍 Processing: {channel_name}")
             
             # সোর্স থেকে নতুন URL খুঁজি
             new_urls = find_channel_urls('source_playlist.m3u', CHANNEL_MAPPING[channel_name])
             
             if not new_urls:
-                print(f"⚠️ No URLs found for '{channel_name}', skipping...")
+                print(f"⚠️ No URLs found for {channel_name}, skipping...")
                 continue
             
-            # প্রতিটি পাওজিশনের জন্য প্রসেস করি
-            for pos_idx, main_extinf_idx in enumerate(channel_positions):
-                print(f"   Processing occurrence {pos_idx+1} at line {main_extinf_idx+1}")
+            print(f"✅ Found {len(new_urls)} new URLs for {channel_name}")
+            
+            # উল্টো দিক থেকে প্রসেস করি যাতে লাইন নম্বর ঠিক থাকে
+            positions = sorted(channel_positions[channel_name], reverse=True)
+            
+            for main_extinf_idx in positions:
+                print(f"   Processing main EXTINF at line {main_extinf_idx+1}")
                 
-                # বিদ্যমান AUTO-UPDATED ব্লক আছে কিনা চেক
-                auto_start, auto_end = find_existing_auto_updated_block(lines, main_extinf_idx, channel_name)
+                # মূল EXTINF লাইন
+                original_extinf_line = lines[main_extinf_idx]
                 
-                if auto_start != -1:
-                    print(f"   ✅ Existing AUTO-UPDATED block found at lines {auto_start+1}-{auto_end+1}")
-                    print(f"   🔄 Replacing {auto_end - auto_start - 1} old links with {len(new_urls)} new links")
-                    
-                    # বিদ্যমান ব্লক আপডেট করি
-                    lines = update_existing_auto_updated_block(
-                        lines, auto_start, auto_end, channel_name, new_urls
-                    )
-                    
-                    # channel_positions আপডেট করি (লাইন নম্বর পরিবর্তন হতে পারে)
-                    shift = len(new_urls) - (auto_end - auto_start - 1)
-                    if shift != 0:
-                        for i in range(pos_idx + 1, len(channel_positions)):
-                            channel_positions[i] += shift
-                        main_extinf_idx += shift
+                # AUTO-UPDATED ব্লক খুঁজে বা তৈরি করি
+                lines, new_main_idx = find_or_create_auto_updated_block(
+                    lines, main_extinf_idx, channel_name, new_urls, original_extinf_line
+                )
                 
-                else:
-                    print(f"   🆕 No AUTO-UPDATED block found, creating new one 2 lines above main EXTINF")
-                    
-                    # নতুন AUTO-UPDATED ব্লক তৈরি করি
-                    original_extinf_line = lines[main_extinf_idx]
-                    lines = insert_auto_updated_block(
-                        lines, main_extinf_idx, channel_name, new_urls, original_extinf_line
-                    )
-                    
-                    # channel_positions আপডেট করি (লাইন নম্বর পরিবর্তন হয়েছে)
-                    shift = 3 + len(new_urls)  # ২ ফাঁকা লাইন + EXTINF + AUTO-UPDATED + লিংক
-                    for i in range(pos_idx, len(channel_positions)):
-                        channel_positions[i] += shift
+                # আপডেট করা লাইনে নতুন মেইন EXTINF পজিশন আপডেট করি
+                if new_main_idx != main_extinf_idx:
+                    # চ্যানেল পজিশন আপডেট
+                    idx_in_list = positions.index(main_extinf_idx)
+                    positions[idx_in_list] = new_main_idx
         
         # নতুন কন্টেন্ট তৈরি করি
         updated_content = '\n'.join(lines)
@@ -280,39 +280,34 @@ jobs:
         print(f"\n{'='*50}")
         print(f"🎉 Update Summary:")
         
-        # প্রতিটি চ্যানেলের স্ট্যাটাস চেক
-        print(f"\n🔍 Channel Status:")
-        
-        # আপডেটেড কন্টেন্ট লোড
+        # BTV CTG এর উদাহরণ দেখান
+        print(f"\n🔍 Example structure for BTV CTG:")
         updated_lines = updated_content.split('\n')
         
-        for channel_name in CHANNEL_MAPPING.keys():
-            # চ্যানেলের EXTINF সংখ্যা
-            extinf_count = sum(1 for line in updated_lines if line.startswith('#EXTINF:') and channel_name in line)
-            
-            # AUTO-UPDATED ব্লক সংখ্যা
-            auto_blocks = 0
-            for idx, line in enumerate(updated_lines):
-                if line.startswith('#EXTINF:') and channel_name in line:
-                    if idx + 1 < len(updated_lines) and '#AUTO-UPDATED' in updated_lines[idx + 1]:
-                        auto_blocks += 1
-            
-            print(f"   {channel_name}: {extinf_count} EXTINF entries, {auto_blocks} AUTO-UPDATED blocks")
-        
-        # টেস্ট: BTV CTG এর গঠন দেখান
-        print(f"\n🔍 Example structure for BTV CTG:")
-        found = False
         for idx, line in enumerate(updated_lines):
             if 'BTV CTG' in line and line.startswith('#EXTINF:'):
-                if not found:
-                    print(f"   Line {idx+1}: {line}")
-                    # পরের ১০ লাইন দেখান
-                    for j in range(idx + 1, min(idx + 11, len(updated_lines))):
-                        if updated_lines[j].startswith('#EXTINF:'):
+                # পরের লাইন চেক
+                if idx + 1 < len(updated_lines) and '#AUTO-UPDATED' in updated_lines[idx + 1]:
+                    print(f"\n   AUTO-UPDATED EXTINF at line {idx+1}:")
+                    print(f"   {line}")
+                    print(f"   {updated_lines[idx + 1]}")
+                    # লিংক দেখান
+                    link_count = 0
+                    for j in range(idx + 2, min(idx + 10, len(updated_lines))):
+                        if updated_lines[j].startswith('http'):
+                            print(f"   {updated_lines[j]}")
+                            link_count += 1
+                        elif updated_lines[j].startswith('#EXTINF:'):
                             break
-                        print(f"   Line {j+1}: {updated_lines[j]}")
-                    print()
-                    found = True
+                    print(f"   Total links: {link_count}")
+                else:
+                    # মূল EXTINF
+                    print(f"\n   MAIN EXTINF at line {idx+1}:")
+                    print(f"   {line}")
+                    # এর লিংক দেখান
+                    if idx + 1 < len(updated_lines) and updated_lines[idx + 1].startswith('http'):
+                        print(f"   {updated_lines[idx + 1]}")
+                print()
         
         print(f"\n{'='*50}")
         print(f"✅ Processing completed successfully!")
@@ -340,54 +335,54 @@ jobs:
         echo "   Original #EXTINF entries: $ORIG_EXTINF"
         echo "   Updated #EXTINF entries:  $UPD_EXTINF"
         
-        # প্রতিটি চ্যানেলের জন্য চেক
+        # BTV CTG এর গঠন দেখান
         echo ""
-        echo "🔍 Checking each mapped channel:"
+        echo "🔍 Checking BTV CTG structure:"
         
-        for channel in "T Sports" "BTV National" "BTV CTG" "Channel 9" "Channel I" "Bangla Vision" "News 24" "Boishakhi TV" "Bijoy TV" "ATN Bangla" "ATN-Bangla News" "DBC News" "Independent TV" "Bangla TV" "Desh TV" "RTV" "My TV"; do
-          # চ্যানেলের EXTINF সংখ্যা (আপডেটেডে)
-          CHANNEL_EXTINF=$(grep "^#EXTINF:" sirometv_updated.m3u | grep -c "$channel")
-          
-          # আসলে এই চ্যানেলের EXTINF সংখ্যা
-          ORIG_CHANNEL_EXTINF=$(grep "^#EXTINF:" main_playlist.m3u | grep -c "$channel")
-          
-          # AUTO-UPDATED ব্লক আছে কিনা
-          AUTO_BLOCKS=$(grep -B1 "#AUTO-UPDATED.*$channel" sirometv_updated.m3u | grep -c "^#EXTINF:")
-          
-          if [ "$CHANNEL_EXTINF" -gt 0 ]; then
-            if [ "$CHANNEL_EXTINF" -ge "$((ORIG_CHANNEL_EXTINF * 2))" ]; then
-              echo "   ✅ $channel: $CHANNEL_EXTINF EXTINF ($AUTO_BLOCKS auto-updated)"
-            else
-              echo "   ⚠️  $channel: $CHANNEL_EXTINF EXTINF (expected at least $((ORIG_CHANNEL_EXTINF * 2)))"
-            fi
-          fi
-        done
+        # BTV CTG এর সব EXTINF লাইন নম্বর
+        echo "   BTV CTG EXTINF lines in updated file:"
+        grep -n "^#EXTINF:.*BTV CTG" sirometv_updated.m3u
         
-        # BTV CTG এর উদাহরণ গঠন দেখান
-        echo ""
-        echo "🔍 Example structure for BTV CTG:"
-        grep -n -B2 -A5 "BTV CTG" sirometv_updated.m3u | head -15 | while read line; do
-          echo "   $line"
-        done
+        # প্রথম BTV CTG EXTINF এর পরের ১০ লাইন দেখান
+        FIRST_LINE=$(grep -n "^#EXTINF:.*BTV CTG" sirometv_updated.m3u | head -1 | cut -d: -f1)
+        if [ -n "$FIRST_LINE" ]; then
+          echo ""
+          echo "   First BTV CTG section (lines $FIRST_LINE to $((FIRST_LINE+10))):"
+          sed -n "${FIRST_LINE},$((FIRST_LINE+10))p" sirometv_updated.m3u | while read line; do
+            echo "   $line"
+          done
+        fi
         
-        # মূল EXTINF সংরক্ষণ চেক
-        echo ""
-        echo "🔍 Checking original EXTINF preservation:"
-        
-        # আসল ফাইলের প্রথম ৫টি EXTINF চেক
-        echo "   First 5 original EXTINF lines:"
-        grep "^#EXTINF:" main_playlist.m3u | head -5 | while read line; do
-          if grep -Fq "$line" sirometv_updated.m3u; then
-            echo "     ✅ Preserved: ${line:0:60}..."
-          else
-            echo "     ❌ Missing: ${line:0:60}..."
-          fi
-        done
+        # দ্বিতীয় BTV CTG EXTINF (মূল EXTINF) এর পরের ৫ লাইন দেখান
+        SECOND_LINE=$(grep -n "^#EXTINF:.*BTV CTG" sirometv_updated.m3u | head -2 | tail -1 | cut -d: -f1)
+        if [ -n "$SECOND_LINE" ] && [ "$SECOND_LINE" != "$FIRST_LINE" ]; then
+          echo ""
+          echo "   Second BTV CTG section (main EXTINF at line $SECOND_LINE):"
+          sed -n "${SECOND_LINE},$((SECOND_LINE+5))p" sirometv_updated.m3u | while read line; do
+            echo "   $line"
+          done
+        fi
         
         # AUTO-UPDATED সেকশন সংখ্যা
         AUTO_COUNT=$(grep -c "#AUTO-UPDATED" sirometv_updated.m3u)
         echo ""
         echo "📊 Total AUTO-UPDATED sections: $AUTO_COUNT"
+        
+        # মূল EXTINF সংরক্ষণ চেক
+        echo ""
+        echo "🔍 Checking original EXTINF preservation:"
+        
+        # আসল ফাইলের একটি নির্দিষ্ট EXTINF চেক
+        if grep -q "BTV CTG" main_playlist.m3u; then
+          ORIG_BTV_LINE=$(grep "^#EXTINF:.*BTV CTG" main_playlist.m3u | head -1)
+          if [ -n "$ORIG_BTV_LINE" ]; then
+            if grep -Fq "$ORIG_BTV_LINE" sirometv_updated.m3u; then
+              echo "   ✅ Original BTV CTG EXTINF preserved"
+            else
+              echo "   ❌ Original BTV CTG EXTINF missing!"
+            fi
+          fi
+        fi
         
         mv sirometv_updated.m3u sirometv.m3u
         
@@ -407,9 +402,9 @@ jobs:
           
           # Check if manual or scheduled run
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            git commit -m "🔄 Manual Update: AUTO-UPDATED sections added/updated - $BANGLADESH_TIME"
+            git commit -m "🔄 Manual Update: Added AUTO-UPDATED blocks above main EXTINF - $BANGLADESH_TIME"
           else
-            git commit -m "🔄 Scheduled Update: AUTO-UPDATED links replaced - $BANGLADESH_TIME"
+            git commit -m "🔄 Scheduled Update: Replaced AUTO-UPDATED links - $BANGLADESH_TIME"
           fi
           git push
           echo "🎉 Successfully updated playlist!"
