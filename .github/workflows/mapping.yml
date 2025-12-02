@@ -1,5 +1,4 @@
 name: mapping
-
 on:
   schedule:
     - cron: '*/5 * * * *'
@@ -80,8 +79,8 @@ jobs:
             "Zee-Bangla Cinema": ["Zee Bangla Cinema"],
             # "Somoy TV": ["Somoy News TV", "Somoy TV"],
             # এখানে আপনি আরো চ্যানেল যোগ করতে পারবেন
-            # "Channel Name in Main": ["exact_keyword1", "exact_keyword2", "exact_keyword3"]
-        }
+            # "Channel Name in Main": ["keyword1", "keyword2", "keyword3"]
+        }
         
         def get_bangladesh_time():
             """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
