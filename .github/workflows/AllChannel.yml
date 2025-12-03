@@ -69,14 +69,49 @@ jobs:
             "Desh TV": ["Desh TV"],
             "RTV": ["RTV"],
             "My TV": ["My TV"],
-            "Ekattor TV": ["Ekattor TV"],
-            "Peace TV Bangla": ["Peace TV Bangla HD"],
-            "Rongeen TV": ["Rongeen TV"],
+            "Duronto": ["Duronto TV"],
+            "Deepto TV": ["Deepto TV"],
+            "Mohona TV": ["Mohona TV"],
+            "Ananda TV": ["Ananda TV"],
             "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
+            "Channel 5 TV": ["Channel 5 TV"],
+            "Music Bangla": ["Music Bangla"],
+            "Ekattor TV": ["Ekattor TV"],
+            "Nagorik TV": ["Nagorik TV"],
+            "Ekhon TV": ["Ekhon TV"],
+            "Peace TV Bangla": ["Peace TV Bangla HD"],
+            "Islam Bangla": ["Islam Bangla"],
+            "Iqra TV ": ["Iqra Bangla"],
+            "Madani TV": ["Madani TV"],
+            "News21 TV": ["News21 TV"],
+            "Bangla 21": ["Bangla 21"],
+            "Movie Bangla": ["Movie Bangla"],
+            "Matri Bhumi": ["Matri Bhumi"],
+            "Magic Bangla": ["Magic Bangla"],
+            "Alpona TV": ["Alpona TV"],
+            "Channel A1": ["Channel A1"],
+            "Shadin Bangla": ["Shadin Bangla"],
+            "Channel S UK": ["Channel S UK HD"],
+            "Nandan TV": ["Nandan TV"],
+            "Global TV": ["Global TV"],
+            "Deshi TV": ["Deshi TV", "Deshi TV (720p)"],
+            "Falguni TV": ["Falguni TV"],
+            "Channel S BD": ["Channel S BD","Channel S HD"],
+            "Rajdhani TV": ["Rajdhani TV"],
+            "Rongeen TV": ["Rongeen TV"],
+            "Sonic Bangla": ["Sonic Bangla"],
+            "Discovery Kids": ["Discovery Kids"],
+            "NAN TV": ["NAN TV"],
             "Star Jalsha": ["Star Jalsha HD", "Star Jalsha"],
             "Star-Jalsha Movies": ["Star Jalsha Movies HD"],
             "Zee Bangla": ["Zee Bangla International", "Zee Bangla"],
             "Zee-Bangla Cinema": ["Zee Bangla Cinema"],
+            "Colors Bengali": ["colors bangla"],
+            "Sangeet Bangla": ["Sangeet Bangla"],
+            "Sony Aaat": ["Sony Aaat"],
+            "Enter 10 Bangla": ["Enter 10 Bangla"],
+            "Zee 24 Ghanta": ["Zee 24 Ghanta"],
+            "Zee 24 Ghanta": ["Zee 24 Ghanta"],
             # "Somoy TV": ["Somoy News TV", "Somoy TV"],
             # এখানে আপনি আরো চ্যানেল যোগ করতে পারবেন
             # "Channel Name in Main": ["keyword1", "keyword2", "keyword3"]
@@ -86,7 +121,7 @@ jobs:
             """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
             bangladesh_tz = pytz.timezone('Asia/Dhaka')
             now = datetime.now(bangladesh_tz)
-            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time") + " 🔄"
+            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time") + "🟡 - 🔄 - 🔴"
         
         def find_channel_url(source_file, keywords):
             """সোর্স প্লেলিস্ট থেকে চ্যানেল URL খুঁজে বের করে"""
@@ -240,7 +275,7 @@ jobs:
             git commit -m "🔄 Scheduled Update: Replaced All Channel 🔄 - $BANGLADESH_TIME"
           fi
           git push
-          echo "🎉 Successfully updated T Sports channel!"
+          echo "🎉 Successfully updated All Channel 🔄!"
         fi
         
     - name: Cleanup
