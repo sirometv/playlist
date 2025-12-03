@@ -1,4 +1,4 @@
-name: mapping
+name: All Channel 🔄
 on:
   schedule:
     - cron: '*/5 * * * *'
@@ -32,9 +32,9 @@ jobs:
           echo "✅ $file downloaded - $LINES lines"
         done
         
-    - name: Update T Sports Channel
+    - name: Update All Channel 🔄
       run: |
-        echo "🔄 Updating T Sports Channel..."
+        echo "🔄 Updating All Channel 🔄..."
         
         python3 - << 'EOF'
         import re
@@ -86,7 +86,7 @@ jobs:
             """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
             bangladesh_tz = pytz.timezone('Asia/Dhaka')
             now = datetime.now(bangladesh_tz)
-            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
+            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time") + " 🔄"
         
         def find_channel_url(source_file, keywords):
             """সোর্স প্লেলিস্ট থেকে চ্যানেল URL খুঁজে বের করে"""
@@ -235,9 +235,9 @@ jobs:
           
           # Check if manual or scheduled run
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            git commit -m "🔄 Manual Update: Added T Sports - $BANGLADESH_TIME"
+            git commit -m "🔄 Manual Update: Added All Channel 🔄 - $BANGLADESH_TIME"
           else
-            git commit -m "🔄 Scheduled Update: Replaced T Sports - $BANGLADESH_TIME"
+            git commit -m "🔄 Scheduled Update: Replaced All Channel 🔄 - $BANGLADESH_TIME"
           fi
           git push
           echo "🎉 Successfully updated T Sports channel!"
