@@ -1,3 +1,5 @@
+এটা একদম ১০০% ঠিক আছে।
+
 name: All Channel 🔄
 on:
   schedule:
@@ -121,51 +123,30 @@ jobs:
             now = datetime.now(bangladesh_tz)
             return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
         
-        def find_channel_urls(source_file, keywords, max_links=3):
-            """সোর্স প্লেলিস্ট থেকে চ্যানেলের একাধিক URL খুঁজে বের করে (সর্বোচ্চ ৩টি)"""
+        def find_channel_url(source_file, keywords):
+            """সোর্স প্লেলিস্ট থেকে চ্যানেল URL খুঁজে বের করে"""
             with open(source_file, 'r', encoding='utf-8') as f:
                 content = f.read()
             
-            all_urls = []
-            
             # সব keywords এর জন্য চেষ্টা করুন
             for keyword in keywords:
-                pattern = r'#EXTINF:[^\n]*{}[^\n]*\n(http[^\n]+)'.format(re.escape(keyword))
-                matches = re.findall(pattern, content, re.IGNORECASE)
+                pattern = r'#EXTINF:[^\n]{}[^\n]\n(http[^\n]+)'.format(re.escape(keyword))
+                match = re.search(pattern, content, re.IGNORECASE)
                 
-                for url in matches:
-                    url = url.strip()
-                    if url and url not in all_urls:  # ডুপ্লিকেট এড়ানোর জন্য
-                        all_urls.append(url)
-                
-                if len(all_urls) >= max_links:
-                    break  # যথেষ্ট URL পেয়ে গেলে থেমে যান
+                if match:
+                    url = match.group(1).strip()
+                    print(f"✅ Found URL for keyword '{keyword}': {url}")
+                    return url
             
-            # সর্বোচ্চ ৩টি URL রিটার্ন করুন
-            unique_urls = []
-            for url in all_urls:
-                if url not in unique_urls and len(unique_urls) < max_links:
-                    unique_urls.append(url)
-            
-            if unique_urls:
-                print(f"✅ Found {len(unique_urls)} URLs for keywords: {keywords}")
-                for i, url in enumerate(unique_urls, 1):
-                    print(f"   {i}. {url[:80]}...")
-            else:
-                print(f"❌ No URLs found for keywords: {keywords}")
-            
-            return unique_urls
+            print(f"❌ No URL found for keywords: {keywords}")
+            return None
         
-        def update_channel_url(main_content, channel_name, urls, is_manual_run=False):
-            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের একাধিক URL আপডেট করে"""
-            if not urls:
-                print(f"⚠️ No URLs to update for {channel_name}")
-                return main_content
-            
+        def update_channel_url(main_content, channel_name, new_url, is_manual_run=False):
+            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের URL আপডেট করে"""
             timestamp = get_bangladesh_time()
             
             # Pattern: #EXTINF লাইন যেখানে channel_name আছে
-            pattern_extinf = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
+            pattern_extinf = r'(#EXTINF:-1[^\n]{}[^\n]\n)'.format(re.escape(channel_name))
             
             match = re.search(pattern_extinf, main_content, re.IGNORECASE)
             if not match:
@@ -177,55 +158,50 @@ jobs:
             # ✅ নতুন ফরম্যাট: চ্যানেলের নাম সহ AUTO-UPDATED লাইন
             auto_updated_line = f"#AUTO-UPDATED - {channel_name} ✅- {timestamp} 🟡 - 🔄 - 🔴\n"
             
-            # একাধিক URL এর জন্য লাইন তৈরি করুন
-            urls_lines = ""
-            for i, url in enumerate(urls, 1):
-                urls_lines += f"{url}\n"
-            
             if is_manual_run:
                 # Manual run: নতুন AUTO-UPDATED লাইন যোগ করবে (যদি না থাকে)
-                auto_updated_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)'.format(re.escape(channel_name))
+                auto_updated_pattern = r'(#EXTINF:-1[^\n]{}[^\n]\n)(#AUTO-UPDATED[^\n]*\n)'.format(re.escape(channel_name))
                 
                 if re.search(auto_updated_pattern, main_content, re.IGNORECASE):
-                    # AUTO-UPDATED already exists, replace the entire AUTO-UPDATED section
-                    pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)+)'.format(re.escape(channel_name))
+                    # AUTO-UPDATED already exists, replace the entire AUTO-UPDATED line with new one
+                    pattern = r'(#EXTINF:-1[^\n]{}[^\n]\n)(#AUTO-UPDATED[^\n]\n)(http[^\n]\n)'.format(re.escape(channel_name))
                     
                     def replacement(match):
-                        return match.group(1) + auto_updated_line + urls_lines + "\n"
+                        return match.group(1) + auto_updated_line + new_url + "\n"
                     
                     updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
-                    print(f"✅ Manual run: Updated {len(urls)} URLs for {channel_name}")
+                    print(f"✅ Manual run: Updated AUTO-UPDATED line for {channel_name}")
                 else:
                     # No AUTO-UPDATED exists, add it after EXTINF line
-                    pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
+                    pattern = r'(#EXTINF:-1[^\n]{}[^\n]\n)'.format(re.escape(channel_name))
                     
                     def replacement(match):
-                        return match.group(1) + auto_updated_line + urls_lines + "\n"
+                        return match.group(1) + auto_updated_line + new_url + "\n"
                     
                     updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
-                    print(f"✅ Manual run: Added {len(urls)} new URLs for {channel_name}")
+                    print(f"✅ Manual run: Added new AUTO-UPDATED line for {channel_name}")
                 
                 return updated_content
             else:
-                # Scheduled run: শুধু AUTO-UPDATED লাইন এবং URL গুলো রিপ্লেস করবে
-                pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)((?:http[^\n]*\n)+)'.format(re.escape(channel_name))
+                # Scheduled run: শুধু AUTO-UPDATED লাইন এবং URL রিপ্লেস করবে
+                pattern = r'(#EXTINF:-1[^\n]{}[^\n]\n)(#AUTO-UPDATED[^\n]\n)(http[^\n]\n)'.format(re.escape(channel_name))
                 
                 def replacement(match):
-                    return match.group(1) + auto_updated_line + urls_lines + "\n"
+                    return match.group(1) + auto_updated_line + new_url + "\n"
                 
                 if re.search(pattern, main_content, re.IGNORECASE):
                     updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
-                    print(f"✅ Scheduled run: Updated {len(urls)} URLs for {channel_name}")
+                    print(f"✅ Scheduled run: Updated AUTO-UPDATED line for {channel_name}")
                     return updated_content
                 else:
                     # যদি AUTO-UPDATED না থাকে, কিন্তু চ্যানেল থাকলে নতুন যোগ করবে
-                    pattern_extinf_only = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
+                    pattern_extinf_only = r'(#EXTINF:-1[^\n]{}[^\n]\n)'.format(re.escape(channel_name))
                     
                     def add_auto_updated(match):
-                        return match.group(1) + auto_updated_line + urls_lines + "\n"
+                        return match.group(1) + auto_updated_line + new_url + "\n"
                     
                     updated_content = re.sub(pattern_extinf_only, add_auto_updated, main_content, flags=re.IGNORECASE)
-                    print(f"✅ Scheduled run: Added {len(urls)} new URLs for {channel_name}")
+                    print(f"✅ Scheduled run: Added AUTO-UPDATED line for {channel_name}")
                     return updated_content
         
         # মেইন প্লেলিস্ট লোড করুন
@@ -237,22 +213,19 @@ jobs:
         
         updated_content = main_content
         update_count = 0
-        total_urls_found = 0
         
         # প্রতিটি চ্যানেলের জন্য আপডেট করুন
         for main_channel, search_keywords in CHANNEL_MAPPING.items():
             print(f"\n🔍 Processing: {main_channel}")
             print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
             
-            # সর্বোচ্চ ৩টি URL খুঁজুন
-            urls = find_channel_urls('source_playlist.m3u', search_keywords, max_links=3)
+            new_url = find_channel_url('source_playlist.m3u', search_keywords)
             
-            if urls:
-                updated_content = update_channel_url(updated_content, main_channel, urls, is_manual_run)
+            if new_url:
+                updated_content = update_channel_url(updated_content, main_channel, new_url, is_manual_run)
                 update_count += 1
-                total_urls_found += len(urls)
             else:
-                print(f"⚠️ Skipping {main_channel} - no URLs found")
+                print(f"⚠ Skipping {main_channel} - no URL found")
         
         # আপডেট করা কন্টেন্ট সেভ করুন
         with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
@@ -261,9 +234,8 @@ jobs:
         print(f"\n🎉 Update Summary:")
         print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
         print(f"   Total channels processed: {len(CHANNEL_MAPPING)}")
-        print(f"   Successfully updated: {update_count} channels")
-        print(f"   Total URLs found: {total_urls_found}")
-        print(f"   Failed: {len(CHANNEL_MAPPING) - update_count} channels")
+        print(f"   Successfully updated: {update_count}")
+        print(f"   Failed: {len(CHANNEL_MAPPING) - update_count}")
         
         EOF
         
@@ -278,14 +250,7 @@ jobs:
         
         # আপডেট করা চ্যানেলগুলো দেখান
         echo "📊 Showing sample of updated channels:"
-        grep -A 4 "#AUTO-UPDATED" sirometv_updated.m3u | head -30
-        
-        # কতগুলো URL আছে তা গণনা
-        echo "📈 Statistics:"
-        TOTAL_CHANNELS=$(grep -c "#AUTO-UPDATED" sirometv_updated.m3u)
-        TOTAL_URLS=$(grep -c "^http" sirometv_updated.m3u)
-        echo "   Total channels with AUTO-UPDATED: $TOTAL_CHANNELS"
-        echo "   Total URLs in playlist: $TOTAL_URLS"
+        grep -A 2 "#AUTO-UPDATED" sirometv_updated.m3u | head -20
         
         mv sirometv_updated.m3u sirometv.m3u
         
@@ -305,18 +270,14 @@ jobs:
           # বাংলাদেশের সময় নেওয়া (BD Time format)
           BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
           
-          # আপডেট করা চ্যানেল ও URL সংখ্যা
-          TOTAL_CHANNELS=$(grep -c "#AUTO-UPDATED" sirometv.m3u)
-          TOTAL_URLS=$(grep -c "^http" sirometv.m3u)
-          
           # Check if manual or scheduled run
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            git commit -m "🔄 Manual Update: $TOTAL_CHANNELS channels ($TOTAL_URLS URLs) - $BANGLADESH_TIME"
+            git commit -m "🔄 Manual Update: All Channel 🔄 - $BANGLADESH_TIME"
           else
-            git commit -m "🔄 Scheduled Update: $TOTAL_CHANNELS channels ($TOTAL_URLS URLs) - $BANGLADESH_TIME"
+            git commit -m "🔄 Scheduled Update: All Channel 🔄 - $BANGLADESH_TIME"
           fi
           git push
-          echo "🎉 Successfully updated $TOTAL_CHANNELS channels with $TOTAL_URLS URLs at $BANGLADESH_TIME!"
+          echo "🎉 Successfully updated All Channel 🔄 at $BANGLADESH_TIME!"
         fi
         
     - name: Cleanup
@@ -329,7 +290,6 @@ jobs:
       run: |
         echo "🎊 Workflow completed successfully!"
         echo "📅 Next update in 5 minutes"
-        echo "📊 Channel statistics saved in commit message"
         
     - name: Failure Notification
       if: failure()
