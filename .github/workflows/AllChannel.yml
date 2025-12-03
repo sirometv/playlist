@@ -128,7 +128,7 @@ jobs:
             
             # সব keywords এর জন্য চেষ্টা করুন
             for keyword in keywords:
-                pattern = r'#EXTINF:[^\n]{}[^\n]\n(http[^\n]+)'.format(re.escape(keyword))
+                pattern = r'#EXTINF:[^\n]*{}[^\n]*\n(http[^\n]+)'.format(re.escape(keyword))
                 match = re.search(pattern, content, re.IGNORECASE)
                 
                 if match:
@@ -144,7 +144,7 @@ jobs:
             timestamp = get_bangladesh_time()
             
             # Pattern: #EXTINF লাইন যেখানে channel_name আছে
-            pattern_extinf = r'(#EXTINF:-1[^\n]{}[^\n]\n)'.format(re.escape(channel_name))
+            pattern_extinf = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
             
             match = re.search(pattern_extinf, main_content, re.IGNORECASE)
             if not match:
@@ -158,11 +158,11 @@ jobs:
             
             if is_manual_run:
                 # Manual run: নতুন AUTO-UPDATED লাইন যোগ করবে (যদি না থাকে)
-                auto_updated_pattern = r'(#EXTINF:-1[^\n]{}[^\n]\n)(#AUTO-UPDATED[^\n]*\n)'.format(re.escape(channel_name))
+                auto_updated_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)'.format(re.escape(channel_name))
                 
                 if re.search(auto_updated_pattern, main_content, re.IGNORECASE):
                     # AUTO-UPDATED already exists, replace the entire AUTO-UPDATED line with new one
-                    pattern = r'(#EXTINF:-1[^\n]{}[^\n]\n)(#AUTO-UPDATED[^\n]\n)(http[^\n]\n)'.format(re.escape(channel_name))
+                    pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(http[^\n]*\n)'.format(re.escape(channel_name))
                     
                     def replacement(match):
                         return match.group(1) + auto_updated_line + new_url + "\n"
@@ -171,7 +171,7 @@ jobs:
                     print(f"✅ Manual run: Updated AUTO-UPDATED line for {channel_name}")
                 else:
                     # No AUTO-UPDATED exists, add it after EXTINF line
-                    pattern = r'(#EXTINF:-1[^\n]{}[^\n]\n)'.format(re.escape(channel_name))
+                    pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
                     
                     def replacement(match):
                         return match.group(1) + auto_updated_line + new_url + "\n"
@@ -182,7 +182,7 @@ jobs:
                 return updated_content
             else:
                 # Scheduled run: শুধু AUTO-UPDATED লাইন এবং URL রিপ্লেস করবে
-                pattern = r'(#EXTINF:-1[^\n]{}[^\n]\n)(#AUTO-UPDATED[^\n]\n)(http[^\n]\n)'.format(re.escape(channel_name))
+                pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(http[^\n]*\n)'.format(re.escape(channel_name))
                 
                 def replacement(match):
                     return match.group(1) + auto_updated_line + new_url + "\n"
@@ -193,7 +193,7 @@ jobs:
                     return updated_content
                 else:
                     # যদি AUTO-UPDATED না থাকে, কিন্তু চ্যানেল থাকলে নতুন যোগ করবে
-                    pattern_extinf_only = r'(#EXTINF:-1[^\n]{}[^\n]\n)'.format(re.escape(channel_name))
+                    pattern_extinf_only = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
                     
                     def add_auto_updated(match):
                         return match.group(1) + auto_updated_line + new_url + "\n"
@@ -223,7 +223,7 @@ jobs:
                 updated_content = update_channel_url(updated_content, main_channel, new_url, is_manual_run)
                 update_count += 1
             else:
-                print(f"⚠ Skipping {main_channel} - no URL found")
+                print(f"⚠️ Skipping {main_channel} - no URL found")
         
         # আপডেট করা কন্টেন্ট সেভ করুন
         with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
