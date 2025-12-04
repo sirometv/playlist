@@ -34,10 +34,14 @@
 
 
 
-#AUTO-UPDATED - Multiple Groups - 2025-12-05 05:38:45AM BD Time
+#AUTO-UPDATED - Multiple Groups - 2025-12-05 05:47:30AM BD Time
 # --- Live Event Group ---
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/NZ-vs-WI_Test_old.jpg" group-title="Live Event", Fancode
 https://sonypartnersdaimenew.akamaized.net/hls/live/2018457/DAI35ME-wivsnz/master.m3u8?hdnea=exp=1764926954~acl=/*~id=43906148371958557398158050451474~hmac=5dce187d38b040a8442095284d71c5c5219d8379990256b6e14972f5e1d64a45
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/134030_5609_NSW_QUN_fc-Web.jpg" group-title="Live Event", Fancode
+https://bd-mc-fdlive.fancode.com/mumbai/134030_english_hls_9444508c2d29886_1ta-di_h264/index.m3u8
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/134029_5609_VCT_WAU_fc-Web.jpg" group-title="Live Event", Fancode
+https://bd-mc-fdlive.fancode.com/mumbai/134029_english_hls_af4f51ce7069711_1ta-di_h264/index.m3u8
 
 # No channels found for any configured group
 
