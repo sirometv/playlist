@@ -641,17 +641,13 @@ http://103.145.48.150:90/laosat24/taratv/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/h4zXSs8L/download.png" group-title="Indian-Bangla", Mon TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/montv.stream/tracks-v1a1/mono.m3u8
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/QM0BMFdf/image.jpg" group-title="Indian-Bangla", Amar Bangla
-https://live-stream.utkalbongo.com/utkalbongo/stream10/hls/amarbangla.m3u8
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/amarbanglatv.stream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/t4FZYr51/2-C5-DZ9p-VXS.jpg" group-title="Indian-Bangla", Amar Bangla Digital
-https://live-stream.utkalbongo.com/utkalbongo/stream2/hls/amarbanglatwolivestream.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/SK6hQgdZ/image.jpg" group-title="Indian-Bangla", Ruposhi Bangla
 https://cdn-4.pishow.tv/live/1039/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/hGbkRfPq/image.jpg" group-title="Indian-Bangla", Sun Bangla
+https://cdn-4.pishow.tv/live/1039/1039_1.m3u8
 https://cdn-4.pishow.tv/live/1039/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/ZKG29rC2/image.jpg" group-title="Indian-Bangla", Sun Bangla Cinema
@@ -688,6 +684,13 @@ https://tvsen6.aynaott.com/kolkatatv/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/CxMPnmwr/image.jpg" group-title="Indian-Bangla", Amar Cinema
 https://tvsen6.aynaott.com/kolkatatv/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/QM0BMFdf/image.jpg" group-title="Indian-Bangla", Amar Bangla
+https://live-stream.utkalbongo.com/utkalbongo/stream10/hls/amarbangla.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/amarbanglatv.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/t4FZYr51/2-C5-DZ9p-VXS.jpg" group-title="Indian-Bangla", Amar Bangla Digital
+https://live-stream.utkalbongo.com/utkalbongo/stream2/hls/amarbanglatwolivestream.m3u8
+
 
 #EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
 
@@ -710,8 +713,8 @@ https://tvsen6.aynaott.com/kolkatatv/index.m3u8
 https://server.thelegitpro.in/pratidintime/pratidintime/index.fmp4.m3u8
 
 
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/qvy1Yqp6/image.jpg" group-title="Indian-Bangla", Bangla Jago
+http://banglajagotv.livebox.co.in:80/banglajagohls/24x7.m3u8
 
 
 
@@ -775,75 +778,33 @@ https://yupprestreamliveus.akamaized.net/vglive-sk-664562/ananda/master.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/FKLKybZH/image.jpg" group-title="Indian-Bangla", Samay Kolkata
 https://server.livelegitpro.in/samaykolkata/samaykolkata/index.m3u8
 
-
-
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/3RZ0GC8G/image.jpg" group-title="Indian-Bangla", High News
-http://highmedia.livebox.co.in:80/HIGHNEWShls/LIVE.m3u8
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-
-
-
-
-
-
-
-
-
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/VLYK0ssr/l-XRw-SO-RTuq-SVs-LJCl-Hib-Q.jpg" group-title="Indian-Bangla", Bangla+
-https://live-stream.utkalbongo.com/hls/livebanglatvstream.m3u8
-
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/j5mK7Bx7/resized-300x180-ffffff-27.jpg" group-title="Indian-Bangla", Republick Bangla
 https://anywhere.pwisetthon.com/https://amg01218-republictvfast-amg01218c1-samsung-in-1918.playouts.now.amagi.tv/playlist/amg01218-republictvfast-rbangla-samsungin/playlist.m3u8
 https://yupprestreamliveus.akamaized.net/out/v1/vglive-sk-613605/9a5954cd7b7648b78160649038cfd0e4/main.m3u8
 https://live-stream.utkalbongo.com/utkalbongo/stream10/hls/amarbangla.m3u8
 https://cdn-4.pishow.tv/live/969/master.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/QtrvW8x9/image.jpg" group-title="Indian-Bangla", TV9 Bangla
+https://amg01448-samsungin-tv9bangla-samsungin-9lgnh.amagi.tv/playlist/amg01448-samsungin-tv9bangla-samsungin/playlist.m3u8
+https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/3RZ0GC8G/image.jpg" group-title="Indian-Bangla", High News
+http://highmedia.livebox.co.in:80/HIGHNEWShls/LIVE.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Y0N1RG6r/image.jpg" group-title="Indian-Bangla", News Live
+https://prideeast.thelegitpro.in/newslive/newslive/tracks-v1/index.fmp4.m3u8
+# সোর্স https://newslivetv.com/live-tv/
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/SNJSWFkM/image.jpg" group-title="Indian-Bangla", AB Ananda Barta
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/anandabarta.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/VLYK0ssr/l-XRw-SO-RTuq-SVs-LJCl-Hib-Q.jpg" group-title="Indian-Bangla", Bangla+
+https://live-stream.utkalbongo.com/hls/livebanglatvstream.m3u8
+
+
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Kj2qw5QW/resized-300x180-ffffff-29.jpg" group-title="Indian-Bangla", News 18 বাংলা
@@ -854,29 +815,76 @@ https://amg01448-samsungin-news18bangla-samsungin-ad-qy.amagi.tv/playlist/amg014
 https://ythls.armelin.one/channel/UCAjBd-r8JWfnRjfhg23nqLQ.m3u8
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/QtrvW8x9/image.jpg" group-title="Indian-Bangla", TV9 Bangla
-https://amg01448-samsungin-tv9bangla-samsungin-9lgnh.amagi.tv/playlist/amg01448-samsungin-tv9bangla-samsungin/playlist.m3u8
-https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9banaen8yq/liveabr/playlist.m3u8
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
-
-
-
-
-
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/9MfvCxxm/image.jpg" group-title="Indian-Bangla", DD Bangla
 https://d3eyhgoylams0m.cloudfront.net/v1/manifest/93ce20f0f52760bf38be911ff4c91ed02aa2fd92/ed7bd2c7-8d10-4051-b397-2f6b90f99acb/2e9e32a4-c4f7-49c3-96d6-c4e3660c7e3f/2.m3u8
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/52b998e9510d41c29ad2ceca8ea3d849/index.m3u8
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/NfVT45hL/image.jpg" group-title="Indian-Bangla", Ruposhi Bangla
-https://cdn-4.pishow.tv/live/1039/master.m3u8
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/26QwcKYX/image.jpg" group-title="Indian-Bangla", HRS 24 TV
+https://server.livelegitpro.in/24hourstv/24hourstv/tracks-v1a1/mono.ts.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/1tDQWsfX/image.jpg" group-title="Indian-Bangla", Dy 365
+https://cdn.smartstream.video/smartstream-us/dy365/dy365/playlist.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/cHGqt2TT/image.jpg" group-title="Indian-Bangla", DD Bangla
+https://d3eyhgoylams0m.cloudfront.net/v1/manifest/93ce20f0f52760bf38be911ff4c91ed02aa2fd92/ed7bd2c7-8d10-4051-b397-2f6b90f99acb/2e9e32a4-c4f7-49c3-96d6-c4e3660c7e3f/2.m3u8
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/mk68CFBk/image.jpg" group-title="Indian-Bangla", DD Bangla DurDorshon
+https://d3eyhgoylams0m.cloudfront.net/v1/manifest/93ce20f0f52760bf38be911ff4c91ed02aa2fd92/ed7bd2c7-8d10-4051-b397-2f6b90f99acb/2e9e32a4-c4f7-49c3-96d6-c4e3660c7e3f/2.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/LsCTr1g7/image.jpg" group-title="Indian-Bangla", DD Tripura
+https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/52b998e9510d41c29ad2ceca8ea3d849/index.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/sxc94Gzp/image.jpg" group-title="Indian-Bangla", News Time Bangla
+https://yuppparoriglin.akamaized.net/181224/smil:newstime.smil/hdntl=exp=1765791877~acl=%2f*~data=hdntl~hmac=45ca8f994b5845a79fffc2c443c5455589f6af8d0b2fc0fec8f7be089ccd7cb7/chunklist_b664000.m3u8
+# সোর্সঃ https://www.yupptv.com/channels/news-time/live
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/hvyQGLcq/image.jpg" group-title="Indian-Bangla", Channel Win
+https://cdn.smartstream.video/smartstream-us/channelwinlive/channelwinlive/playlist.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/tgkqyX98/image.jpg" group-title="Indian-Bangla", Express News
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/expressnews.stream/playlist.m3u8
+
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
+
+
+
+
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bangla", 
+
+
+
+
+
+
+
+
+
 
 
 
@@ -972,6 +980,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
