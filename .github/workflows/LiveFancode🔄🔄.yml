@@ -116,7 +116,7 @@ jobs:
             timestamp = get_bangladesh_time()
             
             # সব গ্রুপের জন্য combined section তৈরি করা
-            new_combined_section = f"#AUTO-UPDATED - Multiple Groups - {timestamp}\n"
+            new_combined_section = f"#AUTO-UPDATED - 🟢 Groups Channels 🟢 - {timestamp}\n"
             
             total_channels = 0
             has_any_channels = False
