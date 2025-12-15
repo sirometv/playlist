@@ -195,7 +195,7 @@ jobs:
                 return updated_content
             else:
                 # Scheduled run: শুধু AUTO-UPDATED লাইন এবং URL রিপ্লেস করবে
-                pattern = r'(#EXTINF:-1[^\n]*{}[^\ন]*\n)(#AUTO-UPDATED[^\ন]*\n)(http[^\ন]*\n)'.format(re.escape(channel_name))
+                pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(http[^\n]*\n)'.format(re.escape(channel_name))
                 
                 def replacement(match):
                     return match.group(1) + auto_updated_line + new_url + "\n"
@@ -206,7 +206,7 @@ jobs:
                     return updated_content
                 else:
                     # যদি AUTO-UPDATED না থাকে, কিন্তু চ্যানেল থাকলে নতুন যোগ করবে
-                    pattern_extinf_only = r'(#EXTINF:-1[^\ন]*{}[^\ন]*\n)'.format(re.escape(channel_name))
+                    pattern_extinf_only = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
                     
                     def add_auto_updated(match):
                         return match.group(1) + auto_updated_line + new_url + "\n"
@@ -262,7 +262,7 @@ jobs:
         import pytz
         
         # ⚙️ CONFIGURATION
-        TARGET_LINE_NUMBER = 25  # লাইন নম্বর পরিবর্তন করুন
+        TARGET_LINE_NUMBER = 37  # আপনার ইচ্ছামত লাইন নম্বর পরিবর্তন করুন
         
         # গ্রুপ টাইটেলের লিস্ট
         TARGET_GROUP_TITLES = [
@@ -329,69 +329,31 @@ jobs:
             print(f"✅ Found {len(channels)} channels for group '{group_title}'")
             return channels
         
-        def find_and_remove_all_fancode_sections(main_content):
-            """সব Fancode সম্পর্কিত AUTO-UPDATED সেকশন খুঁজে এবং সরানো"""
-            lines = main_content.split('\n')
-            
-            sections_to_remove = []
-            current_section_start = -1
-            
-            for i, line in enumerate(lines):
-                # যদি নতুন AUTO-UPDATED সেকশন শুরু হয় (Fancode/Groups Channels)
-                if '#AUTO-UPDATED' in line and ('Groups Channels' in line or '🟢' in line or 'Live Event' in line):
-                    current_section_start = i
-                    print(f"🔍 Found Fancode section at line {i+1}: {line}")
-                
-                # যদি সেকশন চলমান থাকে
-                elif current_section_start != -1:
-                    # সেকশনের শেষ কোথায় তা নির্ধারণ করা
-                    is_section_line = (
-                        line.startswith('#EXTINF') or
-                        line.startswith('http') or
-                        line.startswith('# ---') or
-                        line.startswith('#AUTO-UPDATED') or
-                        (line.strip() == '')
-                    )
-                    
-                    if not is_section_line:
-                        sections_to_remove.append((current_section_start, i))
-                        current_section_start = -1
-            
-            # শেষ সেকশনটি যদি শেষ পর্যন্ত চলে
-            if current_section_start != -1:
-                sections_to_remove.append((current_section_start, len(lines)))
-            
-            # সেকশনগুলো উল্টো দিক থেকে সরানো (ইনডেক্স সমস্যা এড়ানোর জন্য)
-            for start, end in reversed(sections_to_remove):
-                print(f"🗑️ Removing section lines {start+1}-{end}")
-                del lines[start:end]
-            
-            return '\n'.join(lines)
-        
-        def create_new_fancode_section(main_content, all_group_channels, target_line):
-            """নতুন Fancode সেকশন তৈরি এবং নির্দিষ্ট লাইনে যোগ করা"""
+        def force_groups_at_line(main_content, all_group_channels, target_line):
+            """সবসময় নির্দিষ্ট লাইনে সব গ্রুপের সেকশন রাখে"""
             timestamp = get_bangladesh_time()
             
-            # নতুন সেকশন তৈরি করা
-            new_section = f"#AUTO-UPDATED - 🟢 Groups Channels 🟢 - {timestamp}\n"
+            # সব গ্রুপের জন্য combined section তৈরি করা
+            new_combined_section = f"#AUTO-UPDATED - 🟢 Groups Channels 🟢 - {timestamp}\n"
             
             total_channels = 0
             has_any_channels = False
             
             for group_title, channels in all_group_channels.items():
-                if channels and len(channels) > 0:
-                    new_section += f"# --- {group_title} Group ---\n"
+                if channels and len(channels) > 0:  # শুধু channels থাকলে এবং empty না হলে যোগ করবে
+                    new_combined_section += f"# --- {group_title} Group ---\n"
                     
                     for channel in channels:
-                        # নতুন EXTINF লাইন তৈরি করা
+                        # নতুন EXTINF লাইন তৈরি করা - গ্রুপ অনুযায়ী চ্যানেল নাম
                         new_extinf_line = f'#EXTINF:-1 tvg-logo="{channel["tvg_logo"]}" group-title="{group_title}", {channel["channel_name"]}\n'
-                        new_section += new_extinf_line
-                        new_section += channel["url_line"] + "\n"
+                        new_combined_section += new_extinf_line
+                        new_combined_section += channel["url_line"] + "\n"
                     
                     total_channels += len(channels)
                     has_any_channels = True
                     print(f"📺 Added {len(channels)} channels for {group_title}")
             
+            # No channels found লাইন যোগ করা হবে না
             if not has_any_channels:
                 print("ℹ️ No channels found for any active group - creating empty AUTO-UPDATED section")
             
@@ -406,17 +368,43 @@ jobs:
             
             print(f"📍 Target line: {target_line} (Total lines: {len(lines)})")
             
-            # নতুন সেকশন টার্গেট লাইনে যোগ করা
+            # existing ANY AUTO-UPDATED section খুঁজে বের করা এবং সরানো (পুরানো সব versions)
+            auto_updated_start = -1
+            auto_updated_end = -1
+            
+            # existing section এর শুরু এবং শেষ খুঁজা - ANY AUTO-UPDATED section
+            for i, line in enumerate(lines):
+                if '#AUTO-UPDATED' in line and 'Multiple Groups' in line:
+                    auto_updated_start = i
+                    print(f"🔍 Found existing AUTO-UPDATED section at line {i+1}")
+                    # section এর শেষ খুঁজা
+                    for j in range(i + 1, len(lines)):
+                        if not (lines[j].startswith('#EXTINF') or lines[j].startswith('http') or lines[j].startswith('# ---') or lines[j].strip() == ''):
+                            auto_updated_end = j
+                            break
+                    if auto_updated_end == -1:
+                        auto_updated_end = len(lines)
+                    break
+            
+            if auto_updated_start != -1:
+                print(f"🗑️ Removing existing AUTO-UPDATED section (lines {auto_updated_start+1}-{auto_updated_end})")
+                # existing section সরানো
+                lines = lines[:auto_updated_start] + lines[auto_updated_end:]
+            
+            # নতুন section টার্গেট লাইনে যোগ করা
             insert_position = target_line - 1  # 0-based index
+            
+            # যদি insert position existing removal এর পর পরিবর্তন হয়ে থাকে, adjust করা
+            if auto_updated_start != -1 and auto_updated_start < insert_position:
+                insert_position -= (auto_updated_end - auto_updated_start)
             
             if insert_position > len(lines):
                 insert_position = len(lines)
             
-            # নতুন লাইন যোগ করা
-            new_lines = lines[:insert_position] + new_section.split('\n') + lines[insert_position:]
+            new_lines = lines[:insert_position] + new_combined_section.split('\n') + lines[insert_position:]
             updated_content = '\n'.join(new_lines)
             
-            print(f"✅ New Fancode section created at line {target_line}")
+            print(f"✅ Multiple Groups section positioned at line {target_line}")
             
             return updated_content, total_channels
         
@@ -438,10 +426,6 @@ jobs:
         
         print(f"🎯 Active groups: {active_groups}")
         
-        # প্রথমে সব পুরানো Fancode সেকশন মুছে ফেলুন
-        print("\n🗑️ Removing all existing Fancode sections...")
-        main_content = find_and_remove_all_fancode_sections(main_content)
-        
         # প্রতিটি active গ্রুপ টাইটেলের জন্য চ্যানেল extract করুন
         all_group_channels = {}
         total_found_channels = 0
@@ -458,10 +442,14 @@ jobs:
             else:
                 print(f"ℹ️ No channels found for group '{group_title}', skipping...")
         
-        # নতুন Fancode সেকশন তৈরি করুন
-        updated_content, total_added_channels = create_new_fancode_section(
-            main_content, all_group_channels, TARGET_LINE_NUMBER
-        )
+        # যদি কোন গ্রুপেই চ্যানেল না থাকে, তাহলে শুধু empty AUTO-UPDATED section তৈরি করবে
+        if not has_any_channels_found:
+            print("ℹ️ No channels found for any active group, creating empty AUTO-UPDATED section...")
+            # শুধু timestamp সহ AUTO-UPDATED লাইন যোগ করবে
+            all_group_channels = {}  # খালি রাখা
+        
+        # মেইন প্লেলিস্ট আপডেট করুন - সবসময় TARGET_LINE_NUMBER এ রাখবে
+        updated_content, total_added_channels = force_groups_at_line(main_content, all_group_channels, TARGET_LINE_NUMBER)
         
         # আপডেট করা কন্টেন্ট ফাইনাল ফাইলে সেভ করুন
         with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
@@ -486,6 +474,7 @@ jobs:
                 status = "✅" if channel_count > 0 else "❌"
                 
                 if channel_count > 0:
+                    first_channel_name = channels[0]['channel_name']
                     naming_strategy = ""
                     if group_title == "Live Event":
                         naming_strategy = "(all named 'Fancode')"
@@ -497,6 +486,8 @@ jobs:
                         naming_strategy = "(original names)"
                     
                     print(f"   {status} {group_title}: {channel_count} channels {naming_strategy}")
+                    if group_title == "Akash Go" and channel_count > 0:
+                        print(f"      Sample: {first_channel_name}")
                 else:
                     print(f"   {status} {group_title}: {channel_count} channels")
             else:
@@ -536,30 +527,23 @@ jobs:
             echo "✅ All Channel updates verified"
         fi
         
-        # Check Live Fancode updates - শুধু একবারই থাকবে
+        # Check Live Fancode updates
         echo "🔍 Checking Live Fancode 🔄 updates:"
-        FANCODE_SECTIONS=$(grep -c "#AUTO-UPDATED - 🟢 Groups Channels 🟢" sirometv_updated.m3u || echo "0")
-        echo "   Fancode sections found: $FANCODE_SECTIONS"
+        MULTIPLE_GROUPS_SECTION=$(grep -c "#AUTO-UPDATED - Multiple Groups" sirometv_updated.m3u || echo "0")
+        echo "   Multiple Groups section: $MULTIPLE_GROUPS_SECTION"
         
-        if [ "$FANCODE_SECTIONS" -eq "0" ]; then
-            echo "⚠️ Warning: No Fancode section found"
-        elif [ "$FANCODE_SECTIONS" -gt "1" ]; then
-            echo "❌ ERROR: Multiple Fancode sections found! Should be only 1"
-            exit 1
+        if [ "$MULTIPLE_GROUPS_SECTION" -eq "0" ]; then
+            echo "⚠️ Warning: No Multiple Groups section found"
         else
-            echo "✅ Only one Fancode section found (correct)"
-        fi
-        
-        # Check section position
-        if [ "$FANCODE_SECTIONS" -gt "0" ]; then
-            SECTION_LINE=$(grep -n "#AUTO-UPDATED - 🟢 Groups Channels 🟢" sirometv_updated.m3u | cut -d: -f1)
-            echo "   📍 Fancode section at line: $SECTION_LINE"
+            # Check section position
+            SECTION_LINE=$(grep -n "#AUTO-UPDATED - Multiple Groups" sirometv_updated.m3u | cut -d: -f1)
+            echo "   📍 Multiple Groups section at line: $SECTION_LINE"
             
             # Check if at correct line
-            if [ "$SECTION_LINE" -ne "25" ]; then
-                echo "⚠️ Warning: Fancode section not at line 25 (found at line $SECTION_LINE)"
+            if [ "$SECTION_LINE" -ne "37" ]; then
+                echo "⚠️ Warning: Multiple Groups section not at line 37 (found at line $SECTION_LINE)"
             else
-                echo "✅ Fancode section correctly positioned at line 25"
+                echo "✅ Multiple Groups section correctly positioned at line 37"
             fi
         fi
         
@@ -567,16 +551,12 @@ jobs:
         LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometv_updated.m3u || echo "0")
         echo "   📺 Live Event channels: $LIVE_EVENT_COUNT"
         
-        # Verify no duplicate timestamps
-        echo "🔍 Checking for duplicate timestamps:"
-        TIMESTAMP_COUNT=$(grep -o "BD Time" sirometv_updated.m3u | wc -l || echo "0")
-        FANCODE_TIMESTAMPS=$(grep -c "Groups Channels 🟢 -.*BD Time" sirometv_updated.m3u || echo "0")
-        
-        if [ "$FANCODE_TIMESTAMPS" -gt "1" ]; then
-            echo "❌ ERROR: Multiple Fancode timestamps found!"
+        # Verify no "No channels found" lines
+        if grep -q "No channels found" sirometv_updated.m3u; then
+            echo "❌ ERROR: 'No channels found' line still exists!"
             exit 1
         else
-            echo "✅ Only one Fancode timestamp found"
+            echo "✅ 'No channels found' line is completely removed!"
         fi
         
         # Move final file to main playlist
@@ -601,7 +581,6 @@ jobs:
           # Calculate channel counts
           ALL_CHANNEL_UPDATES=$(grep -c "#AUTO-UPDATED -.*✅-" sirometv.m3u || echo "0")
           LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometv.m3u || echo "0")
-          FANCODE_TIMESTAMP=$(grep -o "Groups Channels 🟢 -.*BD Time" sirometv.m3u | head -1 | sed 's/.*- //')
           
           COMMIT_MESSAGE="🔄 Combined Update: "
           
@@ -611,13 +590,7 @@ jobs:
             COMMIT_MESSAGE+="Scheduled Run - "
           fi
           
-          COMMIT_MESSAGE+="All Channel ($ALL_CHANNEL_UPDATES updates) + Fancode ($LIVE_EVENT_COUNT channels)"
-          
-          if [ -n "$FANCODE_TIMESTAMP" ]; then
-            COMMIT_MESSAGE+=" - $FANCODE_TIMESTAMP"
-          else
-            COMMIT_MESSAGE+=" - $BANGLADESH_TIME"
-          fi
+          COMMIT_MESSAGE+="All Channel ($ALL_CHANNEL_UPDATES updates) + Live Event ($LIVE_EVENT_COUNT channels) - $BANGLADESH_TIME"
           
           git commit -m "$COMMIT_MESSAGE"
           git push
@@ -626,11 +599,7 @@ jobs:
           echo "📊 Summary:"
           echo "   All Channel 🔄: $ALL_CHANNEL_UPDATES channels updated"
           echo "   Live Event: $LIVE_EVENT_COUNT channels"
-          if [ -n "$FANCODE_TIMESTAMP" ]; then
-            echo "   Fancode update time: $FANCODE_TIMESTAMP"
-          else
-            echo "   Time: $BANGLADESH_TIME"
-          fi
+          echo "   Time: $BANGLADESH_TIME"
         fi
         
     - name: Cleanup
