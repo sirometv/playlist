@@ -334,7 +334,7 @@ jobs:
             timestamp = get_bangladesh_time()
             
             # সব গ্রুপের জন্য combined section তৈরি করা
-            new_combined_section = f"#AUTO-UPDATED - Multiple Groups - {timestamp}\n"
+            new_combined_section = f"#AUTO-UPDATED - 🟢 Groups Channels 🟢 - {timestamp}\n"
             
             total_channels = 0
             has_any_channels = False
@@ -529,14 +529,14 @@ jobs:
         
         # Check Live Fancode updates
         echo "🔍 Checking Live Fancode 🔄 updates:"
-        MULTIPLE_GROUPS_SECTION=$(grep -c "#AUTO-UPDATED - Multiple Groups" sirometv_updated.m3u || echo "0")
+        MULTIPLE_GROUPS_SECTION=$(grep -c "#AUTO-UPDATED - 🟢 Groups Channels 🟢" sirometv_updated.m3u || echo "0")
         echo "   Multiple Groups section: $MULTIPLE_GROUPS_SECTION"
         
         if [ "$MULTIPLE_GROUPS_SECTION" -eq "0" ]; then
             echo "⚠️ Warning: No Multiple Groups section found"
         else
             # Check section position
-            SECTION_LINE=$(grep -n "#AUTO-UPDATED - Multiple Groups" sirometv_updated.m3u | cut -d: -f1)
+            SECTION_LINE=$(grep -n "#AUTO-UPDATED - 🟢 Groups Channels 🟢" sirometv_updated.m3u | cut -d: -f1)
             echo "   📍 Multiple Groups section at line: $SECTION_LINE"
             
             # Check if at correct line
