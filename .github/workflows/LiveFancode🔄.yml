@@ -135,9 +135,11 @@ jobs:
                     has_any_channels = True
                     print(f"📺 Added {len(channels)} channels for {group_title}")
             
+            # ⚡ EDIT START: এই লাইনটি সম্পূর্ণভাবে মুছে ফেলা হয়েছে
+            # আগে ছিল: if not has_any_channels: new_combined_section += "# No channels found for any configured group\n"
+            # এখন: শুধু চ্যানেল না থাকলে কোন লাইন যোগ করবে না
             if not has_any_channels:
-                new_combined_section += "# No channels found for any configured group\n"
-                print("⚠️ No channels found for any active group")
+                print("ℹ️ No channels found for any active group - creating empty AUTO-UPDATED section")
             
             # মেইন কন্টেন্টকে লাইনে ভাগ করা
             lines = main_content.split('\n')
@@ -150,70 +152,43 @@ jobs:
             
             print(f"📍 Target line: {target_line} (Total lines: {len(lines)})")
             
-            # ALL AUTO-UPDATED sections খুঁজে বের করা এবং সরানো
-            # আমরা সব ধরনের AUTO-UPDATED sections (পুরানো এবং নতুন) খুঁজে বের করব
+            # existing ANY AUTO-UPDATED section খুঁজে বের করা এবং সরানো (পুরানো সব versions)
+            auto_updated_start = -1
+            auto_updated_end = -1
             
-            sections_to_remove = []
-            current_section_start = -1
-            
-            # প্রথমে সব AUTO-UPDATED sections খুঁজে বের করা
+            # existing section এর শুরু এবং শেষ খুঁজা - ANY AUTO-UPDATED section
             for i, line in enumerate(lines):
                 if '#AUTO-UPDATED' in line:
-                    current_section_start = i
-                    print(f"🔍 Found AUTO-UPDATED section at line {i+1}")
-                    
-                    # এই section এর শেষ খুঁজা
-                    section_end = -1
+                    auto_updated_start = i
+                    print(f"🔍 Found existing AUTO-UPDATED section at line {i+1}")
+                    # section এর শেষ খুঁজা
                     for j in range(i + 1, len(lines)):
-                        # যদি নতুন section শুরু হয় অথবা অন্য কোনো #EXTINF লাইন থাকে
-                        if '#AUTO-UPDATED' in lines[j]:
-                            section_end = j
+                        if not (lines[j].startswith('#EXTINF') or lines[j].startswith('http') or lines[j].startswith('# ---') or lines[j].strip() == ''):
+                            auto_updated_end = j
                             break
-                        # যদি ফাইল শেষ হয়ে যায়
-                        if j == len(lines) - 1:
-                            section_end = len(lines)
-                            break
-                        # যদি অন্য কোনো নন-রিলেটেড লাইন থাকে
-                        if lines[j].strip() and not lines[j].startswith('#') and not lines[j].startswith('http'):
-                            # চেক করা যে এটি এই section এর অংশ কিনা
-                            if j > i + 1:
-                                section_end = j
-                                break
-                    
-                    if section_end == -1:
-                        section_end = len(lines)
-                    
-                    sections_to_remove.append((current_section_start, section_end))
-                    print(f"🗑️ Marked section for removal: lines {current_section_start+1}-{section_end}")
+                    if auto_updated_end == -1:
+                        auto_updated_end = len(lines)
+                    break
             
-            # সব sections একসাথে সরানো (পিছন থেকে সামনের দিকে)
-            if sections_to_remove:
-                for start, end in reversed(sections_to_remove):
-                    print(f"🗑️ Removing section: lines {start+1}-{end}")
-                    lines = lines[:start] + lines[end:]
+            if auto_updated_start != -1:
+                print(f"🗑️ Removing existing AUTO-UPDATED section (lines {auto_updated_start+1}-{auto_updated_end})")
+                # existing section সরানো
+                lines = lines[:auto_updated_start] + lines[auto_updated_end:]
             
             # নতুন section টার্গেট লাইনে যোগ করা
             insert_position = target_line - 1  # 0-based index
             
-            # sections রিমুভ করার পর insert position adjust করা
-            removed_lines_count = 0
-            for start, end in sections_to_remove:
-                if start < insert_position + removed_lines_count:
-                    removed_lines_count += (end - start)
+            # যদি insert position existing removal এর পর পরিবর্তন হয়ে থাকে, adjust করা
+            if auto_updated_start != -1 and auto_updated_start < insert_position:
+                insert_position -= (auto_updated_end - auto_updated_start)
             
-            # Adjust insert position
-            adjusted_position = insert_position
-            if removed_lines_count > 0 and insert_position >= sections_to_remove[0][0]:
-                adjusted_position = insert_position - removed_lines_count
-                print(f"📍 Adjusted insert position from {insert_position} to {adjusted_position}")
+            if insert_position > len(lines):
+                insert_position = len(lines)
             
-            if adjusted_position > len(lines):
-                adjusted_position = len(lines)
-            
-            new_lines = lines[:adjusted_position] + new_combined_section.split('\n') + lines[adjusted_position:]
+            new_lines = lines[:insert_position] + new_combined_section.split('\n') + lines[insert_position:]
             updated_content = '\n'.join(new_lines)
             
-            print(f"✅ Multiple Groups section positioned at line {adjusted_position + 1}")
+            print(f"✅ Multiple Groups section positioned at line {target_line}")
             
             return updated_content, total_channels
         
@@ -249,12 +224,13 @@ jobs:
                 total_found_channels += len(channels)
                 has_any_channels_found = True
             else:
-                print(f"⚠️ No channels found for group '{group_title}', skipping...")
+                print(f"ℹ️ No channels found for group '{group_title}', skipping...")
         
-        # যদি কোন গ্রুপেই চ্যানেল না থাকে, তাহলে শুধু empty section যোগ করবে
+        # যদি কোন গ্রুপেই চ্যানেল না থাকে, তাহলে শুধু empty AUTO-UPDATED section তৈরি করবে
         if not has_any_channels_found:
-            print("⚠️ No channels found for any active group, creating empty section...")
-            all_group_channels = {"No Channels": []}
+            print("ℹ️ No channels found for any active group, creating empty AUTO-UPDATED section...")
+            # শুধু timestamp সহ AUTO-UPDATED লাইন যোগ করবে
+            all_group_channels = {}  # খালি রাখা
         
         # মেইন প্লেলিস্ট আপডেট করুন - সবসময় TARGET_LINE_NUMBER এ রাখবে
         updated_content, total_added_channels = force_groups_at_line(main_content, all_group_channels, TARGET_LINE_NUMBER)
@@ -321,19 +297,13 @@ jobs:
         echo "📍 Checking AUTO-UPDATED sections:"
         grep -n "AUTO-UPDATED" sirometv_updated.m3u
         
-        # চেক করা যে একের অধিক AUTO-UPDATED section আছে কিনা
-        AUTO_COUNT=$(grep -c "AUTO-UPDATED" sirometv_updated.m3u)
-        if [ "$AUTO_COUNT" -gt 1 ]; then
-          echo "⚠️ WARNING: Found $AUTO_COUNT AUTO-UPDATED sections. Should be only 1."
-          echo "This might indicate the old sections were not properly removed."
+        # No channels found লাইন আছে কিনা চেক করা
+        echo "🔍 Checking for 'No channels found' line:"
+        if grep -q "No channels found" sirometv_updated.m3u; then
+          echo "❌ ERROR: 'No channels found' line still exists!"
+          exit 1
         else
-          echo "✅ Only 1 AUTO-UPDATED section found (correct)"
-        fi
-        
-        # চেক করা যে "No channels found" একের অধিক বার আছে কিনা
-        NO_CHANNELS_COUNT=$(grep -c "No channels found" sirometv_updated.m3u)
-        if [ "$NO_CHANNELS_COUNT" -gt 1 ]; then
-          echo "⚠️ WARNING: Found $NO_CHANNELS_COUNT 'No channels found' lines. Should be only 1 or 0."
+          echo "✅ 'No channels found' line is completely removed!"
         fi
         
         mv sirometv_updated.m3u sirometvsports.m3u
