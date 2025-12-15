@@ -262,7 +262,7 @@ jobs:
         import pytz
         
         # ⚙️ CONFIGURATION
-        TARGET_LINE_NUMBER = 37  # আপনার ইচ্ছামত লাইন নম্বর পরিবর্তন করুন
+        TARGET_LINE_NUMBER = 25  # আপনার ইচ্ছামত লাইন নম্বর পরিবর্তন করুন
         
         # গ্রুপ টাইটেলের লিস্ট
         TARGET_GROUP_TITLES = [
