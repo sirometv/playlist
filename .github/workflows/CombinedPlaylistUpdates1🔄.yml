@@ -1,4 +1,4 @@
-name: Combined Playlist Update (All Channel + Live Fancode)
+name: Combined Playlist Updates 1🔄
 on:
   schedule:
     - cron: '*/5 * * * *'
