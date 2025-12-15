@@ -1,4 +1,4 @@
-name: Combined Playlist Updates 1🔄
+name: Combined Playlist Update (All Channel + Live Fancode)
 on:
   schedule:
     - cron: '*/5 * * * *'
@@ -8,8 +8,8 @@ permissions:
   contents: write
 
 jobs:
-  sync-combined:
-    name: Combined Sync - All Channel 🔄 & Live Fancode 🔄🔄
+  sync-all-channels:
+    name: All Channel 🔄 (Channel Mapping)
     runs-on: ubuntu-latest
     
     steps:
@@ -18,18 +18,13 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         
-    - name: Download all playlists
+    - name: Download playlists for All Channel
       run: |
-        echo "📥 Downloading all playlists..."
-        
-        # Main playlist
+        echo "📥 Downloading playlists for All Channel (Channel Mapping)..."
         curl -s -L -o main_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/sirometv.m3u"
+        curl -s -L -o source_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/Ayna.m3u"
         
-        # Source playlists
-        curl -s -L -o ayna_source.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/Ayna.m3u"
-        curl -s -L -o fancode_source.m3u "https://raw.githubusercontent.com/abusaeeidx/Mrgify-BDIX-IPTV/main/playlist.m3u"
-        
-        for file in main_playlist.m3u ayna_source.m3u fancode_source.m3u; do
+        for file in main_playlist.m3u source_playlist.m3u; do
           if [ ! -f "$file" ] || [ ! -s "$file" ]; then
             echo "❌ ERROR: $file download failed!"
             exit 1
@@ -38,9 +33,11 @@ jobs:
           echo "✅ $file downloaded - $LINES lines"
         done
         
-    - name: First: Update All Channel 🔄 (from Ayna.m3u)
+    - name: Update All Channel (Channel Mapping)
       run: |
-        echo "🔄 Step 1: Updating All Channel 🔄 from Ayna.m3u..."
+        echo "🔄 Updating All Channel (Channel Mapping)..."
+        echo "📌 Source: Ayna.m3u → Target: sirometv.m3u"
+        echo "📌 Method: CHANNEL_MAPPING (Specific channel names)"
         
         python3 - << 'EOF'
         import re
@@ -48,7 +45,8 @@ jobs:
         import pytz
         import os
         
-        # চ্যানেল ম্যাপিং - আপনার প্রথম প্লেলিস্টের নাম : সেকেন্ড প্লেলিস্টে খুঁজবে এমন keywords
+        # 🔴 CHANNEL_MAPPING - প্রথম YML (All Channel)
+        # এটি Ayna.m3u থেকে নির্দিষ্ট চ্যানেল নাম অনুযায়ী লিংক আপডেট করে
         CHANNEL_MAPPING = {
             "BTV National": ["BTV NATIONAL HD", "BTV World"],
             "BTV CTG": ["BTV CTG"],
@@ -122,17 +120,14 @@ jobs:
         }
         
         def get_bangladesh_time():
-            """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
             bangladesh_tz = pytz.timezone('Asia/Dhaka')
             now = datetime.now(bangladesh_tz)
             return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
         
         def find_channel_url(source_file, keywords):
-            """সোর্স প্লেলিস্ট থেকে চ্যানেল URL খুঁজে বের করে"""
             with open(source_file, 'r', encoding='utf-8') as f:
                 content = f.read()
             
-            # সব keywords এর জন্য চেষ্টা করুন
             for keyword in keywords:
                 pattern = r'#EXTINF:[^\n]*{}[^\n]*\n(http[^\n]+)'.format(re.escape(keyword))
                 match = re.search(pattern, content, re.IGNORECASE)
@@ -146,10 +141,8 @@ jobs:
             return None
         
         def update_channel_url(main_content, channel_name, new_url, is_manual_run=False):
-            """মেইন প্লেলিস্টে নির্দিষ্ট চ্যানেলের URL আপডেট করে"""
             timestamp = get_bangladesh_time()
             
-            # Pattern: #EXTINF লাইন যেখানে channel_name আছে
             pattern_extinf = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
             
             match = re.search(pattern_extinf, main_content, re.IGNORECASE)
@@ -158,16 +151,12 @@ jobs:
                 return main_content
             
             extinf_line = match.group(1)
-            
-            # ✅ নতুন ফরম্যাট: চ্যানেলের নাম সহ AUTO-UPDATED লাইন
             auto_updated_line = f"#AUTO-UPDATED - {channel_name} ✅- {timestamp} 🟡 - 🔄 - 🔴\n"
             
             if is_manual_run:
-                # Manual run: নতুন AUTO-UPDATED লাইন যোগ করবে (যদি না থাকে)
                 auto_updated_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)'.format(re.escape(channel_name))
                 
                 if re.search(auto_updated_pattern, main_content, re.IGNORECASE):
-                    # AUTO-UPDATED already exists, replace the entire AUTO-UPDATED line with new one
                     pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(http[^\n]*\n)'.format(re.escape(channel_name))
                     
                     def replacement(match):
@@ -176,7 +165,6 @@ jobs:
                     updated_content = re.sub(pattern, replacement, main_content, flags=re.IGNORECASE)
                     print(f"✅ Manual run: Updated AUTO-UPDATED line for {channel_name}")
                 else:
-                    # No AUTO-UPDATED exists, add it after EXTINF line
                     pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
                     
                     def replacement(match):
@@ -187,7 +175,6 @@ jobs:
                 
                 return updated_content
             else:
-                # Scheduled run: শুধু AUTO-UPDATED লাইন এবং URL রিপ্লেস করবে
                 pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)(http[^\n]*\n)'.format(re.escape(channel_name))
                 
                 def replacement(match):
@@ -198,7 +185,6 @@ jobs:
                     print(f"✅ Scheduled run: Updated AUTO-UPDATED line for {channel_name}")
                     return updated_content
                 else:
-                    # যদি AUTO-UPDATED না থাকে, কিন্তু চ্যানেল থাকলে নতুন যোগ করবে
                     pattern_extinf_only = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
                     
                     def add_auto_updated(match):
@@ -208,22 +194,18 @@ jobs:
                     print(f"✅ Scheduled run: Added AUTO-UPDATED line for {channel_name}")
                     return updated_content
         
-        # মেইন প্লেলিস্ট লোড করুন
         with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
             main_content = f.read()
         
-        # Check if manual run or scheduled
         is_manual_run = os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
         
         updated_content = main_content
         update_count = 0
         
-        # প্রতিটি চ্যানেলের জন্য আপডেট করুন
         for main_channel, search_keywords in CHANNEL_MAPPING.items():
-            print(f"\n🔍 Processing: {main_channel}")
-            print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
+            print(f"\n🔍 Processing Channel Mapping: {main_channel}")
             
-            new_url = find_channel_url('ayna_source.m3u', search_keywords)
+            new_url = find_channel_url('source_playlist.m3u', search_keywords)
             
             if new_url:
                 updated_content = update_channel_url(updated_content, main_channel, new_url, is_manual_run)
@@ -231,33 +213,90 @@ jobs:
             else:
                 print(f"⚠️ Skipping {main_channel} - no URL found")
         
-        # Step 1 এর আপডেট করা কন্টেন্ট সেভ করুন (temporary)
-        with open('step1_updated.m3u', 'w', encoding='utf-8') as f:
+        with open('sirometv_temp.m3u', 'w', encoding='utf-8') as f:
             f.write(updated_content)
         
-        print(f"\n🎉 Step 1 (All Channel 🔄) Update Summary:")
+        print(f"\n🎉 All Channel (Channel Mapping) Summary:")
         print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
-        print(f"   Total channels processed: {len(CHANNEL_MAPPING)}")
+        print(f"   Total channels in mapping: {len(CHANNEL_MAPPING)}")
         print(f"   Successfully updated: {update_count}")
         print(f"   Failed: {len(CHANNEL_MAPPING) - update_count}")
         
         EOF
         
-        echo "✅ Step 1 completed. Updated channels count:"
-        grep -c "#AUTO-UPDATED - " step1_updated.m3u || echo "0"
-        
-    - name: Second: Update Live Fancode 🔄🔄 (from playlist.m3u)
+    - name: Verify All Channel update
       run: |
-        echo "🔄 Step 2: Updating Live Fancode 🔄🔄 from playlist.m3u..."
+        echo "🔍 Verifying All Channel (Channel Mapping) update..."
+        
+        if [ ! -f "sirometv_temp.m3u" ] || [ ! -s "sirometv_temp.m3u" ]; then
+          echo "❌ ERROR: Updated playlist is missing or empty!"
+          exit 1
+        fi
+        
+        echo "📊 Showing sample of updated channels:"
+        grep -A 2 "#AUTO-UPDATED" sirometv_temp.m3u | head -20
+        
+        echo "✅ All Channel (Channel Mapping) update successful!"
+        
+    - name: Cleanup All Channel files
+      run: |
+        rm -f main_playlist.m3u source_playlist.m3u
+        echo "✅ All Channel files cleaned up!"
+
+  sync-fancode:
+    name: Live Fancode 🔄🔄 (Group Titles)
+    runs-on: ubuntu-latest
+    needs: sync-all-channels
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Download sirometv_temp.m3u and source playlist
+      run: |
+        echo "📥 Downloading playlists for Live Fancode (Group Titles)..."
+        
+        # All Channel থেকে আপডেট করা temp ফাইলটি লোড করুন
+        if [ -f "sirometv_temp.m3u" ]; then
+          cp sirometv_temp.m3u main_playlist.m3u
+          echo "✅ Loaded All Channel updated playlist"
+        else
+          echo "❌ ERROR: sirometv_temp.m3u not found!"
+          exit 1
+        fi
+        
+        # Live Fancode এর সোর্স প্লেলিস্ট ডাউনলোড করুন
+        curl -s -L -o source_playlist.m3u "https://raw.githubusercontent.com/abusaeeidx/Mrgify-BDIX-IPTV/main/playlist.m3u"
+        
+        for file in main_playlist.m3u source_playlist.m3u; do
+          if [ ! -f "$file" ] || [ ! -s "$file" ]; then
+            echo "❌ ERROR: $file download failed!"
+            exit 1
+          fi
+          LINES=$(wc -l < "$file")
+          echo "✅ $file downloaded - $LINES lines"
+        done
+        
+    - name: Update Live Fancode (Group Titles)
+      run: |
+        echo "🔄 Updating Live Fancode (Group Titles)..."
+        echo "📌 Source: playlist.m3u → Target: sirometv.m3u"
+        echo "📌 Method: TARGET_GROUP_TITLES (Group-based channels)"
         
         python3 - << 'EOF'
         import re
         from datetime import datetime
         import pytz
+        import os
         
-        # ⚙️ CONFIGURATION
-        TARGET_LINE_NUMBER = 4  # লাইন 4 এ গ্রুপগুলো যুক্ত হবে
+        # 🔴 CONFIGURATION - দ্বিতীয় YML (Live Fancode)
+        # এটি playlist.m3u থেকে গ্রুপ টাইটেল অনুযায়ী চ্যানেল, লগো এবং লিংক আপডেট করে
+        TARGET_LINE_NUMBER = 25  # আপনার মেইন প্লেলিস্টের ২৫ নং লাইনে আপডেট হবে
         
+        # 🟢 TARGET_GROUP_TITLES - দ্বিতীয় YML
+        # এটি গ্রুপ টাইটেল অনুযায়ী চ্যানেলগুলো খুঁজে বের করবে
         TARGET_GROUP_TITLES = [
             "Live Event",
             # "Cricket",    # uncomment করতে পারেন যদি প্রয়োজন হয়
@@ -268,34 +307,29 @@ jobs:
         ]
         
         def get_bangladesh_time():
-            """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
             bangladesh_tz = pytz.timezone('Asia/Dhaka')
             now = datetime.now(bangladesh_tz)
             return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
         
         def get_channel_name_strategy(group_title, extinf_line):
-            """গ্রুপ অনুযায়ী চ্যানেল নামের strategy নির্ধারণ করে"""
-            # চ্যানেল নাম extract করা
             channel_name_match = re.search(r',([^,\n]+)$', extinf_line)
             original_name = channel_name_match.group(1).strip() if channel_name_match else ""
             
             if group_title == "Live Event":
-                return "Fancode"  # Live Event গ্রুপের জন্য ডিফল্ট নাম
+                return "Fancode"
             elif group_title == "Sports":
-                return "Sports Live"  # Sports গ্রুপের জন্য ডিফল্ট নাম
+                return "Sports Live"
             elif group_title == "Akash Go":
-                return original_name  # Akash Go গ্রুপের জন্য আসল নাম রাখবে
+                return original_name
             else:
-                return original_name  # অন্যান্য গ্রুপের জন্য আসল নাম
+                return original_name
         
         def extract_group_channels(source_file, group_title):
-            """সোর্স প্লেলিস্ট থেকে নির্দিষ্ট গ্রুপের সব চ্যানেল extract করে"""
             channels = []
             
             with open(source_file, 'r', encoding='utf-8') as f:
                 content = f.read()
             
-            # নির্দিষ্ট গ্রুপের সব চ্যানেল খুঁজে বের করা
             pattern = r'(#EXTINF:-1[^\n]*group-title="[^"]*{}[^"]*"[^\n]*\n)(http[^\n]+)'.format(re.escape(group_title))
             
             matches = re.finditer(pattern, content, re.IGNORECASE)
@@ -304,11 +338,9 @@ jobs:
                 extinf_line = match.group(1).strip()
                 url_line = match.group(2).strip()
                 
-                # tvg-logo extract করা
                 logo_match = re.search(r'tvg-logo="([^"]*)"', extinf_line)
                 tvg_logo = logo_match.group(1) if logo_match else "https://i.postimg.cc/d1hHy4ss/11.png"
                 
-                # গ্রুপ অনুযায়ী চ্যানেল নাম নির্ধারণ
                 channel_name = get_channel_name_strategy(group_title, extinf_line)
                 
                 channels.append({
@@ -323,21 +355,18 @@ jobs:
             return channels
         
         def force_groups_at_line(main_content, all_group_channels, target_line):
-            """সবসময় নির্দিষ্ট লাইনে সব গ্রুপের সেকশন রাখে"""
             timestamp = get_bangladesh_time()
             
-            # সব গ্রুপের জন্য combined section তৈরি করা
             new_combined_section = f"#AUTO-UPDATED - Multiple Groups - {timestamp}\n"
             
             total_channels = 0
             has_any_channels = False
             
             for group_title, channels in all_group_channels.items():
-                if channels and len(channels) > 0:  # শুধু channels থাকলে এবং empty না হলে যোগ করবে
+                if channels and len(channels) > 0:
                     new_combined_section += f"# --- {group_title} Group ---\n"
                     
                     for channel in channels:
-                        # নতুন EXTINF লাইন তৈরি করা - গ্রুপ অনুযায়ী চ্যানেল নাম
                         new_extinf_line = f'#EXTINF:-1 tvg-logo="{channel["tvg_logo"]}" group-title="{group_title}", {channel["channel_name"]}\n'
                         new_combined_section += new_extinf_line
                         new_combined_section += channel["url_line"] + "\n"
@@ -346,31 +375,25 @@ jobs:
                     has_any_channels = True
                     print(f"📺 Added {len(channels)} channels for {group_title}")
             
-            # শুধু চ্যানেল না থাকলে কোন লাইন যোগ করবে না
             if not has_any_channels:
                 print("ℹ️ No channels found for any active group - creating empty AUTO-UPDATED section")
             
-            # মেইন কন্টেন্টকে লাইনে ভাগ করা
             lines = main_content.split('\n')
             
-            # TARGET_LINE_NUMBER validation
             if target_line < 1:
                 target_line = 1
             if target_line > len(lines):
                 target_line = len(lines)
             
-            print(f"📍 Target line: {target_line} (Total lines: {len(lines)})")
+            print(f"📍 Target line for Group Titles: {target_line} (Total lines: {len(lines)})")
             
-            # existing ANY AUTO-UPDATED section খুঁজে বের করা এবং সরানো (পুরানো সব versions)
             auto_updated_start = -1
             auto_updated_end = -1
             
-            # existing section এর শুরু এবং শেষ খুঁজা - ANY AUTO-UPDATED section
             for i, line in enumerate(lines):
                 if '#AUTO-UPDATED - Multiple Groups' in line:
                     auto_updated_start = i
-                    print(f"🔍 Found existing AUTO-UPDATED - Multiple Groups section at line {i+1}")
-                    # section এর শেষ খুঁজা
+                    print(f"🔍 Found existing Multiple Groups AUTO-UPDATED section at line {i+1}")
                     for j in range(i + 1, len(lines)):
                         if not (lines[j].startswith('#EXTINF') or lines[j].startswith('http') or lines[j].startswith('# ---') or lines[j].strip() == ''):
                             auto_updated_end = j
@@ -380,14 +403,11 @@ jobs:
                     break
             
             if auto_updated_start != -1:
-                print(f"🗑️ Removing existing AUTO-UPDATED - Multiple Groups section (lines {auto_updated_start+1}-{auto_updated_end})")
-                # existing section সরানো
+                print(f"🗑️ Removing existing Multiple Groups section (lines {auto_updated_start+1}-{auto_updated_end})")
                 lines = lines[:auto_updated_start] + lines[auto_updated_end:]
             
-            # নতুন section টার্গেট লাইনে যোগ করা
-            insert_position = target_line - 1  # 0-based index
+            insert_position = target_line - 1
             
-            # যদি insert position existing removal এর পর পরিবর্তন হয়ে থাকে, adjust করা
             if auto_updated_start != -1 and auto_updated_start < insert_position:
                 insert_position -= (auto_updated_end - auto_updated_start)
             
@@ -401,15 +421,11 @@ jobs:
             
             return updated_content, total_channels
         
-        # Step 1 থেকে আপডেট করা প্লেলিস্ট লোড করুন
-        with open('step1_updated.m3u', 'r', encoding='utf-8') as f:
+        with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
             main_content = f.read()
         
-        # Check if manual run or scheduled
-        import os
         is_manual_run = os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
         
-        # Filter out commented groups (lines starting with #)
         active_groups = [group for group in TARGET_GROUP_TITLES if not group.startswith('#')]
         
         if not active_groups:
@@ -417,17 +433,15 @@ jobs:
             print("Current TARGET_GROUP_TITLES:", TARGET_GROUP_TITLES)
             exit(1)
         
-        print(f"🎯 Active groups: {active_groups}")
+        print(f"🎯 Active groups for Group Titles: {active_groups}")
         
-        # প্রতিটি active গ্রুপ টাইটেলের জন্য চ্যানেল extract করুন
         all_group_channels = {}
         total_found_channels = 0
         has_any_channels_found = False
         
         for group_title in active_groups:
             print(f"\n🔍 Processing group: {group_title}")
-            channels = extract_group_channels('fancode_source.m3u', group_title)
-            # শুধু channels থাকলে all_group_channels এ যোগ করবে
+            channels = extract_group_channels('source_playlist.m3u', group_title)
             if channels:
                 all_group_channels[group_title] = channels
                 total_found_channels += len(channels)
@@ -435,26 +449,22 @@ jobs:
             else:
                 print(f"ℹ️ No channels found for group '{group_title}', skipping...")
         
-        # যদি কোন গ্রুপেই চ্যানেল না থাকে, তাহলে শুধু empty AUTO-UPDATED section তৈরি করবে
         if not has_any_channels_found:
             print("ℹ️ No channels found for any active group, creating empty AUTO-UPDATED section...")
-            all_group_channels = {}  # খালি রাখা
+            all_group_channels = {}
         
-        # মেইন প্লেলিস্ট আপডেট করুন - সবসময় TARGET_LINE_NUMBER এ রাখবে
         updated_content, total_added_channels = force_groups_at_line(main_content, all_group_channels, TARGET_LINE_NUMBER)
         
-        # Final আপডেট করা কন্টেন্ট সেভ করুন
-        with open('sirometv_updated_final.m3u', 'w', encoding='utf-8') as f:
+        with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
             f.write(updated_content)
         
-        print(f"\n🎉 Step 2 (Live Fancode 🔄🔄) Update Summary:")
+        print(f"\n🎉 Live Fancode (Group Titles) Summary:")
         print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
         print(f"   Target line: {TARGET_LINE_NUMBER}")
         print(f"   Total active groups: {len(active_groups)}")
         print(f"   Total channels found: {total_found_channels}")
         print(f"   Total channels added: {total_added_channels}")
         
-        # প্রতিটি গ্রুপের জন্য আলাদা summary
         print(f"\n📊 Group-wise Summary:")
         for group_title in active_groups:
             if group_title in all_group_channels:
@@ -482,57 +492,50 @@ jobs:
         
         EOF
         
-        echo "✅ Step 2 completed. Final playlist created."
-        
-    - name: Verify final playlist
+    - name: Verify and finalize playlist
       run: |
-        echo "🔍 Verifying final updated playlist..."
+        echo "🔍 Verifying final playlist..."
         
-        if [ ! -f "sirometv_updated_final.m3u" ] || [ ! -s "sirometv_updated_final.m3u" ]; then
+        if [ ! -f "sirometv_updated.m3u" ] || [ ! -s "sirometv_updated.m3u" ]; then
           echo "❌ ERROR: Final updated playlist is missing or empty!"
           exit 1
         fi
         
         # লাইন সংখ্যা চেক করা
-        echo "📊 Final playlist stats:"
-        echo "Total lines:"
-        wc -l sirometv_updated_final.m3u
+        echo "📊 Final line count:"
+        wc -l sirometv_updated.m3u
         
-        # Both types of AUTO-UPDATED sections চেক করা
-        echo "🔍 Checking both AUTO-UPDATED sections:"
-        echo "1. All Channel 🔄 AUTO-UPDATED count:"
-        grep -c "#AUTO-UPDATED - .* ✅-" sirometv_updated_final.m3u || echo "0"
-        
-        echo "2. Multiple Groups AUTO-UPDATED section at line:"
-        grep -n "#AUTO-UPDATED - Multiple Groups" sirometv_updated_final.m3u
-        
-        # Sample দেখানো
-        echo "📊 Sample of updated content:"
-        echo "--- All Channel 🔄 updates (first 3):"
-        grep -A 2 "#AUTO-UPDATED - .* ✅-" sirometv_updated_final.m3u | head -9
-        
-        echo "--- Live Fancode 🔄🔄 group section:"
-        grep -A 3 "#AUTO-UPDATED - Multiple Groups" sirometv_updated_final.m3u | head -8
+        # AUTO-UPDATED sections চেক করা
+        echo "📍 Checking all AUTO-UPDATED sections:"
+        grep -n "AUTO-UPDATED" sirometv_updated.m3u
         
         # No channels found লাইন আছে কিনা চেক করা
-        if grep -q "No channels found" sirometv_updated_final.m3u; then
-          echo "❌ ERROR: 'No channels found' line found!"
+        if grep -q "No channels found" sirometv_updated.m3u; then
+          echo "❌ ERROR: 'No channels found' line exists!"
           exit 1
-        else
+        else:
           echo "✅ 'No channels found' line is completely removed!"
-        fi
         
-        echo "✅ Final playlist verification completed!"
+        # চূড়ান্ত ফাইল হিসেবে sirometv.m3u তে সেভ করুন
+        mv sirometv_updated.m3u sirometv.m3u
         
-    - name: Commit and push combined changes
+        # আপডেট করা গ্রুপগুলো দেখান
+        echo "🔍 Final updated groups and channels:"
+        for group in "Live Event" "Akash Go" "Sports" "Cricket" "Football" "Movies"; do
+            COUNT=$(grep -c "group-title=\"$group\"" sirometv.m3u || echo "0")
+            if [ "$COUNT" -gt "0" ]; then
+                echo "📺 $group group: $COUNT channels"
+            fi
+        done
+        
+        echo "✅ Both updates completed successfully!"
+        
+    - name: Commit and push changes
       run: |
         echo "💾 Saving final changes to repository..."
         
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        
-        # Final playlist টি sirometv.m3u হিসেবে সেভ করুন
-        mv sirometv_updated_final.m3u sirometv.m3u
         git add sirometv.m3u
         
         if git diff --staged --quiet; then
@@ -541,58 +544,42 @@ jobs:
           BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
           
           # চ্যানেল সংখ্যা গণনা
-          ALL_CHANNEL_COUNT=$(grep -c '#AUTO-UPDATED - .* ✅-' sirometv.m3u || echo "0")
-          MULTI_GROUP_COUNT=$(grep -c '#AUTO-UPDATED - Multiple Groups' sirometv.m3u || echo "0")
+          ALL_CHANNEL_COUNT=$(grep -c "#AUTO-UPDATED - .* ✅-" sirometv.m3u || echo "0")
           LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometv.m3u || echo "0")
           
           COMMIT_MESSAGE="🔄 "
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            COMMIT_MESSAGE+="Manual Combined Update"
+            COMMIT_MESSAGE+="Manual Update"
           else
-            COMMIT_MESSAGE+="Scheduled Combined Update"
+            COMMIT_MESSAGE+="Scheduled Update"
           fi
           
-          COMMIT_MESSAGE+=" - $BANGLADESH_TIME"
-          
-          if [ "$ALL_CHANNEL_COUNT" -gt "0" ]; then
-            COMMIT_MESSAGE+=" | All Channel: $ALL_CHANNEL_COUNT"
-          fi
-          
-          if [ "$MULTI_GROUP_COUNT" -gt "0" ]; then
-            COMMIT_MESSAGE+=" | Multi-Group: Yes"
-          fi
-          
+          COMMIT_MESSAGE+=": Combined Update"
+          COMMIT_MESSAGE+=" - All Channel ($ALL_CHANNEL_COUNT)"
+          COMMIT_MESSAGE+=" + Live Fancode"
           if [ "$LIVE_EVENT_COUNT" -gt "0" ]; then
-            COMMIT_MESSAGE+=" | Live Event: $LIVE_EVENT_COUNT"
+            COMMIT_MESSAGE+=" ($LIVE_EVENT_COUNT)"
           fi
+          COMMIT_MESSAGE+=" - $BANGLADESH_TIME"
           
           git commit -m "$COMMIT_MESSAGE"
           git push
           
-          echo "🎉 Successfully updated combined playlist!"
-          echo "📊 Final Update Summary:"
-          echo "   ✅ All Channel 🔄 from Ayna.m3u: $ALL_CHANNEL_COUNT channels updated"
-          echo "   ✅ Live Fancode 🔄🔄 from playlist.m3u:"
-          if [ "$MULTI_GROUP_COUNT" -gt "0" ]; then
-            echo "      - Multiple Groups section added at line 4"
-            echo "      - Live Event channels: $LIVE_EVENT_COUNT"
-          else
-            echo "      - No groups found in source"
-          fi
+          echo "🎉 Successfully updated both sections!"
+          echo "   All Channel: $ALL_CHANNEL_COUNT channels (Channel Mapping)"
+          echo "   Live Fancode: $LIVE_EVENT_COUNT channels (Group Titles)"
         fi
         
-    - name: Cleanup
+    - name: Cleanup all files
       run: |
-        rm -f main_playlist.m3u ayna_source.m3u fancode_source.m3u step1_updated.m3u
-        echo "✅ Cleanup completed!"
-
+        rm -f main_playlist.m3u source_playlist.m3u sirometv_temp.m3u
+        echo "✅ All temporary files cleaned up!"
+        
     - name: Success Notification
       if: success()
       run: |
         echo "🎊 Combined workflow completed successfully!"
         echo "📅 Next update in 5 minutes"
-        echo "✅ All Channel 🔄 from Ayna.m3u"
-        echo "✅ Live Fancode 🔄🔄 from playlist.m3u"
         
     - name: Failure Notification
       if: failure()
