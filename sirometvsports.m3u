@@ -34,13 +34,6 @@
 
 
 
-#AUTO-UPDATED - 🟢 Groups Channels 🟢 - 2025-12-18 03:50:33PM BD Time
-# --- Live Event Group ---
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/129th-Harris-Shield-Cricket-Tournament-old-match-card_v2_1765970952698.jpg" group-title="Live Event", Fancode
-https://bd-mc-fdlive.fancode.com/mumbai/138910_english_hls_ea9fe29d8e33658_1ta-di_h264/index.m3u8
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/AfrAsia-Bank-Mauritius-Open_New_old.jpg" group-title="Live Event", Fancode
-https://bd-mc-fdlive.fancode.com/mumbai/138695_english_hls_abe7ec7afc91418_1ta-di_h264/index.m3u8
-
 
 
 
@@ -135,14 +128,14 @@ https://spstr.abntv.live/hls/psstream.m3u8
 https://pepsi.abntv.live/hls/4spstream.m3u8
 #EXTINF:-1 tvg-id="PersianaSports3.fr@HD" tvg-logo="https://i.postimg.cc/KjfZzWd5/image.jpg" group-title="Sports Live Event",Persiana Sports 3
 https://pepsi3.abntv.live/hls/psp3.m3u8
-#EXTINF:-1 tvg-id="PersianaSports4.fr@HD" tvg-logo="https://i.postimg.cc/dtSYxGvD/image.jpg" group-title="Sports",Persiana Sports 4
+#EXTINF:-1 tvg-id="PersianaSports4.fr@HD" tvg-logo="https://i.postimg.cc/dtSYxGvD/image.jpg" group-title="Sports Live Event",Persiana Sports 4
 https://pepsi4.abntv.live/hls/psp4.m3u8
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/zvgc2HkL/image.jpg" group-title="Sports", Sports TV
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/zvgc2HkL/image.jpg" group-title="Sports Live Event", Sports TV
 https://live.sportstv.com.tr/hls/low/sportstv.m3u8
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/L5GMnMxT/image.jpg" group-title="Sports", SportsGrid 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/L5GMnMxT/image.jpg" group-title="Sports Live Event", SportsGrid 
 https://sportsgrid-tribal.amagi.tv/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/qMK3bDYZ/image.jpg" group-title="Sports Live Event", RTA Sports HD
@@ -928,6 +921,8 @@ https://d3pt6y87jk0q7u.cloudfront.net/cpanel/client_14/2025/video/1758184952.mp4
 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports-Highlights", 
+
+
 
 
 
