@@ -53,6 +53,7 @@
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Sports Live Event",T Sports
 https://tvsen7.aynaott.com/tsportshd/index.m3u8
 https://live.matribhumitv.com/matribhumi-sports/index.m3u8
+https://tvsen7.aynaott.com/tsportsfhd/index.m3u8
 https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8
 
@@ -84,6 +85,7 @@ https://m.xigzo.store/live/api/62393.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/0QDHtZxg/image.jpg" group-title="Sports Live Event",PTV
 https://m.xigzo.store/live/api/250211.m3u8
+https://tvsen5.aynaott.com/Ptvsports/index.m3u8
 https://rpn.bozztv.com/gusa/gusa-tvssports/index.m3u8
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
@@ -112,11 +114,10 @@ https://app.hughag.store/api/6b9c461155/playlist.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/1RwSzp4q/image.jpg" group-title="Sports Live Event", Willow
-#http://203.18.159.115:8081/Willow_Cricket_1_HD_TG_josharmy007/index.m3u8
-http://b1g.ooo:80/live/rv/rv123/260993.ts
+https://tvsen5.aynaott.com/willowhd/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/1RwSzp4q/image.jpg" group-title="Sports Live Event", Willow 2
-http://b1g.ooo:80/live/rv/rv123/260994.ts
+https://tvsen5.aynaott.com/Ptvsports/index.m3u8
 
 
 
@@ -230,6 +231,12 @@ https://amg01074-fueltv-fueltvemeaen-rakuten-b6j62.amagi.tv/hls/amagi_hls_data_r
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Hx75zHSQ/T-Sports-logo.png" group-title="Sports", GTV
+https://tvsen5.aynaott.com/Ravc7gPCZpxk/index.m3u8
+https://tvsen6.aynaott.com/gtvhdforgame/index.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/gazibdz.stream/playlist.m3u8
+
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/vBXCdpZH/image.jpg" group-title="Sports", Sony LIV
 https://live-en.aisports.cc/moviebox/device01/playlist.m3u8
 http://203.18.159.115:8081/SS5_TG_josharmy007/index.m3u8
@@ -334,15 +341,12 @@ https://live.dinesh29.com.np/stream/jiotvplus/starsportsselecthd2/master.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Sx4trrVy/image.jpg" group-title="Sports", Star Sports 1
-https://live.dinesh29.com.np/stream/jiotvplus/starsportshd1/master.m3u8
-https://live20.bozztv.com/akamaissh101/ssh101/starsports/chunks.m3u8
-http://b1g.ooo:80/live/rv/rv123/260998.ts
-http://89.187.189.98/STARSPORTSTAMIL/index.m3u8
+https://tvsen7.aynaott.com/sspts1/index.m3u8
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/85zmvH5B/image.jpg" group-title="Sports", Star Sports 1 HINDI
 https://starsportshindiii.pages.dev/index.m3u8
 https://live.dinesh29.com.np/stream/jiotvplus/starsportshd1hindi/master.m3u8
-#https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Sx9GNkyN/image.jpg" group-title="Sports", Star Sports 1 Tamil
 https://live.dinesh29.com.np/stream/jiotvplus/starsports1tamil/master.m3u8
@@ -364,8 +368,9 @@ https://live.dinesh29.com.np/stream/jiotvplus/starsports1teluguhd/master.m3u8
 #👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/SKpZnCCD/image.jpg" group-title="Sports", Star Sports 2
+https://tvsen7.aynaott.com/ssport2hd/index.m3u8
 https://live.dinesh29.com.np/stream/jiotvplus/starsportshd2/master.m3u8
-#http://b1g.ooo:80/live/rv/rv123/260999.ts
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/xjZXtZmK/image.jpg" group-title="Sports", Star Sports 2 Hindi
 https://live.dinesh29.com.np/stream/jiotvplus/starsports2hindi/master.m3u8
@@ -921,6 +926,7 @@ https://d3pt6y87jk0q7u.cloudfront.net/cpanel/client_14/2025/video/1758184952.mp4
 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports-Highlights", 
+
 
 
 
