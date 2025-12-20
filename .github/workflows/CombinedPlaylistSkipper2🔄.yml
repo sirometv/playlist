@@ -1,4 +1,4 @@
-name: Combined Playlist Skipper2🔄
+name: Combined Playlist Skipper 🔄
 
 on:
   schedule:
@@ -254,12 +254,12 @@ jobs:
                 new_block += update_message
                 print(f"✅ Added {len(new_links)} new links for {channel_name}")
             
-            # বিদ্যমান URL ব্লক যোগ করা (gh-pages/sirometv.m3u এর লিংকগুলি প্রথমে)
-            new_block += existing_urls_block
-            
-            # নতুন লিংকগুলো যোগ করা (main/Ayna.m3u থেকে নতুন লিংকগুলি নিচে)
+            # নতুন লিংকগুলো যোগ করা (Ayna থেকে নতুন লিংকগুলি প্রথমে/উপরে)
             for new_link in new_links:
                 new_block += new_link + "\n"
+            
+            # বিদ্যমান URL ব্লক যোগ করা (gh-pages/sirometv.m3u এর লিংকগুলি পরে/নিচে)
+            new_block += existing_urls_block
             
             # মেইন কন্টেন্টে রিপ্লেস করা
             updated_content = main_content.replace(channel_match.group(0), new_block)
@@ -619,11 +619,18 @@ jobs:
         JAMUNA_LINKS=$(grep -A 10 "Jamuna TV" sirometv_updated.m3u | grep -c "^http" || echo "0")
         echo "   📊 Sample - Jamuna TV has $JAMUNA_LINKS links"
         
-        # Check order for Jamuna TV
-        echo "🔍 Checking Jamuna TV link order:"
-        JAMUNA_SECTION=$(grep -A 15 "Jamuna TV" sirometv_updated.m3u)
-        JAMUNA_FIRST_LINK=$(echo "$JAMUNA_SECTION" | grep -m 1 "^http")
-        echo "   First link for Jamuna TV: $JAMUNA_FIRST_LINK"
+        # Check order for Jamuna TV - verify Ayna links are on top
+        echo "🔍 Checking Jamuna TV link order (Ayna links should be on top):"
+        JAMUNA_SECTION=$(grep -A 20 "Jamuna TV" sirometv_updated.m3u | head -15)
+        JAMUNA_FIRST_FEW_LINKS=$(echo "$JAMUNA_SECTION" | grep "^http" | head -3)
+        echo "   First few links for Jamuna TV:"
+        echo "$JAMUNA_FIRST_FEW_LINKS" | while read line; do
+          echo "     - $line"
+        done
+        
+        # Check if Ayna links are present
+        AYNA_LINKS_COUNT=$(echo "$JAMUNA_SECTION" | grep -c "aynaott\|app.com\|ayt.com" || echo "0")
+        echo "   Ayna-specific links in Jamuna TV: $AYNA_LINKS_COUNT"
         
         if [ "$ALL_CHANNEL_UPDATES" -eq "0" ] && [ "$ALL_CHANNEL_SKIPS" -eq "0" ]; then
             echo "⚠️ Warning: No All Channel updates or skips found"
