@@ -91,7 +91,9 @@ jobs:
             "Deen TV": ["Deen TV"],
             "SATV": ["SA TV"],
             "GTV": ["Gazi TV"],
-            "T Sports": ["T Sports HD", "A Sports", "PTV Sports"],
+            "T Sports": ["T Sports HD"],
+            "A sports": ["A sports"],
+            "PTV Sports": ["PTV Sports", "A Sports", "PTV Sports"],
             "Channel 9": ["Channel 9"],
             "Channel I": ["Channel I"],
             "Bangla Vision": ["Bangla Vision"],
@@ -332,7 +334,7 @@ jobs:
         import pytz
         
         # ⚙️ CONFIGURATION
-        TARGET_LINE_NUMBER = 25  # আপনার ইচ্ছামত লাইন নম্বর পরিবর্তন করুন
+        TARGET_LINE_NUMBER = 20  # আপনার ইচ্ছামত লাইন নম্বর পরিবর্তন করুন
         
         # গ্রুপ টাইটেলের লিস্ট
         TARGET_GROUP_TITLES = [
