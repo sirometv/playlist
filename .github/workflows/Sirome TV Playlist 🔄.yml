@@ -23,9 +23,6 @@ jobs:
       run: |
         echo "📥 Downloading all required playlists..."
         
-        # প্রথমে মেইন প্লেলিস্ট খালি ফাইলে রূপান্তর
-        echo "" > main_playlist.m3u
-        
         # Source playlists
         curl -s -L -o source_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/gh-pages/sirometv.m3u"
         curl -s -L -o ayna_source.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/Ayna.m3u"
@@ -41,25 +38,13 @@ jobs:
           echo "✅ $file downloaded - $LINES lines"
         done
         
-    - name: Copy from source to main playlist
-      run: |
-        echo "📋 Copying from source playlist to main playlist..."
-        
-        # সোর্স প্লেলিস্ট থেকে মেইন প্লেলিস্টে কপি করুন
+        # মেইন প্লেলিস্ট হিসাবে সোর্স প্লেলিস্ট কপি করুন
         cp source_playlist.m3u main_playlist.m3u
-        
-        # Verify copy
-        if [ ! -s "main_playlist.m3u" ]; then
-          echo "❌ ERROR: main_playlist.m3u is empty after copy!"
-          exit 1
-        fi
-        
-        LINES=$(wc -l < "main_playlist.m3u")
-        echo "✅ Main playlist now has $LINES lines"
+        echo "📋 Source playlist copied to main_playlist.m3u"
         
     - name: Backup original playlist
       run: |
-        cp main_playlist.m3u main_playlist_backup.m3u
+        cp source_playlist.m3u main_playlist_backup.m3u
         echo "📦 Original playlist backed up"
         
     - name: Update All Channel 🔄
@@ -72,309 +57,234 @@ jobs:
         import pytz
         import os
         
-        # চ্যানেল ম্যাপিং - আপনার প্রথম প্লেলিস্টের নাম : সেকেন্ড প্লেলিস্টে খুঁজবে এমন keywords
-        CHANNEL_MAPPING = {
-            "BTV National": ["BTV NATIONAL HD", "BTV World"],
-            "BTV CTG": ["BTV CTG"],
-            "Somoy TV": ["Somoy News TV", "Somoy TV"],
-            "Jamuna TV": ["Jamuna TV","JAMUNA TV"],
-            "Ekushey TV": ["Ekushey TV"],
-            "NTV BD": ["NTV"],
-            "NTV-Europe": ["NTV Europe"],
-            "Channel 24": ["Channel 24"],
-            "Deen TV": ["Deen TV"],
-            "SATV": ["SA TV"],
-            "GTV": ["GTV", "GTV HD", "Gazi TV"],
-            "T Sports": ["T Sports HD", "T Sports"],
-            "A Sports": ["A Sports"],
-            "PTV Sports": ["PTV Sports"],
-            "Channel 9": ["Channel 9"],
-            "Channel I": ["Channel I"],
-            "Bangla Vision": ["Bangla Vision"],
-            "News 24": ["News 24 BD"], 
-            "Boishakhi TV": ["Boishakhi TV"],
-            "Bijoy TV": ["Bijoy TV"],
-            "ATN Bangla": ["ATN Bangla"],
-            "ATN-Bangla News": ["ATN News"],
-            "DBC News": ["DBC News"],
-            "Independent TV": ["Independent TV"],
-            "Bangla TV": ["Bangla TV"],
-            "Desh TV": ["Desh TV"],
-            "RTV": ["RTV"],
-            "My TV": ["My TV"],
-            "Duronto": ["Duronto TV"],
-            "Deepto TV": ["Deepto TV"],
-            "Mohona TV": ["Mohona TV"],
-            "Ananda TV": ["Ananda TV"],
-            "Asian TV": ["Asian TV"],
-            "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
-            "Channel 5 TV": ["Channel 5 TV"],
-            "Music Bangla": ["Music Bangla"],
-            "Ekattor TV": ["Ekattor TV"],
-            "Nagorik TV": ["Nagorik TV"],
-            "Ekhon TV": ["Ekhon TV"],
-            "Peace TV Bangla": ["Peace TV Bangla HD"],
-            "Islam Bangla": ["Islam Bangla"],
-            "Iqra TV ": ["Iqra Bangla"],
-            "Madani TV": ["Madani TV"],
-            "News21 TV": ["News21 TV"],
-            "Bangla 21": ["Bangla 21"],
-            "Movie Bangla": ["Movie Bangla"],
-            "Matri Bhumi": ["Matri Bhumi"],
-            "Magic Bangla": ["Magic Bangla"],
-            "Alpona TV": ["Alpona TV"],
-            "Channel A1": ["Channel A1"],
-            "Shadin Bangla": ["Shadin Bangla"],
-            "Channel S UK": ["Channel S UK HD"],
-            "Nandan TV": ["Nandan TV"],
-            "Global TV": ["Global TV"],
-            "Deshi TV": ["Deshi TV", "Deshi TV (720p)"],
-            "Falguni TV": ["Falguni TV"],
-            "Channel S BD": ["Channel S BD","Channel S HD"],
-            "Rajdhani TV": ["Rajdhani TV"],
-            "Rongeen TV": ["Rongeen TV"],
-            "Sonic Bangla": ["Sonic Bangla"],
-            "Discovery Kids": ["Discovery Kids"],
-            "NAN TV": ["NAN TV"],
-            "Star Jalsha": ["Star Jalsha HD", "Star Jalsha"],
-            "Star-Jalsha Movies": ["Star Jalsha Movies HD"],
-            "Zee Bangla": ["Zee Bangla International", "Zee Bangla"],
-            "Zee-Bangla Cinema": ["Zee Bangla Cinema"],
-            "Colors Bengali": ["colors bangla"],
-            "Sangeet Bangla": ["Sangeet Bangla"],
-            "Sony Aaat": ["Sony Aaat"],
-            "Enter 10 Bangla": ["Enter 10 Bangla"],
-            "Zee 24 Ghanta": ["Zee 24 Ghanta"],
-        }
-        
         def get_bangladesh_time():
             """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
             bangladesh_tz = pytz.timezone('Asia/Dhaka')
             now = datetime.now(bangladesh_tz)
             return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
         
-        def find_channel_in_main_playlist(main_content, channel_name):
-            """মেইন প্লেলিস্টে চ্যানেলের অবস্থান খুঁজে বের করে"""
-            pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)'.format(re.escape(channel_name))
-            match = re.search(pattern, main_content, re.IGNORECASE)
+        def extract_channels_from_source(source_file):
+            """সোর্স প্লেলিস্ট থেকে সমস্ত চ্যানেল এবং তাদের লিংক সংগ্রহ করে"""
+            channels = {}
             
-            if match:
-                start_pos = match.start()
-                # Find the end of this channel entry
-                end_pos = main_content.find('#EXTINF:', start_pos + 1)
-                if end_pos == -1:
-                    end_pos = len(main_content)
+            with open(source_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # চ্যানেল ব্লক খুঁজে বের করা
+            pattern = r'(#EXTINF:-1[^\n]*)\n((?:http[^\n]*\n)+)'
+            matches = re.finditer(pattern, content)
+            
+            for match in matches:
+                extinf_line = match.group(1)
+                urls_block = match.group(2)
                 
-                channel_entry = main_content[start_pos:end_pos]
-                return channel_entry.strip(), start_pos, end_pos
+                # চ্যানেল নাম এক্সট্রাক্ট করা
+                channel_name_match = re.search(r',([^,\n]+)$', extinf_line)
+                if channel_name_match:
+                    channel_name = channel_name_match.group(1).strip()
+                    
+                    # URL গুলো সংগ্রহ করা
+                    urls = [url.strip() for url in urls_block.strip().split('\n') if url.strip()]
+                    
+                    # চ্যানেলের অন্যান্য তথ্য
+                    logo_match = re.search(r'tvg-logo="([^"]*)"', extinf_line)
+                    group_match = re.search(r'group-title="([^"]*)"', extinf_line)
+                    
+                    channels[channel_name] = {
+                        'extinf_line': extinf_line,
+                        'urls': urls,
+                        'tvg_logo': logo_match.group(1) if logo_match else "",
+                        'group_title': group_match.group(1) if group_match else "",
+                        'full_entry': match.group(0).strip()
+                    }
             
-            return None, -1, -1
+            return channels
         
-        def get_urls_from_entry(channel_entry):
-            """চ্যানেল এন্ট্রি থেকে শুধু URL গুলো বের করে"""
-            urls = []
-            lines = channel_entry.split('\n')
+        def extract_channels_from_ayna(ayna_file):
+            """Ayna প্লেলিস্ট থেকে সমস্ত চ্যানেল এবং তাদের লিংক সংগ্রহ করে"""
+            channels = {}
             
-            for line in lines:
-                if line.startswith('http'):
-                    urls.append(line.strip())
+            with open(ayna_file, 'r', encoding='utf-8') as f:
+                content = f.read()
             
-            return urls
-        
-        def find_channel_urls_in_ayna(channel_name, keywords):
-            """Ayna প্লেলিস্ট থেকে চ্যানেলের সব URL খুঁজে বের করে"""
-            with open('ayna_source.m3u', 'r', encoding='utf-8') as f:
-                ayna_content = f.read()
+            # Ayna থেকে চ্যানেল ব্লক খুঁজে বের করা
+            pattern = r'(#EXTINF:[^\n]*)\n((?:http[^\n]*\n)+)'
+            matches = re.finditer(pattern, content)
             
-            urls = []
-            
-            # প্রতিটি keyword এর জন্য চেষ্টা করুন
-            for keyword in keywords:
-                # Pattern to match channel entry with this exact keyword
-                pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)((?:http[^\n]*\n?)+)'.format(re.escape(keyword))
+            for match in matches:
+                extinf_line = match.group(1)
+                urls_block = match.group(2)
                 
-                matches = re.finditer(pattern, ayna_content, re.IGNORECASE)
-                
-                for match in matches:
-                    urls_block = match.group(2)
-                    # Extract all URLs
-                    extracted_urls = [url.strip() for url in urls_block.strip().split('\n') if url.strip()]
-                    urls.extend(extracted_urls)
+                # চ্যানেল নাম এক্সট্রাক্ট করা
+                channel_name_match = re.search(r',([^,\n]+)$', extinf_line)
+                if channel_name_match:
+                    channel_name = channel_name_match.group(1).strip()
+                    
+                    # URL গুলো সংগ্রহ করা
+                    urls = [url.strip() for url in urls_block.strip().split('\n') if url.strip()]
+                    
+                    # চ্যানেল ডাটা সংরক্ষণ
+                    if channel_name not in channels:
+                        channels[channel_name] = []
+                    channels[channel_name].extend(urls)
+                    channels[channel_name] = list(set(channels[channel_name]))  # ডুপ্লিকেট রিমুভ
             
-            # Remove duplicates but preserve order
-            seen = set()
-            unique_urls = []
-            for url in urls:
-                if url not in seen:
-                    seen.add(url)
-                    unique_urls.append(url)
-            
-            return unique_urls
+            return channels
         
-        def update_channel_entry(channel_entry, channel_name, new_urls, has_matched_urls=False):
-            """চ্যানেল এন্ট্রি আপডেট করে"""
+        def find_similar_channels(source_channel_name, ayna_channels):
+            """সোর্স চ্যানেল নামের সাথে মিল আছে এমন Ayna চ্যানেল খুঁজে বের করে"""
+            similar_channels = []
+            
+            # সরাসরি ম্যাচ
+            if source_channel_name in ayna_channels:
+                similar_channels.append(source_channel_name)
+            
+            # কেস-ইনসেনসিটিভ ম্যাচ
+            lower_source = source_channel_name.lower()
+            for ayna_channel in ayna_channels.keys():
+                if ayna_channel.lower() == lower_source:
+                    similar_channels.append(ayna_channel)
+            
+            # পার্শিয়াল ম্যাচ (কিছু কীওয়ার্ড)
+            keywords = ['sports', 'tv', 'channel', 'bangla', 'bd']
+            for ayna_channel in ayna_channels.keys():
+                ayna_lower = ayna_channel.lower()
+                source_lower = source_channel_name.lower()
+                
+                # যদি কোন কীওয়ার্ড ছাড়া মিলে যায়
+                common_words = set(source_lower.split()) & set(ayna_lower.split())
+                if len(common_words) > 0 and ayna_channel not in similar_channels:
+                    similar_channels.append(ayna_channel)
+            
+            return similar_channels
+        
+        def update_channel_in_main(main_content, channel_data, new_urls, ayna_channels):
+            """মেইন কন্টেন্টে একটি চ্যানেল আপডেট করে"""
             timestamp = get_bangladesh_time()
+            channel_name = next(iter(channel_data.keys()))
+            data = channel_data[channel_name]
             
-            # Get existing URLs from the channel entry
-            existing_urls = get_urls_from_entry(channel_entry)
+            # এই চ্যানেলের জন্য Ayna-তে মিল আছে এমন চ্যানেল খুঁজা
+            similar_channels = find_similar_channels(channel_name, ayna_channels)
             
-            # Filter out URLs that already exist in this entry
-            truly_new_urls = [url for url in new_urls if url not in existing_urls]
+            # মিলে যাওয়া URL গুলো খুঁজা
+            matched_urls = []
+            unmatched_urls = []
             
-            if not truly_new_urls:
-                return channel_entry, False
-            
-            # Create appropriate comment line
-            if has_matched_urls:
-                # Some URLs matched with existing ones
-                comment_line = f"#AUTO-UPDATED - {channel_name} ⛔ SKIPPED 🟢 Other Link 🟢 - {timestamp} 🟡 - 🔄 - 🔴\n"
+            if similar_channels:
+                # সব মিলে যাওয়া চ্যানেল থেকে URL সংগ্রহ
+                all_ayna_urls = []
+                for similar_channel in similar_channels:
+                    all_ayna_urls.extend(ayna_channels[similar_channel])
+                
+                # সোর্সের URL গুলোর সাথে মিলানো
+                for url in data['urls']:
+                    if url in all_ayna_urls:
+                        matched_urls.append(url)
+                    else:
+                        unmatched_urls.append(url)
             else:
-                # No URLs matched (all are new)
-                comment_line = f"#AUTO-UPDATED - {channel_name} ✅- {timestamp} 🟡 - 🔄 - 🔴\n"
+                # কোন মিল নেই
+                unmatched_urls = data['urls']
             
-            # Check if there's already an AUTO-UPDATED comment
-            lines = channel_entry.split('\n')
+            # নতুন URL গুলো (যেগুলো সোর্সে নেই কিন্তু Ayna-তে আছে)
+            new_ayna_urls = []
+            if similar_channels:
+                for similar_channel in similar_channels:
+                    for ayna_url in ayna_channels[similar_channel]:
+                        if ayna_url not in data['urls']:
+                            new_ayna_urls.append(ayna_url)
             
-            # Find the EXTINF line
-            extinf_line_idx = -1
-            for i, line in enumerate(lines):
-                if line.startswith('#EXTINF:-1') and channel_name.lower() in line.lower():
-                    extinf_line_idx = i
-                    break
+            # সব URL একত্রিত করা
+            all_urls = []
             
-            if extinf_line_idx == -1:
-                return channel_entry, False
+            # প্রথমে মিলে যাওয়া URL গুলো
+            all_urls.extend(matched_urls)
             
-            # Check if there's already an AUTO-UPDATED line after EXTINF
-            if extinf_line_idx + 1 < len(lines) and '#AUTO-UPDATED' in lines[extinf_line_idx + 1]:
-                # Replace the existing AUTO-UPDATED line
-                lines[extinf_line_idx + 1] = comment_line
+            # তারপর নতুন Ayna URL গুলো
+            all_urls.extend(new_ayna_urls)
+            
+            # তারপর বাকি URL গুলো
+            all_urls.extend(unmatched_urls)
+            
+            # ইউনিক URL রাখা
+            all_urls = list(dict.fromkeys(all_urls))
+            
+            # URL ব্লক তৈরি
+            url_block = '\n'.join(all_urls) + '\n'
+            
+            # আপডেট মেসেজ তৈরি
+            if matched_urls and new_ayna_urls:
+                # কিছু মিলেছে, কিছু নতুন যোগ হয়েছে
+                update_message = f"#AUTO-UPDATED - {channel_name} ⛔ SKIPPED 🟢 Other Link 🟢 - {timestamp} 🟡 - 🔄 - 🔴\n"
+            elif matched_urls and not new_ayna_urls:
+                # সবই মিলে গেছে, নতুন কিছু নেই
+                update_message = f"#AUTO-UPDATED - {channel_name} ⛔ SKIPPED ⛔ - {timestamp} 🟡 - 🔄 - 🔴\n"
             else:
-                # Insert new AUTO-UPDATED line after EXTINF
-                lines.insert(extinf_line_idx + 1, comment_line)
+                # কিছুই মেলেনি, সব নতুন
+                update_message = f"#AUTO-UPDATED - {channel_name} ✅- {timestamp} 🟡 - 🔄 - 🔴\n"
             
-            # Add new URLs before existing URLs (at the top of URL section)
-            # Find where URL section starts
-            url_start_idx = -1
-            for i in range(extinf_line_idx, len(lines)):
-                if lines[i].startswith('http'):
-                    url_start_idx = i
-                    break
+            # মেইন কন্টেন্টে চ্যানেল খুঁজা এবং রিপ্লেস করা
+            pattern = r'({})\n((?:http[^\n]*\n)+)'.format(re.escape(data['extinf_line']))
             
-            if url_start_idx == -1:
-                # No existing URLs, add new ones at the end
-                lines.extend(truly_new_urls)
-            else:
-                # Insert new URLs at the beginning of URL section
-                for i, url in enumerate(reversed(truly_new_urls)):
-                    lines.insert(url_start_idx, url)
+            def replacement(match):
+                return match.group(1) + '\n' + update_message + url_block
             
-            return '\n'.join(lines), True
+            updated_content = re.sub(pattern, replacement, main_content, flags=re.MULTILINE)
+            
+            return updated_content, len(matched_urls), len(new_ayna_urls), len(unmatched_urls)
         
-        def mark_channel_as_skipped(channel_entry, channel_name):
-            """চ্যানেল এন্ট্রিকে SKIP হিসেবে চিহ্নিত করে"""
-            timestamp = get_bangladesh_time()
-            
-            comment_line = f"#AUTO-UPDATED - {channel_name} ⛔ SKIPPED ⛔ - {timestamp} 🟡 - 🔄 - 🔴\n"
-            
-            lines = channel_entry.split('\n')
-            
-            # Find the EXTINF line
-            extinf_line_idx = -1
-            for i, line in enumerate(lines):
-                if line.startswith('#EXTINF:-1') and channel_name.lower() in line.lower():
-                    extinf_line_idx = i
-                    break
-            
-            if extinf_line_idx == -1:
-                return channel_entry, False
-            
-            # Check if there's already an AUTO-UPDATED line
-            if extinf_line_idx + 1 < len(lines) and '#AUTO-UPDATED' in lines[extinf_line_idx + 1]:
-                # Replace existing line
-                lines[extinf_line_idx + 1] = comment_line
-            else:
-                # Insert new line
-                lines.insert(extinf_line_idx + 1, comment_line)
-            
-            return '\n'.join(lines), True
+        # সোর্স প্লেলিস্ট লোড করুন
+        source_channels = extract_channels_from_source('source_playlist.m3u')
+        print(f"📊 Found {len(source_channels)} channels in source playlist")
+        
+        # Ayna প্লেলিস্ট লোড করুন
+        ayna_channels = extract_channels_from_ayna('ayna_source.m3u')
+        print(f"📊 Found {len(ayna_channels)} channels in Ayna playlist")
         
         # মেইন প্লেলিস্ট লোড করুন
         with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
             main_content = f.read()
         
-        # Source playlist থেকে লিংক সংগ্রহ করুন (শুধু স্কিপ চেক করার জন্য)
-        source_links = set()
-        with open('source_playlist.m3u', 'r', encoding='utf-8') as f:
-            source_content = f.read()
-            # Extract all URLs
-            url_pattern = r'^http[^\n]*'
-            for match in re.finditer(url_pattern, source_content, re.MULTILINE):
-                source_links.add(match.group(0).strip())
-        
-        print(f"🔗 Collected {len(source_links)} links from source playlist")
-        
         # Check if manual run or scheduled
         is_manual_run = os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
         
         updated_content = main_content
-        update_count = 0
-        skip_count = 0
-        partial_update_count = 0
+        total_matched = 0
+        total_new = 0
+        total_skipped = 0
         
         # প্রতিটি চ্যানেলের জন্য আপডেট করুন
-        for main_channel, search_keywords in CHANNEL_MAPPING.items():
-            print(f"\n🔍 Processing: {main_channel}")
-            print(f"   Keywords: {search_keywords}")
+        for channel_name, channel_data_dict in source_channels.items():
+            print(f"\n🔍 Processing: {channel_name}")
             
-            # Find the channel in main playlist
-            channel_entry, start_pos, end_pos = find_channel_in_main_playlist(updated_content, main_channel)
+            # Ayna-তে মিল আছে এমন চ্যানেল খুঁজা
+            similar_channels = find_similar_channels(channel_name, ayna_channels)
             
-            if not channel_entry:
-                print(f"❌ {main_channel} not found in main playlist, skipping...")
-                continue
-            
-            # Get existing URLs from this channel in main playlist
-            existing_urls_in_main = get_urls_from_entry(channel_entry)
-            print(f"   Found {len(existing_urls_in_main)} existing URLs in main playlist")
-            
-            # Find URLs for this channel from Ayna playlist
-            ayna_urls = find_channel_urls_in_ayna(main_channel, search_keywords)
-            
-            if not ayna_urls:
-                print(f"⚠️ No URLs found in Ayna playlist for {main_channel}")
-                continue
-            
-            print(f"   Found {len(ayna_urls)} URLs in Ayna playlist: {ayna_urls[:2]}{'...' if len(ayna_urls) > 2 else ''}")
-            
-            # Check which Ayna URLs already exist in source playlist
-            matched_urls = [url for url in ayna_urls if url in source_links]
-            unmatched_urls = [url for url in ayna_urls if url not in source_links]
-            
-            print(f"   📊 {len(matched_urls)} URLs match source playlist, {len(unmatched_urls)} are new")
-            
-            # Determine action
-            if not unmatched_urls:
-                # All URLs already exist in source playlist - SKIP
-                print(f"   ⛔ All URLs exist in source playlist, marking as SKIPPED")
-                new_channel_entry, changed = mark_channel_as_skipped(channel_entry, main_channel)
-                skip_count += 1
-            
-            elif matched_urls and unmatched_urls:
-                # Some match, some don't - partial update
-                print(f"   🟡 Partial update: adding {len(unmatched_urls)} new URLs")
-                new_channel_entry, changed = update_channel_entry(channel_entry, main_channel, unmatched_urls, has_matched_urls=True)
-                partial_update_count += 1
-            
+            if similar_channels:
+                print(f"   Found similar channels in Ayna: {similar_channels}")
             else:
-                # No matches - full update
-                print(f"   ✅ Full update: adding all {len(unmatched_urls)} URLs")
-                new_channel_entry, changed = update_channel_entry(channel_entry, main_channel, unmatched_urls, has_matched_urls=False)
-                update_count += 1
+                print(f"   No similar channels found in Ayna")
             
-            if changed:
-                # Replace the old channel entry with the new one
-                updated_content = updated_content[:start_pos] + new_channel_entry + updated_content[end_pos:]
+            # চ্যানেল আপডেট করুন
+            updated_content, matched_count, new_count, unmatched_count = update_channel_in_main(
+                updated_content, 
+                {channel_name: channel_data_dict}, 
+                [], 
+                ayna_channels
+            )
+            
+            # স্ট্যাটাস আপডেট
+            total_matched += matched_count
+            total_new += new_count
+            
+            if matched_count > 0 and new_count == 0:
+                total_skipped += 1
+                print(f"   ⛔ SKIPPED - {matched_count} URLs matched")
+            elif matched_count > 0 and new_count > 0:
+                print(f"   🟡 PARTIAL - {matched_count} matched, {new_count} new URLs added")
+            else:
+                print(f"   ✅ UPDATED - {new_count} new URLs added")
         
         # আপডেট করা কন্টেন্ট temporary ফাইলে সেভ করুন
         with open('temp_after_all_channel.m3u', 'w', encoding='utf-8') as f:
@@ -382,10 +292,10 @@ jobs:
         
         print(f"\n🎉 All Channel 🔄 Update Summary:")
         print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
-        print(f"   Total channels processed: {len(CHANNEL_MAPPING)}")
-        print(f"   Fully updated channels: {update_count}")
-        print(f"   Partially updated channels: {partial_update_count}")
-        print(f"   Skipped channels: {skip_count}")
+        print(f"   Total channels processed: {len(source_channels)}")
+        print(f"   Total URLs matched: {total_matched}")
+        print(f"   Total new URLs added: {total_new}")
+        print(f"   Fully skipped channels: {total_skipped}")
         
         EOF
         
@@ -702,16 +612,10 @@ jobs:
             echo "✅ 'No channels found' line is completely removed!"
         fi
         
-        # Check that EXTINF lines are unchanged
-        echo "🔍 Checking EXTINF lines integrity:"
-        ORIGINAL_EXTINF=$(grep -c "#EXTINF:-1" main_playlist_backup.m3u || echo "0")
-        UPDATED_EXTINF=$(grep -c "#EXTINF:-1" sirometv_updated.m3u || echo "0")
-        
-        if [ "$ORIGINAL_EXTINF" -eq "$UPDATED_EXTINF" ]; then
-            echo "✅ All EXTINF lines preserved ($ORIGINAL_EXTINF lines)"
-        else
-            echo "⚠️ Warning: EXTINF line count changed: Original $ORIGINAL_EXTINF, Updated $UPDATED_EXTINF"
-        fi
+        # Check for multiple URLs in channels
+        echo "🔍 Checking for multiple URLs in channels:"
+        MULTI_URL_CHANNELS=$(grep -A 5 "#AUTO-UPDATED" sirometv_updated.m3u | grep -c "^http" || echo "0")
+        echo "   Total URL lines in AUTO-UPDATED sections: $MULTI_URL_CHANNELS"
         
         # Move final file to main playlist
         mv sirometv_updated.m3u sirometv.m3u
@@ -748,7 +652,7 @@ jobs:
           
           COMMIT_MESSAGE+="All Channel ($ALL_CHANNEL_UPDATES updates, $ALL_CHANNEL_PARTIAL partial, $ALL_CHANNEL_SKIPS skips) + Live Event ($LIVE_EVENT_COUNT channels) - $BANGLADESH_TIME"
           
-          git commit -m "$COMMIT_MESSAGE")
+          git commit -m "$COMMIT_MESSAGE"
           git push
           
           echo "🎉 Successfully updated combined playlist!"
