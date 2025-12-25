@@ -1,0 +1,685 @@
+name: Sirome TV Playlist 🔄
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-playlists:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+        
+    - name: Download all playlists
+      run: |
+        echo "📥 Downloading all required playlists..."
+        
+        # Source playlists
+        curl -s -L -o source_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/gh-pages/sirometv.m3u"
+        curl -s -L -o ayna_source.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/Ayna.m3u"
+        curl -s -L -o fancode_source.m3u "https://raw.githubusercontent.com/abusaeeidx/Mrgify-BDIX-IPTV/main/playlist.m3u"
+        
+        # Verify downloads
+        for file in source_playlist.m3u ayna_source.m3u fancode_source.m3u; do
+          if [ ! -f "$file" ] || [ ! -s "$file" ]; then
+            echo "❌ ERROR: $file download failed!"
+            exit 1
+          fi
+          LINES=$(wc -l < "$file")
+          echo "✅ $file downloaded - $LINES lines"
+        done
+        
+        # মেইন প্লেলিস্ট হিসাবে সোর্স প্লেলিস্ট কপি করুন
+        cp source_playlist.m3u main_playlist.m3u
+        echo "📋 Source playlist copied to main_playlist.m3u"
+        
+    - name: Backup original playlist
+      run: |
+        cp source_playlist.m3u main_playlist_backup.m3u
+        echo "📦 Original playlist backed up"
+        
+    - name: Update All Channel 🔄
+      run: |
+        echo "🔄 Starting All Channel 🔄 update..."
+        
+        python3 - << 'EOF'
+        import re
+        from datetime import datetime
+        import pytz
+        import os
+        
+        # চ্যানেল ম্যাপিং ডিকশনারি
+        CHANNEL_MAPPING = {
+            # বাংলাদেশি চ্যানেল
+            "T Sports": ["T Sports HD", "T Sports", "TSports"],
+            "A Sports": ["A Sports"],
+            "Channel 9": ["Channel 9"],
+            "Desh TV": ["Desh TV"],
+            "BTV National": ["BTV NATIONAL HD", "BTV World"],
+            "BTV CTG": ["BTV CTG"],
+            "Somoy TV": ["Somoy News TV", "Somoy TV"],
+            "Jamuna TV": ["Jamuna TV","JAMUNA TV"],
+            "Ekushey TV": ["Ekushey TV"],
+            "NTV BD": ["NTV"],
+            "NTV-Europe": ["NTV Europe"],
+            "Channel 24": ["Channel 24"],
+            "Deen TV": ["Deen TV"],
+            "SATV": ["SA TV"],
+            "GTV": ["GTV", "GTV HD", "Gazi TV"],
+            "PTV Sports": ["PTV Sports"],
+            "Channel I": ["Channel I"],
+            "Bangla Vision": ["Bangla Vision"],
+            "News 24": ["News 24 BD"], 
+            "Boishakhi TV": ["Boishakhi TV"],
+            "Bijoy TV": ["Bijoy TV"],
+            "ATN Bangla": ["ATN Bangla"],
+            "ATN-Bangla News": ["ATN News"],
+            "DBC News": ["DBC News"],
+            "Independent TV": ["Independent TV"],
+            "Bangla TV": ["Bangla TV"],
+            "RTV": ["RTV"],
+            "My TV": ["My TV"],
+            "Duronto": ["Duronto TV"],
+            "Deepto TV": ["Deepto TV"],
+            "Mohona TV": ["Mohona TV"],
+            "Ananda TV": ["Ananda TV"],
+            "Asian TV": ["Asian TV"],
+            "Gaan Bangla": ["Gaan Bangla", "GAAN BANGLA", "gaan bangla", "Gaan", "GAAN"],
+            "Channel 5 TV": ["Channel 5 TV"],
+            "Music Bangla": ["Music Bangla"],
+            "Ekattor TV": ["Ekattor TV"],
+            "Nagorik TV": ["Nagorik TV"],
+            "Ekhon TV": ["Ekhon TV"],
+            "Peace TV Bangla": ["Peace TV Bangla HD"],
+            "Islam Bangla": ["Islam Bangla"],
+            "Iqra TV ": ["Iqra Bangla"],
+            "Madani TV": ["Madani TV"],
+            "News21 TV": ["News21 TV"],
+            "Bangla 21": ["Bangla 21"],
+            "Movie Bangla": ["Movie Bangla"],
+            "Matri Bhumi": ["Matri Bhumi"],
+            "Magic Bangla": ["Magic Bangla"],
+            "Alpona TV": ["Alpona TV"],
+            "Channel A1": ["Channel A1"],
+            "Shadin Bangla": ["Shadin Bangla"],
+            "Channel S UK": ["Channel S UK HD"],
+            "Nandan TV": ["Nandan TV"],
+            "Global TV": ["Global TV"],
+            "Deshi TV": ["Deshi TV", "Deshi TV (720p)"],
+            "Falguni TV": ["Falguni TV"],
+            "Channel S BD": ["Channel S BD","Channel S HD"],
+            "Rajdhani TV": ["Rajdhani TV"],
+            "Rongeen TV": ["Rongeen TV"],
+            "Sonic Bangla": ["Sonic Bangla"],
+            "Discovery Kids": ["Discovery Kids"],
+            "NAN TV": ["NAN TV"],
+            
+            # আন্তর্জাতিক চ্যানেল
+            "Star Jalsha": ["Star Jalsha HD", "Star Jalsha"],
+            "Star-Jalsha Movies": ["Star Jalsha Movies HD"],
+            "Zee Bangla": ["Zee Bangla International", "Zee Bangla"],
+            "Zee-Bangla Cinema": ["Zee Bangla Cinema"],
+            "Colors Bengali": ["colors bangla"],
+            "Sangeet Bangla": ["Sangeet Bangla"],
+            "Sony Aaat": ["Sony Aaat"],
+            "Enter 10 Bangla": ["Enter 10 Bangla"],
+            "Zee 24 Ghanta": ["Zee 24 Ghanta"],
+        }
+        
+        def get_bangladesh_time():
+            """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
+            bangladesh_tz = pytz.timezone('Asia/Dhaka')
+            now = datetime.now(bangladesh_tz)
+            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
+        
+        def extract_channel_from_source(source_file, channel_name):
+            """সোর্স প্লেলিস্ট থেকে একটি চ্যানেলের তথ্য সংগ্রহ করে"""
+            with open(source_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # চ্যানেল ব্লক খুঁজে বের করা
+            pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*)\n((?:http[^\n]*\n)+)'.format(re.escape(channel_name))
+            match = re.search(pattern, content, re.IGNORECASE)
+            
+            if not match:
+                return None
+            
+            extinf_line = match.group(1)
+            urls_block = match.group(2)
+            
+            # URL গুলো সংগ্রহ করা
+            urls = [url.strip() for url in urls_block.strip().split('\n') if url.strip()]
+            
+            # চ্যানেলের অন্যান্য তথ্য
+            logo_match = re.search(r'tvg-logo="([^"]*)"', extinf_line)
+            group_match = re.search(r'group-title="([^"]*)"', extinf_line)
+            
+            return {
+                'extinf_line': extinf_line,
+                'urls': urls,
+                'tvg_logo': logo_match.group(1) if logo_match else "",
+                'group_title': group_match.group(1) if group_match else "",
+                'full_entry': match.group(0).strip()
+            }
+        
+        def extract_channels_from_ayna(ayna_file, search_keywords):
+            """Ayna প্লেলিস্ট থেকে নির্দিষ্ট কীওয়ার্ডের চ্যানেলের লিংক সংগ্রহ করে"""
+            all_urls = []
+            
+            with open(ayna_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # প্রতিটি কীওয়ার্ডের জন্য চ্যানেল খোঁজা
+            for keyword in search_keywords:
+                pattern = r'#EXTINF:[^\n]*{}[^\n]*\n((?:http[^\n]*\n?)+)'.format(re.escape(keyword))
+                matches = re.finditer(pattern, content, re.IGNORECASE)
+                
+                for match in matches:
+                    urls_block = match.group(1)
+                    urls = [url.strip() for url in urls_block.strip().split('\n') if url.strip()]
+                    all_urls.extend(urls)
+            
+            # ডুপ্লিকেট রিমুভ করে সর্বোচ্চ ৫টি URL রিটার্ন
+            unique_urls = []
+            seen = set()
+            for url in all_urls:
+                if url not in seen and len(unique_urls) < 5:
+                    seen.add(url)
+                    unique_urls.append(url)
+            
+            return unique_urls[:5]  # সর্বোচ্চ ৫টি URL
+        
+        def update_channel_entry(main_content, channel_data, ayna_urls):
+            """একটি চ্যানেলের এন্ট্রি আপডেট করে"""
+            channel_name = channel_data['channel_name']
+            source_urls = channel_data['urls']
+            
+            timestamp = get_bangladesh_time()
+            
+            # মিলে যাওয়া URL গুলো খুঁজা
+            matched_urls = []
+            unmatched_source_urls = []
+            
+            for url in source_urls:
+                if url in ayna_urls:
+                    matched_urls.append(url)
+                else:
+                    unmatched_source_urls.append(url)
+            
+            # Ayna থেকে নতুন URL গুলো (যেগুলো সোর্সে নেই)
+            new_ayna_urls = [url for url in ayna_urls if url not in source_urls]
+            
+            # সর্বোচ্চ ৫টি URL এর মধ্যে সমন্বয় করা
+            all_urls = []
+            
+            # প্রথমে মিলে যাওয়া URL গুলো (স্কিপড)
+            all_urls.extend(matched_urls)
+            
+            # তারপর নতুন Ayna URL গুলো (সর্বোচ্চ ৫টি পর্যন্ত)
+            available_slots = 5 - len(all_urls)
+            if available_slots > 0 and new_ayna_urls:
+                all_urls.extend(new_ayna_urls[:available_slots])
+            
+            # তারপর বাকি সোর্স URL গুলো
+            available_slots = 5 - len(all_urls)
+            if available_slots > 0 and unmatched_source_urls:
+                all_urls.extend(unmatched_source_urls[:available_slots])
+            
+            # সর্বোচ্চ ৫টি URL নিশ্চিত করা
+            all_urls = all_urls[:5]
+            
+            # URL ব্লক তৈরি
+            url_block = '\n'.join(all_urls) + '\n'
+            
+            # আপডেট মেসেজ তৈরি
+            if matched_urls and new_ayna_urls:
+                # কিছু মিলেছে, কিছু নতুন যোগ হয়েছে
+                update_message = f"#AUTO-UPDATED - {channel_name} ⛔ SKIPPED 🟢 Other Link 🟢 - {timestamp} 🟡 - 🔄 - 🔴\n"
+            elif matched_urls and not new_ayna_urls:
+                # সবই মিলে গেছে, নতুন কিছু নেই
+                update_message = f"#AUTO-UPDATED - {channel_name} ⛔ SKIPPED ⛔ - {timestamp} 🟡 - 🔄 - 🔴\n"
+            else:
+                # কিছুই মেলেনি, সব নতুন
+                update_message = f"#AUTO-UPDATED - {channel_name} ✅- {timestamp} 🟡 - 🔄 - 🔴\n"
+            
+            # পুরাতন চ্যানেল ব্লক রিপ্লেস করা
+            old_pattern = r'({})\n((?:http[^\n]*\n)+)'.format(re.escape(channel_data['extinf_line']))
+            
+            def replacement(match):
+                return match.group(1) + '\n' + update_message + url_block
+            
+            updated_content = re.sub(old_pattern, replacement, main_content, flags=re.MULTILINE)
+            
+            return updated_content, len(matched_urls), len(new_ayna_urls), len(all_urls)
+        
+        # মেইন প্লেলিস্ট লোড করুন
+        with open('main_playlist.m3u', 'r', encoding='utf-8') as f:
+            main_content = f.read()
+        
+        # Check if manual run or scheduled
+        is_manual_run = os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
+        
+        updated_content = main_content
+        total_channels_processed = 0
+        total_skipped = 0
+        total_partial = 0
+        total_updated = 0
+        
+        print(f"🎯 Processing {len(CHANNEL_MAPPING)} channels from mapping dictionary")
+        
+        # প্রতিটি চ্যানেলের জন্য আপডেট করুন
+        for main_channel, search_keywords in CHANNEL_MAPPING.items():
+            print(f"\n🔍 Processing: {main_channel}")
+            print(f"   Search keywords: {search_keywords}")
+            
+            # সোর্স প্লেলিস্ট থেকে চ্যানেল তথ্য সংগ্রহ
+            channel_data = extract_channel_from_source('source_playlist.m3u', main_channel)
+            
+            if not channel_data:
+                print(f"   ⚠️ Channel '{main_channel}' not found in source playlist, skipping...")
+                continue
+            
+            channel_data['channel_name'] = main_channel
+            total_channels_processed += 1
+            
+            # Ayna থেকে চ্যানেলের লিংক সংগ্রহ (সর্বোচ্চ ৫টি)
+            ayna_urls = extract_channels_from_ayna('ayna_source.m3u', search_keywords)
+            
+            if ayna_urls:
+                print(f"   Found {len(ayna_urls)} URLs from Ayna")
+            else:
+                print(f"   No URLs found in Ayna for keywords: {search_keywords}")
+            
+            # চ্যানেল আপডেট করুন
+            updated_content, matched_count, new_count, total_urls = update_channel_entry(
+                updated_content, 
+                channel_data, 
+                ayna_urls
+            )
+            
+            # স্ট্যাটাস আপডেট
+            if matched_count > 0 and new_count == 0:
+                total_skipped += 1
+                print(f"   ⛔ SKIPPED - {matched_count} URLs matched, 0 new added")
+            elif matched_count > 0 and new_count > 0:
+                total_partial += 1
+                print(f"   🟡 PARTIAL - {matched_count} matched, {new_count} new URLs added (total: {total_urls})")
+            elif new_count > 0:
+                total_updated += 1
+                print(f"   ✅ UPDATED - {new_count} new URLs added (total: {total_urls})")
+            else:
+                print(f"   ℹ️ NO CHANGE - No updates needed")
+        
+        # আপডেট করা কন্টেন্ট temporary ফাইলে সেভ করুন
+        with open('temp_after_all_channel.m3u', 'w', encoding='utf-8') as f:
+            f.write(updated_content)
+        
+        print(f"\n🎉 All Channel 🔄 Update Summary:")
+        print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
+        print(f"   Total channels in mapping: {len(CHANNEL_MAPPING)}")
+        print(f"   Total channels processed: {total_channels_processed}")
+        print(f"   ✅ Fully updated channels: {total_updated}")
+        print(f"   🟡 Partially updated channels: {total_partial}")
+        print(f"   ⛔ Skipped channels: {total_skipped}")
+        
+        # ম্যাপিং থেকে বাদ পড়া চ্যানেল
+        remaining = len(CHANNEL_MAPPING) - total_channels_processed
+        if remaining > 0:
+            print(f"   ⚠️ Channels not found in source: {remaining}")
+        
+        EOF
+        
+        echo "✅ All Channel 🔄 update completed!"
+        
+    - name: Update Live Fancode 🔄
+      run: |
+        echo "🔄 Starting Live Fancode 🔄 update..."
+        
+        python3 - << 'EOF'
+        import re
+        from datetime import datetime
+        import pytz
+        
+        # ⚙️ CONFIGURATION
+        TARGET_LINE_NUMBER = 25  # আপনার ইচ্ছামত লাইন নম্বর পরিবর্তন করুন
+        
+        # গ্রুপ টাইটেলের লিস্ট
+        TARGET_GROUP_TITLES = [
+            "Live Event",
+            # "Cricket",    # uncomment করতে পারেন যদি প্রয়োজন হয়
+            # "Akash Go",    # uncomment করতে পারেন যদি প্রয়োজন হয়
+            # "Football",    # uncomment করতে পারেন যদি প্রয়োজন হয়
+            # "Sports",      # uncomment করতে পারেন যদি প্রয়োজন হয়
+            # "Movies",      # uncomment করতে পারেন যদি প্রয়োজন হয়
+        ]
+        
+        def get_bangladesh_time():
+            """বাংলাদেশের বর্তমান সময় রিটার্ন করে"""
+            bangladesh_tz = pytz.timezone('Asia/Dhaka')
+            now = datetime.now(bangladesh_tz)
+            return now.strftime("%Y-%m-%d %I:%M:%S%p BD Time")
+        
+        def get_channel_name_strategy(group_title, extinf_line):
+            """গ্রুপ অনুযায়ী চ্যানেল নামের strategy নির্ধারণ করে"""
+            # চ্যানেল নাম extract করা
+            channel_name_match = re.search(r',([^,\n]+)$', extinf_line)
+            original_name = channel_name_match.group(1).strip() if channel_name_match else ""
+            
+            if group_title == "Live Event":
+                return "🟢Live Match🔴"  # Live Event গ্রুপের জন্য ডিফল্ট নাম
+            elif group_title == "Sports":
+                return "Sports Live"  # Sports গ্রুপের জন্য ডিফল্ট নাম
+            elif group_title == "Akash Go":
+                return original_name  # Akash Go গ্রুপের জন্য আসল নাম রাখবে
+            else:
+                return original_name  # অন্যান্য গ্রুপের জন্য আসল নাম
+        
+        def extract_group_channels(source_file, group_title):
+            """সোর্স প্লেলিস্ট থেকে নির্দিষ্ট গ্রুপের সব চ্যানেল extract করে"""
+            channels = []
+            
+            with open(source_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # নির্দিষ্ট গ্রুপের সব চ্যানেল খুঁজে বের করা
+            pattern = r'(#EXTINF:-1[^\n]*group-title="[^"]*{}[^"]*"[^\n]*\n)(http[^\n]+)'.format(re.escape(group_title))
+            
+            matches = re.finditer(pattern, content, re.IGNORECASE)
+            
+            for match in matches:
+                extinf_line = match.group(1).strip()
+                url_line = match.group(2).strip()
+                
+                # tvg-logo extract করা
+                logo_match = re.search(r'tvg-logo="([^"]*)"', extinf_line)
+                tvg_logo = logo_match.group(1) if logo_match else "https://i.postimg.cc/d1hHy4ss/11.png"
+                
+                # গ্রুপ অনুযায়ী চ্যানেল নাম নির্ধারণ
+                channel_name = get_channel_name_strategy(group_title, extinf_line)
+                
+                channels.append({
+                    'extinf_line': extinf_line,
+                    'url_line': url_line,
+                    'tvg_logo': tvg_logo,
+                    'channel_name': channel_name,
+                    'group_title': group_title
+                })
+            
+            print(f"✅ Found {len(channels)} channels for group '{group_title}'")
+            return channels
+        
+        def force_groups_at_line(main_content, all_group_channels, target_line):
+            """সবসময় নির্দিষ্ট লাইনে সব গ্রুপের সেকশন রাখে"""
+            timestamp = get_bangladesh_time()
+            
+            # সব গ্রুপের জন্য combined section তৈরি করা
+            new_combined_section = f"#AUTO-UPDATED - Multiple Groups - {timestamp}\n"
+            
+            total_channels = 0
+            has_any_channels = False
+            
+            for group_title, channels in all_group_channels.items():
+                if channels and len(channels) > 0:  # শুধু channels থাকলে এবং empty না হলে যোগ করবে
+                    new_combined_section += f"# --- {group_title} Group ---\n"
+                    
+                    for channel in channels:
+                        # নতুন EXTINF লাইন তৈরি করা - গ্রুপ অনুযায়ী চ্যানেল নাম
+                        new_extinf_line = f'#EXTINF:-1 tvg-logo="{channel["tvg_logo"]}" group-title="{group_title}", {channel["channel_name"]}\n'
+                        new_combined_section += new_extinf_line
+                        new_combined_section += channel["url_line"] + "\n"
+                    
+                    total_channels += len(channels)
+                    has_any_channels = True
+                    print(f"📺 Added {len(channels)} channels for {group_title}")
+            
+            # No channels found লাইন যোগ করা হবে না
+            if not has_any_channels:
+                print("ℹ️ No channels found for any active group - creating empty AUTO-UPDATED section")
+            
+            # মেইন কন্টেন্টকে লাইনে ভাগ করা
+            lines = main_content.split('\n')
+            
+            # TARGET_LINE_NUMBER validation
+            if target_line < 1:
+                target_line = 1
+            if target_line > len(lines):
+                target_line = len(lines)
+            
+            print(f"📍 Target line: {target_line} (Total lines: {len(lines)})")
+            
+            # existing ANY AUTO-UPDATED section খুঁজে বের করা এবং সরানো (পুরানো সব versions)
+            auto_updated_start = -1
+            auto_updated_end = -1
+            
+            # existing section এর শুরু এবং শেষ খুঁজা - ANY AUTO-UPDATED section
+            for i, line in enumerate(lines):
+                if '#AUTO-UPDATED' in line and 'Multiple Groups' in line:
+                    auto_updated_start = i
+                    print(f"🔍 Found existing AUTO-UPDATED section at line {i+1}")
+                    # section এর শেষ খুঁজা
+                    for j in range(i + 1, len(lines)):
+                        if not (lines[j].startswith('#EXTINF') or lines[j].startswith('http') or lines[j].startswith('# ---') or lines[j].strip() == ''):
+                            auto_updated_end = j
+                            break
+                    if auto_updated_end == -1:
+                        auto_updated_end = len(lines)
+                    break
+            
+            if auto_updated_start != -1:
+                print(f"🗑️ Removing existing AUTO-UPDATED section (lines {auto_updated_start+1}-{auto_updated_end})")
+                # existing section সরানো
+                lines = lines[:auto_updated_start] + lines[auto_updated_end:]
+            
+            # নতুন section টার্গেট লাইনে যোগ করা
+            insert_position = target_line - 1  # 0-based index
+            
+            # যদি insert position existing removal এর পর পরিবর্তন হয়ে থাকে, adjust করা
+            if auto_updated_start != -1 and auto_updated_start < insert_position:
+                insert_position -= (auto_updated_end - auto_updated_start)
+            
+            if insert_position > len(lines):
+                insert_position = len(lines)
+            
+            new_lines = lines[:insert_position] + new_combined_section.split('\n') + lines[insert_position:]
+            updated_content = '\n'.new_lines
+            
+            print(f"✅ Multiple Groups section positioned at line {target_line}")
+            
+            return updated_content, total_channels
+        
+        # All Channel update এর পরের temporary ফাইল লোড করুন
+        with open('temp_after_all_channel.m3u', 'r', encoding='utf-8') as f:
+            main_content = f.read()
+        
+        # Check if manual run or scheduled
+        import os
+        is_manual_run = os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
+        
+        # Filter out commented groups (lines starting with #)
+        active_groups = [group for group in TARGET_GROUP_TITLES if not group.startswith('#')]
+        
+        if not active_groups:
+            print("❌ ERROR: No active groups found! Please uncomment at least one group in TARGET_GROUP_TITLES")
+            print("Current TARGET_GROUP_TITLES:", TARGET_GROUP_TITLES)
+            exit(1)
+        
+        print(f"🎯 Active groups: {active_groups}")
+        
+        # প্রতিটি active গ্রুপ টাইটেলের জন্য চ্যানেল extract করুন
+        all_group_channels = {}
+        total_found_channels = 0
+        has_any_channels_found = False
+        
+        for group_title in active_groups:
+            print(f"\n🔍 Processing group: {group_title}")
+            channels = extract_group_channels('fancode_source.m3u', group_title)
+            # শুধু channels থাকলে all_group_channels এ যোগ করবে
+            if channels:
+                all_group_channels[group_title] = channels
+                total_found_channels += len(channels)
+                has_any_channels_found = True
+            else:
+                print(f"ℹ️ No channels found for group '{group_title}', skipping...")
+        
+        # মেইন প্লেলিস্ট আপডেট করুন - সবসময় TARGET_LINE_NUMBER এ রাখবে
+        updated_content, total_added_channels = force_groups_at_line(main_content, all_group_channels, TARGET_LINE_NUMBER)
+        
+        # আপডেট করা কন্টেন্ট ফাইনাল ফাইলে সেভ করুন
+        with open('sirometv_updated.m3u', 'w', encoding='utf-8') as f:
+            f.write(updated_content)
+        
+        print(f"\n🎉 Live Fancode 🔄 Update Summary:")
+        print(f"   Run type: {'Manual' if is_manual_run else 'Scheduled'}")
+        print(f"   Target line: {TARGET_LINE_NUMBER}")
+        print(f"   Total active groups: {len(active_groups)}")
+        print(f"   Total channels found: {total_found_channels}")
+        print(f"   Total channels added: {total_added_channels}")
+        
+        EOF
+        
+        echo "✅ Live Fancode 🔄 update completed!"
+        
+    - name: Verify combined updates
+      run: |
+        echo "🔍 Verifying combined playlist updates..."
+        
+        if [ ! -f "sirometv_updated.m3u" ] || [ ! -s "sirometv_updated.m3u" ]; then
+          echo "❌ ERROR: Updated playlist is missing or empty!"
+          exit 1
+        fi
+        
+        # Compare with backup
+        OLD_LINES=$(wc -l < main_playlist_backup.m3u)
+        NEW_LINES=$(wc -l < sirometv_updated.m3u)
+        DIFF=$((NEW_LINES - OLD_LINES))
+        
+        echo "📊 Line count comparison:"
+        echo "   Original: $OLD_LINES lines"
+        echo "   Updated: $NEW_LINES lines"
+        echo "   Difference: $DIFF lines"
+        
+        # Check All Channel updates
+        echo "🔍 Checking All Channel 🔄 updates:"
+        ALL_CHANNEL_UPDATES=$(grep -c "#AUTO-UPDATED -.*✅-" sirometv_updated.m3u || echo "0")
+        ALL_CHANNEL_SKIPS=$(grep -c "#AUTO-UPDATED -.*⛔ SKIPPED ⛔" sirometv_updated.m3u || echo "0")
+        ALL_CHANNEL_PARTIAL=$(grep -c "#AUTO-UPDATED -.*⛔ SKIPPED 🟢 Other Link 🟢" sirometv_updated.m3u || echo "0")
+        echo "   ✅ All Channel updates: $ALL_CHANNEL_UPDATES channels"
+        echo "   ⛔ All Channel skips: $ALL_CHANNEL_SKIPS channels"
+        echo "   🟡 All Channel partial updates: $ALL_CHANNEL_PARTIAL channels"
+        
+        # Check maximum 5 URLs per channel
+        echo "🔍 Checking maximum 5 URLs per channel:"
+        BAD_CHANNELS=$(python3 -c "
+import re
+with open('sirometv_updated.m3u', 'r') as f:
+    content = f.read()
+
+# Find all AUTO-UPDATED sections
+pattern = r'#AUTO-UPDATED[^\n]*\n((?:http[^\n]*\n)+)'
+matches = re.findall(pattern, content)
+
+bad_count = 0
+for i, urls_block in enumerate(matches):
+    urls = [url.strip() for url in urls_block.strip().split('\n') if url.strip()]
+    if len(urls) > 5:
+        bad_count += 1
+        print(f'Channel with {len(urls)} URLs (max 5 allowed)')
+
+print(f'Total channels with >5 URLs: {bad_count}')
+if bad_count > 0:
+    exit(1)
+")
+        
+        # Check Live Fancode updates
+        echo "🔍 Checking Live Fancode 🔄 updates:"
+        MULTIPLE_GROUPS_SECTION=$(grep -c "#AUTO-UPDATED - Multiple Groups" sirometv_updated.m3u || echo "0")
+        echo "   Multiple Groups section: $MULTIPLE_GROUPS_SECTION"
+        
+        if [ "$MULTIPLE_GROUPS_SECTION" -eq "0" ]; then
+            echo "⚠️ Warning: No Multiple Groups section found"
+        else
+            # Check section position
+            SECTION_LINE=$(grep -n "#AUTO-UPDATED - Multiple Groups" sirometv_updated.m3u | cut -d: -f1)
+            echo "   📍 Multiple Groups section at line: $SECTION_LINE"
+        fi
+        
+        # Check for Live Event group
+        LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometv_updated.m3u || echo "0")
+        echo "   📺 Live Event channels: $LIVE_EVENT_COUNT"
+        
+        # Move final file to main playlist
+        mv sirometv_updated.m3u sirometv.m3u
+        
+        echo "✅ Combined verification completed!"
+        
+    - name: Commit and push changes
+      run: |
+        echo "💾 Saving combined changes to repository..."
+        
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add sirometv.m3u
+        
+        if git diff --staged --quiet; then
+          echo "✅ No changes detected - playlist is up to date"
+        else
+          # বাংলাদেশের সময় নেওয়া (BD Time format)
+          BANGLADESH_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S%p BD Time')
+          
+          # Calculate channel counts
+          ALL_CHANNEL_UPDATES=$(grep -c "#AUTO-UPDATED -.*✅-" sirometv.m3u || echo "0")
+          ALL_CHANNEL_SKIPS=$(grep -c "#AUTO-UPDATED -.*⛔ SKIPPED ⛔" sirometv.m3u || echo "0")
+          ALL_CHANNEL_PARTIAL=$(grep -c "#AUTO-UPDATED -.*⛔ SKIPPED 🟢 Other Link 🟢" sirometv.m3u || echo "0")
+          LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometv.m3u || echo "0")
+          
+          COMMIT_MESSAGE="🔄 Combined Update: "
+          
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            COMMIT_MESSAGE+="Manual Run - "
+          else
+            COMMIT_MESSAGE+="Scheduled Run - "
+          fi
+          
+          COMMIT_MESSAGE+="All Channel ($ALL_CHANNEL_UPDATES updates, $ALL_CHANNEL_PARTIAL partial, $ALL_CHANNEL_SKIPS skips) + Live Event ($LIVE_EVENT_COUNT channels) - $BANGLADESH_TIME"
+          
+          git commit -m "$COMMIT_MESSAGE"
+          git push
+          
+          echo "🎉 Successfully updated combined playlist!"
+          echo "📊 Summary:"
+          echo "   All Channel 🔄: $ALL_CHANNEL_UPDATES channels fully updated"
+          echo "   All Channel 🟡: $ALL_CHANNEL_PARTIAL channels partially updated"
+          echo "   All Channel ⛔: $ALL_CHANNEL_SKIPS channels skipped"
+          echo "   Live Event: $LIVE_EVENT_COUNT channels"
+          echo "   Time: $BANGLADESH_TIME"
+        fi
+        
+    - name: Cleanup
+      run: |
+        echo "🧹 Cleaning up temporary files..."
+        rm -f main_playlist.m3u main_playlist_backup.m3u
+        rm -f source_playlist.m3u ayna_source.m3u fancode_source.m3u
+        rm -f temp_after_all_channel.m3u
+        echo "✅ Cleanup completed!"
+        
+    - name: Success Notification
+      if: success()
+      run: |
+        echo "🎊 Combined workflow completed successfully!"
+        echo "📅 Next update in 5 minutes"
+        
+    - name: Failure Notification
+      if: failure()
+      run: |
+        echo "❌ Combined workflow failed!"
+        echo "Please check the logs for errors."
+        echo "Backup file may be available as main_playlist_backup.m3u"
