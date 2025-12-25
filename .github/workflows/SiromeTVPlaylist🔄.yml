@@ -1,11 +1,11 @@
-name: Combined Playlist Skipper ENV 🔄
+name: SiromeTV Playlist 🔄
 
 on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
 
-# ভেরিয়েবল ডিফাইন করুন
+# ভেরিয়েবল ডিফাইন করুন, এখানে লিংক variables ভাবে সিক্রেট করা আছে।
 env:
   PAGE_SIROMETV: ${{ vars.PAGE_SIROMETV }}
   AYNA_SIROMETV: ${{ vars.AYNA_SIROMETV }}
@@ -357,7 +357,7 @@ jobs:
             original_name = channel_name_match.group(1).strip() if channel_name_match else ""
             
             if group_title == "Live Event":
-                return "Fancode"  # Live Event গ্রুপের জন্য ডিফল্ট নাম
+                return "Live Match 🔴"  # Live Event গ্রুপের জন্য ডিফল্ট নাম
             elif group_title == "Sports":
                 return "Sports Live"  # Sports গ্রুপের জন্য ডিফল্ট নাম
             elif group_title == "Akash Go":
@@ -547,7 +547,7 @@ jobs:
                     first_channel_name = channels[0]['channel_name']
                     naming_strategy = ""
                     if group_title == "Live Event":
-                        naming_strategy = "(all named 'Fancode')"
+                        naming_strategy = "(all named 'Live Match 🔴')"
                     elif group_title == "Sports":
                         naming_strategy = "(all named 'Sports Live')"
                     elif group_title == "Akash Go":
