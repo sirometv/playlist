@@ -1,9 +1,15 @@
-name: Combined Playlist Skipper 🔄
+name: Combined Playlist Skipper ENV 🔄
 
 on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
+
+# ভেরিয়েবল ডিফাইন করুন
+env:
+  PAGE_SIROMETV: ${{ vars.PAGE_SIROMETV }}
+  AYNA_SIROMETV: ${{ vars.AYNA_SIROMETV }}
+  ALL_TV: ${{ vars.ALL_TV }}
 
 permissions:
   contents: write
@@ -26,10 +32,10 @@ jobs:
         # প্রথমে মেইন প্লেলিস্ট খালি ফাইলে রূপান্তর
         echo "" > main_playlist.m3u
         
-        # Source playlists
-        curl -s -L -o source_playlist.m3u "https://raw.githubusercontent.com/sirometv/playlist/gh-pages/sirometv.m3u"
-        curl -s -L -o ayna_source.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/Ayna.m3u"
-        curl -s -L -o fancode_source.m3u "https://raw.githubusercontent.com/abusaeeidx/Mrgify-BDIX-IPTV/main/playlist.m3u"
+        # Source playlists - ভেরিয়েবল ব্যবহার করুন
+        curl -s -L -o source_playlist.m3u "$PAGE_SIROMETV"
+        curl -s -L -o ayna_source.m3u "$AYNA_SIROMETV"
+        curl -s -L -o fancode_source.m3u "$ALL_TV"
         
         # Verify downloads
         for file in source_playlist.m3u ayna_source.m3u fancode_source.m3u; do
@@ -217,7 +223,7 @@ jobs:
             
             if is_manual_run:
                 # Manual run: নতুন AUTO-UPDATED লাইন যোগ করবে (যদি না থাকে)
-                auto_updated_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\n]*\n)'.format(re.escape(channel_name))
+                auto_updated_pattern = r'(#EXTINF:-1[^\n]*{}[^\n]*\n)(#AUTO-UPDATED[^\ন]*\n)'.format(re.escape(channel_name))
                 
                 if re.search(auto_updated_pattern, main_content, re.IGNORECASE):
                     # AUTO-UPDATED already exists, replace the entire AUTO-UPDATED line with new one
