@@ -1,141 +1,102 @@
+import json
 import requests
-import base64
 import os
 from datetime import datetime
 
-# Configuration
+# কনফিগারেশন
 JSON_URL = "https://raw.githubusercontent.com/IPTVFlixBD/Fancode-BD/main/data.json"
 DEFAULT_STREAM = "https://crichd.workspace-sultanarabi161.workers.dev/live/asportshd.m3u8"
-REPO_OWNER = "sirometv"
-REPO_NAME = "playlist"
-GITHUB_PATH = "fancode"
+M3U8_FILES = [
+    "1.m3u8",
+    "2.m3u8", 
+    "3.m3u8",
+    "4.m3u8",
+    "5.m3u8",
+    "6.m3u8"
+]
+M3U8_DIR = "fancode/"
 
-def get_adfree_urls():
-    """Fetch adfree URLs from JSON"""
+def fetch_json_data():
+    """JSON ডেটা fetch করা"""
     try:
         response = requests.get(JSON_URL, timeout=10)
-        data = response.json()
-        adfree_urls = []
-        
-        # Method 1: Check if 'matches' exists in data
-        if 'matches' in data and isinstance(data['matches'], list):
-            for match in data['matches']:
-                if 'adfree_url' in match and match['adfree_url']:
-                    adfree_urls.append(match['adfree_url'])
-        
-        # Method 2: If data is a list
-        elif isinstance(data, list):
-            for item in data:
-                if isinstance(item, dict):
-                    if 'adfree_url' in item and item['adfree_url']:
-                        adfree_urls.append(item['adfree_url'])
-        
-        print(f"✅ Found {len(adfree_urls)} adfree URLs")
-        return adfree_urls
-        
+        response.raise_for_status()
+        return response.json()
     except Exception as e:
-        print(f"❌ Error fetching JSON: {e}")
-        return []
+        print(f"JSON fetch error: {e}")
+        return None
+
+def extract_adfree_urls(data):
+    """JSON থেকে adfree_url গুলো extract করা"""
+    adfree_urls = []
+    
+    if data and "matches" in data:
+        for match in data["matches"]:
+            if "adfree_url" in match and match["adfree_url"]:
+                # URL ভ্যালিডেশন
+                url = match["adfree_url"].strip()
+                if url.startswith("http"):
+                    adfree_urls.append(url)
+                    print(f"Found adfree_url: {url}")
+    
+    return adfree_urls
 
 def create_m3u8_content(stream_url):
-    """Create M3U8 file content"""
+    """M3U8 ফাইল কন্টেন্ট তৈরি করা"""
     return f"""#EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-TARGETDURATION:10
 #EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:5.0, Stream
+#EXTINF:5.0,
 {stream_url}
 """
 
-def update_single_file(file_number, stream_url, token):
-    """Update single M3U8 file"""
-    filename = f"{file_number}.m3u8"
-    api_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{GITHUB_PATH}/{filename}"
+def update_m3u8_files(adfree_urls):
+    """সব M3U8 ফাইল আপডেট করা"""
+    # প্রাপ্ত URL এবং ডিফল্ট URL মিলিয়ে লিস্ট তৈরি
+    streams = []
     
-    headers = {
-        "Authorization": f"token {token}",
-        "Accept": "application/vnd.github.v3+json"
-    }
+    # প্রথমে adfree_url গুলো নিন
+    for url in adfree_urls:
+        if len(streams) < 6:
+            streams.append(url)
     
-    # Create content
-    content = create_m3u8_content(stream_url)
-    encoded_content = base64.b64encode(content.encode()).decode()
+    # বাকিগুলোর জন্য ডিফল্ট স্ট্রিম
+    while len(streams) < 6:
+        streams.append(DEFAULT_STREAM)
     
-    # Get current file SHA (if exists)
-    try:
-        response = requests.get(api_url, headers=headers, timeout=10)
-        sha = response.json().get('sha') if response.status_code == 200 else None
-    except:
-        sha = None
+    print(f"Total streams to update: {len(streams)}")
     
-    # Prepare data for GitHub API
-    data = {
-        "message": f"Auto-update {filename} at {datetime.now().strftime('%H:%M:%S')}",
-        "content": encoded_content,
-        "committer": {
-            "name": "Auto Updater",
-            "email": "updater@github.com"
-        }
-    }
-    
-    if sha:
-        data["sha"] = sha
-    
-    # Update file
-    response = requests.put(api_url, headers=headers, json=data, timeout=15)
-    
-    if response.status_code in [200, 201]:
-        print(f"✅ Updated {filename}")
-        return True
-    else:
-        print(f"❌ Failed to update {filename}: {response.status_code}")
-        return False
+    # প্রতিটি M3U8 ফাইল আপডেট করুন
+    for i, (filename, stream_url) in enumerate(zip(M3U8_FILES, streams)):
+        filepath = os.path.join(M3U8_DIR, filename)
+        content = create_m3u8_content(stream_url)
+        
+        try:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(content)
+            print(f"Updated {filepath} with stream {i+1}")
+        except Exception as e:
+            print(f"Error writing {filepath}: {e}")
 
 def main():
-    """Main function"""
-    print("🚀 Starting M3U8 Auto Update...")
-    print("-" * 50)
+    print(f"=== Starting update at {datetime.now()} ===")
     
-    # Get GitHub token
-    token = os.environ.get('GITHUB_TOKEN')
-    if not token:
-        print("❌ ERROR: GITHUB_TOKEN not found!")
-        return
+    # JSON ডেটা fetch করুন
+    data = fetch_json_data()
     
-    # Get adfree URLs
-    adfree_urls = get_adfree_urls()
-    
-    # Update 6 M3U8 files
-    total_files = 6
-    success_count = 0
-    
-    for i in range(1, total_files + 1):
-        # Choose URL: adfree if available, otherwise default
-        if i <= len(adfree_urls):
-            stream_url = adfree_urls[i-1]
-            source = "JSON"
-        else:
-            stream_url = DEFAULT_STREAM
-            source = "DEFAULT"
-        
-        print(f"\n📁 Processing {i}.m3u8 ({source})...")
-        
-        if update_single_file(i, stream_url, token):
-            success_count += 1
-    
-    # Summary
-    print("\n" + "=" * 50)
-    print("📊 UPDATE SUMMARY:")
-    print(f"Total files: {total_files}")
-    print(f"Successfully updated: {success_count}")
-    print(f"JSON URLs used: {min(len(adfree_urls), total_files)}")
-    print(f"Default URLs used: {max(0, total_files - len(adfree_urls))}")
-    print("=" * 50)
-    
-    if success_count == total_files:
-        print("🎉 All files updated successfully!")
+    if not data:
+        print("Using default streams only")
+        adfree_urls = []
     else:
-        print("⚠️ Some files failed to update")
+        # adfree_url গুলো extract করুন
+        adfree_urls = extract_adfree_urls(data)
+        print(f"Extracted {len(adfree_urls)} adfree URLs")
+    
+    # M3U8 ফাইলগুলো আপডেট করুন
+    update_m3u8_files(adfree_urls)
+    
+    print(f"=== Update completed at {datetime.now()} ===")
 
 if __name__ == "__main__":
     main()
