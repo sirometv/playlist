@@ -1,17 +1,8 @@
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-TARGETDURATION:10
-
-# GitHub Pages লিংক
-#EXTINF:10.0,
-https://username.github.io/repo/segments/part1.ts
-
-# Alternative CDN লিংক  
-#EXTINF:10.0,
-https://cdn.jsdelivr.net/gh/username/repo/segments/part1.ts
-
-# Raw GitHub লিংক
-#EXTINF:10.0,
-https://raw.githubusercontent.com/username/repo/main/segments/part1.ts
-
-#EXT-X-ENDLIST
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:5.0,
+https://crichd.workspace-sultanarabi161.workers.dev/live/asportshd.m3u8
+#EXTINF:5.0,
+https://crichd.workspace-sultanarabi161.workers.dev/live/asportshd.m3u8
