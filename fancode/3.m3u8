@@ -1,0 +1,10 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:5
+
+#EXTINF:5.0,
+https://main-server.com/segment1.ts
+#EXTINF:5.0,
+https://backup1.com/segment1.ts
+#EXTINF:5.0,
+https://backup2.com/segment1.ts
