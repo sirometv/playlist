@@ -39,11 +39,12 @@
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
-https://tvsen7.aynaott.com/tsportshd/index.m3u8
-https://tvsen7.aynaott.com/tsportsfhd/index.m3u8
+http://103.175.242.10:8080/tsports1/index.m3u8
 https://tvsen1.aynaott.com/YNMn5kZz8aLm/index.m3u8
 http://7igyx9fm.ukminlt.org/iptv/QV9B3Q26PP49RMV53WP4A7FT/19146/index.m3u8
 http://7igyx9fm.ukminlt.org/iptv/QV9B3Q26PP49RMV53WP4A7FT/9258/index.m3u8
+#https://tvsen7.aynaott.com/tsportshd/index.m3u8
+#https://tvsen7.aynaott.com/tsportsfhd/index.m3u8
 #https://live.matribhumitv.com/matribhumi-sports/index.m3u8
 #https://tvsen5.aynaott.com/tsports/index.m3u8
 
@@ -134,6 +135,7 @@ https://tvsen6.aynaott.com/jamunatv/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/76d6LV28/image.jpg" group-title="Bangladeshi", Somoy TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/somoyt000011226615544544.stream/playlist.m3u8
+http://103.175.242.10:8080/somoy/index.m3u8
 #https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702-audio_113322_eng=113200-video=1692000.m3u8
 # সাইট হচ্ছেঃ https://119-ar.vercel.app/#channels
 
@@ -172,10 +174,10 @@ https://tvsen6.aynaott.com/satv/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/satvoff5666.stream/tracks-v1a1/mono.ts.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Hx75zHSQ/T-Sports-logo.png" group-title="Bangladeshi", GTV
+http://stvlive.net:8080/gtv/index.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/gazibdz.stream/playlist.m3u8
 https://tvsen5.aynaott.com/Ravc7gPCZpxk/index.m3u8
 https://tvsen6.aynaott.com/gtvhdforgame/index.m3u8
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/gazibdz.stream/playlist.m3u8
-
 
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
@@ -215,6 +217,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/t4ZFKFP9/resized-300x180-ffffff-4.jpg" group-title="Bangladeshi", Bangla Vision
 https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/banglav000.stream/playlist.m3u8
+http://103.175.242.10:8080/banglavision/index.m3u8
 #http://103.175.242.10:8080/banglavision/index.m3u8
 #http://stvlive.net:8080/banglavision/index.m3u8
 
@@ -385,7 +388,8 @@ https://tvsen6.aynaott.com/ekattorbdtv/index.m3u8
 # সাইট হচ্ছেঃ https://119-ar.vercel.app/#channels
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/2ycJtMmp/image.jpg" group-title="Bangladeshi", Nagorik TV
-https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
+http://103.175.242.10:8080/nagorik/index.m3u8
+https://raw.githubusercontent.com/alamteacafe/Live/main/sorry.mp4
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/cHDX13zw/image.jpg" group-title="Bangladeshi", Ekhon TV
 https://tvsen6.aynaott.com/ekhontv/index.m3u8
@@ -762,9 +766,12 @@ https://tvsen1.aynaott.com/Wm9Lv2RjZGT6/index.m3u8
 https://cdn-4.pishow.tv/live/969/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/zBKwKxyv/resized-300x175-ffffff-1.jpg" group-title="Indian-Bangla",Enter 10 Bangla
-http://103.122.252.100:8080/ENTER-10-BANGLA/tracks-v1a1/mono.m3u8
-https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_720p/chunks.m3u8
 https://amg01448-samsungin-enterr10bangla-samsungin-ad-gg.amagi.tv/playlist/amg01448-samsungin-enterr10bangla-samsungin/playlist.m3u8
+http://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_720p/chunks.m3u8
+http://stvlive.net:8080/entertenbn/index.m3u8
+#http://103.122.252.100:8080/ENTER-10-BANGLA/tracks-v1a1/mono.m3u8
+
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/nz9CtwQb/Zml-PBq-Aa-SHub218-Aqr7j-Q.jpg" group-title="Indian-Bangla", Sananda TV
 https://live.sanonda.tv/sanonda/index.m3u8
@@ -1141,6 +1148,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
