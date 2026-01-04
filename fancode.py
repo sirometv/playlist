@@ -6,6 +6,11 @@ from datetime import datetime
 # কনফিগারেশন
 JSON_URL = "https://raw.githubusercontent.com/IPTVFlixBD/Fancode-BD/main/data.json"
 DEFAULT_STREAM = "https://crichd.workspace-sultanarabi161.workers.dev/live/asportshd.m3u8"
+M3U8_HEADER = """#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:10
+#EXT-X-MEDIA-SEQUENCE:0
+"""
 
 def fetch_json_data():
     """JSON ডেটা fetch করা"""
@@ -30,17 +35,18 @@ def extract_adfree_urls(data):
             print(f"Found {len(data['matches'])} matches")
             
             for i, match in enumerate(data["matches"]):
-                print(f"Checking match {i+1}: {match.get('title', 'No title')}")
+                match_title = match.get('title', f'Match {i+1}')
+                print(f"Checking match {i+1}: {match_title}")
                 
                 if "adfree_url" in match and match["adfree_url"]:
                     url = str(match["adfree_url"]).strip()
                     if url.startswith("http"):
                         adfree_urls.append(url)
-                        print(f"✓ Added adfree_url: {url}")
+                        print(f"✓ Added adfree_url: {url[:50]}...")
                     else:
-                        print(f"✗ Invalid URL format: {url}")
+                        print(f"✗ Invalid URL format")
                 else:
-                    print(f"✗ No adfree_url in match {i+1}")
+                    print(f"✗ No adfree_url in this match")
         else:
             print("No 'matches' key found in JSON")
     else:
@@ -48,59 +54,20 @@ def extract_adfree_urls(data):
     
     return adfree_urls
 
-def create_m3u8_content(stream_url):
-    """M3U8 ফাইল কন্টেন্ট তৈরি করা"""
-    return f"""#EXTM3U
-#EXT-X-VERSION:3
-#EXT-X-TARGETDURATION:10
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:5.0,
-{stream_url}
-#EXTINF:5.0,
-{stream_url}
-"""
-
-def update_m3u8_files(adfree_urls):
-    """সব M3U8 ফাইল আপডেট করা"""
-    print(f"\nUpdating M3U8 files...")
-    print(f"Available adfree URLs: {len(adfree_urls)}")
-    
-    # ৬টি ফাইলের জন্য streams প্রস্তুত করা
-    streams = []
-    
-    # adfree_url গুলো যোগ করুন
-    for i, url in enumerate(adfree_urls):
-        if i >= 6:  # সর্বোচ্চ ৬টি
-            break
-        streams.append(url)
-        print(f"Stream {i+1}: {url}")
-    
-    # বাকি জায়গায় ডিফল্ট স্ট্রিম
-    for i in range(len(streams), 6):
-        streams.append(DEFAULT_STREAM)
-        print(f"Stream {i+1}: [DEFAULT] {DEFAULT_STREAM}")
-    
-    # প্রতিটি M3U8 ফাইল আপডেট করুন
-    for i in range(6):
-        filename = f"{i+1}.m3u8"
-        filepath = os.path.join("fancode", filename)
-        stream_url = streams[i]
+def update_m3u8_file(filepath, stream_url):
+    """একটি M3U8 ফাইল আপডেট করা"""
+    try:
+        # নতুন কন্টেন্ট তৈরি (শুধু URL আপডেট)
+        new_content = f"""{M3U8_HEADER}{stream_url}"""
         
-        try:
-            # ডিরেক্টরি তৈরি করুন
-            os.makedirs(os.path.dirname(filepath), exist_ok=True)
-            
-            # কন্টেন্ট তৈরি করুন
-            content = create_m3u8_content(stream_url)
-            
-            # ফাইল লিখুন
-            with open(filepath, 'w', encoding='utf-8') as f:
-                f.write(content)
-            
-            print(f"✓ Updated {filepath}")
-            
-        except Exception as e:
-            print(f"✗ Error writing {filepath}: {e}")
+        # ফাইল লিখুন
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(new_content)
+        
+        return True
+    except Exception as e:
+        print(f"✗ Error writing {filepath}: {e}")
+        return False
 
 def main():
     print("=" * 50)
@@ -112,18 +79,59 @@ def main():
     data = fetch_json_data()
     
     # adfree_url গুলো extract করুন
+    adfree_urls = []
     if data:
         adfree_urls = extract_adfree_urls(data)
     else:
-        adfree_urls = []
-        print("Using default streams only")
+        print("No JSON data found, using default streams only")
     
-    # M3U8 ফাইলগুলো আপডেট করুন
-    update_m3u8_files(adfree_urls)
+    print(f"\nTotal adfree URLs found: {len(adfree_urls)}")
     
-    print("=" * 50)
+    # ৬টি M3U8 ফাইলের জন্য প্রস্তুত করা
+    streams_to_update = []
+    
+    # প্রথমে adfree_url গুলো নিন
+    for i in range(6):
+        if i < len(adfree_urls):
+            streams_to_update.append(adfree_urls[i])
+            print(f"File {i+1}.m3u8 → adfree_url {i+1}")
+        else:
+            streams_to_update.append(DEFAULT_STREAM)
+            print(f"File {i+1}.m3u8 → DEFAULT stream")
+    
+    # প্রতিটি M3U8 ফাইল আপডেট করুন
+    print("\nUpdating M3U8 files...")
+    success_count = 0
+    
+    for i in range(6):
+        filename = f"{i+1}.m3u8"
+        filepath = os.path.join("fancode", filename)
+        stream_url = streams_to_update[i]
+        
+        print(f"\nUpdating {filename}:")
+        print(f"URL: {stream_url}")
+        
+        # ডিরেক্টরি তৈরি করুন (যদি না থাকে)
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
+        
+        # ফাইল আপডেট করুন
+        if update_m3u8_file(filepath, stream_url):
+            success_count += 1
+            print(f"✓ Successfully updated")
+        else:
+            print(f"✗ Failed to update")
+    
+    print("\n" + "=" * 50)
+    print(f"Update Summary:")
+    print(f"Successfully updated: {success_count}/6 files")
     print(f"Completed at: {datetime.now()}")
     print("=" * 50)
+    
+    # GitHub Actions-এ exit code
+    if success_count == 6:
+        exit(0)
+    else:
+        exit(1)
 
 if __name__ == "__main__":
     main()
