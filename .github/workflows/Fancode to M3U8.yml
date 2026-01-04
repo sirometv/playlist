@@ -10,13 +10,13 @@ jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # গুরুত্বপূর্ণ: লিখার পারমিশন
+      contents: write
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # পুরো হিস্ট্রি fetch করবে
+        fetch-depth: 0
         
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -28,22 +28,22 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
         
-    - name: Create directory structure
-      run: |
-        mkdir -p fancode
-        
     - name: Run update script
       run: python fancode.py
       
-    - name: Commit changes
+    - name: Check for changes
+      id: git-check
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add fancode/
-        git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update: Updated M3U8 streams at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+        git status
+        git diff --quiet || echo "has_changes=true" >> $GITHUB_OUTPUT
         
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
+    - name: Commit and push changes
+      if: steps.git-check.outputs.has_changes == 'true'
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add fancode/
+        git commit -m "🔴 Live Update: M3U8 streams updated at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
