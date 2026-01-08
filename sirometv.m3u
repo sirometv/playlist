@@ -717,6 +717,29 @@ https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/v89tFjmf/image.jpg" group-title="Bangladeshi",Animal Planet HD
+http://103.60.204.26:3255/AnimalPlanetHD/tracks-v1a1/mono.m3u8
+#https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Kz3qLH4S/image.jpg" group-title="Bangladeshi", BBC Earth
+http://65.108.239.207/bbc/index.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/8k25hJKx/image.jpg" group-title="Bangladeshi", Travel XP EU
+https://travelxp-travelxp-1-eu.rakuten.wurl.tv/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/8k25hJKx/image.jpg" group-title="Bangladeshi", Travel XP NZ
+https://travelxp-travelxp-1-eu.rakuten.wurl.tv/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/MpcdgLbX/image.jpg" group-title="Bangladeshi", Drone TV
+https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/dronetv/playlist.m3u8
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
 
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
@@ -1234,11 +1257,11 @@ https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
 
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/v89tFjmf/image.jpg" group-title="Documentary",Animal Planet HD
-https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
+
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
