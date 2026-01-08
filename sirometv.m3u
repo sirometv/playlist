@@ -670,8 +670,8 @@ https://cloudfrontnet.vercel.app/tplay/playout/209902/master.m3u8
 https://live20.bozztv.com/giatvplayout7/giatv-209902/tracks-v1a1/mono.ts.m3u8
 
 
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
-
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/7LZSJsmD/image.jpg" group-title="Bangladeshi", Gubbare 
+https://epiconvh.akamaized.net/live/gubbare/master.m3u8
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
@@ -712,6 +712,28 @@ http://151.80.18.177:86/Histoire/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/LssrbDQ3/image.jpg" group-title="Bangladeshi", Al Jazeera TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Gh90zdt4/image.jpg" group-title="Bangladeshi", CGTN News
+https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/cgtn.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/9QpnjkDz/image.jpg" group-title="Bangladeshi", DW News
+https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/j5JcC3SX/image.jpg" group-title="Bangladeshi", CNA News
+https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aaeb4a48ec97f66ebbe/index.m3u8
+https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/c1R7jngG/image.jpg" group-title="Bangladeshi", Sky News
+https://d39chvnxm26pgp.cloudfront.net/v1/master/72588bff830dec7b26d7cbbf5f3c24928aec5c03/cc-sthen6ms4vxgv-stage/WNSFO/ABR.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Y0dv7MB1/image.jpg" group-title="Bangladeshi", RT News
+https://rt-glb.rttv.com/live/rtnews/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/YqXFKfpc/image.jpg" group-title="Bangladeshi", France 24
+https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/fr24.stream/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 
@@ -735,9 +757,30 @@ https://travelxp-travelxp-1-eu.rakuten.wurl.tv/playlist.m3u8
 https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/dronetv/playlist.m3u8
 
 
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/FswjkH3H/image.jpg" group-title="Bangladeshi", Safari TV
+https://j78dp346yq5r-hls-live.5centscdn.com/safari/live.stream/playlist.m3u8
+
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+
+
+
+
+
 
 
 
@@ -1261,6 +1304,7 @@ https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
