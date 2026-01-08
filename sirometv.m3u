@@ -392,8 +392,10 @@ https://tvsen6.aynaott.com/ekattorbdtv/index.m3u8
 # সাইট হচ্ছেঃ https://119-ar.vercel.app/#channels
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/2ycJtMmp/image.jpg" group-title="Bangladeshi", Nagorik TV
-http://103.175.242.10:8080/nagorik/index.m3u8
-https://raw.githubusercontent.com/alamteacafe/Live/main/sorry.mp4
+http://116.204.149.16/nagorik/index.m3u8
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
+#http://103.175.242.10:8080/nagorik/index.m3u8
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/cHDX13zw/image.jpg" group-title="Bangladeshi", Ekhon TV
 https://tvsen6.aynaott.com/ekhontv/index.m3u8
@@ -609,6 +611,30 @@ https://live.dinesh29.com.np/stream/jiotv/discoveryhindi/stream_0.m3u8
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/J43k05rQ/image.jpg" group-title="Bangladeshi", Cartoon Network
+http://103.140.254.2:3500/live/1079.m3u8
+http://103.140.254.2:3500/live/816.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/HxjNsLb8/image.jpg" group-title="Bangladeshi", Discovery Kids
+http://103.140.254.2:3500/live/554.m3u8
 
 
 
@@ -1162,6 +1188,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
