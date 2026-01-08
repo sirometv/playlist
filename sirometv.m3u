@@ -703,11 +703,11 @@ https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/BZ22d0KD/image.jpg" group-title="Bangladeshi", Discovery Turbo
 http://103.140.254.2:3500/live/541.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/SQVxX101/image.jpg" group-title="Bangladeshi", Histoire TV
+http://151.80.18.177:86/Histoire/index.m3u8
 
-
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
-
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/LssrbDQ3/image.jpg" group-title="Bangladeshi", Al Jazeera TV
+https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
@@ -1236,6 +1236,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
