@@ -636,6 +636,18 @@ http://103.140.254.2:3500/live/816.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/HxjNsLb8/image.jpg" group-title="Bangladeshi", Discovery Kids
 http://103.140.254.2:3500/live/554.m3u8
 
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", Duck Tv
+https://d2lmgfyblo9rak.cloudfront.net/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", Nick
+http://103.140.254.2:3500/live/545.m3u8
+http://fl1.moveonjoy.com/NICKELODEON/index.m3u8
+http://103.140.254.2:3500/live/1226.m3u8
+http://103.140.254.2:3500/live/544.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/mZ1bmLKM/image.jpg" group-title="Bangladeshi", Nick Bangla
+
+
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/43skDR7B/image.jpg" group-title="Bangladeshi", 24/7 Gopal Bhar
@@ -664,7 +676,43 @@ https://live20.bozztv.com/giatvplayout7/giatv-209902/tracks-v1a1/mono.ts.m3u8
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/3xvSq6Yb/image.jpg" group-title="Bangladeshi", Accu Weather 
+https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00684-accuweather-accuweather-plex/playlist.m3u8?v=1
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/JzL69x0H/image.jpg" group-title="Bangladeshi", 4K Travel
+https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/4k-travel-tv/manifest.m3u8?v=1%20
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/BZ22d0KD/image.jpg" group-title="Bangladeshi", Discovery Turbo
+http://103.140.254.2:3500/live/541.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 
 
@@ -1188,6 +1236,7 @@ https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
