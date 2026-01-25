@@ -1,277 +1,214 @@
-name: Ayna TV Auto Sync 🕐
+name: Ayna TV 🔄 
 
 on:
   schedule:
-    # বাংলাদেশি সময় অনুযায়ী প্রতি ঘন্টার 08, 18, 28, 38, 48, 58 মিনিটে
-    - cron: '8,18,28,38,48,58 * * * *'
-  workflow_dispatch:
-    inputs:
-      reason:
-        description: 'ম্যানুয়ালি রান করার কারণ'
-        required: false
-        default: 'Manual trigger'
+    # প্রতি ৫ মিনিট পর পর আপডেট হবে
+    - cron: '*/5 * * * *'
+  workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
 
 permissions:
   contents: write
 
 jobs:
-  update-playlist:
+  sync-ayna:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        ref: main
         
-    - name: Setup environment
+    - name: Setup Bangladesh timezone
       run: |
-        echo "🔧 Setting up environment..."
-        # বাংলাদেশ টাইমজোন সেট করি
+        echo "🌏 Setting up Bangladesh timezone..."
+        # বাংলাদেশের টাইমজোন সেট আপ
         sudo timedatectl set-timezone Asia/Dhaka
-        # বাংলাদেশি সময় সংগ্রহ
-        BD_FULL_TIME=$(TZ='Asia/Dhaka' date +'%A, %d %B %Y, %I:%M:%S %p বাংলাদেশ সময়')
-        BD_HOUR=$(TZ='Asia/Dhaka' date +'%I')
-        BD_MINUTE=$(TZ='Asia/Dhaka' date +'%M')
-        BD_AMPM=$(TZ='Asia/Dhaka' date +'%p')
+        echo "✅ Bangladesh timezone set: $(date)"
         
-        echo "🕐 বাংলাদেশ সময়: $BD_FULL_TIME"
-        echo "⏰ সিঙ্ক সময়: $BD_HOUR:$BD_MINUTE$BD_AMPM"
-        echo "🔄 পরবর্তী সিঙ্ক: প্রতি ঘন্টার 08, 18, 28, 38, 48, 58 মিনিটে"
-        
-        # পরিবেশ ভেরিয়েবল সেট করুন
-        echo "BD_TIME=$BD_FULL_TIME" >> $GITHUB_ENV
-        echo "SYNC_TIME=$BD_HOUR:$BD_MINUTE$BD_AMPM" >> $GITHUB_ENV
-        echo "BD_HOUR=$BD_HOUR" >> $GITHUB_ENV
-        echo "BD_MINUTE=$BD_MINUTE" >> $GITHUB_ENV
-        echo "BD_AMPM=$BD_AMPM" >> $GITHUB_ENV
-        
-    - name: Download playlist from AYNA_STROWETV
+    - name: Download original playlist
       run: |
-        echo "📥 প্লেলিস্ট ডাউনলোড করা হচ্ছে..."
+        echo "🔄 Starting Ayna TV playlist sync..."
+        echo "📥 Downloading from secure source..."
         
-        # ভেরিয়েবল থেকে URL নিন
-        PLAYLIST_URL="${{ vars.AYNA_STROWETV }}"
+        # সিক্রেট URL থেকে প্লেলিস্ট ডাউনলোড
+        curl -s -L -o original_playlist.m3u "${{ secrets.SIROMETV_AYNA }}"
         
-        if [ -z "$PLAYLIST_URL" ] || [ "$PLAYLIST_URL" = "" ]; then
-          echo "❌ ভেরিয়েবল AYNA_STROWETV খালি!"
-          echo "🔧 সমাধান:"
-          echo "  1. Repository-এর Settings-এ যান"
-          echo "  2. Secrets and variables > Actions"
-          echo "  3. Variables ট্যাব এ ক্লিক করুন"
-          echo "  4. AYNA_STROWETV ভেরিয়েবল সেট করুন"
+        # ডাউনলোড সফল হয়েছে কিনা চেক
+        if [ ! -f "original_playlist.m3u" ] || [ ! -s "original_playlist.m3u" ]; then
+          echo "❌ ERROR: Playlist download failed!"
           exit 1
         fi
         
-        echo "🔗 URL: $(echo $PLAYLIST_URL | cut -c1-60)..."
+        ORIGINAL_LINES=$(wc -l < original_playlist.m3u)
+        echo "✅ Download successful - $ORIGINAL_LINES lines"
         
-        # প্লেলিস্ট ডাউনলোড করুন
-        if curl -s -L "$PLAYLIST_URL" -o original.m3u --max-time 30; then
-          echo "✅ ডাউনলোড সফল"
-        else
-          echo "❌ ডাউনলোড ব্যর্থ, alternative চেষ্টা করছি..."
-          # Alternative download method
-          wget -q -O original.m3u "$PLAYLIST_URL" || exit 1
-        fi
-        
-        # ফাইল চেক করুন
-        if [ ! -f "original.m3u" ]; then
-          echo "❌ ফাইল তৈরি হয়নি!"
-          exit 1
-        fi
-        
-        if [ ! -s "original.m3u" ]; then
-          echo "❌ ফাইল খালি!"
-          exit 1
-        fi
-        
-        FILE_SIZE=$(wc -c < original.m3u)
-        LINE_COUNT=$(wc -l < original.m3u)
-        CHANNEL_COUNT=$(grep -c "#EXTINF:" original.m3u)
-        
-        echo "📊 ডাউনলোড পরিসংখ্যান:"
-        echo "  ফাইলের সাইজ: $FILE_SIZE bytes"
-        echo "  লাইনের সংখ্যা: $LINE_COUNT"
-        echo "  চ্যানেলের সংখ্যা: $CHANNEL_COUNT"
-        
-        # Temporary file সেভ করুন
-        echo "CHANNEL_COUNT=$CHANNEL_COUNT" >> $GITHUB_ENV
-        echo "ORIGINAL_LINES=$LINE_COUNT" >> $GITHUB_ENV
-        
-    - name: Process and clean playlist
+    - name: Process and customize playlist
       run: |
-        echo "🧹 প্লেলিস্ট পরিষ্কার করা হচ্ছে..."
+        echo "🎨 Customizing playlist with Sirome TV branding..."
         
-        # প্রথমে শুধু header তৈরি করুন
-        cat > Ayna.m3u << HEADER
-#EXTM3U
-# Sirome TV Playlist
-# Source: ${{ vars.AYNA_STROWETV }}
-# Total Channels: ${{ env.CHANNEL_COUNT }}
-# Updated: $(date +'%Y-%m-%d %H:%M:%S UTC')
-# Bangladesh Time: ${{ env.BD_TIME }}
-# Sync Time: ${{ env.SYNC_TIME }}
-# Next Sync: Every hour at :08, :18, :28, :38, :48, :58 minutes
-# 
-# Powered-By: BDIX 
-# 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। 
-# 🔴 যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। 
-# 🔴 আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না। 
-# 
-# 🔴 All the links in this file are collected from public sources.
-# 🔴 If anyone wants to remove their source, please let us know.
-# 🔴 We respect your opinions and efforts, so we will not object to removing your source.
-# 
-
-HEADER
+        # চ্যানেল কাউন্ট সংগ্রহ (প্রথমে রিমুভ করার আগে)
+        CHANNEL_COUNT=$(grep -c "#EXTINF:" original_playlist.m3u)
         
-        # এখন content যোগ করুন (unwanted content বাদ দিয়ে)
-        echo "🔍 Unwanted content ফিল্টার করা হচ্ছে..."
+        # বাংলাদেশের লোকাল টাইম সংগ্রহ
+        CURRENT_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S Bangladesh Time')
+        BD_TIME_READABLE=$(TZ='Asia/Dhaka' date +'%A, %d %B %Y, %I:%M:%S %p Bangladesh Time')
         
-        # grep দিয়ে সরাসরি ফিল্টার করুন
-        grep -v "^#EXTM3U$" original.m3u | \
-        grep -v "Created by @AbuSaeedX" | \
-        grep -v "# Total channels:" | \
-        grep -v "# Generated:" | \
-        grep -v "X fire Flix" | \
-        grep -v "byxfireflix/BY-X-FIRE-FLIX.mp4" | \
-        grep -v "BY-X-FIRE-FLIX.mp4" >> Ayna.m3u
+        echo "🕐 Current Bangladesh Time: $BD_TIME_READABLE"
         
-        echo "✅ ফিল্টারিং সম্পন্ন"
+        # নতুন কাস্টম হেডার তৈরি
+        echo "#EXTM3U" > Ayna.m3u
+        echo "# Sirome TV" >> Ayna.m3u
+        echo "# Total channels: $CHANNEL_COUNT" >> Ayna.m3u
+        echo "# Updated: $CURRENT_TIME" >> Ayna.m3u
+        echo "# Local Time: $BD_TIME_READABLE" >> Ayna.m3u
+        echo "# Powered-By: BDIX 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না। 🔴 All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source." >> Ayna.m3u
+        echo "" >> Ayna.m3u
         
-        # ফলাফল চেক করুন
+        # Python script ব্যবহার করে প্রসেসিং
+        python3 - << 'EOF'
+        import base64
+        
+        # Base64 encoded patterns
+        encoded_patterns = [
+            "Q3JlYXRlZCBieSBAQWJ1U2FlZWRY",  # Created by @AbuSaeedX
+            "IyBUb3RhbCBjaGFubmVsczo=",      # # Total channels:
+            "IyBHZW5lcmF0ZWQ6",              # # Generated:
+            "WCBmaXJlIEZsaXg=",              # X fire Flix
+            "Ynl4ZmlyZWZsaXgvQlktWC1GSVJFLUZMSVgubXA0"  # byxfireflix/BY-X-FIRE-FLIX.mp4
+        ]
+        
+        # Decode patterns
+        patterns = [base64.b64decode(pattern.encode()).decode() for pattern in encoded_patterns]
+        
+        print("Patterns to remove:")
+        for i, pattern in enumerate(patterns):
+            print(f"  {i+1}. {pattern}")
+        
+        with open('original_playlist.m3u', 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        
+        filtered_lines = []
+        skip_next = False
+        removed_count = 0
+        
+        for i, line in enumerate(lines):
+            line_stripped = line.strip()
+            
+            # Skip #EXTM3U line from original (we already added our own)
+            if line_stripped == "#EXTM3U":
+                print("🚫 Removing original #EXTM3U")
+                removed_count += 1
+                continue
+                
+            # Check if this line should be skipped
+            should_skip = False
+            for pattern in patterns:
+                if pattern in line_stripped:
+                    print(f"🚫 Removing line: {line_stripped[:50]}...")
+                    should_skip = True
+                    removed_count += 1
+                    
+                    # If this is an EXTINF line, skip the next line (URL) too
+                    if line_stripped.startswith("#EXTINF:"):
+                        skip_next = True
+                    break
+            
+            if should_skip:
+                continue
+                
+            # Skip next line if previous was EXTINF that we removed
+            if skip_next:
+                print(f"🚫 Removing URL line: {line_stripped[:50]}...")
+                skip_next = False
+                removed_count += 1
+                continue
+            
+            # Keep the line
+            filtered_lines.append(line)
+        
+        # Add filtered content to our file (append mode)
+        with open('Ayna.m3u', 'a', encoding='utf-8') as f:
+            f.writelines(filtered_lines)
+        
+        print(f"✅ Processing completed!")
+        print(f"📊 Removed {removed_count} lines")
+        print(f"📊 Kept {len(filtered_lines)} lines")
+        EOF
+        
+        # ফলাফল চেক
         FINAL_LINES=$(wc -l < Ayna.m3u)
         FINAL_CHANNELS=$(grep -c "#EXTINF:" Ayna.m3u)
         
-        echo "📊 প্রসেসিং পরিসংখ্যান:"
-        echo "  মূল লাইন: ${{ env.ORIGINAL_LINES }}"
-        echo "  চূড়ান্ত লাইন: $FINAL_LINES"
-        echo "  মূল চ্যানেল: ${{ env.CHANNEL_COUNT }}"
-        echo "  চূড়ান্ত চ্যানেল: $FINAL_CHANNELS"
-        echo "  সরানো চ্যানেল: $((${{ env.CHANNEL_COUNT }} - $FINAL_CHANNELS))"
+        echo "✨ Customization completed!"
+        echo "📊 Final Statistics:"
+        echo "   Original lines: $ORIGINAL_LINES"
+        echo "   Final lines: $FINAL_LINES"
+        echo "   Original channels: $CHANNEL_COUNT"
+        echo "   Final channels: $FINAL_CHANNELS"
+        echo "   Removed channels: $((CHANNEL_COUNT - FINAL_CHANNELS))"
         
-        # পরিবেশ ভেরিয়েবল সেট করুন
-        echo "FINAL_CHANNELS=$FINAL_CHANNELS" >> $GITHUB_ENV
-        echo "FINAL_LINES=$FINAL_LINES" >> $GITHUB_ENV
+        # সাম্প্ল কন্টেন্ট দেখান
+        echo "🔍 First 10 lines of processed playlist:"
+        head -10 Ayna.m3u
         
-        # Temporary file মুছুন
-        rm -f original.m3u
+        # টেম্পোরারি ফাইল ক্লিনআপ
+        rm -f original_playlist.m3u
         
     - name: Verify processed file
       run: |
-        echo "🔍 ফাইল ভেরিফিকেশন..."
+        echo "🔍 Verifying processed playlist..."
         
-        if [ ! -f "Ayna.m3u" ]; then
-          echo "❌ Ayna.m3u ফাইল পাওয়া যায়নি!"
+        if [ ! -f "Ayna.m3u" ] || [ ! -s "Ayna.m3u" ]; then
+          echo "❌ ERROR: Processed file is missing or empty!"
           exit 1
         fi
         
-        if [ ! -s "Ayna.m3u" ]; then
-          echo "❌ Ayna.m3u ফাইল খালি!"
-          exit 1
-        fi
-        
-        # ফাইল বৈধতা পরীক্ষা করুন
-        if ! head -1 Ayna.m3u | grep -q "#EXTM3U"; then
-          echo "❌ ফাইল M3U ফরম্যাটে নেই!"
-          exit 1
-        fi
-        
-        # Unwanted content চেক করুন
-        UNWANTED_FOUND=0
-        
+        # চেক করুন যদি unwanted content এখনও আছে
         if grep -q "Created by @AbuSaeedX" Ayna.m3u; then
-          echo "⚠️ Warning: 'Created by @AbuSaeedX' found in file"
-          UNWANTED_FOUND=1
+          echo "❌ ERROR: Unwanted content still exists!"
+          exit 1
         fi
         
         if grep -q "X fire Flix" Ayna.m3u; then
-          echo "⚠️ Warning: 'X fire Flix' found in file"
-          UNWANTED_FOUND=1
+          echo "❌ ERROR: X fire Flix still exists!"
+          exit 1
         fi
         
-        if [ $UNWANTED_FOUND -eq 0 ]; then
-          echo "✅ কোন unwanted content পাওয়া যায়নি"
-        fi
+        FILE_SIZE=$(wc -c < Ayna.m3u)
+        LINES_COUNT=$(wc -l < Ayna.m3u)
+        CHANNELS=$(grep -c "#EXTINF:" Ayna.m3u)
         
-        # ফাইল তথ্য দেখান
-        echo "📋 ফাইল বিবরণ:"
-        echo "  ফাইলের সাইজ: $(wc -c < Ayna.m3u) bytes"
-        echo "  লাইনের সংখ্যা: $(wc -l < Ayna.m3u)"
-        echo "  চ্যানেলের সংখ্যা: $(grep -c "#EXTINF:" Ayna.m3u)"
-        
-        # প্রথম কয়েকটি চ্যানেল দেখান
-        echo "🔍 প্রথম ৫টি চ্যানেল:"
-        grep -A1 "#EXTINF:" Ayna.m3u | head -10
+        echo "✅ File verification passed!"
+        echo "📋 File details:"
+        echo "   Size: $FILE_SIZE bytes"
+        echo "   Lines: $LINES_COUNT"
+        echo "   Channels: $CHANNELS"
+        echo "✅ All unwanted content successfully removed!"
         
     - name: Commit and push changes
       run: |
-        echo "💾 পরিবর্তনগুলি সংরক্ষণ করা হচ্ছে..."
+        echo "💾 Saving changes to repository..."
         
-        # Git কনফিগার করুন
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        # বাংলাদেশের টাইম দিয়ে commit message তৈরি
+        COMMIT_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S Bangladesh Time')
         
-        # ফাইল যোগ করুন
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
         git add Ayna.m3u
         
-        # পরিবর্তনগুলি চেক করুন
+        # শুধু changes থাকলে commit করুন
         if git diff --staged --quiet; then
-          echo "✅ কোন পরিবর্তন নেই - প্লেলিস্ট আপ টু ডেট"
-          echo "⏰ পরবর্তী সিঙ্ক: $(TZ='Asia/Dhaka' date -d '+1 hour' +'%I:%M %p') বাংলাদেশ সময়"
+          echo "✅ No changes detected - playlist is up to date"
         else
-          # বাংলাদেশি সময়ে commit message তৈরি করুন
-          COMMIT_TIME=$(TZ='Asia/Dhaka' date +'%I:%M %p বাংলাদেশ সময়')
-          COMMIT_DATE=$(TZ='Asia/Dhaka' date +'%Y-%m-%d')
-          
-          # Commit করুন
-          git commit -m "🔄 Ayna TV Auto Update - $COMMIT_TIME" \
-                     -m "চ্যানেল: ${{ env.FINAL_CHANNELS }}টি" \
-                     -m "সিঙ্ক সময়: ${{ env.SYNC_TIME }}" \
-                     -m "তারিখ: $COMMIT_DATE" \
-                     -m "পরবর্তী সিঙ্ক: প্রতি ঘন্টার 08, 18, 28, 38, 48, 58 মিনিটে"
-          
-          # Push করুন
-          if git push; then
-            echo "🎉 সফলভাবে আপডেট করা হয়েছে!"
-            echo "📊 আপডেট পরিসংখ্যান:"
-            echo "  চ্যানেল: ${{ env.FINAL_CHANNELS }}টি"
-            echo "  সময়: ${{ env.SYNC_TIME }} বাংলাদেশ"
-            echo "⏰ পরবর্তী সিঙ্ক: প্রতি ঘন্টার 08, 18, 28, 38, 48, 58 মিনিটে"
-            
-            # Update time লগ করুন
-            echo "LAST_UPDATE=$(date)" >> $GITHUB_ENV
-          else
-            echo "❌ Git push ব্যর্থ!"
-            exit 1
-          fi
+          git commit -m "🔄 Ayna TV Auto Sync - $COMMIT_TIME"
+          git push
+          echo "🎉 Successfully updated Ayna.m3u with Sirome TV branding!"
+          echo "🕐 Next auto-sync in 5 minutes"
         fi
         
-    - name: Success notification
+    - name: Cleanup on success
       if: success()
       run: |
-        echo "========================================"
-        echo "✅ AYNA TV AUTO SYNC COMPLETED SUCCESSFULLY"
-        echo "========================================"
-        echo "🕐 বাংলাদেশ সময়: ${{ env.BD_TIME }}"
-        echo "⏰ সিঙ্ক সময়: ${{ env.SYNC_TIME }}"
-        echo "📊 চ্যানেল সংখ্যা: ${{ env.FINAL_CHANNELS }}টি"
-        echo "📁 ফাইল: https://github.com/${{ github.repository }}/blob/main/Ayna.m3u"
-        echo "🔄 পরবর্তী সিঙ্ক: প্রতি ঘন্টার 08, 18, 28, 38, 48, 58 মিনিটে"
-        echo "========================================"
-        
-    - name: Failure notification
-      if: failure()
-      run: |
-        echo "========================================"
-        echo "❌ AYNA TV AUTO SYNC FAILED"
-        echo "========================================"
-        echo "🕐 বাংলাদেশ সময়: ${{ env.BD_TIME }}"
-        echo "⚠️ Error detected in step: ${{ job.status }}"
-        echo "🔧 ট্রাবলশুটিং:"
-        echo "  1. AYNA_STROWETV ভেরিয়েবল চেক করুন"
-        echo "  2. ইন্টারনেট কানেকশন চেক করুন"
-        echo "  3. URL accessibility চেক করুন"
-        echo "========================================"
+        echo "🧹 Cleanup completed"
+        echo "✅ Ayna TV sync workflow finished successfully!"
