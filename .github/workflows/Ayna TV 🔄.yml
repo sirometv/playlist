@@ -2,7 +2,7 @@ name: Ayna TV 🔄
 
 on:
   schedule:
-    # প্রতি ১০ মিনিট পর পর (মিনিটের ৮, ১৮, ২৮, ৩৮, ৪৮, ৫৮) আপডেট হবে
+    # বাংলাদেশি সময় অনুযায়ী প্রতি ঘন্টার 08, 18, 28, 38, 48, 58 মিনিটে আপডেট হবে
     - cron: '8,18,28,38,48,58 * * * *'
   workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
 
@@ -26,31 +26,33 @@ jobs:
         sudo timedatectl set-timezone Asia/Dhaka
         echo "✅ Bangladesh timezone set: $(date)"
         
+    - name: Display current Bangladesh time
+      run: |
+        echo "🕐 Current Bangladesh Time:"
+        TZ='Asia/Dhaka' date +'%A, %d %B %Y, %I:%M:%S %p'
+        echo "✅ Next runs will be at: xx:08, xx:18, xx:28, xx:38, xx:48, xx:58 (Bangladesh Time)"
+        
     - name: Download original playlist
       run: |
         echo "🔄 Starting Ayna TV playlist sync..."
         echo "📥 Downloading from secure source..."
-        echo "📊 Using repository variable: AYNA_STROWETV"
         
-        # Repository variable থেকে URL পড়া
-        SOURCE_URL="${{ vars.AYNA_STROWETV }}"
+        # AYNA_STROWETV variable থেকে URL ব্যবহার করুন
+        echo "Using URL from AYNA_STROWETV variable"
         
-        # ভেরিয়েবল চেক
-        if [ -z "$SOURCE_URL" ]; then
-          echo "❌ ERROR: AYNA_STROWETV variable is empty or not found!"
-          echo "📋 Please check Repository Variables in Settings → Secrets and variables → Actions → Variables"
-          exit 1
+        # সিক্রেট/Variable থেকে প্লেলিস্ট ডাউনলোড
+        curl -s -L -o original_playlist.m3u "${{ vars.AYNA_STROWETV }}"
+        
+        # অল্টারনেটিভ হিসেবে secrets ব্যবহার (যদি variable কাজ না করে)
+        if [ ! -f "original_playlist.m3u" ] || [ ! -s "original_playlist.m3u" ]; then
+          echo "⚠️ Trying alternative URL from secrets..."
+          curl -s -L -o original_playlist.m3u "${{ secrets.SIROMETV_AYNA }}"
         fi
-        
-        echo "🔗 Source URL loaded successfully"
-        
-        # ভেরিয়েবল থেকে URL ব্যবহার করে প্লেলিস্ট ডাউনলোড
-        curl -s -L -o original_playlist.m3u "$SOURCE_URL"
         
         # ডাউনলোড সফল হয়েছে কিনা চেক
         if [ ! -f "original_playlist.m3u" ] || [ ! -s "original_playlist.m3u" ]; then
           echo "❌ ERROR: Playlist download failed!"
-          echo "📋 Check if the URL in AYNA_STROWETV variable is valid"
+          echo "Please check if AYNA_STROWETV variable is set correctly in repository settings"
           exit 1
         fi
         
@@ -67,8 +69,12 @@ jobs:
         # বাংলাদেশের লোকাল টাইম সংগ্রহ
         CURRENT_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S Bangladesh Time')
         BD_TIME_READABLE=$(TZ='Asia/Dhaka' date +'%A, %d %B %Y, %I:%M:%S %p Bangladesh Time')
+        BD_HOUR=$(TZ='Asia/Dhaka' date +'%I')
+        BD_MINUTE=$(TZ='Asia/Dhaka' date +'%M')
+        BD_AMPM=$(TZ='Asia/Dhaka' date +'%p')
         
         echo "🕐 Current Bangladesh Time: $BD_TIME_READABLE"
+        echo "⏰ Sync time: $BD_HOUR:$BD_MINUTE$BD_AMPM"
         
         # নতুন কাস্টম হেডার তৈরি
         echo "#EXTM3U" > Ayna.m3u
@@ -76,8 +82,7 @@ jobs:
         echo "# Total channels: $CHANNEL_COUNT" >> Ayna.m3u
         echo "# Updated: $CURRENT_TIME" >> Ayna.m3u
         echo "# Local Time: $BD_TIME_READABLE" >> Ayna.m3u
-        echo "# Auto-sync schedule: Every 10 minutes (at 8, 18, 28, 38, 48, 58 minutes past each hour)" >> Ayna.m3u
-        echo "# Next sync: $(TZ='Asia/Dhaka' date -d '+10 minutes' +'%I:%M %p Bangladesh Time')" >> Ayna.m3u
+        echo "# Sync Time: $BD_HOUR:$BD_MINUTE$BD_AMPM (Bangladesh)" >> Ayna.m3u
         echo "# Powered-By: BDIX 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না। 🔴 All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source." >> Ayna.m3u
         echo "" >> Ayna.m3u
         
@@ -208,7 +213,9 @@ jobs:
         
         # বাংলাদেশের টাইম দিয়ে commit message তৈরি
         COMMIT_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S Bangladesh Time')
-        NEXT_SYNC=$(TZ='Asia/Dhaka' date -d '+10 minutes' +'%I:%M %p Bangladesh Time')
+        BD_HOUR=$(TZ='Asia/Dhaka' date +'%I')
+        BD_MINUTE=$(TZ='Asia/Dhaka' date +'%M')
+        BD_AMPM=$(TZ='Asia/Dhaka' date +'%p')
         
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -217,40 +224,18 @@ jobs:
         # শুধু changes থাকলে commit করুন
         if git diff --staged --quiet; then
           echo "✅ No changes detected - playlist is up to date"
+          echo "⏰ Next auto-sync at: $BD_HOUR:08, $BD_HOUR:18, $BD_HOUR:28, $BD_HOUR:38, $BD_HOUR:48, $BD_HOUR:58$BD_AMPM (Bangladesh Time)"
         else
-          git commit -m "🔄 Ayna TV Auto Sync - $COMMIT_TIME" \
-                     -m "📺 Total channels: $(grep -c '#EXTINF:' Ayna.m3u)" \
-                     -m "⏰ Next sync: $NEXT_SYNC" \
-                     -m "🔧 Source: Repository variable AYNA_STROWETV"
+          git commit -m "🔄 Ayna TV Auto Sync - $BD_HOUR:$BD_MINUTE$BD_AMPM Bangladesh Time"
           git push
           echo "🎉 Successfully updated Ayna.m3u with Sirome TV branding!"
-          echo "🕐 Next auto-sync at $NEXT_SYNC"
-          echo "📊 Total channels updated: $(grep -c '#EXTINF:' Ayna.m3u)"
+          echo "⏰ Next auto-sync at: $BD_HOUR:08, $BD_HOUR:18, $BD_HOUR:28, $BD_HOUR:38, $BD_HOUR:48, $BD_HOUR:58$BD_AMPM (Bangladesh Time)"
         fi
-        
-    - name: Display sync schedule info
-      if: always()
-      run: |
-        echo "📅 Sync Schedule Information:"
-        echo "================================"
-        echo "🔁 Auto-sync runs every 10 minutes"
-        echo "⏰ Run times (Bangladesh Time):"
-        echo "   At 8, 18, 28, 38, 48, 58 minutes past each hour"
-        echo ""
-        echo "📋 Example schedule:"
-        echo "   10:08 AM, 10:18 AM, 10:28 AM, 10:38 AM, 10:48 AM, 10:58 AM"
-        echo "   11:08 AM, 11:18 AM, 11:28 AM, 11:38 AM, 11:48 AM, 11:58 AM"
-        echo "   12:08 PM, 12:18 PM, 12:28 PM, 12:38 PM, 12:48 PM, 12:58 PM"
-        echo "   ... and continues every hour"
-        echo ""
-        CURRENT_TIME=$(TZ='Asia/Dhaka' date +'%I:%M:%S %p')
-        NEXT_RUN=$(TZ='Asia/Dhaka' date -d '+10 minutes' +'%I:%M %p')
-        echo "🕐 Current Bangladesh Time: $CURRENT_TIME"
-        echo "⏭️  Next sync: $NEXT_RUN Bangladesh Time"
         
     - name: Cleanup on success
       if: success()
       run: |
         echo "🧹 Cleanup completed"
         echo "✅ Ayna TV sync workflow finished successfully!"
-        echo "📁 File saved to: https://github.com/${{ github.repository }}/blob/main/Ayna.m3u"
+        echo "🔄 This workflow runs every hour at:"
+        echo "   08, 18, 28, 38, 48, 58 minutes past each hour"
