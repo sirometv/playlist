@@ -293,6 +293,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Mpb4SNgY/resized-300x180-ffffff-23.jpg" group-title="Bangladeshi", DBC News
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/dbcnews.stream/playlist.m3u8
+https://satoshi-cors.herokuapp.com/http://tvn3.chowdhury-shaheb.com/dbc/index.m3u8
 #https://tvsen6.aynaott.com/dbcnews/index.m3u8
 #https://bongoflixbd.top/bk/7.m3u8?user=bongoflix&pass=eaminvai
 
@@ -545,7 +546,8 @@ http://208.86.19.13:81/514.stream/index.m3u8
 
 
 
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", PCV
+https://padmaonline.duckdns.org:8088/pcv/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
@@ -1369,6 +1371,7 @@ https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
