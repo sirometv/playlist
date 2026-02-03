@@ -29,7 +29,7 @@ jobs:
 
     - name: Download and update JSON
       env:
-        SECRET_URL: ${{ secrets.Fancode_Sirome_TV }}
+        JSON_URL: ${{ vars.FANCODE_SIROME_TV }}  # vars ব্যবহার করুন
       run: |
         import requests
         import json
@@ -37,11 +37,17 @@ jobs:
         import pytz
         
         print("Starting JSON update process...")
+        print(f"JSON URL: {os.environ.get('JSON_URL')}")
         
-        # সিক্রেট থেকে JSON ডাউনলোড
-        print(f"Fetching data from secret URL...")
+        # JSON URL থেকে ডেটা ডাউনলোড
+        json_url = os.environ.get('JSON_URL', '')
+        if not json_url:
+            print("Error: JSON URL not found in variables")
+            exit(1)
+        
         try:
-            response = requests.get("$SECRET_URL")
+            print(f"Fetching data from: {json_url}")
+            response = requests.get(json_url)
             response.raise_for_status()
             original_data = response.json()
             print("Successfully fetched JSON data")
@@ -77,6 +83,11 @@ jobs:
         if os.path.exists('fancode.json'):
             file_size = os.path.getsize('fancode.json')
             print(f"File created successfully. Size: {file_size} bytes")
+            
+            # প্রিভিউ দেখানো
+            with open('fancode.json', 'r', encoding='utf-8') as f:
+                content = f.read(500)
+                print(f"First 500 chars of file:\n{content}")
         else:
             print("Error: File not created!")
             exit(1)
@@ -86,8 +97,8 @@ jobs:
       run: |
         echo "Checking git status..."
         git status
-        echo "File content preview:"
-        head -20 fancode.json
+        echo "=== File content preview ==="
+        head -10 fancode.json
 
     - name: Commit and push changes
       run: |
