@@ -1,0 +1,66 @@
+name: Fancode JSON Data ✔️
+
+on:
+  schedule:
+    # প্রতি ঘন্টার 07,17,27,37,47,57 মিনিটে রান হবে
+    - cron: '7,17,27,37,47,57 * * * *'
+  workflow_dispatch: # ম্যানুয়ালি রান করার অপশন
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install requests library
+      run: pip install requests
+
+    - name: Download and process JSON
+      env:
+        SECRET_URL: ${{ secrets.Fancode_Sirome_TV }}
+      run: |
+        import requests
+        import json
+        from datetime import datetime
+        import pytz
+        
+        # সিক্রেট থেকে JSON ডাউনলোড
+        response = requests.get("$SECRET_URL")
+        original_data = response.json()
+        
+        # বাংলাদেশ টাইমজোন সেট করা
+        bd_timezone = pytz.timezone('Asia/Dhaka')
+        current_time = datetime.now(bd_timezone)
+        
+        # ফরম্যাট করা সময়
+        formatted_time = current_time.strftime("%I:%M:%S %p %d-%m-%Y")
+        
+        # নতুন JSON তৈরি
+        updated_data = {
+            "name": "Fancode Live Matches Data in Json",
+            "telegram": "https://t.me/sirometv",
+            "last update time": formatted_time,
+            "webtv": "https://sirometv-tv.vercel.app",
+            "matches": original_data.get("matches", [])
+        }
+        
+        # JSON ফাইল হিসেবে সেভ করা
+        with open('fancode.json', 'w', encoding='utf-8') as f:
+            json.dump(updated_data, f, indent=4, ensure_ascii=False)
+        
+        print(f"JSON আপডেট করা হয়েছে: {formatted_time}")
+      shell: python
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add fancode.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update JSON at $(date +'%I:%M:%S %p %d-%m-%Y')" && git push)
