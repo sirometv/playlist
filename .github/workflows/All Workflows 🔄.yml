@@ -1,123 +1,59 @@
-name: "Update All Workflows"
+name: All Workflows 🔄
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/5 * * * *'  # প্রতি ৫ মিনিট পরপর
+  workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
 
 jobs:
-  update-workflows:
+  update-all-workflows:
     runs-on: ubuntu-latest
     
     steps:
-      - name: 🚀 Start Process
-        run: echo "Starting workflow update process..."
-      
-      - name: 📥 Checkout Repository
-        uses: actions/checkout@v3
-      
-      - name: 📂 Create Workflows Directory
-        run: mkdir -p .github/workflows
-      
-      - name: ⬇️ Download Workflow 1
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Get all workflow files
+        id: get-files
         run: |
-          curl -s -o "workflow1.yml" \
-          "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Combined%20Playlist%20Skipper%F0%9F%9F%A2.yml"
+          # শুধু .yml এবং .yaml ফাইলগুলো নেয়া
+          files=$(find .github/workflows -name "*.yml" -o -name "*.yaml")
+          # All Workflows 🔄 ফাইলটা বাদ দিতে হবে যেন সেলফ লুপ না হয়
+          files=$(echo "$files" | grep -v "All Workflows 🔄")
+          echo "files_to_update<<EOF" >> $GITHUB_OUTPUT
+          echo "$files" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
           
-          # Fix schedule
-          sed -i 's/# schedule:/schedule:/' workflow1.yml
-          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/" workflow1.yml
-          
-          mv workflow1.yml ".github/workflows/Combined Playlist Skipper 🟢.yml"
-          echo "✅ Downloaded: Combined Playlist Skipper"
-      
-      - name: ⬇️ Download Workflow 2
+      - name: Update all workflows
+        if: steps.get-files.outputs.files != ''
         run: |
-          curl -s -o "workflow2.yml" \
-          "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/LiveFancode%F0%9F%94%84%F0%9F%94%84.yml"
+          files="${{ steps.get-files.outputs.files }}"
           
-          sed -i 's/# schedule:/schedule:/' workflow2.yml
-          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/" workflow2.yml
+          # প্রতিটি ফাইলের জন্য
+          for file in $files; do
+            if [ -f "$file" ]; then
+              echo "Updating: $file"
+              
+              # ফাইলের শেষ modification timestamp পরিবর্তন
+              touch "$file"
+              
+              # অথবা যদি Git commit history তে পরিবর্তন দেখাতে চান
+              echo "# Updated by All Workflows action at $(date)" >> "$file"
+              echo "" >> "$file"
+            fi
+          done
           
-          mv workflow2.yml ".github/workflows/LiveFancode🔏🔏.yml"
-          echo "✅ Downloaded: LiveFancode"
-      
-      - name: ⬇️ Download Workflow 3
+      - name: Commit changes
+        if: steps.get-files.outputs.files != ''
         run: |
-          curl -s -o "workflow3.yml" \
-          "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Ayna%20TV%20%F0%9F%94%84.yml"
-          
-          sed -i 's/# schedule:/schedule:/' workflow3.yml
-          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/" workflow3.yml
-          
-          mv workflow3.yml ".github/workflows/Ayna TV 🔏.yml"
-          echo "✅ Downloaded: Ayna TV"
-      
-      - name: ⬇️ Download Workflow 4
-        run: |
-          curl -s -o "workflow4.yml" \
-          "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CricHD%20%F0%9F%92%A0.yml"
-          
-          sed -i 's/# schedule:/schedule:/' workflow4.yml
-          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/" workflow4.yml
-          
-          mv workflow4.yml ".github/workflows/CricHD 💠.yml"
-          echo "✅ Downloaded: CricHD"
-      
-      - name: ⬇️ Download Workflow 5
-        run: |
-          curl -s -o "workflow5.yml" \
-          "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CRICHD%20JSON%20%F0%9F%9F%A4.yml"
-          
-          sed -i 's/# schedule:/schedule:/' workflow5.yml
-          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/" workflow5.yml
-          
-          mv workflow5.yml ".github/workflows/CRICHD JSON 🟤.yml"
-          echo "✅ Downloaded: CRICHD JSON"
-      
-      - name: ✅ Verify Files
-        run: |
-          echo "📁 Files in .github/workflows/:"
-          ls -la .github/workflows/
-          echo ""
-          echo "📋 File count: $(ls .github/workflows/ | wc -l) files"
-      
-      - name: 📝 Setup Git
-        run: |
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "actions@github.com"
-      
-      - name: 💾 Commit Changes
-        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git add .github/workflows/
+          git commit -m "🔄 Auto-update all workflows [skip ci]" || echo "No changes to commit"
           
-          if ! git diff --cached --quiet; then
-            git commit -m "🔄 Update workflow files with schedule"
-            echo "✅ Changes committed"
-          else
-            echo "ℹ️ No changes to commit"
-          fi
-      
-      - name: 🚀 Push Changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if git log origin/main..HEAD --oneline | grep -q "."; then
-            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-            echo "✅ Changes pushed successfully"
-          else
-            echo "ℹ️ Nothing to push"
-          fi
-      
-      - name: 🎉 Complete
-        run: |
-          echo "======================================"
-          echo "✅ WORKFLOW COMPLETED SUCCESSFULLY!"
-          echo "======================================"
-          echo "📊 Summary:"
-          echo "• 5 workflow files updated"
-          echo "• Schedules enabled (every 5 minutes)"
-          echo "• All files saved to .github/workflows/"
-          echo ""
-          echo "⏰ Next auto-run in 5 minutes"
-          echo "======================================"
+      - name: Push changes
+        if: steps.get-files.outputs.files != ''
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
