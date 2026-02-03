@@ -1,219 +1,145 @@
-name: All Workflows 🔄
+name: "All Workflows 🔄"
 
 on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/All Workflows 🔄.yml'
 
 permissions:
   contents: write
 
 jobs:
-  update-all-workflows:
+  update-workflows:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
 
-      - name: Download and Update Workflow Files
+      - name: 🔧 Setup environment
         run: |
-          #!/bin/bash
-          
-          echo "🔄 Starting automated update of all workflow files..."
-          echo "================================================"
-          
-          # ওয়ার্কফ্লো URL এবং ফাইলনেম ম্যাপিং
-          declare -A workflow_map=(
-            ["Combined Playlist Skipper 🟢.yml"]="https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Combined%20Playlist%20Skipper%F0%9F%9F%A2.yml"
-            ["LiveFancode🔏🔏.yml"]="https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/LiveFancode%F0%9F%94%84%F0%9F%94%84.yml"
-            ["Ayna TV 🔏.yml"]="https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Ayna%20TV%20%F0%9F%94%84.yml"
-            ["CricHD 💠.yml"]="https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CricHD%20%F0%9F%92%A0.yml"
-            ["CRICHD JSON 🟤.yml"]="https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CRICHD%20JSON%20%F0%9F%9F%A4.yml"
-          )
-          
-          # নতুন ওয়ার্কফ্লো যোগ করার জন্য এই লাইনের নিচে যোগ করুন
-          # ["Your New Workflow.yml"]="YOUR_WORKFLOW_URL_HERE"
-          
-          total_files=${#workflow_map[@]}
-          updated_count=0
-          
-          echo "📊 Total workflows to update: $total_files"
-          echo ""
-          
-          for filename in "${!workflow_map[@]}"; do
-            url="${workflow_map[$filename]}"
-            
-            echo "🔄 Processing: $filename"
-            echo "📥 URL: $url"
-            
-            # ফাইল ডাউনলোড করুন
-            if curl -s -L -o "temp_workflow.yml" "$url"; then
-              echo "✅ Successfully downloaded"
-              
-              # মূল কন্টেন্ট দেখুন (ডিবাগিং)
-              echo "📄 Original content (first 5 lines):"
-              head -5 "temp_workflow.yml"
-              
-              # YML প্রসেস করার জন্য Python স্ক্রিপ্ট
-              python3 << EOF
-import yaml
-import sys
-import os
+          mkdir -p .github/workflows
+          echo "✅ Setup completed"
 
-try:
-    with open('temp_workflow.yml', 'r', encoding='utf-8') as file:
-        content = file.read()
-    
-    # YML পার্স করুন
-    data = yaml.safe_load(content)
-    
-    # 'on' সেকশন তৈরি করুন বা আপডেট করুন
-    if 'on' not in data:
-        data['on'] = {}
-    
-    # শিডিউল সেট করুন (প্রতি 5 মিনিট)
-    if isinstance(data['on'], dict):
-        data['on']['schedule'] = [{'cron': '*/5 * * * *'}]
-        
-        # workflow_dispatch যোগ করুন যদি না থাকে
-        if 'workflow_dispatch' not in data['on']:
-            data['on']['workflow_dispatch'] = {}
-    elif isinstance(data['on'], list):
-        # যদি 'on' একটি লিস্ট হয়
-        if 'schedule' not in data['on']:
-            data['on'].append('schedule')
-    
-    # আপডেটেড YML সেভ করুন
-    updated_content = yaml.dump(data, default_flow_style=False, allow_unicode=True, sort_keys=False)
-    
-    # কমেন্ট যোগ করুন
-    final_content = f"""# 🚀 Auto-updated by 'All Workflows 🔄' workflow
-# 🔄 Last updated: $(date)
-# 📅 Scheduled to run every 5 minutes
-
-{updated_content}"""
-    
-    with open('temp_workflow.yml', 'w', encoding='utf-8') as file:
-        file.write(final_content)
-    
-    print("✅ Successfully updated schedule configuration")
-    
-except Exception as e:
-    print(f"❌ Error processing YML: {str(e)}")
-    sys.exit(1)
-EOF
-              
-              # আপডেটেড ফাইল সেভ করুন
-              mkdir -p .github/workflows
-              mv "temp_workflow.yml" ".github/workflows/$filename"
-              
-              echo "💾 Saved as: .github/workflows/$filename"
-              ((updated_count++))
-              
-            else
-              echo "❌ Failed to download: $filename"
-            fi
-            
-            echo "---"
-          done
-          
-          echo "================================================"
-          echo "📈 Update Summary:"
-          echo "✅ Successfully updated: $updated_count/$total_files files"
-          echo "🕒 Next auto-update in 5 minutes"
-          echo "================================================"
-
-      - name: Verify Updated Files
+      - name: 📥 Download Combined Playlist Skipper
         run: |
-          echo "📁 Listing all workflow files:"
+          echo "Downloading Combined Playlist Skipper..."
+          curl -s -L -o ".github/workflows/Combined Playlist Skipper 🟢.yml" \
+            "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Combined%20Playlist%20Skipper%F0%9F%9F%A2.yml"
+          
+          # Schedule আনকমেন্ট করুন
+          sed -i "s/# schedule:/schedule:/g" ".github/workflows/Combined Playlist Skipper 🟢.yml"
+          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" ".github/workflows/Combined Playlist Skipper 🟢.yml"
+          
+          echo "✅ Downloaded and enabled schedule"
+
+      - name: 📥 Download LiveFancode
+        run: |
+          echo "Downloading LiveFancode..."
+          curl -s -L -o ".github/workflows/LiveFancode🔏🔏.yml" \
+            "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/LiveFancode%F0%9F%94%84%F0%9F%94%84.yml"
+          
+          # Schedule আনকমেন্ট করুন
+          sed -i "s/# schedule:/schedule:/g" ".github/workflows/LiveFancode🔏🔏.yml"
+          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" ".github/workflows/LiveFancode🔏🔏.yml"
+          
+          echo "✅ Downloaded and enabled schedule"
+
+      - name: 📥 Download Ayna TV
+        run: |
+          echo "Downloading Ayna TV..."
+          curl -s -L -o ".github/workflows/Ayna TV 🔏.yml" \
+            "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Ayna%20TV%20%F0%9F%94%84.yml"
+          
+          # Schedule আনকমেন্ট করুন
+          sed -i "s/# schedule:/schedule:/g" ".github/workflows/Ayna TV 🔏.yml"
+          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" ".github/workflows/Ayna TV 🔏.yml"
+          
+          echo "✅ Downloaded and enabled schedule"
+
+      - name: 📥 Download CricHD
+        run: |
+          echo "Downloading CricHD..."
+          curl -s -L -o ".github/workflows/CricHD 💠.yml" \
+            "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CricHD%20%F0%9F%92%A0.yml"
+          
+          # Schedule আনকমেন্ট করুন
+          sed -i "s/# schedule:/schedule:/g" ".github/workflows/CricHD 💠.yml"
+          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" ".github/workflows/CricHD 💠.yml"
+          
+          echo "✅ Downloaded and enabled schedule"
+
+      - name: 📥 Download CRICHD JSON
+        run: |
+          echo "Downloading CRICHD JSON..."
+          curl -s -L -o ".github/workflows/CRICHD JSON 🟤.yml" \
+            "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CRICHD%20JSON%20%F0%9F%9F%A4.yml"
+          
+          # Schedule আনকমেন্ট করুন
+          sed -i "s/# schedule:/schedule:/g" ".github/workflows/CRICHD JSON 🟤.yml"
+          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" ".github/workflows/CRICHD JSON 🟤.yml"
+          
+          echo "✅ Downloaded and enabled schedule"
+
+      - name: ✅ Verify downloaded files
+        run: |
+          echo "📁 List of downloaded workflow files:"
           ls -la .github/workflows/
           
           echo ""
-          echo "🔍 Checking schedule configuration in each file:"
-          echo ""
-          
+          echo "🔍 Checking schedules in each file:"
           for file in .github/workflows/*.yml; do
-            if [[ "$file" != *"All Workflows"* ]]; then
-              echo "=== $(basename "$file") ==="
-              if grep -q "schedule:" "$file"; then
-                echo "✅ Schedule: ENABLED (runs every 5 minutes)"
-                grep "cron:" "$file"
-              else
-                echo "❌ Schedule: NOT FOUND"
-              fi
-              
-              if grep -q "workflow_dispatch:" "$file"; then
-                echo "✅ Manual run: ENABLED"
-              else
-                echo "❌ Manual run: NOT FOUND"
-              fi
-              echo ""
+            echo ""
+            echo "=== $(basename "$file") ==="
+            if grep -q "schedule:" "$file"; then
+              echo "✅ Schedule: ENABLED"
+              grep "cron:" "$file"
+            else
+              echo "❌ Schedule: NOT FOUND"
             fi
           done
 
-      - name: Commit and Push Updates
+      - name: 📝 Commit and push changes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
           
-          # পরিবর্তনগুলো চেক করুন
-          echo "🔍 Checking for changes..."
-          git status
+          # শুধু পরিবর্তিত ফাইলগুলো যোগ করুন
+          git add .github/workflows/
           
-          # পরিবর্তন থাকলে কমিট এবং পুশ করুন
-          if [ -n "$(git status --porcelain .github/workflows/)" ]; then
-            echo "📦 Changes detected, committing..."
-            git add .github/workflows/
-            git commit -m "🔄 Auto-update all workflows via 'All Workflows 🔄' workflow
-            
-            📅 Scheduled update performed by github-actions[bot]
-            🕒 Next update in 5 minutes
-            ✅ All workflows now configured to run automatically"
-            
-            git push origin main
-            echo "✅ Successfully pushed updates to repository!"
-            
-            # পুশের পর লগ
-            echo ""
-            echo "🎯 Update completed successfully!"
-            echo "📊 All workflow files are now:"
-            echo "   • Scheduled to run every 5 minutes"
-            echo "   • Enabled for manual trigger"
-            echo "   • Auto-updated by this workflow"
-            
+          # পরিবর্তন চেক করুন
+          if git diff --staged --quiet; then
+            echo "ℹ️ No changes to commit"
           else
-            echo "ℹ️ No changes detected in workflow files"
-            echo "📝 All files are already up-to-date"
+            git commit -m "🔄 Auto-update workflows via 'All Workflows 🔄'
+            
+            Updated workflow files:
+            • Combined Playlist Skipper 🟢.yml
+            • LiveFancode🔏🔏.yml
+            • Ayna TV 🔏.yml
+            • CricHD 💠.yml
+            • CRICHD JSON 🟤.yml
+            
+            📅 All workflows now run every 5 minutes
+            ✅ Updated by github-actions[bot]"
+            
+            git push
+            echo "✅ Successfully pushed updates!"
           fi
 
-      - name: Send Success Notification
-        if: success()
+      - name: 🎉 Completion message
         run: |
-          echo "🎉 Workflow update process completed!"
+          echo "========================================"
+          echo "✅ WORKFLOW COMPLETED SUCCESSFULLY!"
+          echo "========================================"
           echo ""
-          echo "📋 Summary:"
-          echo "  ✅ All workflows downloaded"
-          echo "  ✅ Schedules configured (every 5 minutes)"
-          echo "  ✅ Files saved to .github/workflows/"
-          echo "  ✅ Changes committed and pushed"
+          echo "📊 Summary:"
+          echo "• 5 workflow files downloaded"
+          echo "• Schedules enabled (every 5 minutes)"
+          echo "• Changes committed and pushed"
           echo ""
-          echo "⏰ Next automatic run: In 5 minutes"
-          echo "🔧 Manual run: Available via GitHub Actions UI"
-
-      - name: Handle Failure
-        if: failure()
-        run: |
-          echo "❌ Workflow update failed!"
-          echo "Please check the logs for errors."
-          echo ""
-          echo "Possible issues:"
-          echo "1. Network connectivity"
-          echo "2. Invalid YML syntax in source files"
-          echo "3. GitHub token permissions"
+          echo "⏰ Next auto-run: In 5 minutes"
+          echo "🔧 Manual trigger: Available"
+          echo "========================================"
