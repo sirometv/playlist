@@ -1,0 +1,113 @@
+name: Fancode BD & IND 
+
+on:
+  schedule:
+    - cron: '7,17,27,37,47,57 * * * *'
+  workflow_dispatch:
+
+jobs:
+  update-playlists:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Update playlists from JSON
+      run: |
+        echo "🚀 Starting playlist update..."
+        echo "📅 Time: $(date '+%Y-%m-%d %H:%M:%S')"
+        
+        # Python script to update playlists
+        python3 << 'EOF'
+        import json
+        import os
+        
+        # Load JSON data
+        try:
+            with open('data.json', 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            matches = data.get('matches', [])
+            print(f"📊 Total matches in JSON: {len(matches)}")
+            
+            # Create playlists
+            bd_content = ['#EXTM3U']
+            in_content = ['#EXTM3U']
+            bd_count = 0
+            in_count = 0
+            
+            for match in matches:
+                adfree_url = match.get('adfree_url', '')
+                
+                # Skip if no adfree_url
+                if not adfree_url:
+                    continue
+                
+                # Get match details
+                title = match.get('title', 'Unknown')
+                logo = match.get('logo', '')
+                group_title = match.get('group_title', 'Sports')
+                
+                # Create EXTINF line
+                extinf_line = f'#EXTINF:-1 tvg-logo="{logo}" group-title="{group_title}", {title}'
+                
+                # Bangladeshi playlist (only https://bd URLs)
+                if adfree_url.startswith('https://bd'):
+                    bd_content.append(extinf_line)
+                    bd_content.append(adfree_url)
+                    bd_count += 1
+                
+                # Indian playlist
+                if adfree_url.startswith('https://bd'):
+                    # Convert https://bd to https://in
+                    indian_url = adfree_url.replace('https://bd', 'https://in', 1)
+                    in_content.append(extinf_line)
+                    in_content.append(indian_url)
+                    in_count += 1
+                elif adfree_url.startswith('https://in'):
+                    in_content.append(extinf_line)
+                    in_content.append(adfree_url)
+                    in_count += 1
+            
+            # Save playlists
+            with open('fancodeBD.m3u', 'w', encoding='utf-8') as f:
+                f.write('\n'.join(bd_content))
+            
+            with open('fancodeIND.m3u', 'w', encoding='utf-8') as f:
+                f.write('\n'.join(in_content))
+            
+            print(f"✅ Bangladeshi playlist: {bd_count} entries")
+            print(f"✅ Indian playlist: {in_count} entries")
+            print("🎉 Playlists updated successfully!")
+            
+        except FileNotFoundError:
+            print("❌ Error: data.json file not found!")
+            print("Please make sure data.json exists in the root directory")
+        except json.JSONDecodeError:
+            print("❌ Error: Invalid JSON format in data.json!")
+        except Exception as e:
+            print(f"❌ Unexpected error: {str(e)}")
+        EOF
+      
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'
+        
+        # Check if there are changes
+        if git diff --quiet fancodeBD.m3u fancodeIND.m3u; then
+          echo "No changes to commit"
+        else
+          git add fancodeBD.m3u fancodeIND.m3u
+          git commit -m "Auto-update playlists at $(date +'%Y-%m-%d %H:%M:%S')"
+          git push
+          echo "✅ Changes committed and pushed"
+        fi
