@@ -1,4 +1,4 @@
-name: Fancode BD & IND
+name: Fancode BD & IND Playlist Updater
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'data.json'
+      - 'fancode.json'
 
 jobs:
   update-playlists:
@@ -32,9 +32,9 @@ jobs:
         echo "🚀 Starting Fancode Playlist Update"
         echo "========================================="
         
-        # Check if data.json exists
-        if [ ! -f "data.json" ]; then
-          echo "❌ ERROR: data.json file not found!"
+        # Check if fancode.json exists
+        if [ ! -f "fancode.json" ]; then
+          echo "❌ ERROR: fancode.json file not found!"
           exit 1
         fi
         
@@ -51,6 +51,25 @@ jobs:
             bd_tz = pytz.timezone('Asia/Dhaka')
             return datetime.now(bd_tz)
         
+        def get_stream_url(match):
+            """Get stream URL from match (check both hls_url and stream_url)"""
+            # First try hls_url
+            hls_url = match.get('hls_url', '')
+            if hls_url:
+                return hls_url
+            
+            # Then try stream_url
+            stream_url = match.get('stream_url', '')
+            if stream_url:
+                return stream_url
+            
+            # Try adfree_url if exists
+            adfree_url = match.get('adfree_url', '')
+            if adfree_url:
+                return adfree_url
+            
+            return ''
+        
         def main():
             print("📂 Starting playlist update process...")
             
@@ -61,15 +80,25 @@ jobs:
             
             try:
                 # Read JSON file
-                with open('data.json', 'r', encoding='utf-8') as f:
+                with open('fancode.json', 'r', encoding='utf-8') as f:
                     data = json.load(f)
                 
-                matches = data.get('matches', [])
-                print(f"📊 Total matches in JSON: {len(matches)}")
+                # Check if data is a list or has matches key
+                if isinstance(data, list):
+                    matches = data
+                    print(f"📊 JSON is a list with {len(matches)} items")
+                elif isinstance(data, dict):
+                    matches = data.get('matches', [])
+                    print(f"📊 Found {len(matches)} matches in JSON")
+                else:
+                    print("❌ ERROR: Invalid JSON format")
+                    return False
                 
-                # Count adfree_url matches
-                adfree_matches = [m for m in matches if m.get('adfree_url')]
-                print(f"🔗 Matches with adfree_url: {len(adfree_matches)}")
+                # Debug: Show first match structure
+                if matches:
+                    print(f"\n🔍 First match structure:")
+                    for key, value in list(matches[0].items())[:5]:
+                        print(f"   {key}: {str(value)[:50]}...")
                 
                 # Common header for both playlists
                 common_comments = [
@@ -81,7 +110,7 @@ jobs:
                 ]
                 
                 # Process Bangladeshi playlist
-                print("\n🇧🇷 Processing Bangladeshi playlist...")
+                print("\n🇧🇩 Processing Bangladeshi playlist...")
                 bd_content = ['#EXTM3U']
                 bd_content.extend(common_comments)
                 
@@ -89,17 +118,21 @@ jobs:
                 bd_entries = []
                 
                 for match in matches:
-                    adfree_url = match.get('adfree_url', '')
+                    # Get stream URL
+                    stream_url = get_stream_url(match)
                     
-                    if adfree_url and 'https://bd' in adfree_url:
-                        title = match.get('title', 'Unknown')
-                        logo = match.get('logo', '')
-                        group_title = match.get('group_title', 'Sports')
-                        
-                        extinf_line = f'#EXTINF:-1 tvg-logo="{logo}" group-title="{group_title}", {title}'
-                        bd_entries.append(extinf_line)
-                        bd_entries.append(adfree_url)
-                        bd_count += 1
+                    if stream_url:
+                        # Check if it's a Bangladeshi URL
+                        if 'https://bd' in stream_url or '.bd.' in stream_url:
+                            title = match.get('title', 'Unknown')
+                            logo = match.get('logo', match.get('image', ''))
+                            group_title = match.get('group_title', match.get('category', 'Sports'))
+                            
+                            extinf_line = f'#EXTINF:-1 tvg-logo="{logo}" group-title="{group_title}", {title}'
+                            bd_entries.append(extinf_line)
+                            bd_entries.append(stream_url)
+                            bd_count += 1
+                            print(f"   ✅ Added: {title} - {stream_url[:50]}...")
                 
                 if bd_count > 0:
                     bd_content.append("# We Found Some Match... Watch Now.")
@@ -118,29 +151,31 @@ jobs:
                 in_entries = []
                 
                 for match in matches:
-                    adfree_url = match.get('adfree_url', '')
+                    stream_url = get_stream_url(match)
                     
-                    if adfree_url:
-                        if 'https://bd' in adfree_url:
-                            # Convert bd to in
-                            indian_url = adfree_url.replace('https://bd', 'https://in', 1)
-                            title = match.get('title', 'Unknown')
-                            logo = match.get('logo', '')
-                            group_title = match.get('group_title', 'Sports')
+                    if stream_url:
+                        title = match.get('title', 'Unknown')
+                        logo = match.get('logo', match.get('image', ''))
+                        group_title = match.get('group_title', match.get('category', 'Sports'))
+                        
+                        # Check for Indian URLs
+                        if 'https://bd' in stream_url or '.bd.' in stream_url:
+                            # Convert bd to in for Indian playlist
+                            indian_url = stream_url.replace('https://bd', 'https://in')
+                            indian_url = indian_url.replace('.bd.', '.in.')
                             
                             extinf_line = f'#EXTINF:-1 tvg-logo="{logo}" group-title="{group_title}", {title}'
                             in_entries.append(extinf_line)
                             in_entries.append(indian_url)
                             in_count += 1
-                        elif 'https://in' in adfree_url:
-                            title = match.get('title', 'Unknown')
-                            logo = match.get('logo', '')
-                            group_title = match.get('group_title', 'Sports')
-                            
+                            print(f"   ✅ Added (converted): {title}")
+                        elif 'https://in' in stream_url or '.in.' in stream_url:
+                            # Direct Indian URL
                             extinf_line = f'#EXTINF:-1 tvg-logo="{logo}" group-title="{group_title}", {title}'
                             in_entries.append(extinf_line)
-                            in_entries.append(adfree_url)
+                            in_entries.append(stream_url)
                             in_count += 1
+                            print(f"   ✅ Added: {title}")
                 
                 if in_count > 0:
                     in_content.append("# We Found Some Match... Watch Now.")
@@ -163,30 +198,7 @@ jobs:
                 print(f"📊 Bangladeshi playlist: {bd_count} channels")
                 print(f"📊 Indian playlist: {in_count} channels")
                 print(f"🕒 Updated at: {update_time}")
-                print(f"📁 Files saved: fancodeBD.m3u, fancodeIND.m3u")
                 
-                return True
-                
-            except FileNotFoundError:
-                print("❌ ERROR: data.json file not found!")
-                # Create empty playlists if no data.json
-                empty_content = [
-                    '#EXTM3U',
-                    '#🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপপ্তি করব না।',
-                    '# All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.',
-                    f'#Update Time: {update_time}',
-                    '#Telegram: https://t.me/sirometv',
-                    '#WEB TV: https://sirometv-tv.vercel.app',
-                    '#Here Not Available Stream, We Will Update as soon possible'
-                ]
-                
-                with open('fancodeBD.m3u', 'w', encoding='utf-8') as f:
-                    f.write('\n'.join(empty_content))
-                
-                with open('fancodeIND.m3u', 'w', encoding='utf-8') as f:
-                    f.write('\n'.join(empty_content))
-                
-                print("⚠️ Created empty playlists as fallback")
                 return True
                 
             except Exception as e:
@@ -208,14 +220,14 @@ jobs:
         echo "📁 Created files preview:"
         echo "=========================="
         
-        echo "📄 fancodeBD.m3u (first 10 lines):"
+        echo "📄 fancodeBD.m3u (first 15 lines):"
         echo "----------------------------------"
-        head -10 fancodeBD.m3u
+        head -15 fancodeBD.m3u
         echo ""
         
-        echo "📄 fancodeIND.m3u (first 10 lines):"
+        echo "📄 fancodeIND.m3u (first 15 lines):"
         echo "-----------------------------------"
-        head -10 fancodeIND.m3u
+        head -15 fancodeIND.m3u
         echo ""
         
         echo "📊 Statistics:"
@@ -232,28 +244,24 @@ jobs:
         git config --global user.email "actions@github.com"
         
         # Check if files have changed
-        CHANGED_FILES=$(git status --porcelain *.m3u 2>/dev/null | wc -l)
-        
-        if [ "$CHANGED_FILES" -gt 0 ]; then
-          echo "📝 Changes detected in playlist files"
+        if ! git diff --quiet fancodeBD.m3u fancodeIND.m3u 2>/dev/null || \
+           ! git ls-files --error-unmatch fancodeBD.m3u fancodeIND.m3u >/dev/null 2>&1; then
           
-          # Show what changed
-          echo "📋 Changes summary:"
-          git diff --stat fancodeBD.m3u fancodeIND.m3u 2>/dev/null || echo "New files created"
+          echo "📝 Changes detected in playlist files"
           
           # Add and commit
           git add fancodeBD.m3u fancodeIND.m3u
           
-          # Get update time for commit message
-          UPDATE_TIME=$(date +'%Y-%m-%d %H:%M:%S')
+          # Get update time and counts
+          UPDATE_TIME=$(date '+%Y-%m-%d %H:%M:%S')
           BD_COUNT=$(grep -c '^#EXTINF' fancodeBD.m3u 2>/dev/null || echo 0)
           IN_COUNT=$(grep -c '^#EXTINF' fancodeIND.m3u 2>/dev/null || echo 0)
           
           git commit -m "🔄 Auto-update playlists - $UPDATE_TIME
-          
-          • BD: $BD_COUNT channels
-          • IN: $IN_COUNT channels
-          • Updated from data.json"
+        
+• BD: $BD_COUNT channels
+• IN: $IN_COUNT channels
+• Source: fancode.json" || echo "No changes to commit"
           
           # Push changes
           git push
