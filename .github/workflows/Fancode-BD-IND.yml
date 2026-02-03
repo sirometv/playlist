@@ -1,0 +1,258 @@
+name: Fancode BD & IND Playlist Updater
+
+on:
+  schedule:
+    - cron: '7,17,27,37,47,57 * * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'fancode.json'
+      - '.github/workflows/fancode-bd-ind.yml'
+
+jobs:
+  update-playlists:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: pip install pytz
+    
+    - name: Update M3U Playlists
+      run: |
+        echo "=========================================="
+        echo "🚀 Starting Fancode Playlist Generation"
+        echo "=========================================="
+        
+        # Create Python script
+        cat > generate_playlists.py << 'EOF'
+        import json
+        import os
+        import sys
+        from datetime import datetime
+        import pytz
+        
+        def get_bd_time():
+            """Get Bangladesh time"""
+            bd_tz = pytz.timezone('Asia/Dhaka')
+            return datetime.now(bd_tz)
+        
+        def get_stream_url(item):
+            """Extract stream URL from item"""
+            # Try different URL fields
+            for field in ['hls_url', 'stream_url', 'adfree_url', 'url', 'stream']:
+                url = item.get(field, '')
+                if url and isinstance(url, str) and ('http://' in url or 'https://' in url):
+                    return url
+            return ''
+        
+        def create_playlist(streams, playlist_type):
+            """Create M3U playlist content"""
+            # Get current Bangladesh time
+            bd_time = get_bd_time()
+            update_time = bd_time.strftime("%I:%M:%S %p - %d-%m-%Y")
+            
+            # Common header
+            header = [
+                '#EXTM3U',
+                '#🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপপ্তি করব না।',
+                '# All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.',
+                f'#Update Time: {update_time}',
+                '#Telegram: https://t.me/sirometv',
+                '#WEB TV: https://sirometv-tv.vercel.app'
+            ]
+            
+            if streams:
+                header.append('# We Found Some Match... Watch Now.')
+            else:
+                header.append('#Here Not Available Stream, We Will Update as soon possible')
+            
+            # Add streams
+            content = []
+            for stream in streams:
+                title = stream.get('title', 'Unknown Channel')
+                logo = stream.get('logo', stream.get('image', ''))
+                group = stream.get('group_title', stream.get('category', 'Sports'))
+                url = stream.get('url', '')
+                
+                # Create EXTINF line
+                extinf = f'#EXTINF:-1 tvg-logo="{logo}" group-title="{group}", {title}'
+                content.append(extinf)
+                content.append(url)
+            
+            return '\n'.join(header + content)
+        
+        def main():
+            print(f"📅 Start Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+            
+            try:
+                # Load JSON data
+                with open('fancode.json', 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                
+                print(f"✅ JSON loaded successfully")
+                
+                # Extract items (handle different JSON structures)
+                if isinstance(data, list):
+                    items = data
+                elif isinstance(data, dict):
+                    items = data.get('matches', data.get('streams', data.get('channels', [])))
+                else:
+                    items = []
+                
+                print(f"📊 Found {len(items)} items in JSON")
+                
+                # Process Bangladeshi streams
+                bd_streams = []
+                in_streams = []
+                
+                for i, item in enumerate(items):
+                    url = get_stream_url(item)
+                    
+                    if not url:
+                        continue
+                    
+                    # Prepare item data
+                    stream_data = {
+                        'title': item.get('title', f'Channel {i+1}'),
+                        'logo': item.get('logo', item.get('image', '')),
+                        'group_title': item.get('group_title', item.get('category', 'Sports')),
+                        'url': url
+                    }
+                    
+                    # Bangladeshi playlist
+                    if 'bd-' in url or '.bd.' in url or 'https://bd' in url:
+                        bd_streams.append(stream_data)
+                        print(f"🇧🇩 BD: {stream_data['title']}")
+                    
+                    # Indian playlist (convert bd to in)
+                    if 'bd-' in url or '.bd.' in url or 'https://bd' in url:
+                        # Convert to Indian URL
+                        in_url = url.replace('https://bd', 'https://in')
+                        in_url = in_url.replace('bd-', 'in-')
+                        in_url = in_url.replace('.bd.', '.in.')
+                        
+                        in_stream = stream_data.copy()
+                        in_stream['url'] = in_url
+                        in_streams.append(in_stream)
+                        print(f"🇮🇳 IN: {stream_data['title']} (converted)")
+                    elif 'in-' in url or '.in.' in url or 'https://in' in url:
+                        in_streams.append(stream_data)
+                        print(f"🇮🇳 IN: {stream_data['title']}")
+                
+                print(f"\n📊 Summary:")
+                print(f"🇧🇩 Bangladeshi streams: {len(bd_streams)}")
+                print(f"🇮🇳 Indian streams: {len(in_streams)}")
+                
+                # Create playlists
+                bd_playlist = create_playlist(bd_streams, 'bd')
+                in_playlist = create_playlist(in_streams, 'in')
+                
+                # Save playlists
+                with open('fancodeBD.m3u', 'w', encoding='utf-8') as f:
+                    f.write(bd_playlist)
+                
+                with open('fancodeIND.m3u', 'w', encoding='utf-8') as f:
+                    f.write(in_playlist)
+                
+                print(f"\n✅ Playlists created successfully!")
+                print(f"📁 fancodeBD.m3u: {len(bd_streams)} streams")
+                print(f"📁 fancodeIND.m3u: {len(in_streams)} streams")
+                
+                return True
+                
+            except FileNotFoundError:
+                print("❌ ERROR: fancode.json not found!")
+                return False
+            except json.JSONDecodeError:
+                print("❌ ERROR: Invalid JSON format!")
+                return False
+            except Exception as e:
+                print(f"❌ ERROR: {str(e)}")
+                import traceback
+                traceback.print_exc()
+                return False
+        
+        if __name__ == '__main__':
+            success = main()
+            sys.exit(0 if success else 1)
+        EOF
+        
+        # Run the script
+        echo "📝 Running playlist generator..."
+        python3 generate_playlists.py
+        
+        # Show results
+        echo ""
+        echo "📄 Playlist Preview:"
+        echo "==================="
+        
+        echo "🇧🇩 fancodeBD.m3u (first 8 lines):"
+        echo "----------------------------------"
+        if [ -f "fancodeBD.m3u" ]; then
+            head -8 fancodeBD.m3u
+        else
+            echo "File not created!"
+        fi
+        
+        echo ""
+        echo "🇮🇳 fancodeIND.m3u (first 8 lines):"
+        echo "-----------------------------------"
+        if [ -f "fancodeIND.m3u" ]; then
+            head -8 fancodeIND.m3u
+        else
+            echo "File not created!"
+        fi
+        
+        echo ""
+        echo "📊 Statistics:"
+        echo "-------------"
+        if [ -f "fancodeBD.m3u" ]; then
+            BD_COUNT=$(grep -c '^#EXTINF' fancodeBD.m3u)
+            echo "BD entries: $BD_COUNT"
+        fi
+        
+        if [ -f "fancodeIND.m3u" ]; then
+            IN_COUNT=$(grep -c '^#EXTINF' fancodeIND.m3u)
+            echo "IN entries: $IN_COUNT"
+        fi
+    
+    - name: Commit and Push
+      run: |
+        echo "🚚 Preparing to commit changes..."
+        
+        # Configure git
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        
+        # Check for changes
+        git status
+        
+        # Add playlist files
+        git add fancodeBD.m3u fancodeIND.m3u
+        
+        # Check if there are changes
+        if git diff --cached --quiet; then
+          echo "ℹ️ No changes to commit"
+        else
+          # Get counts for commit message
+          BD_COUNT=$(grep -c '^#EXTINF' fancodeBD.m3u 2>/dev/null || echo 0)
+          IN_COUNT=$(grep -c '^#EXTINF' fancodeIND.m3u 2>/dev/null || echo 0)
+          
+          # Create commit message
+          COMMIT_MSG="🤖 Auto-update: BD($BD_COUNT) IN($IN_COUNT) - $(date +'%Y-%m-%d %H:%M')"
+          
+          # Commit and push
+          git commit -m "$COMMIT_MSG"
+          git push
+          echo "✅ Changes pushed successfully!"
+        fi
