@@ -34,16 +34,19 @@
 
 
 
-#AUTO-UPDATED - 🟢 Groups Channels 🟢 - 2026-02-04 12:00:20AM BD Time
-# --- Live Event Group ---
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(4).png" group-title="Live Event", Fancode
-https://sonypartnersdaimenew.akamaized.net/hls/live/2018457/DAI35ME-ENGVSSL/master.m3u8?hdnea=exp=1770168140~acl=/*~id=32436519550431575277802194231839~hmac=197b7d858777afce52b1f639551deb41d4bb583426922fbf35c411d7964a1b23
-#EXTINF:-1 tvg-logo="https://images.fancode.com/aig/match/v1770065318593/140089_CASACARDS_APP.png" group-title="Live Event", Fancode
-https://bd-mc-fdlive.fancode.com/mumbai/140089_english_hls_3c1abd5aef39468_1ta-di_h264/index.m3u8
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Emirates_web_1769270071345.jpg" group-title="Live Event", Fancode
-https://bd-mc-fdlive.fancode.com/mumbai/139613_english_hls_999a79802f8436_1ta-di_h264/index.m3u8
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Open-Occitanie_web.jpg" group-title="Live Event", Fancode
-https://bd-mc-fdlive.fancode.com/mumbai/140181_english_hls_381b3d1afd2572_1ta-di_h264/index.m3u8
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
@@ -265,7 +268,6 @@ https://rtatv.akamaized.net/Content/HLS/Live/channel(RTA3)/variant.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.ibb.co.com/Ps2H8rFk/Sirome-TV-8.jpg" group-title="All Football Match & League", Football Match
 https://viamotionhsi.netplus.ch/live/eds/raisport1/browser-dash/raisport1.mpd
-https://amg01334-beinsportsllc-beinxtra-localnow-kcy6r.amagi.tv/playlistR576p.m3u8
 http://31.148.48.15/Match_Futbol_1_HD/index.m3u8?token=test
 http://31.148.48.15/Match_Futbol_2_HD/index.m3u8?token=test
 http://31.148.48.15/Match_Futbol_3_HD/index.m3u8?token=test
@@ -275,7 +277,6 @@ http://31.148.48.15/Match_Strana/index.m3u8?token=test
 http://ua1.online24.pm/134/video.m3u8?token=25602AD9468C2BD
 http://31.148.48.15/Match_Igra/index.m3u8?token=test
 https://trkvz-live.daioncdn.net/aspor/aspor.m3u8
-http://fl1.moveonjoy.com/BEIN_SPORTS/index.m3u8
 http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8
 https://cdn-6.pishow.tv/live/13/master.m3u8
 http://38.183.182.166:8000/play/a125/index.m3u8
@@ -482,8 +483,9 @@ https://live.dinesh29.com.np/stream/jiotvplus/starsportshd2/master.m3u8
 https://live.dinesh29.com.np/stream/jiotvplus/starsports2hindi/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/HxQ6BMZ4/image.jpg" group-title="Sports", Star Sports 2 Hindi HD
-https://live.dinesh29.com.np/stream/jiotvplus/starsports2hindihd/master.m3u8
-https://live.dinesh29.com.np/stream/jiotv/starsports2hindihd/master.m3u8
+https://jmrj02jibon02khan.vercel.app/tracks-v1a1/starsports2/mono.ts.m3u8
+#https://live.dinesh29.com.np/stream/jiotvplus/starsports2hindihd/master.m3u8
+#https://live.dinesh29.com.np/stream/jiotv/starsports2hindihd/master.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/4d9p5Tdk/image.jpg" group-title="Sports", Star Sports 2 Tamil HD
@@ -705,43 +707,42 @@ https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/33_.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/RhT61tBw/image.jpg" group-title="Sports", Bein Sports 3
 https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/34_.m3u8
-https://sdmax111.provegooott.com/25_.m3u8
-https://sdmax111.provegooott.com/9_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/25_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/9_.m3u8
 #http://135.125.109.73:9000/beinsport3_.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/QdzBqsRP/image.jpg" group-title="Sports", Bein Sports 4
-https://sdmax111.provegooott.com/35_.m3u8
-https://sdmax111.provegooott.com/26_.m3u8
-https://sdmax111.provegooott.com/11_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/35_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/26_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/11_.m3u8
 #http://135.125.109.73:9000/beinsport4_.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/BbNbPG5W/image.jpg" group-title="Sports", Bein Sports 5
-https://sdmax111.provegooott.com/36_.m3u8
-https://sdmax111.provegooott.com/27_.m3u8
-https://sdmax111.provegooott.com/5_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/36_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/27_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/5_.m3u8
 #http://135.125.109.73:9000/beinsport5_.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/CLPdFSLH/image.jpg" group-title="Sports", Bein Sports 6
-https://sdmax111.provegooott.com/28_.m3u8
-https://sdmax111.provegooott.com/6_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/28_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/6_.m3u8
 #http://135.125.109.73:9000/beinsport6_.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/3RFJzHcJ/image.jpg" group-title="Sports", Bein Sports 7
-https://sdmax111.provegooott.com/13_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/13_.m3u8
 #http://135.125.109.73:9000/beinsport7_.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/VLdmWM1x/image.jpg" group-title="Sports", Bein Sports 8
-https://sdmax111.provegooott.com/30_.m3u8
-https://sdmax111.provegooott.com/16_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/30_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/16_.m3u8
 #http://135.125.109.73:9000/beinsport8_.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/C1hVBncx/image.jpg" group-title="Sports", Bein Sports 9
-https://sdmax111.provegooott.com/31_.m3u8
-https://sdmax111.provegooott.com/29_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/31_.m3u8
+https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/29_.m3u8
 #http://135.125.109.73:9000/beinsport9_.m3u8
 
 
-#EXTINF:-1 tvg-logo="" group-title="Sports", 
 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports", 
@@ -776,6 +777,8 @@ https://sdmax111.provegooott.com/29_.m3u8
 
 #EXTINF:-1 tvg-id="BD" tvg-name="" tvg-logo="https://i.postimg.cc/gkZ7mM0j/image.jpg" group-title="Sports",beIN SPORTS Xtra
 https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8
+https://amg01334-beinsportsllc-beinxtra-localnow-kcy6r.amagi.tv/playlistR576p.m3u8
+
 
 #EXTINF:-1 tvg-id="BD" tvg-name="" tvg-logo="https://i.postimg.cc/gkZ7mM0j/image.jpg" group-title="Sports",beIN SPORTS Xtra
 https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/bein-sports-xtra-en-espanol/playlist.m3u8
