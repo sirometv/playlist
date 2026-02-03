@@ -54,9 +54,9 @@
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Sports Live Event",T Sports
 http://203.18.159.115/T_Sports_TG_josharmy007/index.m3u8
 https://padmaonline.duckdns.org:8088/T-SportHD/index.m3u8
+https://satoshi-cors.herokuapp.com/https://aynaott.unosottor.workers.dev/bpk-tv/tsportshd.m3u8
 http://103.151.60.204/bdixbd.net/tracks-v1/index.m3u8
 https://tgn.bozztv.com/eshgtv-dvrfl05/gin-ariana/index.m3u8
-https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8
 
 #https://bongoflixbd.top/tsports.m3u8?user=bongoflix&pass=eaminvai
@@ -136,6 +136,8 @@ https://tvsen5.aynaott.com/Ptvsports/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/mgjtyGgZ/image.jpg" group-title="Sports", Sky Sports Cricket
 https://crichd.workspace-sultanarabi161.workers.dev/live/skyscric.m3u8
 http://7igyx9fm.ukminlt.org/iptv/QV9B3Q26PP49RMV53WP4A7FT/9258/index.m3u8
+https://satoshi-cors.herokuapp.com/http://178.33.239.54:8080/503a/index.m3u8
+https://satoshi-cors.herokuapp.com/http://178.33.239.54:8080/507a/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/brsg0Th0/image.jpg" group-title="Sports",  Sky Sport Main Event
@@ -706,18 +708,21 @@ https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/33_.m3u8
 #http://135.125.109.73:9000/beinsport2_.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/RhT61tBw/image.jpg" group-title="Sports", Bein Sports 3
+https://satoshi-cors.herokuapp.com/http://lspapp.space/BEIN-3/video.m3u8
 https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/34_.m3u8
 https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/25_.m3u8
 https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/9_.m3u8
 #http://135.125.109.73:9000/beinsport3_.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/QdzBqsRP/image.jpg" group-title="Sports", Bein Sports 4
+https://satoshi-cors.herokuapp.com/http://lspapp.space/BEIN-4/video.m3u8
 https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/35_.m3u8
 https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/26_.m3u8
 https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/11_.m3u8
 #http://135.125.109.73:9000/beinsport4_.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/BbNbPG5W/image.jpg" group-title="Sports", Bein Sports 5
+https://satoshi-cors.herokuapp.com/http://lspapp.space/BEIN-5/video.m3u8
 https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/36_.m3u8
 https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/27_.m3u8
 https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/5_.m3u8
@@ -743,6 +748,13 @@ https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/29_.m3u8
 #http://135.125.109.73:9000/beinsport9_.m3u8
 
 
+#EXTINF:-1 tvg-logo="" group-title="Sports", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", 
 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports", 
@@ -752,6 +764,21 @@ https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/29_.m3u8
 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", 
+
+
+
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", Sports
+https://satoshi-cors.herokuapp.com/http://lspapp.space/BEIN-6/video.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", NFL
+https://satoshi-cors.herokuapp.com/http://lspapp.space/BEIN-8/video.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Sports", Sport 1 HD
+https://satoshi-cors.herokuapp.com/http://178.23.88.55/Sport1/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports", 
@@ -778,6 +805,7 @@ https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/29_.m3u8
 #EXTINF:-1 tvg-id="BD" tvg-name="" tvg-logo="https://i.postimg.cc/gkZ7mM0j/image.jpg" group-title="Sports",beIN SPORTS Xtra
 https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8
 https://amg01334-beinsportsllc-beinxtra-localnow-kcy6r.amagi.tv/playlistR576p.m3u8
+
 
 
 #EXTINF:-1 tvg-id="BD" tvg-name="" tvg-logo="https://i.postimg.cc/gkZ7mM0j/image.jpg" group-title="Sports",beIN SPORTS Xtra
@@ -1059,6 +1087,8 @@ https://d3pt6y87jk0q7u.cloudfront.net/cpanel/client_14/2025/video/1758184952.mp4
 
 
 #EXTINF:-1 tvg-logo="" group-title="Sports-Highlights", 
+
+
 
 
 
