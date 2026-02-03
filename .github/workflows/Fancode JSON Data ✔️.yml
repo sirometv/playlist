@@ -37,6 +37,7 @@ jobs:
         import json
         from datetime import datetime
         import pytz
+        import re
         
         print("🚀 Starting JSON update process...")
         
@@ -63,6 +64,27 @@ jobs:
             print(f"❌ Invalid JSON format: {e}")
             exit(1)
         
+        # matches ডাটা নেয়া
+        matches = original_data.get("matches", [])
+        
+        # প্রতিটি match-এর adfree_url পরিবর্তন করা
+        modified_matches = []
+        replaced_count = 0
+        
+        for match in matches:
+            if isinstance(match, dict) and "adfree_url" in match:
+                original_url = match.get("adfree_url", "")
+                if original_url and "https://in" in original_url:
+                    # https://in কে https://bd তে পরিবর্তন
+                    modified_url = original_url.replace("https://in", "https://bd")
+                    match["adfree_url"] = modified_url
+                    replaced_count += 1
+                    print(f"🔄 Replaced URL: {original_url[:50]}... → {modified_url[:50]}...")
+            
+            modified_matches.append(match)
+        
+        print(f"✅ Total URLs replaced: {replaced_count}")
+        
         # বাংলাদেশ টাইমজোন সেট করা
         bd_timezone = pytz.timezone('Asia/Dhaka')
         current_time = datetime.now(bd_timezone)
@@ -77,7 +99,7 @@ jobs:
             "telegram": "https://t.me/sirometv",
             "last update time": formatted_time,
             "webtv": "https://sirometv-tv.vercel.app",
-            "matches": original_data.get("matches", [])
+            "matches": modified_matches
         }
         
         # JSON ফাইল হিসেবে সেভ করা
@@ -93,8 +115,12 @@ jobs:
             
             # প্রিভিউ
             with open('fancode.json', 'r', encoding='utf-8') as f:
-                first_lines = ''.join([next(f) for _ in range(8)])
-                print(f"📋 Preview:\n{first_lines}")
+                lines = f.readlines()
+                # adfree_url আছে এমন লাইনগুলো খুঁজে দেখানো
+                print("🔍 Checking adfree_url replacements:")
+                for i, line in enumerate(lines[:50]):  # প্রথম ৫০ লাইন চেক
+                    if '"adfree_url":' in line:
+                        print(f"   Line {i+1}: {line.strip()}")
         else:
             print("❌ Error: File not created!")
             exit(1)
@@ -107,6 +133,10 @@ jobs:
         echo ""
         echo "📊 File diff:"
         git diff fancode.json || true
+        
+        echo ""
+        echo "🔍 Checking adfree_url in file:"
+        grep -n "adfree_url" fancode.json | head -10
 
     - name: Commit and push changes
       run: |
@@ -121,7 +151,7 @@ jobs:
           echo "🟡 No changes to commit (file is identical)"
         else
           CURRENT_TIME=$(date +'%I:%M:%S %p %d-%m-%Y')
-          git commit -m "🤖 Auto-update Fancode JSON at $CURRENT_TIME"
+          git commit -m "🤖 Auto-update Fancode JSON at $CURRENT_TIME (IN→BD URLs)"
           git push
           echo "✅ Changes committed and pushed successfully!"
           
