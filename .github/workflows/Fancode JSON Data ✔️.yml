@@ -6,6 +6,9 @@ on:
     - cron: '7,17,27,37,47,57 * * * *'
   workflow_dispatch: # ম্যানুয়ালি রান করার অপশন
 
+permissions:
+  contents: write
+
 jobs:
   update-json:
     runs-on: ubuntu-latest
@@ -13,16 +16,18 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
 
-    - name: Install requests library
-      run: pip install requests
+    - name: Install dependencies
+      run: pip install requests pytz
 
-    - name: Download and process JSON
+    - name: Download and update JSON
       env:
         SECRET_URL: ${{ secrets.Fancode_Sirome_TV }}
       run: |
@@ -31,9 +36,18 @@ jobs:
         from datetime import datetime
         import pytz
         
+        print("Starting JSON update process...")
+        
         # সিক্রেট থেকে JSON ডাউনলোড
-        response = requests.get("$SECRET_URL")
-        original_data = response.json()
+        print(f"Fetching data from secret URL...")
+        try:
+            response = requests.get("$SECRET_URL")
+            response.raise_for_status()
+            original_data = response.json()
+            print("Successfully fetched JSON data")
+        except Exception as e:
+            print(f"Error fetching JSON: {e}")
+            exit(1)
         
         # বাংলাদেশ টাইমজোন সেট করা
         bd_timezone = pytz.timezone('Asia/Dhaka')
@@ -41,6 +55,7 @@ jobs:
         
         # ফরম্যাট করা সময়
         formatted_time = current_time.strftime("%I:%M:%S %p %d-%m-%Y")
+        print(f"Bangladesh time: {formatted_time}")
         
         # নতুন JSON তৈরি
         updated_data = {
@@ -55,12 +70,37 @@ jobs:
         with open('fancode.json', 'w', encoding='utf-8') as f:
             json.dump(updated_data, f, indent=4, ensure_ascii=False)
         
-        print(f"JSON আপডেট করা হয়েছে: {formatted_time}")
+        print(f"JSON updated successfully: {formatted_time}")
+        
+        # চেক করা যে ফাইল সঠিকভাবে তৈরি হয়েছে
+        import os
+        if os.path.exists('fancode.json'):
+            file_size = os.path.getsize('fancode.json')
+            print(f"File created successfully. Size: {file_size} bytes")
+        else:
+            print("Error: File not created!")
+            exit(1)
       shell: python
+
+    - name: Check file changes
+      run: |
+        echo "Checking git status..."
+        git status
+        echo "File content preview:"
+        head -20 fancode.json
 
     - name: Commit and push changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
         git add fancode.json
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update JSON at $(date +'%I:%M:%S %p %d-%m-%Y')" && git push)
+        
+        # পরিবর্তন হয়েছে কিনা চেক করা
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🤖 Auto-update JSON at $(date +'%I:%M:%S %p %d-%m-%Y')"
+          git push
+          echo "Changes committed and pushed successfully"
+        fi
