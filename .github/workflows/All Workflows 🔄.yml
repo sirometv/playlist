@@ -1,145 +1,34 @@
-name: "All Workflows 🔄"
+name: Test Simple Update
 
-on:
-  schedule:
-    - cron: '*/5 * * * *'
-  workflow_dispatch:
-
-permissions:
-  contents: write
+on: workflow_dispatch
 
 jobs:
-  update-workflows:
+  test:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: 📥 Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 🔧 Setup environment
+        
+      - name: Create Test Workflow
         run: |
-          mkdir -p .github/workflows
-          echo "✅ Setup completed"
-
-      - name: 📥 Download Combined Playlist Skipper
-        run: |
-          echo "Downloading Combined Playlist Skipper..."
-          curl -s -L -o ".github/workflows/Combined Playlist Skipper 🟢.yml" \
-            "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Combined%20Playlist%20Skipper%F0%9F%9F%A2.yml"
+          echo "Creating test workflow..."
+          cat > ".github/workflows/test-auto.yml" << 'EOF'
+          name: Test Auto Workflow
           
-          # Schedule আনকমেন্ট করুন
-          sed -i "s/# schedule:/schedule:/g" ".github/workflows/Combined Playlist Skipper 🟢.yml"
-          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" ".github/workflows/Combined Playlist Skipper 🟢.yml"
+          on:
+            schedule:
+              - cron: '*/5 * * * *'
+            workflow_dispatch:
           
-          echo "✅ Downloaded and enabled schedule"
-
-      - name: 📥 Download LiveFancode
-        run: |
-          echo "Downloading LiveFancode..."
-          curl -s -L -o ".github/workflows/LiveFancode🔏🔏.yml" \
-            "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/LiveFancode%F0%9F%94%84%F0%9F%94%84.yml"
+          jobs:
+            test:
+              runs-on: ubuntu-latest
+              steps:
+                - name: Run test
+                  run: echo "✅ This runs every 5 minutes at $(date)"
+          EOF
           
-          # Schedule আনকমেন্ট করুন
-          sed -i "s/# schedule:/schedule:/g" ".github/workflows/LiveFancode🔏🔏.yml"
-          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" ".github/workflows/LiveFancode🔏🔏.yml"
+          echo "✅ Created test workflow"
           
-          echo "✅ Downloaded and enabled schedule"
-
-      - name: 📥 Download Ayna TV
-        run: |
-          echo "Downloading Ayna TV..."
-          curl -s -L -o ".github/workflows/Ayna TV 🔏.yml" \
-            "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Ayna%20TV%20%F0%9F%94%84.yml"
-          
-          # Schedule আনকমেন্ট করুন
-          sed -i "s/# schedule:/schedule:/g" ".github/workflows/Ayna TV 🔏.yml"
-          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" ".github/workflows/Ayna TV 🔏.yml"
-          
-          echo "✅ Downloaded and enabled schedule"
-
-      - name: 📥 Download CricHD
-        run: |
-          echo "Downloading CricHD..."
-          curl -s -L -o ".github/workflows/CricHD 💠.yml" \
-            "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CricHD%20%F0%9F%92%A0.yml"
-          
-          # Schedule আনকমেন্ট করুন
-          sed -i "s/# schedule:/schedule:/g" ".github/workflows/CricHD 💠.yml"
-          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" ".github/workflows/CricHD 💠.yml"
-          
-          echo "✅ Downloaded and enabled schedule"
-
-      - name: 📥 Download CRICHD JSON
-        run: |
-          echo "Downloading CRICHD JSON..."
-          curl -s -L -o ".github/workflows/CRICHD JSON 🟤.yml" \
-            "https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CRICHD%20JSON%20%F0%9F%9F%A4.yml"
-          
-          # Schedule আনকমেন্ট করুন
-          sed -i "s/# schedule:/schedule:/g" ".github/workflows/CRICHD JSON 🟤.yml"
-          sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" ".github/workflows/CRICHD JSON 🟤.yml"
-          
-          echo "✅ Downloaded and enabled schedule"
-
-      - name: ✅ Verify downloaded files
-        run: |
-          echo "📁 List of downloaded workflow files:"
-          ls -la .github/workflows/
-          
-          echo ""
-          echo "🔍 Checking schedules in each file:"
-          for file in .github/workflows/*.yml; do
-            echo ""
-            echo "=== $(basename "$file") ==="
-            if grep -q "schedule:" "$file"; then
-              echo "✅ Schedule: ENABLED"
-              grep "cron:" "$file"
-            else
-              echo "❌ Schedule: NOT FOUND"
-            fi
-          done
-
-      - name: 📝 Commit and push changes
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # শুধু পরিবর্তিত ফাইলগুলো যোগ করুন
-          git add .github/workflows/
-          
-          # পরিবর্তন চেক করুন
-          if git diff --staged --quiet; then
-            echo "ℹ️ No changes to commit"
-          else
-            git commit -m "🔄 Auto-update workflows via 'All Workflows 🔄'
-            
-            Updated workflow files:
-            • Combined Playlist Skipper 🟢.yml
-            • LiveFancode🔏🔏.yml
-            • Ayna TV 🔏.yml
-            • CricHD 💠.yml
-            • CRICHD JSON 🟤.yml
-            
-            📅 All workflows now run every 5 minutes
-            ✅ Updated by github-actions[bot]"
-            
-            git push
-            echo "✅ Successfully pushed updates!"
-          fi
-
-      - name: 🎉 Completion message
-        run: |
-          echo "========================================"
-          echo "✅ WORKFLOW COMPLETED SUCCESSFULLY!"
-          echo "========================================"
-          echo ""
-          echo "📊 Summary:"
-          echo "• 5 workflow files downloaded"
-          echo "• Schedules enabled (every 5 minutes)"
-          echo "• Changes committed and pushed"
-          echo ""
-          echo "⏰ Next auto-run: In 5 minutes"
-          echo "🔧 Manual trigger: Available"
-          echo "========================================"
+      - name: Show files
+        run: ls -la .github/workflows/
