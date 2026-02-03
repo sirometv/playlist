@@ -8,7 +8,6 @@ on:
     paths:
       - '.github/workflows/sync-workflows.yml'
 
-# Write permission for Git push
 permissions:
   contents: write
 
@@ -23,109 +22,77 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Setup Python and dependencies
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      
-      - name: Install PyYAML
-        run: pip install pyyaml
-
-      - name: Download and Update Workflows
+      - name: Download and Enable Workflows
         run: |
           #!/bin/bash
           
-          # ডাউনলোড করার জন্য Python স্ক্রিপ্ট
-          python3 << 'EOF'
-          import urllib.request
-          import os
-          import yaml
-          import json
-          from pathlib import Path
-          import urllib.parse
+          echo "🚀 Starting workflow sync process..."
           
           # ওয়ার্কফ্লো URL লিস্ট
-          workflow_urls = [
-              'https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Combined%20Playlist%20Skipper%F0%9F%9F%A2.yml',
-              'https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/LiveFancode%F0%9F%94%84%F0%9F%94%84.yml',
-              'https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Ayna%20TV%20%F0%9F%94%84.yml',
-              'https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CricHD%20%F0%9F%92%A0.yml',
-              'https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CRICHD%20JSON%20%F0%9F%9F%A4.yml',
-          ]
+          declare -A workflow_urls=(
+            ["Combined Playlist Skipper 🟢.yml"]="https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Combined%20Playlist%20Skipper%F0%9F%9F%A2.yml"
+            ["LiveFancode🔏🔏.yml"]="https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/LiveFancode%F0%9F%94%84%F0%9F%94%84.yml"
+            ["Ayna TV 🔏.yml"]="https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/Ayna%20TV%20%F0%9F%94%84.yml"
+            ["CricHD 💠.yml"]="https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CricHD%20%F0%9F%92%A0.yml"
+            ["CRICHD JSON 🟤.yml"]="https://raw.githubusercontent.com/sirometv/playlist/refs/heads/main/.github/workflows/CRICHD%20JSON%20%F0%9F%9F%A4.yml"
+          )
           
-          for url in workflow_urls:
-              try:
-                  # ফাইলের নাম এক্সট্র্যাক্ট করুন
-                  filename = url.split('/')[-1]
-                  filename = urllib.parse.unquote(filename)
-                  
-                  print(f'🔍 Processing: {filename}')
-                  
-                  # YML ফাইল ডাউনলোড করুন
-                  req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-                  response = urllib.request.urlopen(req)
-                  content = response.read().decode('utf-8')
-                  
-                  # YAML লোড করুন
-                  workflow_data = yaml.safe_load(content)
-                  
-                  # শিডিউল আপডেট বা যোগ করুন
-                  if 'on' in workflow_data:
-                      # নিশ্চিত করুন schedule key আছে
-                      if isinstance(workflow_data['on'], dict):
-                          if 'schedule' not in workflow_data['on']:
-                              workflow_data['on']['schedule'] = [{'cron': '*/5 * * * *'}]
-                          else:
-                              # শিডিউল আপডেট করুন
-                              workflow_data['on']['schedule'] = [{'cron': '*/5 * * * *'}]
-                      
-                      # workflow_dispatch যোগ করুন যদি না থাকে
-                      if 'workflow_dispatch' not in workflow_data['on']:
-                          workflow_data['on']['workflow_dispatch'] = {}
-                  
-                  # আপডেটেড YAML সেভ করুন
-                  updated_content = yaml.dump(workflow_data, default_flow_style=False, allow_unicode=True, sort_keys=False)
-                  
-                  # ফাইল সেভ করুন
-                  workflow_path = Path('.github/workflows') / filename
-                  workflow_path.parent.mkdir(parents=True, exist_ok=True)
-                  
-                  with open(workflow_path, 'w', encoding='utf-8') as f:
-                      f.write(f"# Auto-updated by sync-workflows workflow\n{updated_content}")
-                      
-                  print(f'✅ Updated: {filename}')
-                  
-              except Exception as e:
-                  print(f'❌ Error processing {url}: {str(e)}')
-                  import traceback
-                  traceback.print_exc()
+          for filename in "${!workflow_urls[@]}"; do
+            url="${workflow_urls[$filename]}"
+            echo "📥 Processing: $filename"
+            
+            # ফাইল ডাউনলোড করুন
+            curl -s -L -o "temp.yml" "$url"
+            
+            if [ $? -eq 0 ]; then
+              echo "✅ Downloaded: $filename"
+              
+              # শিডিউল আনকমেন্ট করার জন্য sed কমান্ড
+              # 1. schedule সেকশন আনকমেন্ট করুন
+              # 2. workflow_dispatch যোগ করুন
+              
+              sed -i 's/# schedule:/schedule:/g' temp.yml
+              sed -i 's/#   - cron:/  - cron:/g' temp.yml
+              sed -i "s/#   - cron: '\\/5 \\* \\* \\* \\*'/  - cron: '\\/5 * * * *'/g" temp.yml
+              
+              # নিশ্চিত করুন যে workflow_dispatch আছে
+              if ! grep -q "workflow_dispatch" temp.yml; then
+                echo "  workflow_dispatch:" >> temp.yml
+              fi
+              
+              # ফাইল সেভ করুন
+              mv temp.yml ".github/workflows/$filename"
+              echo "🔄 Updated schedule for: $filename"
+              
+            else
+              echo "❌ Failed to download: $filename"
+            fi
+          done
           
-          print("🎉 All workflows processed!")
-          EOF
+          echo "📋 Checking final files..."
+          ls -la .github/workflows/
+
+      - name: Show File Content (Debug)
+        run: |
+          echo "🔍 Checking Combined Playlist Skipper content:"
+          head -20 ".github/workflows/Combined Playlist Skipper 🟢.yml"
+          echo ""
+          echo "🔍 Checking schedule section:"
+          grep -A2 -B2 "schedule:" ".github/workflows/Combined Playlist Skipper 🟢.yml"
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
           
-          # পরিবর্তন চেক করুন
           git status
           
-          # সব ফাইল যোগ করুন
-          git add .
-          
-          # কমিট করুন
-          git commit -m "🔄 Auto-sync workflows: $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
-          
-          # পুশ করুন
-          git push origin main || echo "Nothing to push"
-          
-          echo "✅ Process completed!"
-
-      - name: Show Updated Files
-        run: |
-          echo "📁 Updated files in .github/workflows/:"
-          ls -la .github/workflows/
-          echo ""
-          echo "📋 File list:"
-          ls .github/workflows/
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "📦 Changes detected, committing..."
+            git add .
+            git commit -m "🔄 Enabled schedules for all workflows: $(date +'%Y-%m-%d %H:%M:%S')"
+            git push origin main
+            echo "✅ Changes pushed successfully!"
+          else
+            echo "ℹ️ No changes to commit"
+          fi
