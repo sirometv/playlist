@@ -29,39 +29,47 @@ jobs:
 
     - name: Download and update JSON
       env:
-        JSON_URL: ${{ vars.FANCODE_SIROME_TV }}  # vars ব্যবহার করুন
+        # এখানে secrets থেকে নেবে
+        JSON_URL: ${{ secrets.FANCODE_SIROME_TV }}
       run: |
+        import os
         import requests
         import json
         from datetime import datetime
         import pytz
         
-        print("Starting JSON update process...")
-        print(f"JSON URL: {os.environ.get('JSON_URL')}")
+        print("🚀 Starting JSON update process...")
         
-        # JSON URL থেকে ডেটা ডাউনলোড
-        json_url = os.environ.get('JSON_URL', '')
+        # env variable থেকে URL নেয়া
+        json_url = os.environ.get('JSON_URL')
+        
         if not json_url:
-            print("Error: JSON URL not found in variables")
+            print("❌ Error: JSON_URL environment variable is empty!")
+            print("Please check if FANCODE_SIROME_TV secret is properly set")
             exit(1)
         
+        print(f"📥 Source URL: {json_url}")
+        
         try:
-            print(f"Fetching data from: {json_url}")
-            response = requests.get(json_url)
+            print("⬇️ Downloading JSON data...")
+            response = requests.get(json_url, timeout=10)
             response.raise_for_status()
             original_data = response.json()
-            print("Successfully fetched JSON data")
-        except Exception as e:
-            print(f"Error fetching JSON: {e}")
+            print("✅ Successfully downloaded JSON data")
+        except requests.exceptions.RequestException as e:
+            print(f"❌ Download failed: {e}")
+            exit(1)
+        except json.JSONDecodeError as e:
+            print(f"❌ Invalid JSON format: {e}")
             exit(1)
         
         # বাংলাদেশ টাইমজোন সেট করা
         bd_timezone = pytz.timezone('Asia/Dhaka')
         current_time = datetime.now(bd_timezone)
         
-        # ফরম্যাট করা সময়
+        # ফরম্যাট করা সময় (AM/PM সহ)
         formatted_time = current_time.strftime("%I:%M:%S %p %d-%m-%Y")
-        print(f"Bangladesh time: {formatted_time}")
+        print(f"🕒 Bangladesh time: {formatted_time}")
         
         # নতুন JSON তৈরি
         updated_data = {
@@ -76,42 +84,49 @@ jobs:
         with open('fancode.json', 'w', encoding='utf-8') as f:
             json.dump(updated_data, f, indent=4, ensure_ascii=False)
         
-        print(f"JSON updated successfully: {formatted_time}")
+        print(f"✅ JSON updated successfully at {formatted_time}")
         
-        # চেক করা যে ফাইল সঠিকভাবে তৈরি হয়েছে
-        import os
+        # ফাইল চেক করা
         if os.path.exists('fancode.json'):
             file_size = os.path.getsize('fancode.json')
-            print(f"File created successfully. Size: {file_size} bytes")
+            print(f"📄 File created: fancode.json ({file_size} bytes)")
             
-            # প্রিভিউ দেখানো
+            # প্রিভিউ
             with open('fancode.json', 'r', encoding='utf-8') as f:
-                content = f.read(500)
-                print(f"First 500 chars of file:\n{content}")
+                first_lines = ''.join([next(f) for _ in range(8)])
+                print(f"📋 Preview:\n{first_lines}")
         else:
-            print("Error: File not created!")
+            print("❌ Error: File not created!")
             exit(1)
       shell: python
 
-    - name: Check file changes
+    - name: Check changes
       run: |
-        echo "Checking git status..."
+        echo "🔍 Checking git status..."
         git status
-        echo "=== File content preview ==="
-        head -10 fancode.json
+        echo ""
+        echo "📊 File diff:"
+        git diff fancode.json || true
 
     - name: Commit and push changes
       run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
+        echo "💾 Committing changes..."
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions"
         
         git add fancode.json
         
         # পরিবর্তন হয়েছে কিনা চেক করা
         if git diff --staged --quiet; then
-          echo "No changes to commit"
+          echo "🟡 No changes to commit (file is identical)"
         else
-          git commit -m "🤖 Auto-update JSON at $(date +'%I:%M:%S %p %d-%m-%Y')"
+          CURRENT_TIME=$(date +'%I:%M:%S %p %d-%m-%Y')
+          git commit -m "🤖 Auto-update Fancode JSON at $CURRENT_TIME"
           git push
-          echo "Changes committed and pushed successfully"
+          echo "✅ Changes committed and pushed successfully!"
+          
+          # লিঙ্ক দেখানো
+          echo ""
+          echo "🌐 Updated file available at:"
+          echo "https://github.com/${{ github.repository }}/blob/main/fancode.json"
         fi
