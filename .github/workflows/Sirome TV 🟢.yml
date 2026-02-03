@@ -694,7 +694,7 @@ jobs:
           ALL_CHANNEL_SKIPS=$(grep -c "#AUTO-UPDATED -.*⛔ SKIPPED ⛔" sirometv.m3u || echo "0")
           LIVE_EVENT_COUNT=$(grep -c 'group-title="Live Event"' sirometv.m3u || echo "0")
           
-          COMMIT_MESSAGE="🔄 Combined Update: "
+          COMMIT_MESSAGE="🔄 Sirome TV: "
           
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             COMMIT_MESSAGE+="Manual Run - "
