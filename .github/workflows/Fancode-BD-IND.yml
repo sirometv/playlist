@@ -1,4 +1,4 @@
-name: Update M3U Playlists
+name: Fancode-BD-IND
 
 on:
   schedule:
@@ -90,11 +90,19 @@ jobs:
                             # যদি শুধু mc-fdlive থাকে
                             stream_url = stream_url.replace("https://mc-fdlive", "https://in-mc-fdlive")
                     
+                    # লগো URL পাওয়া (src থেকে)
+                    logo_url = ""
+                    if "src" in match:
+                        logo_url = match["src"]
+                    
+                    # টাইটেল পাওয়া
+                    title = match.get("title", "Unknown")
+                    
                     # EXTINF entry তৈরি
                     extinf_entry = {
-                        "title": match.get("title", "Unknown"),
-                        "logo": match.get("logo_url", ""),
-                        "group": match.get("group_title", "Sports"),
+                        "title": title,
+                        "logo": logo_url,
+                        "group": "Live Event",  # সবসময় "Live Event" গ্রুপ ব্যবহার করবে
                         "stream_url": stream_url
                     }
                     streams.append(extinf_entry)
@@ -105,11 +113,16 @@ jobs:
             """M3U প্লেলিস্ট কন্টেন্ট তৈরি করা"""
             content = ["#EXTM3U"]
             
-            for stream in streams:
+            for i, stream in enumerate(streams):
                 # tvg-logo এবং group-title যোগ করা
                 extinf_line = f'#EXTINF:-1 tvg-logo="{stream["logo"]}" group-title="{stream["group"]}", {stream["title"]}'
                 content.append(extinf_line)
                 content.append(stream["stream_url"])
+                
+                # প্রতিটি #EXTINF এন্ট্রির পর দুই লাইন গ্যাপ দিতে হবে (শেষ এন্ট্রি বাদে)
+                if i < len(streams) - 1:
+                    content.append("")
+                    content.append("")
             
             return "\n".join(content)
 
@@ -146,4 +159,4 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add fancodeBD.m3u fancodeIND.m3u
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update playlists: $(date +'%Y-%m-%d %H:%M:%S')" && git push)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Fancode playlists: $(date +'%Y-%m-%d %H:%M:%S')" && git push)
