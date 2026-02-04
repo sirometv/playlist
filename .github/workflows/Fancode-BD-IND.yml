@@ -1,10 +1,13 @@
-name: Fancode-BD-IND
+name: Update M3U Playlists
 
 on:
   schedule:
     # প্রতি ঘন্টার 07,17,27,37,47,57 মিনিটে রান হবে
     - cron: '7,17,27,37,47,57 * * * *'
   workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
+  push:
+    paths:
+      - 'fancode.json'  # JSON ফাইল পরিবর্তন হলে ও রান হবে
 
 jobs:
   update-playlists:
@@ -26,13 +29,121 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
 
-    - name: Download and update playlists
-      run: python update_playlists.py
+    - name: Update BD and IND playlists
+      run: |
+        cat > update_playlists.py << 'EOF'
+        import json
+        import requests
+        from datetime import datetime
+        import os
+
+        # JSON ফাইলের URL - আপনার JSON ফাইল URL এখানে দিন
+        # যদি রিপোজিটরিতে থাকে, তাহলে সরাসরি ফাইল পড়ুন
+        try:
+            with open('fancode.json', 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            print("Loaded JSON from local file")
+        except FileNotFoundError:
+            # যদি ফাইল না থাকে, তাহলে URL থেকে লোড করুন
+            JSON_URL = "https://raw.githubusercontent.com/sirometv/playlist/main/fancode.json"  # আপনার JSON URL
+            try:
+                response = requests.get(JSON_URL, timeout=10)
+                response.raise_for_status()
+                data = response.json()
+                print(f"Loaded JSON from URL: {JSON_URL}")
+            except Exception as e:
+                print(f"Error fetching JSON: {e}")
+                data = None
+
+        if not data:
+            print("Failed to load JSON data")
+            exit(1)
+
+        print(f"JSON data loaded successfully at {datetime.now()}")
+
+        def extract_streams(data, country_code):
+            """JSON থেকে স্ট্রিম ডেটা এক্সট্র্যাক্ট করা"""
+            streams = []
+            
+            if "matches" not in data:
+                print("No 'matches' found in JSON")
+                return streams
+            
+            for match in data["matches"]:
+                # শুধুমাত্র adfree_url থাকলে নিবে
+                if "adfree_url" in match and match["adfree_url"]:
+                    # country_code অনুযায়ী URL পরিবর্তন
+                    stream_url = match["adfree_url"]
+                    
+                    if country_code == "bd":
+                        # BD playlist: https://bd-mc-fdlive.fancode.com/...
+                        if "https://in-" in stream_url:
+                            stream_url = stream_url.replace("https://in-", "https://bd-")
+                        elif "https://mc-fdlive.fancode.com" in stream_url:
+                            # যদি শুধু mc-fdlive থাকে
+                            stream_url = stream_url.replace("https://mc-fdlive", "https://bd-mc-fdlive")
+                    elif country_code == "in":
+                        # IN playlist: https://in-mc-fdlive.fancode.com/...
+                        if "https://bd-" in stream_url:
+                            stream_url = stream_url.replace("https://bd-", "https://in-")
+                        elif "https://mc-fdlive.fancode.com" in stream_url:
+                            # যদি শুধু mc-fdlive থাকে
+                            stream_url = stream_url.replace("https://mc-fdlive", "https://in-mc-fdlive")
+                    
+                    # EXTINF entry তৈরি
+                    extinf_entry = {
+                        "title": match.get("title", "Unknown"),
+                        "logo": match.get("logo_url", ""),
+                        "group": match.get("group_title", "Sports"),
+                        "stream_url": stream_url
+                    }
+                    streams.append(extinf_entry)
+            
+            return streams
+
+        def create_m3u_content(streams, playlist_name):
+            """M3U প্লেলিস্ট কন্টেন্ট তৈরি করা"""
+            content = ["#EXTM3U"]
+            
+            for stream in streams:
+                # tvg-logo এবং group-title যোগ করা
+                extinf_line = f'#EXTINF:-1 tvg-logo="{stream["logo"]}" group-title="{stream["group"]}", {stream["title"]}'
+                content.append(extinf_line)
+                content.append(stream["stream_url"])
+            
+            return "\n".join(content)
+
+        def update_playlist_file(filename, content):
+            """ফাইলে m3u কন্টেন্ট লিখা"""
+            with open(filename, 'w', encoding='utf-8') as f:
+                f.write(content)
+            print(f"Updated {filename} - {len(content.splitlines())} lines")
+
+        # BD প্লেলিস্টের জন্য স্ট্রিমস
+        bd_streams = extract_streams(data, "bd")
+        print(f"Found {len(bd_streams)} streams for BD playlist")
+        
+        # IN প্লেলিস্টের জন্য স্ট্রিমস
+        in_streams = extract_streams(data, "in")
+        print(f"Found {len(in_streams)} streams for IN playlist")
+        
+        # M3U কন্টেন্ট তৈরি
+        bd_content = create_m3u_content(bd_streams, "Fancode Bangladesh")
+        in_content = create_m3u_content(in_streams, "Fancode India")
+        
+        # ফাইল আপডেট
+        update_playlist_file("fancodeBD.m3u", bd_content)
+        update_playlist_file("fancodeIND.m3u", in_content)
+        
+        print(f"Playlists updated successfully at {datetime.now()}")
+        EOF
+        
+        # Python স্ক্রিপ্ট রান করুন
+        python update_playlists.py
 
     - name: Commit and push if changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add fancodeBD.m3u fancodeIND.m3u
-        git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update playlists: $(date +'%Y-%m-%d %H:%M:%S')"
-        git push
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update playlists: $(date +'%Y-%m-%d %H:%M:%S')" && git push)
