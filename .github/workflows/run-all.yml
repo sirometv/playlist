@@ -1,4 +1,4 @@
-name: 🔁 Auto-Run All Workflows
+name: 🚀 Trigger All Workflows
 
 on:
   schedule:
@@ -6,105 +6,96 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-sequence:
+  trigger-workflows:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Step 1 - Run AllChannel
-        run: |
-          echo "🚀 Manually triggering: AllChannel🔄.yml"
-          echo "This would normally use GitHub API"
-          echo "For now, this workflow itself will handle the tasks"
+      - name: Checkout repository
+        uses: actions/checkout@v4
       
-      - name: Step 2 - Run Ayna TV
+      - name: List all workflows
         run: |
-          echo "🚀 Manually triggering: Ayna TV 🔄.yml"
-          echo "Downloading Ayna playlist..."
-          curl -s -L -o ayna.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/Ayna.m3u" || true
-          echo "Downloaded $(wc -l < ayna.m3u || echo 0) lines"
+          echo "📋 Available workflow files:"
+          ls -la .github/workflows/*.yml
+          echo ""
       
-      - name: Step 3 - Run CRICHD JSON
+      - name: Trigger workflows one by one
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "🚀 Manually triggering: CRICHD JSON 🟤.yml"
-          echo "Updating JSON data..."
-      
-      - name: Step 4 - Run Combined Playlist
-        run: |
-          echo "🚀 Manually triggering: Combined Playlist Skipper 🔄.yml"
-          echo "Combining playlists..."
-      
-      - name: Step 5 - Run CricHD
-        run: |
-          echo "🚀 Manually triggering: CricHD 💠.yml"
-          echo "Updating CricHD playlist..."
-      
-      - name: Step 6 - Run Fancode JSON
-        run: |
-          echo "🚀 Manually triggering: Fancode JSON Data ✔️.yml"
-          echo "Updating Fancode JSON..."
-      
-      - name: Step 7 - Run Fancode to M3U8
-        run: |
-          echo "🚀 Manually triggering: Fancode to M3U8.yml"
-          echo "Converting Fancode to M3U8..."
-      
-      - name: Step 8 - Run Fancode-BD-IND
-        run: |
-          echo "🚀 Manually triggering: Fancode-BD-IND.yml"
-          echo "Generating BD-IND playlist..."
-      
-      - name: Step 9 - Run LiveFancode
-        run: |
-          echo "🚀 Manually triggering: LiveFancode🔄🔄.yml"
-          echo "Updating Live Fancode..."
-      
-      - name: Step 10 - Run Sirome TV
-        run: |
-          echo "🚀 Manually triggering: Sirome TV 🟢.yml"
-          echo "Updating Sirome TV playlist..."
-          curl -s -L -o sirometv.m3u "https://raw.githubusercontent.com/sirometv/playlist/gh-pages/sirometv.m3u" || true
-          echo "Downloaded $(wc -l < sirometv.m3u || echo 0) lines"
-      
-      - name: Step 11 - Run Yupp TV
-        run: |
-          echo "🚀 Manually triggering: Yupp TV 🆕.yml"
-          echo "Updating Yupp TV playlist..."
-      
-      - name: Final step - Commit changes
-        if: always()
-        run: |
-          echo "📦 Preparing to commit any downloaded files..."
+          echo "🚀 Starting to trigger all workflows..."
+          echo ""
           
-          # Git setup
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          # Workflow ফাইলগুলোর লিস্ট (নিজেকে বাদ দিয়ে)
+          WORKFLOWS=(
+            "AllChannel🔄.yml"
+            "Ayna TV 🔄.yml"
+            "CRICHD JSON 🟤.yml"
+            "Combined Playlist Skipper 🔄.yml"
+            "CricHD 💠.yml"
+            "Fancode JSON Data ✔️.yml"
+            "Fancode to M3U8.yml"
+            "Fancode-BD-IND.yml"
+            "LiveFancode🔄🔄.yml"
+            "Sirome TV 🟢.yml"
+            "Yupp TV 🆕.yml"
+          )
           
-          # Check if there are any downloaded files
-          if ls *.m3u *.json 2>/dev/null; then
-            echo "📁 Found downloaded files, adding to git..."
-            git add *.m3u *.json 2>/dev/null || true
-            
-            if git diff --cached --quiet; then
-              echo "✅ No changes to commit"
-            else
-              git commit -m "🔁 Auto-update: Downloaded playlist files [auto-run]"
-              git push
-              echo "🎉 Changes committed and pushed!"
+          for workflow in "${WORKFLOWS[@]}"; do
+            if [ ! -f ".github/workflows/$workflow" ]; then
+              echo "⚠️ Skipping: $workflow (not found)"
+              continue
             fi
-          else
-            echo "✅ No files downloaded"
-          fi
+            
+            echo "▶️ Triggering: $workflow"
+            
+            # Extract workflow name from file
+            workflow_name=$(grep -oP 'name:\s*\K.*' ".github/workflows/$workflow" | head -1 | sed 's/^ *//;s/ *$//')
+            
+            if [ -z "$workflow_name" ]; then
+              workflow_name="$workflow"
+            fi
+            
+            echo "   Name: $workflow_name"
+            
+            # GitHub API call to trigger workflow
+            response=$(curl -s -o response.txt -w "%{http_code}" \
+              -X POST \
+              -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              "https://api.github.com/repos/sirometv/playlist/actions/workflows/$workflow/dispatches" \
+              -d '{"ref":"main"}')
+            
+            if [ "$response" -eq 204 ]; then
+              echo "   ✅ Successfully triggered"
+            else
+              echo "   ❌ Failed to trigger (HTTP $response)"
+              cat response.txt 2>/dev/null || true
+            fi
+            
+            echo ""
+            
+            # Wait 3 seconds between triggers
+            sleep 3
+          done
+          
+          echo "🎉 Trigger process completed!"
+          rm -f response.txt 2>/dev/null || true
       
-      - name: Completion report
+      - name: Wait for workflows to complete
         run: |
+          echo "⏳ Waiting 2 minutes for workflows to start..."
+          sleep 120
+          echo "✅ Wait completed"
+      
+      - name: Check workflow status
+        run: |
+          echo "📊 Checking recent workflow runs..."
           echo ""
-          echo "========================================"
-          echo "        🎉 ALL TASKS COMPLETED         "
-          echo "========================================"
-          echo ""
-          echo "✅ Successfully ran all workflow tasks"
-          echo ""
-          echo "📅 Next auto-run: In 10 minutes"
-          echo "🔄 Your playlists are now updated"
-          echo ""
-          echo "Check your repository for updated files!"
+          
+          curl -s \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/sirometv/playlist/actions/runs?per_page=20" \
+            | jq -r '.workflow_runs[] | "\(.name) - \(.status) - \(.conclusion) - \(.html_url)"' \
+            | head -15 || echo "Could not fetch status"
