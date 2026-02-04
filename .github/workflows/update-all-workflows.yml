@@ -2,46 +2,58 @@ name: All workflow👌
 
 on:
   schedule:
+    # প্রতি ১০ মিনিট পর পর রান করবে (Cron সিনট্যাক্স)
     - cron: '*/10 * * * *'
-  workflow_dispatch:
+  workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
 
 jobs:
-  update-schedules:
+  update-all-workflows:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Update all workflow schedules
+      - name: Update all workflow YML files
         run: |
+          # Workflow ডিরেক্টরিতে যান
           cd .github/workflows
           
-          # Allworkflow.yml ছাড়া সব ফাইল প্রসেস করুন
+          # প্রতিটি YML ফাইলের জন্য (নতুন ফাইল ব্যতীত)
           for file in *.yml; do
-            if [ "$file" = "Allworkflow.yml" ]; then
-              continue
-            fi
-            
-            echo "Working on: $file"
-            
-            # যদি schedule থাকে, তাহলে আপডেট করুন
-            if grep -q "schedule:" "$file"; then
-              sed -i '/cron:/s/.*/    - cron: "\/\*\/10 * * * *"/' "$file"
-            else
-              # যদি schedule না থাকে, 'on:' এর নিচে যোগ করুন
-              sed -i '/^on:/a \  schedule:\n    - cron: "\/\*\/10 * * * *"' "$file"
+            if [ "$file" != "update-all-workflows.yml" ]; then
+              echo "Updating schedule in: $file"
+              
+              # 1. schedule সেকশন খুঁজে বের করে cron আপডেট করুন
+              # যদি schedule already exists, update it
+              if grep -q "schedule:" "$file"; then
+                # Existing schedule আপডেট করুন
+                sed -i '/schedule:/,/cron:/s/cron:.*/cron: "\/\*\/10 * * * *"/' "$file"
+              else
+                # নতুন schedule যোগ করুন (যদি workflow ডিসপ্যাচ বা অন্যান্য ট্রিগার থাকে)
+                # এই অংশটি আপনার workflow এর স্ট্রাকচার উপর নির্ভর করবে
+                echo "Note: $file doesn't have a schedule section"
+              fi
+              
+              # 2. অথবা, alternative approach: sed দিয়ে সরাসরি পরিবর্তন
+              # এই লাইনটি প্রতি ১০ মিনিটের cron সেট করবে যেখানে schedule আছে
+              sed -i 's/cron:.*/cron: "\/\*\/10 * * * *"/g' "$file"
             fi
           done
       
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add .
-          if ! git diff --cached --quiet; then
-            git commit -m "Update all workflows to run every 10 minutes"
+          # পরিবর্তন commit করুন
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add .github/workflows/*.yml
+          
+          # শুধু পরিবর্তন থাকলে commit করুন
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🔄 Update all workflow schedules to run every 10 minutes"
             git push
           fi
