@@ -1,14 +1,15 @@
 import json
 import requests
 from datetime import datetime
+import os
 
-# JSON ফাইলের URL (আপনার JSON ফাইল URL দিয়ে রিপ্লেস করুন)
-JSON_URL = "https://raw.githubusercontent.com/sirometv/playlist/main/fancode.json"
+# JSON ফাইলের URL - এখানে আপনার JSON ফাইল URL দিন
+JSON_URL = "https://raw.githubusercontent.com/sirometv/playlist/main/fancode.json"  # আপনার JSON URL
 
 def fetch_json_data():
     """JSON ফাইল ডাউনলোড এবং পার্স করা"""
     try:
-        response = requests.get(JSON_URL)
+        response = requests.get(JSON_URL, timeout=10)
         response.raise_for_status()
         return response.json()
     except Exception as e:
@@ -33,16 +34,22 @@ def extract_streams(data, country_code):
                 # BD playlist: https://bd-mc-fdlive.fancode.com/...
                 if "https://in-" in stream_url:
                     stream_url = stream_url.replace("https://in-", "https://bd-")
+                elif "https://mc-fdlive.fancode.com" in stream_url:
+                    # যদি শুধু mc-fdlive থাকে
+                    stream_url = stream_url.replace("https://mc-fdlive", "https://bd-mc-fdlive")
             elif country_code == "in":
                 # IN playlist: https://in-mc-fdlive.fancode.com/...
                 if "https://bd-" in stream_url:
                     stream_url = stream_url.replace("https://bd-", "https://in-")
+                elif "https://mc-fdlive.fancode.com" in stream_url:
+                    # যদি শুধু mc-fdlive থাকে
+                    stream_url = stream_url.replace("https://mc-fdlive", "https://in-mc-fdlive")
             
             # EXTINF entry তৈরি
             extinf_entry = {
                 "title": match.get("title", "Unknown"),
                 "logo": match.get("logo_url", ""),
-                "group": match.get("group_title", ""),
+                "group": match.get("group_title", "Sports"),
                 "stream_url": stream_url
             }
             streams.append(extinf_entry)
@@ -54,6 +61,7 @@ def create_m3u_content(streams, playlist_name):
     content = ["#EXTM3U"]
     
     for stream in streams:
+        # tvg-logo এবং group-title যোগ করা
         extinf_line = f'#EXTINF:-1 tvg-logo="{stream["logo"]}" group-title="{stream["group"]}", {stream["title"]}'
         content.append(extinf_line)
         content.append(stream["stream_url"])
@@ -61,18 +69,22 @@ def create_m3u_content(streams, playlist_name):
     return "\n".join(content)
 
 def update_playlist_file(filename, content):
-    """ফাইলে ম3ু কন্টেন্ট লিখা"""
+    """ফাইলে m3u কন্টেন্ট লিখা"""
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"Updated {filename}")
+    print(f"Updated {filename} - {len(content.splitlines())} lines")
 
 def main():
     print(f"Starting playlist update at {datetime.now()}")
+    print(f"JSON URL: {JSON_URL}")
     
     # JSON ডেটা ফেচ করা
     data = fetch_json_data()
     if not data:
+        print("Failed to fetch JSON data")
         return
+    
+    print(f"JSON data loaded successfully")
     
     # BD প্লেলিস্টের জন্য স্ট্রিমস
     bd_streams = extract_streams(data, "bd")
