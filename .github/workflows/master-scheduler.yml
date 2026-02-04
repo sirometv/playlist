@@ -1,0 +1,141 @@
+name: Master Scheduler 🔄
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # নিজে প্রতি ১০ মিনিটে রান হবে
+  workflow_dispatch:  # ম্যানুয়ালি চালানো যাবে
+
+jobs:
+  update-all-schedules:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Update schedule in ALL workflow files
+        run: |
+          cd .github/workflows
+          
+          echo "🔄 Updating schedule in all workflow files..."
+          echo "Target: Run every 10 minutes"
+          echo ""
+          
+          # নিজেকে বাদ দিন
+          CURRENT_FILE="master-scheduler.yml"
+          
+          # সব YML ফাইল লুপ করুন
+          for file in *.yml; do
+            # নিজেকে বাদ দিন
+            if [ "$file" = "$CURRENT_FILE" ] || [ "$file" = "debug-workflows.yml" ]; then
+              echo "⏭️ Skipping: $file"
+              continue
+            fi
+            
+            echo "📝 Processing: $file"
+            
+            # Backup করুন
+            cp "$file" "${file}.backup"
+            
+            # 1. বিদ্যমান schedule সরান
+            sed -i '/schedule:/,/cron:/d' "$file" 2>/dev/null || true
+            sed -i '/^[[:space:]]*\- cron:/d' "$file" 2>/dev/null || true
+            
+            # 2. নতুন schedule যোগ করুন (10 মিনিটে)
+            if grep -q "^on:" "$file"; then
+              # Case: 'on:' শুরুতে আছে
+              echo "  ✓ Adding schedule to existing 'on:' section"
+              sed -i '/^on:/a\  schedule:\n    - cron: "*/10 * * * *"' "$file"
+            elif grep -q "^  on:" "$file"; then
+              # Case: indented 'on:'
+              echo "  ✓ Adding schedule to indented 'on:' section"
+              sed -i '/^  on:/a\    schedule:\n      - cron: "*/10 * * * *"' "$file"
+            else
+              # Case: 'on:' নেই
+              echo "  ⚠️ No 'on:' found, creating new one"
+              
+              # ফাইলের শুরুতে on section যোগ করুন
+              TEMP_FILE=$(mktemp)
+              echo "on:" > "$TEMP_FILE"
+              echo "  schedule:" >> "$TEMP_FILE"
+              echo "    - cron: \"*/10 * * * *\"" >> "$TEMP_FILE"
+              echo "  workflow_dispatch:" >> "$TEMP_FILE"
+              echo "" >> "$TEMP_FILE"
+              tail -n +2 "$file" >> "$TEMP_FILE" 2>/dev/null || cat "$file" >> "$TEMP_FILE"
+              mv "$TEMP_FILE" "$file"
+            fi
+            
+            echo "  ✅ Updated: $file (now runs every 10 minutes)"
+            echo ""
+          done
+      
+      - name: Verify changes
+        run: |
+          echo "🔍 Verifying schedule updates..."
+          echo ""
+          
+          cd .github/workflows
+          
+          for file in *.yml; do
+            if [ "$file" != "master-scheduler.yml" ] && [ "$file" != "debug-workflows.yml" ]; then
+              echo "📄 $file:"
+              if grep -q "cron:" "$file"; then
+                grep "cron:" "$file"
+              else
+                echo "  ❌ No schedule found!"
+              fi
+              echo ""
+            fi
+          done
+      
+      - name: Commit and push changes
+        run: |
+          echo "🚀 Committing schedule updates..."
+          
+          # Git configuration
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          
+          # শুধু workflow ফাইলগুলো add করুন
+          git add .github/workflows/*.yml
+          
+          # Changes check
+          if git diff --cached --quiet; then
+            echo "✅ No changes to commit (schedules already up to date)"
+          else
+            # Changes দেখান
+            echo "📋 Modified files:"
+            git diff --cached --name-only
+            
+            # Commit
+            git commit -m "🔄 Master Scheduler: Update all workflows to run every 10 minutes"
+            
+            # Push
+            git push
+            
+            echo "🎉 Success! All workflows updated to run every 10 minutes!"
+          fi
+          
+          # Backup ফাইল মুছুন
+          cd .github/workflows 2>/dev/null || true
+          rm -f *.backup 2>/dev/null || true
+      
+      - name: Final report
+        run: |
+          echo ""
+          echo "========================================"
+          echo "        🎯 MASTER SCHEDULER REPORT      "
+          echo "========================================"
+          echo ""
+          echo "✅ All workflows have been scheduled to run every 10 minutes"
+          echo ""
+          echo "📅 Next auto-run: In 10 minutes"
+          echo "🔄 Manual run: Available via workflow_dispatch"
+          echo ""
+          echo "Modified workflows will now:"
+          echo "1. Auto-run every 10 minutes"
+          echo "2. Can be manually triggered"
+          echo ""
+          echo "Master scheduler will auto-update schedules every 10 minutes"
