@@ -29,7 +29,7 @@ jobs:
           # সব YML ফাইল লুপ করুন
           for file in *.yml; do
             # নিজেকে বাদ দিন
-            if [ "$file" = "$CURRENT_FILE" ] || [ "$file" = "debug-workflows.yml" ]; then
+            if [ "$file" = "$CURRENT_FILE" ] || [ "$file" = "debug-workflows.yml" ] || [ "$file" = "update-all-workflows.yml" ]; then
               echo "⏭️ Skipping: $file"
               continue
             fi
@@ -79,7 +79,7 @@ jobs:
           cd .github/workflows
           
           for file in *.yml; do
-            if [ "$file" != "master-scheduler.yml" ] && [ "$file" != "debug-workflows.yml" ]; then
+            if [ "$file" != "master-scheduler.yml" ] && [ "$file" != "debug-workflows.yml" ] && [ "$file" != "update-all-workflows.yml" ]; then
               echo "📄 $file:"
               if grep -q "cron:" "$file"; then
                 grep "cron:" "$file"
@@ -90,13 +90,23 @@ jobs:
             fi
           done
       
-      - name: Commit and push changes
+      - name: Set safe directory for Git
         run: |
-          echo "🚀 Committing schedule updates..."
+          # Git safe directory set করুন
+          git config --global --add safe.directory /github/workspace
+          git config --global --add safe.directory /home/runner/work/playlist/playlist
+      
+      - name: Commit changes
+        run: |
+          echo "🚀 Preparing to commit changes..."
           
           # Git configuration
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Changes দেখান
+          echo "📋 Changes made:"
+          git status --porcelain .github/workflows/
           
           # শুধু workflow ফাইলগুলো add করুন
           git add .github/workflows/*.yml
@@ -105,37 +115,63 @@ jobs:
           if git diff --cached --quiet; then
             echo "✅ No changes to commit (schedules already up to date)"
           else
-            # Changes দেখান
-            echo "📋 Modified files:"
-            git diff --cached --name-only
-            
-            # Commit
-            git commit -m "🔄 Master Scheduler: Update all workflows to run every 10 minutes"
-            
-            # Push
-            git push
-            
-            echo "🎉 Success! All workflows updated to run every 10 minutes!"
+            echo "📦 Changes detected, committing..."
+            git commit -m "🔄 Master Scheduler: Updated all workflows to run every 10 minutes [auto]"
+            echo "✅ Changes committed locally"
           fi
+      
+      - name: Push changes (with retry)
+        run: |
+          echo "🚀 Attempting to push changes..."
           
-          # Backup ফাইল মুছুন
+          # Push with retry logic
+          MAX_RETRIES=3
+          RETRY_COUNT=0
+          
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            echo "Attempt $(($RETRY_COUNT + 1)) of $MAX_RETRIES..."
+            
+            if git push origin HEAD; then
+              echo "🎉 Success! Changes pushed to repository"
+              break
+            else
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              echo "❌ Push failed (attempt $RETRY_COUNT)"
+              
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "⏳ Waiting 5 seconds before retry..."
+                sleep 5
+              else
+                echo "⚠️ Max retries reached. Changes are committed locally but not pushed."
+                echo "You may need to manually push or check repository permissions."
+              fi
+            fi
+          done
+      
+      - name: Cleanup backups
+        run: |
           cd .github/workflows 2>/dev/null || true
           rm -f *.backup 2>/dev/null || true
+          echo "🧹 Cleanup completed"
       
-      - name: Final report
+      - name: Final success report
+        if: success()
         run: |
           echo ""
           echo "========================================"
-          echo "        🎯 MASTER SCHEDULER REPORT      "
+          echo "        🎉 SUCCESS REPORT               "
           echo "========================================"
           echo ""
-          echo "✅ All workflows have been scheduled to run every 10 minutes"
+          echo "✅ Master Scheduler completed successfully!"
           echo ""
-          echo "📅 Next auto-run: In 10 minutes"
-          echo "🔄 Manual run: Available via workflow_dispatch"
+          echo "📊 SUMMARY:"
+          echo "• All workflows updated to run every 10 minutes"
+          echo "• Schedule: */10 * * * *"
+          echo "• Next auto-run: In 10 minutes"
           echo ""
-          echo "Modified workflows will now:"
-          echo "1. Auto-run every 10 minutes"
-          echo "2. Can be manually triggered"
+          echo "🎯 Your workflows will now automatically run:"
+          echo "   - Every 10 minutes (auto-scheduled)"
+          echo "   - Can be manually triggered anytime"
           echo ""
-          echo "Master scheduler will auto-update schedules every 10 minutes"
+          echo "🔁 Master scheduler will auto-update every 10 minutes"
+          echo "   to ensure all workflows stay on schedule"
