@@ -1,0 +1,51 @@
+name: 🚀 Run All Workflows
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # প্রতি ১০ মিনিটে
+  workflow_dispatch:
+
+jobs:
+  run-all-in-parallel:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        workflow: [
+          "AllChannel🔄.yml",
+          "Ayna TV 🔄.yml", 
+          "CRICHD JSON 🟤.yml",
+          "Combined Playlist Skipper 🔄.yml",
+          "CricHD 💠.yml",
+          "Fancode JSON Data ✔️.yml",
+          "Fancode to M3U8.yml",
+          "Fancode-BD-IND.yml",
+          "LiveFancode🔄🔄.yml",
+          "Sirome TV 🟢.yml",
+          "Yupp TV 🆕.yml"
+        ]
+    
+    steps:
+      - name: Trigger workflow
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: ${{ matrix.workflow }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
+  
+  report:
+    runs-on: ubuntu-latest
+    needs: run-all-in-parallel
+    steps:
+      - name: Success report
+        run: |
+          echo "========================================"
+          echo "        🎉 ALL WORKFLOWS COMPLETED     "
+          echo "========================================"
+          echo ""
+          echo "✅ Successfully triggered 11 workflows!"
+          echo ""
+          echo "📅 Next auto-run: In 10 minutes"
+          echo "🔄 Your playlists are now updating..."
+          echo ""
+          echo "Check GitHub Actions for individual logs."
