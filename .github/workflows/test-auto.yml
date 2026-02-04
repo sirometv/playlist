@@ -1,0 +1,18 @@
+name: 🧪 Auto Test Workflow
+
+on:
+  # ম্যানুয়াল ট্রিগার
+  workflow_dispatch:
+  # schedule পরে যোগ হবে
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show message
+        run: |
+          echo "This is a test workflow"
+          echo "Master scheduler should add schedule to me"
+          echo "Check my file after master-scheduler runs"
