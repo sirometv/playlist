@@ -1,288 +1,38 @@
-name: Fancode Playlist Generator
+name: Update M3U Playlists
 
 on:
   schedule:
+    # প্রতি ঘন্টার 07,17,27,37,47,57 মিনিটে রান হবে
     - cron: '7,17,27,37,47,57 * * * *'
-  workflow_dispatch:
-  push:
-    branches: [ main ]
-    paths:
-      - 'fancode.json'
-      - '.github/workflows/fancode-playlist.yml'
-
-permissions:
-  contents: write
+  workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
 
 jobs:
-  generate-playlists:
+  update-playlists:
     runs-on: ubuntu-latest
     
     steps:
-    - name: 📥 Checkout repository
-      uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v3
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    
-    - name: 🐍 Setup Python
+        fetch-depth: 0
+
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
-    
-    - name: 🔍 Debug - Show files
+        python-version: '3.9'
+
+    - name: Install dependencies
       run: |
-        echo "=== Current Directory Structure ==="
-        pwd
-        ls -la
-        echo ""
-        echo "=== JSON File Check ==="
-        if [ -f "fancode.json" ]; then
-          echo "✅ fancode.json exists"
-          echo "File size: $(wc -l < fancode.json) lines"
-          echo "First 100 characters:"
-          head -c 100 fancode.json
-          echo ""
-        else
-          echo "❌ fancode.json NOT FOUND!"
-          echo "Available files:"
-          find . -name "*.json" -type f
-        fi
-    
-    - name: 📝 Generate Playlists
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: Download and update playlists
+      run: python update_playlists.py
+
+    - name: Commit and push if changes
       run: |
-        echo "=== Generating Playlists ==="
-        
-        # Create Python script
-        cat > generate.py << 'EOF'
-        import json
-        import os
-        import sys
-        from datetime import datetime
-        
-        print("🎬 Starting playlist generation...")
-        print(f"📅 Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        
-        try:
-            # Check if file exists
-            json_file = 'fancode.json'
-            if not os.path.exists(json_file):
-                print(f"❌ ERROR: {json_file} not found!")
-                print(f"Current dir: {os.getcwd()}")
-                print(f"Files: {os.listdir('.')}")
-                sys.exit(1)
-            
-            print(f"📂 Reading {json_file}...")
-            
-            # Read JSON file
-            with open(json_file, 'r', encoding='utf-8') as f:
-                content = f.read()
-                print(f"📄 File size: {len(content)} characters")
-                
-                # Try to parse JSON
-                data = json.loads(content)
-                print("✅ JSON parsed successfully")
-            
-            # Debug: Show data type
-            print(f"📊 Data type: {type(data)}")
-            
-            # Extract items based on structure
-            items = []
-            if isinstance(data, list):
-                items = data
-                print(f"📋 Data is a list with {len(items)} items")
-            elif isinstance(data, dict):
-                # Try different keys
-                for key in ['matches', 'streams', 'channels', 'data']:
-                    if key in data:
-                        items = data[key]
-                        print(f"📋 Found {len(items)} items under key: '{key}'")
-                        break
-                if not items:
-                    items = list(data.values())[0] if data else []
-            
-            if not items:
-                print("⚠️ No items found in JSON data")
-                items = []
-            
-            print(f"🔢 Total items to process: {len(items)}")
-            
-            # Show first item structure
-            if items:
-                print(f"\n🔍 First item keys: {list(items[0].keys())}")
-                
-                # Look for URL fields
-                first_item = items[0]
-                url_fields = []
-                for key, value in first_item.items():
-                    if isinstance(value, str) and ('http://' in value or 'https://' in value):
-                        url_fields.append(key)
-                print(f"🔗 URL fields found: {url_fields}")
-            
-            # Prepare streams
-            bd_streams = []
-            in_streams = []
-            
-            for i, item in enumerate(items[:10]):  # Process first 10 for debug
-                # Find URL
-                url = None
-                for key in ['hls_url', 'stream_url', 'url', 'link', 'source', 'stream']:
-                    if key in item and item[key]:
-                        url = item[key]
-                        break
-                
-                if not url or not isinstance(url, str):
-                    continue
-                
-                # Get channel info
-                title = item.get('title', f'Channel {i+1}')
-                logo = item.get('logo', item.get('image', item.get('thumbnail', '')))
-                group = item.get('group_title', item.get('category', item.get('group', 'Sports')))
-                
-                stream_info = {
-                    'title': title,
-                    'logo': logo,
-                    'group': group,
-                    'url': url
-                }
-                
-                print(f"\n📺 Item {i+1}: {title}")
-                print(f"   URL: {url[:60]}...")
-                
-                # Categorize
-                if 'bd' in url.lower() or 'bangla' in title.lower():
-                    bd_streams.append(stream_info)
-                    print(f"   ➡️ Added to BD playlist")
-                elif 'in' in url.lower() or 'india' in title.lower():
-                    in_streams.append(stream_info)
-                    print(f"   ➡️ Added to IN playlist")
-                elif i % 2 == 0:  # For testing, split evenly
-                    bd_streams.append(stream_info)
-                    print(f"   ➡️ Added to BD playlist (default)")
-                else:
-                    in_streams.append(stream_info)
-                    print(f"   ➡️ Added to IN playlist (default)")
-            
-            print(f"\n📊 Streams collected:")
-            print(f"   BD: {len(bd_streams)}")
-            print(f"   IN: {len(in_streams)}")
-            
-            # Create M3U content
-            def create_m3u_content(streams, country):
-                lines = ['#EXTM3U']
-                
-                # Header comments
-                lines.append('#🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপপ্তি করব না।')
-                lines.append('# All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.')
-                lines.append(f'#Update Time: {datetime.now().strftime("%I:%M:%S %p - %d-%m-%Y")}')
-                lines.append('#Telegram: https://t.me/sirometv')
-                lines.append('#WEB TV: https://sirometv-tv.vercel.app')
-                
-                if streams:
-                    lines.append('# We Found Some Match... Watch Now.')
-                    for stream in streams:
-                        lines.append(f'#EXTINF:-1 tvg-logo="{stream["logo"]}" group-title="{stream["group"]}", {stream["title"]}')
-                        lines.append(stream['url'])
-                else:
-                    lines.append('#Here Not Available Stream, We Will Update as soon possible')
-                
-                return '\n'.join(lines)
-            
-            # Generate playlists
-            bd_content = create_m3u_content(bd_streams, 'BD')
-            in_content = create_m3u_content(in_streams, 'IN')
-            
-            # Save files
-            with open('fancodeBD.m3u', 'w', encoding='utf-8') as f:
-                f.write(bd_content)
-            
-            with open('fancodeIND.m3u', 'w', encoding='utf-8') as f:
-                f.write(in_content)
-            
-            print(f"\n✅ Playlists created:")
-            print(f"   fancodeBD.m3u: {len(bd_streams)} streams")
-            print(f"   fancodeIND.m3u: {len(in_streams)} streams")
-            
-            return True
-            
-        except json.JSONDecodeError as e:
-            print(f"❌ JSON Decode Error: {e}")
-            print(f"Error at line {e.lineno}, column {e.colno}")
-            return False
-        except Exception as e:
-            print(f"❌ Unexpected Error: {type(e).__name__}: {e}")
-            import traceback
-            traceback.print_exc()
-            return False
-        
-        print("🎉 Script completed!")
-        
-        EOF
-        
-        # Run the Python script
-        python3 generate.py
-        
-        # Show results
-        echo ""
-        echo "=== Generated Files ==="
-        ls -la *.m3u 2>/dev/null || echo "No M3U files found"
-        
-        if [ -f "fancodeBD.m3u" ]; then
-            echo ""
-            echo "📄 fancodeBD.m3u preview:"
-            head -10 fancodeBD.m3u
-        fi
-        
-        if [ -f "fancodeIND.m3u" ]; then
-            echo ""
-            echo "📄 fancodeIND.m3u preview:"
-            head -10 fancodeIND.m3u
-        fi
-    
-    - name: 💾 Commit Changes
-      if: always()
-      run: |
-        echo "=== Checking for changes ==="
-        
-        # Configure git
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        
-        # Check status
-        echo "Git status:"
-        git status --porcelain
-        
-        # Add M3U files if they exist
-        if [ -f "fancodeBD.m3u" ] || [ -f "fancodeIND.m3u" ]; then
-          git add fancodeBD.m3u fancodeIND.m3u 2>/dev/null || true
-          
-          # Check if there are staged changes
-          if git diff --cached --quiet; then
-            echo "ℹ️ No changes to commit"
-          else
-            # Create commit
-            BD_COUNT=$(grep -c '^#EXTINF' fancodeBD.m3u 2>/dev/null || echo 0)
-            IN_COUNT=$(grep -c '^#EXTINF' fancodeIND.m3u 2>/dev/null || echo 0)
-            
-            COMMIT_MSG="🤖 Update playlists: BD($BD_COUNT) IN($IN_COUNT) - $(date +'%Y-%m-%d %H:%M')"
-            
-            echo "📝 Committing: $COMMIT_MSG"
-            git commit -m "$COMMIT_MSG"
-            
-            # Push changes
-            echo "🚀 Pushing changes..."
-            git push
-            echo "✅ Changes pushed successfully!"
-          fi
-        else
-          echo "⚠️ No M3U files to commit"
-        fi
-    
-    - name: 📤 Upload Artifacts (Debug)
-      if: failure()
-      uses: actions/upload-artifact@v4
-      with:
-        name: debug-files
-        path: |
-          fancode.json
-          fancodeBD.m3u
-          fancodeIND.m3u
-        retention-days: 1
+        git add fancodeBD.m3u fancodeIND.m3u
+        git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update playlists: $(date +'%Y-%m-%d %H:%M:%S')"
+        git push
