@@ -3,135 +3,135 @@ name: All workflow👌
 on:
   schedule:
     - cron: '*/10 * * * *'  # প্রতি ১০ মিনিট পর
-  workflow_dispatch:  # ম্যানুয়াল চালানোর জন্য
+  workflow_dispatch:
 
 jobs:
   update-all-schedules:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout repository
+      - name: Checkout repository with write permission
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
       
-      - name: Add/Update schedule in all workflow files
-        env:
-          # এই ফাইলের নাম (নিজেকে বাদ দেওয়ার জন্য)
-          CURRENT_FILE: "update-all-workflows.yml"
+      - name: Setup Git identity
         run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Process all workflow files
+        run: |
+          echo "🔍 Checking workflow directory..."
           cd .github/workflows
           
-          echo "=== Processing workflow files ==="
-          ls -la *.yml
+          # সব YML ফাইল লিস্ট করুন (নিজেকে বাদ দিয়ে)
+          WORKFLOW_FILES=$(ls *.yml | grep -v "update-all-workflows.yml")
           
-          for workflow_file in *.yml; do
-            # নিজেকে বাদ দিন
-            if [ "$workflow_file" = "$CURRENT_FILE" ]; then
-              echo "⏭️  Skipping self: $workflow_file"
-              continue
-            fi
+          if [ -z "$WORKFLOW_FILES" ]; then
+            echo "⚠️ No other workflow files found!"
+            exit 0
+          fi
+          
+          echo "📋 Found workflow files:"
+          echo "$WORKFLOW_FILES"
+          echo ""
+          
+          CHANGED=false
+          
+          for file in $WORKFLOW_FILES; do
+            echo "🔄 Processing: $file"
             
-            echo "🔄 Processing: $workflow_file"
+            # Backup তৈরি করুন
+            cp "$file" "${file}.backup"
             
-            # ফাইলের কন্টেন্ট দেখুন (ডিবাগিং এর জন্য)
-            echo "--- Current content of $workflow_file ---"
-            head -20 "$workflow_file"
-            echo "----------------------------------------"
+            # 1. বিদ্যমান schedule সরান (যদি থাকে)
+            sed -i '/^  schedule:/,/^[^[:space:]]/d' "$file" 2>/dev/null || true
+            sed -i '/schedule:/d' "$file" 2>/dev/null || true
+            sed -i '/cron:/d' "$file" 2>/dev/null || true
             
-            # 1. প্রথমে schedule section remove করুন (যদি থাকে)
-            sed -i '/^  schedule:/,/^[^ ]/d' "$workflow_file" 2>/dev/null || true
-            sed -i '/schedule:/d' "$workflow_file" 2>/dev/null || true
-            sed -i '/cron:/d' "$workflow_file" 2>/dev/null || true
-            
-            # 2. এখন schedule যোগ করুন
-            # উপায় ১: যদি 'on:' লাইন থাকে
-            if grep -q "^on:" "$workflow_file"; then
-              echo "✅ Found 'on:' in $workflow_file, adding schedule..."
+            # 2. YAML স্ট্রাকচার বুঝতে সাহায্যকারী লাইন যোগ করুন
+            if grep -q "^on:" "$file"; then
+              # Case 1: 'on:' শুরুতে আছে
+              echo "  Found 'on:' at start, adding schedule..."
+              sed -i '/^on:/a\  schedule:\n    - cron: \"\*/10 \* \* \* \*\"' "$file"
+              CHANGED=true
               
-              # 'on:' এর নিচে schedule যোগ করুন
-              # 'on:' লাইনের পরবর্তী লাইন থেকে শুরু করে, indent বজায় রেখে
-              sed -i '/^on:/a\  schedule:\n    - cron: "*/10 * * * *"' "$workflow_file"
-            
-            # উপায় ২: যদি 'on' key থাকে (YAML structure অনুযায়ী)
-            elif grep -q "on:" "$workflow_file"; then
-              echo "✅ Found 'on:' (indented) in $workflow_file, adding schedule..."
+            elif grep -q "on:" "$file" && grep -q "^  on:" "$file"; then
+              # Case 2: 'on:' indent সহ আছে
+              echo "  Found indented 'on:', adding schedule..."
+              sed -i '/^  on:/a\    schedule:\n      - cron: \"\*/10 \* \* \* \*\"' "$file"
+              CHANGED=true
               
-              # 'on:' লাইনের পর schedule যোগ করুন
-              sed -i '/^  on:/a\    schedule:\n      - cron: \"*\/10 * * * *\"' "$workflow_file"
-            
-            # উপায় ৩: যদি workflow ট্রিগার অন্য কোন ফর্ম্যাটে থাকে
+            elif grep -q "^name:" "$file"; then
+              # Case 3: name এর পরে on যোগ করুন
+              echo "  Adding 'on' section after name..."
+              sed -i '/^name:/a\on:\n  schedule:\n    - cron: \"\*/10 \* \* \* \*\"' "$file"
+              CHANGED=true
+              
             else
-              echo "⚠️  No 'on:' found in standard format, trying alternative approach..."
+              # Case 4: ফাইলের শুরুতে সব যোগ করুন
+              echo "  Adding complete workflow structure..."
+              HEADER="# Auto-generated schedule by All workflow👌\n"
+              SCHEDULE="on:\n  schedule:\n    - cron: \"*/10 * * * *\"\n"
               
-              # ফাইলের শুরুতে বা উপযুক্ত জায়গায় schedule যোগ করার চেষ্টা করুন
-              # প্রথমে ফাইল backup করুন
-              cp "$workflow_file" "${workflow_file}.bak"
-              
-              # Python script ব্যবহার করে YAML parse করুন
-              python3 -c "
-import yaml
-import sys
-
-try:
-    with open('$workflow_file', 'r') as f:
-        data = yaml.safe_load(f) or {}
-    
-    # 'on' key যোগ করুন বা update করুন
-    if 'on' not in data:
-        data['on'] = {'schedule': [{'cron': '*/10 * * * *'}]}
-    else:
-        if isinstance(data['on'], dict):
-            data['on']['schedule'] = [{'cron': '*/10 * * * *'}]
-        else:
-            # যদি 'on' অন্য কোন ফর্ম্যাটে থাকে
-            data['on'] = {'schedule': [{'cron': '*/10 * * * *'}]}
-    
-    # ফাইল লিখুন
-    with open('$workflow_file', 'w') as f:
-        yaml.dump(data, f, default_flow_style=False, sort_keys=False)
-    
-    print('✅ Schedule added using Python parser')
-    
-except Exception as e:
-    print(f'❌ Error: {e}')
-    # Backup ফাইল restore করুন
-    import shutil
-    shutil.copy('${workflow_file}.bak', '$workflow_file')
-"
+              # Temporary file তৈরি করুন
+              TEMP_FILE=$(mktemp)
+              echo -e "$HEADER$SCHEDULE" > "$TEMP_FILE"
+              cat "$file" >> "$TEMP_FILE"
+              mv "$TEMP_FILE" "$file"
+              CHANGED=true
             fi
             
-            echo "✅ Updated: $workflow_file"
+            echo "  ✅ Done: $file"
             echo ""
           done
           
-          echo "=== Final check ==="
-          for workflow_file in *.yml; do
-            if [ "$workflow_file" != "$CURRENT_FILE" ]; then
-              echo "📄 $workflow_file schedule check:"
-              grep -A2 "schedule:" "$workflow_file" || echo "  No schedule found"
-            fi
-          done
+          if [ "$CHANGED" = true ]; then
+            echo "📝 Changes were made to workflow files"
+            echo "Modified files:"
+            for file in $WORKFLOW_FILES; do
+              if [ -f "${file}.backup" ]; then
+                if ! diff -q "$file" "${file}.backup" > /dev/null; then
+                  echo "  • $file"
+                fi
+              fi
+            done
+          else
+            echo "ℹ️ No changes were needed"
+          fi
       
       - name: Commit and push changes
+        if: success()
         run: |
-          # Git configuration
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
+          echo "🚀 Checking for changes to commit..."
           
-          # শুধু workflow ফাইলগুলো add করুন
-          git add .github/workflows/*.yml
+          # শুধু modified ফাইলগুলো add করুন
+          git add .github/workflows/*.yml 2>/dev/null || true
           
-          # পরিবর্তন check করুন
-          if git diff --cached --quiet; then
-            echo "ℹ️  No changes to commit"
+          # কোন পরিবর্তন আছে কিনা চেক করুন
+          if git diff --staged --quiet; then
+            echo "✅ No changes to commit - schedules are already up to date"
           else
-            # পরিবর্তনগুলো দেখুন
-            echo "📝 Changes to be committed:"
-            git diff --cached --name-only
+            echo "📦 Changes detected, committing..."
             
-            # Commit এবং push
-            git commit -m "✅ Automated: Updated all workflows to run every 10 minutes"
-            git push
-            echo "🚀 Changes pushed successfully"
+            # পরিবর্তনগুলো দেখুন
+            echo "Modified files:"
+            git diff --staged --name-only
+            
+            # Commit করুন
+            git commit -m "🔄 Auto-update: Set all workflows to run every 10 minutes"
+            
+            # Push করুন
+            git push origin HEAD
+            
+            echo "🎉 Successfully updated all workflow schedules!"
           fi
+      
+      - name: Cleanup backups
+        if: always()
+        run: |
+          cd .github/workflows 2>/dev/null || exit 0
+          rm -f *.backup 2>/dev/null || true
+          echo "🧹 Cleanup completed"
