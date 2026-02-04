@@ -2,8 +2,8 @@ name: Fancode-BD-IND
 
 on:
   schedule:
-    # প্রতি ঘন্টার 07,17,27,37,47,57 মিনিটে রান হবে
-    - cron: '7,17,27,37,47,57 * * * *'
+    # প্রতি ১০ মিনিট পর পর রান হবে (মিনিটের ০, ১০, ২০, ৩০, ৪০, ৫০)
+    - cron: '0,10,20,30,40,50 * * * *'
   workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
   push:
     paths:
@@ -27,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests
+        pip install requests pytz
 
     - name: Update BD and IND playlists
       run: |
@@ -36,6 +36,7 @@ jobs:
         import requests
         from datetime import datetime
         import os
+        import pytz
 
         # JSON ফাইলের URL - আপনার JSON ফাইল URL এখানে দিন
         # যদি রিপোজিটরিতে থাকে, তাহলে সরাসরি ফাইল পড়ুন
@@ -60,6 +61,30 @@ jobs:
             exit(1)
 
         print(f"JSON data loaded successfully at {datetime.now()}")
+
+        def get_bangladesh_time():
+            """বাংলাদেশ সময় পাওয়া"""
+            bd_tz = pytz.timezone('Asia/Dhaka')
+            bd_time = datetime.now(bd_tz)
+            return bd_time
+
+        def format_bangladesh_time(bd_time):
+            """বাংলাদেশ সময় ফরম্যাট করা"""
+            # AM/PM নির্ধারণ
+            am_pm = "am" if bd_time.hour < 12 else "pm"
+            
+            # 12-hour ফরম্যাটে সময়
+            hour_12 = bd_time.hour % 12
+            if hour_12 == 0:
+                hour_12 = 12
+            
+            # দিন-মাস-বছর ফরম্যাট
+            day_month_year = bd_time.strftime("%d-%m-%Y")
+            
+            # টাইম ফরম্যাট
+            time_str = f"{hour_12:02d}:{bd_time.minute:02d}:{bd_time.second:02d}{am_pm}"
+            
+            return f"{time_str} - {day_month_year}"
 
         def extract_streams(data, country_code):
             """JSON থেকে স্ট্রিম ডেটা এক্সট্র্যাক্ট করা"""
@@ -111,7 +136,22 @@ jobs:
 
         def create_m3u_content(streams, playlist_name):
             """M3U প্লেলিস্ট কন্টেন্ট তৈরি করা"""
-            content = ["#EXTM3U"]
+            # বাংলাদেশ সময় পাওয়া এবং ফরম্যাট করা
+            bd_time = get_bangladesh_time()
+            update_time = format_bangladesh_time(bd_time)
+            
+            content = [
+                "#EXTM3U",
+                "#🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।",
+                "#🔴All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.",
+                f"#Update Time ✔️: {update_time} (Bangladesh Time)",
+                "#Telegram 🔗: https://t.me/sirometv",
+                "#WEB TV 📺: https://sirometv-tv.vercel.app",
+                "",  # ১ম গ্যাফ লাইন
+                "",  # ২য় গ্যাফ লাইন
+                "",  # ৩য় গ্যাফ লাইন
+                ""   # ৪র্থ গ্যাফ লাইন
+            ]
             
             for i, stream in enumerate(streams):
                 # tvg-logo এবং group-title যোগ করা
@@ -149,6 +189,7 @@ jobs:
         update_playlist_file("fancodeIND.m3u", in_content)
         
         print(f"Playlists updated successfully at {datetime.now()}")
+        print(f"Next update in 10 minutes")
         EOF
         
         # Python স্ক্রিপ্ট রান করুন
