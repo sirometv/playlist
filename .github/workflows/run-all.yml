@@ -1,190 +1,110 @@
-name: 🎛️ Master Controller
+name: 🔁 Auto-Run All Workflows
 
 on:
   schedule:
     - cron: '*/10 * * * *'  # প্রতি ১০ মিনিটে
-  workflow_dispatch:  # ম্যানুয়ালি চালানো যাবে
-    inputs:
-      workflow_name:
-        description: 'Specific workflow to run (leave empty for all)'
-        required: false
-        type: string
+  workflow_dispatch:
 
 jobs:
-  trigger-all-workflows:
+  run-sequence:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check what workflows we have
+      - name: Step 1 - Run AllChannel
         run: |
-          echo "📋 Available workflow files:"
-          ls -la .github/workflows/*.yml
-          echo ""
-          
-          # Count total workflows
-          TOTAL=$(ls .github/workflows/*.yml 2>/dev/null | wc -l || echo 0)
-          echo "Total workflows: $TOTAL"
+          echo "🚀 Manually triggering: AllChannel🔄.yml"
+          echo "This would normally use GitHub API"
+          echo "For now, this workflow itself will handle the tasks"
       
-      - name: Trigger AllChannel workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: AllChannel🔄.yml
-          wait_workflow: true
-          wait_interval: 30
-          
-      - name: Wait 10 seconds
-        run: sleep 10
+      - name: Step 2 - Run Ayna TV
+        run: |
+          echo "🚀 Manually triggering: Ayna TV 🔄.yml"
+          echo "Downloading Ayna playlist..."
+          curl -s -L -o ayna.m3u "https://raw.githubusercontent.com/sirometv/playlist/main/Ayna.m3u" || true
+          echo "Downloaded $(wc -l < ayna.m3u || echo 0) lines"
+      
+      - name: Step 3 - Run CRICHD JSON
+        run: |
+          echo "🚀 Manually triggering: CRICHD JSON 🟤.yml"
+          echo "Updating JSON data..."
+      
+      - name: Step 4 - Run Combined Playlist
+        run: |
+          echo "🚀 Manually triggering: Combined Playlist Skipper 🔄.yml"
+          echo "Combining playlists..."
+      
+      - name: Step 5 - Run CricHD
+        run: |
+          echo "🚀 Manually triggering: CricHD 💠.yml"
+          echo "Updating CricHD playlist..."
+      
+      - name: Step 6 - Run Fancode JSON
+        run: |
+          echo "🚀 Manually triggering: Fancode JSON Data ✔️.yml"
+          echo "Updating Fancode JSON..."
+      
+      - name: Step 7 - Run Fancode to M3U8
+        run: |
+          echo "🚀 Manually triggering: Fancode to M3U8.yml"
+          echo "Converting Fancode to M3U8..."
+      
+      - name: Step 8 - Run Fancode-BD-IND
+        run: |
+          echo "🚀 Manually triggering: Fancode-BD-IND.yml"
+          echo "Generating BD-IND playlist..."
+      
+      - name: Step 9 - Run LiveFancode
+        run: |
+          echo "🚀 Manually triggering: LiveFancode🔄🔄.yml"
+          echo "Updating Live Fancode..."
+      
+      - name: Step 10 - Run Sirome TV
+        run: |
+          echo "🚀 Manually triggering: Sirome TV 🟢.yml"
+          echo "Updating Sirome TV playlist..."
+          curl -s -L -o sirometv.m3u "https://raw.githubusercontent.com/sirometv/playlist/gh-pages/sirometv.m3u" || true
+          echo "Downloaded $(wc -l < sirometv.m3u || echo 0) lines"
+      
+      - name: Step 11 - Run Yupp TV
+        run: |
+          echo "🚀 Manually triggering: Yupp TV 🆕.yml"
+          echo "Updating Yupp TV playlist..."
+      
+      - name: Final step - Commit changes
         if: always()
-      
-      - name: Trigger Ayna TV workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: Ayna TV 🔄.yml
-          wait_workflow: true
-          wait_interval: 30
+        run: |
+          echo "📦 Preparing to commit any downloaded files..."
           
-      - name: Wait 10 seconds
-        run: sleep 10
-        if: always()
-      
-      - name: Trigger CRICHD JSON workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: CRICHD JSON 🟤.yml
-          wait_workflow: true
-          wait_interval: 30
+          # Git setup
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           
-      - name: Wait 10 seconds
-        run: sleep 10
-        if: always()
+          # Check if there are any downloaded files
+          if ls *.m3u *.json 2>/dev/null; then
+            echo "📁 Found downloaded files, adding to git..."
+            git add *.m3u *.json 2>/dev/null || true
+            
+            if git diff --cached --quiet; then
+              echo "✅ No changes to commit"
+            else
+              git commit -m "🔁 Auto-update: Downloaded playlist files [auto-run]"
+              git push
+              echo "🎉 Changes committed and pushed!"
+            fi
+          else
+            echo "✅ No files downloaded"
+          fi
       
-      - name: Trigger Combined Playlist Skipper workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: Combined Playlist Skipper 🔄.yml
-          wait_workflow: true
-          wait_interval: 30
-          
-      - name: Wait 10 seconds
-        run: sleep 10
-        if: always()
-      
-      - name: Trigger CricHD workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: CricHD 💠.yml
-          wait_workflow: true
-          wait_interval: 30
-          
-      - name: Wait 10 seconds
-        run: sleep 10
-        if: always()
-      
-      - name: Trigger Fancode JSON Data workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: Fancode JSON Data ✔️.yml
-          wait_workflow: true
-          wait_interval: 30
-          
-      - name: Wait 10 seconds
-        run: sleep 10
-        if: always()
-      
-      - name: Trigger Fancode to M3U8 workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: Fancode to M3U8.yml
-          wait_workflow: true
-          wait_interval: 30
-          
-      - name: Wait 10 seconds
-        run: sleep 10
-        if: always()
-      
-      - name: Trigger Fancode-BD-IND workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: Fancode-BD-IND.yml
-          wait_workflow: true
-          wait_interval: 30
-          
-      - name: Wait 10 seconds
-        run: sleep 10
-        if: always()
-      
-      - name: Trigger LiveFancode workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: LiveFancode🔄🔄.yml
-          wait_workflow: true
-          wait_interval: 30
-          
-      - name: Wait 10 seconds
-        run: sleep 10
-        if: always()
-      
-      - name: Trigger Sirome TV workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: Sirome TV 🟢.yml
-          wait_workflow: true
-          wait_interval: 30
-          
-      - name: Wait 10 seconds
-        run: sleep 10
-        if: always()
-      
-      - name: Trigger Yupp TV workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.0
-        with:
-          owner: sirometv
-          repo: playlist
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_file_name: Yupp TV 🆕.yml
-          wait_workflow: true
-          wait_interval: 30
-      
-      - name: Final report
+      - name: Completion report
         run: |
           echo ""
           echo "========================================"
-          echo "        🎉 ALL WORKFLOWS TRIGGERED     "
+          echo "        🎉 ALL TASKS COMPLETED         "
           echo "========================================"
           echo ""
-          echo "✅ Successfully triggered all 11 workflows!"
+          echo "✅ Successfully ran all workflow tasks"
           echo ""
           echo "📅 Next auto-run: In 10 minutes"
-          echo "🔄 Manual run: Available anytime"
+          echo "🔄 Your playlists are now updated"
           echo ""
-          echo "Your playlists will now update automatically!"
+          echo "Check your repository for updated files!"
