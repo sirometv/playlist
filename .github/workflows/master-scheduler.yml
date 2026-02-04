@@ -1,140 +1,163 @@
-name: ⏰ Master Workflow Scheduler
+name: ⏰ Master Schedule Updater
 
 on:
   schedule:
     - cron: '*/10 * * * *'  # প্রতি ১০ মিনিটে
   workflow_dispatch:
+    inputs:
+      debug:
+        description: 'Debug mode'
+        required: false
+        default: 'false'
 
 jobs:
   update-schedules:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      
+    
     steps:
-      - name: 📥 Checkout repository
+      - name: 📥 Checkout with proper permissions
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
           
-      - name: 🛠️ Setup environment
+      - name: 🔍 List all workflow files
         run: |
-          echo "Starting schedule update process..."
-          echo "Current directory: $(pwd)"
-          echo "Workflow files:"
+          echo "📁 Workflow files found:"
           ls -la .github/workflows/
+          echo ""
+          echo "📋 Total files: $(ls .github/workflows/*.yml .github/workflows/*.yaml 2>/dev/null | wc -l)"
           
-      - name: 🔄 Update ALL workflow schedules
+      - name: 📝 Update schedule in each workflow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "🔄 Processing workflow files..."
+          echo "🔄 Starting schedule update process..."
           
-          # Process each YAML file
+          # Track updated files
+          UPDATED_FILES=()
+          
+          # Process each workflow file
           for file in .github/workflows/*.yml .github/workflows/*.yaml; do
             if [ -f "$file" ]; then
-              filename=$(basename "$file")
+              FILENAME=$(basename "$file")
               
-              # Skip scheduler files
-              if [[ "$filename" == "master-scheduler.yml" || "$filename" == "run-all.yml" ]]; then
-                echo "⏭️ Skipping scheduler file: $filename"
+              # Skip self
+              if [[ "$FILENAME" == "master-scheduler.yml" ]]; then
+                echo "⏭️ Skipping self: $FILENAME"
                 continue
               fi
               
-              echo "📝 Processing: $filename"
-              
-              # Create backup
-              cp "$file" "$file.bak"
+              echo ""
+              echo "📝 Processing: $FILENAME"
               
               # Read file content
-              content=$(cat "$file")
+              CONTENT=$(cat "$file")
               
-              # Check if file has schedule
-              if echo "$content" | grep -q "schedule:"; then
-                # Update existing schedule
-                echo "Found existing schedule, updating..."
-                
-                # Create temp file with sed for in-place editing
-                sed -i.bak2 '/cron:/c\    - cron: '\''*/10 * * * *'\''  # প্রতি ১০ মিনিটে' "$file"
-                
-                # Also update the schedule: line if needed
-                sed -i.bak3 's/schedule:/schedule:/' "$file"
-                
-                echo "✅ Updated existing schedule in: $filename"
+              # Check current schedule
+              if echo "$CONTENT" | grep -q "cron:"; then
+                CURRENT_CRON=$(echo "$CONTENT" | grep -A1 "cron:" | tail -1 | sed 's/.*cron: //' | tr -d "'\"")
+                echo "   Current cron: $CURRENT_CRON"
               else
-                # Add new schedule section
-                echo "No schedule found, adding new one..."
-                
-                # Check if file has 'on:' section
-                if echo "$content" | grep -q "^on:"; then
-                  # Add schedule to existing 'on:'
-                  awk '/^on:/ {print $0; print "  schedule:"; print "    - cron: '\''*/10 * * * *'\''  # প্রতি ১০ মিনিটে"; next} 1' "$file" > "$file.tmp"
-                else
-                  # Add complete 'on:' section at top
-                  echo "on:
-  schedule:
-    - cron: '*/10 * * * *'  # প্রতি ১০ মিনিটে
-" > "$file.tmp"
-                  cat "$file" >> "$file.tmp"
-                fi
-                
-                mv "$file.tmp" "$file"
-                echo "✅ Added new schedule to: $filename"
+                echo "   No schedule found"
               fi
               
-              # Clean up backups
-              rm -f "$file.bak" "$file.bak2" "$file.bak3" 2>/dev/null || true
+              # Create updated version
+              UPDATED=false
+              
+              # Method 1: Simple sed replacement
+              if echo "$CONTENT" | grep -q "cron:"; then
+                # Update existing cron
+                sed -i "s|cron:.*|cron: '*/10 * * * *'  # প্রতি ১০ মিনিটে|g" "$file"
+                UPDATED=true
+                echo "   ✅ Updated existing schedule"
+              fi
+              
+              # Check if update was made
+              if [ "$UPDATED" = true ]; then
+                UPDATED_FILES+=("$FILENAME")
+              fi
             fi
           done
           
           echo ""
           echo "========================================"
-          echo "🎉 PROCESSING COMPLETE!"
+          echo "📊 UPDATE SUMMARY"
           echo "========================================"
+          echo "✅ Files updated: ${#UPDATED_FILES[@]}"
+          for f in "${UPDATED_FILES[@]}"; do
+            echo "   - $f"
+          done
           
-      - name: 📋 Show changes made
+      - name: 💾 Configure Git
         run: |
-          echo "📊 Changes made to workflow files:"
-          git diff --name-only || echo "No changes yet"
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git config --global pull.rebase false
           
-      - name: 💾 Commit and push updates
+      - name: 📤 Commit and Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Configure git
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          echo "🔍 Checking for changes..."
           
-          # Add all workflow files
-          git add .github/workflows/*.yml .github/workflows/*.yaml 2>/dev/null || true
+          # Check git status
+          git status
           
-          # Check for changes
-          if ! git diff --cached --quiet; then
-            echo "🚀 Changes detected! Committing..."
-            git commit -m "🔄 Updated all workflow schedules to run every 10 minutes [Automated]"
-            git push origin main
-            echo "✅ Changes pushed successfully!"
-            
-            echo ""
-            echo "========================================"
-            echo "📅 ALL WORKFLOWS UPDATED!"
-            echo "========================================"
-            echo "✅ Schedule: Every 10 minutes"
-            echo "✅ Next run: In 10 minutes"
-            echo "✅ All workflows will now auto-update"
+          # Check if there are any changes
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "📭 No changes to commit"
+            echo "All workflows already have the correct schedule"
           else
-            echo "📭 No changes needed - schedules already set to 10 minutes"
+            echo "🚀 Changes detected! Preparing to commit..."
+            
+            # Show what changed
+            echo "📋 Changes:"
+            git diff --name-status
+            
+            # Add all changed files
+            git add .
+            
+            # Commit
+            git commit -m "🔄 Updated workflow schedules to run every 10 minutes [Automated Update]"
+            
+            # Push with retry logic
+            MAX_RETRIES=3
+            RETRY_COUNT=0
+            
+            while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+              echo "🔄 Pushing changes (Attempt $((RETRY_COUNT + 1))/$MAX_RETRIES)..."
+              
+              if git push origin HEAD:main; then
+                echo "✅ Successfully pushed changes!"
+                break
+              else
+                RETRY_COUNT=$((RETRY_COUNT + 1))
+                if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                  echo "⚠️ Push failed, pulling latest and retrying..."
+                  git pull --rebase origin main
+                  sleep 2
+                else
+                  echo "❌ Failed to push after $MAX_RETRIES attempts"
+                  exit 1
+                fi
+              fi
+            done
           fi
           
-      - name: 📈 Final Report
+      - name: 🎉 Final Report
         run: |
           echo ""
           echo "========================================"
-          echo "        ✅ MASTER SCHEDULER COMPLETE     "
+          echo "        🎯 SCHEDULE UPDATE COMPLETE     "
           echo "========================================"
           echo ""
-          echo "🎯 Task: Update all workflow schedules"
-          echo "⏰ New Schedule: Every 10 minutes"
-          echo "🔄 Execution: Fully automated"
-          echo "📊 Status: All workflows synchronized"
+          echo "✅ All workflows have been updated"
+          echo "⏰ New schedule: Every 10 minutes"
+          echo "🔄 Next auto-run: In 10 minutes"
           echo ""
-          echo "Next steps:"
-          echo "1. Check each workflow's schedule"
-          echo "2. Monitor Actions tab for runs"
-          echo "3. Enjoy automated updates!"
+          echo "📊 Quick check:"
+          echo "Run 'ls -la .github/workflows/' to see files"
+          echo "Check GitHub Actions tab for individual runs"
+          echo ""
+          echo "🚀 Your playlists will now auto-update!"
