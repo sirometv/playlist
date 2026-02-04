@@ -2,94 +2,46 @@ name: All workflow👌
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # প্রতি ১০ মিনিট পর
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 jobs:
-  add-schedule-to-all:
+  update-schedules:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Add schedule to all workflow files
+      - name: Update all workflow schedules
         run: |
           cd .github/workflows
           
+          # Allworkflow.yml ছাড়া সব ফাইল প্রসেস করুন
           for file in *.yml; do
-            # নিজেকে বাদ দিন
-            if [ "$file" = "update-all-workflows.yml" ]; then
+            if [ "$file" = "Allworkflow.yml" ]; then
               continue
             fi
             
-            echo "Processing: $file"
+            echo "Working on: $file"
             
-            # ফাইলে schedule আছে কিনা চেক করুন
+            # যদি schedule থাকে, তাহলে আপডেট করুন
             if grep -q "schedule:" "$file"; then
-              echo "Schedule already exists in $file, updating..."
-              # existing schedule আপডেট করুন
-              sed -i 's/cron:.*/cron: "\/\*\/10 * * * *"/g' "$file"
+              sed -i '/cron:/s/.*/    - cron: "\/\*\/10 * * * *"/' "$file"
             else
-              echo "Adding new schedule to $file"
-              
-              # Temporary file তৈরি করুন
-              temp_file=$(mktemp)
-              
-              # YML ফাইল পার্স করে schedule যোগ করুন
-              python3 << EOF
-import yaml
-import sys
-
-with open('$file', 'r') as f:
-    content = yaml.safe_load(f) or {}
-
-# schedule যোগ করুন
-if 'on' in content:
-    if isinstance(content['on'], dict):
-        content['on']['schedule'] = [{'cron': '*/10 * * * *'}]
-    else:
-        # যদি 'on' string বা list হয়
-        current_on = content['on']
-        content['on'] = {
-            'schedule': [{'cron': '*/10 * * * *'}]
-        }
-        if current_on:
-            content['on'].update(current_on)
-else:
-    content['on'] = {
-        'schedule': [{'cron': '*/10 * * * *'}]
-    }
-
-# YAML হিসাবে লিখুন
-with open('$temp_file', 'w') as f:
-    yaml.dump(content, f, default_flow_style=False, sort_keys=False)
-
-EOF
-              
-              # মূল ফাইলকে backup করুন এবং নতুন content দিয়ে replace করুন
-              cp "$file" "$file.bak"
-              cat "$temp_file" > "$file"
-              rm "$temp_file"
-              
-              # ফরম্যাট ঠিক রাখার জন্য কিছু cleaning
-              sed -i "s/''on'':/on:/g" "$file"
-              sed -i "s/''schedule'':/schedule:/g" "$file"
-              sed -i "s/''cron'':/cron:/g" "$file"
+              # যদি schedule না থাকে, 'on:' এর নিচে যোগ করুন
+              sed -i '/^on:/a \  schedule:\n    - cron: "\/\*\/10 * * * *"' "$file"
             fi
           done
       
-      - name: Commit and push changes
+      - name: Commit changes
         run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git add .github/workflows/*.yml
-          
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "✅ Added/Updated schedule to run every 10 minutes"
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          if ! git diff --cached --quiet; then
+            git commit -m "Update all workflows to run every 10 minutes"
             git push
           fi
