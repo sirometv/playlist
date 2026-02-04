@@ -2,8 +2,7 @@ name: Fancode-BD-IND
 
 on:
   schedule:
-    # প্রতি ১০ মিনিট পর পর রান হবে (মিনিটের ০, ১০, ২০, ৩০, ৪০, ৫০)
-    - cron: '0,10,20,30,40,50 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:  # ম্যানুয়ালি রান করার অপশন
   push:
     paths:
