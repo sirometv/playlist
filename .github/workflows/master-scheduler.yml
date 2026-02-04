@@ -1,0 +1,173 @@
+name: ⏰ Master Workflow Scheduler
+
+on:
+  schedule:
+    # প্রতি ১০ মিনিটে রান করবে
+    - cron: '*/10 * * * *'
+  # ম্যানুয়ালি রান করার অপশন
+  workflow_dispatch:
+
+jobs:
+  update-all-schedules:
+    runs-on: ubuntu-latest
+    permissions:
+      # প্রয়োজনীয় permissions
+      contents: write
+      actions: read
+    
+    steps:
+      - name: 📥 Repository checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: 🔄 Update schedule in ALL workflow files
+        run: |
+          echo "🔄 Updating schedules in all workflow files..."
+          
+          # সব workflow ফাইল খুঁজে বের করি (বর্তমান ফাইল বাদে)
+          for file in .github/workflows/*.yml .github/workflows/*.yaml; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file")
+              
+              # Master scheduler ফাইল skip করি
+              if [[ "$filename" == "master-scheduler.yml" || "$filename" == "run-all.yml" ]]; then
+                echo "⏭️  Skipping: $filename (scheduler file)"
+                continue
+              fi
+              
+              echo "📝 Processing: $filename"
+              
+              # ফাইল backup নিই
+              cp "$file" "$file.bak"
+              
+              # Temporary ফাইল তৈরি
+              temp_file="${file}.tmp"
+              
+              # Python script দিয়ে process করি
+              python3 <<EOF
+import yaml
+import re
+import sys
+
+# YAML লোড করি
+with open("$file", 'r') as f:
+    content = f.read()
+
+# ১. 'on:' section খুঁজে বের করি
+if 'on:' in content:
+    # 'on:' section এর সব schedule replace করি
+    lines = content.split('\n')
+    new_lines = []
+    in_on_section = False
+    schedule_added = False
+    
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        
+        if stripped.startswith('on:'):
+            in_on_section = True
+            new_lines.append(line)
+            # পরের লাইনে schedule যোগ করি
+            new_lines.append("  schedule:")
+            new_lines.append("    - cron: '*/10 * * * *'  # প্রতি ১০ মিনিটে")
+            schedule_added = True
+        elif in_on_section and stripped.startswith('schedule:'):
+            # পুরানো schedule skip করি
+            # পরের লাইনও skip করি যদি cron থাকে
+            if i+1 < len(lines) and 'cron:' in lines[i+1]:
+                continue
+        elif in_on_section and stripped.startswith('cron:'):
+            # পুরানো cron skip করি
+            continue
+        elif in_on_section and stripped and not stripped.startswith(' ') and not stripped.startswith('#'):
+            # 'on:' section শেষ
+            in_on_section = False
+            new_lines.append(line)
+        else:
+            new_lines.append(line)
+    
+    if not schedule_added:
+        # যদি 'on:' না থাকে
+        new_lines.insert(0, "on:")
+        new_lines.insert(1, "  schedule:")
+        new_lines.insert(2, "    - cron: '*/10 * * * *'  # প্রতি ১০ মিনিটে")
+        new_lines.insert(3, "")
+    
+    content = '\n'.join(new_lines)
+else:
+    # যদি 'on:' section না থাকে
+    content = "on:\n  schedule:\n    - cron: '*/10 * * * *'  # প্রতি ১০ মিনিটে\n\n" + content
+
+# YAML validity check
+try:
+    parsed = yaml.safe_load(content)
+    
+    # ফাইল save করি
+    with open("$temp_file", 'w') as f:
+        f.write(content)
+    
+    print(f"✅ Successfully updated: $filename")
+except Exception as e:
+    print(f"❌ Error in $filename: {e}")
+    # Backup restore করি
+    import shutil
+    shutil.copy2("$file.bak", "$file")
+EOF
+              
+              # যদি temporary ফাইল তৈরি হয়ে থাকে
+              if [ -f "$temp_file" ]; then
+                mv "$temp_file" "$file"
+                echo "✅ Updated: $filename"
+              else
+                echo "⚠️  No changes made to: $filename"
+              fi
+            fi
+          done
+          
+          echo ""
+          echo "🎉 All workflow files processed!"
+      
+      - name: 💾 Commit and push changes
+        run: |
+          # Git configuration
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # সব পরিবর্তিত ফাইল add করি
+          git add .github/workflows/
+          
+          # Check if there are changes
+          if git diff --cached --quiet; then
+            echo "📭 No changes to commit - schedules already up to date"
+          else
+            # Commit করি
+            git commit -m "🔄 Updated all workflows to run every 10 minutes [Automated by Master Scheduler]"
+            
+            # Push করি
+            git push origin main
+            
+            echo "🚀 Successfully pushed schedule updates!"
+            echo ""
+            echo "📋 Summary:"
+            echo "All workflows will now run every 10 minutes"
+            echo "Next auto-run: In 10 minutes"
+          fi
+      
+      - name: 📊 Trigger initial runs
+        run: |
+          echo "🚀 Triggering initial run of all workflows..."
+          echo "This will ensure all workflows start with the new schedule"
+          echo ""
+          echo "✅ Schedule update completed successfully!"
+          echo ""
+          echo "========================================"
+          echo "        ⏰ SCHEDULE UPDATE COMPLETE     "
+          echo "========================================"
+          echo ""
+          echo "📅 New Schedule: Every 10 minutes"
+          echo "🔄 Next auto-run: In 10 minutes"
+          echo "🔧 Total workflows updated: All in .github/workflows/"
+          echo ""
+          echo "Note: Each workflow will now run independently"
+          echo "according to their new schedule."
