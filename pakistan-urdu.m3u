@@ -1,0 +1,31 @@
+#EXTM3U
+#EXTINF:-1 tvg-name="Hum TV" tvg-logo="https://w7.pngwing.com/pngs/75/199/png-transparent-pakistan-hum-tv-television-channel-drama-hum-television-text-logo-thumbnail.png" group-title="PK DRAMA",HUM TV
+http://45.148.145.57/PAK_HUMTVG/index.m3u8
+#EXTINF:-1 tvg-logo="https://w7.pngwing.com/pngs/75/199/png-transparent-pakistan-hum-tv-television-channel-drama-hum-television-text-logo-thumbnail.png" group-title="PK DRAMA",HUM TV (web)
+https://g4wlkwx8l23a-hls-live.5centscdn.com/HUM/271ddf829afeece44d8732757fba1a66.sdp/playlist_dvr.m3u8
+#EXTINF:-1 tvg-logo="https://arydigital.tv/img/digital-logo.gif" group-title="PK DRAMA",Ary Digital
+http://212.32.241.201:8000/play/a01q
+#EXTINF:-1 tvg-logo="https://cdn.imgbin.com/24/4/24/imgbin-pakistan-television-channel-geo-tv-national-geographic-others-5JCuzUhQ3GHMUnNZ0ycbEhaWk.jpg" group-title="PK DRAMA",Geo Entertainment
+https://jk3lz82elw79-hls-live.5centscdn.com/harPalGeo/955ad3298db330b5ee880c2c9e6f23a0.sdp/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://images.seeklogo.com/logo-png/61/1/green-entertainment-tv-logo-png_seeklogo-616407.png" group-title="PK DRAMA",Green Entertainment
+https://ml-pull-dvc-myco.io:2096/GREEN_ENTERTAINMENT/index.m3u8
+#EXTINF:-1 tvg-logo="https://muntv.tv/wp-content/uploads/2023/02/Logo-e1675310523288.png" group-title="PK DRAMA",Mun TV
+https://ml-pull-dvc-myco.io:2096/MUN_TV/index.m3u8
+#EXTINF:-1 tvg-logo="https://www.expressentertainment.tv/wp-content/uploads/2024/05/cropped-logo-HD.png" group-title="PK DRAMA",Express Entertainment
+https://ml-pull-dvc-myco.io:2096/EXPRESS_ENTERTAINMENT/index.m3u8
+#EXTINF:-1 tvg-logo="https://media.licdn.com/dms/image/v2/C560BAQGz2y0JkNl-Jw/company-logo_200_200/company-logo_200_200/0/1631436488479/bol_entertainment_logo?e=2147483647&v=beta&t=WeoIf5iu4y_hEa1uHOzHcLz7a0Hj1iGtfVjtS_bI80A" group-title="PK DRAMA",Bol Entertainment
+https://ml-pull-dvc-myco.io:2096/BOL_ENTERTAINMENT/index.m3u8
+#EXTINF:-1 tvg-logo="https://www.geosuper.tv/assets/front/images/super-logo.png" group-title="PK SPORTS",Geo Super
+https://ml-pull-dvc-myco.io:2096/GEO_SUPER/index.m3u8
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/5/57/8XM_Logo.png" group-title="PK DRAMA",8XM HD
+http://66.102.120.18:8000/play/a050/index.m3u8
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/5/57/8XM_Logo.png" group-title="PK DRAMA",8XM HD
+https://ml-pull-dvc-myco.io:2096/8XM_MUSIC/index.m3u8
+#EXTINF:-1 tvg-logo="https://www.aajentertainment.tv/_img/logo.png" group-title="PK DRAMA",Aaj Entertainment
+https://ml-pull-dvc-myco.io:2096/AAJ_ENTERTAINMENT/index.m3u8
+#EXTINF:-1 tvg-logo="https://media.licdn.com/dms/image/v2/C4D0BAQGpehngAX0Fug/company-logo_200_200/company-logo_200_200/0/1632233602685?e=2147483647&v=beta&t=O6bC4JPR8tbSWBLsEicqtjJi1gKEKYLEM9Va9cEv174" group-title="PK DRAMA",SAB TV
+https://ml-pull-dvc-myco.io:2096/SAB_ENTERTAINMENT/index.m3u8
+#EXTINF:-1 tvg-logo="https://www.lyngsat.com/logo/tv/bb/buypass-tv-pk.png" group-title="PK",Buypass TV
+https://ml-pull-dvc-myco.io:2096/BuyPass_TV/index.m3u8
+
+
