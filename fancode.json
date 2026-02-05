@@ -1,23 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "03:46:54 AM 06-02-2026",
+    "last update time": "04:01:24 AM 06-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Football",
-            "title": "Real Betis vs Atletico de Madrid (Copa del Rey, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140050_5806_RB_ATL_FC-Web_1770212051605.jpg",
-            "team_1": "Real Betis",
-            "team_2": "Atletico de Madrid",
-            "status": "LIVE",
-            "event_name": "Copa del Rey, 2025-26",
-            "match_name": "Real Betis vs Atletico de Madrid",
-            "match_id": 140050,
-            "startTime": "01:30:00 AM 06-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/IdDJ-LkEQGavl0bUSPh47w/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140050_english_hls_c1422665e261745_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Football",
             "title": "Accrington Stanley vs Salford City (League Two 2025-26)",
@@ -31,20 +17,6 @@
             "startTime": "01:31:00 AM 06-02-2026",
             "dai_url": "https://dai.google.com/linear/hls/event/vwBpcxq7SPCbRwvt1O54Sw/master.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140018_english_hls_4f85022c5680141_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Day 4 vs Montpellier, France (ATP 250 - Open Occitanie 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Open-Occitanie_web.jpg",
-            "team_1": "Day 4",
-            "team_2": "Montpellier, France",
-            "status": "LIVE",
-            "event_name": "ATP 250 - Open Occitanie 2026",
-            "match_name": "Day 4",
-            "match_id": 140183,
-            "startTime": "07:00:00 PM 05-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/OKymsGw8TQay_FLcPlk8eA/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140183_english_hls_9d28952dd478958_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Golf",
@@ -101,6 +73,20 @@
             "startTime": "02:00:00 AM 06-02-2026",
             "dai_url": "https://dai.google.com/linear/hls/event/v1ABa0jrRrqJCOPZz2c_5g/master.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140040_english_hls_05f238ac2130258_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Real Betis vs Atletico de Madrid (Copa del Rey, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140050_5806_RB_ATL_FC-Web_1770212051605.jpg",
+            "team_1": "Real Betis",
+            "team_2": "Atletico de Madrid",
+            "status": "LIVE",
+            "event_name": "Copa del Rey, 2025-26",
+            "match_name": "Real Betis vs Atletico de Madrid",
+            "match_id": 140050,
+            "startTime": "01:30:00 AM 06-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/IdDJ-LkEQGavl0bUSPh47w/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140050_english_hls_c1422665e261745_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -200,18 +186,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Macarthur vs Perth Glory (A League 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1/139403_CASACARDS_APP.png",
-            "team_1": "Macarthur",
-            "team_2": "Perth Glory",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Macarthur vs Perth Glory",
-            "match_id": 139403,
-            "startTime": "02:05:00 PM 06-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Al-Nassr FC vs Al-Ittihad (Roshn Saudi League 2025-2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Al-Nassr-FC-vs-Al-Ittihad_fc-web.jpg",
             "team_1": "Al-Nassr FC",
@@ -221,6 +195,18 @@
             "match_name": "Al-Nassr FC vs Al-Ittihad",
             "match_id": 139837,
             "startTime": "11:00:00 PM 06-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Macarthur vs Perth Glory (A League 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1/139403_CASACARDS_APP.png",
+            "team_1": "Macarthur",
+            "team_2": "Perth Glory",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Macarthur vs Perth Glory",
+            "match_id": 139403,
+            "startTime": "02:05:00 PM 06-02-2026"
         },
         {
             "event_category": "Football",
@@ -473,6 +459,18 @@
             "match_name": "MotoGP Launch",
             "match_id": 140391,
             "startTime": "04:30:00 PM 07-02-2026"
+        },
+        {
+            "event_category": "Futsal",
+            "title": "Indonesia vs IR Iran (AFC Futsal Asian Cup, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1769333142206.png",
+            "team_1": "Indonesia",
+            "team_2": "IR Iran",
+            "status": "UPCOMING",
+            "event_name": "AFC Futsal Asian Cup, 2026",
+            "match_name": "Indonesia vs IR Iran",
+            "match_id": 139911,
+            "startTime": "05:30:00 PM 07-02-2026"
         }
     ]
 }
