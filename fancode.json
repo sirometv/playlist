@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "07:18:56 PM 06-02-2026",
+    "last update time": "08:09:59 PM 06-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -19,18 +19,32 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/139622_english_hls_aa690a3ae321950_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Live Events",
-            "title": "Day 3 vs Asian Rifle & Pistol Championship (Asian Rifle & Pistol Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Asian-Rifle_Pistol-Championship-2026-old-match-card.png",
-            "team_1": "Day 3",
-            "team_2": "Asian Rifle & Pistol Championship",
+            "event_category": "Tennis",
+            "title": "Day 5 vs Montpellier, France (ATP 250 - Open Occitanie 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Open-Occitanie_web.jpg",
+            "team_1": "Day 5",
+            "team_2": "Montpellier, France",
             "status": "LIVE",
-            "event_name": "Asian Rifle & Pistol Championship 2026",
-            "match_name": "Day 3",
-            "match_id": 140321,
-            "startTime": "10:50:00 AM 06-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/Ma4m2DNcRYeMmh0GCb8oLQ/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140321_english_hls_0866837ebd87086_1ta-di_h264/index.m3u8"
+            "event_name": "ATP 250 - Open Occitanie 2026",
+            "match_name": "Day 5",
+            "match_id": 140184,
+            "startTime": "07:00:00 PM 06-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/OzAUDYZJTsC7inWIiZUkew/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140184_english_hls_b9aa361bee53415_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Main Feed - Day 2 vs TPC Scottsdale (WM Phoenix Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/WM-Phoenix-Open-2026_web_1770182154885.jpg",
+            "team_1": "Main Feed - Day 2",
+            "team_2": "TPC Scottsdale",
+            "status": "LIVE",
+            "event_name": "WM Phoenix Open 2026",
+            "match_name": "Main Feed - Day 2",
+            "match_id": 140395,
+            "startTime": "07:45:00 PM 06-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/hUGFfJtnQv2uzzs0cA1v7g/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140395_english_hls_ed18c3829423764_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -141,28 +155,16 @@
             "startTime": "01:00:00 AM 07-02-2026"
         },
         {
-            "event_category": "Tennis",
-            "title": "Day 5 vs Montpellier, France (ATP 250 - Open Occitanie 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Open-Occitanie_web.jpg",
-            "team_1": "Day 5",
-            "team_2": "Montpellier, France",
+            "event_category": "Golf",
+            "title": "Featured Holes - Day 2 vs TPC Scottsdale (WM Phoenix Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/WM-Phoenix-Open-2026_web_1770182154885.jpg",
+            "team_1": "Featured Holes - Day 2",
+            "team_2": "TPC Scottsdale",
             "status": "UPCOMING",
-            "event_name": "ATP 250 - Open Occitanie 2026",
-            "match_name": "Day 5",
-            "match_id": 140184,
-            "startTime": "07:00:00 PM 06-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Auckland vs Sydney FC (A League 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1/139404_CASACARDS_APP.png",
-            "team_1": "Auckland",
-            "team_2": "Sydney FC",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Auckland vs Sydney FC",
-            "match_id": 139404,
-            "startTime": "09:30:00 AM 07-02-2026"
+            "event_name": "WM Phoenix Open 2026",
+            "match_name": "Featured Holes - Day 2",
+            "match_id": 140397,
+            "startTime": "08:30:00 PM 06-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -175,6 +177,18 @@
             "match_name": "TBC vs TBC",
             "match_id": 139625,
             "startTime": "04:30:00 PM 07-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Auckland vs Sydney FC (A League 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1/139404_CASACARDS_APP.png",
+            "team_1": "Auckland",
+            "team_2": "Sydney FC",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Auckland vs Sydney FC",
+            "match_id": 139404,
+            "startTime": "09:30:00 AM 07-02-2026"
         },
         {
             "event_category": "Football",
@@ -202,18 +216,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Western Sydney Wanderers vs Melbourne City (A League 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1/139423_CASACARDS_APP.png",
-            "team_1": "Western Sydney Wanderers",
-            "team_2": "Melbourne City",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Western Sydney Wanderers vs Melbourne City",
-            "match_id": 139423,
-            "startTime": "02:05:00 PM 07-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Derby County Football Club vs Ipswich Town F.C. (EFL Championship 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
             "team_1": "Derby County Football Club",
@@ -223,6 +225,18 @@
             "match_name": "Derby County Football Club vs Ipswich Town F.C.",
             "match_id": 139349,
             "startTime": "06:00:00 PM 07-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Western Sydney Wanderers vs Melbourne City (A League 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1/139423_CASACARDS_APP.png",
+            "team_1": "Western Sydney Wanderers",
+            "team_2": "Melbourne City",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Western Sydney Wanderers vs Melbourne City",
+            "match_id": 139423,
+            "startTime": "02:05:00 PM 07-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -274,30 +288,6 @@
         },
         {
             "event_category": "Golf",
-            "title": "Main Feed - Day 2 vs TPC Scottsdale (WM Phoenix Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/WM-Phoenix-Open-2026_web_1770182154885.jpg",
-            "team_1": "Main Feed - Day 2",
-            "team_2": "TPC Scottsdale",
-            "status": "UPCOMING",
-            "event_name": "WM Phoenix Open 2026",
-            "match_name": "Main Feed - Day 2",
-            "match_id": 140395,
-            "startTime": "07:45:00 PM 06-02-2026"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Featured Holes - Day 2 vs TPC Scottsdale (WM Phoenix Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/WM-Phoenix-Open-2026_web_1770182154885.jpg",
-            "team_1": "Featured Holes - Day 2",
-            "team_2": "TPC Scottsdale",
-            "status": "UPCOMING",
-            "event_name": "WM Phoenix Open 2026",
-            "match_name": "Featured Holes - Day 2",
-            "match_id": 140397,
-            "startTime": "08:30:00 PM 06-02-2026"
-        },
-        {
-            "event_category": "Golf",
             "title": "Featured Groups - Day 2 vs TPC Scottsdale (WM Phoenix Open 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/WM-Phoenix-Open-2026_web_1770182154885.jpg",
             "team_1": "Featured Groups - Day 2",
@@ -333,18 +323,6 @@
             "startTime": "10:30:00 PM 07-02-2026"
         },
         {
-            "event_category": "Live Events",
-            "title": "Day 4 vs Delhi (Asian Rifle & Pistol Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Asian-Rifle_Pistol-Championship-2026-old-match-card.png",
-            "team_1": "Day 4",
-            "team_2": "Delhi",
-            "status": "UPCOMING",
-            "event_name": "Asian Rifle & Pistol Championship 2026",
-            "match_name": "Day 4",
-            "match_id": 140322,
-            "startTime": "11:35:00 AM 07-02-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Sevilla FC vs Girona FC (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131053_5427_SEV_GIR_FC-Web.png",
@@ -370,15 +348,15 @@
         },
         {
             "event_category": "Live Events",
-            "title": "MotoGP Launch vs Kuala Lampur (MotoGP Launch Event 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/MotoGP-Launch-Event-2026_Web_1080_x_810_2.jpg",
-            "team_1": "MotoGP Launch",
-            "team_2": "Kuala Lampur",
+            "title": "Day 4 vs Delhi (Asian Rifle & Pistol Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Asian-Rifle_Pistol-Championship-2026-old-match-card.png",
+            "team_1": "Day 4",
+            "team_2": "Delhi",
             "status": "UPCOMING",
-            "event_name": "MotoGP Launch Event 2026",
-            "match_name": "MotoGP Launch",
-            "match_id": 140391,
-            "startTime": "04:30:00 PM 07-02-2026"
+            "event_name": "Asian Rifle & Pistol Championship 2026",
+            "match_name": "Day 4",
+            "match_id": 140322,
+            "startTime": "11:35:00 AM 07-02-2026"
         },
         {
             "event_category": "Football",
@@ -393,6 +371,18 @@
             "startTime": "11:00:00 PM 07-02-2026"
         },
         {
+            "event_category": "Live Events",
+            "title": "MotoGP Launch vs Kuala Lampur (MotoGP Launch Event 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/MotoGP-Launch-Event-2026_Web_1080_x_810_2.jpg",
+            "team_1": "MotoGP Launch",
+            "team_2": "Kuala Lampur",
+            "status": "UPCOMING",
+            "event_name": "MotoGP Launch Event 2026",
+            "match_name": "MotoGP Launch",
+            "match_id": 140391,
+            "startTime": "04:30:00 PM 07-02-2026"
+        },
+        {
             "event_category": "Futsal",
             "title": "Indonesia vs IR Iran (AFC Futsal Asian Cup, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1769333142206.png",
@@ -405,18 +395,6 @@
             "startTime": "05:30:00 PM 07-02-2026"
         },
         {
-            "event_category": "Tennis",
-            "title": "Day 6 vs Montpellier, France (ATP 250 - Open Occitanie 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Open-Occitanie_web.jpg",
-            "team_1": "Day 6",
-            "team_2": "Montpellier, France",
-            "status": "UPCOMING",
-            "event_name": "ATP 250 - Open Occitanie 2026",
-            "match_name": "Day 6",
-            "match_id": 140185,
-            "startTime": "06:30:00 PM 07-02-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Real Sociedad vs Elche CF (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131051_5427_RS_ELC_FC-Web.png",
@@ -427,6 +405,18 @@
             "match_name": "Real Sociedad vs Elche CF",
             "match_id": 131051,
             "startTime": "01:30:00 AM 08-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Day 6 vs Montpellier, France (ATP 250 - Open Occitanie 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Open-Occitanie_web.jpg",
+            "team_1": "Day 6",
+            "team_2": "Montpellier, France",
+            "status": "UPCOMING",
+            "event_name": "ATP 250 - Open Occitanie 2026",
+            "match_name": "Day 6",
+            "match_id": 140185,
+            "startTime": "06:30:00 PM 07-02-2026"
         },
         {
             "event_category": "Football",
@@ -463,6 +453,18 @@
             "match_name": "Main Feed - Day 3",
             "match_id": 140398,
             "startTime": "10:00:00 PM 07-02-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "World Feed - Day 3 vs TPC Scottsdale (WM Phoenix Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/WM-Phoenix-Open-2026_web.jpg",
+            "team_1": "World Feed - Day 3",
+            "team_2": "TPC Scottsdale",
+            "status": "UPCOMING",
+            "event_name": "WM Phoenix Open 2026",
+            "match_name": "World Feed - Day 3",
+            "match_id": 140042,
+            "startTime": "10:30:00 PM 07-02-2026"
         }
     ]
 }
