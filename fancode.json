@@ -1,18 +1,18 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "09:38:39 PM 06-02-2026",
+    "last update time": "10:23:01 PM 06-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
             "event_category": "Cricket",
-            "title": "Ajman vs Sharjah (Emirates D10, 2026)",
+            "title": "Sharjah vs Ajman (Emirates D10, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Emirates_web_1769270071345.jpg",
-            "team_1": "Ajman",
-            "team_2": "Sharjah",
+            "team_1": "Sharjah",
+            "team_2": "Ajman",
             "status": "LIVE",
             "event_name": "Emirates D10, 2026",
-            "match_name": "Ajman vs Sharjah",
+            "match_name": "Sharjah vs Ajman",
             "match_id": 139623,
             "startTime": "09:00:00 PM 06-02-2026",
             "dai_url": "https://dai.google.com/linear/hls/event/0dhGOIBSTHCUprCK7LRoWg/master.m3u8",
@@ -159,18 +159,6 @@
             "startTime": "08:00:00 AM 05-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Leganés vs Granada (LALIGA Hypermotion 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1770347072521/140428_CASACARDS_APP.png",
-            "team_1": "Leganés",
-            "team_2": "Granada",
-            "status": "UPCOMING",
-            "event_name": "LALIGA Hypermotion 2025-26",
-            "match_name": "Leganés vs Granada",
-            "match_id": 140428,
-            "startTime": "01:00:00 AM 07-02-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "TBC vs TBC (Emirates D10, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Emirates_web_1769270071345.jpg",
@@ -184,15 +172,15 @@
         },
         {
             "event_category": "Football",
-            "title": "Auckland vs Sydney FC (A League 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1/139404_CASACARDS_APP.png",
-            "team_1": "Auckland",
-            "team_2": "Sydney FC",
+            "title": "Leganés vs Granada (LALIGA Hypermotion 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1770347072521/140428_CASACARDS_APP.png",
+            "team_1": "Leganés",
+            "team_2": "Granada",
             "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Auckland vs Sydney FC",
-            "match_id": 139404,
-            "startTime": "09:30:00 AM 07-02-2026"
+            "event_name": "LALIGA Hypermotion 2025-26",
+            "match_name": "Leganés vs Granada",
+            "match_id": 140428,
+            "startTime": "01:00:00 AM 07-02-2026"
         },
         {
             "event_category": "Football",
@@ -208,15 +196,15 @@
         },
         {
             "event_category": "Football",
-            "title": "Brisbane Roar vs Central Coast Mariners (A League 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1/139405_CASACARDS_APP.png",
-            "team_1": "Brisbane Roar",
-            "team_2": "Central Coast Mariners",
+            "title": "Auckland vs Sydney FC (A League 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1/139404_CASACARDS_APP.png",
+            "team_1": "Auckland",
+            "team_2": "Sydney FC",
             "status": "UPCOMING",
             "event_name": "A League 2025-26",
-            "match_name": "Brisbane Roar vs Central Coast Mariners",
-            "match_id": 139405,
-            "startTime": "11:30:00 AM 07-02-2026"
+            "match_name": "Auckland vs Sydney FC",
+            "match_id": 139404,
+            "startTime": "09:30:00 AM 07-02-2026"
         },
         {
             "event_category": "Football",
@@ -229,6 +217,18 @@
             "match_name": "Derby County Football Club vs Ipswich Town F.C.",
             "match_id": 139349,
             "startTime": "06:00:00 PM 07-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Brisbane Roar vs Central Coast Mariners (A League 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1/139405_CASACARDS_APP.png",
+            "team_1": "Brisbane Roar",
+            "team_2": "Central Coast Mariners",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Brisbane Roar vs Central Coast Mariners",
+            "match_id": 139405,
+            "startTime": "11:30:00 AM 07-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -399,18 +399,6 @@
             "startTime": "05:30:00 PM 07-02-2026"
         },
         {
-            "event_category": "Tennis",
-            "title": "Day 6 vs Montpellier, France (ATP 250 - Open Occitanie 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Open-Occitanie_web.jpg",
-            "team_1": "Day 6",
-            "team_2": "Montpellier, France",
-            "status": "UPCOMING",
-            "event_name": "ATP 250 - Open Occitanie 2026",
-            "match_name": "Day 6",
-            "match_id": 140185,
-            "startTime": "06:30:00 PM 07-02-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Aberdeen vs Motherwell (Scottish Cup 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
@@ -421,6 +409,18 @@
             "match_name": "Aberdeen vs Motherwell",
             "match_id": 140293,
             "startTime": "01:00:00 AM 08-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Day 6 vs Montpellier, France (ATP 250 - Open Occitanie 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Open-Occitanie_web.jpg",
+            "team_1": "Day 6",
+            "team_2": "Montpellier, France",
+            "status": "UPCOMING",
+            "event_name": "ATP 250 - Open Occitanie 2026",
+            "match_name": "Day 6",
+            "match_id": 140185,
+            "startTime": "06:30:00 PM 07-02-2026"
         },
         {
             "event_category": "Football",
