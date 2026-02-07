@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "03:00:59 PM 07-02-2026",
+    "last update time": "03:38:43 PM 07-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -239,6 +239,66 @@
             "startTime": "11:30:00 AM 08-02-2026"
         },
         {
+            "event_category": "Football",
+            "title": "Swansea City A.F.C. vs Sheffield Wednesday F.C. (EFL Championship 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1/139351_CASACARDS_APP.png",
+            "team_1": "Swansea City A.F.C.",
+            "team_2": "Sheffield Wednesday F.C.",
+            "status": "UPCOMING",
+            "event_name": "EFL Championship 2025-26",
+            "match_name": "Swansea City A.F.C. vs Sheffield Wednesday F.C.",
+            "match_id": 139351,
+            "startTime": "05:30:00 PM 08-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "West Ham United Women vs Brighton and Hove Albion Women (Women's Super League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140101_5826_WHU-W_BHA-W_FC-Web.jpg",
+            "team_1": "West Ham United Women",
+            "team_2": "Brighton and Hove Albion Women",
+            "status": "UPCOMING",
+            "event_name": "Women's Super League 2025-26",
+            "match_name": "West Ham United Women vs Brighton and Hove Albion Women",
+            "match_id": 140101,
+            "startTime": "05:30:00 PM 08-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "London City Lionesses vs Everton Women (Women's Super League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140100_5826_LCL_EVE-W_FC-Web.jpg",
+            "team_1": "London City Lionesses",
+            "team_2": "Everton Women",
+            "status": "UPCOMING",
+            "event_name": "Women's Super League 2025-26",
+            "match_name": "London City Lionesses vs Everton Women",
+            "match_id": 140100,
+            "startTime": "05:30:00 PM 08-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Arsenal Women vs Manchester City Women (Women's Super League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140099_5826_ARS-W_MCI-W_FC-Web.jpg",
+            "team_1": "Arsenal Women",
+            "team_2": "Manchester City Women",
+            "status": "UPCOMING",
+            "event_name": "Women's Super League 2025-26",
+            "match_name": "Arsenal Women vs Manchester City Women",
+            "match_id": 140099,
+            "startTime": "05:30:00 PM 08-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Liverpool Women vs Aston Villa Women (Women's Super League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140098_5826_LIV-W_AST-W_FC-Web.jpg",
+            "team_1": "Liverpool Women",
+            "team_2": "Aston Villa Women",
+            "status": "UPCOMING",
+            "event_name": "Women's Super League 2025-26",
+            "match_name": "Liverpool Women vs Aston Villa Women",
+            "match_id": 140098,
+            "startTime": "05:30:00 PM 08-02-2026"
+        },
+        {
             "event_category": "Live Events",
             "title": "MotoGP Launch vs Kuala Lampur (MotoGP Launch Event 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/MotoGP-Launch-Event-2026_Web_1080_x_810_2.jpg",
@@ -324,66 +384,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Swansea City A.F.C. vs Sheffield Wednesday F.C. (EFL Championship 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1/139351_CASACARDS_APP.png",
-            "team_1": "Swansea City A.F.C.",
-            "team_2": "Sheffield Wednesday F.C.",
-            "status": "UPCOMING",
-            "event_name": "EFL Championship 2025-26",
-            "match_name": "Swansea City A.F.C. vs Sheffield Wednesday F.C.",
-            "match_id": 139351,
-            "startTime": "05:30:00 PM 08-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "West Ham United Women vs Brighton and Hove Albion Women (Women's Super League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140101_5826_WHU-W_BHA-W_FC-Web.jpg",
-            "team_1": "West Ham United Women",
-            "team_2": "Brighton and Hove Albion Women",
-            "status": "UPCOMING",
-            "event_name": "Women's Super League 2025-26",
-            "match_name": "West Ham United Women vs Brighton and Hove Albion Women",
-            "match_id": 140101,
-            "startTime": "05:30:00 PM 08-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "London City Lionesses vs Everton Women (Women's Super League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140100_5826_LCL_EVE-W_FC-Web.jpg",
-            "team_1": "London City Lionesses",
-            "team_2": "Everton Women",
-            "status": "UPCOMING",
-            "event_name": "Women's Super League 2025-26",
-            "match_name": "London City Lionesses vs Everton Women",
-            "match_id": 140100,
-            "startTime": "05:30:00 PM 08-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Arsenal Women vs Manchester City Women (Women's Super League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140099_5826_ARS-W_MCI-W_FC-Web.jpg",
-            "team_1": "Arsenal Women",
-            "team_2": "Manchester City Women",
-            "status": "UPCOMING",
-            "event_name": "Women's Super League 2025-26",
-            "match_name": "Arsenal Women vs Manchester City Women",
-            "match_id": 140099,
-            "startTime": "05:30:00 PM 08-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Liverpool Women vs Aston Villa Women (Women's Super League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140098_5826_LIV-W_AST-W_FC-Web.jpg",
-            "team_1": "Liverpool Women",
-            "team_2": "Aston Villa Women",
-            "status": "UPCOMING",
-            "event_name": "Women's Super League 2025-26",
-            "match_name": "Liverpool Women vs Aston Villa Women",
-            "match_id": 140098,
-            "startTime": "05:30:00 PM 08-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Deportivo Alaves vs Getafe CF (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131056_5427_ALA_GEF_FC-Web.png",
             "team_1": "Deportivo Alaves",
@@ -393,18 +393,6 @@
             "match_name": "Deportivo Alaves vs Getafe CF",
             "match_id": 131056,
             "startTime": "06:30:00 PM 08-02-2026"
-        },
-        {
-            "event_category": "Live Events",
-            "title": "Day 5 vs Delhi (Asian Rifle & Pistol Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Asian-Rifle_Pistol-Championship-2026-old-match-card.png",
-            "team_1": "Day 5",
-            "team_2": "Delhi",
-            "status": "UPCOMING",
-            "event_name": "Asian Rifle & Pistol Championship 2026",
-            "match_name": "Day 5",
-            "match_id": 140323,
-            "startTime": "10:50:00 AM 08-02-2026"
         },
         {
             "event_category": "Football",
@@ -417,6 +405,18 @@
             "match_name": "Tottenham Hotspur Women vs Chelsea F.C. Women",
             "match_id": 140102,
             "startTime": "07:55:00 PM 08-02-2026"
+        },
+        {
+            "event_category": "Live Events",
+            "title": "Day 5 vs Delhi (Asian Rifle & Pistol Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Asian-Rifle_Pistol-Championship-2026-old-match-card.png",
+            "team_1": "Day 5",
+            "team_2": "Delhi",
+            "status": "UPCOMING",
+            "event_name": "Asian Rifle & Pistol Championship 2026",
+            "match_name": "Day 5",
+            "match_id": 140323,
+            "startTime": "10:50:00 AM 08-02-2026"
         },
         {
             "event_category": "Football",
