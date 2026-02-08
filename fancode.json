@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "03:04:27 PM 08-02-2026",
+    "last update time": "03:58:29 PM 08-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -261,18 +261,6 @@
             "startTime": "10:30:00 PM 08-02-2026"
         },
         {
-            "event_category": "Live Events",
-            "title": "Day 1 vs Delhi (Strikers Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Strikers-Cup-2026_fc-web.jpg",
-            "team_1": "Day 1",
-            "team_2": "Delhi",
-            "status": "UPCOMING",
-            "event_name": "Strikers Cup 2026",
-            "match_name": "Day 1",
-            "match_id": 140315,
-            "startTime": "08:30:00 AM 09-02-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Al Wahda vs Al-Ahli Saudi FC (AFC Champions League Elite 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/136080_5647_ALW_AAS_fc-Web.jpg",
@@ -295,6 +283,18 @@
             "match_name": "Nasaf vs Al Shorta",
             "match_id": 136079,
             "startTime": "07:15:00 PM 09-02-2026"
+        },
+        {
+            "event_category": "Live Events",
+            "title": "Day 1 vs Delhi (Strikers Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Strikers-Cup-2026_fc-web.jpg",
+            "team_1": "Day 1",
+            "team_2": "Delhi",
+            "status": "UPCOMING",
+            "event_name": "Strikers Cup 2026",
+            "match_name": "Day 1",
+            "match_id": 140315,
+            "startTime": "08:30:00 AM 09-02-2026"
         },
         {
             "event_category": "Live Events",
@@ -407,7 +407,7 @@
         {
             "event_category": "Tennis",
             "title": "Center Court vs Dallas, United States (ATP 500 - Nexo Dallas Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Default_Tennis-old.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dallas-Open-(ATP-500)-old-card-_1770541232780.png",
             "team_1": "Center Court",
             "team_2": "Dallas, United States",
             "status": "UPCOMING",
@@ -419,7 +419,7 @@
         {
             "event_category": "Tennis",
             "title": "Grandstand vs Dallas, United States (ATP 500 - Nexo Dallas Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Default_Tennis-old.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dallas-Open-(ATP-500)-old-card-_1770541232780.png",
             "team_1": "Grandstand",
             "team_2": "Dallas, United States",
             "status": "UPCOMING",
