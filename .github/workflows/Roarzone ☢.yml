@@ -1,0 +1,69 @@
+name: Roarzone ☢
+
+on:
+  # প্রতি ৫ মিনিটে রান করবে
+  schedule:
+    - cron: '*/5 * * * *'
+  # ম্যানুয়ালি চালানোর জন্য
+  workflow_dispatch:
+
+jobs:
+  sync-playlist:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Get current time
+        id: time
+        uses: josStorer/get-current-time@v2.0.2
+        with:
+          format: 'YYYY-MM-DD HH:mm:ss'
+          timezone: 'Asia/Dhaka'
+          
+      - name: Fetch playlist from secret
+        id: fetch-playlist
+        run: |
+          # সিক্রেট থেকে প্লেলিস্ট লিংক পড়া
+          if [ -z "${{ secrets.SIROMETV_ROARZONE }}" ]; then
+            echo "Error: SIROMETV_ROARZONE secret is not set"
+            exit 1
+          fi
+          
+          # প্লেলিস্ট ডাউনলোড করা
+          curl -s "${{ secrets.SIROMETV_ROARZONE }}" -o temp_playlist.m3u
+          
+          # হেডার তৈরি করা
+          echo "#EXTM3U" > roarzone.m3u
+          echo "#🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না。" >> roarzone.m3u
+          echo "#🔴All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source。" >> roarzone.m3u
+          echo "#Update Time ✔️: ${{ steps.time.outputs.formattedTime }} (Bangladesh Time)" >> roarzone.m3u
+          echo "#Telegram 🔗: https://t.me/sirometv" >> roarzone.m3u
+          echo "#WEB TV 📺: https://sirometv-tv.vercel.app" >> roarzone.m3u
+          echo "" >> roarzone.m3u
+          
+          # আসল প্লেলিস্ট কন্টেন্ট যোগ করা
+          tail -n +2 temp_playlist.m3u >> roarzone.m3u
+          
+          # ফাইল সাইজ চেক
+          echo "Playlist size: $(wc -l < roarzone.m3u) lines"
+          
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # changes staged করা
+          git add roarzone.m3u
+          
+          # changes commit করা
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🔄 Auto-update Roarzone playlist - ${{ steps.time.outputs.formattedTime }}"
+            git push
+            echo "Changes committed and pushed successfully"
+          fi
