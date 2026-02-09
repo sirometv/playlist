@@ -42,7 +42,7 @@
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
 http://203.18.159.115/T_Sports_TG_josharmy007/index.m3u8
-https://padmaonline.duckdns.org:8088/T-SportHD/index.m3u8
+https://satoshi-cors.herokuapp.com/https://padmaonline.duckdns.org:8088/T-SportHD/index.m3u8
 http://103.151.60.204/bdixbd.net/tracks-v1/index.m3u8
 
 #https://tgn.bozztv.com/eshgtv-dvrfl05/gin-ariana/index.m3u8
@@ -177,8 +177,8 @@ https://ekusheyserver.com/etvlivesn.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/P5jtHjvN/resized-300x180-ffffff-2.jpg" group-title="Bangladeshi", NTV BD
 https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/index.m3u8
-https://bongoflixbd.top/bk/54.m3u8?user=bongoflix&pass=eaminvai
 http://103.230.105.252:1935/live/ntv/index.m3u8
+#https://bongoflixbd.top/bk/54.m3u8?user=bongoflix&pass=eaminvai
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/bv4VXzdB/resized-300x180-ffffff-3.jpg" group-title="Bangladeshi", NTV-Europe
@@ -191,8 +191,8 @@ https://ap02.iqplay.tv:8082/iqb8002/nt589v/chunks.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/90D780GV/image.jpg" group-title="Bangladeshi", Channel 24 
 https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8
-https://tvsen6.aynaott.com/channel24/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/channel24-sg-e8e.stream/playlist.m3u8
+#https://tvsen6.aynaott.com/channel24/index.m3u8
 #https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/1703-audio_113332_eng=113200-video=3224800.m3u8
 # সাইট হচ্ছেঃ https://119-ar.vercel.app/#channels
 
@@ -200,13 +200,13 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 https://ap02.iqplay.tv:8082/iqb8002/d33ntv/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/d3n9nysb/image.jpg" group-title="Bangladeshi", SATV
-https://tvsen6.aynaott.com/satv/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/satvoff5666.stream/tracks-v1a1/mono.ts.m3u8
+https://tvsen6.aynaott.com/satv/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Hx75zHSQ/T-Sports-logo.png" group-title="Bangladeshi", GTV
 http://stvlive.net:8080/gtv/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/gazibdz.stream/playlist.m3u8
-https://bongoflixbd.top/gazitv.m3u8?user=bongoflix&pass=eaminvai
+#https://bongoflixbd.top/gazitv.m3u8?user=bongoflix&pass=eaminvai
 #https://tvsen5.aynaott.com/Ravc7gPCZpxk/index.m3u8
 #https://tvsen6.aynaott.com/gtvhdforgame/index.m3u8
 
@@ -247,9 +247,10 @@ https://tvsen6.aynaott.com/channel9/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/prkPFJ9L/image.jpg" group-title="Bangladeshi", Channel I
 https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8
-https://bongoflixbd.top/bk/6.m3u8?user=bongoflix&pass=eaminvai
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/channeli-8-org.stream/playlist.m3u8
 #http://stvlive.net:8080/channeli/index.m3u8
+#https://bongoflixbd.top/bk/6.m3u8?user=bongoflix&pass=eaminvai
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/t4ZFKFP9/resized-300x180-ffffff-4.jpg" group-title="Bangladeshi", Bangla Vision
 https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8
@@ -265,20 +266,22 @@ https://tvsen5.aynaott.com/maasrangatv/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/zGzP1t7T/resized-300x180-ffffff-6.jpg" group-title="Bangladeshi", News 24
-https://tvsen6.aynaott.com/news24/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/news24local.stream/playlist.m3u8
+https://tvsen6.aynaott.com/news24/index.m3u8
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/GpYDgrDK/resized-300x180-ffffff-7.jpg" group-title="Bangladeshi", Boishakhi TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/boishakhitv-org.stream/playlist.m3u8
 #https://bongoflixbd.top/bk/61.m3u8?user=bongoflix&pass=eaminvai
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/RFS01zLN/resized-300x180-ffffff-8.jpg" group-title="Bangladeshi", Boishakhi Plus
-https://tvsen6.aynaott.com/boishakhitv/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/boishakhitv-org.stream/playlist.m3u8
+https://tvsen6.aynaott.com/boishakhitv/index.m3u8
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Bv6myjp3/resized-300x180-ffffff-17.jpg" group-title="Bangladeshi", Bijoy TV
-https://tvsen6.aynaott.com/bijoytv/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/rtv-sg.stream/playlist.m3u8
+https://tvsen6.aynaott.com/bijoytv/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Sxz6zcgJ/resized-300x180-ffffff-18.jpg" group-title="Bangladeshi", ATN Islamic
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFsaWRtaW51aiPhnPTI2/rtv-sg.stream/playlist.m3u8
@@ -1434,6 +1437,7 @@ https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
