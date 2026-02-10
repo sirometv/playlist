@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "11:27:19 AM 10-02-2026",
+    "last update time": "11:29:20 AM 10-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -34,13 +34,13 @@
         },
         {
             "event_category": "Cricket",
-            "title": "Western Australia vs Tasmania (One Day Cup, 2025-26)",
+            "title": "Tasmania vs Western Australia (One Day Cup, 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Western-Australia-vs-Tasmania_fc-web.jpg",
-            "team_1": "Western Australia",
-            "team_2": "Tasmania",
+            "team_1": "Tasmania",
+            "team_2": "Western Australia",
             "status": "UPCOMING",
             "event_name": "One Day Cup, 2025-26",
-            "match_name": "Western Australia vs Tasmania",
+            "match_name": "Tasmania vs Western Australia",
             "match_id": 133945,
             "startTime": "11:30:00 AM 10-02-2026"
         },
