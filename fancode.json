@@ -1,22 +1,36 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "08:57:59 PM 10-02-2026",
+    "last update time": "10:09:50 PM 10-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
             "event_category": "Football",
-            "title": "Esteghlal FC vs Al Hussein (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140052_5648_ESG_HUS_FC-Web.jpg",
-            "team_1": "Esteghlal FC",
-            "team_2": "Al Hussein",
+            "title": "Tractor vs Al Sadd (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/15_Tractor-SC-vs-Al-Sadd_1770635555960.png",
+            "team_1": "Tractor",
+            "team_2": "Al Sadd",
+            "status": "LIVE",
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Tractor vs Al Sadd",
+            "match_id": 136083,
+            "startTime": "09:30:00 PM 10-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/ee00vUEURce4Mm-NcXyR8A/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/136083_english_hls_045a2f283a32769_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "AL Zawraa SC vs Al Wasl (AFC Champions League Two 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140053_5648_ALZ_AWL_FC-Web.jpg",
+            "team_1": "AL Zawraa SC",
+            "team_2": "Al Wasl",
             "status": "LIVE",
             "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "Esteghlal FC vs Al Hussein",
-            "match_id": 140052,
-            "startTime": "07:15:00 PM 10-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/sv_n5EQ4S9Gyp_YIhmnVuQ/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140052_english_hls_396fea820c27432_1ta-di_h264/index.m3u8"
+            "match_name": "AL Zawraa SC vs Al Wasl",
+            "match_id": 140053,
+            "startTime": "09:30:00 PM 10-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/rIIf_bD7RZiNkEUMcr-Uxg/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140053_english_hls_477d39d9e282160_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -75,16 +89,18 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140544_english_hls_53771c29ef75606_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Football",
-            "title": "Tractor vs Al Sadd (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/15_Tractor-SC-vs-Al-Sadd_1770635555960.png",
-            "team_1": "Tractor",
-            "team_2": "Al Sadd",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Tractor vs Al Sadd",
-            "match_id": 136083,
-            "startTime": "09:30:00 PM 10-02-2026"
+            "event_category": "Tennis",
+            "title": "Cancha Guillermo Vilas vs Buenos Aires, Argentina (ATP 250 - IEB+ Argentina Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP-250IEBArgentina-Open--old-card-(1).png",
+            "team_1": "Cancha Guillermo Vilas",
+            "team_2": "Buenos Aires, Argentina",
+            "status": "LIVE",
+            "event_name": "ATP 250 - IEB+ Argentina Open 2026",
+            "match_name": "Cancha Guillermo Vilas",
+            "match_id": 140202,
+            "startTime": "09:30:00 PM 10-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/1jYyAzYoTFCHrL9aN94BAA/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140202_english_hls_162ef3e0251699_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Football",
@@ -121,18 +137,6 @@
             "match_name": "Birmingham City F.C. vs West Bromwich Albion F.C.",
             "match_id": 140526,
             "startTime": "01:30:00 AM 11-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "AL Zawraa SC vs Al Wasl (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140053_5648_ALZ_AWL_FC-Web.jpg",
-            "team_1": "AL Zawraa SC",
-            "team_2": "Al Wasl",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "AL Zawraa SC vs Al Wasl",
-            "match_id": 140053,
-            "startTime": "09:30:00 PM 10-02-2026"
         },
         {
             "event_category": "Football",
@@ -219,16 +223,28 @@
             "startTime": "07:15:00 PM 11-02-2026"
         },
         {
-            "event_category": "Tennis",
-            "title": "Cancha Guillermo Vilas vs Buenos Aires, Argentina (ATP 250 - IEB+ Argentina Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP-250IEBArgentina-Open--old-card-(1).png",
-            "team_1": "Cancha Guillermo Vilas",
-            "team_2": "Buenos Aires, Argentina",
+            "event_category": "Football",
+            "title": "Oud-Heverlee Leuven Women vs Arsenal Women (UEFA Women's Champions League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Oud-Heverlee-Leuven-Women-VS-Arsenal-Women_fc-web.jpg",
+            "team_1": "Oud-Heverlee Leuven Women",
+            "team_2": "Arsenal Women",
             "status": "UPCOMING",
-            "event_name": "ATP 250 - IEB+ Argentina Open 2026",
-            "match_name": "Cancha Guillermo Vilas",
-            "match_id": 140202,
-            "startTime": "09:30:00 PM 10-02-2026"
+            "event_name": "UEFA Women's Champions League 2025-26",
+            "match_name": "Oud-Heverlee Leuven Women vs Arsenal Women",
+            "match_id": 140406,
+            "startTime": "11:15:00 PM 11-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Sepahan vs Al-Ahli Saudi FC (AFC Champions League Two 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140057_5648_SEP_AAS_FC-Web.jpg",
+            "team_1": "Sepahan",
+            "team_2": "Al-Ahli Saudi FC",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Two 2025-26",
+            "match_name": "Sepahan vs Al-Ahli Saudi FC",
+            "match_id": 140057,
+            "startTime": "09:30:00 PM 11-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -267,18 +283,6 @@
             "startTime": "11:30:00 PM 10-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Oud-Heverlee Leuven Women vs Arsenal Women (UEFA Women's Champions League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Oud-Heverlee-Leuven-Women-VS-Arsenal-Women_fc-web.jpg",
-            "team_1": "Oud-Heverlee Leuven Women",
-            "team_2": "Arsenal Women",
-            "status": "UPCOMING",
-            "event_name": "UEFA Women's Champions League 2025-26",
-            "match_name": "Oud-Heverlee Leuven Women vs Arsenal Women",
-            "match_id": 140406,
-            "startTime": "11:15:00 PM 11-02-2026"
-        },
-        {
             "event_category": "Live Events",
             "title": "Day 3 vs Delhi (Strikers Cup 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Strikers-Cup-2026_fc-web.jpg",
@@ -291,18 +295,6 @@
             "startTime": "09:00:00 AM 11-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Sepahan vs Al-Ahli Saudi FC (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140057_5648_SEP_AAS_FC-Web.jpg",
-            "team_1": "Sepahan",
-            "team_2": "Al-Ahli Saudi FC",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "Sepahan vs Al-Ahli Saudi FC",
-            "match_id": 140057,
-            "startTime": "09:30:00 PM 11-02-2026"
-        },
-        {
             "event_category": "Live Events",
             "title": "Day 8 vs Delhi (Asian Rifle & Pistol Championship 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Asian-Rifle_Pistol-Championship-2026-old-match-card.png",
@@ -313,6 +305,30 @@
             "match_name": "Day 8",
             "match_id": 140326,
             "startTime": "12:20:00 PM 11-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Paris FC Women vs Real Madrid Women (UEFA Women's Champions League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Paris-FC-Women-vs-Real-Madrid-Women_fc-web.jpg",
+            "team_1": "Paris FC Women",
+            "team_2": "Real Madrid Women",
+            "status": "UPCOMING",
+            "event_name": "UEFA Women's Champions League 2025-26",
+            "match_name": "Paris FC Women vs Real Madrid Women",
+            "match_id": 140407,
+            "startTime": "01:30:00 AM 12-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Athletic Club vs Real Sociedad (Copa del Rey, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140522_5806_ATH_RS_FC-Web.jpg",
+            "team_1": "Athletic Club",
+            "team_2": "Real Sociedad",
+            "status": "UPCOMING",
+            "event_name": "Copa del Rey, 2025-26",
+            "match_name": "Athletic Club vs Real Sociedad",
+            "match_id": 140522,
+            "startTime": "01:30:00 AM 12-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -361,30 +377,6 @@
             "match_name": "Day 1",
             "match_id": 140109,
             "startTime": "04:00:00 PM 11-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Paris FC Women vs Real Madrid Women (UEFA Women's Champions League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Paris-FC-Women-vs-Real-Madrid-Women_fc-web.jpg",
-            "team_1": "Paris FC Women",
-            "team_2": "Real Madrid Women",
-            "status": "UPCOMING",
-            "event_name": "UEFA Women's Champions League 2025-26",
-            "match_name": "Paris FC Women vs Real Madrid Women",
-            "match_id": 140407,
-            "startTime": "01:30:00 AM 12-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Athletic Club vs Real Sociedad (Copa del Rey, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140522_5806_ATH_RS_FC-Web.jpg",
-            "team_1": "Athletic Club",
-            "team_2": "Real Sociedad",
-            "status": "UPCOMING",
-            "event_name": "Copa del Rey, 2025-26",
-            "match_name": "Athletic Club vs Real Sociedad",
-            "match_id": 140522,
-            "startTime": "01:30:00 AM 12-02-2026"
         },
         {
             "event_category": "Football",
@@ -469,6 +461,18 @@
             "match_name": "Club América vs Olimpia",
             "match_id": 140375,
             "startTime": "06:30:00 AM 12-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Monterrey vs Club Xelaju (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140376_5954_MONT_CXE_FC-Web.jpg",
+            "team_1": "Monterrey",
+            "team_2": "Club Xelaju",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Monterrey vs Club Xelaju",
+            "match_id": 140376,
+            "startTime": "08:30:00 AM 12-02-2026"
         }
     ]
 }
