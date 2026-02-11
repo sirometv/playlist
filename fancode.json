@@ -1,36 +1,22 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:29:24 PM 11-02-2026",
+    "last update time": "08:50:38 PM 11-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
             "event_category": "Football",
-            "title": "Gangwon vs Shanghai Port (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/17_Gangwon-vs-Shanghai-Port_1770635891045.png",
-            "team_1": "Gangwon",
-            "team_2": "Shanghai Port",
+            "title": "FC Arkadag vs Al-Nassr FC (AFC Champions League Two 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/AFC--FK-Arkadag-v-AL-Nassr-old.jpg",
+            "team_1": "FC Arkadag",
+            "team_2": "Al-Nassr FC",
             "status": "LIVE",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Gangwon vs Shanghai Port",
-            "match_id": 136036,
-            "startTime": "03:30:00 PM 11-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/bJs82bfgQgu6Ax_RlphqyA/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/136036_english_hls_988519bfaf38255_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Ulsan HD vs Melbourne City (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/18_Ulsan-HD-vs-Melbourne-City_1770635792434.png",
-            "team_1": "Ulsan HD",
-            "team_2": "Melbourne City",
-            "status": "LIVE",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Ulsan HD vs Melbourne City",
-            "match_id": 136035,
-            "startTime": "03:30:00 PM 11-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/4jPMixFSStKbO2eGcWMt0Q/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/136035_english_hls_4defe9510b96784_1ta-di_h264/index.m3u8"
+            "event_name": "AFC Champions League Two 2025-26",
+            "match_name": "FC Arkadag vs Al-Nassr FC",
+            "match_id": 140056,
+            "startTime": "07:15:00 PM 11-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/5peEeN7sRZqBUyDsfd522Q/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140056_english_hls_b7872d964919196_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -75,44 +61,6 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140545_english_hls_9553b6b1d894884_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Golf",
-            "title": "Day 1 vs Riyadh Golf Club (PIF Saudi Ladies International 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(4)_1770293026599.png",
-            "team_1": "Day 1",
-            "team_2": "Riyadh Golf Club",
-            "status": "LIVE",
-            "event_name": "PIF Saudi Ladies International 2026",
-            "match_name": "Day 1",
-            "match_id": 140109,
-            "startTime": "04:00:00 PM 11-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/ngST87kITh6ANYEqw3sJwA/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140109_english_hls_bb64f8864125766_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Cong An Ha Noi vs Tampines Rovers FC (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140055_5648_CAH_TAM_FC-Web.jpg",
-            "team_1": "Cong An Ha Noi",
-            "team_2": "Tampines Rovers FC",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "Cong An Ha Noi vs Tampines Rovers FC",
-            "match_id": 140055,
-            "startTime": "05:45:00 PM 11-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Ratchaburi vs Persib Bandung (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140054_5648_RAT_PER_FC-Web.jpg",
-            "team_1": "Ratchaburi",
-            "team_2": "Persib Bandung",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "Ratchaburi vs Persib Bandung",
-            "match_id": 140054,
-            "startTime": "05:45:00 PM 11-02-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Oud-Heverlee Leuven Women vs Arsenal Women (UEFA Women's Champions League 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Oud-Heverlee-Leuven-Women-VS-Arsenal-Women_fc-web.jpg",
@@ -147,18 +95,6 @@
             "match_name": "Athletic Club vs Real Sociedad",
             "match_id": 140522,
             "startTime": "01:30:00 AM 12-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "FC Arkadag vs Al-Nassr FC (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/AFC--FK-Arkadag-v-AL-Nassr-old.jpg",
-            "team_1": "FC Arkadag",
-            "team_2": "Al-Nassr FC",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "FC Arkadag vs Al-Nassr FC",
-            "match_id": 140056,
-            "startTime": "07:15:00 PM 11-02-2026"
         },
         {
             "event_category": "Football",
@@ -209,6 +145,18 @@
             "startTime": "08:30:00 AM 12-02-2026"
         },
         {
+            "event_category": "Formula 1",
+            "title": "Day 1 vs Bahrain International Circuit (F1 ARAMCO PRE-SEASON TESTING 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/F1_web_1770205109895.jpg",
+            "team_1": "Day 1",
+            "team_2": "Bahrain International Circuit",
+            "status": "UPCOMING",
+            "event_name": "F1 ARAMCO PRE-SEASON TESTING 2026",
+            "match_name": "Day 1",
+            "match_id": 139558,
+            "startTime": "08:30:00 PM 11-02-2026"
+        },
+        {
             "event_category": "Football",
             "title": "Pohang Steelers vs Gamba Osaka (AFC Champions League Two 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140058_5648_PHG_OSK_FC-Web.jpg",
@@ -221,16 +169,16 @@
             "startTime": "03:30:00 PM 12-02-2026"
         },
         {
-            "event_category": "Formula 1",
-            "title": "Day 1 vs Bahrain International Circuit (F1 ARAMCO PRE-SEASON TESTING 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/F1_web_1770205109895.jpg",
-            "team_1": "Day 1",
-            "team_2": "Bahrain International Circuit",
+            "event_category": "Football",
+            "title": "Bangkok United vs Macarthur (AFC Champions League Two 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140059_5648_BU_MAC_FC-Web.jpg",
+            "team_1": "Bangkok United",
+            "team_2": "Macarthur",
             "status": "UPCOMING",
-            "event_name": "F1 ARAMCO PRE-SEASON TESTING 2026",
-            "match_name": "Day 1",
-            "match_id": 139558,
-            "startTime": "08:30:00 PM 11-02-2026"
+            "event_name": "AFC Champions League Two 2025-26",
+            "match_name": "Bangkok United vs Macarthur",
+            "match_id": 140059,
+            "startTime": "05:45:00 PM 12-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -282,15 +230,15 @@
         },
         {
             "event_category": "Football",
-            "title": "Bangkok United vs Macarthur (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140059_5648_BU_MAC_FC-Web.jpg",
-            "team_1": "Bangkok United",
-            "team_2": "Macarthur",
+            "title": "VfL Wolfsburg Women vs Juventus Women (UEFA Women's Champions League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "VfL Wolfsburg Women",
+            "team_2": "Juventus Women",
             "status": "UPCOMING",
-            "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "Bangkok United vs Macarthur",
-            "match_id": 140059,
-            "startTime": "05:45:00 PM 12-02-2026"
+            "event_name": "UEFA Women's Champions League 2025-26",
+            "match_name": "VfL Wolfsburg Women vs Juventus Women",
+            "match_id": 140408,
+            "startTime": "11:15:00 PM 12-02-2026"
         },
         {
             "event_category": "Live Events",
@@ -363,18 +311,6 @@
             "match_name": "Court 1",
             "match_id": 140547,
             "startTime": "02:30:00 PM 12-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "VfL Wolfsburg Women vs Juventus Women (UEFA Women's Champions League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
-            "team_1": "VfL Wolfsburg Women",
-            "team_2": "Juventus Women",
-            "status": "UPCOMING",
-            "event_name": "UEFA Women's Champions League 2025-26",
-            "match_name": "VfL Wolfsburg Women vs Juventus Women",
-            "match_id": 140408,
-            "startTime": "11:15:00 PM 12-02-2026"
         },
         {
             "event_category": "Golf",
@@ -471,6 +407,66 @@
             "match_name": "Center Court",
             "match_id": 140537,
             "startTime": "11:30:00 PM 12-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Grandstand vs Dallas, United States (ATP 500 - Nexo Dallas Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dallas-Open-(ATP-500)-old-card-_1770541232780.png",
+            "team_1": "Grandstand",
+            "team_2": "Dallas, United States",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - Nexo Dallas Open 2026",
+            "match_name": "Grandstand",
+            "match_id": 140536,
+            "startTime": "11:30:00 PM 12-02-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Day 1 vs Pebble Beach Golf Links, Spyglass Hill Golf Course (AT&T Pebble Beach Pro-Am 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/AT&T-Pebble-Beach-Pro-Am-2026-old-card-.png",
+            "team_1": "Day 1",
+            "team_2": "Pebble Beach Golf Links, Spyglass Hill Golf Course",
+            "status": "UPCOMING",
+            "event_name": "AT&T Pebble Beach Pro-Am 2026",
+            "match_name": "Day 1",
+            "match_id": 140044,
+            "startTime": "01:30:00 AM 13-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Cruz Azul vs Vancouver FC (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140377_5954_CRU_VFC_FC-Web.jpg",
+            "team_1": "Cruz Azul",
+            "team_2": "Vancouver FC",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Cruz Azul vs Vancouver FC",
+            "match_id": 140377,
+            "startTime": "06:30:00 AM 13-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Australia Governor Generals XI vs India Women (Governor General’s XI vs India 2026 - Women)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Governor_web.jpg",
+            "team_1": "Australia Governor Generals XI",
+            "team_2": "India Women",
+            "status": "UPCOMING",
+            "event_name": "Governor General’s XI vs India 2026 - Women",
+            "match_name": "Australia Governor Generals XI vs India Women",
+            "match_id": 140367,
+            "startTime": "01:35:00 PM 13-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Western Sydney Wanderers vs Wellington Phoenix (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/139408_5802_SYW_WEL_1770721836090.png",
+            "team_1": "Western Sydney Wanderers",
+            "team_2": "Wellington Phoenix",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Western Sydney Wanderers vs Wellington Phoenix",
+            "match_id": 139408,
+            "startTime": "02:05:00 PM 13-02-2026"
         }
     ]
 }
