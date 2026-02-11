@@ -1,23 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "09:27:21 AM 11-02-2026",
+    "last update time": "11:18:49 AM 11-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Football",
-            "title": "Pumas UNAM vs San Diego (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140373_5954_UNAM_SD_FC-Web.jpg",
-            "team_1": "Pumas UNAM",
-            "team_2": "San Diego",
-            "status": "LIVE",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Pumas UNAM vs San Diego",
-            "match_id": 140373,
-            "startTime": "06:30:00 AM 11-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/NxMw18NtRxy3XHRPRoYppw/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140373_english_hls_b1fe3b87a664431_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Football",
             "title": "Tigres vs Forge (CONCACAF Champions Cup 2026)",
@@ -384,7 +370,7 @@
             "event_name": "Asian Rifle & Pistol Championship 2026",
             "match_name": "Day 9",
             "match_id": 140327,
-            "startTime": "11:15:00 AM 12-02-2026"
+            "startTime": "12:00:00 PM 12-02-2026"
         },
         {
             "event_category": "Football",
@@ -457,6 +443,18 @@
             "match_name": "VfL Wolfsburg Women vs Juventus Women",
             "match_id": 140408,
             "startTime": "11:15:00 PM 12-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "FC Bayern München vs RB Leipzig (DFB Pokal 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/04_FC-Bayern-M%C3%BCnchen-vs-RB-Leipzig_1769793016225.png",
+            "team_1": "FC Bayern München",
+            "team_2": "RB Leipzig",
+            "status": "UPCOMING",
+            "event_name": "DFB Pokal 2025-26",
+            "match_name": "FC Bayern München vs RB Leipzig",
+            "match_id": 139001,
+            "startTime": "01:05:00 AM 13-02-2026"
         },
         {
             "event_category": "Formula 1",
