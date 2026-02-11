@@ -1,50 +1,36 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "06:05:32 AM 11-02-2026",
+    "last update time": "09:27:21 AM 11-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
-            "event_category": "Tennis",
-            "title": "World Feed vs Rotterdam, Netherlands (ATP 500 - ABN AMRO Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(3)_1770389196821.png",
-            "team_1": "World Feed",
-            "team_2": "Rotterdam, Netherlands",
+            "event_category": "Football",
+            "title": "Pumas UNAM vs San Diego (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140373_5954_UNAM_SD_FC-Web.jpg",
+            "team_1": "Pumas UNAM",
+            "team_2": "San Diego",
             "status": "LIVE",
-            "event_name": "ATP 500 - ABN AMRO Open 2026",
-            "match_name": "World Feed",
-            "match_id": 140543,
-            "startTime": "03:30:00 PM 10-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/UHVGNcbnTVqBzIm2SPOI-w/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140543_english_hls_f65455d4a422900_1ta-di_h264/index.m3u8"
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Pumas UNAM vs San Diego",
+            "match_id": 140373,
+            "startTime": "06:30:00 AM 11-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/NxMw18NtRxy3XHRPRoYppw/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140373_english_hls_b1fe3b87a664431_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Tennis",
-            "title": "Centre Court vs Rotterdam, Netherlands (ATP 500 - ABN AMRO Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(3)_1770389196821.png",
-            "team_1": "Centre Court",
-            "team_2": "Rotterdam, Netherlands",
+            "event_category": "Football",
+            "title": "Tigres vs Forge (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140374_5954_TIG_FOR_FC-Web.jpg",
+            "team_1": "Tigres",
+            "team_2": "Forge",
             "status": "LIVE",
-            "event_name": "ATP 500 - ABN AMRO Open 2026",
-            "match_name": "Centre Court",
-            "match_id": 140542,
-            "startTime": "03:30:00 PM 10-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/2-zzupMwQ1yzZauteyAhbw/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140542_english_hls_647ee1df7834456_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Cancha Guillermo Vilas vs Buenos Aires, Argentina (ATP 250 - IEB+ Argentina Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP-250IEBArgentina-Open--old-card-(1).png",
-            "team_1": "Cancha Guillermo Vilas",
-            "team_2": "Buenos Aires, Argentina",
-            "status": "LIVE",
-            "event_name": "ATP 250 - IEB+ Argentina Open 2026",
-            "match_name": "Cancha Guillermo Vilas",
-            "match_id": 140202,
-            "startTime": "09:30:00 PM 10-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/1jYyAzYoTFCHrL9aN94BAA/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140202_english_hls_162ef3e0251699_1ta-di_h264/index.m3u8"
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Tigres vs Forge",
+            "match_id": 140374,
+            "startTime": "08:30:00 AM 11-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/UAhigBubSb6XxaGuaSwmmw/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140374_english_hls_da115a581b36103_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -75,30 +61,18 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140533_english_hls_469c4ff14350522_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Tennis",
-            "title": "Grandstand vs Dallas, United States (ATP 500 - Nexo Dallas Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dallas-Open-(ATP-500)-old-card-_1770541232780.png",
-            "team_1": "Grandstand",
-            "team_2": "Dallas, United States",
+            "event_category": "Live Events",
+            "title": "Day 3 vs Delhi (Strikers Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Strikers-Cup-2026_fc-web.jpg",
+            "team_1": "Day 3",
+            "team_2": "Delhi",
             "status": "LIVE",
-            "event_name": "ATP 500 - Nexo Dallas Open 2026",
-            "match_name": "Grandstand",
-            "match_id": 140532,
-            "startTime": "11:30:00 PM 10-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/BiV8d4hgSKajwqFibP24Rw/master.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140532_english_hls_84aec1c2ec1801_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Pumas UNAM vs San Diego (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140373_5954_UNAM_SD_FC-Web.jpg",
-            "team_1": "Pumas UNAM",
-            "team_2": "San Diego",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Pumas UNAM vs San Diego",
-            "match_id": 140373,
-            "startTime": "06:30:00 AM 11-02-2026"
+            "event_name": "Strikers Cup 2026",
+            "match_name": "Day 3",
+            "match_id": 140317,
+            "startTime": "08:45:00 AM 11-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/GRk60MFVRZiT_nEte15oIg/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140317_english_hls_a3519a753084938_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Football",
@@ -135,18 +109,6 @@
             "match_name": "Oud-Heverlee Leuven Women vs Arsenal Women",
             "match_id": 140406,
             "startTime": "11:15:00 PM 11-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Tigres vs Forge (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140374_5954_TIG_FOR_FC-Web.jpg",
-            "team_1": "Tigres",
-            "team_2": "Forge",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Tigres vs Forge",
-            "match_id": 140374,
-            "startTime": "08:30:00 AM 11-02-2026"
         },
         {
             "event_category": "Football",
@@ -233,16 +195,28 @@
             "startTime": "01:30:00 AM 12-02-2026"
         },
         {
-            "event_category": "Live Events",
-            "title": "Day 3 vs Delhi (Strikers Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Strikers-Cup-2026_fc-web.jpg",
-            "team_1": "Day 3",
-            "team_2": "Delhi",
+            "event_category": "Football",
+            "title": "Club América vs Olimpia (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140375_5954_AME_OL_FC-Web.jpg",
+            "team_1": "Club América",
+            "team_2": "Olimpia",
             "status": "UPCOMING",
-            "event_name": "Strikers Cup 2026",
-            "match_name": "Day 3",
-            "match_id": 140317,
-            "startTime": "08:45:00 AM 11-02-2026"
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Club América vs Olimpia",
+            "match_id": 140375,
+            "startTime": "06:30:00 AM 12-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Monterrey vs Club Xelaju (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140376_5954_MONT_CXE_FC-Web.jpg",
+            "team_1": "Monterrey",
+            "team_2": "Club Xelaju",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Monterrey vs Club Xelaju",
+            "match_id": 140376,
+            "startTime": "08:30:00 AM 12-02-2026"
         },
         {
             "event_category": "Live Events",
@@ -266,7 +240,7 @@
             "event_name": "ATP 500 - ABN AMRO Open 2026",
             "match_name": "World Feed",
             "match_id": 140196,
-            "startTime": "02:30:00 PM 11-02-2026"
+            "startTime": "03:30:00 PM 11-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -278,7 +252,7 @@
             "event_name": "ATP 500 - ABN AMRO Open 2026",
             "match_name": "Centre Court",
             "match_id": 140546,
-            "startTime": "02:30:00 PM 11-02-2026"
+            "startTime": "03:30:00 PM 11-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -290,7 +264,7 @@
             "event_name": "ATP 500 - ABN AMRO Open 2026",
             "match_name": "Court 1",
             "match_id": 140545,
-            "startTime": "02:30:00 PM 11-02-2026"
+            "startTime": "03:30:00 PM 11-02-2026"
         },
         {
             "event_category": "Golf",
@@ -303,18 +277,6 @@
             "match_name": "Day 1",
             "match_id": 140109,
             "startTime": "04:00:00 PM 11-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Club América vs Olimpia (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140375_5954_AME_OL_FC-Web.jpg",
-            "team_1": "Club América",
-            "team_2": "Olimpia",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Club América vs Olimpia",
-            "match_id": 140375,
-            "startTime": "06:30:00 AM 12-02-2026"
         },
         {
             "event_category": "Formula 1",
@@ -338,7 +300,7 @@
             "event_name": "ATP 250 - IEB+ Argentina Open 2026",
             "match_name": "Cancha Guillermo Vilas",
             "match_id": 140203,
-            "startTime": "08:30:00 PM 11-02-2026"
+            "startTime": "09:30:00 PM 11-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -350,7 +312,7 @@
             "event_name": "ATP 500 - Nexo Dallas Open 2026",
             "match_name": "World Feed",
             "match_id": 140189,
-            "startTime": "10:30:00 PM 11-02-2026"
+            "startTime": "11:30:00 PM 11-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -362,7 +324,7 @@
             "event_name": "ATP 500 - Nexo Dallas Open 2026",
             "match_name": "Center Court",
             "match_id": 140535,
-            "startTime": "10:30:00 PM 11-02-2026"
+            "startTime": "11:30:00 PM 11-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -374,19 +336,7 @@
             "event_name": "ATP 500 - Nexo Dallas Open 2026",
             "match_name": "Grandstand",
             "match_id": 140534,
-            "startTime": "10:30:00 PM 11-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Monterrey vs Club Xelaju (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140376_5954_MONT_CXE_FC-Web.jpg",
-            "team_1": "Monterrey",
-            "team_2": "Club Xelaju",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Monterrey vs Club Xelaju",
-            "match_id": 140376,
-            "startTime": "08:30:00 AM 12-02-2026"
+            "startTime": "11:30:00 PM 11-02-2026"
         },
         {
             "event_category": "Live Events",
@@ -399,6 +349,18 @@
             "match_name": "Day 4",
             "match_id": 140318,
             "startTime": "09:00:00 AM 12-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Pohang Steelers vs Gamba Osaka (AFC Champions League Two 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140058_5648_PHG_OSK_FC-Web.jpg",
+            "team_1": "Pohang Steelers",
+            "team_2": "Gamba Osaka",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Two 2025-26",
+            "match_name": "Pohang Steelers vs Gamba Osaka",
+            "match_id": 140058,
+            "startTime": "03:30:00 PM 12-02-2026"
         },
         {
             "event_category": "Live Events",
@@ -423,18 +385,6 @@
             "match_name": "Day 9",
             "match_id": 140327,
             "startTime": "11:15:00 AM 12-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Pohang Steelers vs Gamba Osaka (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140058_5648_PHG_OSK_FC-Web.jpg",
-            "team_1": "Pohang Steelers",
-            "team_2": "Gamba Osaka",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "Pohang Steelers vs Gamba Osaka",
-            "match_id": 140058,
-            "startTime": "03:30:00 PM 12-02-2026"
         },
         {
             "event_category": "Football",
@@ -471,6 +421,54 @@
             "match_name": "Centre Court",
             "match_id": 140548,
             "startTime": "02:30:00 PM 12-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Court 1 vs Rotterdam, Netherlands (ATP 500 - ABN AMRO Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(3)_1770389196821.png",
+            "team_1": "Court 1",
+            "team_2": "Rotterdam, Netherlands",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - ABN AMRO Open 2026",
+            "match_name": "Court 1",
+            "match_id": 140547,
+            "startTime": "02:30:00 PM 12-02-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Day 2 vs Riyadh Golf Club (PIF Saudi Ladies International 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(4)_1770293026599.png",
+            "team_1": "Day 2",
+            "team_2": "Riyadh Golf Club",
+            "status": "UPCOMING",
+            "event_name": "PIF Saudi Ladies International 2026",
+            "match_name": "Day 2",
+            "match_id": 140110,
+            "startTime": "04:00:00 PM 12-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "VfL Wolfsburg Women vs Juventus Women (UEFA Women's Champions League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "VfL Wolfsburg Women",
+            "team_2": "Juventus Women",
+            "status": "UPCOMING",
+            "event_name": "UEFA Women's Champions League 2025-26",
+            "match_name": "VfL Wolfsburg Women vs Juventus Women",
+            "match_id": 140408,
+            "startTime": "11:15:00 PM 12-02-2026"
+        },
+        {
+            "event_category": "Formula 1",
+            "title": "Day 2 vs Bahrain International Circuit (F1 ARAMCO PRE-SEASON TESTING 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/F1_web_1770205109895.jpg",
+            "team_1": "Day 2",
+            "team_2": "Bahrain International Circuit",
+            "status": "UPCOMING",
+            "event_name": "F1 ARAMCO PRE-SEASON TESTING 2026",
+            "match_name": "Day 2",
+            "match_id": 139559,
+            "startTime": "08:30:00 PM 12-02-2026"
         }
     ]
 }
