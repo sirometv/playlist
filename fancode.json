@@ -1,9 +1,23 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:56:55 AM 12-02-2026",
+    "last update time": "08:26:16 AM 12-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
+        {
+            "event_category": "Football",
+            "title": "Club América vs Olimpia (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140375_5954_AME_OL_FC-Web.jpg",
+            "team_1": "Club América",
+            "team_2": "Olimpia",
+            "status": "LIVE",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Club América vs Olimpia",
+            "match_id": 140375,
+            "startTime": "06:30:00 AM 12-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/iYBFCFnDRIK195jJwkKMGQ/master.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140375_english_hls_064e3c075932636_1ta-di_h264/index.m3u8"
+        },
         {
             "event_category": "Tennis",
             "title": "Cancha Guillermo Vilas vs Buenos Aires, Argentina (ATP 250 - IEB+ Argentina Open 2026)",
@@ -62,6 +76,18 @@
         },
         {
             "event_category": "Football",
+            "title": "Monterrey vs Club Xelaju (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140376_5954_MONT_CXE_FC-Web.jpg",
+            "team_1": "Monterrey",
+            "team_2": "Club Xelaju",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Monterrey vs Club Xelaju",
+            "match_id": 140376,
+            "startTime": "08:30:00 AM 12-02-2026"
+        },
+        {
+            "event_category": "Football",
             "title": "VfL Wolfsburg Women vs Juventus Women (UEFA Women's Champions League 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
             "team_1": "VfL Wolfsburg Women",
@@ -74,27 +100,27 @@
         },
         {
             "event_category": "Football",
-            "title": "Club América vs Olimpia (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140375_5954_AME_OL_FC-Web.jpg",
-            "team_1": "Club América",
-            "team_2": "Olimpia",
+            "title": "Atletico de Madrid Femenino vs Manchester United Women (UEFA Women's Champions League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "Atletico de Madrid Femenino",
+            "team_2": "Manchester United Women",
             "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Club América vs Olimpia",
-            "match_id": 140375,
-            "startTime": "06:30:00 AM 12-02-2026"
+            "event_name": "UEFA Women's Champions League 2025-26",
+            "match_name": "Atletico de Madrid Femenino vs Manchester United Women",
+            "match_id": 140415,
+            "startTime": "01:30:00 AM 13-02-2026"
         },
         {
             "event_category": "Football",
-            "title": "Monterrey vs Club Xelaju (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140376_5954_MONT_CXE_FC-Web.jpg",
-            "team_1": "Monterrey",
-            "team_2": "Club Xelaju",
+            "title": "Atletico de Madrid vs FC Barcelona (Copa del Rey, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140523_5806_ATL_BAR_FC-Web.jpg",
+            "team_1": "Atletico de Madrid",
+            "team_2": "FC Barcelona",
             "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Monterrey vs Club Xelaju",
-            "match_id": 140376,
-            "startTime": "08:30:00 AM 12-02-2026"
+            "event_name": "Copa del Rey, 2025-26",
+            "match_name": "Atletico de Madrid vs FC Barcelona",
+            "match_id": 140523,
+            "startTime": "01:30:00 AM 13-02-2026"
         },
         {
             "event_category": "Football",
@@ -122,27 +148,15 @@
         },
         {
             "event_category": "Football",
-            "title": "Atletico de Madrid Femenino vs Manchester United Women (UEFA Women's Champions League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
-            "team_1": "Atletico de Madrid Femenino",
-            "team_2": "Manchester United Women",
+            "title": "Cruz Azul vs Vancouver FC (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140377_5954_CRU_VFC_FC-Web.jpg",
+            "team_1": "Cruz Azul",
+            "team_2": "Vancouver FC",
             "status": "UPCOMING",
-            "event_name": "UEFA Women's Champions League 2025-26",
-            "match_name": "Atletico de Madrid Femenino vs Manchester United Women",
-            "match_id": 140415,
-            "startTime": "01:30:00 AM 13-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Atletico de Madrid vs FC Barcelona (Copa del Rey, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140523_5806_ATL_BAR_FC-Web.jpg",
-            "team_1": "Atletico de Madrid",
-            "team_2": "FC Barcelona",
-            "status": "UPCOMING",
-            "event_name": "Copa del Rey, 2025-26",
-            "match_name": "Atletico de Madrid vs FC Barcelona",
-            "match_id": 140523,
-            "startTime": "01:30:00 AM 13-02-2026"
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Cruz Azul vs Vancouver FC",
+            "match_id": 140377,
+            "startTime": "06:30:00 AM 13-02-2026"
         },
         {
             "event_category": "Live Events",
@@ -227,18 +241,6 @@
             "match_name": "Day 2",
             "match_id": 140110,
             "startTime": "04:00:00 PM 12-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Cruz Azul vs Vancouver FC (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140377_5954_CRU_VFC_FC-Web.jpg",
-            "team_1": "Cruz Azul",
-            "team_2": "Vancouver FC",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Cruz Azul vs Vancouver FC",
-            "match_id": 140377,
-            "startTime": "06:30:00 AM 13-02-2026"
         },
         {
             "event_category": "Formula 1",
