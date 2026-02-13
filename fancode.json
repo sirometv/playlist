@@ -1,23 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "06:52:50 PM 13-02-2026",
+    "last update time": "08:00:29 PM 13-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Football",
-            "title": "Perth Glory vs Newcastle Jets (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/139409_5802_PG_NJ_1770721949114.png",
-            "team_1": "Perth Glory",
-            "team_2": "Newcastle Jets",
-            "status": "LIVE",
-            "event_name": "A League 2025-26",
-            "match_name": "Perth Glory vs Newcastle Jets",
-            "match_id": 139409,
-            "startTime": "04:15:00 PM 13-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/139409_english_hls_0f7005d6ae49248_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/139409_english_hls_0f7005d6ae49248_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Live Events",
             "title": "Day 2 vs WTT Star Contenders (WTT Star Contenders)",
@@ -29,7 +15,7 @@
             "match_name": "Day 2",
             "match_id": 140604,
             "startTime": "11:00:00 AM 13-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/Snc9qSAaSDexPNqPSjcOMg/master.m3u8",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140604_english_hls_1cda6b52b860477_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140604_english_hls_1cda6b52b860477_1ta-di_h264/index.m3u8"
         },
         {
@@ -184,18 +170,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Stevenage vs Huddersfield Town A.F.C. (League One 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810).png",
-            "team_1": "Stevenage",
-            "team_2": "Huddersfield Town A.F.C.",
-            "status": "UPCOMING",
-            "event_name": "League One 2025-26",
-            "match_name": "Stevenage vs Huddersfield Town A.F.C.",
-            "match_id": 140016,
-            "startTime": "06:00:00 PM 14-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Derby County Football Club vs Swansea City A.F.C. (EFL Championship 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/139355_5489_DER_SWA_FC-Web.jpg",
             "team_1": "Derby County Football Club",
@@ -205,6 +179,18 @@
             "match_name": "Derby County Football Club vs Swansea City A.F.C.",
             "match_id": 139355,
             "startTime": "08:30:00 PM 14-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Stevenage vs Huddersfield Town A.F.C. (League One 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810).png",
+            "team_1": "Stevenage",
+            "team_2": "Huddersfield Town A.F.C.",
+            "status": "UPCOMING",
+            "event_name": "League One 2025-26",
+            "match_name": "Stevenage vs Huddersfield Town A.F.C.",
+            "match_id": 140016,
+            "startTime": "06:00:00 PM 14-02-2026"
         },
         {
             "event_category": "Football",
@@ -339,18 +325,6 @@
             "startTime": "01:30:00 AM 14-02-2026"
         },
         {
-            "event_category": "Live Events",
-            "title": "Day 3 vs WTT Star Contenders (WTT Star Contenders)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/WTT_web.jpg",
-            "team_1": "Day 3",
-            "team_2": "WTT Star Contenders",
-            "status": "UPCOMING",
-            "event_name": "WTT Star Contenders",
-            "match_name": "Day 3",
-            "match_id": 140605,
-            "startTime": "11:00:00 AM 14-02-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Sevilla FC vs Deportivo Alaves (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131069_5427_SEV_ALA_FC-Web.png",
@@ -375,6 +349,18 @@
             "startTime": "11:00:00 PM 14-02-2026"
         },
         {
+            "event_category": "Live Events",
+            "title": "Day 3 vs WTT Star Contenders (WTT Star Contenders)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/WTT_web.jpg",
+            "team_1": "Day 3",
+            "team_2": "WTT Star Contenders",
+            "status": "UPCOMING",
+            "event_name": "WTT Star Contenders",
+            "match_name": "Day 3",
+            "match_id": 140605,
+            "startTime": "11:00:00 AM 14-02-2026"
+        },
+        {
             "event_category": "Golf",
             "title": "Day 4 vs Riyadh Golf Club (PIF Saudi Ladies International 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(4)_1770293026599.png",
@@ -385,6 +371,18 @@
             "match_name": "Day 4",
             "match_id": 140112,
             "startTime": "03:00:00 PM 14-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Manchester City Women vs Leicester City Women (Women's Super League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140103_5826_MCI-W_LEI-W_FC-Web.jpg",
+            "team_1": "Manchester City Women",
+            "team_2": "Leicester City Women",
+            "status": "UPCOMING",
+            "event_name": "Women's Super League 2025-26",
+            "match_name": "Manchester City Women vs Leicester City Women",
+            "match_id": 140103,
+            "startTime": "12:30:00 AM 15-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -400,18 +398,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Manchester City Women vs Leicester City Women (Women's Super League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140103_5826_MCI-W_LEI-W_FC-Web.jpg",
-            "team_1": "Manchester City Women",
-            "team_2": "Leicester City Women",
-            "status": "UPCOMING",
-            "event_name": "Women's Super League 2025-26",
-            "match_name": "Manchester City Women vs Leicester City Women",
-            "match_id": 140103,
-            "startTime": "12:30:00 AM 15-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Cultural Leonesa vs Real Zaragoza (LALIGA Hypermotion 2025-26)",
             "src": "https://images.fancode.com/aig/match/v1770347072486/140422_CASACARDS_APP.png",
             "team_1": "Cultural Leonesa",
@@ -421,18 +407,6 @@
             "match_name": "Cultural Leonesa vs Real Zaragoza",
             "match_id": 140422,
             "startTime": "11:00:00 PM 14-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "World Feed vs Rotterdam, Netherlands (ATP 500 - ABN AMRO Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(3)_1770389196821.png",
-            "team_1": "World Feed",
-            "team_2": "Rotterdam, Netherlands",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - ABN AMRO Open 2026",
-            "match_name": "World Feed",
-            "match_id": 140550,
-            "startTime": "06:30:00 PM 14-02-2026"
         },
         {
             "event_category": "Football",
@@ -445,6 +419,18 @@
             "match_name": "Real Madrid vs Real Sociedad",
             "match_id": 131068,
             "startTime": "01:30:00 AM 15-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "World Feed vs Rotterdam, Netherlands (ATP 500 - ABN AMRO Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(3)_1770389196821.png",
+            "team_1": "World Feed",
+            "team_2": "Rotterdam, Netherlands",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - ABN AMRO Open 2026",
+            "match_name": "World Feed",
+            "match_id": 140550,
+            "startTime": "06:30:00 PM 14-02-2026"
         },
         {
             "event_category": "Golf",
@@ -468,6 +454,18 @@
             "event_name": "ATP 500 - Nexo Dallas Open 2026",
             "match_name": "Center Court",
             "match_id": 140539,
+            "startTime": "10:30:00 PM 14-02-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Featured Holes - Day 3 vs Pebble Beach Golf Links, Spyglass Hill Golf Course (AT&T Pebble Beach Pro-Am 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/AT&T-Pebble-Beach-Pro-Am-2026-old-card-.png",
+            "team_1": "Featured Holes - Day 3",
+            "team_2": "Pebble Beach Golf Links, Spyglass Hill Golf Course",
+            "status": "UPCOMING",
+            "event_name": "AT&T Pebble Beach Pro-Am 2026",
+            "match_name": "Featured Holes - Day 3",
+            "match_id": 140631,
             "startTime": "10:30:00 PM 14-02-2026"
         }
     ]
