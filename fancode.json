@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:51:35 PM 14-02-2026",
+    "last update time": "06:40:28 PM 14-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -17,6 +17,34 @@
             "startTime": "05:00:00 PM 14-02-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140404_english_hls_d6f8acdd6f73747_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140404_english_hls_d6f8acdd6f73747_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "RCD Espanyol vs RC Celta (LALIGA 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/131064_5427_ESL_CEV_FC-Web.png",
+            "team_1": "RCD Espanyol",
+            "team_2": "RC Celta",
+            "status": "LIVE",
+            "event_name": "LALIGA 2025-26",
+            "match_name": "RCD Espanyol vs RC Celta",
+            "match_id": 131064,
+            "startTime": "06:30:00 PM 14-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/131064_english_hls_7f47cf482696177_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/131064_english_hls_7f47cf482696177_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Stevenage vs Huddersfield Town A.F.C. (League One 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810).png",
+            "team_1": "Stevenage",
+            "team_2": "Huddersfield Town A.F.C.",
+            "status": "LIVE",
+            "event_name": "League One 2025-26",
+            "match_name": "Stevenage vs Huddersfield Town A.F.C.",
+            "match_id": 140016,
+            "startTime": "06:00:00 PM 14-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140016_english_hls_2d34a1b6ce92567_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140016_english_hls_2d34a1b6ce92567_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Live Events",
@@ -76,32 +104,8 @@
         },
         {
             "event_category": "Football",
-            "title": "Stevenage vs Huddersfield Town A.F.C. (League One 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810).png",
-            "team_1": "Stevenage",
-            "team_2": "Huddersfield Town A.F.C.",
-            "status": "UPCOMING",
-            "event_name": "League One 2025-26",
-            "match_name": "Stevenage vs Huddersfield Town A.F.C.",
-            "match_id": 140016,
-            "startTime": "06:00:00 PM 14-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "RCD Espanyol vs RC Celta (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/131064_5427_ESL_CEV_FC-Web.png",
-            "team_1": "RCD Espanyol",
-            "team_2": "RC Celta",
-            "status": "UPCOMING",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "RCD Espanyol vs RC Celta",
-            "match_id": 131064,
-            "startTime": "06:30:00 PM 14-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "FC Goa vs Inter Kashi FC (ISL 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140432_5956_FCG_IK_fc-web-(1).jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140432_5956_FCG_IK_fc-web_1771071278876.jpg",
             "team_1": "FC Goa",
             "team_2": "Inter Kashi FC",
             "status": "UPCOMING",
@@ -315,6 +319,18 @@
             "startTime": "07:30:00 PM 15-02-2026"
         },
         {
+            "event_category": "Football",
+            "title": "Brighton and Hove Albion Women vs Arsenal Women (Women's Super League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140108_5826_BHA-W_ARS-W_FC-Web.jpg",
+            "team_1": "Brighton and Hove Albion Women",
+            "team_2": "Arsenal Women",
+            "status": "UPCOMING",
+            "event_name": "Women's Super League 2025-26",
+            "match_name": "Brighton and Hove Albion Women vs Arsenal Women",
+            "match_id": 140108,
+            "startTime": "08:00:00 PM 15-02-2026"
+        },
+        {
             "event_category": "Tennis",
             "title": "Cancha Guillermo Vilas vs Buenos Aires, Argentina (ATP 250 - IEB+ Argentina Open 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP-250IEBArgentina-Open--old-card-(1).png",
@@ -409,18 +425,6 @@
             "match_name": "Center Court",
             "match_id": 140539,
             "startTime": "11:30:00 PM 14-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Brighton and Hove Albion Women vs Arsenal Women (Women's Super League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140108_5826_BHA-W_ARS-W_FC-Web.jpg",
-            "team_1": "Brighton and Hove Albion Women",
-            "team_2": "Arsenal Women",
-            "status": "UPCOMING",
-            "event_name": "Women's Super League 2025-26",
-            "match_name": "Brighton and Hove Albion Women vs Arsenal Women",
-            "match_id": 140108,
-            "startTime": "08:00:00 PM 15-02-2026"
         },
         {
             "event_category": "Football",
