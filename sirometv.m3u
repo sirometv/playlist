@@ -366,7 +366,6 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
-
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
@@ -376,7 +375,8 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Wp8hd1gR/resized-300x180-ffffff-25.jpg" group-title="Bangladeshi", Bangla TV
-https://tvsen6.aynaott.com/banglatv/index.m3u8
+https://satoshi-cors.herokuapp.com/http://116.204.149.16/banglatv/mono.m3u8
+#https://tvsen6.aynaott.com/banglatv/index.m3u8
 #https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/3x4Rfj67/resized-300x180-ffffff-26.jpg" group-title="Bangladeshi", Bangla-TV Europe
@@ -1473,6 +1473,7 @@ https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
