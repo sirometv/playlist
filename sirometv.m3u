@@ -296,8 +296,8 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDDEHGcfRgzQ6NTAgdEoaeFzbF9
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/9MWRQ94R/resized-300x180-ffffff-5.jpg" group-title="Bangladeshi", Maasranga TV
 https://mtv.sunplex.live/MAASRANGA-TV/tracks-v1a1/mono.m3u8
-http://mtv.sunplex.live/MAASRANGA-TV/tracks-v1a1/mono.m3u8
 https://tvsen5.aynaott.com/maasrangatv/index.m3u8
+#http://mtv.sunplex.live/MAASRANGA-TV/tracks-v1a1/mono.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/zGzP1t7T/resized-300x180-ffffff-6.jpg" group-title="Bangladeshi", News 24
@@ -735,11 +735,31 @@ https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 #EXTINF:-1 tvg-logo="https://i.ibb.co.com/hSWsQKP/Sirome-TV-7.jpg" group-title="Bangladeshi", Discovery Bangla
 https://live.dinesh29.com.np/stream/jiotv/discoverybengali/stream_0.m3u8
 https://live.dinesh29.com.np/stream/jiotv/discoveryhindi/stream_0.m3u8
 #https://bongoflixbd.top/bk/83.m3u8?user=bongoflix&pass=eaminvai
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/D02NbKjJ/image.jpg" group-title="Bangladeshi", Discover Pakistan
+https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Dy8w8q4F/image.jpg" group-title="Bangladeshi", Discovery Science
+
+EXTINF:-1 tvg-logo="https://i.postimg.cc/BZ22d0KD/image.jpg" group-title="Bangladeshi", Discovery Turbo
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/HnTW39Sd/image.jpg" group-title="Bangladeshi", National Geo
 https://satoshi-cors.herokuapp.com/http://151.80.18.177:86/National_Geo_HD/index.m3u8
@@ -768,8 +788,12 @@ https://satoshi-cors.herokuapp.com/http://151.80.18.177:86/National_Geo_HD/index
 http://89.187.189.98/SONIC/index.m3u8
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/qvkt8sSL/image.jpg" group-title="Bangladeshi", Discovery Kids
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/HxjNsLb8/image.jpg" group-title="Bangladeshi", Discovery Kids
 https://cloudfrontnet.vercel.app/tplay/playout/209902/master.m3u8
+http://103.140.254.2:3500/live/554.m3u8
+#https://bongoflixbd.top/bk/79.m3u8?user=bongoflix&pass=eaminvai
+
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/J43k05rQ/image.jpg" group-title="Bangladeshi", Cartoon Network
@@ -788,9 +812,7 @@ https://cc-4bhi5osabejc9.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da6
 
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/HxjNsLb8/image.jpg" group-title="Bangladeshi", Discovery Kids
-http://103.140.254.2:3500/live/554.m3u8
-#https://bongoflixbd.top/bk/79.m3u8?user=bongoflix&pass=eaminvai
+
 
 
 
@@ -856,17 +878,39 @@ https://2-fss-2.streamhoster.com/pl_140/amlst:200914-1298290/playlist.m3u8
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 
+#🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/3xvSq6Yb/image.jpg" group-title="Bangladeshi", Accu Weather 
-https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00684-accuweather-accuweather-plex/playlist.m3u8?v=1
+https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00684-accuweather-accuweather-plex/playlist.m3u8
+#https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00684-accuweather-accuweather-plex/playlist.m3u8?v=1
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/q7PphYKZ/image.jpg" group-title="Bangladeshi", Weather SPY
+https://jukin-weatherspy-2-in.samsung.wurl.tv/playlist.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/ZYfDwN7r/image.jpg" group-title="Bangladeshi", Adventure Earth
+https://autentic-adventure-earth-1-eu.rakuten.wurl.tv/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Jz86nQtc/image.jpg" group-title="Bangladeshi", Fox Weather
+https://247wlive.foxweather.com/stream/index.m3u8
+
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/JzL69x0H/image.jpg" group-title="Bangladeshi", 4K Travel
-https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/4k-travel-tv/manifest.m3u8?v=1%20
+https://streams2.sofast.tv/sofastplayout/33c31ac4-51fa-46ae-afd0-0d1fe5e60a80_0_HLS/master.m3u8
+#https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/4k-travel-tv/manifest.m3u8?v=1%20
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/BZ22d0KD/image.jpg" group-title="Bangladeshi", Discovery Turbo
-http://103.140.254.2:3500/live/541.m3u8
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/SQVxX101/image.jpg" group-title="Bangladeshi", Histoire TV
 http://151.80.18.177:86/Histoire/index.m3u8
+
+
+
+#🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻
+
+
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/LssrbDQ3/image.jpg" group-title="Bangladeshi", Al Jazeera TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8
@@ -876,6 +920,9 @@ https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxI
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/9QpnjkDz/image.jpg" group-title="Bangladeshi", DW News
 https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/7hy7VmFp/image.jpg" group-title="Bangladeshi", NHK World
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/j5JcC3SX/image.jpg" group-title="Bangladeshi", CNA News
 https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aaeb4a48ec97f66ebbe/index.m3u8
@@ -1463,8 +1510,7 @@ https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26
 
 #EXTINF:-1 tvg-logo="" group-title="Documentary", 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/D02NbKjJ/image.jpg" group-title="Documentary", Discover Pakistan
-https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
+
 
 
 
@@ -1472,6 +1518,7 @@ https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
