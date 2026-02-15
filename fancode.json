@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "11:34:36 PM 15-02-2026",
+    "last update time": "11:55:21 PM 15-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -89,18 +89,18 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140207_english_hls_330b023b3959850_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Football",
-            "title": "Rayo Vallecano vs Atletico de Madrid (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/131061_5427_RVL_ATL_FC-Web.png",
-            "team_1": "Rayo Vallecano",
-            "team_2": "Atletico de Madrid",
+            "event_category": "Golf",
+            "title": "World Feed - Day 4 vs Pebble Beach Golf Links, Spyglass Hill Golf Course (AT&T Pebble Beach Pro-Am 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/AT&T-Pebble-Beach-Pro-Am-2026-old-card-.png",
+            "team_1": "World Feed - Day 4",
+            "team_2": "Pebble Beach Golf Links, Spyglass Hill Golf Course",
             "status": "LIVE",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "Rayo Vallecano vs Atletico de Madrid",
-            "match_id": 131061,
-            "startTime": "08:45:00 PM 15-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/131061_english_hls_3074816afa79444_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/131061_english_hls_3074816afa79444_1ta-di_h264/index.m3u8"
+            "event_name": "AT&T Pebble Beach Pro-Am 2026",
+            "match_name": "World Feed - Day 4",
+            "match_id": 140047,
+            "startTime": "11:30:00 PM 15-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140047_english_hls_b8c1b71f8b46629_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140047_english_hls_b8c1b71f8b46629_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -197,18 +197,6 @@
             "match_name": "East Bengal FC vs NorthEast United FC",
             "match_id": 140436,
             "startTime": "07:30:00 PM 16-02-2026"
-        },
-        {
-            "event_category": "Golf",
-            "title": "World Feed - Day 4 vs Pebble Beach Golf Links, Spyglass Hill Golf Course (AT&T Pebble Beach Pro-Am 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/AT&T-Pebble-Beach-Pro-Am-2026-old-card-.png",
-            "team_1": "World Feed - Day 4",
-            "team_2": "Pebble Beach Golf Links, Spyglass Hill Golf Course",
-            "status": "UPCOMING",
-            "event_name": "AT&T Pebble Beach Pro-Am 2026",
-            "match_name": "World Feed - Day 4",
-            "match_id": 140047,
-            "startTime": "11:30:00 PM 15-02-2026"
         },
         {
             "event_category": "Football",
@@ -472,6 +460,18 @@
             "event_name": "AFC Champions League Elite 2025-26",
             "match_name": "Seoul vs Sanfrecce Hiroshima",
             "match_id": 136038,
+            "startTime": "03:30:00 PM 17-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Machida Zelvia vs Chengdu Rongcheng (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/24_Machida-Zelvia-vs-Chengdu-Rongcheng_1770636387098.png",
+            "team_1": "Machida Zelvia",
+            "team_2": "Chengdu Rongcheng",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Machida Zelvia vs Chengdu Rongcheng",
+            "match_id": 136037,
             "startTime": "03:30:00 PM 17-02-2026"
         }
     ]
