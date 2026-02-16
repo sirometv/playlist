@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:56:07 AM 16-02-2026",
+    "last update time": "08:06:13 AM 16-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -31,6 +31,18 @@
             "startTime": "05:30:00 AM 16-02-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/134035_english_hls_1afd89d14d64226_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/134035_english_hls_1afd89d14d64226_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Victoria vs Western Australia (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134036_5609_WAU_VCT_fc-Web.jpg",
+            "team_1": "Victoria",
+            "team_2": "Western Australia",
+            "status": "UPCOMING",
+            "event_name": "Sheffield Shield, 2025-26",
+            "match_name": "Victoria vs Western Australia",
+            "match_id": 134036,
+            "startTime": "08:00:00 AM 16-02-2026"
         },
         {
             "event_category": "Football",
@@ -105,30 +117,6 @@
             "startTime": "11:45:00 PM 16-02-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "Western Australia vs Victoria (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134036_5609_WAU_VCT_fc-Web.jpg",
-            "team_1": "Western Australia",
-            "team_2": "Victoria",
-            "status": "UPCOMING",
-            "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "Western Australia vs Victoria",
-            "match_id": 134036,
-            "startTime": "08:00:00 AM 16-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Tasmania vs New South Wales (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134037_5609_TAS_NSW_fc-Web.jpg",
-            "team_1": "Tasmania",
-            "team_2": "New South Wales",
-            "status": "UPCOMING",
-            "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "Tasmania vs New South Wales",
-            "match_id": 134037,
-            "startTime": "09:00:00 AM 16-02-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Girona FC vs FC Barcelona (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131062_5427_GIR_BAR_FC-Web.png",
@@ -151,6 +139,18 @@
             "match_name": "Coventry City Football Club vs Middlesbrough F.C.",
             "match_id": 139356,
             "startTime": "01:30:00 AM 17-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Tasmania vs New South Wales (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134037_5609_TAS_NSW_fc-Web.jpg",
+            "team_1": "Tasmania",
+            "team_2": "New South Wales",
+            "status": "UPCOMING",
+            "event_name": "Sheffield Shield, 2025-26",
+            "match_name": "Tasmania vs New South Wales",
+            "match_id": 134037,
+            "startTime": "09:00:00 AM 16-02-2026"
         },
         {
             "event_category": "Football",
@@ -261,6 +261,18 @@
             "startTime": "12:00:00 AM 17-02-2026"
         },
         {
+            "event_category": "Football",
+            "title": "Sydney FC vs Auckland (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138808_5802_SYD_AFC_1770724351931.png",
+            "team_1": "Sydney FC",
+            "team_2": "Auckland",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Sydney FC vs Auckland",
+            "match_id": 138808,
+            "startTime": "01:30:00 PM 17-02-2026"
+        },
+        {
             "event_category": "Live Events",
             "title": "Day 2 vs Polo Gorund, Delhi University (Apti Cup T20 Tournament)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Apti_cup_web.jpg",
@@ -274,15 +286,27 @@
         },
         {
             "event_category": "Football",
-            "title": "Sydney FC vs Auckland (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/138808_5802_SYD_AFC_1770724351931.png",
-            "team_1": "Sydney FC",
-            "team_2": "Auckland",
+            "title": "Seoul vs Sanfrecce Hiroshima (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/23_Seoul-vs-Sanfrecce-Hiroshima_1770636487538.png",
+            "team_1": "Seoul",
+            "team_2": "Sanfrecce Hiroshima",
             "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Sydney FC vs Auckland",
-            "match_id": 138808,
-            "startTime": "01:30:00 PM 17-02-2026"
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Seoul vs Sanfrecce Hiroshima",
+            "match_id": 136038,
+            "startTime": "03:30:00 PM 17-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Machida Zelvia vs Chengdu Rongcheng (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/24_Machida-Zelvia-vs-Chengdu-Rongcheng_1770636387098.png",
+            "team_1": "Machida Zelvia",
+            "team_2": "Chengdu Rongcheng",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Machida Zelvia vs Chengdu Rongcheng",
+            "match_id": 136037,
+            "startTime": "03:30:00 PM 17-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -319,30 +343,6 @@
             "match_name": "Quadra Guga Kuerten",
             "match_id": 140650,
             "startTime": "12:00:00 AM 17-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Seoul vs Sanfrecce Hiroshima (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/23_Seoul-vs-Sanfrecce-Hiroshima_1770636487538.png",
-            "team_1": "Seoul",
-            "team_2": "Sanfrecce Hiroshima",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Seoul vs Sanfrecce Hiroshima",
-            "match_id": 136038,
-            "startTime": "03:30:00 PM 17-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Machida Zelvia vs Chengdu Rongcheng (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/24_Machida-Zelvia-vs-Chengdu-Rongcheng_1770636387098.png",
-            "team_1": "Machida Zelvia",
-            "team_2": "Chengdu Rongcheng",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Machida Zelvia vs Chengdu Rongcheng",
-            "match_id": 136037,
-            "startTime": "03:30:00 PM 17-02-2026"
         },
         {
             "event_category": "Football",
