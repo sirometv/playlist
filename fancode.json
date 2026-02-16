@@ -1,23 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "12:59:28 PM 16-02-2026",
+    "last update time": "01:58:16 PM 16-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Cricket",
-            "title": "Queensland vs South Australia (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134035_5609_QUN_SAU_fc-Web.jpg",
-            "team_1": "Queensland",
-            "team_2": "South Australia",
-            "status": "LIVE",
-            "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "Queensland vs South Australia",
-            "match_id": 134035,
-            "startTime": "05:30:00 AM 16-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/134035_english_hls_1afd89d14d64226_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/134035_english_hls_1afd89d14d64226_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Cricket",
             "title": "Victoria vs Western Australia (Sheffield Shield, 2025-26)",
@@ -145,6 +131,18 @@
             "startTime": "01:30:00 AM 17-02-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Queensland vs South Australia (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134035_5609_QUN_SAU_fc-Web.jpg",
+            "team_1": "Queensland",
+            "team_2": "South Australia",
+            "status": "PAUSED",
+            "event_name": "Sheffield Shield, 2025-26",
+            "match_name": "Queensland vs South Australia",
+            "match_id": 134035,
+            "startTime": "05:30:00 AM 16-02-2026"
+        },
+        {
             "event_category": "Football",
             "title": "Real Sociedad vs Málaga (LALIGA Hypermotion 2025-26)",
             "src": "https://images.fancode.com/aig/match/v1770347072514/140423_CASACARDS_APP.png",
@@ -155,6 +153,30 @@
             "match_name": "Real Sociedad vs Málaga",
             "match_id": 140423,
             "startTime": "01:00:00 AM 17-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Seoul vs Sanfrecce Hiroshima (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/23_Seoul-vs-Sanfrecce-Hiroshima_1770636487538.png",
+            "team_1": "Seoul",
+            "team_2": "Sanfrecce Hiroshima",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Seoul vs Sanfrecce Hiroshima",
+            "match_id": 136038,
+            "startTime": "03:30:00 PM 17-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Machida Zelvia vs Chengdu Rongcheng (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/24_Machida-Zelvia-vs-Chengdu-Rongcheng_1770636387098.png",
+            "team_1": "Machida Zelvia",
+            "team_2": "Chengdu Rongcheng",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Machida Zelvia vs Chengdu Rongcheng",
+            "match_id": 136037,
+            "startTime": "03:30:00 PM 17-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -179,6 +201,18 @@
             "match_name": "Center Court",
             "match_id": 140645,
             "startTime": "04:00:00 PM 16-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Sydney FC vs Auckland (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138808_5802_SYD_AFC_1770724351931.png",
+            "team_1": "Sydney FC",
+            "team_2": "Auckland",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Sydney FC vs Auckland",
+            "match_id": 138808,
+            "startTime": "01:30:00 PM 17-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -243,7 +277,7 @@
         {
             "event_category": "Tennis",
             "title": "Quadra 1 vs Rio (ATP 500 - Rio Open Presented by Claro 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Default_Tennis-old.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(1)_1771227556428.png",
             "team_1": "Quadra 1",
             "team_2": "Rio",
             "status": "UPCOMING",
@@ -255,7 +289,7 @@
         {
             "event_category": "Tennis",
             "title": "Quadra Guga Kuerten vs Rio (ATP 500 - Rio Open Presented by Claro 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Default_Tennis-old.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(1)_1771227556428.png",
             "team_1": "Quadra Guga Kuerten",
             "team_2": "Rio",
             "status": "UPCOMING",
@@ -265,45 +299,9 @@
             "startTime": "01:00:00 AM 17-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Seoul vs Sanfrecce Hiroshima (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/23_Seoul-vs-Sanfrecce-Hiroshima_1770636487538.png",
-            "team_1": "Seoul",
-            "team_2": "Sanfrecce Hiroshima",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Seoul vs Sanfrecce Hiroshima",
-            "match_id": 136038,
-            "startTime": "03:30:00 PM 17-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Machida Zelvia vs Chengdu Rongcheng (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/24_Machida-Zelvia-vs-Chengdu-Rongcheng_1770636387098.png",
-            "team_1": "Machida Zelvia",
-            "team_2": "Chengdu Rongcheng",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Machida Zelvia vs Chengdu Rongcheng",
-            "match_id": 136037,
-            "startTime": "03:30:00 PM 17-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Sydney FC vs Auckland (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/138808_5802_SYD_AFC_1770724351931.png",
-            "team_1": "Sydney FC",
-            "team_2": "Auckland",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Sydney FC vs Auckland",
-            "match_id": 138808,
-            "startTime": "01:30:00 PM 17-02-2026"
-        },
-        {
             "event_category": "Tennis",
             "title": "Quadra 2 vs Rio (ATP 500 - Rio Open Presented by Claro 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Default_Tennis-old.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(1)_1771227556428.png",
             "team_1": "Quadra 2",
             "team_2": "Rio",
             "status": "UPCOMING",
@@ -311,18 +309,6 @@
             "match_name": "Quadra 2",
             "match_id": 140651,
             "startTime": "02:30:00 AM 17-02-2026"
-        },
-        {
-            "event_category": "Live Events",
-            "title": "Day 2 vs Polo Gorund, Delhi University (Apti Cup T20 Tournament)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Apti_cup_web.jpg",
-            "team_1": "Day 2",
-            "team_2": "Polo Gorund, Delhi University",
-            "status": "UPCOMING",
-            "event_name": "Apti Cup T20 Tournament",
-            "match_name": "Day 2",
-            "match_id": 140600,
-            "startTime": "09:00:00 AM 17-02-2026"
         },
         {
             "event_category": "Football",
@@ -347,6 +333,18 @@
             "match_name": "Buriram United vs Shanghai Shenhua",
             "match_id": 136039,
             "startTime": "05:45:00 PM 17-02-2026"
+        },
+        {
+            "event_category": "Live Events",
+            "title": "Day 2 vs Polo Gorund, Delhi University (Apti Cup T20 Tournament)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Apti_cup_web.jpg",
+            "team_1": "Day 2",
+            "team_2": "Polo Gorund, Delhi University",
+            "status": "UPCOMING",
+            "event_name": "Apti Cup T20 Tournament",
+            "match_name": "Day 2",
+            "match_id": 140600,
+            "startTime": "09:00:00 AM 17-02-2026"
         },
         {
             "event_category": "Tennis",
