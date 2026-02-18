@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "04:41:09 PM 18-02-2026",
+    "last update time": "05:36:16 PM 18-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -31,20 +31,6 @@
             "startTime": "03:30:00 PM 18-02-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/136041_english_hls_2a0f5f45d279567_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/136041_english_hls_2a0f5f45d279567_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Tasmania vs New South Wales (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134037_5609_TAS_NSW_fc-Web.jpg",
-            "team_1": "Tasmania",
-            "team_2": "New South Wales",
-            "status": "LIVE",
-            "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "Tasmania vs New South Wales",
-            "match_id": 134037,
-            "startTime": "09:00:00 AM 16-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/134037_english_hls_26ae0af60c62361_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/134037_english_hls_26ae0af60c62361_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Live Events",
@@ -117,9 +103,47 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140744_english_hls_c20d98980124459_1ta-di_h264/index.m3u8"
         },
         {
+            "event_category": "Tennis",
+            "title": "Grandstand 2 vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
+            "team_1": "Grandstand 2",
+            "team_2": "Doha, Qatar",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
+            "match_name": "Grandstand 2",
+            "match_id": 140746,
+            "startTime": "04:30:00 PM 18-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140746_english_hls_14a98fe61d99629_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140746_english_hls_14a98fe61d99629_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Persib Bandung vs Ratchaburi (AFC Champions League Two 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140062_5648_PER_RAT_FC-Web.jpg",
+            "team_1": "Persib Bandung",
+            "team_2": "Ratchaburi",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Two 2025-26",
+            "match_name": "Persib Bandung vs Ratchaburi",
+            "match_id": 140062,
+            "startTime": "05:45:00 PM 18-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Tampines Rovers FC vs Cong An Ha Noi (AFC Champions League Two 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140063_5648_TAM_CAH_FC-Web.jpg",
+            "team_1": "Tampines Rovers FC",
+            "team_2": "Cong An Ha Noi",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Two 2025-26",
+            "match_name": "Tampines Rovers FC vs Cong An Ha Noi",
+            "match_id": 140063,
+            "startTime": "05:45:00 PM 18-02-2026"
+        },
+        {
             "event_category": "Cricket",
             "title": "Van der Stel Cricket Club vs Maties Cricket Club (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140658_5968_VDCC_MAT_FC-Web.jpg",
             "team_1": "Van der Stel Cricket Club",
             "team_2": "Maties Cricket Club",
             "status": "UPCOMING",
@@ -177,28 +201,16 @@
             "startTime": "08:00:00 AM 16-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Persib Bandung vs Ratchaburi (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140062_5648_PER_RAT_FC-Web.jpg",
-            "team_1": "Persib Bandung",
-            "team_2": "Ratchaburi",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "Persib Bandung vs Ratchaburi",
-            "match_id": 140062,
-            "startTime": "05:45:00 PM 18-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Tampines Rovers FC vs Cong An Ha Noi (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140063_5648_TAM_CAH_FC-Web.jpg",
-            "team_1": "Tampines Rovers FC",
-            "team_2": "Cong An Ha Noi",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "Tampines Rovers FC vs Cong An Ha Noi",
-            "match_id": 140063,
-            "startTime": "05:45:00 PM 18-02-2026"
+            "event_category": "Cricket",
+            "title": "Tasmania vs New South Wales (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134037_5609_TAS_NSW_fc-Web.jpg",
+            "team_1": "Tasmania",
+            "team_2": "New South Wales",
+            "status": "PAUSED",
+            "event_name": "Sheffield Shield, 2025-26",
+            "match_name": "Tasmania vs New South Wales",
+            "match_id": 134037,
+            "startTime": "09:00:00 AM 16-02-2026"
         },
         {
             "event_category": "Football",
@@ -249,18 +261,6 @@
             "startTime": "04:30:00 AM 19-02-2026"
         },
         {
-            "event_category": "Tennis",
-            "title": "Grandstand 2 vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
-            "team_1": "Grandstand 2",
-            "team_2": "Doha, Qatar",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
-            "match_name": "Grandstand 2",
-            "match_id": 140746,
-            "startTime": "04:30:00 PM 18-02-2026"
-        },
-        {
             "event_category": "Football",
             "title": "O&M FC vs FC Cincinnati (CONCACAF Champions Cup 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140381_5954_OMF_CIN_FC-Web.jpg",
@@ -307,6 +307,30 @@
             "match_name": "Gamba Osaka vs Pohang Steelers",
             "match_id": 140067,
             "startTime": "03:30:00 PM 19-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Mumbai City FC vs Chennaiyin FC (ISL 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140437_5956_MCFC_CFC_fc-web_1771412946360.jpg",
+            "team_1": "Mumbai City FC",
+            "team_2": "Chennaiyin FC",
+            "status": "UPCOMING",
+            "event_name": "ISL 2025-26",
+            "match_name": "Mumbai City FC vs Chennaiyin FC",
+            "match_id": 140437,
+            "startTime": "07:30:00 PM 19-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Mumbai City FC vs Chennaiyin FC (ISL 2025-26  - Regional)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "Mumbai City FC",
+            "team_2": "Chennaiyin FC",
+            "status": "UPCOMING",
+            "event_name": "ISL 2025-26  - Regional",
+            "match_name": "Mumbai City FC vs Chennaiyin FC",
+            "match_id": 140752,
+            "startTime": "07:30:00 PM 19-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -369,30 +393,6 @@
             "startTime": "01:00:00 AM 19-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Mumbai City FC vs Chennaiyin FC (ISL 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140437_5956_MCFC_CFC1_fc-web.jpg",
-            "team_1": "Mumbai City FC",
-            "team_2": "Chennaiyin FC",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26",
-            "match_name": "Mumbai City FC vs Chennaiyin FC",
-            "match_id": 140437,
-            "startTime": "07:30:00 PM 19-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Mumbai City FC vs Chennaiyin FC (ISL 2025-26  - Regional)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
-            "team_1": "Mumbai City FC",
-            "team_2": "Chennaiyin FC",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26  - Regional",
-            "match_name": "Mumbai City FC vs Chennaiyin FC",
-            "match_id": 140752,
-            "startTime": "07:30:00 PM 19-02-2026"
-        },
-        {
             "event_category": "Live Events",
             "title": "Day 4 vs Polo Gorund, Delhi University (Apti Cup T20 Tournament)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Apti_cup_web.jpg",
@@ -419,7 +419,7 @@
         {
             "event_category": "Cricket",
             "title": "Maties Cricket Club vs Paarl CC (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140659_5968_MAT_PRC_FC-Web.jpg",
             "team_1": "Maties Cricket Club",
             "team_2": "Paarl CC",
             "status": "UPCOMING",
@@ -427,6 +427,18 @@
             "match_name": "Maties Cricket Club vs Paarl CC",
             "match_id": 140659,
             "startTime": "10:00:00 PM 19-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Juventus Women vs VfL Wolfsburg Women (UEFA Women's Champions League 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1771397827695/140418_CASACARDS_APP.png",
+            "team_1": "Juventus Women",
+            "team_2": "VfL Wolfsburg Women",
+            "status": "UPCOMING",
+            "event_name": "UEFA Women's Champions League 2025-26",
+            "match_name": "Juventus Women vs VfL Wolfsburg Women",
+            "match_id": 140418,
+            "startTime": "11:15:00 PM 19-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -463,18 +475,6 @@
             "match_name": "Center Court",
             "match_id": 140755,
             "startTime": "04:00:00 PM 19-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Juventus Women vs VfL Wolfsburg Women (UEFA Women's Champions League 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1771397827695/140418_CASACARDS_APP.png",
-            "team_1": "Juventus Women",
-            "team_2": "VfL Wolfsburg Women",
-            "status": "UPCOMING",
-            "event_name": "UEFA Women's Champions League 2025-26",
-            "match_name": "Juventus Women vs VfL Wolfsburg Women",
-            "match_id": 140418,
-            "startTime": "11:15:00 PM 19-02-2026"
         }
     ]
 }
