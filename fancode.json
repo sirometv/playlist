@@ -1,22 +1,36 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "03:43:16 PM 18-02-2026",
+    "last update time": "04:41:09 PM 18-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
-            "event_category": "Cricket",
-            "title": "Victoria vs Western Australia (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134036_5609_WAU_VCT_fc-Web.jpg",
-            "team_1": "Victoria",
-            "team_2": "Western Australia",
+            "event_category": "Football",
+            "title": "Melbourne City vs Gangwon (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/29_Melbourne-City-vs-Gangwon_1770636939459.png",
+            "team_1": "Melbourne City",
+            "team_2": "Gangwon",
             "status": "LIVE",
-            "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "Victoria vs Western Australia",
-            "match_id": 134036,
-            "startTime": "08:00:00 AM 16-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/134036_english_hls_ab6f47f920741_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/134036_english_hls_ab6f47f920741_1ta-di_h264/index.m3u8"
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Melbourne City vs Gangwon",
+            "match_id": 136042,
+            "startTime": "03:30:00 PM 18-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/136042_english_hls_85c9cd791911695_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/136042_english_hls_85c9cd791911695_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Shanghai Port vs Ulsan HD (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/30_Shanghai-Port-vs-Ulsan-HD_1770636853402.png",
+            "team_1": "Shanghai Port",
+            "team_2": "Ulsan HD",
+            "status": "LIVE",
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Shanghai Port vs Ulsan HD",
+            "match_id": 136041,
+            "startTime": "03:30:00 PM 18-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/136041_english_hls_2a0f5f45d279567_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/136041_english_hls_2a0f5f45d279567_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -61,28 +75,46 @@
             "adfree_url": "https://bddia-mpv2.fancode.com/out/v1/ap-south-1/139561_english_571505/ad-h264/index.m3u8"
         },
         {
-            "event_category": "Football",
-            "title": "Melbourne City vs Gangwon (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/29_Melbourne-City-vs-Gangwon_1770636939459.png",
-            "team_1": "Melbourne City",
-            "team_2": "Gangwon",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Melbourne City vs Gangwon",
-            "match_id": 136042,
-            "startTime": "03:30:00 PM 18-02-2026"
+            "event_category": "Tennis",
+            "title": "World Feed vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
+            "team_1": "World Feed",
+            "team_2": "Doha, Qatar",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
+            "match_name": "World Feed",
+            "match_id": 140210,
+            "startTime": "04:00:00 PM 18-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140210_english_hls_9121eccdb618683_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140210_english_hls_9121eccdb618683_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Football",
-            "title": "Shanghai Port vs Ulsan HD (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/30_Shanghai-Port-vs-Ulsan-HD_1770636853402.png",
-            "team_1": "Shanghai Port",
-            "team_2": "Ulsan HD",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Shanghai Port vs Ulsan HD",
-            "match_id": 136041,
-            "startTime": "03:30:00 PM 18-02-2026"
+            "event_category": "Tennis",
+            "title": "Centre Court vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
+            "team_1": "Centre Court",
+            "team_2": "Doha, Qatar",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
+            "match_name": "Centre Court",
+            "match_id": 140745,
+            "startTime": "04:00:00 PM 18-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140745_english_hls_ebf6c65e0675571_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140745_english_hls_ebf6c65e0675571_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Grandstand 1 vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
+            "team_1": "Grandstand 1",
+            "team_2": "Doha, Qatar",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
+            "match_name": "Grandstand 1",
+            "match_id": 140744,
+            "startTime": "04:00:00 PM 18-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140744_english_hls_c20d98980124459_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140744_english_hls_c20d98980124459_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -131,6 +163,18 @@
             "match_name": "Arsenal Women vs Oud-Heverlee Leuven Women",
             "match_id": 140417,
             "startTime": "01:30:00 AM 19-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Victoria vs Western Australia (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134036_5609_WAU_VCT_fc-Web.jpg",
+            "team_1": "Victoria",
+            "team_2": "Western Australia",
+            "status": "PAUSED",
+            "event_name": "Sheffield Shield, 2025-26",
+            "match_name": "Victoria vs Western Australia",
+            "match_id": 134036,
+            "startTime": "08:00:00 AM 16-02-2026"
         },
         {
             "event_category": "Football",
@@ -206,39 +250,15 @@
         },
         {
             "event_category": "Tennis",
-            "title": "World Feed vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
+            "title": "Grandstand 2 vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
-            "team_1": "World Feed",
+            "team_1": "Grandstand 2",
             "team_2": "Doha, Qatar",
             "status": "UPCOMING",
             "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
-            "match_name": "World Feed",
-            "match_id": 140210,
-            "startTime": "04:00:00 PM 18-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Centre Court vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
-            "team_1": "Centre Court",
-            "team_2": "Doha, Qatar",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
-            "match_name": "Centre Court",
-            "match_id": 140745,
-            "startTime": "04:00:00 PM 18-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Grandstand 1 vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
-            "team_1": "Grandstand 1",
-            "team_2": "Doha, Qatar",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
-            "match_name": "Grandstand 1",
-            "match_id": 140744,
-            "startTime": "04:00:00 PM 18-02-2026"
+            "match_name": "Grandstand 2",
+            "match_id": 140746,
+            "startTime": "04:30:00 PM 18-02-2026"
         },
         {
             "event_category": "Football",
@@ -277,16 +297,16 @@
             "startTime": "01:15:00 PM 19-02-2026"
         },
         {
-            "event_category": "Tennis",
-            "title": "Grandstand 2 vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
-            "team_1": "Grandstand 2",
-            "team_2": "Doha, Qatar",
+            "event_category": "Football",
+            "title": "Gamba Osaka vs Pohang Steelers (AFC Champions League Two 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140067_5648_OSK_PHG_FC-Web.jpg",
+            "team_1": "Gamba Osaka",
+            "team_2": "Pohang Steelers",
             "status": "UPCOMING",
-            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
-            "match_name": "Grandstand 2",
-            "match_id": 140746,
-            "startTime": "04:30:00 PM 18-02-2026"
+            "event_name": "AFC Champions League Two 2025-26",
+            "match_name": "Gamba Osaka vs Pohang Steelers",
+            "match_id": 140067,
+            "startTime": "03:30:00 PM 19-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -299,18 +319,6 @@
             "match_name": "Court A Feed",
             "match_id": 140297,
             "startTime": "09:30:00 PM 18-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Gamba Osaka vs Pohang Steelers (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140067_5648_OSK_PHG_FC-Web.jpg",
-            "team_1": "Gamba Osaka",
-            "team_2": "Pohang Steelers",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Two 2025-26",
-            "match_name": "Gamba Osaka vs Pohang Steelers",
-            "match_id": 140067,
-            "startTime": "03:30:00 PM 19-02-2026"
         },
         {
             "event_category": "Tennis",
