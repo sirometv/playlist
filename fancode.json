@@ -1,51 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "03:29:13 AM 20-02-2026",
+    "last update time": "04:41:39 AM 20-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Football",
-            "title": "Manchester United Women vs Atletico de Madrid Femenino (UEFA Women's Champions League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140419_5720_MUN-W_ATL-W_fc-web.jpg",
-            "team_1": "Manchester United Women",
-            "team_2": "Atletico de Madrid Femenino",
-            "status": "LIVE",
-            "event_name": "UEFA Women's Champions League 2025-26",
-            "match_name": "Manchester United Women vs Atletico de Madrid Femenino",
-            "match_id": 140419,
-            "startTime": "01:30:00 AM 20-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140419_english_hls_bcf4961cb435378_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140419_english_hls_bcf4961cb435378_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "World Feed vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP_Qatar_web-(1).jpg",
-            "team_1": "World Feed",
-            "team_2": "Doha, Qatar",
-            "status": "LIVE",
-            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
-            "match_name": "World Feed",
-            "match_id": 140211,
-            "startTime": "05:30:00 PM 19-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140211_english_hls_e1ffbe35933090_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140211_english_hls_e1ffbe35933090_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Center Court vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771348773886.jpg",
-            "team_1": "Center Court",
-            "team_2": "Doha, Qatar",
-            "status": "LIVE",
-            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
-            "match_name": "Center Court",
-            "match_id": 140755,
-            "startTime": "05:30:00 PM 19-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140755_english_hls_66f4c33efc95962_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140755_english_hls_66f4c33efc95962_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Golf",
             "title": "Main Feed - Day 1 vs The Riviera Country Club (The Genesis Invitational 2026)",
@@ -365,6 +323,18 @@
             "startTime": "09:30:00 PM 20-02-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Tasmania vs New South Wales (One Day Cup, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Tasmania-vs-New-South-Wales_fc-web.jpg",
+            "team_1": "Tasmania",
+            "team_2": "New South Wales",
+            "status": "UPCOMING",
+            "event_name": "One Day Cup, 2025-26",
+            "match_name": "Tasmania vs New South Wales",
+            "match_id": 133947,
+            "startTime": "08:30:00 AM 21-02-2026"
+        },
+        {
             "event_category": "Tennis",
             "title": "World Feed vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
@@ -399,18 +369,6 @@
             "match_name": "Marquee Group - Day 2",
             "match_id": 140570,
             "startTime": "10:30:00 PM 20-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Tasmania vs New South Wales (One Day Cup, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Tasmania-vs-New-South-Wales_fc-web.jpg",
-            "team_1": "Tasmania",
-            "team_2": "New South Wales",
-            "status": "UPCOMING",
-            "event_name": "One Day Cup, 2025-26",
-            "match_name": "Tasmania vs New South Wales",
-            "match_id": 133947,
-            "startTime": "08:30:00 AM 21-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -483,6 +441,42 @@
             "match_name": "Western Australia vs Victoria",
             "match_id": 133948,
             "startTime": "11:30:00 AM 21-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Paarl East Cricket Club vs Paarl CC (Boland T20 Super League Finals 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140678_5968_PECC_PRC_FC-Web.jpg",
+            "team_1": "Paarl East Cricket Club",
+            "team_2": "Paarl CC",
+            "status": "UPCOMING",
+            "event_name": "Boland T20 Super League Finals 2026",
+            "match_name": "Paarl East Cricket Club vs Paarl CC",
+            "match_id": 140678,
+            "startTime": "12:30:00 PM 21-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Sydney FC vs Brisbane Roar (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/139414_5802_SYD_BRB_1770723002209.png",
+            "team_1": "Sydney FC",
+            "team_2": "Brisbane Roar",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Sydney FC vs Brisbane Roar",
+            "match_id": 139414,
+            "startTime": "11:30:00 AM 21-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Melbourne City vs Melbourne Victory (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/139415_5802_MLC_MLV_1770723177598.png",
+            "team_1": "Melbourne City",
+            "team_2": "Melbourne Victory",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Melbourne City vs Melbourne Victory",
+            "match_id": 139415,
+            "startTime": "02:05:00 PM 21-02-2026"
         }
     ]
 }
