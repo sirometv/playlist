@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "04:59:28 AM 21-02-2026",
+    "last update time": "05:36:08 AM 21-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -348,18 +348,6 @@
         },
         {
             "event_category": "Football",
-            "title": "East Bengal FC vs Sporting Club Delhi (ISL 2025-26  - Regional)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
-            "team_1": "East Bengal FC",
-            "team_2": "Sporting Club Delhi",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26  - Regional",
-            "match_name": "East Bengal FC vs Sporting Club Delhi",
-            "match_id": 140886,
-            "startTime": "05:00:00 PM 21-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Atletico de Madrid vs RCD Espanyol (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131076_5427_ATL_ESL_FC-Web.png",
             "team_1": "Atletico de Madrid",
@@ -369,6 +357,18 @@
             "match_name": "Atletico de Madrid vs RCD Espanyol",
             "match_id": 131076,
             "startTime": "01:30:00 AM 22-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "East Bengal FC vs Sporting Club Delhi (ISL 2025-26  - Regional)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "East Bengal FC",
+            "team_2": "Sporting Club Delhi",
+            "status": "UPCOMING",
+            "event_name": "ISL 2025-26  - Regional",
+            "match_name": "East Bengal FC vs Sporting Club Delhi",
+            "match_id": 140886,
+            "startTime": "05:00:00 PM 21-02-2026"
         },
         {
             "event_category": "Football",
