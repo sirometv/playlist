@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "09:02:28 PM 20-02-2026",
+    "last update time": "09:55:26 PM 20-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -17,20 +17,6 @@
             "startTime": "07:00:00 PM 20-02-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140138_english_hls_74b6af168927832_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140138_english_hls_74b6af168927832_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Paarl CC vs Van der Stel Cricket Club (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140660_5968_PRC_VDCC_FC-Web.jpg",
-            "team_1": "Paarl CC",
-            "team_2": "Van der Stel Cricket Club",
-            "status": "LIVE",
-            "event_name": "Boland T20 Super League Finals 2026",
-            "match_name": "Paarl CC vs Van der Stel Cricket Club",
-            "match_id": 140660,
-            "startTime": "05:30:00 PM 20-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140660_english_hls_e500227d8f13427_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140660_english_hls_e500227d8f13427_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Football",
@@ -129,6 +115,34 @@
             "startTime": "08:30:00 PM 20-02-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140569_english_hls_2201b7773938313_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140569_english_hls_2201b7773938313_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "World Feed vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP_Qatar_Alcaraz_Rublev_web.jpg",
+            "team_1": "World Feed",
+            "team_2": "Doha, Qatar",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
+            "match_name": "World Feed",
+            "match_id": 140212,
+            "startTime": "09:30:00 PM 20-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140212_english_hls_341b6aef4a2950_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140212_english_hls_341b6aef4a2950_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Center Court vs Delray Beach, United States (ATP 250 - Delray Beach Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Delray-Beach-Open-2026--old-card.png",
+            "team_1": "Center Court",
+            "team_2": "Delray Beach, United States",
+            "status": "LIVE",
+            "event_name": "ATP 250 - Delray Beach Open 2026",
+            "match_name": "Center Court",
+            "match_id": 140299,
+            "startTime": "09:30:00 PM 20-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140299_english_hls_add56807e482715_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140299_english_hls_add56807e482715_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -240,18 +254,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Wellington Phoenix vs Auckland (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/139413_5802_WEL_AFC_1770722675928.png",
-            "team_1": "Wellington Phoenix",
-            "team_2": "Auckland",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Wellington Phoenix vs Auckland",
-            "match_id": 139413,
-            "startTime": "09:30:00 AM 21-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "East Bengal FC vs Sporting Club Delhi (ISL 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140439_5956_EBFC_SCD_fc-web_1771412947600.jpg",
             "team_1": "East Bengal FC",
@@ -261,30 +263,6 @@
             "match_name": "East Bengal FC vs Sporting Club Delhi",
             "match_id": 140439,
             "startTime": "05:00:00 PM 21-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "World Feed vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Qatar-ExxonMobil-Open,ATP-500-Revised-old-match-card-_1771298305039.jpg",
-            "team_1": "World Feed",
-            "team_2": "Doha, Qatar",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
-            "match_name": "World Feed",
-            "match_id": 140212,
-            "startTime": "09:30:00 PM 20-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Center Court vs Delray Beach, United States (ATP 250 - Delray Beach Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Delray-Beach-Open-2026--old-card.png",
-            "team_1": "Center Court",
-            "team_2": "Delray Beach, United States",
-            "status": "UPCOMING",
-            "event_name": "ATP 250 - Delray Beach Open 2026",
-            "match_name": "Center Court",
-            "match_id": 140299,
-            "startTime": "09:30:00 PM 20-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -297,6 +275,18 @@
             "match_name": "Van der Stel Cricket Club vs Vredenburg/Saldanha CC",
             "match_id": 140679,
             "startTime": "05:30:00 PM 21-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Wellington Phoenix vs Auckland (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/139413_5802_WEL_AFC_1770722675928.png",
+            "team_1": "Wellington Phoenix",
+            "team_2": "Auckland",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Wellington Phoenix vs Auckland",
+            "match_id": 139413,
+            "startTime": "09:30:00 AM 21-02-2026"
         },
         {
             "event_category": "Football",
@@ -372,18 +362,6 @@
         },
         {
             "event_category": "Football",
-            "title": "East Bengal FC vs Sporting Club Delhi (ISL 2025-26  - Regional)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
-            "team_1": "East Bengal FC",
-            "team_2": "Sporting Club Delhi",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26  - Regional",
-            "match_name": "East Bengal FC vs Sporting Club Delhi",
-            "match_id": 140886,
-            "startTime": "05:00:00 PM 21-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Real Betis vs Rayo Vallecano (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131078_5427_RB_RVL_FC-Web.png",
             "team_1": "Real Betis",
@@ -393,6 +371,18 @@
             "match_name": "Real Betis vs Rayo Vallecano",
             "match_id": 131078,
             "startTime": "08:45:00 PM 21-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "East Bengal FC vs Sporting Club Delhi (ISL 2025-26  - Regional)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "East Bengal FC",
+            "team_2": "Sporting Club Delhi",
+            "status": "UPCOMING",
+            "event_name": "ISL 2025-26  - Regional",
+            "match_name": "East Bengal FC vs Sporting Club Delhi",
+            "match_id": 140886,
+            "startTime": "05:00:00 PM 21-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -477,6 +467,18 @@
             "match_name": "World Feed - Day 2",
             "match_id": 140069,
             "startTime": "02:30:00 AM 21-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Al-Nassr FC vs Al-Hazem FC (Roshn Saudi League 2025-2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140699_5655_ANF_HAZ_fc-web_1771482156495.jpg",
+            "team_1": "Al-Nassr FC",
+            "team_2": "Al-Hazem FC",
+            "status": "UPCOMING",
+            "event_name": "Roshn Saudi League 2025-2026",
+            "match_name": "Al-Nassr FC vs Al-Hazem FC",
+            "match_id": 140699,
+            "startTime": "12:30:00 AM 22-02-2026"
         }
     ]
 }
