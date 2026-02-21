@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "11:33:29 PM 21-02-2026",
+    "last update time": "11:54:30 PM 21-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -31,20 +31,6 @@
             "startTime": "11:00:00 PM 21-02-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/131071_english_hls_3e04b7ad7d46925_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/131071_english_hls_3e04b7ad7d46925_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Deportivo La Coruna vs Eibar (LALIGA Hypermotion 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1770347072522/140425_CASACARDS_APP.png",
-            "team_1": "Deportivo La Coruna",
-            "team_2": "Eibar",
-            "status": "LIVE",
-            "event_name": "LALIGA Hypermotion 2025-26",
-            "match_name": "Deportivo La Coruna vs Eibar",
-            "match_id": 140425,
-            "startTime": "08:45:00 PM 21-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140425_english_hls_aee8c684b835426_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140425_english_hls_aee8c684b835426_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Golf",
@@ -103,6 +89,48 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140761_english_hls_999778d0cb24394_1ta-di_h264/index.m3u8"
         },
         {
+            "event_category": "Golf",
+            "title": "World Feed - Day 3 vs The Riviera Country Club (The Genesis Invitational 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1770825129935.png",
+            "team_1": "World Feed - Day 3",
+            "team_2": "The Riviera Country Club",
+            "status": "LIVE",
+            "event_name": "The Genesis Invitational 2026",
+            "match_name": "World Feed - Day 3",
+            "match_id": 140070,
+            "startTime": "11:30:00 PM 21-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140070_english_hls_2117e08aee82740_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140070_english_hls_2117e08aee82740_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "World Feed vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP_Qatar_Alcaraz_Fils_web.jpg",
+            "team_1": "World Feed",
+            "team_2": "Doha, Qatar",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
+            "match_name": "World Feed",
+            "match_id": 140213,
+            "startTime": "11:30:00 PM 21-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140213_english_hls_2d30ef323549757_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140213_english_hls_2d30ef323549757_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Center Court vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP_Qatar_Alcaraz_Fils_web.jpg",
+            "team_1": "Center Court",
+            "team_2": "Doha, Qatar",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
+            "match_name": "Center Court",
+            "match_id": 140758,
+            "startTime": "11:30:00 PM 21-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140758_english_hls_db7b42d9e81423_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140758_english_hls_db7b42d9e81423_1ta-di_h264/index.m3u8"
+        },
+        {
             "event_category": "Football",
             "title": "Real Betis vs Rayo Vallecano (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131078_5427_RB_RVL_FC-Web.png",
@@ -141,6 +169,18 @@
             "startTime": "04:30:00 AM 22-02-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Diasqua Little Sai Wan Cricket Club Women vs Hong Kong Cricket Club Women (Women's Premier League T20 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/WPL_web_2.jpg",
+            "team_1": "Diasqua Little Sai Wan Cricket Club Women",
+            "team_2": "Hong Kong Cricket Club Women",
+            "status": "UPCOMING",
+            "event_name": "Women's Premier League T20 2026",
+            "match_name": "Diasqua Little Sai Wan Cricket Club Women vs Hong Kong Cricket Club Women",
+            "match_id": 140610,
+            "startTime": "07:00:00 AM 22-02-2026"
+        },
+        {
             "event_category": "Football",
             "title": "Al-Nassr FC vs Al-Hazem FC (Roshn Saudi League 2025-2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140699_5655_ANF_HAZ_fc-web_1771482156495.jpg",
@@ -163,18 +203,6 @@
             "match_name": "Al Hilal SFC vs Al-Ittihad",
             "match_id": 140698,
             "startTime": "12:30:00 AM 22-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Diasqua Little Sai Wan Cricket Club Women vs Hong Kong Cricket Club Women (Women's Premier League T20 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/WPL_web_2.jpg",
-            "team_1": "Diasqua Little Sai Wan Cricket Club Women",
-            "team_2": "Hong Kong Cricket Club Women",
-            "status": "UPCOMING",
-            "event_name": "Women's Premier League T20 2026",
-            "match_name": "Diasqua Little Sai Wan Cricket Club Women vs Hong Kong Cricket Club Women",
-            "match_id": 140610,
-            "startTime": "07:00:00 AM 22-02-2026"
         },
         {
             "event_category": "Football",
@@ -310,18 +338,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Newcastle Jets vs Macarthur (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/139417_5802_NJ_MAC_1770723667196.png",
-            "team_1": "Newcastle Jets",
-            "team_2": "Macarthur",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Newcastle Jets vs Macarthur",
-            "match_id": 139417,
-            "startTime": "12:30:00 PM 22-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Kerala Blasters FC vs Mumbai City FC (ISL 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140442_5956_KBFC_MCFC_fc-web_1771412946418.jpg",
             "team_1": "Kerala Blasters FC",
@@ -345,40 +361,16 @@
             "startTime": "07:30:00 PM 22-02-2026"
         },
         {
-            "event_category": "Golf",
-            "title": "World Feed - Day 3 vs The Riviera Country Club (The Genesis Invitational 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1770825129935.png",
-            "team_1": "World Feed - Day 3",
-            "team_2": "The Riviera Country Club",
+            "event_category": "Football",
+            "title": "Newcastle Jets vs Macarthur (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/139417_5802_NJ_MAC_1770723667196.png",
+            "team_1": "Newcastle Jets",
+            "team_2": "Macarthur",
             "status": "UPCOMING",
-            "event_name": "The Genesis Invitational 2026",
-            "match_name": "World Feed - Day 3",
-            "match_id": 140070,
-            "startTime": "11:30:00 PM 21-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "World Feed vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP_Qatar_Alcaraz_Fils_web.jpg",
-            "team_1": "World Feed",
-            "team_2": "Doha, Qatar",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
-            "match_name": "World Feed",
-            "match_id": 140213,
-            "startTime": "11:30:00 PM 21-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Center Court vs Doha, Qatar (ATP 500 - Qatar ExxonMobil Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP_Qatar_Alcaraz_Fils_web.jpg",
-            "team_1": "Center Court",
-            "team_2": "Doha, Qatar",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Qatar ExxonMobil Open 2026",
-            "match_name": "Center Court",
-            "match_id": 140758,
-            "startTime": "11:30:00 PM 21-02-2026"
+            "event_name": "A League 2025-26",
+            "match_name": "Newcastle Jets vs Macarthur",
+            "match_id": 139417,
+            "startTime": "12:30:00 PM 22-02-2026"
         },
         {
             "event_category": "Football",
@@ -415,6 +407,18 @@
             "match_name": "RC Celta vs RCD Mallorca",
             "match_id": 131079,
             "startTime": "11:00:00 PM 22-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Quadra 1 vs Rio de Janeiro, Brazil (ATP 500 - Rio Open Presented by Claro 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(6).png",
+            "team_1": "Quadra 1",
+            "team_2": "Rio de Janeiro, Brazil",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - Rio Open Presented by Claro 2026",
+            "match_name": "Quadra 1",
+            "match_id": 140890,
+            "startTime": "12:00:00 AM 22-02-2026"
         },
         {
             "event_category": "Football",
