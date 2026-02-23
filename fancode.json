@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:55:32 PM 23-02-2026",
+    "last update time": "06:59:33 PM 23-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -107,18 +107,6 @@
             "startTime": "12:30:00 AM 24-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Deportivo Alaves vs Girona FC (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/131074_5427_ALA_GIR_FC-Web.png",
-            "team_1": "Deportivo Alaves",
-            "team_2": "Girona FC",
-            "status": "UPCOMING",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "Deportivo Alaves vs Girona FC",
-            "match_id": 131074,
-            "startTime": "01:30:00 AM 24-02-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "ACT Meteors vs South Australian Scorpions (Women's National Cricket League, 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Women's-National-Cricket-League_old_v3_1758034980120.jpg",
@@ -129,6 +117,18 @@
             "match_name": "ACT Meteors vs South Australian Scorpions",
             "match_id": 133985,
             "startTime": "04:30:00 AM 24-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Deportivo Alaves vs Girona FC (LALIGA 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/131074_5427_ALA_GIR_FC-Web.png",
+            "team_1": "Deportivo Alaves",
+            "team_2": "Girona FC",
+            "status": "UPCOMING",
+            "event_name": "LALIGA 2025-26",
+            "match_name": "Deportivo Alaves vs Girona FC",
+            "match_id": 131074,
+            "startTime": "01:30:00 AM 24-02-2026"
         },
         {
             "event_category": "Football",
@@ -165,6 +165,18 @@
             "match_name": "Odisha FC vs Inter Kashi FC",
             "match_id": 140444,
             "startTime": "07:30:00 PM 24-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
+            "team_1": "England Lions",
+            "team_2": "Pakistan Shaheens",
+            "status": "UPCOMING",
+            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
+            "match_name": "England Lions vs Pakistan Shaheens",
+            "match_id": 140663,
+            "startTime": "09:00:00 PM 24-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -249,18 +261,6 @@
             "match_name": "Los Angeles vs Atlanta",
             "match_id": 139172,
             "startTime": "07:30:00 AM 24-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
-            "team_1": "England Lions",
-            "team_2": "Pakistan Shaheens",
-            "status": "UPCOMING",
-            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
-            "match_name": "England Lions vs Pakistan Shaheens",
-            "match_id": 140663,
-            "startTime": "09:00:00 PM 24-02-2026"
         },
         {
             "event_category": "Cricket",
