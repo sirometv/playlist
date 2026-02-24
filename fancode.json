@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "04:54:41 AM 25-02-2026",
+    "last update time": "05:28:18 AM 25-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -141,18 +141,6 @@
             "startTime": "12:30:00 AM 26-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Stoke City F.C. vs Oxford United (EFL Championship 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
-            "team_1": "Stoke City F.C.",
-            "team_2": "Oxford United",
-            "status": "UPCOMING",
-            "event_name": "EFL Championship 2025-26",
-            "match_name": "Stoke City F.C. vs Oxford United",
-            "match_id": 140127,
-            "startTime": "01:30:00 AM 26-02-2026"
-        },
-        {
             "event_category": "Tennis",
             "title": "Grandstand vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
@@ -201,6 +189,30 @@
             "startTime": "05:30:00 AM 25-02-2026"
         },
         {
+            "event_category": "Football",
+            "title": "Stoke City F.C. vs Oxford United (EFL Championship 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "Stoke City F.C.",
+            "team_2": "Oxford United",
+            "status": "UPCOMING",
+            "event_name": "EFL Championship 2025-26",
+            "match_name": "Stoke City F.C. vs Oxford United",
+            "match_id": 140127,
+            "startTime": "01:30:00 AM 26-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Thailand vs Bhutan (Thailand Open Men's T20I Series 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140671_5970_TL_BHU_fc-web.jpg",
+            "team_1": "Thailand",
+            "team_2": "Bhutan",
+            "status": "UPCOMING",
+            "event_name": "Thailand Open Men's T20I Series 2026",
+            "match_name": "Thailand vs Bhutan",
+            "match_id": 140671,
+            "startTime": "07:30:00 AM 26-02-2026"
+        },
+        {
             "event_category": "Tennis",
             "title": "Cancha 2 vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
@@ -223,6 +235,18 @@
             "match_name": "Boston vs New York",
             "match_id": 139174,
             "startTime": "07:30:00 AM 25-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "FC Cincinnati vs O&M FC (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140386_5954_CIN_OMF_FC-Web.jpg",
+            "team_1": "FC Cincinnati",
+            "team_2": "O&M FC",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "FC Cincinnati vs O&M FC",
+            "match_id": 140386,
+            "startTime": "05:30:00 AM 26-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -271,30 +295,6 @@
             "match_name": "Court 2",
             "match_id": 140897,
             "startTime": "03:30:00 PM 25-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Thailand vs Bhutan (Thailand Open Men's T20I Series 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140671_5970_TL_BHU_fc-web.jpg",
-            "team_1": "Thailand",
-            "team_2": "Bhutan",
-            "status": "UPCOMING",
-            "event_name": "Thailand Open Men's T20I Series 2026",
-            "match_name": "Thailand vs Bhutan",
-            "match_id": 140671,
-            "startTime": "07:30:00 AM 26-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "FC Cincinnati vs O&M FC (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140386_5954_CIN_OMF_FC-Web.jpg",
-            "team_1": "FC Cincinnati",
-            "team_2": "O&M FC",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "FC Cincinnati vs O&M FC",
-            "match_id": 140386,
-            "startTime": "05:30:00 AM 26-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -450,6 +450,18 @@
             "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
             "match_name": "World Feed",
             "match_id": 140901,
+            "startTime": "03:30:00 PM 26-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Centre Court vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
+            "team_1": "Centre Court",
+            "team_2": "Dubai, United Arab Emirates",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
+            "match_name": "Centre Court",
+            "match_id": 140900,
             "startTime": "03:30:00 PM 26-02-2026"
         }
     ]
