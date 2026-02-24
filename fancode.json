@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:57:38 AM 24-02-2026",
+    "last update time": "08:29:30 AM 24-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -31,20 +31,6 @@
             "startTime": "09:30:00 PM 23-02-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140357_english_hls_a30faa2f5741221_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140357_english_hls_a30faa2f5741221_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Atlanta vs Boston vs Florida (TGL Season 2)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
-            "team_1": "Atlanta vs Boston",
-            "team_2": "Florida",
-            "status": "LIVE",
-            "event_name": "TGL Season 2",
-            "match_name": "Atlanta vs Boston",
-            "match_id": 139171,
-            "startTime": "03:30:00 AM 24-02-2026",
-            "dai_url": "https://dai.google.com/linear/hls/event/_3HhISPTSDSqb6-bFrOuOA/master.m3u8",
-            "adfree_url": null
         },
         {
             "event_category": "Tennis",
@@ -103,16 +89,18 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140829_english_hls_ce63c6a72971170_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Football",
-            "title": "Odisha FC vs Inter Kashi FC (ISL 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140444_5956_ODS_IK_fc-web_1771412946494.jpg",
-            "team_1": "Odisha FC",
-            "team_2": "Inter Kashi FC",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26",
-            "match_name": "Odisha FC vs Inter Kashi FC",
-            "match_id": 140444,
-            "startTime": "07:30:00 PM 24-02-2026"
+            "event_category": "Golf",
+            "title": "Los Angeles vs Atlanta vs Florida (TGL Season 2)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
+            "team_1": "Los Angeles vs Atlanta",
+            "team_2": "Florida",
+            "status": "LIVE",
+            "event_name": "TGL Season 2",
+            "match_name": "Los Angeles vs Atlanta",
+            "match_id": 139172,
+            "startTime": "07:30:00 AM 24-02-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/PD_kQtRkRUCp0LbN_J5FxA/master.m3u8",
+            "adfree_url": null
         },
         {
             "event_category": "Cricket",
@@ -125,6 +113,18 @@
             "match_name": "England Lions vs Pakistan Shaheens",
             "match_id": 140663,
             "startTime": "09:00:00 PM 24-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Odisha FC vs Inter Kashi FC (ISL 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140444_5956_ODS_IK_fc-web_1771412946494.jpg",
+            "team_1": "Odisha FC",
+            "team_2": "Inter Kashi FC",
+            "status": "UPCOMING",
+            "event_name": "ISL 2025-26",
+            "match_name": "Odisha FC vs Inter Kashi FC",
+            "match_id": 140444,
+            "startTime": "07:30:00 PM 24-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -175,16 +175,40 @@
             "startTime": "07:30:00 AM 25-02-2026"
         },
         {
-            "event_category": "Golf",
-            "title": "Los Angeles vs Atlanta vs Florida (TGL Season 2)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
-            "team_1": "Los Angeles vs Atlanta",
-            "team_2": "Florida",
+            "event_category": "Cricket",
+            "title": "New Zealand Women vs Zimbabwe Women (Zimbabwe Women tour of New Zealand, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
+            "team_1": "New Zealand Women",
+            "team_2": "Zimbabwe Women",
             "status": "UPCOMING",
-            "event_name": "TGL Season 2",
-            "match_name": "Los Angeles vs Atlanta",
-            "match_id": 139172,
-            "startTime": "07:30:00 AM 24-02-2026"
+            "event_name": "Zimbabwe Women tour of New Zealand, 2026",
+            "match_name": "New Zealand Women vs Zimbabwe Women",
+            "match_id": 140593,
+            "startTime": "11:45:00 AM 25-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Nashville SC vs Athletics Ottawa (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140384_5954_NSH_ATO_FC-Web.jpg",
+            "team_1": "Nashville SC",
+            "team_2": "Athletics Ottawa",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Nashville SC vs Athletics Ottawa",
+            "match_id": 140384,
+            "startTime": "06:30:00 AM 25-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Hong Kong, China vs Kuwait (Men's T20I Series 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
+            "team_1": "Hong Kong, China",
+            "team_2": "Kuwait",
+            "status": "UPCOMING",
+            "event_name": "Men's T20I Series 2026",
+            "match_name": "Hong Kong, China vs Kuwait",
+            "match_id": 140879,
+            "startTime": "10:45:00 AM 25-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -248,27 +272,15 @@
         },
         {
             "event_category": "Football",
-            "title": "Nashville SC vs Athletics Ottawa (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140384_5954_NSH_ATO_FC-Web.jpg",
-            "team_1": "Nashville SC",
-            "team_2": "Athletics Ottawa",
+            "title": "Los Angeles Football Club vs Real España (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140385_5954_LAF_RE_FC-Web.jpg",
+            "team_1": "Los Angeles Football Club",
+            "team_2": "Real España",
             "status": "UPCOMING",
             "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Nashville SC vs Athletics Ottawa",
-            "match_id": 140384,
-            "startTime": "06:30:00 AM 25-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "New Zealand Women vs Zimbabwe Women (Zimbabwe Women tour of New Zealand, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
-            "team_1": "New Zealand Women",
-            "team_2": "Zimbabwe Women",
-            "status": "UPCOMING",
-            "event_name": "Zimbabwe Women tour of New Zealand, 2026",
-            "match_name": "New Zealand Women vs Zimbabwe Women",
-            "match_id": 140593,
-            "startTime": "11:45:00 AM 25-02-2026"
+            "match_name": "Los Angeles Football Club vs Real España",
+            "match_id": 140385,
+            "startTime": "08:30:00 AM 25-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -283,28 +295,16 @@
             "startTime": "09:30:00 PM 24-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Los Angeles Football Club vs Real España (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140385_5954_LAF_RE_FC-Web.jpg",
-            "team_1": "Los Angeles Football Club",
-            "team_2": "Real España",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Los Angeles Football Club vs Real España",
-            "match_id": 140385,
-            "startTime": "08:30:00 AM 25-02-2026"
-        },
-        {
             "event_category": "Cricket",
-            "title": "Hong Kong, China vs Kuwait (Men's T20I Series 2026)",
+            "title": "Bhutan vs Bahrain (Thailand Open Men's T20I Series 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
-            "team_1": "Hong Kong, China",
-            "team_2": "Kuwait",
+            "team_1": "Bhutan",
+            "team_2": "Bahrain",
             "status": "UPCOMING",
-            "event_name": "Men's T20I Series 2026",
-            "match_name": "Hong Kong, China vs Kuwait",
-            "match_id": 140879,
-            "startTime": "10:45:00 AM 25-02-2026"
+            "event_name": "Thailand Open Men's T20I Series 2026",
+            "match_name": "Bhutan vs Bahrain",
+            "match_id": 140670,
+            "startTime": "12:00:00 PM 25-02-2026"
         },
         {
             "event_category": "Golf",
@@ -317,18 +317,6 @@
             "match_name": "New York vs The Bay",
             "match_id": 139173,
             "startTime": "03:30:00 AM 25-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Bhutan vs Bahrain (Thailand Open Men's T20I Series 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
-            "team_1": "Bhutan",
-            "team_2": "Bahrain",
-            "status": "UPCOMING",
-            "event_name": "Thailand Open Men's T20I Series 2026",
-            "match_name": "Bhutan vs Bahrain",
-            "match_id": 140670,
-            "startTime": "12:00:00 PM 25-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -473,6 +461,18 @@
             "match_name": "Paarl East Cricket Club vs Vredenburg/Saldanha CC",
             "match_id": 140686,
             "startTime": "10:00:00 PM 25-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Al-Najmah SC vs Al-Nassr FC (Roshn Saudi League 2025-2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/138439_5655_ALN_ANF_fc-web.jpg",
+            "team_1": "Al-Najmah SC",
+            "team_2": "Al-Nassr FC",
+            "status": "UPCOMING",
+            "event_name": "Roshn Saudi League 2025-2026",
+            "match_name": "Al-Najmah SC vs Al-Nassr FC",
+            "match_id": 138439,
+            "startTime": "12:30:00 AM 26-02-2026"
         }
     ]
 }
