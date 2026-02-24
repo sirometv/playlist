@@ -1,20 +1,64 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "02:42:22 PM 24-02-2026",
+    "last update time": "03:49:08 PM 24-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
-            "event_category": "Cricket",
-            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
-            "team_1": "England Lions",
-            "team_2": "Pakistan Shaheens",
-            "status": "UPCOMING",
-            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
-            "match_name": "England Lions vs Pakistan Shaheens",
-            "match_id": 140663,
-            "startTime": "09:00:00 PM 24-02-2026"
+            "event_category": "Tennis",
+            "title": "Court 2 vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
+            "team_1": "Court 2",
+            "team_2": "Dubai, United Arab Emirates",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
+            "match_name": "Court 2",
+            "match_id": 140346,
+            "startTime": "03:30:00 PM 24-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140346_english_hls_8f0e6eacbc5849_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140346_english_hls_8f0e6eacbc5849_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "New Court 1 vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
+            "team_1": "New Court 1",
+            "team_2": "Dubai, United Arab Emirates",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
+            "match_name": "New Court 1",
+            "match_id": 140896,
+            "startTime": "03:30:00 PM 24-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140896_english_hls_d3e71cc86f10359_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140896_english_hls_d3e71cc86f10359_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "World Feed vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
+            "team_1": "World Feed",
+            "team_2": "Dubai, United Arab Emirates",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
+            "match_name": "World Feed",
+            "match_id": 140894,
+            "startTime": "03:30:00 PM 24-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140894_english_hls_b9a119fb0153672_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140894_english_hls_b9a119fb0153672_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Centre Court vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
+            "src": " https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
+            "team_1": "Centre Court",
+            "team_2": "Dubai, United Arab Emirates",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
+            "match_name": "Centre Court",
+            "match_id": 140893,
+            "startTime": "03:30:00 PM 24-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140893_english_hls_416b1a365b26522_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140893_english_hls_416b1a365b26522_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -27,6 +71,18 @@
             "match_name": "New Zealand Women vs Zimbabwe Women",
             "match_id": 140593,
             "startTime": "11:45:00 AM 25-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
+            "team_1": "England Lions",
+            "team_2": "Pakistan Shaheens",
+            "status": "UPCOMING",
+            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
+            "match_name": "England Lions vs Pakistan Shaheens",
+            "match_id": 140663,
+            "startTime": "09:00:00 PM 24-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -101,18 +157,6 @@
             "startTime": "10:45:00 AM 25-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Nashville SC vs Athletics Ottawa (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140384_5954_NSH_ATO_FC-Web.jpg",
-            "team_1": "Nashville SC",
-            "team_2": "Athletics Ottawa",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Nashville SC vs Athletics Ottawa",
-            "match_id": 140384,
-            "startTime": "06:30:00 AM 25-02-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "Bhutan vs Bahrain (Thailand Open Men's T20I Series 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
@@ -123,6 +167,18 @@
             "match_name": "Bhutan vs Bahrain",
             "match_id": 140670,
             "startTime": "12:00:00 PM 25-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Nashville SC vs Athletics Ottawa (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140384_5954_NSH_ATO_FC-Web.jpg",
+            "team_1": "Nashville SC",
+            "team_2": "Athletics Ottawa",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Nashville SC vs Athletics Ottawa",
+            "match_id": 140384,
+            "startTime": "06:30:00 AM 25-02-2026"
         },
         {
             "event_category": "Football",
@@ -147,54 +203,6 @@
             "match_name": "West Indies Women vs Sri Lanka Women",
             "match_id": 140140,
             "startTime": "07:00:00 PM 25-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Court 2 vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
-            "team_1": "Court 2",
-            "team_2": "Dubai, United Arab Emirates",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
-            "match_name": "Court 2",
-            "match_id": 140346,
-            "startTime": "03:30:00 PM 24-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "New Court 1 vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
-            "team_1": "New Court 1",
-            "team_2": "Dubai, United Arab Emirates",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
-            "match_name": "New Court 1",
-            "match_id": 140896,
-            "startTime": "03:30:00 PM 24-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "World Feed vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
-            "team_1": "World Feed",
-            "team_2": "Dubai, United Arab Emirates",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
-            "match_name": "World Feed",
-            "match_id": 140894,
-            "startTime": "03:30:00 PM 24-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Centre Court vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
-            "src": " https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
-            "team_1": "Centre Court",
-            "team_2": "Dubai, United Arab Emirates",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
-            "match_name": "Centre Court",
-            "match_id": 140893,
-            "startTime": "03:30:00 PM 24-02-2026"
         },
         {
             "event_category": "Tennis",
