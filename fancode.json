@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "11:02:59 PM 24-02-2026",
+    "last update time": "12:10:47 AM 25-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -31,20 +31,6 @@
             "startTime": "10:00:00 PM 24-02-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140685_english_hls_60c206ea1c26919_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140685_english_hls_60c206ea1c26919_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Court 2 vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
-            "team_1": "Court 2",
-            "team_2": "Dubai, United Arab Emirates",
-            "status": "LIVE",
-            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
-            "match_name": "Court 2",
-            "match_id": 140346,
-            "startTime": "03:30:00 PM 24-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140346_english_hls_8f0e6eacbc5849_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140346_english_hls_8f0e6eacbc5849_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -115,18 +101,6 @@
             "startTime": "11:45:00 AM 25-02-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "West Indies Women vs Sri Lanka Women (Sri Lanka Women tour of West Indies, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Sri-Lanka-Women-tour-of-West-Indies,-2026-old-card_1771585889068.jpg",
-            "team_1": "West Indies Women",
-            "team_2": "Sri Lanka Women",
-            "status": "UPCOMING",
-            "event_name": "Sri Lanka Women tour of West Indies, 2026",
-            "match_name": "West Indies Women vs Sri Lanka Women",
-            "match_id": 140140,
-            "startTime": "07:00:00 PM 25-02-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Al Taawoun vs Al Hilal SFC (Roshn Saudi League 2025-2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/138437_5655_ALTW_AHS_fc-web.jpg",
@@ -139,16 +113,16 @@
             "startTime": "12:30:00 AM 25-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Southampton F.C. vs Queens Park Rangers F.C. (EFL Championship 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/EFL_Southampton-FC_vs_Queens-Park-rangers_FC-Web.jpg",
-            "team_1": "Southampton F.C.",
-            "team_2": "Queens Park Rangers F.C.",
+            "event_category": "Cricket",
+            "title": "West Indies Women vs Sri Lanka Women (Sri Lanka Women tour of West Indies, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Sri-Lanka-Women-tour-of-West-Indies,-2026-old-card_1771585889068.jpg",
+            "team_1": "West Indies Women",
+            "team_2": "Sri Lanka Women",
             "status": "UPCOMING",
-            "event_name": "EFL Championship 2025-26",
-            "match_name": "Southampton F.C. vs Queens Park Rangers F.C.",
-            "match_id": 140126,
-            "startTime": "01:30:00 AM 25-02-2026"
+            "event_name": "Sri Lanka Women tour of West Indies, 2026",
+            "match_name": "West Indies Women vs Sri Lanka Women",
+            "match_id": 140140,
+            "startTime": "07:00:00 PM 25-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -161,6 +135,18 @@
             "match_name": "Thailand vs Japan",
             "match_id": 140669,
             "startTime": "07:30:00 AM 25-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Southampton F.C. vs Queens Park Rangers F.C. (EFL Championship 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/EFL_Southampton-FC_vs_Queens-Park-rangers_FC-Web.jpg",
+            "team_1": "Southampton F.C.",
+            "team_2": "Queens Park Rangers F.C.",
+            "status": "UPCOMING",
+            "event_name": "EFL Championship 2025-26",
+            "match_name": "Southampton F.C. vs Queens Park Rangers F.C.",
+            "match_id": 140126,
+            "startTime": "01:30:00 AM 25-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -233,6 +219,18 @@
             "match_name": "Al-Najmah SC vs Al-Nassr FC",
             "match_id": 138439,
             "startTime": "12:30:00 AM 26-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Stoke City F.C. vs Oxford United (EFL Championship 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "Stoke City F.C.",
+            "team_2": "Oxford United",
+            "status": "UPCOMING",
+            "event_name": "EFL Championship 2025-26",
+            "match_name": "Stoke City F.C. vs Oxford United",
+            "match_id": 140127,
+            "startTime": "01:30:00 AM 26-02-2026"
         },
         {
             "event_category": "Golf",
@@ -317,18 +315,6 @@
             "match_name": "Boston vs New York",
             "match_id": 139174,
             "startTime": "07:30:00 AM 25-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Stoke City F.C. vs Oxford United (EFL Championship 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
-            "team_1": "Stoke City F.C.",
-            "team_2": "Oxford United",
-            "status": "UPCOMING",
-            "event_name": "EFL Championship 2025-26",
-            "match_name": "Stoke City F.C. vs Oxford United",
-            "match_id": 140127,
-            "startTime": "01:30:00 AM 26-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -425,6 +411,18 @@
             "match_name": "Vancouver Whitecaps FC vs CS Cartagines",
             "match_id": 140387,
             "startTime": "08:00:00 AM 26-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Hong Kong, China vs Kuwait (Men's T20I Series 2026)",
+            "src": "https://images.fancode.com/aig/match/v1771899776744/140880_CASACARDS_APP.png",
+            "team_1": "Hong Kong, China",
+            "team_2": "Kuwait",
+            "status": "UPCOMING",
+            "event_name": "Men's T20I Series 2026",
+            "match_name": "Hong Kong, China vs Kuwait",
+            "match_id": 140880,
+            "startTime": "10:45:00 AM 26-02-2026"
         },
         {
             "event_category": "Tennis",
