@@ -1,65 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "11:44:48 AM 24-02-2026",
+    "last update time": "12:56:27 PM 24-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Cricket",
-            "title": "South Australian Scorpions vs ACT Meteors (Women's National Cricket League, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Women's-National-Cricket-League_old_v3_1758034980120.jpg",
-            "team_1": "South Australian Scorpions",
-            "team_2": "ACT Meteors",
-            "status": "LIVE",
-            "event_name": "Women's National Cricket League, 2025-26",
-            "match_name": "South Australian Scorpions vs ACT Meteors",
-            "match_id": 133985,
-            "startTime": "04:30:00 AM 24-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/133985_english_hls_2b559b681857065_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/133985_english_hls_2b559b681857065_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "World Feed vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "World Feed",
-            "team_2": "Acapulco, Mexico",
-            "status": "LIVE",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "World Feed",
-            "match_id": 140351,
-            "startTime": "05:30:00 AM 24-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140351_english_hls_fc7f3ef58a3756_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140351_english_hls_fc7f3ef58a3756_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Cancha 1 vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "Cancha 1",
-            "team_2": "Acapulco, Mexico",
-            "status": "LIVE",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "Cancha 1",
-            "match_id": 140831,
-            "startTime": "05:30:00 AM 24-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140831_english_hls_5f1a9653a843727_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140831_english_hls_5f1a9653a843727_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Estadio vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "Estadio",
-            "team_2": "Acapulco, Mexico",
-            "status": "LIVE",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "Estadio",
-            "match_id": 140829,
-            "startTime": "05:30:00 AM 24-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140829_english_hls_ce63c6a72971170_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140829_english_hls_ce63c6a72971170_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Cricket",
             "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
@@ -145,18 +89,6 @@
             "startTime": "07:30:00 AM 25-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Nashville SC vs Athletics Ottawa (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140384_5954_NSH_ATO_FC-Web.jpg",
-            "team_1": "Nashville SC",
-            "team_2": "Athletics Ottawa",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Nashville SC vs Athletics Ottawa",
-            "match_id": 140384,
-            "startTime": "06:30:00 AM 25-02-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "Hong Kong, China vs Kuwait (Men's T20I Series 2026)",
             "src": "https://images.fancode.com/aig/match/v1771899776722/140879_CASACARDS_APP.png",
@@ -170,15 +102,15 @@
         },
         {
             "event_category": "Football",
-            "title": "Los Angeles Football Club vs Real España (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140385_5954_LAF_RE_FC-Web.jpg",
-            "team_1": "Los Angeles Football Club",
-            "team_2": "Real España",
+            "title": "Nashville SC vs Athletics Ottawa (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140384_5954_NSH_ATO_FC-Web.jpg",
+            "team_1": "Nashville SC",
+            "team_2": "Athletics Ottawa",
             "status": "UPCOMING",
             "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Los Angeles Football Club vs Real España",
-            "match_id": 140385,
-            "startTime": "08:30:00 AM 25-02-2026"
+            "match_name": "Nashville SC vs Athletics Ottawa",
+            "match_id": 140384,
+            "startTime": "06:30:00 AM 25-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -191,6 +123,18 @@
             "match_name": "Bhutan vs Bahrain",
             "match_id": 140670,
             "startTime": "12:00:00 PM 25-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Los Angeles Football Club vs Real España (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140385_5954_LAF_RE_FC-Web.jpg",
+            "team_1": "Los Angeles Football Club",
+            "team_2": "Real España",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Los Angeles Football Club vs Real España",
+            "match_id": 140385,
+            "startTime": "08:30:00 AM 25-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -277,6 +221,18 @@
             "startTime": "03:30:00 AM 25-02-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "West Indies Women vs Sri Lanka Women (Sri Lanka Women tour of West Indies, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Sri-Lanka-Women-tour-of-West-Indies,-2026-old-card_1771585889068.jpg",
+            "team_1": "West Indies Women",
+            "team_2": "Sri Lanka Women",
+            "status": "UPCOMING",
+            "event_name": "Sri Lanka Women tour of West Indies, 2026",
+            "match_name": "West Indies Women vs Sri Lanka Women",
+            "match_id": 140140,
+            "startTime": "07:00:00 PM 25-02-2026"
+        },
+        {
             "event_category": "Tennis",
             "title": "Grandstand vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
@@ -347,18 +303,6 @@
             "match_name": "Boston vs New York",
             "match_id": 139174,
             "startTime": "07:30:00 AM 25-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "West Indies Women vs Sri Lanka Women (Sri Lanka Women tour of West Indies, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Sri-Lanka-Women-tour-of-West-Indies,-2026-old-card_1771585889068.jpg",
-            "team_1": "West Indies Women",
-            "team_2": "Sri Lanka Women",
-            "status": "UPCOMING",
-            "event_name": "Sri Lanka Women tour of West Indies, 2026",
-            "match_name": "West Indies Women vs Sri Lanka Women",
-            "match_id": 140140,
-            "startTime": "07:00:00 PM 25-02-2026"
         },
         {
             "event_category": "Tennis",
@@ -466,6 +410,54 @@
             "event_name": "CONCACAF Champions Cup 2026",
             "match_name": "FC Cincinnati vs O&M FC",
             "match_id": 140386,
+            "startTime": "05:30:00 AM 26-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Thailand vs Bhutan (Thailand Open Men's T20I Series 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
+            "team_1": "Thailand",
+            "team_2": "Bhutan",
+            "status": "UPCOMING",
+            "event_name": "Thailand Open Men's T20I Series 2026",
+            "match_name": "Thailand vs Bhutan",
+            "match_id": 140671,
+            "startTime": "07:30:00 AM 26-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Vancouver Whitecaps FC vs CS Cartagines (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140387_5954_VAN_CSC_FC-Web.jpg",
+            "team_1": "Vancouver Whitecaps FC",
+            "team_2": "CS Cartagines",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Vancouver Whitecaps FC vs CS Cartagines",
+            "match_id": 140387,
+            "startTime": "08:00:00 AM 26-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Cancha 1 vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
+            "team_1": "Cancha 1",
+            "team_2": "Acapulco, Mexico",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - Abierto Mexicano Telcel",
+            "match_name": "Cancha 1",
+            "match_id": 140353,
+            "startTime": "05:30:00 AM 26-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Grandstand vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
+            "team_1": "Grandstand",
+            "team_2": "Acapulco, Mexico",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - Abierto Mexicano Telcel",
+            "match_name": "Grandstand",
+            "match_id": 140838,
             "startTime": "05:30:00 AM 26-02-2026"
         }
     ]
