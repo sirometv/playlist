@@ -1,36 +1,36 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "10:13:58 AM 26-02-2026",
+    "last update time": "11:36:22 AM 26-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
             "event_category": "Cricket",
-            "title": "Thailand vs Bhutan (Thailand Open Men's T20I Series 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140671_5970_TL_BHU_fc-web.jpg",
-            "team_1": "Thailand",
-            "team_2": "Bhutan",
+            "title": "Hong Kong, China vs Kuwait (Men's T20I Series 2026)",
+            "src": "https://images.fancode.com/aig/match/v1771899776744/140880_CASACARDS_APP.png",
+            "team_1": "Hong Kong, China",
+            "team_2": "Kuwait",
             "status": "LIVE",
-            "event_name": "Thailand Open Men's T20I Series 2026",
-            "match_name": "Thailand vs Bhutan",
-            "match_id": 140671,
-            "startTime": "07:30:00 AM 26-02-2026",
-            "dai_url": null,
-            "adfree_url": null
+            "event_name": "Men's T20I Series 2026",
+            "match_name": "Hong Kong, China vs Kuwait",
+            "match_id": 140880,
+            "startTime": "10:45:00 AM 26-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140880_english_hls_0cd60c3b2a42599_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140880_english_hls_0cd60c3b2a42599_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Football",
-            "title": "Vancouver Whitecaps FC vs CS Cartagines (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140387_5954_VAN_CSC_FC-Web.jpg",
-            "team_1": "Vancouver Whitecaps FC",
-            "team_2": "CS Cartagines",
+            "title": "LA Galaxy vs Sporting SM (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140388_5954_LAG_SSM_FC-Web.jpg",
+            "team_1": "LA Galaxy",
+            "team_2": "Sporting SM",
             "status": "LIVE",
             "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Vancouver Whitecaps FC vs CS Cartagines",
-            "match_id": 140387,
-            "startTime": "08:00:00 AM 26-02-2026",
-            "dai_url": null,
-            "adfree_url": null
+            "match_name": "LA Galaxy vs Sporting SM",
+            "match_id": 140388,
+            "startTime": "10:00:00 AM 26-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140388_english_hls_faa934c73050670_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140388_english_hls_faa934c73050670_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -43,22 +43,8 @@
             "match_name": "Cancha 1",
             "match_id": 140353,
             "startTime": "05:30:00 AM 26-02-2026",
-            "dai_url": null,
-            "adfree_url": null
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Grandstand vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "Grandstand",
-            "team_2": "Acapulco, Mexico",
-            "status": "LIVE",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "Grandstand",
-            "match_id": 140838,
-            "startTime": "05:30:00 AM 26-02-2026",
-            "dai_url": null,
-            "adfree_url": null
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140353_english_hls_bbf29cfbab84904_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140353_english_hls_bbf29cfbab84904_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -71,22 +57,8 @@
             "match_name": "Estadio",
             "match_id": 140837,
             "startTime": "05:30:00 AM 26-02-2026",
-            "dai_url": null,
-            "adfree_url": null
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Cancha 2 vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "Cancha 2",
-            "team_2": "Acapulco, Mexico",
-            "status": "LIVE",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "Cancha 2",
-            "match_id": 140836,
-            "startTime": "05:30:00 AM 26-02-2026",
-            "dai_url": null,
-            "adfree_url": null
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140837_english_hls_7088112fd980269_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140837_english_hls_7088112fd980269_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -99,32 +71,22 @@
             "match_name": "World Feed",
             "match_id": 140839,
             "startTime": "05:30:00 AM 26-02-2026",
-            "dai_url": null,
-            "adfree_url": null
-        },
-        {
-            "event_category": "Football",
-            "title": "LA Galaxy vs Sporting SM (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140388_5954_LAG_SSM_FC-Web.jpg",
-            "team_1": "LA Galaxy",
-            "team_2": "Sporting SM",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "LA Galaxy vs Sporting SM",
-            "match_id": 140388,
-            "startTime": "10:00:00 AM 26-02-2026"
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140839_english_hls_3f302e8a6c36632_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140839_english_hls_3f302e8a6c36632_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
-            "title": "Hong Kong, China vs Kuwait (Men's T20I Series 2026)",
-            "src": "https://images.fancode.com/aig/match/v1771899776744/140880_CASACARDS_APP.png",
-            "team_1": "Hong Kong, China",
-            "team_2": "Kuwait",
-            "status": "UPCOMING",
-            "event_name": "Men's T20I Series 2026",
-            "match_name": "Hong Kong, China vs Kuwait",
-            "match_id": 140880,
-            "startTime": "10:45:00 AM 26-02-2026"
+            "title": "Thailand vs Bhutan (Thailand Open Men's T20I Series 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140671_5970_TL_BHU_fc-web.jpg",
+            "team_1": "Thailand",
+            "team_2": "Bhutan",
+            "status": "LIVE",
+            "event_name": "Thailand Open Men's T20I Series 2026",
+            "match_name": "Thailand vs Bhutan",
+            "match_id": 140671,
+            "startTime": "07:30:00 AM 26-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140671_english_hls_9d535828fd86518_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140671_english_hls_9d535828fd86518_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -139,18 +101,6 @@
             "startTime": "12:00:00 PM 26-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "FC Goa vs Sporting Club Delhi (ISL 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140445_5956_FCG_SCD_fc-web_1771412946473.jpg",
-            "team_1": "FC Goa",
-            "team_2": "Sporting Club Delhi",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26",
-            "match_name": "FC Goa vs Sporting Club Delhi",
-            "match_id": 140445,
-            "startTime": "07:30:00 PM 26-02-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "Van der Stel Cricket Club vs Paarl CC (Boland T20 Super League Finals 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140687_5968_VDCC_PRC_FC-Web.jpg",
@@ -161,6 +111,18 @@
             "match_name": "Van der Stel Cricket Club vs Paarl CC",
             "match_id": 140687,
             "startTime": "10:00:00 PM 26-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "FC Goa vs Sporting Club Delhi (ISL 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140445_5956_FCG_SCD_fc-web_1771412946473.jpg",
+            "team_1": "FC Goa",
+            "team_2": "Sporting Club Delhi",
+            "status": "UPCOMING",
+            "event_name": "ISL 2025-26",
+            "match_name": "FC Goa vs Sporting Club Delhi",
+            "match_id": 140445,
+            "startTime": "07:30:00 PM 26-02-2026"
         },
         {
             "event_category": "Football",
@@ -449,6 +411,42 @@
             "match_name": "Bengaluru FC vs Punjab FC",
             "match_id": 140447,
             "startTime": "07:30:00 PM 27-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Centre Court vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
+            "team_1": "Centre Court",
+            "team_2": "Dubai, United Arab Emirates",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
+            "match_name": "Centre Court",
+            "match_id": 140349,
+            "startTime": "03:00:00 PM 27-02-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Main Feed - Day 2 vs PGA National Resort, Florida (Cognizant Classic in The Palm Beaches 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Cognizant-Classic-in-The-Palm-Beaches-2026-old-match-card-.png",
+            "team_1": "Main Feed - Day 2",
+            "team_2": "PGA National Resort, Florida",
+            "status": "UPCOMING",
+            "event_name": "Cognizant Classic in The Palm Beaches 2026",
+            "match_name": "Main Feed - Day 2",
+            "match_id": 140769,
+            "startTime": "04:15:00 PM 27-02-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Vredenburg/Saldanha CC vs Van der Stel Cricket Club (Boland T20 Super League Finals 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140689_5968_VDS_VDCC_FC-Web.jpg",
+            "team_1": "Vredenburg/Saldanha CC",
+            "team_2": "Van der Stel Cricket Club",
+            "status": "UPCOMING",
+            "event_name": "Boland T20 Super League Finals 2026",
+            "match_name": "Vredenburg/Saldanha CC vs Van der Stel Cricket Club",
+            "match_id": 140689,
+            "startTime": "10:00:00 PM 27-02-2026"
         }
     ]
 }
