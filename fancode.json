@@ -1,37 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "04:44:01 PM 28-02-2026",
+    "last update time": "05:16:33 PM 28-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Football",
-            "title": "Macarthur vs Western Sydney Wanderers (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/139422_5802_MAC_SYW_1770724279224.png",
-            "team_1": "Macarthur",
-            "team_2": "Western Sydney Wanderers",
-            "status": "LIVE",
-            "event_name": "A League 2025-26",
-            "match_name": "Macarthur vs Western Sydney Wanderers",
-            "match_id": 139422,
-            "startTime": "02:05:00 PM 28-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/139422_english_hls_d4bafb3fa297079_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/139422_english_hls_d4bafb3fa297079_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Japan vs Bahrain (Thailand Open Men's T20I Series 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140672_5970_JPN_BAH_fc-web.jpg",
-            "team_1": "Japan",
-            "team_2": "Bahrain",
-            "status": "LIVE",
-            "event_name": "Thailand Open Men's T20I Series 2026",
-            "match_name": "Japan vs Bahrain",
-            "match_id": 140676,
-            "startTime": "12:00:00 PM 28-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140676_english_hls_e230dafff944950_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140676_english_hls_e230dafff944950_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Cricket",
             "title": "West Indies Women vs Sri Lanka Women (Sri Lanka Women tour of West Indies, 2026)",
@@ -57,6 +29,18 @@
             "startTime": "05:45:00 AM 01-03-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Maties Cricket Club vs Vredenburg/Saldanha CC (Boland T20 Super League Finals 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140691_5968_MAT_VDS_FC-Web.jpg",
+            "team_1": "Maties Cricket Club",
+            "team_2": "Vredenburg/Saldanha CC",
+            "status": "UPCOMING",
+            "event_name": "Boland T20 Super League Finals 2026",
+            "match_name": "Maties Cricket Club vs Vredenburg/Saldanha CC",
+            "match_id": 140691,
+            "startTime": "05:30:00 PM 28-02-2026"
+        },
+        {
             "event_category": "Football",
             "title": "Kerala Blasters FC vs Inter Kashi FC (ISL 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140448_5956_KBFC_IK_fc-web-(1).jpg",
@@ -79,18 +63,6 @@
             "match_name": "Kerala Blasters FC vs Inter Kashi FC",
             "match_id": 141087,
             "startTime": "05:00:00 PM 28-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Maties Cricket Club vs Vredenburg/Saldanha CC (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140691_5968_MAT_VDS_FC-Web.jpg",
-            "team_1": "Maties Cricket Club",
-            "team_2": "Vredenburg/Saldanha CC",
-            "status": "UPCOMING",
-            "event_name": "Boland T20 Super League Finals 2026",
-            "match_name": "Maties Cricket Club vs Vredenburg/Saldanha CC",
-            "match_id": 140691,
-            "startTime": "05:30:00 PM 28-02-2026"
         },
         {
             "event_category": "Cricket",
@@ -297,18 +269,6 @@
             "startTime": "05:00:00 PM 01-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Australia Women vs Philippines Women (AFC Women's Asian Cup, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
-            "team_1": "Australia Women",
-            "team_2": "Philippines Women",
-            "status": "UPCOMING",
-            "event_name": "AFC Women's Asian Cup, 2026",
-            "match_name": "Australia Women vs Philippines Women",
-            "match_id": 140794,
-            "startTime": "02:30:00 PM 01-03-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "TBC vs TBC (Boland T20 Super League Finals 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
@@ -319,6 +279,18 @@
             "match_name": "TBC vs TBC",
             "match_id": 140694,
             "startTime": "05:30:00 PM 01-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Australia Women vs Philippines Women (AFC Women's Asian Cup, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "Australia Women",
+            "team_2": "Philippines Women",
+            "status": "UPCOMING",
+            "event_name": "AFC Women's Asian Cup, 2026",
+            "match_name": "Australia Women vs Philippines Women",
+            "match_id": 140794,
+            "startTime": "02:30:00 PM 01-03-2026"
         },
         {
             "event_category": "Football",
@@ -417,6 +389,18 @@
             "startTime": "08:30:00 PM 28-02-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "West Indies Women vs Sri Lanka Women (Sri Lanka Women tour of West Indies, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Sri-Lanka-Women-tour-of-West-Indies,-2026-old-card-(1).jpg",
+            "team_1": "West Indies Women",
+            "team_2": "Sri Lanka Women",
+            "status": "UPCOMING",
+            "event_name": "Sri Lanka Women tour of West Indies, 2026",
+            "match_name": "West Indies Women vs Sri Lanka Women",
+            "match_id": 140142,
+            "startTime": "10:30:00 PM 01-03-2026"
+        },
+        {
             "event_category": "Tennis",
             "title": "Court Jaime Fillol vs Santiago, Chile (ATP 250 - BCI Seguros Chile Open 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/BCI-Seguros-Chile-Open,-Clay,-ATP-250-old-.png",
@@ -427,18 +411,6 @@
             "match_name": "Court Jaime Fillol",
             "match_id": 140362,
             "startTime": "02:30:00 AM 01-03-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Estadio vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "Estadio",
-            "team_2": "Acapulco, Mexico",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "Estadio",
-            "match_id": 140844,
-            "startTime": "06:00:00 AM 01-03-2026"
         },
         {
             "event_category": "Football",
@@ -453,16 +425,40 @@
             "startTime": "07:30:00 PM 01-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "West Indies Women vs Sri Lanka Women (Sri Lanka Women tour of West Indies, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Sri-Lanka-Women-tour-of-West-Indies,-2026-old-card-(1).jpg",
-            "team_1": "West Indies Women",
-            "team_2": "Sri Lanka Women",
+            "event_category": "Tennis",
+            "title": "Estadio vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
+            "team_1": "Estadio",
+            "team_2": "Acapulco, Mexico",
             "status": "UPCOMING",
-            "event_name": "Sri Lanka Women tour of West Indies, 2026",
-            "match_name": "West Indies Women vs Sri Lanka Women",
-            "match_id": 140142,
-            "startTime": "10:30:00 PM 01-03-2026"
+            "event_name": "ATP 500 - Abierto Mexicano Telcel",
+            "match_name": "Estadio",
+            "match_id": 140844,
+            "startTime": "06:00:00 AM 01-03-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Day 2 vs Wollongong Golf Club (Ford Women's NSW Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Ford-Women's-NSW-Open_fc-web.jpg",
+            "team_1": "Day 2",
+            "team_2": "Wollongong Golf Club",
+            "status": "UPCOMING",
+            "event_name": "Ford Women's NSW Open 2026",
+            "match_name": "Day 2",
+            "match_id": 140784,
+            "startTime": "06:30:00 AM 01-03-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "World Feed vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
+            "team_1": "World Feed",
+            "team_2": "Acapulco, Mexico",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - Abierto Mexicano Telcel",
+            "match_name": "World Feed",
+            "match_id": 140845,
+            "startTime": "08:30:00 AM 01-03-2026"
         }
     ]
 }
