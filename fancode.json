@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "01:23:31 PM 28-02-2026",
+    "last update time": "02:25:04 PM 28-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -34,20 +34,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Central Coast Mariners vs Newcastle Jets (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/139420_5802_CCM_NJ_1770724113403.png",
-            "team_1": "Central Coast Mariners",
-            "team_2": "Newcastle Jets",
-            "status": "LIVE",
-            "event_name": "A League 2025-26",
-            "match_name": "Central Coast Mariners vs Newcastle Jets",
-            "match_id": 139420,
-            "startTime": "11:30:00 AM 28-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/139420_english_hls_dbf7e6e88893112_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/139420_english_hls_dbf7e6e88893112_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
             "title": "Brisbane Roar vs Perth Glory (A League 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/139421_5802_BRB_PG_1770724192241.png",
             "team_1": "Brisbane Roar",
@@ -59,6 +45,20 @@
             "startTime": "12:30:00 PM 28-02-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/139421_english_hls_4ed6bc6e6e42376_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/139421_english_hls_4ed6bc6e6e42376_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Macarthur vs Western Sydney Wanderers (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/139422_5802_MAC_SYW_1770724279224.png",
+            "team_1": "Macarthur",
+            "team_2": "Western Sydney Wanderers",
+            "status": "LIVE",
+            "event_name": "A League 2025-26",
+            "match_name": "Macarthur vs Western Sydney Wanderers",
+            "match_id": 139422,
+            "startTime": "02:05:00 PM 28-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/139422_english_hls_d4bafb3fa297079_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/139422_english_hls_d4bafb3fa297079_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "MotoGP",
@@ -125,6 +125,18 @@
             "startTime": "05:30:00 PM 28-02-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Vredenburg/Saldanha CC vs Paarl CC (Boland T20 Super League Finals 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140692_5968_VDS_PRC_FC-Web.jpg",
+            "team_1": "Vredenburg/Saldanha CC",
+            "team_2": "Paarl CC",
+            "status": "UPCOMING",
+            "event_name": "Boland T20 Super League Finals 2026",
+            "match_name": "Vredenburg/Saldanha CC vs Paarl CC",
+            "match_id": 140692,
+            "startTime": "10:00:00 PM 28-02-2026"
+        },
+        {
             "event_category": "Football",
             "title": "Kerala Blasters FC vs Inter Kashi FC (ISL 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140448_5956_KBFC_IK_fc-web-(1).jpg",
@@ -147,18 +159,6 @@
             "match_name": "Kerala Blasters FC vs Inter Kashi FC",
             "match_id": 141087,
             "startTime": "05:00:00 PM 28-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Vredenburg/Saldanha CC vs Paarl CC (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140692_5968_VDS_PRC_FC-Web.jpg",
-            "team_1": "Vredenburg/Saldanha CC",
-            "team_2": "Paarl CC",
-            "status": "UPCOMING",
-            "event_name": "Boland T20 Super League Finals 2026",
-            "match_name": "Vredenburg/Saldanha CC vs Paarl CC",
-            "match_id": 140692,
-            "startTime": "10:00:00 PM 28-02-2026"
         },
         {
             "event_category": "Football",
@@ -267,18 +267,6 @@
             "match_name": "Real Oviedo vs Atletico de Madrid",
             "match_id": 131080,
             "startTime": "01:30:00 AM 01-03-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Macarthur vs Western Sydney Wanderers (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/139422_5802_MAC_SYW_1770724279224.png",
-            "team_1": "Macarthur",
-            "team_2": "Western Sydney Wanderers",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Macarthur vs Western Sydney Wanderers",
-            "match_id": 139422,
-            "startTime": "02:05:00 PM 28-02-2026"
         },
         {
             "event_category": "Football",
@@ -425,18 +413,6 @@
             "startTime": "08:30:00 PM 28-02-2026"
         },
         {
-            "event_category": "Tennis",
-            "title": "Court Jaime Fillol vs Santiago, Chile (ATP 250 - BCI Seguros Chile Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/BCI-Seguros-Chile-Open,-Clay,-ATP-250-old-.png",
-            "team_1": "Court Jaime Fillol",
-            "team_2": "Santiago, Chile",
-            "status": "UPCOMING",
-            "event_name": "ATP 250 - BCI Seguros Chile Open 2026",
-            "match_name": "Court Jaime Fillol",
-            "match_id": 140362,
-            "startTime": "02:30:00 AM 01-03-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Australia Women vs Philippines Women (AFC Women's Asian Cup, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
@@ -450,15 +426,39 @@
         },
         {
             "event_category": "Tennis",
-            "title": "Estadio vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "Estadio",
-            "team_2": "Acapulco, Mexico",
+            "title": "Court Jaime Fillol vs Santiago, Chile (ATP 250 - BCI Seguros Chile Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/BCI-Seguros-Chile-Open,-Clay,-ATP-250-old-.png",
+            "team_1": "Court Jaime Fillol",
+            "team_2": "Santiago, Chile",
             "status": "UPCOMING",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "Estadio",
-            "match_id": 140844,
-            "startTime": "06:00:00 AM 01-03-2026"
+            "event_name": "ATP 250 - BCI Seguros Chile Open 2026",
+            "match_name": "Court Jaime Fillol",
+            "match_id": 140362,
+            "startTime": "02:30:00 AM 01-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Odisha FC vs Chennaiyin FC (ISL 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140450_5956_ODS_CFC_fc-web_1772229313149.jpg",
+            "team_1": "Odisha FC",
+            "team_2": "Chennaiyin FC",
+            "status": "UPCOMING",
+            "event_name": "ISL 2025-26",
+            "match_name": "Odisha FC vs Chennaiyin FC",
+            "match_id": 140450,
+            "startTime": "05:00:00 PM 01-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Odisha FC vs Chennaiyin FC (ISL 2025-26  - Regional)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140450_5956_ODS_CFC_fc-web-(1).jpg",
+            "team_1": "Odisha FC",
+            "team_2": "Chennaiyin FC",
+            "status": "UPCOMING",
+            "event_name": "ISL 2025-26  - Regional",
+            "match_name": "Odisha FC vs Chennaiyin FC",
+            "match_id": 141089,
+            "startTime": "05:00:00 PM 01-03-2026"
         }
     ]
 }
