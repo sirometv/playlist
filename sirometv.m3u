@@ -167,13 +167,19 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 https://ncdn.telewebion.com/labbayk/live/playlist.m3u8
 #https://sirome.tv@win.holol.com/live/quran/playlist.m3u8
 
-
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/15jzqVrf/image.jpg" group-title="Bangladeshi",Saudia Quran
+https://sirometv.com@live.kwikmotion.com/sbrksaquranradiolive/srpksaquranradio/playlist.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rm9JCnKP/image.jpg.jpg" group-title="Bangladeshi", Madinah
 https://cdn-globecast.akamaized.net/live/eds/saudi_sunnah/hls_roku/index.m3u8
 http://m.live.net.sa:1935/live/sunnah/chunklist.m3u8?v=1
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/madina.stream/tracks-v1a1/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Ssg4bHZ6/image.jpg" group-title="Bangladeshi", Al Saudiya TV
+https://sirometv.com@shd-gcp-live.edgenextcdn.net/live/bitmovin-saudi-tv/2ad66056b51fd8c1b624854623112e43/index.m3u8
+https://sirometv.com@cdn-globecast.akamaized.net/live/eds/saudi_tv/hls_roku/index.m3u8
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/LX6Rpf9V/image.jpg" group-title="Bangladeshi", Live Quran
 https://live.kwikmotion.com/sharjahtvquranlive/shqurantv.smil/playlist.m3u8
@@ -979,6 +985,38 @@ https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxI
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/HWSM6xtk/image.jpg" group-title="Bangladeshi", Qatar 1
+https://qatartv.akamaized.net/hls/live/2026573/qtv1/master.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/BvqQW5qp/image.jpg" group-title="Bangladeshi", Qatar 2
+https://vo-live.cdb.cdn.orange.com/Content/Channel/AbuDhabiSportsChannel1/HLS/index.m3u8
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/v89tFjmf/image.jpg" group-title="Bangladeshi",Animal Planet HD
@@ -1564,6 +1602,7 @@ https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
