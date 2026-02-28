@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:21:14 AM 28-02-2026",
+    "last update time": "07:40:42 AM 28-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -17,6 +17,62 @@
             "startTime": "09:30:00 PM 27-02-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140361_english_hls_19562be86045847_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140361_english_hls_19562be86045847_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "World Feed vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
+            "team_1": "World Feed",
+            "team_2": "Acapulco, Mexico",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Abierto Mexicano Telcel",
+            "match_name": "World Feed",
+            "match_id": 140356,
+            "startTime": "06:30:00 AM 28-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140356_english_hls_de8c3b175062685_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140356_english_hls_de8c3b175062685_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Estadio vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
+            "team_1": "Estadio",
+            "team_2": "Acapulco, Mexico",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Abierto Mexicano Telcel",
+            "match_name": "Estadio",
+            "match_id": 140843,
+            "startTime": "06:30:00 AM 28-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140843_english_hls_1eaa974a8891278_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140843_english_hls_1eaa974a8891278_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Grandstand vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
+            "team_1": "Grandstand",
+            "team_2": "Acapulco, Mexico",
+            "status": "LIVE",
+            "event_name": "ATP 500 - Abierto Mexicano Telcel",
+            "match_name": "Grandstand",
+            "match_id": 140842,
+            "startTime": "06:30:00 AM 28-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140842_english_hls_fa1a4b218162265_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140842_english_hls_fa1a4b218162265_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "MotoGP",
+            "title": "Day 2 vs Buriram International Circuit (PT GRAND PRIX OF THAILAND 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(4)_1771915359087.png",
+            "team_1": "Day 2",
+            "team_2": "Buriram International Circuit",
+            "status": "LIVE",
+            "event_name": "PT GRAND PRIX OF THAILAND 2026",
+            "match_name": "Thailand GP",
+            "match_id": 139925,
+            "startTime": "07:10:00 AM 28-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/139925_english_hls_97398699b253223_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/139925_english_hls_97398699b253223_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -163,6 +219,18 @@
             "startTime": "07:30:00 PM 28-02-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "New Zealand Women vs Zimbabwe Women (Zimbabwe Women tour of New Zealand, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/NZ-vs-ZIM_fc-web.jpg",
+            "team_1": "New Zealand Women",
+            "team_2": "Zimbabwe Women",
+            "status": "UPCOMING",
+            "event_name": "Zimbabwe Women tour of New Zealand, 2026",
+            "match_name": "New Zealand Women vs Zimbabwe Women",
+            "match_id": 140595,
+            "startTime": "05:45:00 AM 01-03-2026"
+        },
+        {
             "event_category": "Football",
             "title": "Preston North End F.C. vs Millwall F.C. (EFL Championship 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140130_5489_PST_MLW_fc-web.jpg",
@@ -212,6 +280,30 @@
         },
         {
             "event_category": "Football",
+            "title": "Al-Fayha FC vs Al-Nassr FC (Roshn Saudi League 2025-2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140703_5655_ALF_ANF_fc-web.jpg",
+            "team_1": "Al-Fayha FC",
+            "team_2": "Al-Nassr FC",
+            "status": "UPCOMING",
+            "event_name": "Roshn Saudi League 2025-2026",
+            "match_name": "Al-Fayha FC vs Al-Nassr FC",
+            "match_id": 140703,
+            "startTime": "12:30:00 AM 01-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Real Oviedo vs Atletico de Madrid (LALIGA 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/131080_5427_RO_ATL_FC-Web.png",
+            "team_1": "Real Oviedo",
+            "team_2": "Atletico de Madrid",
+            "status": "UPCOMING",
+            "event_name": "LALIGA 2025-26",
+            "match_name": "Real Oviedo vs Atletico de Madrid",
+            "match_id": 131080,
+            "startTime": "01:30:00 AM 01-03-2026"
+        },
+        {
+            "event_category": "Football",
             "title": "Auckland vs Melbourne City (A League 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/139419_5802_AFC_MLC_1770724032867.png",
             "team_1": "Auckland",
@@ -247,18 +339,6 @@
             "startTime": "12:30:00 PM 28-02-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "New Zealand Women vs Zimbabwe Women (Zimbabwe Women tour of New Zealand, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/NZ-vs-ZIM_fc-web.jpg",
-            "team_1": "New Zealand Women",
-            "team_2": "Zimbabwe Women",
-            "status": "UPCOMING",
-            "event_name": "Zimbabwe Women tour of New Zealand, 2026",
-            "match_name": "New Zealand Women vs Zimbabwe Women",
-            "match_id": 140595,
-            "startTime": "05:45:00 AM 01-03-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Macarthur vs Western Sydney Wanderers (A League 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/139422_5802_MAC_SYW_1770724279224.png",
@@ -269,30 +349,6 @@
             "match_name": "Macarthur vs Western Sydney Wanderers",
             "match_id": 139422,
             "startTime": "02:05:00 PM 28-02-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Al-Fayha FC vs Al-Nassr FC (Roshn Saudi League 2025-2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140703_5655_ALF_ANF_fc-web.jpg",
-            "team_1": "Al-Fayha FC",
-            "team_2": "Al-Nassr FC",
-            "status": "UPCOMING",
-            "event_name": "Roshn Saudi League 2025-2026",
-            "match_name": "Al-Fayha FC vs Al-Nassr FC",
-            "match_id": 140703,
-            "startTime": "12:30:00 AM 01-03-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Real Oviedo vs Atletico de Madrid (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/131080_5427_RO_ATL_FC-Web.png",
-            "team_1": "Real Oviedo",
-            "team_2": "Atletico de Madrid",
-            "status": "UPCOMING",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "Real Oviedo vs Atletico de Madrid",
-            "match_id": 131080,
-            "startTime": "01:30:00 AM 01-03-2026"
         },
         {
             "event_category": "Football",
@@ -307,54 +363,6 @@
             "startTime": "01:30:00 AM 01-03-2026"
         },
         {
-            "event_category": "Tennis",
-            "title": "World Feed vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "World Feed",
-            "team_2": "Acapulco, Mexico",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "World Feed",
-            "match_id": 140356,
-            "startTime": "06:30:00 AM 28-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Estadio vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "Estadio",
-            "team_2": "Acapulco, Mexico",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "Estadio",
-            "match_id": 140843,
-            "startTime": "06:30:00 AM 28-02-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Grandstand vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "Grandstand",
-            "team_2": "Acapulco, Mexico",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "Grandstand",
-            "match_id": 140842,
-            "startTime": "06:30:00 AM 28-02-2026"
-        },
-        {
-            "event_category": "MotoGP",
-            "title": "Day 2 vs Buriram International Circuit (PT GRAND PRIX OF THAILAND 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(4)_1771915359087.png",
-            "team_1": "Day 2",
-            "team_2": "Buriram International Circuit",
-            "status": "UPCOMING",
-            "event_name": "PT GRAND PRIX OF THAILAND 2026",
-            "match_name": "Thailand GP",
-            "match_id": 139925,
-            "startTime": "07:10:00 AM 28-02-2026"
-        },
-        {
             "event_category": "Golf",
             "title": "Day 1 vs Wollongong Golf Club (Ford Women's NSW Open 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Ford-Women's-NSW-Open_fc-web.jpg",
@@ -365,6 +373,18 @@
             "match_name": "Day 1",
             "match_id": 140783,
             "startTime": "09:00:00 AM 28-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Wellington Phoenix vs Sydney FC (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "Wellington Phoenix",
+            "team_2": "Sydney FC",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Wellington Phoenix vs Sydney FC",
+            "match_id": 140905,
+            "startTime": "07:30:00 AM 01-03-2026"
         },
         {
             "event_category": "Tennis",
@@ -439,16 +459,16 @@
             "startTime": "08:30:00 PM 28-02-2026"
         },
         {
-            "event_category": "Golf",
-            "title": "World Feed - Day 3 vs PGA National Resort, Florida (Cognizant Classic in The Palm Beaches 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Cognizant-Classic-in-The-Palm-Beaches-2026-old-match-card-.png",
-            "team_1": "World Feed - Day 3",
-            "team_2": "PGA National Resort, Florida",
+            "event_category": "Cricket",
+            "title": "Hong Kong, China vs Kuwait (Men's T20I Series 2026)",
+            "src": "https://images.fancode.com/aig/match/v1771899776744/140882_CASACARDS_APP.png",
+            "team_1": "Hong Kong, China",
+            "team_2": "Kuwait",
             "status": "UPCOMING",
-            "event_name": "Cognizant Classic in The Palm Beaches 2026",
-            "match_name": "World Feed - Day 3",
-            "match_id": 140773,
-            "startTime": "11:30:00 PM 28-02-2026"
+            "event_name": "Men's T20I Series 2026",
+            "match_name": "Hong Kong, China vs Kuwait",
+            "match_id": 140882,
+            "startTime": "10:45:00 AM 01-03-2026"
         }
     ]
 }
