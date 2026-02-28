@@ -1,23 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "11:30:39 AM 28-02-2026",
+    "last update time": "12:50:35 PM 28-02-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Cricket",
-            "title": "Bhutan vs Thailand (Thailand Open Men's T20I Series 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140671_5970_TL_BHU_fc-web.jpg",
-            "team_1": "Bhutan",
-            "team_2": "Thailand",
-            "status": "LIVE",
-            "event_name": "Thailand Open Men's T20I Series 2026",
-            "match_name": "Bhutan vs Thailand",
-            "match_id": 140675,
-            "startTime": "07:30:00 AM 28-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140675_english_hls_91116a5ec721003_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140675_english_hls_91116a5ec721003_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Cricket",
             "title": "Hong Kong, China vs Kuwait (Men's T20I Series 2026)",
@@ -33,18 +19,60 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140881_english_hls_a790c03b7b42383_1ta-di_h264/index.m3u8"
         },
         {
+            "event_category": "Cricket",
+            "title": "Japan vs Bahrain (Thailand Open Men's T20I Series 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140672_5970_JPN_BAH_fc-web.jpg",
+            "team_1": "Japan",
+            "team_2": "Bahrain",
+            "status": "LIVE",
+            "event_name": "Thailand Open Men's T20I Series 2026",
+            "match_name": "Japan vs Bahrain",
+            "match_id": 140676,
+            "startTime": "12:00:00 PM 28-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140676_english_hls_e230dafff944950_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140676_english_hls_e230dafff944950_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Paarl East Cricket Club vs Maties Cricket Club (Boland T20 Super League Finals 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140693_5968_PECC_MAT_FC-Web.jpg",
+            "team_1": "Paarl East Cricket Club",
+            "team_2": "Maties Cricket Club",
+            "status": "LIVE",
+            "event_name": "Boland T20 Super League Finals 2026",
+            "match_name": "Paarl East Cricket Club vs Maties Cricket Club",
+            "match_id": 140690,
+            "startTime": "12:30:00 PM 28-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140690_english_hls_95fd145ade94681_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140690_english_hls_95fd145ade94681_1ta-di_h264/index.m3u8"
+        },
+        {
             "event_category": "Football",
-            "title": "Auckland vs Melbourne City (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/139419_5802_AFC_MLC_1770724032867.png",
-            "team_1": "Auckland",
-            "team_2": "Melbourne City",
+            "title": "Central Coast Mariners vs Newcastle Jets (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/139420_5802_CCM_NJ_1770724113403.png",
+            "team_1": "Central Coast Mariners",
+            "team_2": "Newcastle Jets",
             "status": "LIVE",
             "event_name": "A League 2025-26",
-            "match_name": "Auckland vs Melbourne City",
-            "match_id": 139419,
-            "startTime": "09:30:00 AM 28-02-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/139419_english_hls_d66694d18114618_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/139419_english_hls_d66694d18114618_1ta-di_h264/index.m3u8"
+            "match_name": "Central Coast Mariners vs Newcastle Jets",
+            "match_id": 139420,
+            "startTime": "11:30:00 AM 28-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/139420_english_hls_dbf7e6e88893112_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/139420_english_hls_dbf7e6e88893112_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Brisbane Roar vs Perth Glory (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/139421_5802_BRB_PG_1770724192241.png",
+            "team_1": "Brisbane Roar",
+            "team_2": "Perth Glory",
+            "status": "LIVE",
+            "event_name": "A League 2025-26",
+            "match_name": "Brisbane Roar vs Perth Glory",
+            "match_id": 139421,
+            "startTime": "12:30:00 PM 28-02-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/139421_english_hls_4ed6bc6e6e42376_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/139421_english_hls_4ed6bc6e6e42376_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -127,42 +155,6 @@
             "startTime": "05:45:00 AM 01-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Central Coast Mariners vs Newcastle Jets (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/139420_5802_CCM_NJ_1770724113403.png",
-            "team_1": "Central Coast Mariners",
-            "team_2": "Newcastle Jets",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Central Coast Mariners vs Newcastle Jets",
-            "match_id": 139420,
-            "startTime": "11:30:00 AM 28-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Japan vs Bahrain (Thailand Open Men's T20I Series 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140672_5970_JPN_BAH_fc-web.jpg",
-            "team_1": "Japan",
-            "team_2": "Bahrain",
-            "status": "UPCOMING",
-            "event_name": "Thailand Open Men's T20I Series 2026",
-            "match_name": "Japan vs Bahrain",
-            "match_id": 140676,
-            "startTime": "12:00:00 PM 28-02-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Van der Stel Cricket Club vs Paarl East Cricket Club (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140690_5968_VDCC_PECC_FC-Web.jpg",
-            "team_1": "Van der Stel Cricket Club",
-            "team_2": "Paarl East Cricket Club",
-            "status": "UPCOMING",
-            "event_name": "Boland T20 Super League Finals 2026",
-            "match_name": "Van der Stel Cricket Club vs Paarl East Cricket Club",
-            "match_id": 140690,
-            "startTime": "12:30:00 PM 28-02-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "Maties Cricket Club vs Vredenburg/Saldanha CC (Boland T20 Super League Finals 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140691_5968_MAT_VDS_FC-Web.jpg",
@@ -211,18 +203,6 @@
             "startTime": "06:00:00 PM 28-02-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Rayo Vallecano vs Athletic Club (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/131089_5427_RVL_ATH_FC-Web.png",
-            "team_1": "Rayo Vallecano",
-            "team_2": "Athletic Club",
-            "status": "UPCOMING",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "Rayo Vallecano vs Athletic Club",
-            "match_id": 131089,
-            "startTime": "06:30:00 PM 28-02-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "Vredenburg/Saldanha CC vs Paarl CC (Boland T20 Super League Finals 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140692_5968_VDS_PRC_FC-Web.jpg",
@@ -233,6 +213,18 @@
             "match_name": "Vredenburg/Saldanha CC vs Paarl CC",
             "match_id": 140692,
             "startTime": "10:00:00 PM 28-02-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Rayo Vallecano vs Athletic Club (LALIGA 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/131089_5427_RVL_ATH_FC-Web.png",
+            "team_1": "Rayo Vallecano",
+            "team_2": "Athletic Club",
+            "status": "UPCOMING",
+            "event_name": "LALIGA 2025-26",
+            "match_name": "Rayo Vallecano vs Athletic Club",
+            "match_id": 131089,
+            "startTime": "06:30:00 PM 28-02-2026"
         },
         {
             "event_category": "Football",
@@ -320,18 +312,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Brisbane Roar vs Perth Glory (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/139421_5802_BRB_PG_1770724192241.png",
-            "team_1": "Brisbane Roar",
-            "team_2": "Perth Glory",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Brisbane Roar vs Perth Glory",
-            "match_id": 139421,
-            "startTime": "12:30:00 PM 28-02-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Macarthur vs Western Sydney Wanderers (A League 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/139422_5802_MAC_SYW_1770724279224.png",
             "team_1": "Macarthur",
@@ -367,6 +347,18 @@
             "startTime": "10:45:00 AM 01-03-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
+            "team_1": "England Lions",
+            "team_2": "Pakistan Shaheens",
+            "status": "UPCOMING",
+            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
+            "match_name": "England Lions vs Pakistan Shaheens",
+            "match_id": 140665,
+            "startTime": "11:30:00 AM 01-03-2026"
+        },
+        {
             "event_category": "Football",
             "title": "Wellington Phoenix vs Sydney FC (A League 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
@@ -380,25 +372,13 @@
         },
         {
             "event_category": "Cricket",
-            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
-            "team_1": "England Lions",
-            "team_2": "Pakistan Shaheens",
-            "status": "UPCOMING",
-            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
-            "match_name": "England Lions vs Pakistan Shaheens",
-            "match_id": 140665,
-            "startTime": "11:30:00 AM 01-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Paarl East Cricket Club vs Maties Cricket Club (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140693_5968_PECC_MAT_FC-Web.jpg",
-            "team_1": "Paarl East Cricket Club",
-            "team_2": "Maties Cricket Club",
+            "title": "Van der Stel Cricket Club vs Paarl East Cricket Club (Boland T20 Super League Finals 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140690_5968_VDCC_PECC_FC-Web.jpg",
+            "team_1": "Van der Stel Cricket Club",
+            "team_2": "Paarl East Cricket Club",
             "status": "UPCOMING",
             "event_name": "Boland T20 Super League Finals 2026",
-            "match_name": "Paarl East Cricket Club vs Maties Cricket Club",
+            "match_name": "Van der Stel Cricket Club vs Paarl East Cricket Club",
             "match_id": 140693,
             "startTime": "12:30:00 PM 01-03-2026"
         },
@@ -473,6 +453,30 @@
             "match_name": "World Feed - Day 3",
             "match_id": 140773,
             "startTime": "08:30:00 PM 28-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "World Feed vs Dubai, United Arab Emirates (ATP 500 - Dubai Duty Free Tennis Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Dubai-Duty-Free-Tennis-Championships_fc-web.jpg",
+            "team_1": "World Feed",
+            "team_2": "Dubai, United Arab Emirates",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - Dubai Duty Free Tennis Championship 2026",
+            "match_name": "World Feed",
+            "match_id": 140903,
+            "startTime": "08:30:00 PM 28-02-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Court Jaime Fillol vs Santiago, Chile (ATP 250 - BCI Seguros Chile Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/BCI-Seguros-Chile-Open,-Clay,-ATP-250-old-.png",
+            "team_1": "Court Jaime Fillol",
+            "team_2": "Santiago, Chile",
+            "status": "UPCOMING",
+            "event_name": "ATP 250 - BCI Seguros Chile Open 2026",
+            "match_name": "Court Jaime Fillol",
+            "match_id": 140362,
+            "startTime": "02:30:00 AM 01-03-2026"
         }
     ]
 }
