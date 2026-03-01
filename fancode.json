@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "11:38:49 AM 01-03-2026",
+    "last update time": "12:26:35 PM 01-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -17,48 +17,6 @@
             "startTime": "10:45:00 AM 01-03-2026",
             "dai_url": null,
             "adfree_url": null
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Estadio vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "Estadio",
-            "team_2": "Acapulco, Mexico",
-            "status": "LIVE",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "Estadio",
-            "match_id": 140844,
-            "startTime": "06:00:00 AM 01-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140844_english_hls_7178decd1a1626_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140844_english_hls_7178decd1a1626_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Day 2 vs Wollongong Golf Club (Ford Women's NSW Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Ford-Women's-NSW-Open_fc-web.jpg",
-            "team_1": "Day 2",
-            "team_2": "Wollongong Golf Club",
-            "status": "LIVE",
-            "event_name": "Ford Women's NSW Open 2026",
-            "match_name": "Day 2",
-            "match_id": 140784,
-            "startTime": "06:30:00 AM 01-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140784_english_hls_a19a349aa625330_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140784_english_hls_a19a349aa625330_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "World Feed vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Abierto-Mexicano-_web.jpg",
-            "team_1": "World Feed",
-            "team_2": "Acapulco, Mexico",
-            "status": "LIVE",
-            "event_name": "ATP 500 - Abierto Mexicano Telcel",
-            "match_name": "World Feed",
-            "match_id": 140845,
-            "startTime": "08:30:00 AM 01-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140845_english_hls_dfdc9e0cfa56365_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140845_english_hls_dfdc9e0cfa56365_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "MotoGP",
@@ -101,7 +59,7 @@
         {
             "event_category": "Cricket",
             "title": "TBC vs TBC (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Boland-T20-Super-League_FC-WEB.png",
             "team_1": "TBC",
             "team_2": "TBC",
             "status": "UPCOMING",
@@ -149,7 +107,7 @@
         {
             "event_category": "Cricket",
             "title": "TBC vs TBC (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Boland-T20-Super-League_FC-WEB.png",
             "team_1": "TBC",
             "team_2": "TBC",
             "status": "UPCOMING",
@@ -303,18 +261,6 @@
             "startTime": "04:00:00 AM 02-03-2026"
         },
         {
-            "event_category": "Golf",
-            "title": "Jupiter vs Boston vs Florida (TGL Season 2)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
-            "team_1": "Jupiter vs Boston",
-            "team_2": "Florida",
-            "status": "UPCOMING",
-            "event_name": "TGL Season 2",
-            "match_name": "Jupiter vs Boston",
-            "match_id": 139175,
-            "startTime": "07:30:00 AM 02-03-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Korea Republic Women vs IR Iran Women (AFC Women's Asian Cup, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140795_5979_KOR-W_IRNW_fc-Web_1772191702171.jpg",
@@ -325,6 +271,18 @@
             "match_name": "Korea Republic Women vs IR Iran Women",
             "match_id": 140795,
             "startTime": "02:30:00 PM 02-03-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Jupiter vs Boston vs Florida (TGL Season 2)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
+            "team_1": "Jupiter vs Boston",
+            "team_2": "Florida",
+            "status": "UPCOMING",
+            "event_name": "TGL Season 2",
+            "match_name": "Jupiter vs Boston",
+            "match_id": 139175,
+            "startTime": "07:30:00 AM 02-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -341,7 +299,7 @@
         {
             "event_category": "Cricket",
             "title": "TBC vs TBC (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Boland-T20-Super-League_FC-WEB.png",
             "team_1": "TBC",
             "team_2": "TBC",
             "status": "UPCOMING",
@@ -409,6 +367,42 @@
             "match_name": "DPR Korea Women vs Uzbekistan Women",
             "match_id": 140796,
             "startTime": "07:30:00 AM 03-03-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Los Angeles vs New York vs Florida (TGL Season 2)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
+            "team_1": "Los Angeles vs New York",
+            "team_2": "Florida",
+            "status": "UPCOMING",
+            "event_name": "TGL Season 2",
+            "match_name": "Los Angeles vs New York",
+            "match_id": 139176,
+            "startTime": "05:30:00 AM 03-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Melbourne City vs Buriram United (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140848_5647_MLC_BU_FC-Web.png",
+            "team_1": "Melbourne City",
+            "team_2": "Buriram United",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Melbourne City vs Buriram United",
+            "match_id": 140848,
+            "startTime": "01:15:00 PM 03-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "China PR Women vs Bangladesh Women (AFC Women's Asian Cup, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140797_5979_CHN-W_BDW_fc-Web_1772191702160.jpg",
+            "team_1": "China PR Women",
+            "team_2": "Bangladesh Women",
+            "status": "UPCOMING",
+            "event_name": "AFC Women's Asian Cup, 2026",
+            "match_name": "China PR Women vs Bangladesh Women",
+            "match_id": 140797,
+            "startTime": "01:30:00 PM 03-03-2026"
         }
     ]
 }
