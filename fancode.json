@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "01:49:41 AM 02-03-2026",
+    "last update time": "02:22:42 AM 02-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -103,18 +103,16 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140778_english_hls_78a6fea50d59701_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Football",
-            "title": "Real Betis vs Sevilla FC (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/131085_5427_RB_SEV_FC-Web.png",
-            "team_1": "Real Betis",
-            "team_2": "Sevilla FC",
-            "status": "LIVE",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "Real Betis vs Sevilla FC",
-            "match_id": 131085,
-            "startTime": "11:00:00 PM 01-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/131085_english_hls_b468dd5cc833761_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/131085_english_hls_b468dd5cc833761_1ta-di_h264/index.m3u8"
+            "event_category": "Cricket",
+            "title": "TBC vs TBC (Boland T20 Super League Finals 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Boland-T20-Super-League_FC-WEB.png",
+            "team_1": "TBC",
+            "team_2": "TBC",
+            "status": "UPCOMING",
+            "event_name": "Boland T20 Super League Finals 2026",
+            "match_name": "TBC vs TBC",
+            "match_id": 140696,
+            "startTime": "10:00:00 PM 02-03-2026"
         },
         {
             "event_category": "Football",
@@ -127,18 +125,6 @@
             "match_name": "Korea Republic Women vs IR Iran Women",
             "match_id": 140795,
             "startTime": "02:30:00 PM 02-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "TBC vs TBC (Boland T20 Super League Finals 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Boland-T20-Super-League_FC-WEB.png",
-            "team_1": "TBC",
-            "team_2": "TBC",
-            "status": "UPCOMING",
-            "event_name": "Boland T20 Super League Finals 2026",
-            "match_name": "TBC vs TBC",
-            "match_id": 140696,
-            "startTime": "10:00:00 PM 02-03-2026"
         },
         {
             "event_category": "Football",
@@ -202,18 +188,6 @@
         },
         {
             "event_category": "Cricket",
-            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
-            "team_1": "England Lions",
-            "team_2": "Pakistan Shaheens",
-            "status": "UPCOMING",
-            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
-            "match_name": "England Lions vs Pakistan Shaheens",
-            "match_id": 140665,
-            "startTime": "11:30:00 AM 01-03-2026"
-        },
-        {
-            "event_category": "Cricket",
             "title": "Hong Kong, China vs Kuwait (Men's One Day Series 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Men's-One-Day-Series_web.jpg",
             "team_1": "Hong Kong, China",
@@ -223,6 +197,18 @@
             "match_name": "Hong Kong, China vs Kuwait",
             "match_id": 140883,
             "startTime": "06:30:00 AM 03-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
+            "team_1": "England Lions",
+            "team_2": "Pakistan Shaheens",
+            "status": "UPCOMING",
+            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
+            "match_name": "England Lions vs Pakistan Shaheens",
+            "match_id": 140665,
+            "startTime": "11:30:00 AM 01-03-2026"
         },
         {
             "event_category": "Football",
@@ -403,6 +389,18 @@
             "match_name": "Vietnam Women vs India Women",
             "match_id": 140799,
             "startTime": "04:30:00 PM 04-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Johor Darul Ta'zim vs Sanfrecce Hiroshima (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140853_5647_JDT_HIR_FC-Web.png",
+            "team_1": "Johor Darul Ta'zim",
+            "team_2": "Sanfrecce Hiroshima",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Johor Darul Ta'zim vs Sanfrecce Hiroshima",
+            "match_id": 140853,
+            "startTime": "05:45:00 PM 04-03-2026"
         }
     ]
 }
