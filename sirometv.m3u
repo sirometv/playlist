@@ -37,7 +37,7 @@
 #🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
 
 
-#✅Sirome TV - 🟢 Gorups UPDATED - 🟢 - 2026-03-02 01:34:35AM BD Time
+#✅Sirome TV - 🟢 Gorups UPDATED - 🟢 - 2026-03-02 01:47:25AM BD Time
 
 
 
@@ -506,8 +506,9 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 # সাইট হচ্ছেঃ https://119-ar.vercel.app/#channels
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/2ycJtMmp/image.jpg" group-title="Bangladeshi", Nagorik TV
+http://198.195.239.50:8095/nagorik/tracks-v1a1/mono.m3u8
 http://116.204.149.16/nagorik/index.m3u8
-https://satoshi-cors.herokuapp.com/http://116.204.149.16/nagorik/tracks-v1a1/mono.m3u8
+#https://satoshi-cors.herokuapp.com/http://116.204.149.16/nagorik/tracks-v1a1/mono.m3u8
 #https://bongoflixbd.top/nagorik.m3u8?user=bongoflix&pass=eaminvai
 #https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 #http://103.175.242.10:8080/nagorik/index.m3u8
@@ -789,9 +790,10 @@ https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
 
 #EXTINF:-1 tvg-logo="https://i.ibb.co.com/hSWsQKP/Sirome-TV-7.jpg" group-title="Bangladeshi", Discovery Bangla
-https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=22
-https://live.dinesh29.com.np/stream/jiotv/discoverybengali/stream_0.m3u8
-https://live.dinesh29.com.np/stream/jiotv/discoveryhindi/stream_0.m3u8
+http://198.195.239.50:8095/Discovery/tracks-v1a1/mono.m3u8
+#https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=22
+#https://live.dinesh29.com.np/stream/jiotv/discoverybengali/stream_0.m3u8
+#https://live.dinesh29.com.np/stream/jiotv/discoveryhindi/stream_0.m3u8
 #https://bongoflixbd.top/bk/83.m3u8?user=bongoflix&pass=eaminvai
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/D02NbKjJ/image.jpg" group-title="Bangladeshi", Discover Pakistan
@@ -807,40 +809,48 @@ https://satoshi-cors.herokuapp.com/http://151.80.18.177:86/National_Geo_HD/index
 https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=23
 https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=25
 
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
-
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
-
-
-
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/v89tFjmf/image.jpg" group-title="Bangladeshi",Animal Planet HD
+http://103.229.254.25:7001/play/a0dr/56575568.m3u8
+#http://103.60.204.26:3255/AnimalPlanetHD/tracks-v1a1/mono.m3u8
+#https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
+#https://bongoflixbd.top/toffee/animal_planet_hd.m3u8?user=bongoflix&pass=eaminvai
 
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
-
-
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
 
 
 #EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/JnRjtw8p/image.jpg" group-title="Bangladeshi", Sonic Bangla
-http://89.187.189.98/SONIC/index.m3u8
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", 
+
+
+
+#🔴🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🔴
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/HxjNsLb8/image.jpg" group-title="Bangladeshi", Discovery Kids
-https://cloudfrontnet.vercel.app/tplay/playout/209902/master.m3u8
+http://198.195.239.50:8095/DiscoveryKids/tracks-v1a1/mono.m3u8
 http://103.140.254.2:3500/live/554.m3u8
+#https://cloudfrontnet.vercel.app/tplay/playout/209902/master.m3u8
 #https://bongoflixbd.top/bk/79.m3u8?user=bongoflix&pass=eaminvai
 
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/J43k05rQ/image.jpg" group-title="Bangladeshi", Cartoon Network
-http://103.140.254.2:3500/live/1079.m3u8
-http://103.140.254.2:3500/live/816.m3u8
+http://198.195.239.50:8095/CartoonNetwork/tracks-v1a1/mono.m3u8
+#http://103.140.254.2:3500/live/1079.m3u8
+#http://103.140.254.2:3500/live/816.m3u8
 #https://bongoflixbd.top/bk/79.m3u8?user=bongoflix&pass=eaminvai
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/WzXkCFmM/image.jpg" group-title="Bangladeshi", Jungle Book
@@ -887,6 +897,10 @@ https://live20.bozztv.com/giatvplayout7/giatv-209622/tracks-v1a1/mono.ts.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/PJYkGX4L/image.jpg" group-title="Bangladeshi", 24/7 Doraemon
 https://cloudfrontnet.vercel.app/tplay/playout/209902/master.m3u8
 https://live20.bozztv.com/giatvplayout7/giatv-209902/tracks-v1a1/mono.ts.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/JnRjtw8p/image.jpg" group-title="Bangladeshi", Sonic Bangla
+http://89.187.189.98/SONIC/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/7LZSJsmD/image.jpg" group-title="Bangladeshi", Gubbare 
@@ -1092,10 +1106,7 @@ https://live.i-news.tv/hls/stream.m3u8
 
 #🦜🐸🐊🐢🦖🐳
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/v89tFjmf/image.jpg" group-title="Bangladeshi",Animal Planet HD
-http://103.60.204.26:3255/AnimalPlanetHD/tracks-v1a1/mono.m3u8
-#https://tvsen6.aynaott.com/animal_planet_hd/index.m3u8
-#https://bongoflixbd.top/toffee/animal_planet_hd.m3u8?user=bongoflix&pass=eaminvai
+
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Kz3qLH4S/image.jpg" group-title="Bangladeshi", BBC Earth
@@ -1177,11 +1188,10 @@ https://j78dp346yq5r-hls-live.5centscdn.com/safari/live.stream/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Gt7VxrNx/image.jpg" group-title="Indian-Bangla", Star Jalsha
 http://198.195.239.50:8095/bdixbd.net_StarJalshaHD/video.m3u8
 http://203.18.159.115/STARJALSHAHD/tracks-v1a1/mono.m3u8
-https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=18
 https://tvsen1.aynaott.com/gUX8BJmNc2yF/index.m3u8
-https://catchup.yuppcdn.net/amazonv2/36/preview/starjalsha/master/chunklist.m3u8
 https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8
 https://cloudfrontnet.vercel.app/tplay/playout/209627/master.m3u8
+#https://catchup.yuppcdn.net/amazonv2/36/preview/starjalsha/master/chunklist.m3u8
 #https://bongoflixbd.top/bk/30.m3u8?user=bongoflix&pass=eaminvai
 #http://agh2019.xyz/SOFIANBENAISSA/X7KJL94/34726
 #http://link.luckonline.eu/live/Ali130225/Cpyej2JL56Xy/3527.ts
@@ -1191,28 +1201,24 @@ https://cloudfrontnet.vercel.app/tplay/playout/209627/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/3RcS6984/image.jpg" group-title="Indian-Bangla", Star-Jalsha Movies
 http://203.18.159.115/JALSHAMOVIESHD/tracks-v1a1/mono.m3u8
-https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=19
 https://live.dinesh29.com.np/stream/jiotvplus/jalshamovieshd/master.m3u8
-https://aynapubluc.vercel.app/api/stream/f07177e9-d1a9-48b4-8e2e-1718d098bbfb.m3u8
+#https://aynapubluc.vercel.app/api/stream/f07177e9-d1a9-48b4-8e2e-1718d098bbfb.m3u8
 #https://bongoflixbd.top/bk/31.m3u8?user=bongoflix&pass=eaminvai
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/x8sgjYtH/resized-300x180-ffffff-12.jpg" group-title="Indian-Bangla", Zee Bangla
 http://203.18.159.115/ZEEBANGLAHD/tracks-v1a1/mono.m3u8
-https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=14
-https://tvsen3.aynaott.com/PNEb3v2q6GBk/index.m3u8
-https://tvsen1.aynaott.com/PNEb3v2q6GBk/index.m3u8
-https://tvsen6.aynaott.com/ZeeBangla/index.m3u8
 https://catchup.yuppcdn.net/amazonv2/36/preview/zeebangla/master/chunklist.m3u8
 https://yupptvcatchupire.yuppcdn.net/preview/zeebangla/2500.m3u8
-https://smart.bengaldigital.live/Zee-Bangla-Cinema/tracks-v1a1/mono.m3u8
+#https://smart.bengaldigital.live/Zee-Bangla-Cinema/tracks-v1a1/mono.m3u8
+#https://tvsen3.aynaott.com/PNEb3v2q6GBk/index.m3u8
+#https://tvsen1.aynaott.com/PNEb3v2q6GBk/index.m3u8
+#https://tvsen6.aynaott.com/ZeeBangla/index.m3u8
 http://87.255.35.150:18238/
 
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/ZqDsVsYL/resized-300x175-transparent.png" group-title="Indian-Bangla", Zee-Bangla Cinema
 http://198.195.239.50:8095/bdixbd.net_ZeeBanglaCinemaHD/video.m3u8
-https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=43
-https://smart.bengaldigital.live/Zee-Bangla-Cinema/tracks-v1a1/mono.m3u8
 http://smart.bengaldigital.live/Zee-Bangla-Cinema/index.m3u8
 https://server.zillarbarta.com/ZBCINEMA/tracks-v1a1/mono.m3u8
 #https://bongoflixbd.top/bk/29.m3u8?user=bongoflix&pass=eaminvai
@@ -1675,6 +1681,7 @@ https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
