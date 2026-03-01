@@ -1,9 +1,23 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "10:31:26 AM 01-03-2026",
+    "last update time": "11:38:49 AM 01-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
+        {
+            "event_category": "Cricket",
+            "title": "Hong Kong, China vs Kuwait (Men's T20I Series 2026)",
+            "src": "https://images.fancode.com/aig/match/v1771899776744/140882_CASACARDS_APP.png",
+            "team_1": "Hong Kong, China",
+            "team_2": "Kuwait",
+            "status": "LIVE",
+            "event_name": "Men's T20I Series 2026",
+            "match_name": "Hong Kong, China vs Kuwait",
+            "match_id": 140882,
+            "startTime": "10:45:00 AM 01-03-2026",
+            "dai_url": null,
+            "adfree_url": null
+        },
         {
             "event_category": "Tennis",
             "title": "Estadio vs Acapulco, Mexico (ATP 500 - Abierto Mexicano Telcel)",
@@ -74,18 +88,6 @@
         },
         {
             "event_category": "Cricket",
-            "title": "Hong Kong, China vs Kuwait (Men's T20I Series 2026)",
-            "src": "https://images.fancode.com/aig/match/v1771899776744/140882_CASACARDS_APP.png",
-            "team_1": "Hong Kong, China",
-            "team_2": "Kuwait",
-            "status": "UPCOMING",
-            "event_name": "Men's T20I Series 2026",
-            "match_name": "Hong Kong, China vs Kuwait",
-            "match_id": 140882,
-            "startTime": "10:45:00 AM 01-03-2026"
-        },
-        {
-            "event_category": "Cricket",
             "title": "Van der Stel Cricket Club vs Paarl East Cricket Club (Boland T20 Super League Finals 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140683_5968_MAT_PECC_FC-Web.jpg",
             "team_1": "Van der Stel Cricket Club",
@@ -145,18 +147,6 @@
             "startTime": "06:30:00 PM 01-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Mumbai City FC vs NorthEast United FC (ISL 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140451_5956_MCFC_NEUFC_fc-web_1772229182804.jpg",
-            "team_1": "Mumbai City FC",
-            "team_2": "NorthEast United FC",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26",
-            "match_name": "Mumbai City FC vs NorthEast United FC",
-            "match_id": 140451,
-            "startTime": "07:30:00 PM 01-03-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "TBC vs TBC (Boland T20 Super League Finals 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
@@ -167,6 +157,18 @@
             "match_name": "TBC vs TBC",
             "match_id": 140695,
             "startTime": "10:00:00 PM 01-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Mumbai City FC vs NorthEast United FC (ISL 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140451_5956_MCFC_NEUFC_fc-web_1772229182804.jpg",
+            "team_1": "Mumbai City FC",
+            "team_2": "NorthEast United FC",
+            "status": "UPCOMING",
+            "event_name": "ISL 2025-26",
+            "match_name": "Mumbai City FC vs NorthEast United FC",
+            "match_id": 140451,
+            "startTime": "07:30:00 PM 01-03-2026"
         },
         {
             "event_category": "Football",
