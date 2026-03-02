@@ -1,9 +1,23 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "07:52:09 AM 02-03-2026",
+    "last update time": "10:11:52 AM 02-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
+        {
+            "event_category": "Golf",
+            "title": "Jupiter vs Boston vs Florida (TGL Season 2)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
+            "team_1": "Jupiter vs Boston",
+            "team_2": "Florida",
+            "status": "LIVE",
+            "event_name": "TGL Season 2",
+            "match_name": "Jupiter vs Boston",
+            "match_id": 139175,
+            "startTime": "07:30:00 AM 02-03-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/d9Eshw5zS3uZXzYgQ72wGA/master.m3u8",
+            "adfree_url": null
+        },
         {
             "event_category": "Cricket",
             "title": "Maties Cricket Club vs Van der Stel Cricket Club (Boland T20 Super League Finals 2026)",
@@ -53,16 +67,16 @@
             "startTime": "02:30:00 PM 02-03-2026"
         },
         {
-            "event_category": "Golf",
-            "title": "Jupiter vs Boston vs Florida (TGL Season 2)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
-            "team_1": "Jupiter vs Boston",
-            "team_2": "Florida",
+            "event_category": "Cricket",
+            "title": "Hong Kong, China vs Kuwait (Men's One Day Series 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Men's-One-Day-Series_web.jpg",
+            "team_1": "Hong Kong, China",
+            "team_2": "Kuwait",
             "status": "UPCOMING",
-            "event_name": "TGL Season 2",
-            "match_name": "Jupiter vs Boston",
-            "match_id": 139175,
-            "startTime": "07:30:00 AM 02-03-2026"
+            "event_name": "Men's One Day Series 2026",
+            "match_name": "Hong Kong, China vs Kuwait",
+            "match_id": 140883,
+            "startTime": "06:30:00 AM 03-03-2026"
         },
         {
             "event_category": "Football",
@@ -77,18 +91,6 @@
             "startTime": "01:00:00 AM 03-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "Hong Kong, China vs Kuwait (Men's One Day Series 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Men's-One-Day-Series_web.jpg",
-            "team_1": "Hong Kong, China",
-            "team_2": "Kuwait",
-            "status": "UPCOMING",
-            "event_name": "Men's One Day Series 2026",
-            "match_name": "Hong Kong, China vs Kuwait",
-            "match_id": 140883,
-            "startTime": "06:30:00 AM 03-03-2026"
-        },
-        {
             "event_category": "Football",
             "title": "DPR Korea Women vs Uzbekistan Women (AFC Women's Asian Cup, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140796_5979_NK-W_UB-W_fc-Web_1772191702163.jpg",
@@ -99,18 +101,6 @@
             "match_name": "DPR Korea Women vs Uzbekistan Women",
             "match_id": 140796,
             "startTime": "07:30:00 AM 03-03-2026"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Los Angeles vs New York vs Florida (TGL Season 2)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
-            "team_1": "Los Angeles vs New York",
-            "team_2": "Florida",
-            "status": "UPCOMING",
-            "event_name": "TGL Season 2",
-            "match_name": "Los Angeles vs New York",
-            "match_id": 139176,
-            "startTime": "05:30:00 AM 03-03-2026"
         },
         {
             "event_category": "Football",
@@ -125,16 +115,16 @@
             "startTime": "01:15:00 PM 03-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
-            "team_1": "England Lions",
-            "team_2": "Pakistan Shaheens",
+            "event_category": "Golf",
+            "title": "Los Angeles vs New York vs Florida (TGL Season 2)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
+            "team_1": "Los Angeles vs New York",
+            "team_2": "Florida",
             "status": "UPCOMING",
-            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
-            "match_name": "England Lions vs Pakistan Shaheens",
-            "match_id": 140665,
-            "startTime": "11:30:00 AM 01-03-2026"
+            "event_name": "TGL Season 2",
+            "match_name": "Los Angeles vs New York",
+            "match_id": 139176,
+            "startTime": "05:30:00 AM 03-03-2026"
         },
         {
             "event_category": "Football",
@@ -159,6 +149,18 @@
             "match_name": "Gangwon vs Machida Zelvia",
             "match_id": 140849,
             "startTime": "03:30:00 PM 03-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
+            "team_1": "England Lions",
+            "team_2": "Pakistan Shaheens",
+            "status": "UPCOMING",
+            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
+            "match_name": "England Lions vs Pakistan Shaheens",
+            "match_id": 140665,
+            "startTime": "11:30:00 AM 01-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -387,6 +389,18 @@
             "match_name": "Tasmania vs Victoria",
             "match_id": 134039,
             "startTime": "05:00:00 AM 05-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Hong Kong, China vs Kuwait (Men's One Day Series 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Men's-One-Day-Series_web.jpg",
+            "team_1": "Hong Kong, China",
+            "team_2": "Kuwait",
+            "status": "UPCOMING",
+            "event_name": "Men's One Day Series 2026",
+            "match_name": "Hong Kong, China vs Kuwait",
+            "match_id": 140884,
+            "startTime": "06:30:00 AM 05-03-2026"
         }
     ]
 }
