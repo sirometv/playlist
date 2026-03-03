@@ -1,9 +1,23 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "01:28:33 PM 03-03-2026",
+    "last update time": "05:01:27 PM 03-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
+        {
+            "event_category": "Football",
+            "title": "Gangwon vs Machida Zelvia (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140849_5647_GW_MZ_FC-Web.png",
+            "team_1": "Gangwon",
+            "team_2": "Machida Zelvia",
+            "status": "LIVE",
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Gangwon vs Machida Zelvia",
+            "match_id": 140849,
+            "startTime": "03:30:00 PM 03-03-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140849_english_hls_1ecbddc3c324629_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140849_english_hls_1ecbddc3c324629_1ta-di_h264/index.m3u8"
+        },
         {
             "event_category": "Cricket",
             "title": "West Indies Women vs Sri Lanka Women (Sri Lanka Women tour of West Indies, 2026)",
@@ -15,42 +29,6 @@
             "match_name": "West Indies Women vs Sri Lanka Women",
             "match_id": 140143,
             "startTime": "10:30:00 PM 03-03-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Melbourne City vs Buriram United (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140848_5647_MLC_BU_FC-Web.png",
-            "team_1": "Melbourne City",
-            "team_2": "Buriram United",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Melbourne City vs Buriram United",
-            "match_id": 140848,
-            "startTime": "01:15:00 PM 03-03-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "China PR Women vs Bangladesh Women (AFC Women's Asian Cup, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140797_5979_CHN-W_BDW_fc-Web_1772191702160.jpg",
-            "team_1": "China PR Women",
-            "team_2": "Bangladesh Women",
-            "status": "UPCOMING",
-            "event_name": "AFC Women's Asian Cup, 2026",
-            "match_name": "China PR Women vs Bangladesh Women",
-            "match_id": 140797,
-            "startTime": "01:30:00 PM 03-03-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Gangwon vs Machida Zelvia (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140849_5647_GW_MZ_FC-Web.png",
-            "team_1": "Gangwon",
-            "team_2": "Machida Zelvia",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Gangwon vs Machida Zelvia",
-            "match_id": 140849,
-            "startTime": "03:30:00 PM 03-03-2026"
         },
         {
             "event_category": "Football",
@@ -113,16 +91,16 @@
             "startTime": "01:30:00 PM 04-03-2026"
         },
         {
-            "event_category": "Golf",
-            "title": "The Bay vs Jupiter vs Florida (TGL Season 2)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
-            "team_1": "The Bay vs Jupiter",
-            "team_2": "Florida",
+            "event_category": "Football",
+            "title": "Johor Darul Ta'zim vs Sanfrecce Hiroshima (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140853_5647_JDT_HIR_FC-Web.png",
+            "team_1": "Johor Darul Ta'zim",
+            "team_2": "Sanfrecce Hiroshima",
             "status": "UPCOMING",
-            "event_name": "TGL Season 2",
-            "match_name": "The Bay vs Jupiter",
-            "match_id": 139177,
-            "startTime": "07:30:00 AM 04-03-2026"
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Johor Darul Ta'zim vs Sanfrecce Hiroshima",
+            "match_id": 140853,
+            "startTime": "05:45:00 PM 04-03-2026"
         },
         {
             "event_category": "Football",
@@ -138,18 +116,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Johor Darul Ta'zim vs Sanfrecce Hiroshima (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140853_5647_JDT_HIR_FC-Web.png",
-            "team_1": "Johor Darul Ta'zim",
-            "team_2": "Sanfrecce Hiroshima",
-            "status": "UPCOMING",
-            "event_name": "AFC Champions League Elite 2025-26",
-            "match_name": "Johor Darul Ta'zim vs Sanfrecce Hiroshima",
-            "match_id": 140853,
-            "startTime": "05:45:00 PM 04-03-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Vietnam Women vs India Women (AFC Women's Asian Cup, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140799_5979_VET-W_INDW_fc-Web_1772191702221.jpg",
             "team_1": "Vietnam Women",
@@ -161,6 +127,18 @@
             "startTime": "04:30:00 PM 04-03-2026"
         },
         {
+            "event_category": "Golf",
+            "title": "The Bay vs Jupiter vs Florida (TGL Season 2)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png",
+            "team_1": "The Bay vs Jupiter",
+            "team_2": "Florida",
+            "status": "UPCOMING",
+            "event_name": "TGL Season 2",
+            "match_name": "The Bay vs Jupiter",
+            "match_id": 139177,
+            "startTime": "07:30:00 AM 04-03-2026"
+        },
+        {
             "event_category": "Cricket",
             "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
@@ -170,7 +148,7 @@
             "event_name": "England Lions and Pakistan Shaheens tour of UAE",
             "match_name": "England Lions vs Pakistan Shaheens",
             "match_id": 140666,
-            "startTime": "11:30:00 AM 04-03-2026"
+            "startTime": "03:55:00 PM 03-03-2026"
         },
         {
             "event_category": "Football",
@@ -399,6 +377,42 @@
             "match_name": "East Bengal FC vs FC Goa",
             "match_id": 141090,
             "startTime": "05:00:00 PM 05-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Bangkok United vs Tampines Rovers FC (AFC Champions League Two 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "team_1": "Bangkok United",
+            "team_2": "Tampines Rovers FC",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Two 2025-26",
+            "match_name": "Bangkok United vs Tampines Rovers FC",
+            "match_id": 140865,
+            "startTime": "05:45:00 PM 05-03-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Main Feed Day 1 vs Orlando, Florida (Arnold Palmer Invitational 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(7).png",
+            "team_1": "Main Feed Day 1",
+            "team_2": "Orlando, Florida",
+            "status": "UPCOMING",
+            "event_name": "Arnold Palmer Invitational 2026",
+            "match_name": "Main Feed Day 1",
+            "match_id": 140988,
+            "startTime": "06:00:00 PM 05-03-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Featured Group Day 1 vs Orlando, Florida (Arnold Palmer Invitational 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(7).png",
+            "team_1": "Featured Group Day 1",
+            "team_2": "Orlando, Florida",
+            "status": "UPCOMING",
+            "event_name": "Arnold Palmer Invitational 2026",
+            "match_name": "Featured Group Day 1",
+            "match_id": 140989,
+            "startTime": "06:45:00 PM 05-03-2026"
         }
     ]
 }
