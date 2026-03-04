@@ -9,24 +9,71 @@ http://45.148.145.57/PAK_HUMTVG/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/L665r76D/image.jpg" group-title="Pakistan", Hum World
 https://g4wlkwx8l23a-hls-live.5centscdn.com/HUM/271ddf829afeece44d8732757fba1a66.sdp/playlist_dvr.m3u8
 
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/d1Rd9xJM/image.jpg" group-title="Pakistan", Hum Masala
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Xq8fnDPF/image.jpg" group-title="Pakistan", Hum Sitaray
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
+
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/D0QCL0bL/image.jpg" group-title="Pakistan",Geo HD
 https://jk3lz82elw79-hls-live.5centscdn.com/harPalGeo/955ad3298db330b5ee880c2c9e6f23a0.sdp/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="" group-title="Pakistan", Geo Entertainment
 https://jk3lz82elw79-hls-live.5centscdn.com/harPalGeo/955ad3298db330b5ee880c2c9e6f23a0.sdp/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="Pakistan",Ary Digital
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/SsPdwPwt/image.jpg" group-title="Pakistan", Geo News
+https://jk3lz82elw79-hls-live.5centscdn.com/newgeonews/07811dc6c422334ce36a09ff5cd6fe71.sdp/chunks.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/8c55rK5R/image.jpg" group-title="Pakistan", Geo Tezz
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
+
+
+#EXTINF:-1 tvg-logo="" group-title="Pakistan", Ary Digital
 http://212.32.241.201:8000/play/a01q
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/15VRhNNm/image.jpg" group-title="Pakistan", Ary Zindagi
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/rytcs49Y/image.jpg" group-title="Pakistan", A Sports
+http://203.18.159.115/ASPORTSHD/tracks-v1a1/mono.m3u8
+http://198.195.239.50:8095/Eurosport/index.m3u8
+
+
+
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/0QDHtZxg/image.jpg" group-title="Pakistan", PTV Sports
+http://203.18.159.115/PTVSPORTSHD/tracks-v1a1/mono.m3u8
+http://198.195.239.50:8095/PTV/index.m3u8
+http://163.61.227.29:8000/play/a05l/index.m3u8
+
+
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/43ysP7ZN/image.jpg" group-title="Pakistan", PTV Home
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
+
+#EXTINF:-1 tvg-logo="" group-title="Pakistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Pakistan",
+
+#EXTINF:-1 tvg-logo="" group-title="Pakistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Pakistan",
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kGMjN9NB/image.jpg" group-title="Pakistan", Green Entertainment
 https://ml-pull-dvc-myco.io:2096/GREEN_ENTERTAINMENT/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/GpQGFDXf/image.jpg" group-title="Pakistan",Mun TV
 https://ml-pull-dvc-myco.io:2096/MUN_TV/index.m3u8
-
-#EXTINF:-1 tvg-logo="" group-title="Pakistan",
-
-#EXTINF:-1 tvg-logo="" group-title="Pakistan",
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rwqsLwGz/image.jpg" group-title="Pakistan", 8XM
