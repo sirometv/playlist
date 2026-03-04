@@ -6,15 +6,20 @@
 http://45.148.145.57/PAK_HUMTVG/index.m3u8
 
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/ryfY90D7/image.jpg" group-title="Pakistan", Hum Mena
+https://g4wlkwx8l23a-hls-live.5centscdn.com/HUM/271ddf829afeece44d8732757fba1a66.sdp/playlist_dvr.m3u8
+#🔴Link: https://hum.tv/hum-mena/
+
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/L665r76D/image.jpg" group-title="Pakistan", Hum World
 https://g4wlkwx8l23a-hls-live.5centscdn.com/HUM/271ddf829afeece44d8732757fba1a66.sdp/playlist_dvr.m3u8
+#🔴Link: https://hum.tv/live/
 
 
-
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/d1Rd9xJM/image.jpg" group-title="Pakistan", Hum Masala
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/tJQyN99z/image.jpg" group-title="Pakistan", Hum Masala
 https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/Xq8fnDPF/image.jpg" group-title="Pakistan", Hum Sitaray
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/y8W5xwHc/image.jpg" group-title="Pakistan", Hum Sitaray
 https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
 
@@ -35,8 +40,15 @@ https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/3wZ04b7W/image.jpg" group-title="Pakistan", GEO Kahani
 https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/NFC1yC6k/image.jpg" group-title="Pakistan", Ary Digital
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/vHb3gCWT/image.jpg" group-title="Pakistan", Ary QTV
+https://aryqtv.aryzap.com/6ad7487de108aeda35565f2d082e07c2/69a9ecc0/v1/0183ea2a0eec0b8ed5941a38bc76/0183ea2a4e470b8ed5aa4d793457/main.m3u8
+#Link: https://live.aryqtv.tv/
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/ry0KGpNZ/image.jpg" group-title="Pakistan", Ary Digital
 http://212.32.241.201:8000/play/a01q
+https://arydigital.aryzap.com/7dd4319dd1b389a91dd81a354d41e6b3/69a9edde/v1/0183ea2408f90b8ed5941a38bc72/0183ea24302d0b8ed5941a38bc75/main.m3u8?uuid=4639c1cd-4b91-4a88-a053-ec29897802a1
+# Link: https://live.arydigital.tv/
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/15VRhNNm/image.jpg" group-title="Pakistan", Ary Zindagi
 https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
@@ -111,37 +123,41 @@ https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/hPpSmW77/image.jpg" group-title="Pakistan", Paigham
 https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
-#EXTINF:-1 tvg-logo="" group-title="Pakistan", 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/YStfsFCN/image.jpg" group-title="Pakistan", Apna TV
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/PqNzHj1p/image.jpg" group-title="Pakistan", Hum News
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
-#EXTINF:-1 tvg-logo="" group-title="Pakistan", 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/rwbm3Xjz/image.jpg" group-title="Pakistan", Aur TV
+http://124.109.47.101/hls/stream1.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/bJrtbHm1/image.jpg" group-title="Pakistan", Madana Channel
+https://streaming.madanichannel.tv/static/streaming-playlists/hls/b9790f10-cb0d-4e30-82bf-84a756234e58/master.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="Pakistan", 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/MGRHV3St/image.jpg" group-title="Pakistan", Madana Channel ENG
+https://streaming.madanichannel.tv/static/streaming-playlists/hls/c6a600b0-82cb-454a-8953-2bb2bb372edc/master.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Bb2RCD6Z/image.jpg" group-title="Pakistan", Khyber TV
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
-#EXTINF:-1 tvg-logo="" group-title="Pakistan", 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/6qhY3hqW/image.jpg" group-title="Pakistan", Subrang TV
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/0QsYwJLd/image.jpg" group-title="Pakistan", Lahore Rang
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
-#EXTINF:-1 tvg-logo="" group-title="Pakistan",
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/7hB0dtbs/image.jpg" group-title="Pakistan", Samaa News
+https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/x1mN31G7/image.jpg" group-title="Pakistan", 24 News HD
+https://vcdn.dunyanews.tv/lahorelive/_definst_/ngrp:lnews_1_all/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="Pakistan",
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/L5TFpLMf/image.jpg" group-title="Pakistan", Lahore News
+https://vcdn.dunyanews.tv/lahorelive/_definst_/ngrp:lnews_1_all/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="Pakistan", 
-
-
-#EXTINF:-1 tvg-logo="" group-title="Pakistan", 
-
-
-#EXTINF:-1 tvg-logo="" group-title="Pakistan", 
-
-
-#EXTINF:-1 tvg-logo="" group-title="Pakistan", 
-
-
-#EXTINF:-1 tvg-logo="" group-title="Pakistan",
-
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/qqgxJHP9/image.jpg" group-title="Pakistan", Lahore News
+https://vcdn.dunyanews.tv/lahorelive/_definst_/ngrp:lnews_1_all/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="" group-title="Pakistan",
 
