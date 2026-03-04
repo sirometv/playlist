@@ -1,36 +1,22 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "02:32:02 AM 05-03-2026",
+    "last update time": "04:28:09 AM 05-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
-            "event_category": "Football",
-            "title": "Real Sociedad vs Athletic Club (Copa del Rey, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140524_5806_RS_ATH_FC-Web.jpg",
-            "team_1": "Real Sociedad",
-            "team_2": "Athletic Club",
+            "event_category": "Cricket",
+            "title": "New Zealand Women vs Zimbabwe Women (Zimbabwe Women tour of New Zealand, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/NZ-vs-ZIM_ODi_fc_web_1772618590773.jpg",
+            "team_1": "New Zealand Women",
+            "team_2": "Zimbabwe Women",
             "status": "LIVE",
-            "event_name": "Copa del Rey, 2025-26",
-            "match_name": "Real Sociedad vs Athletic Club",
-            "match_id": 140524,
-            "startTime": "01:30:00 AM 05-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140524_english_hls_714f133d3b74249_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140524_english_hls_714f133d3b74249_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Luton Town vs Northampton Town FC (Vertu Trophy 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(5)_1772173611237.png",
-            "team_1": "Luton Town",
-            "team_2": "Northampton Town FC",
-            "status": "LIVE",
-            "event_name": "Vertu Trophy 2025-26",
-            "match_name": "Luton Town vs Northampton Town FC",
-            "match_id": 140876,
-            "startTime": "01:00:00 AM 05-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140876_english_hls_fbb6491fbd83755_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140876_english_hls_fbb6491fbd83755_1ta-di_h264/index.m3u8"
+            "event_name": "Zimbabwe Women tour of New Zealand, 2026",
+            "match_name": "New Zealand Women vs Zimbabwe Women",
+            "match_id": 140596,
+            "startTime": "03:30:00 AM 05-03-2026",
+            "dai_url": "https://dai.google.com/linear/hls/event/23bJc4DCSE2-dhd2cG1Jjw/master.m3u8",
+            "adfree_url": "https://sonypartnersdaimenew.akamaized.net/hls/live/2037141/DAI21NZVSZM/master.m3u8?hdnea=exp=1772704631~acl=/*~id=71785011425195593525044196708121~hmac=6d0366235e8ad67ec91951da9fa25355bbb0ed74580b3ee750c425b6a11088d2"
         },
         {
             "event_category": "Tennis",
@@ -131,16 +117,18 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141228_english_hls_7a2e1d1fb551505_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Cricket",
-            "title": "New Zealand Women vs Zimbabwe Women (Zimbabwe Women tour of New Zealand, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/NZ-vs-ZIM_ODi_fc_web_1772618590773.jpg",
-            "team_1": "New Zealand Women",
-            "team_2": "Zimbabwe Women",
-            "status": "UPCOMING",
-            "event_name": "Zimbabwe Women tour of New Zealand, 2026",
-            "match_name": "New Zealand Women vs Zimbabwe Women",
-            "match_id": 140596,
-            "startTime": "03:30:00 AM 05-03-2026"
+            "event_category": "Football",
+            "title": "Real Sociedad vs Athletic Club (Copa del Rey, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140524_5806_RS_ATH_FC-Web.jpg",
+            "team_1": "Real Sociedad",
+            "team_2": "Athletic Club",
+            "status": "LIVE",
+            "event_name": "Copa del Rey, 2025-26",
+            "match_name": "Real Sociedad vs Athletic Club",
+            "match_id": 140524,
+            "startTime": "01:30:00 AM 05-03-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140524_english_hls_714f133d3b74249_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140524_english_hls_714f133d3b74249_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -395,18 +383,6 @@
             "startTime": "12:30:00 AM 06-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
-            "team_1": "England Lions",
-            "team_2": "Pakistan Shaheens",
-            "status": "UPCOMING",
-            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
-            "match_name": "England Lions vs Pakistan Shaheens",
-            "match_id": 140666,
-            "startTime": "03:55:00 PM 03-03-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Bangladesh Women vs DPR Korea Women (AFC Women's Asian Cup, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140802_5979_BDW_NK-W_fc-Web_1772191702964.jpg",
@@ -417,6 +393,18 @@
             "match_name": "Bangladesh Women vs DPR Korea Women",
             "match_id": 140802,
             "startTime": "07:30:00 AM 06-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
+            "team_1": "England Lions",
+            "team_2": "Pakistan Shaheens",
+            "status": "UPCOMING",
+            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
+            "match_name": "England Lions vs Pakistan Shaheens",
+            "match_id": 140666,
+            "startTime": "03:55:00 PM 03-03-2026"
         },
         {
             "event_category": "Motorsports",
@@ -465,6 +453,18 @@
             "match_name": "Qualifying Session",
             "match_id": 139543,
             "startTime": "09:25:00 AM 06-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Uzbekistan Women vs China PR Women (AFC Women's Asian Cup, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140803_5979_UB-W_CHN-W_fc-Web_1772191702178.jpg",
+            "team_1": "Uzbekistan Women",
+            "team_2": "China PR Women",
+            "status": "UPCOMING",
+            "event_name": "AFC Women's Asian Cup, 2026",
+            "match_name": "Uzbekistan Women vs China PR Women",
+            "match_id": 140803,
+            "startTime": "01:30:00 PM 06-03-2026"
         },
         {
             "event_category": "Motorsports",
