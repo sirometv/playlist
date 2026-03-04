@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:00:51 AM 05-03-2026",
+    "last update time": "05:46:23 AM 05-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -17,6 +17,20 @@
             "startTime": "03:30:00 AM 05-03-2026",
             "dai_url": "https://dai.google.com/linear/hls/event/23bJc4DCSE2-dhd2cG1Jjw/master.m3u8",
             "adfree_url": "https://sonypartnersdaimenew.akamaized.net/hls/live/2037141/DAI21NZVSZM/master.m3u8?hdnea=exp=1772704631~acl=/*~id=71785011425195593525044196708121~hmac=6d0366235e8ad67ec91951da9fa25355bbb0ed74580b3ee750c425b6a11088d2"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Tasmania vs Victoria (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134039_5609_TAS_VCT_FC-Web.png",
+            "team_1": "Tasmania",
+            "team_2": "Victoria",
+            "status": "LIVE",
+            "event_name": "Sheffield Shield, 2025-26",
+            "match_name": "Tasmania vs Victoria",
+            "match_id": 134039,
+            "startTime": "05:00:00 AM 05-03-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/134039_english_hls_218ba2772e41715_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/134039_english_hls_218ba2772e41715_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -118,15 +132,27 @@
         },
         {
             "event_category": "Cricket",
-            "title": "Tasmania vs Victoria (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134039_5609_TAS_VCT_FC-Web.png",
-            "team_1": "Tasmania",
-            "team_2": "Victoria",
+            "title": "South Australia vs New South Wales (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134040_5609_SAU_NSW_FC-Web.png",
+            "team_1": "South Australia",
+            "team_2": "New South Wales",
             "status": "UPCOMING",
             "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "Tasmania vs Victoria",
-            "match_id": 134039,
-            "startTime": "05:00:00 AM 05-03-2026"
+            "match_name": "South Australia vs New South Wales",
+            "match_id": 134040,
+            "startTime": "05:30:00 AM 05-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Queensland vs Western Australia (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134038_5609_QUN_WAU_FC-Web.png",
+            "team_1": "Queensland",
+            "team_2": "Western Australia",
+            "status": "UPCOMING",
+            "event_name": "Sheffield Shield, 2025-26",
+            "match_name": "Queensland vs Western Australia",
+            "match_id": 134038,
+            "startTime": "05:30:00 AM 05-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -165,30 +191,6 @@
             "startTime": "05:00:00 PM 05-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "South Australia vs New South Wales (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134040_5609_SAU_NSW_FC-Web.png",
-            "team_1": "South Australia",
-            "team_2": "New South Wales",
-            "status": "UPCOMING",
-            "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "South Australia vs New South Wales",
-            "match_id": 134040,
-            "startTime": "05:30:00 AM 05-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Queensland vs Western Australia (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134038_5609_QUN_WAU_FC-Web.png",
-            "team_1": "Queensland",
-            "team_2": "Western Australia",
-            "status": "UPCOMING",
-            "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "Queensland vs Western Australia",
-            "match_id": 134038,
-            "startTime": "05:30:00 AM 05-03-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Philippines Women vs Korea Republic Women (AFC Women's Asian Cup, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140800_5979_PHI-W_KOR-W_fc-Web_1772191702182.jpg",
@@ -202,18 +204,6 @@
         },
         {
             "event_category": "Football",
-            "title": "IR Iran Women vs Australia Women (AFC Women's Asian Cup, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140801_5979_IRNW_AUS-W_fc-Web_1772191702199.jpg",
-            "team_1": "IR Iran Women",
-            "team_2": "Australia Women",
-            "status": "UPCOMING",
-            "event_name": "AFC Women's Asian Cup, 2026",
-            "match_name": "IR Iran Women vs Australia Women",
-            "match_id": 140801,
-            "startTime": "02:30:00 PM 05-03-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Al-Kholood Club vs Al-Qadsiah FC (Roshn Saudi League 2025-2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Al-Kholood-Club-vs-Al-Qadsiah-FC_fc-web.jpg",
             "team_1": "Al-Kholood Club",
@@ -223,6 +213,18 @@
             "match_name": "Al-Kholood Club vs Al-Qadsiah FC",
             "match_id": 140704,
             "startTime": "12:30:00 AM 06-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "IR Iran Women vs Australia Women (AFC Women's Asian Cup, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140801_5979_IRNW_AUS-W_fc-Web_1772191702199.jpg",
+            "team_1": "IR Iran Women",
+            "team_2": "Australia Women",
+            "status": "UPCOMING",
+            "event_name": "AFC Women's Asian Cup, 2026",
+            "match_name": "IR Iran Women vs Australia Women",
+            "match_id": 140801,
+            "startTime": "02:30:00 PM 05-03-2026"
         },
         {
             "event_category": "Football",
@@ -271,6 +273,18 @@
             "match_name": "Marquee Feed Day 1",
             "match_id": 140990,
             "startTime": "08:45:00 PM 05-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Bangladesh Women vs DPR Korea Women (AFC Women's Asian Cup, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140802_5979_BDW_NK-W_fc-Web_1772191702964.jpg",
+            "team_1": "Bangladesh Women",
+            "team_2": "DPR Korea Women",
+            "status": "UPCOMING",
+            "event_name": "AFC Women's Asian Cup, 2026",
+            "match_name": "Bangladesh Women vs DPR Korea Women",
+            "match_id": 140802,
+            "startTime": "07:30:00 AM 06-03-2026"
         },
         {
             "event_category": "Tennis",
@@ -357,18 +371,6 @@
             "startTime": "11:30:00 PM 05-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Bangladesh Women vs DPR Korea Women (AFC Women's Asian Cup, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140802_5979_BDW_NK-W_fc-Web_1772191702964.jpg",
-            "team_1": "Bangladesh Women",
-            "team_2": "DPR Korea Women",
-            "status": "UPCOMING",
-            "event_name": "AFC Women's Asian Cup, 2026",
-            "match_name": "Bangladesh Women vs DPR Korea Women",
-            "match_id": 140802,
-            "startTime": "07:30:00 AM 06-03-2026"
-        },
-        {
             "event_category": "Golf",
             "title": "World Feed Day 1 vs Orlando, Florida (Arnold Palmer Invitational 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(7).png",
@@ -381,18 +383,6 @@
             "startTime": "12:30:00 AM 06-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
-            "team_1": "England Lions",
-            "team_2": "Pakistan Shaheens",
-            "status": "UPCOMING",
-            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
-            "match_name": "England Lions vs Pakistan Shaheens",
-            "match_id": 140666,
-            "startTime": "03:55:00 PM 03-03-2026"
-        },
-        {
             "event_category": "Motorsports",
             "title": "Practice Session vs Melbourne  (F2 AUSTRALIA 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/F2_Australia_web.jpg",
@@ -403,6 +393,18 @@
             "match_name": "Practice Session",
             "match_id": 139542,
             "startTime": "04:30:00 AM 06-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
+            "team_1": "England Lions",
+            "team_2": "Pakistan Shaheens",
+            "status": "UPCOMING",
+            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
+            "match_name": "England Lions vs Pakistan Shaheens",
+            "match_id": 140666,
+            "startTime": "03:55:00 PM 03-03-2026"
         },
         {
             "event_category": "Formula 1",
@@ -429,18 +431,6 @@
             "startTime": "01:00:00 PM 06-03-2026"
         },
         {
-            "event_category": "Motorsports",
-            "title": "Qualifying Session vs Melbourne  (F2 AUSTRALIA 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/F2_Australia_web.jpg",
-            "team_1": "Qualifying Session",
-            "team_2": "Melbourne ",
-            "status": "UPCOMING",
-            "event_name": "F2 AUSTRALIA 2026",
-            "match_name": "Qualifying Session",
-            "match_id": 139543,
-            "startTime": "09:25:00 AM 06-03-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Uzbekistan Women vs China PR Women (AFC Women's Asian Cup, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140803_5979_UB-W_CHN-W_fc-Web_1772191702178.jpg",
@@ -451,6 +441,18 @@
             "match_name": "Uzbekistan Women vs China PR Women",
             "match_id": 140803,
             "startTime": "01:30:00 PM 06-03-2026"
+        },
+        {
+            "event_category": "Motorsports",
+            "title": "Qualifying Session vs Melbourne  (F2 AUSTRALIA 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/F2_Australia_web.jpg",
+            "team_1": "Qualifying Session",
+            "team_2": "Melbourne ",
+            "status": "UPCOMING",
+            "event_name": "F2 AUSTRALIA 2026",
+            "match_name": "Qualifying Session",
+            "match_id": 139543,
+            "startTime": "09:25:00 AM 06-03-2026"
         },
         {
             "event_category": "Football",
@@ -465,16 +467,16 @@
             "startTime": "02:05:00 PM 06-03-2026"
         },
         {
-            "event_category": "Motorsports",
-            "title": "Practice Session vs Melbourne (F3 AUSTRALIA 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/F3_Australia_web.jpg",
-            "team_1": "Practice Session",
-            "team_2": "Melbourne",
+            "event_category": "Formula 1",
+            "title": "Practice 2 vs Australia (F1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/F1_Australia_web.jpg",
+            "team_1": "Practice 2",
+            "team_2": "Australia",
             "status": "UPCOMING",
-            "event_name": "F3 AUSTRALIA 2026",
-            "match_name": "Practice Session",
-            "match_id": 139704,
-            "startTime": "03:20:00 AM 06-03-2026"
+            "event_name": "F1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026",
+            "match_name": "F1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026",
+            "match_id": 139362,
+            "startTime": "10:30:00 AM 06-03-2026"
         }
     ]
 }
