@@ -1,23 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "01:41:18 AM 05-03-2026",
+    "last update time": "02:32:02 AM 05-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Football",
-            "title": "Rayo Vallecano vs Real Oviedo (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/131055_5427_RVL_RO_FC-Web.png",
-            "team_1": "Rayo Vallecano",
-            "team_2": "Real Oviedo",
-            "status": "LIVE",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "Rayo Vallecano vs Real Oviedo",
-            "match_id": 131055,
-            "startTime": "11:30:00 PM 04-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/131055_english_hls_8a223ba61290067_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/131055_english_hls_8a223ba61290067_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Football",
             "title": "Real Sociedad vs Athletic Club (Copa del Rey, 2025-26)",
@@ -457,16 +443,16 @@
             "startTime": "07:00:00 AM 06-03-2026"
         },
         {
-            "event_category": "Motorsports",
-            "title": "Practice Session vs Melbourne (F3 AUSTRALIA 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/F3_Australia_web.jpg",
-            "team_1": "Practice Session",
-            "team_2": "Melbourne",
+            "event_category": "Cricket",
+            "title": "JP Sports vs Lightning Legends (Tillo Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Tillo-Cup-2026-old-card-.jpg",
+            "team_1": "JP Sports",
+            "team_2": "Lightning Legends",
             "status": "UPCOMING",
-            "event_name": "F3 AUSTRALIA 2026",
-            "match_name": "Practice Session",
-            "match_id": 139704,
-            "startTime": "03:20:00 AM 06-03-2026"
+            "event_name": "Tillo Cup 2026",
+            "match_name": "JP Sports vs Lightning Legends",
+            "match_id": 141255,
+            "startTime": "01:00:00 PM 06-03-2026"
         },
         {
             "event_category": "Motorsports",
@@ -479,6 +465,18 @@
             "match_name": "Qualifying Session",
             "match_id": 139543,
             "startTime": "09:25:00 AM 06-03-2026"
+        },
+        {
+            "event_category": "Motorsports",
+            "title": "Practice Session vs Melbourne (F3 AUSTRALIA 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/F3_Australia_web.jpg",
+            "team_1": "Practice Session",
+            "team_2": "Melbourne",
+            "status": "UPCOMING",
+            "event_name": "F3 AUSTRALIA 2026",
+            "match_name": "Practice Session",
+            "match_id": 139704,
+            "startTime": "03:20:00 AM 06-03-2026"
         }
     ]
 }
