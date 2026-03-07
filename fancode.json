@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "01:43:53 PM 07-03-2026",
+    "last update time": "02:27:04 PM 07-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -48,59 +48,17 @@
         },
         {
             "event_category": "Football",
-            "title": "Chinese Taipei Women vs Vietnam Women (AFC Women's Asian Cup, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140804_5979_TPE-W_VET-W_fc-Web_1772191702187.jpg",
-            "team_1": "Chinese Taipei Women",
-            "team_2": "Vietnam Women",
-            "status": "LIVE",
-            "event_name": "AFC Women's Asian Cup, 2026",
-            "match_name": "Chinese Taipei Women vs Vietnam Women",
-            "match_id": 140804,
-            "startTime": "10:30:00 AM 07-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140804_english_hls_28e67b622724797_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140804_english_hls_28e67b622724797_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Newcastle Jets vs Western Sydney Wanderers (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140908_5802_NJ_SYW_fc-web.jpg",
-            "team_1": "Newcastle Jets",
-            "team_2": "Western Sydney Wanderers",
+            "title": "Sydney FC vs Melbourne Victory (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140909_5802_SYD_MLV_fc-web.jpg",
+            "team_1": "Sydney FC",
+            "team_2": "Melbourne Victory",
             "status": "LIVE",
             "event_name": "A League 2025-26",
-            "match_name": "Newcastle Jets vs Western Sydney Wanderers",
-            "match_id": 140908,
-            "startTime": "11:30:00 AM 07-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140908_english_hls_08b243670367174_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140908_english_hls_08b243670367174_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "New South Wales vs South Australia (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134040_5609_SAU_NSW_FC-Web.png",
-            "team_1": "New South Wales",
-            "team_2": "South Australia",
-            "status": "LIVE",
-            "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "New South Wales vs South Australia",
-            "match_id": 134040,
-            "startTime": "05:30:00 AM 05-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/134040_english_hls_2b4391587429085_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/134040_english_hls_2b4391587429085_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Western Australia vs Queensland (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134038_5609_QUN_WAU_FC-Web.png",
-            "team_1": "Western Australia",
-            "team_2": "Queensland",
-            "status": "LIVE",
-            "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "Western Australia vs Queensland",
-            "match_id": 134038,
-            "startTime": "05:30:00 AM 05-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/134038_english_hls_7fd497bc3637801_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/134038_english_hls_7fd497bc3637801_1ta-di_h264/index.m3u8"
+            "match_name": "Sydney FC vs Melbourne Victory",
+            "match_id": 140909,
+            "startTime": "02:05:00 PM 07-03-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140909_english_hls_41ee1c144b58567_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140909_english_hls_41ee1c144b58567_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -115,16 +73,28 @@
             "startTime": "03:30:00 AM 08-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Sydney FC vs Melbourne Victory (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140909_5802_SYD_MLV_fc-web.jpg",
-            "team_1": "Sydney FC",
-            "team_2": "Melbourne Victory",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Sydney FC vs Melbourne Victory",
-            "match_id": 140909,
-            "startTime": "02:05:00 PM 07-03-2026"
+            "event_category": "Cricket",
+            "title": "New South Wales vs South Australia (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134040_5609_SAU_NSW_FC-Web.png",
+            "team_1": "New South Wales",
+            "team_2": "South Australia",
+            "status": "PAUSED",
+            "event_name": "Sheffield Shield, 2025-26",
+            "match_name": "New South Wales vs South Australia",
+            "match_id": 134040,
+            "startTime": "05:30:00 AM 05-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Western Australia vs Queensland (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134038_5609_QUN_WAU_FC-Web.png",
+            "team_1": "Western Australia",
+            "team_2": "Queensland",
+            "status": "PAUSED",
+            "event_name": "Sheffield Shield, 2025-26",
+            "match_name": "Western Australia vs Queensland",
+            "match_id": 134038,
+            "startTime": "05:30:00 AM 05-03-2026"
         },
         {
             "event_category": "Football",
@@ -319,18 +289,6 @@
             "startTime": "04:30:00 PM 07-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Dunfermline vs Aberdeen (Scottish Cup 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Scottish_Cup_2026_FC-Web.jpg",
-            "team_1": "Dunfermline",
-            "team_2": "Aberdeen",
-            "status": "UPCOMING",
-            "event_name": "Scottish Cup 2025-26",
-            "match_name": "Dunfermline vs Aberdeen",
-            "match_id": 141043,
-            "startTime": "01:00:00 AM 08-03-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "Lightning Legends vs Nexage Hyderabad (Tillo Cup 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Tillo-Cup-2026-old-card-.jpg",
@@ -341,6 +299,18 @@
             "match_name": "Lightning Legends vs Nexage Hyderabad",
             "match_id": 141257,
             "startTime": "09:30:00 AM 08-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Dunfermline vs Aberdeen (Scottish Cup 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Scottish_Cup_2026_FC-Web.jpg",
+            "team_1": "Dunfermline",
+            "team_2": "Aberdeen",
+            "status": "UPCOMING",
+            "event_name": "Scottish Cup 2025-26",
+            "match_name": "Dunfermline vs Aberdeen",
+            "match_id": 141043,
+            "startTime": "01:00:00 AM 08-03-2026"
         },
         {
             "event_category": "Football",
@@ -472,6 +442,30 @@
             "event_name": "ATP Masters BNP Paribas Open 2026",
             "match_name": "B Court Feed",
             "match_id": 141015,
+            "startTime": "12:30:00 AM 08-03-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "A Court Feed vs Indian, United States (ATP Masters BNP Paribas Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg",
+            "team_1": "A Court Feed",
+            "team_2": "Indian, United States",
+            "status": "UPCOMING",
+            "event_name": "ATP Masters BNP Paribas Open 2026",
+            "match_name": "A Court Feed",
+            "match_id": 141014,
+            "startTime": "12:30:00 AM 08-03-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "World Feed vs Indian, United States (ATP Masters BNP Paribas Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg",
+            "team_1": "World Feed",
+            "team_2": "Indian, United States",
+            "status": "UPCOMING",
+            "event_name": "ATP Masters BNP Paribas Open 2026",
+            "match_name": "World Feed",
+            "match_id": 141013,
             "startTime": "12:30:00 AM 08-03-2026"
         }
     ]
