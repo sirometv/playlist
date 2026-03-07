@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "02:53:26 AM 08-03-2026",
+    "last update time": "03:18:07 AM 08-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -325,18 +325,6 @@
             "startTime": "01:30:00 PM 08-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "Western Australia vs Queensland (Sheffield Shield, 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/134038_5609_QUN_WAU_FC-Web.png",
-            "team_1": "Western Australia",
-            "team_2": "Queensland",
-            "status": "PAUSED",
-            "event_name": "Sheffield Shield, 2025-26",
-            "match_name": "Western Australia vs Queensland",
-            "match_id": 134038,
-            "startTime": "05:30:00 AM 05-03-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Villarreal CF vs Elche CF (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131099_5427_VIL_ELC_FC-Web.png",
@@ -347,6 +335,18 @@
             "match_name": "Villarreal CF vs Elche CF",
             "match_id": 131099,
             "startTime": "06:30:00 PM 08-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Western Australia vs Queensland (Sheffield Shield, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/134038_5609_QUN_WAU_FC-Web.png",
+            "team_1": "Western Australia",
+            "team_2": "Queensland",
+            "status": "PAUSED",
+            "event_name": "Sheffield Shield, 2025-26",
+            "match_name": "Western Australia vs Queensland",
+            "match_id": 134038,
+            "startTime": "05:30:00 AM 05-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -445,6 +445,18 @@
             "startTime": "11:00:00 PM 08-03-2026"
         },
         {
+            "event_category": "Motorsports",
+            "title": "Feature Race vs Melbourne  (F3 AUSTRALIA 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/F3_Australia_web.jpg",
+            "team_1": "Feature Race",
+            "team_2": "Melbourne ",
+            "status": "UPCOMING",
+            "event_name": "F3 AUSTRALIA 2026",
+            "match_name": "Feature Race",
+            "match_id": 139707,
+            "startTime": "03:20:00 AM 08-03-2026"
+        },
+        {
             "event_category": "Football",
             "title": "AFC Wimbledon vs Northampton Town FC (League One 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
@@ -479,18 +491,6 @@
             "match_name": "Mexico vs Suriname",
             "match_id": 140706,
             "startTime": "01:00:00 AM 09-03-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Valencia CF vs Deportivo Alaves (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/131097_5427_VAL_ALA_FC-Web.png",
-            "team_1": "Valencia CF",
-            "team_2": "Deportivo Alaves",
-            "status": "UPCOMING",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "Valencia CF vs Deportivo Alaves",
-            "match_id": 131097,
-            "startTime": "01:30:00 AM 09-03-2026"
         }
     ]
 }
