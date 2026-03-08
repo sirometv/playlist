@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:39:08 PM 08-03-2026",
+    "last update time": "05:52:58 PM 08-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -24,11 +24,13 @@
             "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
             "team_1": "AFC Wimbledon",
             "team_2": "Northampton Town FC",
-            "status": "UPCOMING",
+            "status": "LIVE",
             "event_name": "League One 2025-26",
             "match_name": "AFC Wimbledon vs Northampton Town FC",
             "match_id": 140558,
-            "startTime": "05:30:00 PM 08-03-2026"
+            "startTime": "05:30:00 PM 08-03-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140558_english_hls_66b832e93418814_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140558_english_hls_66b832e93418814_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -43,18 +45,6 @@
             "startTime": "08:00:00 PM 08-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Villarreal CF vs Elche CF (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/131099_5427_VIL_ELC_FC-Web.png",
-            "team_1": "Villarreal CF",
-            "team_2": "Elche CF",
-            "status": "UPCOMING",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "Villarreal CF vs Elche CF",
-            "match_id": 131099,
-            "startTime": "06:30:00 PM 08-03-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "Mexico vs Suriname (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140706_5971_MEX_SRN_fc-Web.jpg",
@@ -65,6 +55,18 @@
             "match_name": "Mexico vs Suriname",
             "match_id": 140706,
             "startTime": "01:00:00 AM 09-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Villarreal CF vs Elche CF (LALIGA 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/131099_5427_VIL_ELC_FC-Web.png",
+            "team_1": "Villarreal CF",
+            "team_2": "Elche CF",
+            "status": "UPCOMING",
+            "event_name": "LALIGA 2025-26",
+            "match_name": "Villarreal CF vs Elche CF",
+            "match_id": 131099,
+            "startTime": "06:30:00 PM 08-03-2026"
         },
         {
             "event_category": "Football",
@@ -247,6 +249,18 @@
             "startTime": "08:00:00 PM 08-03-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Argentina vs Suriname (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140707_5971_ARG_SRN_fc-Web.jpg",
+            "team_1": "Argentina",
+            "team_2": "Suriname",
+            "status": "UPCOMING",
+            "event_name": "ICC Men's T20 WC Americas Sub Regional Qualifier B",
+            "match_name": "Argentina vs Suriname",
+            "match_id": 140707,
+            "startTime": "08:00:00 PM 09-03-2026"
+        },
+        {
             "event_category": "Golf",
             "title": "World Feed Day 4 vs Orlando, Florida (Arnold Palmer Invitational 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(7).png",
@@ -319,18 +333,6 @@
             "startTime": "11:30:00 PM 08-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "Argentina vs Suriname (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140707_5971_ARG_SRN_fc-Web.jpg",
-            "team_1": "Argentina",
-            "team_2": "Suriname",
-            "status": "UPCOMING",
-            "event_name": "ICC Men's T20 WC Americas Sub Regional Qualifier B",
-            "match_name": "Argentina vs Suriname",
-            "match_id": 140707,
-            "startTime": "08:00:00 PM 09-03-2026"
-        },
-        {
             "event_category": "Tennis",
             "title": "A Court Feed vs Indian, United States (ATP Masters BNP Paribas Open 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg",
@@ -367,18 +369,6 @@
             "startTime": "01:00:00 AM 10-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
-            "team_1": "England Lions",
-            "team_2": "Pakistan Shaheens",
-            "status": "UPCOMING",
-            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
-            "match_name": "England Lions vs Pakistan Shaheens",
-            "match_id": 140668,
-            "startTime": "11:30:00 AM 09-03-2026"
-        },
-        {
             "event_category": "Football",
             "title": "RCD Espanyol vs Real Oviedo (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131096_5427_ESL_RO_FC-Web.png",
@@ -389,6 +379,18 @@
             "match_name": "RCD Espanyol vs Real Oviedo",
             "match_id": 131096,
             "startTime": "01:30:00 AM 10-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "England Lions vs Pakistan Shaheens (England Lions and Pakistan Shaheens tour of UAE)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(2)_1771323008079.png",
+            "team_1": "England Lions",
+            "team_2": "Pakistan Shaheens",
+            "status": "UPCOMING",
+            "event_name": "England Lions and Pakistan Shaheens tour of UAE",
+            "match_name": "England Lions vs Pakistan Shaheens",
+            "match_id": 140668,
+            "startTime": "11:30:00 AM 09-03-2026"
         },
         {
             "event_category": "Football",
