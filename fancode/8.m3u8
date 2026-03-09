@@ -1,13 +1,19 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="141249" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg" tvg-language="english" group-title="Tennis - World Feed",240p
+
+#EXT-X-STREAM-INF:BANDWIDTH=300000,RESOLUTION=426x240
 https://bd-mc-plive.fancode.com/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/240p.m3u8?hdntl=Expires=1773165529~_GO=Generated~acl=/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/*~Signature=AQQqLwQGyCd0_bfhU--ddJ1tCRImQmmlwvByb69TctLVJCSRuJSFquyWQJC2az4Y8KtC8xlpipKCyqaQVuBG5PHcG-oG
-#EXTINF:-1 tvg-id="141249" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg" tvg-language="english" group-title="Tennis - World Feed",360p
+
+#EXT-X-STREAM-INF:BANDWIDTH=600000,RESOLUTION=640x360
 https://bd-mc-plive.fancode.com/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/360p.m3u8?hdntl=Expires=1773165529~_GO=Generated~acl=/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/*~Signature=AQQqLwQGyCd0_bfhU--ddJ1tCRImQmmlwvByb69TctLVJCSRuJSFquyWQJC2az4Y8KtC8xlpipKCyqaQVuBG5PHcG-oG
-#EXTINF:-1 tvg-id="141249" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg" tvg-language="english" group-title="Tennis - World Feed",480p
+
+#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=854x480
 https://bd-mc-plive.fancode.com/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/480p.m3u8?hdntl=Expires=1773165529~_GO=Generated~acl=/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/*~Signature=AQQqLwQGyCd0_bfhU--ddJ1tCRImQmmlwvByb69TctLVJCSRuJSFquyWQJC2az4Y8KtC8xlpipKCyqaQVuBG5PHcG-oG
-#EXTINF:-1 tvg-id="141249" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg" tvg-language="english" group-title="Tennis - World Feed",540p
+
+#EXT-X-STREAM-INF:BANDWIDTH=900000,RESOLUTION=960x540
 https://bd-mc-plive.fancode.com/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/540p.m3u8?hdntl=Expires=1773165529~_GO=Generated~acl=/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/*~Signature=AQQqLwQGyCd0_bfhU--ddJ1tCRImQmmlwvByb69TctLVJCSRuJSFquyWQJC2az4Y8KtC8xlpipKCyqaQVuBG5PHcG-oG
-#EXTINF:-1 tvg-id="141249" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg" tvg-language="english" group-title="Tennis - World Feed",720p
+
+#EXT-X-STREAM-INF:BANDWIDTH=1500000,RESOLUTION=1280x720
 https://bd-mc-plive.fancode.com/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/720p.m3u8?hdntl=Expires=1773165529~_GO=Generated~acl=/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/*~Signature=AQQqLwQGyCd0_bfhU--ddJ1tCRImQmmlwvByb69TctLVJCSRuJSFquyWQJC2az4Y8KtC8xlpipKCyqaQVuBG5PHcG-oG
-#EXTINF:-1 tvg-id="141249" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg" tvg-language="english" group-title="Tennis - World Feed",1080p
+
+#EXT-X-STREAM-INF:BANDWIDTH=3000000,RESOLUTION=1920x1080
 https://bd-mc-plive.fancode.com/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/1080p.m3u8?hdntl=Expires=1773165529~_GO=Generated~acl=/mumbai/141249_english_hls_f62f5bbf2628489_1ta-di_h264/*~Signature=AQQqLwQGyCd0_bfhU--ddJ1tCRImQmmlwvByb69TctLVJCSRuJSFquyWQJC2az4Y8KtC8xlpipKCyqaQVuBG5PHcG-oG
