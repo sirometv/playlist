@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "11:00:08 AM 11-03-2026",
+    "last update time": "11:52:08 AM 11-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -45,20 +45,6 @@
             "startTime": "10:10:00 AM 11-03-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141187_english_hls_3aeb163a6331149_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141187_english_hls_3aeb163a6331149_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Los Angeles Football Club vs Alajuelense (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141095_5954_LAF_LDA_1772957535861.png",
-            "team_1": "Los Angeles Football Club",
-            "team_2": "Alajuelense",
-            "status": "LIVE",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Los Angeles Football Club vs Alajuelense",
-            "match_id": 141095,
-            "startTime": "08:30:00 AM 11-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141095_english_hls_d65a03b19884988_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141095_english_hls_d65a03b19884988_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -133,6 +119,18 @@
             "startTime": "03:10:00 PM 11-03-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Suriname vs Cayman Islands (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140709_5971_SRN_CAY_fc-Web.jpg",
+            "team_1": "Suriname",
+            "team_2": "Cayman Islands",
+            "status": "UPCOMING",
+            "event_name": "ICC Men's T20 WC Americas Sub Regional Qualifier B",
+            "match_name": "Suriname vs Cayman Islands",
+            "match_id": 140709,
+            "startTime": "08:00:00 PM 11-03-2026"
+        },
+        {
             "event_category": "Football",
             "title": "Sanfrecce Hiroshima vs Johor Darul Ta'zim (AFC Champions League Elite 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140861_5647_HIR_JDT_FC-Web.png",
@@ -155,18 +153,6 @@
             "match_name": "Vissel Kobe vs Seoul",
             "match_id": 140860,
             "startTime": "03:30:00 PM 11-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Suriname vs Cayman Islands (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140709_5971_SRN_CAY_fc-Web.jpg",
-            "team_1": "Suriname",
-            "team_2": "Cayman Islands",
-            "status": "UPCOMING",
-            "event_name": "ICC Men's T20 WC Americas Sub Regional Qualifier B",
-            "match_name": "Suriname vs Cayman Islands",
-            "match_id": 140709,
-            "startTime": "08:00:00 PM 11-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -241,18 +227,6 @@
             "startTime": "07:00:00 AM 12-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Nashville SC vs Inter Miami CF (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141096_5954_NSH_MIA_1772957308854.png",
-            "team_1": "Nashville SC",
-            "team_2": "Inter Miami CF",
-            "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "Nashville SC vs Inter Miami CF",
-            "match_id": 141096,
-            "startTime": "05:00:00 AM 12-03-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "MHKL Banaras vs CAG Delhi (Tillo Cup 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Tillo-Cup-2026-old-card-.jpg",
@@ -275,6 +249,18 @@
             "match_name": "Chambal Chargers vs Ganga Warriors",
             "match_id": 141356,
             "startTime": "09:30:00 AM 12-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Nashville SC vs Inter Miami CF (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141096_5954_NSH_MIA_1772957308854.png",
+            "team_1": "Nashville SC",
+            "team_2": "Inter Miami CF",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "Nashville SC vs Inter Miami CF",
+            "match_id": 141096,
+            "startTime": "05:00:00 AM 12-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -325,6 +311,30 @@
             "startTime": "12:45:00 PM 12-03-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "NCC Odisha vs SPJ Cargo Delhi (Tillo Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Tillo-Cup-2026-old-card-.jpg",
+            "team_1": "NCC Odisha",
+            "team_2": "SPJ Cargo Delhi",
+            "status": "UPCOMING",
+            "event_name": "Tillo Cup 2026",
+            "match_name": "NCC Odisha vs SPJ Cargo Delhi",
+            "match_id": 141266,
+            "startTime": "01:30:00 PM 12-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Gomti Thunder vs Yamuna Super Kings (Ayodhya Premier League)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
+            "team_1": "Gomti Thunder",
+            "team_2": "Yamuna Super Kings",
+            "status": "UPCOMING",
+            "event_name": "Ayodhya Premier League",
+            "match_name": "Gomti Thunder vs Yamuna Super Kings",
+            "match_id": 141357,
+            "startTime": "01:30:00 PM 12-03-2026"
+        },
+        {
             "event_category": "Tennis",
             "title": "World Feed vs Indian, United States (ATP Masters BNP Paribas Open 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg",
@@ -362,30 +372,6 @@
         },
         {
             "event_category": "Cricket",
-            "title": "NCC Odisha vs SPJ Cargo Delhi (Tillo Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Tillo-Cup-2026-old-card-.jpg",
-            "team_1": "NCC Odisha",
-            "team_2": "SPJ Cargo Delhi",
-            "status": "UPCOMING",
-            "event_name": "Tillo Cup 2026",
-            "match_name": "NCC Odisha vs SPJ Cargo Delhi",
-            "match_id": 141266,
-            "startTime": "01:30:00 PM 12-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Gomti Thunder vs Yamuna Super Kings (Ayodhya Premier League)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_cricket-old.jpg",
-            "team_1": "Gomti Thunder",
-            "team_2": "Yamuna Super Kings",
-            "status": "UPCOMING",
-            "event_name": "Ayodhya Premier League",
-            "match_name": "Gomti Thunder vs Yamuna Super Kings",
-            "match_id": 141357,
-            "startTime": "01:30:00 PM 12-03-2026"
-        },
-        {
-            "event_category": "Cricket",
             "title": "Mumbai Maverics vs Tamil Nadu Titans (Thunderbolt T10 League 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(8).png",
             "team_1": "Mumbai Maverics",
@@ -395,18 +381,6 @@
             "match_name": "Mumbai Maverics vs Tamil Nadu Titans",
             "match_id": 141192,
             "startTime": "03:10:00 PM 12-03-2026"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Day 1 vs Koonyonga Club (Women's Australian Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(9).png",
-            "team_1": "Day 1",
-            "team_2": "Koonyonga Club",
-            "status": "UPCOMING",
-            "event_name": "Women's Australian Open 2026",
-            "match_name": "Day 1",
-            "match_id": 140787,
-            "startTime": "07:00:00 AM 12-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -419,6 +393,18 @@
             "match_name": "Royal Riders Punjab vs India Tigers",
             "match_id": 141306,
             "startTime": "06:30:00 PM 12-03-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Day 1 vs Koonyonga Club (Women's Australian Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(9).png",
+            "team_1": "Day 1",
+            "team_2": "Koonyonga Club",
+            "status": "UPCOMING",
+            "event_name": "Women's Australian Open 2026",
+            "match_name": "Day 1",
+            "match_id": 140787,
+            "startTime": "07:00:00 AM 12-03-2026"
         },
         {
             "event_category": "Football",
@@ -455,6 +441,18 @@
             "match_name": "Tampines Rovers FC vs Bangkok United",
             "match_id": 140869,
             "startTime": "05:45:00 PM 12-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Mexico vs Cayman Islands (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140711_5971_MEX_CAY_fc-Web.jpg",
+            "team_1": "Mexico",
+            "team_2": "Cayman Islands",
+            "status": "UPCOMING",
+            "event_name": "ICC Men's T20 WC Americas Sub Regional Qualifier B",
+            "match_name": "Mexico vs Cayman Islands",
+            "match_id": 140711,
+            "startTime": "08:00:00 PM 12-03-2026"
         }
     ]
 }
