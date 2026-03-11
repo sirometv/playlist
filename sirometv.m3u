@@ -37,16 +37,7 @@
 #🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
 
 
-#✅Sirome TV - 🟢 Groups UPDATED - 🟢 - 2026-03-11 01:57:02PM BD Time
-# --- Live Event Group ---
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Tasmania-vs-New-South-Wales_fc-web_1772692426912.jpg" group-title="Live Event", 🔴Live Now🔴
-https://raw.githubusercontent.com/sirometv/playlist/main/fancode/Cricket-TasmaniaVsNewSouthWales.m3u8
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Tillo-Cup-2026-old-card-.jpg" group-title="Live Event", 🔴Live Now🔴
-https://raw.githubusercontent.com/sirometv/playlist/main/fancode/Cricket-SpjCargoDelhiVsMhklBanaras.m3u8
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(8).png" group-title="Live Event", 🔴Live Now🔴
-https://raw.githubusercontent.com/sirometv/playlist/main/fancode/Cricket-BengalRoyalsVsMumbaiMaverics.m3u8
-#EXTINF:-1 tvg-logo="https://images.fancode.com/aig/match/v1773210181876/141355_CASACARDS_APP.png" group-title="Live Event", 🔴Live Now🔴
-https://raw.githubusercontent.com/sirometv/playlist/main/fancode/Cricket-BetwaBlastersVsSaryuSmashers.m3u8
+#✅Sirome TV - 🟢 Groups UPDATED - 🟢 - 2026-03-11 02:38:50PM BD Time
 
 
 
@@ -85,15 +76,16 @@ https://raw.githubusercontent.com/sirometv/playlist/main/fancode/Cricket-BetwaBl
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kgr8gRv2/image.jpg" group-title="Bangladeshi", ICC T20 2026
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/cLpkrcf8/ezgif-85161a866c2cae9c.gif" group-title="Bangladeshi", Live Now
+https://premierleagpl23.akamaized.net/hls/live/2107108/tapmad479832/level_1.m3u8
 http://198.195.239.50:8095/WiLLow/index.m3u8
-http://203.18.159.115/STARSPORTS2HD/tracks-v1a1/mono.m3u8
-http://203.18.159.115/STARSELECT1HD/tracks-v1a1/mono.m3u8
-http://203.18.159.115/STARSPORTSSELECT2HD/tracks-v1a1/mono.m3u8
 http://198.195.239.50:8095/SonyTenSports5/index.m3u8
+http://203.18.159.115/STARSPORTS2HD/tracks-v1a1/mono.m3u8
+http://203.18.159.115/STARSPORTSSELECT2HD/tracks-v1a1/mono.m3u8
 http://198.195.239.50:8095/SonyTenSports2/index.m3u8
 http://198.195.239.50:8095/StarSports2/index.m3u8
 http://103.229.254.25:7001/play/a0dn/index.m3u8
-http://198.195.239.50:8095/WiLLow/tracks-v1a1/mono.m3u8
 http://tvn1.chowdhury-shaheb.com/starsport1/index.m3u8
 http://tvn1.chowdhury-shaheb.com/starsport2/index.m3u8
 http://stvlive.net:8080/sonyten5/tracks-v1/mono.m3u8
@@ -102,11 +94,17 @@ http://stvlive.net:8080/sonyten5/tracks-v1/mono.m3u8
 
 
 
+
+
+
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rwYm1HYJ/resized-300x180-ffffff-16.jpg" group-title="Bangladeshi",T Sports
-http://203.18.159.115/TSPORTS/tracks-v1a1/mono.m3u8
 http://198.195.239.50:8095/Tsports/index.m3u8
-https://futbollive.online/T-Sports/tracks-v1a1/mono.m3u8
-https://amitomar.bdixbd.net/hoichoi.pro1/tracks-v1/index.m3u8
+
+
+#https://futbollive.online/T-Sports/tracks-v1a1/mono.m3u8
+#https://amitomar.bdixbd.net/hoichoi.pro1/tracks-v1/index.m3u8
+#http://203.18.159.115/TSPORTS/tracks-v1a1/mono.m3u8
 #https://amitomar.hoichoi.pro/bdixbd.net/index.m3u8
 #http://103.151.60.204/T-Sports/tracks-v1a1/mono.m3u8
 #https://satoshi-cors.herokuapp.com/http://203.18.159.115/T_Sports_TG_josharmy007/index.m3u8
@@ -1882,6 +1880,7 @@ http://103.229.254.25:7001/play/a09v/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
