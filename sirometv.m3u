@@ -246,8 +246,9 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 # সাইট হচ্ছেঃ https://119-ar.vercel.app/#channels
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/mk3sGN3S/image.jpg" group-title="Bangladeshi", Ekushey TV
-https://tvsen6.aynaott.com/etv/index.m3u8
-https://ekusheyserver.com/etvlivesn.m3u8
+http://210.4.72.204/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8
+#https://tvsen6.aynaott.com/etv/index.m3u8
+#https://ekusheyserver.com/etvlivesn.m3u8
 #https://bongoflixbd.top/bk/65.m3u8?user=bongoflix&pass=eaminvai
 #http://210.4.72.204/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8 #এটা ঠিক আছে 👈
 
@@ -1873,6 +1874,7 @@ http://103.229.254.25:7001/play/a09v/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
