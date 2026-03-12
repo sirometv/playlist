@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:43:30 AM 12-03-2026",
+    "last update time": "07:03:02 AM 12-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -15,8 +15,8 @@
             "match_name": "New South Wales Breakers vs South Australian Scorpions",
             "match_id": 133987,
             "startTime": "05:00:00 AM 12-03-2026",
-            "dai_url": null,
-            "adfree_url": null
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/133987_english_hls_0bee3a548371484_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/133987_english_hls_0bee3a548371484_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -29,8 +29,8 @@
             "match_name": "Queensland Fire vs Victoria Women",
             "match_id": 133986,
             "startTime": "05:00:00 AM 12-03-2026",
-            "dai_url": null,
-            "adfree_url": null
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/133986_english_hls_66278016ab68942_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/133986_english_hls_66278016ab68942_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Football",
@@ -43,8 +43,8 @@
             "match_name": "Nashville SC vs Inter Miami CF",
             "match_id": 141096,
             "startTime": "05:00:00 AM 12-03-2026",
-            "dai_url": null,
-            "adfree_url": null
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141096_english_hls_7bc57b203544867_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141096_english_hls_7bc57b203544867_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -89,48 +89,6 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141025_english_hls_1866ffdf8693874_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Tennis",
-            "title": "C Court Feed vs Indian, United States (ATP Masters BNP Paribas Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg",
-            "team_1": "C Court Feed",
-            "team_2": "Indian, United States",
-            "status": "LIVE",
-            "event_name": "ATP Masters BNP Paribas Open 2026",
-            "match_name": "C Court Feed",
-            "match_id": 141413,
-            "startTime": "02:00:00 AM 12-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141413_english_hls_08ddb0d11d55716_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141413_english_hls_08ddb0d11d55716_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Argentina vs Mexico (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140710_5971_ARG_MEX_fc-Web.jpg",
-            "team_1": "Argentina",
-            "team_2": "Mexico",
-            "status": "LIVE",
-            "event_name": "ICC Men's T20 WC Americas Sub Regional Qualifier B",
-            "match_name": "Argentina vs Mexico",
-            "match_id": 140710,
-            "startTime": "01:00:00 AM 12-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140710_english_hls_7b0a2ef54889705_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140710_english_hls_7b0a2ef54889705_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Coventry City Football Club vs Preston North End F.C. (EFL Championship 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140557_5489_CVC_PST_fc-web.jpg",
-            "team_1": "Coventry City Football Club",
-            "team_2": "Preston North End F.C.",
-            "status": "LIVE",
-            "event_name": "EFL Championship 2025-26",
-            "match_name": "Coventry City Football Club vs Preston North End F.C.",
-            "match_id": 140557,
-            "startTime": "01:30:00 AM 12-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140557_english_hls_70782d51c799827_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140557_english_hls_70782d51c799827_1ta-di_h264/index.m3u8"
-        },
-        {
             "event_category": "Cricket",
             "title": "Royal Riders Punjab vs India Tigers (Legends League Cricket, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/141306_6002_RRP_ING_FC-Web.jpg",
@@ -152,6 +110,18 @@
             "event_name": "Bahrain tour of Malaysia, 2026",
             "match_name": "Malaysia vs Bahrain",
             "match_id": 141302,
+            "startTime": "07:00:00 AM 12-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "LA Galaxy vs Mount Pleasant FA (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141097_5954_LAG_MTP_1772957308849.png",
+            "team_1": "LA Galaxy",
+            "team_2": "Mount Pleasant FA",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "LA Galaxy vs Mount Pleasant FA",
+            "match_id": 141097,
             "startTime": "07:00:00 AM 12-03-2026"
         },
         {
@@ -251,16 +221,16 @@
             "startTime": "08:00:00 PM 12-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "LA Galaxy vs Mount Pleasant FA (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141097_5954_LAG_MTP_1772957308849.png",
-            "team_1": "LA Galaxy",
-            "team_2": "Mount Pleasant FA",
+            "event_category": "Cricket",
+            "title": "Suriname vs Argentina (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140712_5971_SRN_ARG_fc-Web.jpg",
+            "team_1": "Suriname",
+            "team_2": "Argentina",
             "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "LA Galaxy vs Mount Pleasant FA",
-            "match_id": 141097,
-            "startTime": "07:00:00 AM 12-03-2026"
+            "event_name": "ICC Men's T20 WC Americas Sub Regional Qualifier B",
+            "match_name": "Suriname vs Argentina",
+            "match_id": 140712,
+            "startTime": "01:00:00 AM 13-03-2026"
         },
         {
             "event_category": "Football",
@@ -273,18 +243,6 @@
             "match_name": "San Diego vs Toluca",
             "match_id": 141098,
             "startTime": "09:00:00 AM 12-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Suriname vs Argentina (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140712_5971_SRN_ARG_fc-Web.jpg",
-            "team_1": "Suriname",
-            "team_2": "Argentina",
-            "status": "UPCOMING",
-            "event_name": "ICC Men's T20 WC Americas Sub Regional Qualifier B",
-            "match_name": "Suriname vs Argentina",
-            "match_id": 140712,
-            "startTime": "01:00:00 AM 13-03-2026"
         },
         {
             "event_category": "Football",
@@ -309,6 +267,30 @@
             "match_name": "Day 1",
             "match_id": 140787,
             "startTime": "07:00:00 AM 12-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "FC Cincinnati vs Tigres (CONCACAF Champions Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141099_5954_CIN_TIG_1772957308865.png",
+            "team_1": "FC Cincinnati",
+            "team_2": "Tigres",
+            "status": "UPCOMING",
+            "event_name": "CONCACAF Champions Cup 2026",
+            "match_name": "FC Cincinnati vs Tigres",
+            "match_id": 141099,
+            "startTime": "06:30:00 AM 13-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Hindon Titans vs Ganga Warriors (Ayodhya Premier League)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141358_6007_HT_GW_FC-Web.jpg",
+            "team_1": "Hindon Titans",
+            "team_2": "Ganga Warriors",
+            "status": "UPCOMING",
+            "event_name": "Ayodhya Premier League",
+            "match_name": "Hindon Titans vs Ganga Warriors",
+            "match_id": 141358,
+            "startTime": "09:30:00 AM 13-03-2026"
         },
         {
             "event_category": "Golf",
@@ -383,16 +365,16 @@
             "startTime": "05:45:00 PM 12-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "FC Cincinnati vs Tigres (CONCACAF Champions Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141099_5954_CIN_TIG_1772957308865.png",
-            "team_1": "FC Cincinnati",
-            "team_2": "Tigres",
+            "event_category": "Cricket",
+            "title": "Rajasthan Emperors vs Bengal Royals (Thunderbolt T10 League 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(8).png",
+            "team_1": "Rajasthan Emperors",
+            "team_2": "Bengal Royals",
             "status": "UPCOMING",
-            "event_name": "CONCACAF Champions Cup 2026",
-            "match_name": "FC Cincinnati vs Tigres",
-            "match_id": 141099,
-            "startTime": "06:30:00 AM 13-03-2026"
+            "event_name": "Thunderbolt T10 League 2026",
+            "match_name": "Rajasthan Emperors vs Bengal Royals",
+            "match_id": 141193,
+            "startTime": "10:10:00 AM 13-03-2026"
         },
         {
             "event_category": "Golf",
@@ -407,30 +389,6 @@
             "startTime": "10:30:00 PM 12-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "Hindon Titans vs Ganga Warriors (Ayodhya Premier League)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141358_6007_HT_GW_FC-Web.jpg",
-            "team_1": "Hindon Titans",
-            "team_2": "Ganga Warriors",
-            "status": "UPCOMING",
-            "event_name": "Ayodhya Premier League",
-            "match_name": "Hindon Titans vs Ganga Warriors",
-            "match_id": 141358,
-            "startTime": "09:30:00 AM 13-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Rajasthan Emperors vs Bengal Royals (Thunderbolt T10 League 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(8).png",
-            "team_1": "Rajasthan Emperors",
-            "team_2": "Bengal Royals",
-            "status": "UPCOMING",
-            "event_name": "Thunderbolt T10 League 2026",
-            "match_name": "Rajasthan Emperors vs Bengal Royals",
-            "match_id": 141193,
-            "startTime": "10:10:00 AM 13-03-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Vancouver Whitecaps FC vs Seattle Sounders FC (CONCACAF Champions Cup 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/141100_5954_VAN_SS_1772957308829.png",
@@ -441,6 +399,42 @@
             "match_name": "Vancouver Whitecaps FC vs Seattle Sounders FC",
             "match_id": 141100,
             "startTime": "08:30:00 AM 13-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Bangladesh vs Pakistan (Pakistan tour of Bangladesh, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Bangladesh-vs-Pakistan_ODI_WEB_1080_x_810.jpg",
+            "team_1": "Bangladesh",
+            "team_2": "Pakistan",
+            "status": "UPCOMING",
+            "event_name": "Pakistan tour of Bangladesh, 2026",
+            "match_name": "Bangladesh vs Pakistan",
+            "match_id": 141407,
+            "startTime": "01:45:00 PM 13-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Western Australia Women vs ACT Meteors (Women's National Cricket League, 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Women's-National-Cricket-League_old_v2_1758034980092.jpg",
+            "team_1": "Western Australia Women",
+            "team_2": "ACT Meteors",
+            "status": "UPCOMING",
+            "event_name": "Women's National Cricket League, 2025-26",
+            "match_name": "Western Australia Women vs ACT Meteors",
+            "match_id": 133988,
+            "startTime": "11:30:00 AM 13-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Punjab Lions vs Mumbai Maverics (Thunderbolt T10 League 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(8).png",
+            "team_1": "Punjab Lions",
+            "team_2": "Mumbai Maverics",
+            "status": "UPCOMING",
+            "event_name": "Thunderbolt T10 League 2026",
+            "match_name": "Punjab Lions vs Mumbai Maverics",
+            "match_id": 141194,
+            "startTime": "12:45:00 PM 13-03-2026"
         }
     ]
 }
