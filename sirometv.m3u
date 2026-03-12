@@ -231,6 +231,7 @@ https://satoshi-cors.herokuapp.com/https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9M
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/islamictvbd.stream/playlist.m3u8
 
 
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/hvXDW7yy/image.jpg" group-title="Bangladeshi", Jamuna TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/jamuna-test-sample-ok.stream/playlist.m3u8
@@ -561,8 +562,9 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/DzR1xcRC/image.jpg" group-title="Bangladeshi", Islam Bangla
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/islamchbangla.stream/playlist.m3u8
 https://live-islamtv-bangla.simplestreamcdn.com/live12/islamtv_bangla/bitrate1.isml/live.m3u8
-https://live-islamtv-bangla.simplestreamcdn.com/live12/islamtv_bangla/bitrate1.isml/bitrate1-audio_0=128000-video=657984.m3u8
+#https://live-islamtv-bangla.simplestreamcdn.com/live12/islamtv_bangla/bitrate1.isml/bitrate1-audio_0=128000-video=657984.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/NMGvqT6r/image.jpg" group-title="Bangladeshi", Iqra TV 
@@ -749,7 +751,9 @@ https://iptvbd.live/metv1080/1080.m3u8
 
 
 
-#EXTINF:-1 tvg-logo="" group-title="Bangladeshi", TBN 24
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Y2smsBf5/image.jpg" group-title="Bangladeshi", TBN 24
+https://www.tbn24.com/live-tv-stream/20201_.m3u8
+#সোর্সঃ https://www.tbn24.com/live-tv
 
 
 
@@ -1873,6 +1877,7 @@ http://103.229.254.25:7001/play/a09v/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://i.postimg.cc/1t2DF05k/image.jpg" group-title="Documentary",National GEO
 https://tiger-hub.vercel.app/National-Geographic_Bangla/tracks-v1a1/mono.ts.m3u8
+
 
 
 
