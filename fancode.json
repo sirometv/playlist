@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "04:47:19 AM 14-03-2026",
+    "last update time": "05:18:11 AM 14-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -34,20 +34,6 @@
         },
         {
             "event_category": "Golf",
-            "title": "Featured Groups - Day 2 vs Ponte Vedra Beach, Florida (THE PLAYERS Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/The-Players_fc-web.jpg",
-            "team_1": "Featured Groups - Day 2",
-            "team_2": "Ponte Vedra Beach, Florida",
-            "status": "LIVE",
-            "event_name": "THE PLAYERS Championship 2026",
-            "match_name": "Featured Groups - Day 2",
-            "match_id": 141141,
-            "startTime": "06:00:00 PM 13-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141141_english_hls_98f3195a7311900_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141141_english_hls_98f3195a7311900_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Golf",
             "title": "World Feed - Day 2 vs Ponte Vedra Beach, Florida (THE PLAYERS Championship 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/The-Players_fc-web.jpg",
             "team_1": "World Feed - Day 2",
@@ -59,20 +45,6 @@
             "startTime": "10:30:00 PM 13-03-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141139_english_hls_f4907da7b843381_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141139_english_hls_f4907da7b843381_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Doubles - Semi Finals vs Indian, United States (ATP Masters BNP Paribas Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/BNP_Paribas-Open_web.jpg",
-            "team_1": "Doubles - Semi Finals",
-            "team_2": "Indian, United States",
-            "status": "LIVE",
-            "event_name": "ATP Masters BNP Paribas Open 2026",
-            "match_name": "Doubles - Semi Finals",
-            "match_id": 141031,
-            "startTime": "11:30:00 PM 13-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141031_english_hls_b21cbe252239398_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141031_english_hls_b21cbe252239398_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -88,25 +60,25 @@
         },
         {
             "event_category": "Cricket",
-            "title": "South Australian Scorpions vs New South Wales Breakers (Women's National Cricket League, 2025-26)",
+            "title": "New South Wales Breakers vs South Australian Scorpions (Women's National Cricket League, 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Women's-National-Cricket-League_old_v2_1758034980092.jpg",
-            "team_1": "South Australian Scorpions",
-            "team_2": "New South Wales Breakers",
+            "team_1": "New South Wales Breakers",
+            "team_2": "South Australian Scorpions",
             "status": "UPCOMING",
             "event_name": "Women's National Cricket League, 2025-26",
-            "match_name": "South Australian Scorpions vs New South Wales Breakers",
+            "match_name": "New South Wales Breakers vs South Australian Scorpions",
             "match_id": 133990,
             "startTime": "05:00:00 AM 14-03-2026"
         },
         {
             "event_category": "Cricket",
-            "title": "Queensland Fire vs Victoria Women (Women's National Cricket League, 2025-26)",
+            "title": "Victoria Women vs Queensland Fire (Women's National Cricket League, 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Women's-National-Cricket-League_old_v3_1758034980120.jpg",
-            "team_1": "Queensland Fire",
-            "team_2": "Victoria Women",
+            "team_1": "Victoria Women",
+            "team_2": "Queensland Fire",
             "status": "UPCOMING",
             "event_name": "Women's National Cricket League, 2025-26",
-            "match_name": "Queensland Fire vs Victoria Women",
+            "match_name": "Victoria Women vs Queensland Fire",
             "match_id": 133989,
             "startTime": "05:00:00 AM 14-03-2026"
         },
@@ -352,18 +324,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Wellington Phoenix vs Perth Glory (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140912_5802_WEL_PG_fc-web.jpg",
-            "team_1": "Wellington Phoenix",
-            "team_2": "Perth Glory",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Wellington Phoenix vs Perth Glory",
-            "match_id": 140912,
-            "startTime": "07:30:00 AM 14-03-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Real Oviedo vs Valencia CF (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131108_5427_RO_VAL_FC-Web.png",
             "team_1": "Real Oviedo",
@@ -373,6 +333,18 @@
             "match_name": "Real Oviedo vs Valencia CF",
             "match_id": 131108,
             "startTime": "11:00:00 PM 14-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Wellington Phoenix vs Perth Glory (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140912_5802_WEL_PG_fc-web.jpg",
+            "team_1": "Wellington Phoenix",
+            "team_2": "Perth Glory",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Wellington Phoenix vs Perth Glory",
+            "match_id": 140912,
+            "startTime": "07:30:00 AM 14-03-2026"
         },
         {
             "event_category": "Football",
@@ -469,6 +441,30 @@
             "match_name": "Real Madrid vs Elche CF",
             "match_id": 131100,
             "startTime": "01:30:00 AM 15-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "New Zealand Women vs South Africa Women (South Africa Women's tour of New Zealand, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/South-Africa-Women's-tour-of-New-Zealand-old.jpg",
+            "team_1": "New Zealand Women",
+            "team_2": "South Africa Women",
+            "status": "UPCOMING",
+            "event_name": "South Africa Women's tour of New Zealand, 2026",
+            "match_name": "New Zealand Women vs South Africa Women",
+            "match_id": 141066,
+            "startTime": "07:15:00 AM 15-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Real Zaragoza vs Almería (LALIGA Hypermotion 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1773431102733/141220_CASACARDS_APP.png",
+            "team_1": "Real Zaragoza",
+            "team_2": "Almería",
+            "status": "UPCOMING",
+            "event_name": "LALIGA Hypermotion 2025-26",
+            "match_name": "Real Zaragoza vs Almería",
+            "match_id": 141220,
+            "startTime": "11:00:00 PM 14-03-2026"
         }
     ]
 }
