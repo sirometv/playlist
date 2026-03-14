@@ -579,6 +579,7 @@ https://ap02.iqplay.tv:8082/iqb8002/iq53la/playlist.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/vm2wyT3q/image.jpg" group-title="Bangladeshi", Azan TV
+https://dbcanada.sonarbanglatv.com/azantv/atv/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/azantv.stream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/wTq1dhQ6/image.jpg" group-title="Bangladeshi", Waz TV
@@ -1094,6 +1095,13 @@ http://103.140.254.2:3500/live/544.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/vBPLfCFJ/image.jpg" group-title="Bangladeshi", Nick JR
 http://203.18.159.115/NICK/index.m3u8
+
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/jd4kDrfv/image.jpg" group-title="Bangladeshi", Tom & Jerry
+https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/43skDR7B/image.jpg" group-title="Bangladeshi", Gopal Bhar
 https://cloudfrontnet.vercel.app/tplay/playout/209611/master.m3u8
