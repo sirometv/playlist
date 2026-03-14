@@ -2,7 +2,7 @@
 # Sirome TV (2022- 2026)
 #🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
-#Update Time: 12:51:11pm - 14-03-2026 ✅
+#Update Time: 02:37:45pm - 14-03-2026 ✅
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/KcwPJkXB/resized-300x180-transparent.png" group-title="Bangladeshi", BTV National
 https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8
@@ -114,9 +114,12 @@ https://tvsen6.aynaott.com/satv/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Hx75zHSQ/T-Sports-logo.png" group-title="Bangladeshi", GTV
+http://tvn1.chowdhury-shaheb.com/gazitv/index.m3u8
 http://198.195.239.50:8095/bdixbd.net_gazitvhd/video.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8
 #https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/playlist.m3u8
+#https://app.ncare.live/live-orgin/gazibdz.stream/playlist.m3u8
+#https://autumn-shape-b04a.soft-disk-1347.workers.dev/?url=http://tvn1.chowdhury-shaheb.com/gazitv/index.m3u8
 #http://stvlive.net:8080/gtv/index.m3u8
 #https://bongoflixbd.top/gazitv.m3u8?user=bongoflix&pass=eaminvai
 #https://tvsen5.aynaott.com/Ravc7gPCZpxk/index.m3u8
@@ -149,8 +152,9 @@ http://stvlive.net:8080/tsports1/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/W3BkyjSk/image.jpg" group-title="Bangladeshi", Channel 9
+https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/channel9hd.stream/playlist.m3u8
-https://tvsen6.aynaott.com/channel9/index.m3u8
+#https://tvsen6.aynaott.com/channel9/index.m3u8
 
 
 
@@ -206,6 +210,7 @@ https://byphdgllyk.gpcdn.net/hls/deeptotv/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/zGzP1t7T/resized-300x180-ffffff-6.jpg" group-title="Bangladeshi", News 24
+https://owrcovcrpy.gpcdn.net/bpk-tv/1708/output/index.m3u8
 http://198.195.239.50:8095/News24/index.m3u8
 #https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/news24local.stream/playlist.m3u8
 #https://tvsen6.aynaott.com/news24/index.m3u8
@@ -483,6 +488,7 @@ https://jolshabd.com/live/mbanglatv/playlist.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/RVG76TXX/image.jpg" group-title="Bangladeshi", Star News
+https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/starnewsbd.stream/playlist.m3u8
 
 
@@ -560,8 +566,9 @@ https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/G2QrsxNS/image.jpg" group-title="Bangladeshi", Global TV
-https://tvsen6.aynaott.com/globaltvhd/index.m3u8
-#https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/Global-tv.stream/playlist.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/Global-tv.stream/playlist.m3u8
+https://edge2.roarzone.info:8447/roarzone/edge3/global-tv/index.m3u8
+#https://tvsen6.aynaott.com/globaltvhd/index.m3u8
 
 
 
@@ -576,17 +583,20 @@ https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/YS766J1Z/image.jpg" group-title="Bangladeshi", Green TV
 https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/greentv.stream/live-orgin/greentv.stream/chunks.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/greentv.stream/tracks-v1a1/mono.m3u8
+#https://app.ncare.live/live-orgin/greentv.stream/playlist.m3u8
 
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/jSd8sQQS/image.jpg" group-title="Bangladeshi", Channel S BD
+https://app.ncare.live/live-orgin/channels.stream/playlist.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/channels.stream/playlist.m3u8
 
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/DySZ5cjv/image.jpg" group-title="Bangladeshi", Nexus TV
-https://tvsen6.aynaott.com/nexustv/index.m3u8
+https://bozztv.com/rongo/rongo-NEXUSTVENC1/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/nexustv.stream/playlist.m3u8
+#https://tvsen6.aynaott.com/nexustv/index.m3u8
 
 
 
@@ -600,9 +610,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/Xq5Fs2Cc/image.jpg" group-title="Bangladeshi", Jago TV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/jagonews24.stream/tracks-v1a1/mono.m3u8
-
+# Jago TV not found
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/t48bj2Zw/image.jpg" group-title="Bangladeshi", Jagoron
@@ -631,10 +639,8 @@ http://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92
 
 
 
-
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/wvDhrjwW/image.jpg" group-title="Bangladeshi", Music Bangla
 http://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/musicbangla2025.stream/playlist.m3u8
-
 
 
 
@@ -646,6 +652,7 @@ https://padmaonline.duckdns.org:8088/pcv/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/mgT2WsKV/resized-300x180-ffffff-10.jpg" group-title="Bangladeshi",Rajdhani TV
 https://iptvbd.live/rajdhanitv/1080.m3u8
+https://stream.shariarsuvo.com/hls5/rajdhanicable.m3u8
 
 
 
