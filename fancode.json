@@ -1,46 +1,18 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "02:22:40 PM 14-03-2026",
+    "last update time": "03:49:13 PM 14-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
             "event_category": "Cricket",
-            "title": "Bahrain vs Malaysia (Bahrain tour of Malaysia, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Bahrain-tour-of-Malaysia-old-card.jpg",
-            "team_1": "Bahrain",
-            "team_2": "Malaysia",
-            "status": "LIVE",
-            "event_name": "Bahrain tour of Malaysia, 2026",
-            "match_name": "Bahrain vs Malaysia",
-            "match_id": 141303,
-            "startTime": "07:00:00 AM 14-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141303_english_hls_5bca140c3881084_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141303_english_hls_5bca140c3881084_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Gujarat Tigers vs Mumbai Maverics (Thunderbolt T10 League 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(8).png",
-            "team_1": "Gujarat Tigers",
-            "team_2": "Mumbai Maverics",
-            "status": "LIVE",
-            "event_name": "Thunderbolt T10 League 2026",
-            "match_name": "Gujarat Tigers vs Mumbai Maverics",
-            "match_id": 141197,
-            "startTime": "12:45:00 PM 14-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141197_english_hls_a64751622f78333_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141197_english_hls_a64751622f78333_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "A&S Kolkata vs CAG Delhi (Tillo Cup 2026)",
+            "title": "CAG Delhi vs A&S Kolkata (Tillo Cup 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Tillo-Cup-2026-old-card-.jpg",
-            "team_1": "A&S Kolkata",
-            "team_2": "CAG Delhi",
+            "team_1": "CAG Delhi",
+            "team_2": "A&S Kolkata",
             "status": "LIVE",
             "event_name": "Tillo Cup 2026",
-            "match_name": "A&S Kolkata vs CAG Delhi",
+            "match_name": "CAG Delhi vs A&S Kolkata",
             "match_id": 141268,
             "startTime": "01:00:00 PM 14-03-2026",
             "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141268_english_hls_7fdabb895b71094_1ta-di_h264/index.m3u8",
@@ -61,18 +33,32 @@
             "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141361_english_hls_ec50a0a08574286_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Football",
-            "title": "Newcastle Jets vs Auckland (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140914_5802_NJ_AFC_fc-web.jpg",
-            "team_1": "Newcastle Jets",
-            "team_2": "Auckland",
+            "event_category": "Cricket",
+            "title": "Delhi Champions vs Rajasthan Emperors (Thunderbolt T10 League 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(8).png",
+            "team_1": "Delhi Champions",
+            "team_2": "Rajasthan Emperors",
             "status": "LIVE",
-            "event_name": "A League 2025-26",
-            "match_name": "Newcastle Jets vs Auckland",
-            "match_id": 140914,
-            "startTime": "11:30:00 AM 14-03-2026",
-            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140914_english_hls_d9d852076e86869_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140914_english_hls_d9d852076e86869_1ta-di_h264/index.m3u8"
+            "event_name": "Thunderbolt T10 League 2026",
+            "match_name": "Delhi Champions vs Rajasthan Emperors",
+            "match_id": 141198,
+            "startTime": "03:10:00 PM 14-03-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/141198_english_hls_8c946503ce77902_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/141198_english_hls_8c946503ce77902_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Korea Republic Women vs Uzbekistan Women (AFC Women's Asian Cup, 2026)",
+            "src": "https://images.fancode.com/aig/match/v1773380039273/140814_CASACARDS_APP.png",
+            "team_1": "Korea Republic Women",
+            "team_2": "Uzbekistan Women",
+            "status": "LIVE",
+            "event_name": "AFC Women's Asian Cup, 2026",
+            "match_name": "Korea Republic Women vs Uzbekistan Women",
+            "match_id": 140814,
+            "startTime": "02:30:00 PM 14-03-2026",
+            "dai_url": "https://in-mc-fdlive.fancode.com/mumbai/140814_english_hls_4ca2d1cded22292_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fdlive.fancode.com/mumbai/140814_english_hls_4ca2d1cded22292_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -99,28 +85,16 @@
             "startTime": "07:15:00 AM 15-03-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Korea Republic Women vs Uzbekistan Women (AFC Women's Asian Cup, 2026)",
-            "src": "https://images.fancode.com/aig/match/v1773380039273/140814_CASACARDS_APP.png",
-            "team_1": "Korea Republic Women",
-            "team_2": "Uzbekistan Women",
-            "status": "UPCOMING",
-            "event_name": "AFC Women's Asian Cup, 2026",
-            "match_name": "Korea Republic Women vs Uzbekistan Women",
-            "match_id": 140814,
-            "startTime": "02:30:00 PM 14-03-2026"
-        },
-        {
             "event_category": "Cricket",
-            "title": "Delhi Champions vs Rajasthan Emperors (Thunderbolt T10 League 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(8).png",
-            "team_1": "Delhi Champions",
-            "team_2": "Rajasthan Emperors",
+            "title": "New Zealand vs South Africa (South Africa tour of New Zealand, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/NZ_SA_Web_1080_x_810.jpg",
+            "team_1": "New Zealand",
+            "team_2": "South Africa",
             "status": "UPCOMING",
-            "event_name": "Thunderbolt T10 League 2026",
-            "match_name": "Delhi Champions vs Rajasthan Emperors",
-            "match_id": 141198,
-            "startTime": "03:10:00 PM 14-03-2026"
+            "event_name": "South Africa tour of New Zealand, 2026",
+            "match_name": "New Zealand vs South Africa",
+            "match_id": 141061,
+            "startTime": "11:45:00 AM 15-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -244,18 +218,6 @@
         },
         {
             "event_category": "Cricket",
-            "title": "New Zealand vs South Africa (South Africa tour of New Zealand, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/NZ_SA_Web_1080_x_810.jpg",
-            "team_1": "New Zealand",
-            "team_2": "South Africa",
-            "status": "UPCOMING",
-            "event_name": "South Africa tour of New Zealand, 2026",
-            "match_name": "New Zealand vs South Africa",
-            "match_id": 141061,
-            "startTime": "11:45:00 AM 15-03-2026"
-        },
-        {
-            "event_category": "Cricket",
             "title": "Cayman Islands vs Suriname (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140714_5971_CAY_SRN_fc-Web.jpg",
             "team_1": "Cayman Islands",
@@ -316,6 +278,30 @@
         },
         {
             "event_category": "Cricket",
+            "title": "Bangladesh vs Pakistan (Pakistan tour of Bangladesh, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Bangladesh-vs-Pakistan_ODI_WEB_1080_x_810.jpg",
+            "team_1": "Bangladesh",
+            "team_2": "Pakistan",
+            "status": "UPCOMING",
+            "event_name": "Pakistan tour of Bangladesh, 2026",
+            "match_name": "Bangladesh vs Pakistan",
+            "match_id": 141408,
+            "startTime": "01:45:00 PM 15-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Hong Kong Cricket Club Women vs Craigengower Cricket Club Women (Women's Premier League T20 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/WPL_web.jpg",
+            "team_1": "Hong Kong Cricket Club Women",
+            "team_2": "Craigengower Cricket Club Women",
+            "status": "UPCOMING",
+            "event_name": "Women's Premier League T20 2026",
+            "match_name": "Hong Kong Cricket Club Women vs Craigengower Cricket Club Women",
+            "match_id": 140613,
+            "startTime": "07:00:00 AM 15-03-2026"
+        },
+        {
+            "event_category": "Cricket",
             "title": "Tasmania vs Queensland (Sheffield Shield, 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/134043_5609_TAS_QUN_FC-Web.png",
             "team_1": "Tasmania",
@@ -352,30 +338,6 @@
         },
         {
             "event_category": "Cricket",
-            "title": "Hong Kong Cricket Club Women vs Craigengower Cricket Club Women (Women's Premier League T20 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/WPL_web.jpg",
-            "team_1": "Hong Kong Cricket Club Women",
-            "team_2": "Craigengower Cricket Club Women",
-            "status": "UPCOMING",
-            "event_name": "Women's Premier League T20 2026",
-            "match_name": "Hong Kong Cricket Club Women vs Craigengower Cricket Club Women",
-            "match_id": 140613,
-            "startTime": "07:00:00 AM 15-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Bangladesh vs Pakistan (Pakistan tour of Bangladesh, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Bangladesh-vs-Pakistan_ODI_WEB_1080_x_810.jpg",
-            "team_1": "Bangladesh",
-            "team_2": "Pakistan",
-            "status": "UPCOMING",
-            "event_name": "Pakistan tour of Bangladesh, 2026",
-            "match_name": "Bangladesh vs Pakistan",
-            "match_id": 141408,
-            "startTime": "01:45:00 PM 15-03-2026"
-        },
-        {
-            "event_category": "Cricket",
             "title": "Chambal Chargers vs Hindon Titans (Ayodhya Premier League)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/141362_6007_CC_HT_FC-Web.jpg",
             "team_1": "Chambal Chargers",
@@ -385,18 +347,6 @@
             "match_name": "Chambal Chargers vs Hindon Titans",
             "match_id": 141362,
             "startTime": "09:00:00 AM 15-03-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Real Zaragoza vs Almería (LALIGA Hypermotion 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1773431102733/141220_CASACARDS_APP.png",
-            "team_1": "Real Zaragoza",
-            "team_2": "Almería",
-            "status": "UPCOMING",
-            "event_name": "LALIGA Hypermotion 2025-26",
-            "match_name": "Real Zaragoza vs Almería",
-            "match_id": 141220,
-            "startTime": "11:00:00 PM 14-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -409,6 +359,18 @@
             "match_name": "Gujarat Tigers vs Tamil Nadu Titans",
             "match_id": 141199,
             "startTime": "10:10:00 AM 15-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Real Zaragoza vs Almería (LALIGA Hypermotion 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1773431102733/141220_CASACARDS_APP.png",
+            "team_1": "Real Zaragoza",
+            "team_2": "Almería",
+            "status": "UPCOMING",
+            "event_name": "LALIGA Hypermotion 2025-26",
+            "match_name": "Real Zaragoza vs Almería",
+            "match_id": 141220,
+            "startTime": "11:00:00 PM 14-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -469,6 +431,42 @@
             "match_name": "Betwa Blasters vs Ganga Warriors",
             "match_id": 141363,
             "startTime": "01:30:00 PM 15-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Japan Women vs Philippines Women (AFC Women's Asian Cup, 2026)",
+            "src": "https://images.fancode.com/aig/match/v1773380049877/140815_CASACARDS_APP.png",
+            "team_1": "Japan Women",
+            "team_2": "Philippines Women",
+            "status": "UPCOMING",
+            "event_name": "AFC Women's Asian Cup, 2026",
+            "match_name": "Japan Women vs Philippines Women",
+            "match_id": 140815,
+            "startTime": "10:30:00 AM 15-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Mumbai Maverics vs Rajasthan Emperors (Thunderbolt T10 League 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(8).png",
+            "team_1": "Mumbai Maverics",
+            "team_2": "Rajasthan Emperors",
+            "status": "UPCOMING",
+            "event_name": "Thunderbolt T10 League 2026",
+            "match_name": "Mumbai Maverics vs Rajasthan Emperors",
+            "match_id": 141201,
+            "startTime": "03:10:00 PM 15-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Konark Suryas Odisha vs Royal Riders Punjab (Legends League Cricket, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141309_6002_KSO_RRP_FC-Web.jpg",
+            "team_1": "Konark Suryas Odisha",
+            "team_2": "Royal Riders Punjab",
+            "status": "UPCOMING",
+            "event_name": "Legends League Cricket, 2026",
+            "match_name": "Konark Suryas Odisha vs Royal Riders Punjab",
+            "match_id": 141309,
+            "startTime": "07:30:00 PM 15-03-2026"
         }
     ]
 }
