@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "12:24:43 AM 16-03-2026",
+    "last update time": "01:06:13 AM 16-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -76,18 +76,6 @@
         },
         {
             "event_category": "Cricket",
-            "title": "India Captains vs Southern Super Stars (Legends League Cricket, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141310_6002_ICN_SSS_FC-Web_1773487499999.jpg",
-            "team_1": "India Captains",
-            "team_2": "Southern Super Stars",
-            "status": "UPCOMING",
-            "event_name": "Legends League Cricket, 2026",
-            "match_name": "India Captains vs Southern Super Stars",
-            "match_id": 141310,
-            "startTime": "07:30:00 PM 16-03-2026"
-        },
-        {
-            "event_category": "Cricket",
             "title": "Argentina vs Cayman Islands (ICC Men's T20 WC Americas Sub Regional Qualifier B)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140716_5971_ARG_CAY_fc-Web.jpg",
             "team_1": "Argentina",
@@ -97,18 +85,6 @@
             "match_name": "Argentina vs Cayman Islands",
             "match_id": 140716,
             "startTime": "01:00:00 AM 16-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Malaysia vs Bahrain (Bahrain tour of Malaysia, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Bahrain-tour-of-Malaysia-old-card.jpg",
-            "team_1": "Malaysia",
-            "team_2": "Bahrain",
-            "status": "UPCOMING",
-            "event_name": "Bahrain tour of Malaysia, 2026",
-            "match_name": "Malaysia vs Bahrain",
-            "match_id": 141304,
-            "startTime": "07:00:00 AM 16-03-2026"
         },
         {
             "event_category": "Football",
@@ -121,6 +97,42 @@
             "match_name": "Real Sociedad vs CA Osasuna",
             "match_id": 131104,
             "startTime": "01:30:00 AM 16-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "India Captains vs Southern Super Stars (Legends League Cricket, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141310_6002_ICN_SSS_FC-Web_1773487499999.jpg",
+            "team_1": "India Captains",
+            "team_2": "Southern Super Stars",
+            "status": "UPCOMING",
+            "event_name": "Legends League Cricket, 2026",
+            "match_name": "India Captains vs Southern Super Stars",
+            "match_id": 141310,
+            "startTime": "07:30:00 PM 16-03-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Sporting de Gijón vs Castellón (LALIGA Hypermotion 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1773431102732/141219_CASACARDS_APP.png",
+            "team_1": "Sporting de Gijón",
+            "team_2": "Castellón",
+            "status": "UPCOMING",
+            "event_name": "LALIGA Hypermotion 2025-26",
+            "match_name": "Sporting de Gijón vs Castellón",
+            "match_id": 141219,
+            "startTime": "01:30:00 AM 16-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Malaysia vs Bahrain (Bahrain tour of Malaysia, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Bahrain-tour-of-Malaysia-old-card.jpg",
+            "team_1": "Malaysia",
+            "team_2": "Bahrain",
+            "status": "UPCOMING",
+            "event_name": "Bahrain tour of Malaysia, 2026",
+            "match_name": "Malaysia vs Bahrain",
+            "match_id": 141304,
+            "startTime": "07:00:00 AM 16-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -217,18 +229,6 @@
             "match_name": "New South Wales vs Western Australia",
             "match_id": 134041,
             "startTime": "05:00:00 AM 14-03-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Sporting de Gijón vs Castellón (LALIGA Hypermotion 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1773431102732/141219_CASACARDS_APP.png",
-            "team_1": "Sporting de Gijón",
-            "team_2": "Castellón",
-            "status": "UPCOMING",
-            "event_name": "LALIGA Hypermotion 2025-26",
-            "match_name": "Sporting de Gijón vs Castellón",
-            "match_id": 141219,
-            "startTime": "01:30:00 AM 16-03-2026"
         },
         {
             "event_category": "Football",
