@@ -1,9 +1,37 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "07:04:23 PM 24-03-2026",
+    "last update time": "08:37:07 PM 24-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
+        {
+            "event_category": "Cricket",
+            "title": "Seychelles vs Ghana (ICC Men's T20 WC Africa Sub Regional Qualifier B)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/02_Ghana-vs-Seychelles_1774006051646.png",
+            "team_1": "Seychelles",
+            "team_2": "Ghana",
+            "status": "LIVE",
+            "event_name": "ICC Men's T20 WC Africa Sub Regional Qualifier B",
+            "match_name": "Seychelles vs Ghana",
+            "match_id": 140975,
+            "startTime": "07:20:00 PM 24-03-2026",
+            "dai_url": null,
+            "adfree_url": null
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Eswatini vs Saint Helena (ICC Men's T20 WC Africa Sub Regional Qualifier B)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/03_Eswatini-vs-Saint-Helena_1774006051660.png",
+            "team_1": "Eswatini",
+            "team_2": "Saint Helena",
+            "status": "LIVE",
+            "event_name": "ICC Men's T20 WC Africa Sub Regional Qualifier B",
+            "match_name": "Eswatini vs Saint Helena",
+            "match_id": 140974,
+            "startTime": "07:20:00 PM 24-03-2026",
+            "dai_url": null,
+            "adfree_url": null
+        },
         {
             "event_category": "Cricket",
             "title": "New Zealand Women vs South Africa Women (South Africa Women's tour of New Zealand, 2026)",
@@ -15,30 +43,6 @@
             "match_name": "New Zealand Women vs South Africa Women",
             "match_id": 141070,
             "startTime": "07:15:00 AM 25-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Ghana vs Seychelles (ICC Men's T20 WC Africa Sub Regional Qualifier B)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/02_Ghana-vs-Seychelles_1774006051646.png",
-            "team_1": "Ghana",
-            "team_2": "Seychelles",
-            "status": "UPCOMING",
-            "event_name": "ICC Men's T20 WC Africa Sub Regional Qualifier B",
-            "match_name": "Ghana vs Seychelles",
-            "match_id": 140975,
-            "startTime": "07:20:00 PM 24-03-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Eswatini vs Saint Helena (ICC Men's T20 WC Africa Sub Regional Qualifier B)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/03_Eswatini-vs-Saint-Helena_1774006051660.png",
-            "team_1": "Eswatini",
-            "team_2": "Saint Helena",
-            "status": "UPCOMING",
-            "event_name": "ICC Men's T20 WC Africa Sub Regional Qualifier B",
-            "match_name": "Eswatini vs Saint Helena",
-            "match_id": 140974,
-            "startTime": "07:20:00 PM 24-03-2026"
         },
         {
             "event_category": "Cricket",
@@ -161,18 +165,6 @@
             "startTime": "03:00:00 PM 25-03-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "Malawi vs Ghana (ICC Men's T20 WC Africa Sub Regional Qualifier B)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/06_Malawi-vs-Ghana_1774006033024.png",
-            "team_1": "Malawi",
-            "team_2": "Ghana",
-            "status": "UPCOMING",
-            "event_name": "ICC Men's T20 WC Africa Sub Regional Qualifier B",
-            "match_name": "Malawi vs Ghana",
-            "match_id": 140978,
-            "startTime": "07:20:00 PM 25-03-2026"
-        },
-        {
             "event_category": "Tennis",
             "title": "B Court Feed vs Miami, United States (ATP Masters Miami Open 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Miami_open_ATP_1000_FC-WEB_1773742804978.jpg",
@@ -207,6 +199,18 @@
             "match_name": "D Court Feed",
             "match_id": 141479,
             "startTime": "08:30:00 PM 24-03-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Malawi vs Ghana (ICC Men's T20 WC Africa Sub Regional Qualifier B)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/06_Malawi-vs-Ghana_1774006033024.png",
+            "team_1": "Malawi",
+            "team_2": "Ghana",
+            "status": "UPCOMING",
+            "event_name": "ICC Men's T20 WC Africa Sub Regional Qualifier B",
+            "match_name": "Malawi vs Ghana",
+            "match_id": 140978,
+            "startTime": "07:20:00 PM 25-03-2026"
         },
         {
             "event_category": "Tennis",
