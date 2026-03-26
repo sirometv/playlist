@@ -78,6 +78,7 @@
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kgr8gRv2/image.jpg" group-title="Bangladeshi", ICC T20 2026
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/VNXyN2RR/ezgif-85161a866c2cae9c.gif" group-title="Bangladeshi", Live Now
+http://198.195.239.50:8095/PTV-kutta/video.m3u8
 http://198.195.239.50:8095/Tsports/index.m3u8
 http://xui.mainserver.cc/play/oCkZyqACmAE6FvzKu_186PEFGOk9LoJ4xGfS1beyo7s/.m3u8
 http://103.99.249.139/sonyten3/index.m3u8
@@ -125,6 +126,7 @@ http://stvlive.net:8080/tsports1/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rytcs49Y/image.jpg" group-title="Bangladeshi", A Sports 
 http://203.18.159.115/ASPORTSHD/tracks-v1a1/mono.m3u8
+http://103.229.254.25:7001/play/a087/index.m3u8
 http://198.195.239.50:8095/Eurosport/index.m3u8
 #https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=88
 #https://crichd.workspace-sultanarabi161.workers.dev/live/asportshd.m3u8
@@ -137,6 +139,7 @@ http://198.195.239.50:8095/Eurosport/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/0QDHtZxg/image.jpg" group-title="Bangladeshi", PTV Sports
+http://198.195.239.50:8095/PTV-kutta/video.m3u8
 http://203.18.159.115/PTVSPORTSHD/tracks-v1a1/mono.m3u8
 http://198.195.239.50:8095/PTV/index.m3u8
 http://163.61.227.29:8000/play/a05l/index.m3u8
@@ -209,11 +212,12 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/tRKSvR8Z/resized-300x180-ffffff.jpg" group-title="Bangladeshi", BTV CTG
-https://anywhere.pwisetthon.com/https://www.btvlive.gov.bd/live/37f2df30-3edf-42f3-a2ee-6185002c841c/SG/a707f2dc-9704-413a-a67c-17c64a77c350/index.m3u8
+https://www.btvlive.gov.bd/live/37f2df30-3edf-42f3-a2ee-6185002c841c/BD/a707f2dc-9704-413a-a67c-17c64a77c350/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvnational-ctg.stream/tracks-v1a1/mono.ts.m3u8
+#https://www.btvlive.gov.bd/live/37f2df30-3edf-42f3-a2ee-6185002c841c/SG/a707f2dc-9704-413a-a67c-17c64a77c350/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/k4VswLcv/resized-300x180-ffffff-1.jpg" group-title="Bangladeshi", BTV NEWS
-https://anywhere.pwisetthon.com/https://www.btvlive.gov.bd/live/37f2df30-3edf-42f3-a2ee-6185002c841c/BD/d96eb7f4-83c2-4472-9597-3568390a8ebf/index.m3u8
+https://www.btvlive.gov.bd/live/37f2df30-3edf-42f3-a2ee-6185002c841c/BD/d96eb7f4-83c2-4472-9597-3568390a8ebf/index.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvbd-office-sg.stream/playlist.m3u8
 #https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvbd-office-sg.stream/tracks-v1a1/mono.m3u8
 #https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/btvbd-office-sg.stream/tracks-v1a1/mono.ts.m3u8
