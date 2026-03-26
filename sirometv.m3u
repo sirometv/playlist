@@ -37,7 +37,7 @@
 #🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 #🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
-#✅Sirome TV - 🟢 Groups UPDATED - 🟢 - 2026-03-26 09:14:04PM BD Time
+#✅Sirome TV - 🟢 Groups UPDATED - 🟢 - 2026-03-26 09:26:56PM BD Time
 
 
 
@@ -189,7 +189,7 @@ https://sirometv.com@live.kwikmotion.com/sbrksaquranradiolive/srpksaquranradio/p
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rm9JCnKP/image.jpg.jpg" group-title="Bangladeshi", Madinah
 https://cdn-globecast.akamaized.net/live/eds/saudi_sunnah/hls_roku/index.m3u8
-http://m.live.net.sa:1935/live/sunnah/chunklist.m3u8?v=1
+http://m.live.net.sa:1935/live/sunnah/playlist.m3u8
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/madina.stream/tracks-v1a1/mono.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Ssg4bHZ6/image.jpg" group-title="Bangladeshi", Al Saudiya TV
@@ -344,8 +344,9 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 #http://stvlive.net:8080/banglavision/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/9MWRQ94R/resized-300x180-ffffff-5.jpg" group-title="Bangladeshi", Maasranga TV
-http://116.204.149.16/maasranga/index.m3u8
-https://mtv.sunplex.live/MAASRANGA-TV/tracks-v1a1/mono.m3u8
+https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/1722.m3u8
+#http://116.204.149.16/maasranga/index.m3u8
+#https://mtv.sunplex.live/MAASRANGA-TV/tracks-v1a1/mono.m3u8
 #https://tvsen5.aynaott.com/maasrangatv/index.m3u8
 #http://mtv.sunplex.live/MAASRANGA-TV/tracks-v1a1/mono.m3u8
 
@@ -448,7 +449,8 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Wp8hd1gR/resized-300x180-ffffff-25.jpg" group-title="Bangladeshi", Bangla TV
 https://satoshi-cors.herokuapp.com/http://116.204.149.16/banglatv/mono.m3u8
 #https://tvsen6.aynaott.com/banglatv/index.m3u8
-#https://raw.githubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
+#https://raw.giTV
+http://198.195.239.50:8095/nagorik/tracks-v1a1/mono.m3u8ubusercontent.com/alamteacafe/Live/gh_pages/sorry.mp4
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/3x4Rfj67/resized-300x180-ffffff-26.jpg" group-title="Bangladeshi", Bangla-TV Europe
 https://byphdgllyk.gpcdn.net/hls/banglatveurope/0_1/index.m3u8
@@ -486,7 +488,7 @@ https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF9
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/2ycJtMmp/image.jpg" group-title="Bangladeshi", Nagorik TV
 http://198.195.239.50:8095/nagorik/tracks-v1a1/mono.m3u8
-http://116.204.149.16/nagorik/index.m3u8
+#http://116.204.149.16/nagorik/index.m3u8
 #https://satoshi-cors.herokuapp.com/http://116.204.149.16/nagorik/tracks-v1a1/mono.m3u8
 #https://bongoflixbd.top/nagorik.m3u8?user=bongoflix&pass=eaminvai
 #https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
