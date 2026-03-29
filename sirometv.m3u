@@ -37,7 +37,7 @@
 #🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 #🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
-#✅Sirome TV - 🟢 Groups UPDATED - 🟢 - 2026-03-29 06:50:27PM BD Time
+#✅Sirome TV - 🟢 Groups UPDATED - 🟢 - 2026-03-29 07:51:43PM BD Time
 
 
 
@@ -107,6 +107,9 @@ http://198.195.239.50:8095/Tsports/index.m3u8
 https://playztv-apps.pages.dev/tsports/index.m3u8
 http://103.175.242.10:8080/tsports1/index.m3u8
 http://stvlive.net:8080/tsports1/index.m3u8
+https://mflixott.com/tv/plusbox/live/TSports/index.m3u8
+https://mflixott.com/tv/plusbox/live/TSportsHD/index.m3u8
+
 
 #https://futbollive.online/T-Sports/tracks-v1a1/mono.m3u8
 #https://amitomar.bdixbd.net/hoichoi.pro1/tracks-v1/index.m3u8
@@ -881,7 +884,7 @@ https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
 
 #EXTINF:-1 tvg-logo="https://i.ibb.co.com/hSWsQKP/Sirome-TV-7.jpg" group-title="Bangladeshi", Discovery Bangla
-
+http://stvlive.net:8080/discovery/index.m3u8
 http://198.195.239.50:8095/Discovery/tracks-v1a1/mono.m3u8
 http://202.70.146.135:8000/play/a05z/index.m3u8
 https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8
@@ -1439,6 +1442,7 @@ https://cloudfrontnet.vercel.app/tplay/playout/209627/master.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/3RcS6984/image.jpg" group-title="Indian-Bangla", Star-Jalsha Movies
+http://103.229.254.25:7001/play/a0dt/index.m3u8
 http://203.18.159.115/JALSHAMOVIESHD/tracks-v1a1/mono.m3u8
 https://live.dinesh29.com.np/stream/jiotvplus/jalshamovieshd/master.m3u8
 #https://aynapubluc.vercel.app/api/stream/f07177e9-d1a9-48b4-8e2e-1718d098bbfb.m3u8
@@ -1884,8 +1888,9 @@ https://vg-pitaaratvyupp.akamaized.net/ptnr-yupptv/title-PitaaraComedy/v1/manife
 
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/256WmvgH/resized-300x180-ffffff-15.jpg" group-title="Indian-Bollywood", 9XM
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/52S9Hzd0/image.jpg" group-title="Indian-Bollywood", 9XM
 http://103.175.73.12:8080/live/155/155_0.m3u8
+https://9xjio.wiseplayout.com/9XM/master.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/NfW6LYVP/image.jpg" group-title="Indian-Bollywood", E24
