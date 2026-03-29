@@ -24,23 +24,36 @@
 #EXTM3U
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/52S9Hzd0/image.jpg" group-title="Indian-Music", 9XM
-https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/9xm/master.m3u8
-https://d35j504z0x2vu2.cloudfront.net/v1/manifest/0bc8e8376bd8417a1b6761138aa41c26c7309312/9xm/23886666-8fc5-470f-aab1-bd637ed607b1/0.m3u8,
+http://103.175.73.12:8080/live/155/155_0.m3u8
+https://9xjio.wiseplayout.com/9XM/master.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/NfW6LYVP/image.jpg" group-title="Indian-Music", E24
+http://103.175.73.12:8080/live/159/159_0.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/1tYLnm3D/image.jpg" group-title="Indian-Music", 9x Jhakaas
-https://amg01281-9xmediapvtltd-9xjhakaas-samsungin-ci2cs.amagi.tv/playlist/amg01281-9xmediapvtltd-9xjhakaas-samsungin/playlist.m3u8
+https://9xjio.wiseplayout.com/9X_Jhakaas/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Kc1Y94Ln/image.jpg" group-title="Indian-Music", 9X Tashan
-https://amg01281-9xmediapvtltd-9xtashan-samsungin-xz1sd.amagi.tv/playlist/amg01281-9xmediapvtltd-9xtashan-samsungin/playlist.m3u8
+https://9xjio.wiseplayout.com/9XM/master.m3u8
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/NfrwXHTB/image.jpg" group-title="Indian-Music", 
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/NfrwXHTB/image.jpg" group-title="Indian-Music", 9x Jalwa
+https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/brgLDLTM/image.jpg" group-title="Indian-Music", B4U Music
+https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8
 https://cdnb4u.wiseplayout.com/B4U_Music/master.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="Indian-Music", 
-#EXTINF:-1 tvg-logo="" group-title="Indian-Music", 
+#EXTINF:-1 tvg-logo="" group-title="Indian-Music", ETV Music
+https://b.jsrdn.com/strm/channels/9xjalwa/master.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/QNSBRshm/image.jpg" group-title="Indian-Music", Max Music 
+https://live.maxtn.in/maxmusic/maxmusic/index.m3u8
+
+
+
+
 #EXTINF:-1 tvg-logo="" group-title="Indian-Music", 
 
 
@@ -82,8 +95,9 @@ http://203.18.159.115/ZING/index.m3u8
 #EXTINF:-1 tvg-logo="" group-title="Indian-Music", 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/1znLpMkc/image.jpg" group-title="Indian-Bollywood", Star Plus
-https://live.dinesh29.com.np/stream/jiotvplus/starplus/master.m3u8
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/J0VYdGzP/image.jpg" group-title="Indian-Bollywood", Star Plus
+http://103.229.254.25:7001/play/a09z/index.m3u8
+http://203.18.159.115/STARPLUSHD/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/YqTNv3zd/image.jpg" group-title="Indian-Bollywood", Star Plus HD
