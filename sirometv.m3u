@@ -37,7 +37,7 @@
 #🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 #🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
-#✅Sirome TV - 🟢 Groups UPDATED - 🟢 - 2026-03-29 06:18:27PM BD Time
+#✅Sirome TV - 🟢 Groups UPDATED - 🟢 - 2026-03-29 06:50:27PM BD Time
 
 
 
@@ -1885,9 +1885,37 @@ https://vg-pitaaratvyupp.akamaized.net/ptnr-yupptv/title-PitaaraComedy/v1/manife
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/256WmvgH/resized-300x180-ffffff-15.jpg" group-title="Indian-Bollywood", 9XM
-https://catchup.yuppcdn.net/amazonv2/36/preview/starjalsha/master/chunklist.m3u8,
-https://d35j504z0x2vu2.cloudfront.net/v1/manifest/0bc8e8376bd8417a1b6761138aa41c26c7309312/9xm/23886666-8fc5-470f-aab1-bd637ed607b1/0.m3u8,
-https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/9xm/master.m3u8
+http://103.175.73.12:8080/live/155/155_0.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/NfW6LYVP/image.jpg" group-title="Indian-Bollywood", E24
+http://103.175.73.12:8080/live/159/159_0.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bollywood", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bollywood", 
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bollywood", 
+
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bollywood", 
+
+#EXTINF:-1 tvg-logo="" group-title="Indian-Bollywood", 
+
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/J7xh8Jbm/image.jpg" group-title="Indian-Bollywood", T Series 
+http://45.148.145.57/TSER247/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/0N1Qr1VW/image.jpg" group-title="Indian-Bollywood", Yrf Music
+https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-yrfmusic-xiaomi/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Y9ZqKcLz/image.jpg" group-title="Indian-Bollywood", Music India
+https://cdn-2.pishow.tv/live/226/master.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/13wGJJq9/image.jpg" group-title="Indian-Bollywood", Zing
+http://203.18.159.115/ZING/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/256WmvgH/resized-300x180-ffffff-15.jpg" group-title="Indian-Bollywood", News Tamil
@@ -1914,17 +1942,6 @@ https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26
 #EXTINF:-1 tvg-logo="" group-title="Indian-Bollywood", 
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/J7xh8Jbm/image.jpg" group-title="Indian-Bollywood", T Series 
-http://45.148.145.57/TSER247/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/0N1Qr1VW/image.jpg" group-title="Indian-Bollywood", Yrf Music
-https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-yrfmusic-xiaomi/playlist.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/Y9ZqKcLz/image.jpg" group-title="Indian-Bollywood", Music India
-https://cdn-2.pishow.tv/live/226/master.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/13wGJJq9/image.jpg" group-title="Indian-Bollywood", Zing
-http://203.18.159.115/ZING/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="" group-title="Indian-Bollywood", 
@@ -1938,6 +1955,7 @@ http://203.18.159.115/ZING/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/J0VYdGzP/image.jpg" group-title="Indian-Bollywood", Star Plus
+http://103.229.254.25:7001/play/a09z/index.m3u8
 http://203.18.159.115/STARPLUSHD/index.m3u8
 
 
