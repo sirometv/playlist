@@ -778,9 +778,7 @@ https://iptvbd.live/rajdhanitv/1080.m3u8
 https://stream.shariarsuvo.com/hls5/rajdhanicable.m3u8
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/tC8R2hsX/image.jpg" group-title="Bangladeshi", Rongeen TV
-https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8
-https://tvsen7.aynaott.com/RongeenTV/index.m3u8
+
 
 
 
@@ -1552,9 +1550,10 @@ http://idvd.multitvsolution.com/idvo/rplusgold.m3u8
 https://thelegitpro.in/pntv/rplusnews24x7/index.m3u8
 
 
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/tRZHYRB4/image.jpg" group-title="Indian-Bangla", Rongeen TV
-https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/tC8R2hsX/image.jpg" group-title="Indian-Bangla", Rongeen TV
+https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8
+https://tvsen7.aynaott.com/RongeenTV/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/FKBB435p/image.jpg" group-title="Indian-Bangla", Kalkata TV
 https://cdn.ottlive.co.in/kolkatatv/index.m3u8
@@ -1859,6 +1858,12 @@ https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/J7xh8Jbm/image.jpg" group-title="Indian-Bollywood", T Series 
 http://45.148.145.57/TSER247/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/0N1Qr1VW/image.jpg" group-title="Indian-Bollywood", Yrf Music
+https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01412-xiaomiasia-yrfmusic-xiaomi/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Y9ZqKcLz/image.jpg" group-title="Indian-Bollywood", Music India
+https://cdn-2.pishow.tv/live/226/master.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/13wGJJq9/image.jpg" group-title="Indian-Bollywood", Zing
 http://203.18.159.115/ZING/index.m3u8
