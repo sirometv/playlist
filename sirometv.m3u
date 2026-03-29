@@ -37,7 +37,7 @@
 #🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 #🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
-#✅Sirome TV - 🟢 Groups UPDATED - 🟢 - 2026-03-29 05:45:33PM BD Time
+#✅Sirome TV - 🟢 Groups UPDATED - 🟢 - 2026-03-29 06:18:27PM BD Time
 
 
 
@@ -78,8 +78,10 @@
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/kgr8gRv2/image.jpg" group-title="Bangladeshi", ICC T20 2026
-
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/VNXyN2RR/ezgif-85161a866c2cae9c.gif" group-title="Bangladeshi", Live Now
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/zGKf71B1/image.jpg" group-title="Bangladeshi", PSL 2026
+http://103.175.242.10:8080/tsports1/index.m3u8
 http://198.195.239.50:8095/PTV-kutta/video.m3u8
 http://198.195.239.50:8095/Tsports/index.m3u8
 http://xui.mainserver.cc/play/oCkZyqACmAE6FvzKu_186PEFGOk9LoJ4xGfS1beyo7s/.m3u8
@@ -128,11 +130,12 @@ http://stvlive.net:8080/tsports1/index.m3u8
 
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rytcs49Y/image.jpg" group-title="Bangladeshi", A Sports 
-http://203.18.159.115/ASPORTSHD/tracks-v1a1/mono.m3u8
 http://103.229.254.25:7001/play/a087/index.m3u8
 http://198.195.239.50:8095/Eurosport/index.m3u8
+http://103.229.254.25:7001/play/a087/index.m3u8
 #https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=88
 #https://crichd.workspace-sultanarabi161.workers.dev/live/asportshd.m3u8
+#http://203.18.159.115/ASPORTSHD/tracks-v1a1/mono.m3u8
 #https://tvsen7.aynaott.com/asports-bkp/index.m3u8
 #https://m.xigzo.store/live/api/190767.m3u8
 #https://m.xigzo.store/live/api/62393.m3u8
@@ -878,13 +881,16 @@ https://raw.githubusercontent.com/alamteacafe/Live/main/Sorry.mp4
 
 
 #EXTINF:-1 tvg-logo="https://i.ibb.co.com/hSWsQKP/Sirome-TV-7.jpg" group-title="Bangladeshi", Discovery Bangla
-http://203.18.159.115/DISCOVERYHD/index.m3u8
+
 http://198.195.239.50:8095/Discovery/tracks-v1a1/mono.m3u8
+http://202.70.146.135:8000/play/a05z/index.m3u8
 https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8
 #https://allinonedev.top/apis/stream/amrbd20/stream.m3u8?id=22
 #https://live.dinesh29.com.np/stream/jiotv/discoverybengali/stream_0.m3u8
 #https://live.dinesh29.com.np/stream/jiotv/discoveryhindi/stream_0.m3u8
 #https://bongoflixbd.top/bk/83.m3u8?user=bongoflix&pass=eaminvai
+#http://203.18.159.115/DISCOVERYHD/index.m3u8
+
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/D02NbKjJ/image.jpg" group-title="Bangladeshi", Discover Pakistan
 https://livecdn.live247stream.com/discoverpakistan/web/playlist.m3u8
