@@ -6,11 +6,23 @@
 
 
 
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan", 
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan", 
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan", 
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan", 
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan", 
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan", 
 
 
 
 #EXTINF:-1 tvg-id="AfghanistanInternational.uk@SD" tvg-logo="https://i.postimg.cc/k40NK5tp/image.jpg" group-title="Afghanistan", Afghanistan International (720p)
 https://hls.afintl.com/hls/stream.m3u8
+#https://darya.stream/live-tv/afghanistan-international-live
 
 #EXTINF:-1 tvg-id="AMC.af@SD" tvg-logo="https://i.postimg.cc/yNJSjHB8/image.jpg" group-title="Afghanistan", AMC (1080p)
 https://amchls.wns.live/hls/stream.m3u8
@@ -19,8 +31,18 @@ https://amchls.wns.live/hls/stream.m3u8
 https://4afghls.persiana.live/hls/stream.m3u8
 
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/QM2G9p0L/image.jpg" group-title="Afghanistan", Arezo TV
+https://tgn.bozztv.com/eshgtv-dvrfl05/gin-arezotv/index.m3u8
+# সোর্সঃ https://afghanlive.tv/amu-tv-live/
 
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/FzWQKwqm/image.jpg" group-title="Afghanistan", Maawj TV
+https://maawjhls.wns.live/hls/stream.m3u8
+# সোর্সঃ https://afghanlive.tv/amu-tv-live/
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/MT0QgmLb/image.jpg" group-title="Afghanistan", Ariana News
+https://d10rltuy0iweup.cloudfront.net/ATNNEWS/myStream/chunklist.m3u8
 
 #EXTINF:-1 tvg-id="AfghanNobelTV.ca@SD" tvg-logo="https://i.postimg.cc/vBNfMZzg/image.jpg" group-title="Afghanistan", Afghan Nobel TV (720p)
 https://live.relentlessinnovations.net:1936/afghannobeltv/afghannobeltv/playlist.m3u8
@@ -39,16 +61,26 @@ https://jmc-live.ercdn.net/amutv/amutv.m3u8
 
 #EXTINF:-1 tvg-id="BaharTV.af@SD" tvg-logo="https://i.postimg.cc/cCzpQwcC/image.jpg" group-title="Afghanistan", Bahar TV (720p) [Not 24/7]
 https://59d39900ebfb8.streamlock.net/bahartv/bahartv/playlist.m3u8
-#EXTINF:-1 tvg-id="BarbudMusic.af@SD" tvg-logo="https://i.imgur.com/jbbxu0g.png" group-title="Afghanistan", Barbud Music (720p)
+
+#EXTINF:-1 tvg-id="BarbudMusic.af@SD" tvg-logo="https://i.postimg.cc/0jkbF6h9/image.jpg" group-title="Afghanistan", Barbud Music (720p)
 https://raw.githubusercontent.com/taodicakhia/IPTV_Exception/master/channels/af/tolomusic.m3u8
-#EXTINF:-1 tvg-id="ChekadTV.af@SD" tvg-logo="https://i.imgur.com/dPTJY5M.png" group-title="Afghanistan", Chekad TV (720p)
+
+#EXTINF:-1 tvg-id="ChekadTV.af@SD" tvg-logo="https://i.postimg.cc/mDxZfc1R/image.jpg" group-title="Afghanistan", Chekad TV (720p)
 https://go5lmqxjyawb-hls-live.5centscdn.com/Chekad/271ddf829afeece44d8732757fba1a66.sdp/chunks.m3u8
-#EXTINF:-1 tvg-id="DunyaNawTV.af@SD" tvg-logo="https://i.ibb.co/nQkLgyn/dunya-naw-tv.png" group-title="Afghanistan", Dunya Naw TV (576p)
+https://gg.hls2.xyz/live/Chekad%20TV/playlist.m3u8
+#https://www.aparatchi.com/afghan-live-tv/afghan-live-tv-entertainment/chekad-tv
+
+#EXTINF:-1 tvg-id="DunyaNawTV.af@SD" tvg-logo="https://i.postimg.cc/rs3RrZRT/image.jpg" group-title="Afghanistan", Dunya Naw TV (576p)
 https://dunyanhls.wns.live/hls/stream.m3u8
-#EXTINF:-1 tvg-id="EslahTV.af@SD" tvg-logo="https://i.imgur.com/To7VnsA.png" group-title="Afghanistan", Eslah TV (720p)
+#https://www.aparatchi.com/afghan-live-tv/afghan-live-tv-entertainment/dunya-naw-tv
+
+#EXTINF:-1 tvg-id="EslahTV.af@SD" tvg-logo="https://i.postimg.cc/pdmN00p9/image.jpg" group-title="Afghanistan", Eslah TV (720p)
 https://eslahtvhls.wns.live/hls/stream.m3u8
-#EXTINF:-1 tvg-id="HewadTV.af@SD" tvg-logo="https://i.imgur.com/cK2eWUZ.png" group-title="Afghanistan", Hewad TV (720p) [Not 24/7]
+
+#EXTINF:-1 tvg-id="HewadTV.af@SD" tvg-logo="https://i.postimg.cc/D0LnxxpC/image.jpg" group-title="Afghanistan", Hewad TV (720p) [Not 24/7]
 http://51.210.199.58/hls/stream.m3u8
+#https://afghanlive.stream/world-tvs/hewad-tv/
+
 #EXTINF:-1 tvg-id="ImanTV.us@SD" tvg-logo="https://i.imgur.com/Vo6cEYi.png" group-title="Afghanistan", Iman TV (720p)
 https://live.relentlessinnovations.net:1936/imantv/imantv/index.m3u8
 #EXTINF:-1 tvg-id="KayhanTV.af@SD" tvg-logo="https://i.imgur.com/2MDjU7x.png" group-title="Afghanistan", Kayhan TV (720p)
