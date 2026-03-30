@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 07:01:07PM - 30-03-2026
-# Total Channel Found: 47 Channel
+# Update Time: 07:19:30PM - 30-03-2026
+# Total Channel Found: 78 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -24,6 +24,30 @@
 
 #EXTINF:-1 tvg-logo="" group-title="Afghanistan",
 
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/ryJn7v7g/image.jpg" group-title="Afghanistan", 1TV Afghanistan
+https://tgn.bozztv.com/eshgtv-dvrfl05/gin-1tvafg/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/6pRQpLrG/image.jpg" group-title="Afghanistan", Faza TV
+https://gg.hls2.xyz/live/Faza%20TV/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/qqykvpnR/image.jpg" group-title="Afghanistan", Lemar TV
+https://gg.hls2.xyz/live/IR%20-%20Lemar%20TV/playlist.m3u8
 
 #EXTINF:-1 tvg-id="AfghanistanInternational.uk@SD" tvg-logo="https://i.postimg.cc/k40NK5tp/image.jpg" group-title="Afghanistan", Afghanistan International (720p)
 https://hls.afintl.com/hls/stream.m3u8
@@ -58,6 +82,15 @@ https://jmc-live.ercdn.net/amutv/amutv.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rmk5QwJP/image.jpg" group-title="Afghanistan", Pamir TV
 https://live.pamirtv.com/stream/ptv.m3u8
 
+#EXTINF:-1 tvg-id="TamadonTV.af@SD" tvg-logo="https://i.postimg.cc/Y2gD8vxM/image.jpg" group-title="Afghanistan", Tamadon TV (720p)
+https://hls.tamadon.live/hls/stream.m3u8
+
+#EXTINF:-1 tvg-id="TOLOnews.af@SD" tvg-logo="https://i.postimg.cc/XNhYbzMY/image.jpg" group-title="Afghanistan", Tolo News
+https://gg.hls2.xyz/live/IR%20-%20ToloNews/playlist.m3u8
+
+#EXTINF:-1 tvg-id="TOLOnews.af@SD" tvg-logo="https://i.postimg.cc/XNhYbzMY/image.jpg" group-title="Afghanistan", Tolo News (720p)
+https://raw.githubusercontent.com/taodicakhia/IPTV_Exception/master/channels/af/tolonews.m3u8
+
 #EXTINF:-1 tvg-logo="" group-title="Afghanistan",
 
 
@@ -75,6 +108,9 @@ https://59d39900ebfb8.streamlock.net/bahartv/bahartv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="BarbudMusic.af@SD" tvg-logo="https://i.postimg.cc/0jkbF6h9/image.jpg" group-title="Afghanistan", Barbud Music (720p)
 https://raw.githubusercontent.com/taodicakhia/IPTV_Exception/master/channels/af/tolomusic.m3u8
+
+#EXTINF:-1 tvg-id="ChekadTV.af@SD" tvg-logo="https://i.postimg.cc/mDxZfc1R/image.jpg" group-title="Afghanistan", Chekad TV
+https://gg.hls2.xyz/live/Chekad%20TV/playlist.m3u8
 
 #EXTINF:-1 tvg-id="ChekadTV.af@SD" tvg-logo="https://i.postimg.cc/mDxZfc1R/image.jpg" group-title="Afghanistan", Chekad TV (720p)
 https://go5lmqxjyawb-hls-live.5centscdn.com/Chekad/271ddf829afeece44d8732757fba1a66.sdp/chunks.m3u8
@@ -97,25 +133,31 @@ https://live.relentlessinnovations.net:1936/imantv/imantv/index.m3u8
 #EXTINF:-1 tvg-id="KayhanTV.af@SD" tvg-logo="https://i.imgur.com/2MDjU7x.png" group-title="Afghanistan", Kayhan TV (720p)
 https://playout395.livestreamingcdn.com/live/Stream1/playlist.m3u8
 
-#EXTINF:-1 tvg-id="MaahTV.my@SD" tvg-logo="https://i.imgur.com/FkyueH6.png" group-title="Afghanistan", Maah TV (720p)
+#EXTINF:-1 tvg-id="MaahTV.my@SD" tvg-logo="https://i.postimg.cc/J7KdDfrd/image.jpg" group-title="Afghanistan", Maah TV (720p)
 https://hls.maahtv.live/hls/stream.m3u8
 
-#EXTINF:-1 tvg-id="PayameAfghanTV.us@SD" tvg-logo="https://i.imgur.com/t9wYYY9.png" group-title="Afghanistan", Payam-e-Afghan TV (480p) [Not 24/7]
+#EXTINF:-1 tvg-id="PayameAfghanTV.us@SD" tvg-logo="https://i.postimg.cc/pr1ZGtyX/image.jpg" group-title="Afghanistan", Payam-e-Afghan TV (480p) [Not 24/7]
 https://g5nl6xx5lpq6-hls-live.5centscdn.com/live1234/2621b29e501b445fabf227b086123b70.sdp/mono.m3u8
 
-#EXTINF:-1 tvg-id="RTA.af@SD" tvg-logo="https://i.imgur.com/pJU2KPh.png" group-title="Afghanistan", RTA (1080p)
+#EXTINF:-1 tvg-id="RTA.af@SD" tvg-logo="https://i.imgur.com/pJU2KPh.png" group-title="Afghanistan", RTA TV
+https://gg.hls2.xyz/live/RTA%20TV/playlist.m3u8
+
+#EXTINF:-1 tvg-id="RTA.af@SD" tvg-logo="https://i.postimg.cc/bJrS6Snv/image.jpg" group-title="Afghanistan", RTA (1080p)
 https://rtatv.akamaized.net/Content/HLS/Live/channel(RTA1)/index.m3u8
 
-#EXTINF:-1 tvg-id="RTAEducation.af@SD" tvg-logo="https://rta.af/artmedia/2022/12/rta-logo-final-300x185.png" group-title="Afghanistan", RTA Education (1080p)
+#EXTINF:-1 tvg-id="RTAEducation.af@SD" tvg-logo="https://i.postimg.cc/vmN5wvbV/image.jpg" group-title="Afghanistan", RTA Education (1080p)
 https://rtatv.akamaized.net/Content/HLS/Live/channel(RTA4)/index.m3u8
 
-#EXTINF:-1 tvg-id="RTANews.af@SD" tvg-logo="https://rta.af/artmedia/2022/12/rta-logo-final-300x185.png" group-title="Afghanistan", RTA News (1080p)
+#EXTINF:-1 tvg-id="RTANews.af@SD" tvg-logo="https://i.postimg.cc/vmN5wvbV/image.jpg" group-title="Afghanistan", RTA News (1080p)
 https://rtatv.akamaized.net/Content/HLS/Live/channel(RTA2)/index.m3u8
 
-#EXTINF:-1 tvg-id="RTASport.af@SD" tvg-logo="https://i.imgur.com/lEXrwos.jpg" group-title="Afghanistan", RTA Sport (1080p)
+#EXTINF:-1 tvg-id="RTASport.af@SD" tvg-logo="https://i.postimg.cc/157mH7H6/image.jpg" group-title="Afghanistan", RTA Sport (1080p)
 https://rtatv.akamaized.net/Content/HLS/Live/channel(RTA3)/index.m3u8
 
-#EXTINF:-1 tvg-id="SadaEHaqTV.us@SD" tvg-logo="https://i.imgur.com/J1pB59S.jpg" group-title="Afghanistan", Sada-E-Haq TV (720p)
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/C5WvMg0N/image.jpg group-title="Afghanistan", Sada E Haq TV
+https://afghantv.app/hls4/sadaehaqtv/index.m3u8
+
+#EXTINF:-1 tvg-id="SadaEHaqTV.us@SD" tvg-logo="https://i.postimg.cc/C5WvMg0N/image.jpg" group-title="Afghanistan", Sada-E-Haq TV (720p)
 https://live.relentlessinnovations.net:1936/sadaehaq/sadaehaq/playlist.m3u8
 
 #EXTINF:-1 tvg-id="ShamsTV.af@SD" tvg-logo="https://i.postimg.cc/2j0QmmGt/image.jpg" group-title="Afghanistan", Shams-TV
@@ -139,14 +181,65 @@ https://iptv.sohailtv.com/sohailtv/playlist.m3u8
 #EXTINF:-1 tvg-id="SohailTV.ca@SD" tvg-logo="https://i.postimg.cc/8529yW3T/image.jpg" group-title="Afghanistan", Sohail TV (1080p)
 https://iptv.sohailtv.com/sohail/playlist/index.m3u8
 
-#EXTINF:-1 tvg-id="TamadonTV.af@SD" tvg-logo="https://i.imgur.com/edGyj5H.png" group-title="Afghanistan", Tamadon TV (720p)
-https://hls.tamadon.live/hls/stream.m3u8
-
-#EXTINF:-1 tvg-id="TOLOnews.af@SD" tvg-logo="https://i.imgur.com/oxaHaTq.png" group-title="Afghanistan", Tolo News (720p)
-https://raw.githubusercontent.com/taodicakhia/IPTV_Exception/master/channels/af/tolonews.m3u8
-
-#EXTINF:-1 tvg-id="WataneMaaTV.ca@SD" tvg-logo="https://i.ibb.co/1rDrKJG/Watan-E-Maa-Tv-Logo-300-Dpi.png" group-title="Afghanistan", Watan-e-Maa TV (720p)
+#EXTINF:-1 tvg-id="WataneMaaTV.ca@SD" tvg-logo="https://i.postimg.cc/sXGDQYSJ/image.jpgg" group-title="Afghanistan", Watan-e-Maa TV (720p)
 https://5caf24a595d94.streamlock.net:1937/8132/8132/playlist.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/tJxgn30G/image.jpg" group-title="Afghanistan", Tolo TV Live Online
+https://tgn.bozztv.com/eshgtv-dvrfl05/gin-tolohd/index.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
 
 # 🔴🔴🔴🔴 Gh-Pages Channel End Here 🔴🔴🔴🔴
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
