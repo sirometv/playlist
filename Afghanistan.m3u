@@ -1,6 +1,6 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 07:19:30PM - 30-03-2026
+# Update Time: 12:51:23AM - 31-03-2026
 # Total Channel Found: 78 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
@@ -73,9 +73,6 @@ https://live.relentlessinnovations.net:1936/afghannobeltv/afghannobeltv/playlist
 #EXTINF:-1 tvg-id="AfghanNobelMovies.ca@SD" tvg-logo="https://i.postimg.cc/442BNJyR/image.jpg" group-title="Afghanistan", Afghan Nobel Movies (720p)
 https://live.relentlessinnovations.net:1936/afghannobel/afghannobel/playlist.m3u8
 
-#EXTINF:-1 tvg-id="ABNAfghanistan.us@SD" tvg-logo="https://i.postimg.cc/7hHdvXKg/image.jpg" group-title="Afghanistan", ABN Afghanistan (540p)
-https://mediaserver.abnvideos.com/streams/abnafghanistan.m3u8
-
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/bJgDNN90/image.jpg" group-title="Afghanistan", Amu TV
 https://jmc-live.ercdn.net/amutv/amutv.m3u8
 
@@ -130,7 +127,7 @@ https://afghantv.app/hls4/imantv/index.m3u8
 #EXTINF:-1 tvg-id="ImanTV.us@SD" tvg-logo="https://i.postimg.cc/13BP7Cs0/image.jpg" group-title="Afghanistan", Iman TV (720p)
 https://live.relentlessinnovations.net:1936/imantv/imantv/index.m3u8
 
-#EXTINF:-1 tvg-id="KayhanTV.af@SD" tvg-logo="https://i.imgur.com/2MDjU7x.png" group-title="Afghanistan", Kayhan TV (720p)
+#EXTINF:-1 tvg-id="KayhanTV.af@SD" tvg-logo="https://i.postimg.cc/XJZHR8BG/image.jpg" group-title="Afghanistan", Kayhan TV (720p)
 https://playout395.livestreamingcdn.com/live/Stream1/playlist.m3u8
 
 #EXTINF:-1 tvg-id="MaahTV.my@SD" tvg-logo="https://i.postimg.cc/J7KdDfrd/image.jpg" group-title="Afghanistan", Maah TV (720p)
@@ -139,7 +136,7 @@ https://hls.maahtv.live/hls/stream.m3u8
 #EXTINF:-1 tvg-id="PayameAfghanTV.us@SD" tvg-logo="https://i.postimg.cc/pr1ZGtyX/image.jpg" group-title="Afghanistan", Payam-e-Afghan TV (480p) [Not 24/7]
 https://g5nl6xx5lpq6-hls-live.5centscdn.com/live1234/2621b29e501b445fabf227b086123b70.sdp/mono.m3u8
 
-#EXTINF:-1 tvg-id="RTA.af@SD" tvg-logo="https://i.imgur.com/pJU2KPh.png" group-title="Afghanistan", RTA TV
+#EXTINF:-1 tvg-id="RTA.af@SD" tvg-logo="https://i.postimg.cc/bJrS6Snv/image.jpg" group-title="Afghanistan", RTA TV
 https://gg.hls2.xyz/live/RTA%20TV/playlist.m3u8
 
 #EXTINF:-1 tvg-id="RTA.af@SD" tvg-logo="https://i.postimg.cc/bJrS6Snv/image.jpg" group-title="Afghanistan", RTA (1080p)
@@ -186,6 +183,9 @@ https://5caf24a595d94.streamlock.net:1937/8132/8132/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/tJxgn30G/image.jpg" group-title="Afghanistan", Tolo TV Live Online
 https://tgn.bozztv.com/eshgtv-dvrfl05/gin-tolohd/index.m3u8
+
+#EXTINF:-1 tvg-id="ABNAfghanistan.us@SD" tvg-logo="https://i.postimg.cc/7hHdvXKg/image.jpg" group-title="Afghanistan", ABN Afghanistan (540p)
+https://mediaserver.abnvideos.com/streams/abnafghanistan.m3u8
 
 #EXTINF:-1 tvg-logo="" group-title="Afghanistan",
 
