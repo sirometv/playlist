@@ -1,23 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "07:22:15 AM 30-03-2026",
+    "last update time": "10:30:45 AM 30-03-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Cricket",
-            "title": "Australia Women vs West Indies Women (Australia Women's tour of West Indies 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(12).png",
-            "team_1": "Australia Women",
-            "team_2": "West Indies Women",
-            "status": "LIVE",
-            "event_name": "Australia Women's tour of West Indies 2026",
-            "match_name": "Australia Women vs West Indies Women",
-            "match_id": 141332,
-            "startTime": "11:30:00 PM 29-03-2026",
-            "dai_url": null,
-            "adfree_url": null
-        },
         {
             "event_category": "Cricket",
             "title": "Namibia A vs Scotland (Scotland tour of Namibia, 2026)",
@@ -88,7 +74,7 @@
             "event_name": "ATP 250 - Fayez Sarofim & Co. U.S. Men's Clay",
             "match_name": "World Feed",
             "match_id": 141075,
-            "startTime": "11:30:00 PM 30-03-2026"
+            "startTime": "12:30:00 AM 31-03-2026"
         },
         {
             "event_category": "Tennis",
@@ -100,7 +86,7 @@
             "event_name": "ATP 250 - Fayez Sarofim & Co. U.S. Men's Clay",
             "match_name": "A Court Feed",
             "match_id": 141074,
-            "startTime": "11:30:00 PM 30-03-2026"
+            "startTime": "12:30:00 AM 31-03-2026"
         },
         {
             "event_category": "Tennis",
@@ -437,6 +423,30 @@
             "match_name": "Brisbane Roar vs Sydney FC",
             "match_id": 140924,
             "startTime": "03:30:00 PM 02-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Australia U20 vs Chinese Taipei U20 (AFC U20 Women's Asian Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(6)_1774716160342.png",
+            "team_1": "Australia U20",
+            "team_2": "Chinese Taipei U20",
+            "status": "UPCOMING",
+            "event_name": "AFC U20 Women's Asian Cup 2026",
+            "match_name": "Australia U20 vs Chinese Taipei U20",
+            "match_id": 141614,
+            "startTime": "02:30:00 PM 02-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Korea Republic U20 vs Uzbekistan U20 (AFC U20 Women's Asian Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(6)_1774716160342.png",
+            "team_1": "Korea Republic U20",
+            "team_2": "Uzbekistan U20",
+            "status": "UPCOMING",
+            "event_name": "AFC U20 Women's Asian Cup 2026",
+            "match_name": "Korea Republic U20 vs Uzbekistan U20",
+            "match_id": 141613,
+            "startTime": "02:30:00 PM 02-04-2026"
         }
     ]
 }
