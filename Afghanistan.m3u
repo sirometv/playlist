@@ -81,8 +81,13 @@ https://eslahtvhls.wns.live/hls/stream.m3u8
 http://51.210.199.58/hls/stream.m3u8
 #https://afghanlive.stream/world-tvs/hewad-tv/
 
-#EXTINF:-1 tvg-id="ImanTV.us@SD" tvg-logo="https://i.imgur.com/Vo6cEYi.png" group-title="Afghanistan", Iman TV (720p)
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/13BP7Cs0/image.jpg" group-title="Afghanistan", Iman TV
+https://afghantv.app/hls4/imantv/index.m3u8
+#https://iman-tv.com/ or https://www.parsatv.com/name=Iman-TV
+
+#EXTINF:-1 tvg-id="ImanTV.us@SD" tvg-logo="https://i.postimg.cc/13BP7Cs0/image.jpg" group-title="Afghanistan", Iman TV (720p)
 https://live.relentlessinnovations.net:1936/imantv/imantv/index.m3u8
+
 #EXTINF:-1 tvg-id="KayhanTV.af@SD" tvg-logo="https://i.imgur.com/2MDjU7x.png" group-title="Afghanistan", Kayhan TV (720p)
 https://playout395.livestreamingcdn.com/live/Stream1/playlist.m3u8
 #EXTINF:-1 tvg-id="MaahTV.my@SD" tvg-logo="https://i.imgur.com/FkyueH6.png" group-title="Afghanistan", Maah TV (720p)
