@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 06:16:29PM - 30-03-2026
-# Total Channel Found: 38 Channel
+# Update Time: 07:01:07PM - 30-03-2026
+# Total Channel Found: 47 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -55,6 +55,21 @@ https://mediaserver.abnvideos.com/streams/abnafghanistan.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/bJgDNN90/image.jpg" group-title="Afghanistan", Amu TV
 https://jmc-live.ercdn.net/amutv/amutv.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/rmk5QwJP/image.jpg" group-title="Afghanistan", Pamir TV
+https://live.pamirtv.com/stream/ptv.m3u8
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
+#EXTINF:-1 tvg-logo="" group-title="Afghanistan",
+
+
 #EXTINF:-1 tvg-id="BaharTV.af@SD" tvg-logo="https://i.postimg.cc/cCzpQwcC/image.jpg" group-title="Afghanistan", Bahar TV (720p) [Not 24/7]
 https://59d39900ebfb8.streamlock.net/bahartv/bahartv/playlist.m3u8
 
@@ -73,7 +88,10 @@ https://eslahtvhls.wns.live/hls/stream.m3u8
 #EXTINF:-1 tvg-id="HewadTV.af@SD" tvg-logo="https://i.postimg.cc/D0LnxxpC/image.jpg" group-title="Afghanistan", Hewad TV (720p) [Not 24/7]
 http://51.210.199.58/hls/stream.m3u8
 
-#EXTINF:-1 tvg-id="ImanTV.us@SD" tvg-logo="https://i.imgur.com/Vo6cEYi.png" group-title="Afghanistan", Iman TV (720p)
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/13BP7Cs0/image.jpg" group-title="Afghanistan", Iman TV
+https://afghantv.app/hls4/imantv/index.m3u8
+
+#EXTINF:-1 tvg-id="ImanTV.us@SD" tvg-logo="https://i.postimg.cc/13BP7Cs0/image.jpg" group-title="Afghanistan", Iman TV (720p)
 https://live.relentlessinnovations.net:1936/imantv/imantv/index.m3u8
 
 #EXTINF:-1 tvg-id="KayhanTV.af@SD" tvg-logo="https://i.imgur.com/2MDjU7x.png" group-title="Afghanistan", Kayhan TV (720p)
@@ -100,16 +118,25 @@ https://rtatv.akamaized.net/Content/HLS/Live/channel(RTA3)/index.m3u8
 #EXTINF:-1 tvg-id="SadaEHaqTV.us@SD" tvg-logo="https://i.imgur.com/J1pB59S.jpg" group-title="Afghanistan", Sada-E-Haq TV (720p)
 https://live.relentlessinnovations.net:1936/sadaehaq/sadaehaq/playlist.m3u8
 
-#EXTINF:-1 tvg-id="ShamsTV.af@SD" tvg-logo="https://i.imgur.com/Lsy31iZ.jpeg" group-title="Afghanistan", Shams TV
+#EXTINF:-1 tvg-id="ShamsTV.af@SD" tvg-logo="https://i.postimg.cc/2j0QmmGt/image.jpg" group-title="Afghanistan", Shams-TV
+https://stream.shams.tv/hls/stream.m3u8
+
+#EXTINF:-1 tvg-id="ShamsTV.af@SD" tvg-logo="https://i.postimg.cc/2j0QmmGt/image.jpg" group-title="Afghanistan", Shams TV
 https://fflive-darya-educationtv.b-cdn.net/master.m3u8
 
-#EXTINF:-1 tvg-id="ShamshadTV.af@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/28/Shamshad_tv_logo.jpg" group-title="Afghanistan", Shamshad TV [Not 24/7]
+#EXTINF:-1 tvg-id="ShamshadTV.af@SD" tvg-logo="https://i.postimg.cc/4NJXvRTf/image.jpg" group-title="Afghanistan", Shamshad TV
 https://5a1178b42cc03.streamlock.net/shamshadtelevision/shamshadtelevision/playlist.m3u8
 
-#EXTINF:-1 tvg-id="SharqRadioTV.af@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Sharq_TV_Logo_2020.jpg/960px-Sharq_TV_Logo_2020.jpg" group-title="Afghanistan", Sharq Radio TV (1080p)
+#EXTINF:-1 tvg-id="ShamshadTV.af@SD" tvg-logo="https://i.postimg.cc/4NJXvRTf/image.jpg" group-title="Afghanistan", Shamshad TV [Not 24/7]
+https://5a1178b42cc03.streamlock.net/shamshadtelevision/shamshadtelevision/playlist.m3u8
+
+#EXTINF:-1 tvg-id="SharqRadioTV.af@SD" tvg-logo="https://i.postimg.cc/fL8QBJN6/image.jpg" group-title="Afghanistan", Sharq Radio TV (1080p)
 https://59nyqa5elwap-hls-live.5centscdn.com/Sharq/eec89088ee408b80387155272b113256.sdp/playlist.m3u8
 
-#EXTINF:-1 tvg-id="SohailTV.ca@SD" tvg-logo="https://i.ibb.co/dtzjKfT/Sohail-TV.png" group-title="Afghanistan", Sohail TV (1080p)
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/8529yW3T/image.jpg" group-title="Afghanistan", Sohail-TV
+https://iptv.sohailtv.com/sohailtv/playlist.m3u8
+
+#EXTINF:-1 tvg-id="SohailTV.ca@SD" tvg-logo="https://i.postimg.cc/8529yW3T/image.jpg" group-title="Afghanistan", Sohail TV (1080p)
 https://iptv.sohailtv.com/sohail/playlist/index.m3u8
 
 #EXTINF:-1 tvg-id="TamadonTV.af@SD" tvg-logo="https://i.imgur.com/edGyj5H.png" group-title="Afghanistan", Tamadon TV (720p)
