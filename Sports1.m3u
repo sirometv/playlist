@@ -49,11 +49,7 @@ https://liveeu-gcp.alkassdigital.net/shooflive2/main.m3u8
 
 
 
-#EXTINF:-1 tvg-id="beINSPORTSXTRA.us@SD" tvg-logo="https://i.postimg.cc/gkZ7mM0j/image.jpg" group-title="Sports", beIN SPORTS Xtra (1080p)
-https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/bein-sports-xtra/playlist.m3u8?ads.vf=kBQplLldqQO
 
-#EXTINF:-1 tvg-id="beINSPORTSXTRAenEspanol.us@SD" tvg-logo="https://i.postimg.cc/gkZ7mM0j/image.jpg" group-title="Sports", beIN Sports XTRA en Espanol (1080p)
-https://dc1644a9jazgj.cloudfront.net/beIN_Sports_Xtra_Espanol.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/Kz6rpBwq/image.jpg" group-title="Sports", Bein Sports 1
 https://wahyu1ptv.pages.dev/AstroBein1.m3u8
@@ -113,6 +109,19 @@ http://iptv.ndasat.xyz:88/live/937895244185412/937895244185412/13791.m3u8
 #https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/31_.m3u8
 #https://satoshi-cors.herokuapp.com/https://sdmax111.provegooott.com/29_.m3u8
 #http://135.125.109.73:9000/beinsport9_.m3u8
+
+
+
+#EXTINF:-1 tvg-id="beINSPORTSXTRA.us@SD" tvg-logo="https://i.postimg.cc/gkZ7mM0j/image.jpg" group-title="Sports", beIN SPORTS Xtra (1080p)
+https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/bein-sports-xtra/playlist.m3u8?ads.vf=kBQplLldqQO
+
+#EXTINF:-1 tvg-id="beINSPORTSXTRAenEspanol.us@SD" tvg-logo="https://i.postimg.cc/gkZ7mM0j/image.jpg" group-title="Sports", beIN Sports XTRA en Espanol (1080p)
+https://dc1644a9jazgj.cloudfront.net/beIN_Sports_Xtra_Espanol.m3u8
+
+
+
+
+
 
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 
