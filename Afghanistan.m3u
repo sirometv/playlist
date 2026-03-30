@@ -9,6 +9,12 @@
 
 
 
+#EXTINF:-1 tvg-id="AfghanistanInternational.uk@SD" tvg-logo="https://i.postimg.cc/k40NK5tp/image.jpg" group-title="Afghanistan", Afghanistan International (720p)
+https://hls.afintl.com/hls/stream.m3u8
+
+#EXTINF:-1 tvg-id="AMC.af@SD" tvg-logo="https://i.postimg.cc/yNJSjHB8/image.jpg" group-title="Afghanistan", AMC (1080p)
+https://amchls.wns.live/hls/stream.m3u8
+
 #EXTINF:-1 tvg-id="4Afghanistan.fr@SD" tvg-logo="https://i.postimg.cc/GtjRGH5Q/image.jpg" group-title="Afghanistan", 4 Afghanistan
 https://4afghls.persiana.live/hls/stream.m3u8
 
@@ -25,13 +31,13 @@ https://live.relentlessinnovations.net:1936/afghannobel/afghannobel/playlist.m3u
 #EXTINF:-1 tvg-id="ABNAfghanistan.us@SD" tvg-logo="https://i.postimg.cc/7hHdvXKg/image.jpg" group-title="Afghanistan", ABN Afghanistan (540p)
 https://mediaserver.abnvideos.com/streams/abnafghanistan.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/bJgDNN90/image.jpg" group-title="Afghanistan", Amu TV
+https://jmc-live.ercdn.net/amutv/amutv.m3u8
+# সোর্সঃ https://afghanlive.tv/amu-tv-live/
 
 
-#EXTINF:-1 tvg-id="AfghanistanInternational.uk@SD" tvg-logo="https://i.imgur.com/r8MmFRX.png" group-title="Afghanistan", Afghanistan International (720p)
-https://hls.afintl.com/hls/stream.m3u8
-#EXTINF:-1 tvg-id="AMC.af@SD" tvg-logo="https://i.imgur.com/yj8RNnG.png" group-title="Afghanistan", AMC (1080p)
-https://amchls.wns.live/hls/stream.m3u8
-#EXTINF:-1 tvg-id="BaharTV.af@SD" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_nErN-N8qBYQy7YZnf-eAS2A97TFf1Ljs7yv2nxsc6T3A=s160-c-k-c0x00ffffff-no-rj" group-title="Afghanistan", Bahar TV (720p) [Not 24/7]
+
+#EXTINF:-1 tvg-id="BaharTV.af@SD" tvg-logo="https://i.postimg.cc/cCzpQwcC/image.jpg" group-title="Afghanistan", Bahar TV (720p) [Not 24/7]
 https://59d39900ebfb8.streamlock.net/bahartv/bahartv/playlist.m3u8
 #EXTINF:-1 tvg-id="BarbudMusic.af@SD" tvg-logo="https://i.imgur.com/jbbxu0g.png" group-title="Afghanistan", Barbud Music (720p)
 https://raw.githubusercontent.com/taodicakhia/IPTV_Exception/master/channels/af/tolomusic.m3u8
