@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "04:58:07 AM 02-04-2026",
+    "last update time": "05:34:08 AM 02-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -104,18 +104,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Brisbane Roar vs Sydney FC (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140924_5802_BRB_SYD_fc-web.jpg",
-            "team_1": "Brisbane Roar",
-            "team_2": "Sydney FC",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Brisbane Roar vs Sydney FC",
-            "match_id": 140924,
-            "startTime": "03:30:00 PM 02-04-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Lyon Women vs VfL Wolfsburg Women (UEFA Women's Champions League 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140966_5720_OLY-W_WOL-W_fc-web.jpg",
             "team_1": "Lyon Women",
@@ -125,6 +113,18 @@
             "match_name": "Lyon Women vs VfL Wolfsburg Women",
             "match_id": 140966,
             "startTime": "12:30:00 AM 03-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Brisbane Roar vs Sydney FC (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140924_5802_BRB_SYD_fc-web.jpg",
+            "team_1": "Brisbane Roar",
+            "team_2": "Sydney FC",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Brisbane Roar vs Sydney FC",
+            "match_id": 140924,
+            "startTime": "03:30:00 PM 02-04-2026"
         },
         {
             "event_category": "Football",
@@ -187,6 +187,18 @@
             "startTime": "01:00:00 AM 03-04-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Malaysia A vs Hong Kong, China-A (Hong Kong, China-A tour of Malaysia-A 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Hong-Kong,-China-A-tour-of-Malaysia-A-2026-old-card.jpg",
+            "team_1": "Malaysia A",
+            "team_2": "Hong Kong, China-A",
+            "status": "UPCOMING",
+            "event_name": "Hong Kong, China-A tour of Malaysia-A 2026",
+            "match_name": "Malaysia A vs Hong Kong, China-A",
+            "match_id": 141772,
+            "startTime": "07:30:00 AM 03-04-2026"
+        },
+        {
             "event_category": "Tennis",
             "title": "A Court Feed vs Bucharest, Romania (ATP 250 - Tiriac Open presented by UniCredit Bank )",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(13).png",
@@ -209,18 +221,6 @@
             "match_name": "Grand Prix Hassan II - Day 4",
             "match_id": 141279,
             "startTime": "02:30:00 PM 02-04-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Malaysia A vs Hong Kong, China-A (Hong Kong, China-A tour of Malaysia-A 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Hong-Kong,-China-A-tour-of-Malaysia-A-2026-old-card.jpg",
-            "team_1": "Malaysia A",
-            "team_2": "Hong Kong, China-A",
-            "status": "UPCOMING",
-            "event_name": "Hong Kong, China-A tour of Malaysia-A 2026",
-            "match_name": "Malaysia A vs Hong Kong, China-A",
-            "match_id": 141772,
-            "startTime": "07:30:00 AM 03-04-2026"
         },
         {
             "event_category": "Golf",
