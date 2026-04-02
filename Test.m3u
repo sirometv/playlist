@@ -32,6 +32,18 @@ https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26
 #EXTINF:-1 tvg-logo="https://i.ibb.co/fVGJyCC8/w512.png" group-title="Lifestyle", FashionTV Secrets -m3u8?লম্বা লাইন আছে
 https://ssai.aniview.com/api/v1/hls/stream.m3u8?AVS_SSAIID=67c0c39764ad6f7dab07aa0b&AV_APPNAME=[ADS.APP_NAME]&AV_APPPKGNAME=[ADS.APP_BUNDLE]&AV_APPSTOREURL=[ADS.APP_STORE_URL]&AV_CCPA=[ADS.US_PRIVACY]&AV_CLIENT_SECTION=ftv_secrets&AV_CONSENT=[ADS.GDPR_CONSENT]&AV_CONTENT_CAT=IAB7&AV_CONTENT_CHANNEL=&AV_CONTENT_CONTEXT=&AV_CONTENT_EPISODE=&AV_CONTENT_GENRE=fashion+and+lifestyle&AV_CONTENT_ID=[ADS.VIDAA_ADS_CONTENTID]&AV_CONTENT_KEYWORDS=&AV_CONTENT_LANGUAGE=en&AV_CONTENT_LENGTH=&AV_CONTENT_NETWORK=&AV_CONTENT_PROVIDER=FTV&AV_CONTENT_RATING=R&AV_CONTENT_SEASON=&AV_CONTENT_SERIES=&AV_CONTENT_TITLE=&AV_CONTENT_URL=&AV_DNT=[ADS.DNT]&AV_GDPR=[ADS.GDPR]&AV_HEIGHT=[ADS.H]&AV_IDFA=[ADS.IFA]&AV_IFA_TYPE=[ADS.IFA_TYPE]&AV_LANGUAGE=[ADS.DEVICE_LANGUAGE]&AV_OSVERS=[ADS.DEVICE_OSV]&AV_RTB_DEVICE_TYPE=[ADS.DEVICE_TYPE]&AV_VAUTH=[ADS.VAUTH]&AV_WIDTH=[ADS.W]&Content_Id=[ADS.ADS_CONTENTID]&ads.vidaa_ads_param=1191723366&cb=[CACHEBUSTER]&content_channel_name=ftv+-fashiontv+Secrets&content_livestream=1
 
+#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Uncategorized",星空衛視 - ts
+http://218.202.220.2:5000/nn_live.ts?id=STARTV
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/kD3GbR1d/resized-300x180-ffffff-14.jpg" group-title="Bangladeshi", Makka + mpd & m3u8
+https://cdn10jtedge.indihometv.com/atm/DASH/alquran/manifest.mpd
+https://cdn-globecast.akamaized.net/live/eds/saudi_quran/hls_roku/index.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/makkah.stream/tracks-v1a1/mono.m3u8
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/x8sgjYtH/resized-300x180-ffffff-12.jpg" group-title="Indian-Bangla", Zee Bangla - Direct & m3u8
+http://203.18.159.115/ZEEBANGLAHD/tracks-v1a1/mono.m3u8
+http://87.255.35.150:18238/
 
 
 
@@ -62,4 +74,43 @@ https://ssai.aniview.com/api/v1/hls/stream.m3u8?AVS_SSAIID=67c0c39764ad6f7dab07a
 
 
 
+#EXTINF:-1 tvg-logo="https://i.ibb.co.com/Ps2H8rFk/Sirome-TV-8.jpg" group-title="All Football Match & League", Football Match - mpd
+https://viamotionhsi.netplus.ch/live/eds/raisport1/browser-dash/raisport1.mpd
 
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co.com/Ps2H8rFk/Sirome-TV-8.jpg" group-title="All Football Match & League", Football - m3u8? + token
+http://31.148.48.15/Match_Futbol_1_HD/index.m3u8?token=test
+http://31.148.48.15/Match_Futbol_2_HD/index.m3u8?token=test
+http://31.148.48.15/Match_Futbol_3_HD/index.m3u8?token=test
+http://31.148.48.15/Match_Premier/index.m3u8?token=test
+http://31.148.48.15/Match_Arena/index.m3u8?token=test
+http://31.148.48.15/Match_Strana/index.m3u8?token=test
+http://ua1.online24.pm/134/video.m3u8?token=25602AD9468C2BD
+http://31.148.48.15/Match_Igra/index.m3u8?token=test
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/Hx75zHSQ/T-Sports-logo.png" group-title="Sports", GTV - m3u8 + token + cocki
+#AUTO-UPDATED - GTV ✅- 2026-04-03 02:56:59AM BD Time 🟡 - 🔄 - 🔴
+https://tvsen5.aynascope.net/Ravc7gPCZpxk/index.m3u8?e=1775167434&u=78be6644-0a65-48ec-81a4-089ac65a2619&token=ea6589a730db9b844a11d28ffa02403f
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/1XX26c09/image.jpg" group-title="Sports", Sony Ten 3 + mpd?
+http://195.181.169.162:80/TEN_3_HD/index.mpd?token=test
+
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/3RGCTxWM/image.jpg" group-title="Sports", Euro Sports - m3u8 Eaminvai
+https://bongoflixbd.top/toffee/euro_sports_hd.m3u8?user=bongoflix&pass=eaminvai
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/3RGCTxWM/image.jpg" group-title="Sports", Euro Sports - Direct Link play/a01g
+http://66.102.120.18:8000/play/a01g
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/3RGCTxWM/image.jpg" group-title="Sports", Euro Sports 2 -Link satoshi-cors
+https://satoshi-cors.herokuapp.com/http://178.23.88.55/Eurosport_2/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/x8T3Bv44/image.jpg" group-title="Sports", Astro Cricket - ts
+http://b1g.ooo:80/live/rv/rv123/260988.ts
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/5ys3vWCy/image.jpg" group-title="Sports-Highlights", SL vs BAN - mp4
+https://d3pt6y87jk0q7u.cloudfront.net/cpanel/client_14/2025/video/1758398072.mp4
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/zfYcq5SY/image.jpg" group-title="Sports-Highlights", India vs Oman  - mp4
+https://d3pt6y87jk0q7u.cloudfront.net/cpanel/client_14/2025/video/1758340183.mp4
