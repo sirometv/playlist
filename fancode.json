@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:02:46 AM 03-04-2026",
+    "last update time": "05:50:52 AM 03-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -17,20 +17,6 @@
             "startTime": "06:00:00 PM 02-04-2026",
             "dai_url": "https://dai-partner.fancode.com/primary/141777_english_hls_7ed727d39238515_1ta-di_h264/index.m3u8",
             "adfree_url": "https://dai-partner.fancode.com/primary/141777_english_hls_7ed727d39238515_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Featured Holes - Day 1 vs San Antonio, Texas (Valero Texas Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Valero-Texas-Open-2026-old-card-.png",
-            "team_1": "Featured Holes - Day 1",
-            "team_2": "San Antonio, Texas",
-            "status": "LIVE",
-            "event_name": "Valero Texas Open 2026",
-            "match_name": "Featured Holes - Day 1",
-            "match_id": 141780,
-            "startTime": "06:30:00 PM 02-04-2026",
-            "dai_url": "https://dai-partner.fancode.com/primary/141780_english_hls_c19a041ad746169_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://dai-partner.fancode.com/primary/141780_english_hls_c19a041ad746169_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Golf",
@@ -62,20 +48,6 @@
         },
         {
             "event_category": "Golf",
-            "title": "World Feed - Day 1 vs San Antonio, Texas (Valero Texas Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Valero-Texas-Open-2026-old-card-.png",
-            "team_1": "World Feed - Day 1",
-            "team_2": "San Antonio, Texas",
-            "status": "LIVE",
-            "event_name": "Valero Texas Open 2026",
-            "match_name": "World Feed - Day 1",
-            "match_id": 141781,
-            "startTime": "01:30:00 AM 03-04-2026",
-            "dai_url": "https://dai-partner.fancode.com/primary/141781_english_hls_23cc1c2b5e96402_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://dai-partner.fancode.com/primary/141781_english_hls_23cc1c2b5e96402_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Golf",
             "title": "Day 1 vs Shadow Creek Golf Club (Aramco Championship USA 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(14).png",
             "team_1": "Day 1",
@@ -101,18 +73,6 @@
             "startTime": "07:30:00 AM 03-04-2026"
         },
         {
-            "event_category": "Football",
-            "title": "Middlesbrough F.C. vs Millwall F.C. (EFL Championship 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141428_5489_MIDD_MLW_fc-web.jpg",
-            "team_1": "Middlesbrough F.C.",
-            "team_2": "Millwall F.C.",
-            "status": "UPCOMING",
-            "event_name": "EFL Championship 2025-26",
-            "match_name": "Middlesbrough F.C. vs Millwall F.C.",
-            "match_id": 141428,
-            "startTime": "05:00:00 PM 03-04-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "New Zealand Women vs South Africa Women (South Africa Women's tour of New Zealand, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/South-Africa-Women's-tour-of-New-Zealand-ODIs-old.jpg",
@@ -123,6 +83,18 @@
             "match_name": "New Zealand Women vs South Africa Women",
             "match_id": 141073,
             "startTime": "03:30:00 AM 04-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Middlesbrough F.C. vs Millwall F.C. (EFL Championship 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141428_5489_MIDD_MLW_fc-web.jpg",
+            "team_1": "Middlesbrough F.C.",
+            "team_2": "Millwall F.C.",
+            "status": "UPCOMING",
+            "event_name": "EFL Championship 2025-26",
+            "match_name": "Middlesbrough F.C. vs Millwall F.C.",
+            "match_id": 141428,
+            "startTime": "05:00:00 PM 03-04-2026"
         },
         {
             "event_category": "Football",
@@ -186,18 +158,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Adelaide United vs Auckland (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140925_5802_ADL_AFC_fc-web.jpg",
-            "team_1": "Adelaide United",
-            "team_2": "Auckland",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Adelaide United vs Auckland",
-            "match_id": 140925,
-            "startTime": "02:05:00 PM 03-04-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Rayo Vallecano vs Elche CF (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131121_5427_RVL_ELC_FC-Web.png",
             "team_1": "Rayo Vallecano",
@@ -219,6 +179,18 @@
             "match_name": "Coventry City F.C. vs Derby County Football Club",
             "match_id": 141431,
             "startTime": "12:30:00 AM 04-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Adelaide United vs Auckland (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140925_5802_ADL_AFC_fc-web.jpg",
+            "team_1": "Adelaide United",
+            "team_2": "Auckland",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Adelaide United vs Auckland",
+            "match_id": 140925,
+            "startTime": "02:05:00 PM 03-04-2026"
         },
         {
             "event_category": "Tennis",
@@ -471,6 +443,30 @@
             "match_name": "Cádiz vs Córdoba",
             "match_id": 141683,
             "startTime": "05:30:00 PM 04-04-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Grand Prix Hassan II - Day 6 vs Marrakech, Morocco (ATP 250 - Grand Prix Hassan ll 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Grand-Prix-Hassan-II-Clay,-ATP-250-old-.png",
+            "team_1": "Grand Prix Hassan II - Day 6",
+            "team_2": "Marrakech, Morocco",
+            "status": "UPCOMING",
+            "event_name": "ATP 250 - Grand Prix Hassan ll 2026",
+            "match_name": "Grand Prix Hassan II - Day 6",
+            "match_id": 141283,
+            "startTime": "04:30:00 PM 04-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Real Betis vs RCD Espanyol (LALIGA 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/131125_5427_RB_ESL_FC-Web.png",
+            "team_1": "Real Betis",
+            "team_2": "RCD Espanyol",
+            "status": "UPCOMING",
+            "event_name": "LALIGA 2025-26",
+            "match_name": "Real Betis vs RCD Espanyol",
+            "match_id": 131125,
+            "startTime": "10:00:00 PM 04-04-2026"
         }
     ]
 }
