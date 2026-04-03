@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "08:25:12 PM 03-04-2026",
+    "last update time": "09:24:21 PM 03-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -34,20 +34,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Punjab FC vs Mohammedan SC (ISL 2025-26  - Regional)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141801_5973_PFC_MSC_fc-web.jpg",
-            "team_1": "Punjab FC",
-            "team_2": "Mohammedan SC",
-            "status": "LIVE",
-            "event_name": "ISL 2025-26  - Regional",
-            "match_name": "Punjab FC vs Mohammedan SC",
-            "match_id": 141801,
-            "startTime": "07:30:00 PM 03-04-2026",
-            "dai_url": null,
-            "adfree_url": null
-        },
-        {
-            "event_category": "Football",
             "title": "Oxford United vs Hull City (EFL Championship 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/141429_5489_OU_HUL_fc-web.jpg",
             "team_1": "Oxford United",
@@ -59,6 +45,20 @@
             "startTime": "07:30:00 PM 03-04-2026",
             "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141429_english_hls_06913c2dd066902_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141429_english_hls_06913c2dd066902_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Punjab FC vs Mohammedan SC (ISL 2025-26  - Regional)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141801_5973_PFC_MSC_fc-web.jpg",
+            "team_1": "Punjab FC",
+            "team_2": "Mohammedan SC",
+            "status": "LIVE",
+            "event_name": "ISL 2025-26  - Regional",
+            "match_name": "Punjab FC vs Mohammedan SC",
+            "match_id": 141801,
+            "startTime": "07:30:00 PM 03-04-2026",
+            "dai_url": null,
+            "adfree_url": null
         },
         {
             "event_category": "Tennis",
@@ -230,18 +230,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Central Coast Mariners vs Perth Glory (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140926_5802_CCM_PG_fc-web.jpg",
-            "team_1": "Central Coast Mariners",
-            "team_2": "Perth Glory",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Central Coast Mariners vs Perth Glory",
-            "match_id": 140926,
-            "startTime": "11:30:00 AM 04-04-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Real Sociedad vs Levante (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131122_5427_RS_LE_FC-Web.png",
             "team_1": "Real Sociedad",
@@ -251,6 +239,18 @@
             "match_name": "Real Sociedad vs Levante",
             "match_id": 131122,
             "startTime": "05:30:00 PM 04-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Central Coast Mariners vs Perth Glory (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140926_5802_CCM_PG_fc-web.jpg",
+            "team_1": "Central Coast Mariners",
+            "team_2": "Perth Glory",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Central Coast Mariners vs Perth Glory",
+            "match_id": 140926,
+            "startTime": "11:30:00 AM 04-04-2026"
         },
         {
             "event_category": "Football",
@@ -385,18 +385,6 @@
             "startTime": "05:30:00 PM 04-04-2026"
         },
         {
-            "event_category": "Tennis",
-            "title": "Tiriac Open - Day 6 vs Bucharest, Romania (ATP 250 - Tiriac Open presented by UniCredit Bank )",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(13).png",
-            "team_1": "Tiriac Open - Day 6",
-            "team_2": "Bucharest, Romania",
-            "status": "UPCOMING",
-            "event_name": "ATP 250 - Tiriac Open presented by UniCredit Bank ",
-            "match_name": "Tiriac Open - Day 6",
-            "match_id": 141294,
-            "startTime": "02:30:00 PM 04-04-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Atletico de Madrid vs FC Barcelona (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131124_5427_ATL_BAR_FC-Web.png",
@@ -410,15 +398,15 @@
         },
         {
             "event_category": "Tennis",
-            "title": "Grand Prix Hassan II - Day 6 vs Marrakech, Morocco (ATP 250 - Grand Prix Hassan ll 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Grand-Prix-Hassan-II-Clay,-ATP-250-old-.png",
-            "team_1": "Grand Prix Hassan II - Day 6",
-            "team_2": "Marrakech, Morocco",
+            "title": "Tiriac Open - Day 6 vs Bucharest, Romania (ATP 250 - Tiriac Open presented by UniCredit Bank )",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(13).png",
+            "team_1": "Tiriac Open - Day 6",
+            "team_2": "Bucharest, Romania",
             "status": "UPCOMING",
-            "event_name": "ATP 250 - Grand Prix Hassan ll 2026",
-            "match_name": "Grand Prix Hassan II - Day 6",
-            "match_id": 141283,
-            "startTime": "04:30:00 PM 04-04-2026"
+            "event_name": "ATP 250 - Tiriac Open presented by UniCredit Bank ",
+            "match_name": "Tiriac Open - Day 6",
+            "match_id": 141294,
+            "startTime": "02:30:00 PM 04-04-2026"
         },
         {
             "event_category": "Cricket",
@@ -431,6 +419,18 @@
             "match_name": "Brisbane Napoleans vs Iconic Super Knights",
             "match_id": 141741,
             "startTime": "11:30:00 PM 04-04-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Grand Prix Hassan II - Day 6 vs Marrakech, Morocco (ATP 250 - Grand Prix Hassan ll 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Grand-Prix-Hassan-II-Clay,-ATP-250-old-.png",
+            "team_1": "Grand Prix Hassan II - Day 6",
+            "team_2": "Marrakech, Morocco",
+            "status": "UPCOMING",
+            "event_name": "ATP 250 - Grand Prix Hassan ll 2026",
+            "match_name": "Grand Prix Hassan II - Day 6",
+            "match_id": 141283,
+            "startTime": "04:30:00 PM 04-04-2026"
         },
         {
             "event_category": "Football",
