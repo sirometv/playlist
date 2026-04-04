@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 12:47:31PM - 04-04-2026
-# Total Channel Found: 366 Channel
+# Update Time: 01:12:31PM - 04-04-2026
+# Total Channel Found: 597 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -944,7 +944,7 @@ http://103.161.153.165:8000/play/a05q/index.m3u8
 http://103.161.153.165:8000/play/sonyatth/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 2", SONY HD
-http://103.161.153.165:8000/play/a01i/index.m3u8
+http://8.243.126.131:8000/play/a0gi/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 2", SONY MAX HD
 http://103.161.153.165:8000/play/a01k/index.m3u8
@@ -1037,7 +1037,7 @@ http://103.161.153.165:8000/play/tspohd/index.m3u8
 http://103.161.153.165:8000/play/a04l/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 2", TNT SPORTS
-http://103.161.153.165:8000/play/willowcric2/index.m3u8
+http://8.243.126.131:8000/play/a0k4/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 2", TNT SPORTS 2 HD
 http://103.161.153.165:8000/play/a00o/index.m3u8
@@ -1108,5 +1108,703 @@ http://103.161.153.165:8000/play/a04x/index.m3u8
 #EXTINF:-1 group-title="BDIX 2", kuwait TV
 http://103.161.153.165:8000/play/a04x/index.m3u8
 
+#EXTINF:-1 group-title="USA", 01-LATINA HD
+http://8.243.126.131:8000/play/a001/index.m3u8
+
+#EXTINF:-1 group-title="USA", 02-AMERICA HD
+http://8.243.126.131:8000/play/a01q/index.m3u8
+
+#EXTINF:-1 group-title="USA", 03-PANAMERICANA
+http://8.243.126.131:8000/play/a01r/index.m3u8
+
+#EXTINF:-1 group-title="USA", 04-WILLAX HD
+http://8.243.126.131:8000/play/a01s/index.m3u8
+
+#EXTINF:-1 group-title="USA", 05-NEXT TV
+http://8.243.126.131:8000/play/a01t/index.m3u8
+
+#EXTINF:-1 group-title="USA", 06-RPP SD
+http://8.243.126.131:8000/play/a01u/index.m3u8
+
+#EXTINF:-1 group-title="USA", 07-LA TELE HD
+http://8.243.126.131:8000/play/a01v/index.m3u8
+
+#EXTINF:-1 group-title="USA", 08-EXITOSA HD
+http://8.243.126.131:8000/play/a01w/index.m3u8
+
+#EXTINF:-1 group-title="USA", 09-RADIO NACIONAL HD
+http://8.243.126.131:8000/play/a04i/index.m3u8
+
+#EXTINF:-1 group-title="USA", 10-TV PERU 7.3 HD
+http://8.243.126.131:8000/play/a04j/index.m3u8
+
+#EXTINF:-1 group-title="USA", 11-TV PERU HD
+http://8.243.126.131:8000/play/a04k/index.m3u8
+
+#EXTINF:-1 group-title="USA", 12-USMPTV HD
+http://8.243.126.131:8000/play/a04l/index.m3u8
+
+#EXTINF:-1 group-title="USA", 13-ATV SUR HD
+http://8.243.126.131:8000/play/a04m/index.m3u8
+
+#EXTINF:-1 group-title="USA", 14-ATV + NOTICIAS
+http://8.243.126.131:8000/play/a04n/index.m3u8
+
+#EXTINF:-1 group-title="USA", 15-ENLACE
+http://8.243.126.131:8000/play/a04o/index.m3u8
+
+#EXTINF:-1 group-title="USA", 16-IPE HD
+http://8.243.126.131:8000/play/a04p/index.m3u8
+
+#EXTINF:-1 group-title="USA", 17-KARIBENA HD
+http://8.243.126.131:8000/play/a04q/index.m3u8
+
+#EXTINF:-1 group-title="USA", 18-ATV HD
+http://8.243.126.131:8000/play/a01z/index.m3u8
+
+#EXTINF:-1 group-title="USA", 20-DE PELICULA HD
+http://8.243.126.131:8000/play/a04r/index.m3u8
+
+#EXTINF:-1 group-title="USA", 21-UNIVERSAL PRIMUN HD
+http://8.243.126.131:8000/play/a04s/index.m3u8
+
+#EXTINF:-1 group-title="USA", 22-DISCOVERY SCIENTIC
+http://8.243.126.131:8000/play/a04u/index.m3u8
+
+#EXTINF:-1 group-title="USA", 23-TLC HD
+http://8.243.126.131:8000/play/a04t/index.m3u8
+
+#EXTINF:-1 group-title="USA", 24-ESPN 2 HD
+http://8.243.126.131:8000/play/a04v/index.m3u8
+
+#EXTINF:-1 group-title="USA", 25-LOVE NATURE
+http://8.243.126.131:8000/play/a04w/index.m3u8
+
+#EXTINF:-1 group-title="USA", 26-BETHEL HD
+http://8.243.126.131:8000/play/a04x/index.m3u8
+
+#EXTINF:-1 group-title="USA", 27-TELEMUNDO HD
+http://8.243.126.131:8000/play/a04y/index.m3u8
+
+#EXTINF:-1 group-title="USA", 28-STINGRAY CONCERT
+http://8.243.126.131:8000/play/a04z/index.m3u8
+
+#EXTINF:-1 group-title="USA", 29-TNT NOVELAS
+http://8.243.126.131:8000/play/a050/index.m3u8
+
+#EXTINF:-1 group-title="USA", 30-MEGA
+http://8.243.126.131:8000/play/a051/index.m3u8
+
+#EXTINF:-1 group-title="USA", 31-MOVISTAR DEPORTE
+http://8.243.126.131:8000/play/a052/index.m3u8
+
+#EXTINF:-1 group-title="USA", 32-ESPN PREMIUN HD
+http://8.243.126.131:8000/play/a053/index.m3u8
+
+#EXTINF:-1 group-title="USA", 33-TOONCAST
+http://8.243.126.131:8000/play/a054/index.m3u8
+
+#EXTINF:-1 group-title="USA", 34-DISCOVERY TURBO
+http://8.243.126.131:8000/play/a055/index.m3u8
+
+#EXTINF:-1 group-title="USA", 35-HGTV HD
+http://8.243.126.131:8000/play/a056/index.m3u8
+
+#EXTINF:-1 group-title="USA", 36-CLOVER
+http://8.243.126.131:8000/play/a057/index.m3u8
+
+#EXTINF:-1 group-title="USA", 37-CANAL N
+http://8.243.126.131:8000/play/a058/index.m3u8
+
+#EXTINF:-1 group-title="USA", 39-DIRECTV DEPORTE
+http://8.243.126.131:8000/play/a05a/index.m3u8
+
+#EXTINF:-1 group-title="USA", 40-START CHANNEL
+http://8.243.126.131:8000/play/a05b/index.m3u8
+
+#EXTINF:-1 group-title="USA", 41-EUROCHANNEL
+http://8.243.126.131:8000/play/a05c/index.m3u8
+
+#EXTINF:-1 group-title="USA", 42-HISTORY HD
+http://8.243.126.131:8000/play/a05d/index.m3u8
+
+#EXTINF:-1 group-title="USA", 43-ESPN6 HD
+http://8.243.126.131:8000/play/a05e/index.m3u8
+
+#EXTINF:-1 group-title="USA", 44-NICK JUNIOR
+http://8.243.126.131:8000/play/a05f/index.m3u8
+
+#EXTINF:-1 group-title="USA", 45-DISNEY JUNIOR
+http://8.243.126.131:8000/play/a05g/index.m3u8
+
+#EXTINF:-1 group-title="USA", 46-TNT HD
+http://8.243.126.131:8000/play/a05h/index.m3u8
+
+#EXTINF:-1 group-title="USA", 47-CN
+http://8.243.126.131:8000/play/a05i/index.m3u8
+
+#EXTINF:-1 group-title="USA", 48-ESPN2 HD
+http://8.243.126.131:8000/play/a05j/index.m3u8
+
+#EXTINF:-1 group-title="USA", 49-DISCOVERY HD
+http://8.243.126.131:8000/play/a05k/index.m3u8
+
+#EXTINF:-1 group-title="USA", 50-CANAL DE ESTRELLAS
+http://8.243.126.131:8000/play/a05l/index.m3u8
+
+#EXTINF:-1 group-title="USA", 51-NATGEO HD
+http://8.243.126.131:8000/play/a05m/index.m3u8
+
+#EXTINF:-1 group-title="USA", 52-DISCOVERY KIDS
+http://8.243.126.131:8000/play/a05n/index.m3u8
+
+#EXTINF:-1 group-title="USA", 53-HBO2 HD
+http://8.243.126.131:8000/play/a05o/index.m3u8
+
+#EXTINF:-1 group-title="USA", 54-CARTOONITO
+http://8.243.126.131:8000/play/a05p/index.m3u8
+
+#EXTINF:-1 group-title="USA", 55-ESPN1
+http://8.243.126.131:8000/play/a05q/index.m3u8
+
+#EXTINF:-1 group-title="USA", 56-AXN
+http://8.243.126.131:8000/play/a05r/index.m3u8
+
+#EXTINF:-1 group-title="USA", 57-GOLDEN HD
+http://8.243.126.131:8000/play/a05s/index.m3u8
+
+#EXTINF:-1 group-title="USA", 58-HBO FAMILY HD
+http://8.243.126.131:8000/play/a05t/index.m3u8
+
+#EXTINF:-1 group-title="USA", 59-HISTORY 2
+http://8.243.126.131:8000/play/a05u/index.m3u8
+
+#EXTINF:-1 group-title="USA", 60-Ei HD
+http://8.243.126.131:8000/play/a05v/index.m3u8
+
+#EXTINF:-1 group-title="USA", 61-FOOD NETWORD
+http://8.243.126.131:8000/play/a05w/index.m3u8
+
+#EXTINF:-1 group-title="USA", 62-DISCOVERY WORLD
+http://8.243.126.131:8000/play/a05x/index.m3u8
+
+#EXTINF:-1 group-title="USA", 63-CNN
+http://8.243.126.131:8000/play/a05y/index.m3u8
+
+#EXTINF:-1 group-title="USA", 64-USA HD
+http://8.243.126.131:8000/play/a05z/index.m3u8
+
+#EXTINF:-1 group-title="USA", 65-COMEDY CENTRAL HD
+http://8.243.126.131:8000/play/a060/index.m3u8
+
+#EXTINF:-1 group-title="USA", 66-CINECANAL HD
+http://8.243.126.131:8000/play/a061/index.m3u8
+
+#EXTINF:-1 group-title="USA", 67-ESTUDIO UNIVERSAL HD
+http://8.243.126.131:8000/play/a062/index.m3u8
+
+#EXTINF:-1 group-title="USA", 68-LIGA 1 MAX HD
+http://8.243.126.131:8000/play/a063/index.m3u8
+
+#EXTINF:-1 group-title="USA", 69-FX HD
+http://8.243.126.131:8000/play/a064/index.m3u8
+
+#EXTINF:-1 group-title="USA", 70-ESPN 7 HD
+http://8.243.126.131:8000/play/a065/index.m3u8
+
+#EXTINF:-1 group-title="USA", 71-ID
+http://8.243.126.131:8000/play/a066/index.m3u8
+
+#EXTINF:-1 group-title="USA", 72-UNIVERSAL HD
+http://8.243.126.131:8000/play/a067/index.m3u8
+
+#EXTINF:-1 group-title="USA", 73-TCM
+http://8.243.126.131:8000/play/a068/index.m3u8
+
+#EXTINF:-1 group-title="USA", 74-HYH
+http://8.243.126.131:8000/play/a069/index.m3u8
+
+#EXTINF:-1 group-title="USA", 75-SONY HD
+http://8.243.126.131:8000/play/a06a/index.m3u8
+
+#EXTINF:-1 group-title="USA", 76-A&E HD
+http://8.243.126.131:8000/play/a06b/index.m3u8
+
+#EXTINF:-1 group-title="USA", 77-TELENOVELAS
+http://8.243.126.131:8000/play/a06c/index.m3u8
+
+#EXTINF:-1 group-title="USA", 78-SPACE HD
+http://8.243.126.131:8000/play/a06d/index.m3u8
+
+#EXTINF:-1 group-title="USA", 79-BABYFIRST HD
+http://8.243.126.131:8000/play/a06e/index.m3u8
+
+#EXTINF:-1 group-title="USA", 80-HBO HD
+http://8.243.126.131:8000/play/a06j/index.m3u8
+
+#EXTINF:-1 group-title="USA", 81-ESPN 5 HD
+http://8.243.126.131:8000/play/a0jz/index.m3u8
+
+#EXTINF:-1 group-title="USA", A&E
+http://8.243.126.131:8000/play/a0g8/index.m3u8
+
+#EXTINF:-1 group-title="USA", A&E HD
+http://8.243.126.131:8000/play/a0e1/index.m3u8
+
+#EXTINF:-1 group-title="USA", AMC HD
+http://8.243.126.131:8000/play/a0e2/index.m3u8
+
+#EXTINF:-1 group-title="USA", AMC Series
+http://8.243.126.131:8000/play/a0ld/index.m3u8
+
+#EXTINF:-1 group-title="USA", AXN HD
+http://8.243.126.131:8000/play/a0gy/index.m3u8
+
+#EXTINF:-1 group-title="USA", AZ click HD
+http://8.243.126.131:8000/play/a0e8/index.m3u8
+
+#EXTINF:-1 group-title="USA", Adult Swim
+http://8.243.126.131:8000/play/a02g/index.m3u8
+
+#EXTINF:-1 group-title="USA", America TV HD
+http://8.243.126.131:8000/play/a0l4/index.m3u8
+
+#EXTINF:-1 group-title="USA", Animal Planet
+http://8.243.126.131:8000/play/a0ga/index.m3u8
+
+#EXTINF:-1 group-title="USA", Animal Planet HD
+http://8.243.126.131:8000/play/a0dy/index.m3u8
+
+#EXTINF:-1 group-title="USA", Antena 3
+http://8.243.126.131:8000/play/a027/index.m3u8
+
+#EXTINF:-1 group-title="USA", Antena 3
+http://8.243.126.131:8000/play/a027/index.m3u8
+
+#EXTINF:-1 group-title="USA", Atres Series
+http://8.243.126.131:8000/play/a0fh/index.m3u8
+
+#EXTINF:-1 group-title="USA", Azmundo
+http://8.243.126.131:8000/play/a0g5/index.m3u8
+
+#EXTINF:-1 group-title="USA", BBC NEWS
+http://8.243.126.131:8000/play/a04c/index.m3u8
+
+#EXTINF:-1 group-title="USA", Baby First
+http://8.243.126.131:8000/play/a0jo/index.m3u8
+
+#EXTINF:-1 group-title="USA", CARTOON NETWORK HD
+http://8.243.126.131:8000/play/a0f2/index.m3u8
+
+#EXTINF:-1 group-title="USA", CINECANAL HD
+http://8.243.126.131:8000/play/a0gj/index.m3u8
+
+#EXTINF:-1 group-title="USA", CNN Internacional
+http://8.243.126.131:8000/play/a0fj/index.m3u8
+
+#EXTINF:-1 group-title="USA", CNN International
+http://8.243.126.131:8000/play/a0l0/index.m3u8
+
+#EXTINF:-1 group-title="USA", Canal 10 HD
+http://8.243.126.131:8000/play/a0fm/index.m3u8
+
+#EXTINF:-1 group-title="USA", Canal 14 - NIC
+http://8.243.126.131:8000/play/a0jk/index.m3u8
+
+#EXTINF:-1 group-title="USA", Canal 4 HD ESA
+http://8.243.126.131:8000/play/a0fk/index.m3u8
+
+#EXTINF:-1 group-title="USA", Canal 6 - NI
+http://8.243.126.131:8000/play/a0jm/index.m3u8
+
+#EXTINF:-1 group-title="USA", Canal 7 HD CR
+http://8.243.126.131:8000/play/a0dv/index.m3u8
+
+#EXTINF:-1 group-title="USA", Canal 8 - NIC
+http://8.243.126.131:8000/play/a0jj/index.m3u8
+
+#EXTINF:-1 group-title="USA", Canal Claro HD
+http://8.243.126.131:8000/play/a0f1/index.m3u8
+
+#EXTINF:-1 group-title="USA", Caracol
+http://8.243.126.131:8000/play/a0le/index.m3u8
+
+#EXTINF:-1 group-title="USA", Cine Latino
+http://8.243.126.131:8000/play/a0gu/index.m3u8
+
+#EXTINF:-1 group-title="USA", CineMax
+http://8.243.126.131:8000/play/a0gv/index.m3u8
+
+#EXTINF:-1 group-title="USA", Cinemax
+http://8.243.126.131:8000/play/a0ky/index.m3u8
+
+#EXTINF:-1 group-title="USA", Claro Cinema
+http://8.243.126.131:8000/play/a0gf/index.m3u8
+
+#EXTINF:-1 group-title="USA", Claro Sports 1 HD
+http://8.243.126.131:8000/play/a0f0/index.m3u8
+
+#EXTINF:-1 group-title="USA", Claro Sports 2 SD
+http://8.243.126.131:8000/play/a0js/index.m3u8
+
+#EXTINF:-1 group-title="USA", Clover
+http://8.243.126.131:8000/play/a0lb/index.m3u8
+
+#EXTINF:-1 group-title="USA", Concert Channel
+http://8.243.126.131:8000/play/a0lf/index.m3u8
+
+#EXTINF:-1 group-title="USA", DHE
+http://8.243.126.131:8000/play/a0ey/index.m3u8
+
+#EXTINF:-1 group-title="USA", DHE HD
+http://8.243.126.131:8000/play/a0e7/index.m3u8
+
+#EXTINF:-1 group-title="USA", DISC THEATHER HD
+http://8.243.126.131:8000/play/a0ik/index.m3u8
+
+#EXTINF:-1 group-title="USA", DW EspaÃ±ol
+http://8.243.126.131:8000/play/a028/index.m3u8
+
+#EXTINF:-1 group-title="USA", Digital 15 - RD
+http://8.243.126.131:8000/play/a0jl/index.m3u8
+
+#EXTINF:-1 group-title="USA", Discovery Channel
+http://8.243.126.131:8000/play/a0g9/index.m3u8
+
+#EXTINF:-1 group-title="USA", Discovery Channel HD
+http://8.243.126.131:8000/play/a0d9/index.m3u8
+
+#EXTINF:-1 group-title="USA", Discovery Home & Health
+http://8.243.126.131:8000/play/a0gp/index.m3u8
+
+#EXTINF:-1 group-title="USA", Discovery ID HD
+http://8.243.126.131:8000/play/a0dd/index.m3u8
+
+#EXTINF:-1 group-title="USA", Discovery Kids
+http://8.243.126.131:8000/play/a0gl/index.m3u8
+
+#EXTINF:-1 group-title="USA", Discovery Kids HD
+http://8.243.126.131:8000/play/a0fl/index.m3u8
+
+#EXTINF:-1 group-title="USA", Discovery Science
+http://8.243.126.131:8000/play/a0ff/index.m3u8
+
+#EXTINF:-1 group-title="USA", Discovery Turbo
+http://8.243.126.131:8000/play/a0go/index.m3u8
+
+#EXTINF:-1 group-title="USA", Discovery World HD
+http://8.243.126.131:8000/play/a0da/index.m3u8
+
+#EXTINF:-1 group-title="USA", Disney
+http://8.243.126.131:8000/play/a0gn/index.m3u8
+
+#EXTINF:-1 group-title="USA", E!
+http://8.243.126.131:8000/play/a0g7/index.m3u8
+
+#EXTINF:-1 group-title="USA", E! Entertairment HD
+http://8.243.126.131:8000/play/a0dz/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN
+http://8.243.126.131:8000/play/a0gd/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 2
+http://8.243.126.131:8000/play/a0ge/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 2 HD
+http://8.243.126.131:8000/play/a0d3/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 2 HD
+http://8.243.126.131:8000/play/a0d3/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 3
+http://8.243.126.131:8000/play/a0jt/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 3 HD
+http://8.243.126.131:8000/play/a0d4/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 3 HD
+http://8.243.126.131:8000/play/a0d4/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 4
+http://8.243.126.131:8000/play/a0ju/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 4HD
+http://8.243.126.131:8000/play/a0kl/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 5
+http://8.243.126.131:8000/play/a0gq/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 5 HD
+http://8.243.126.131:8000/play/a0h0/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN 6HD
+http://8.243.126.131:8000/play/a0kn/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN HD
+http://8.243.126.131:8000/play/a0d2/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN HD
+http://8.243.126.131:8000/play/a0d2/index.m3u8
+
+#EXTINF:-1 group-title="USA", ESPN Premium HD
+http://8.243.126.131:8000/play/a0ku/index.m3u8
+
+#EXTINF:-1 group-title="USA", EWTN
+http://8.243.126.131:8000/play/a024/index.m3u8
+
+#EXTINF:-1 group-title="USA", El Gourmet
+http://8.243.126.131:8000/play/a0jq/index.m3u8
+
+#EXTINF:-1 group-title="USA", Enlace
+http://8.243.126.131:8000/play/a0lc/index.m3u8
+
+#EXTINF:-1 group-title="USA", Eurochannel
+http://8.243.126.131:8000/play/a023/index.m3u8
+
+#EXTINF:-1 group-title="USA", Europa HD
+http://8.243.126.131:8000/play/a0e5/index.m3u8
+
+#EXTINF:-1 group-title="USA", FX HD
+http://8.243.126.131:8000/play/a0e4/index.m3u8
+
+#EXTINF:-1 group-title="USA", Film & Arts
+http://8.243.126.131:8000/play/a0ex/index.m3u8
+
+#EXTINF:-1 group-title="USA", Film & arts HD
+http://8.243.126.131:8000/play/a0e0/index.m3u8
+
+#EXTINF:-1 group-title="USA", Food Network
+http://8.243.126.131:8000/play/a0me/index.m3u8
+
+#EXTINF:-1 group-title="USA", France 24
+http://8.243.126.131:8000/play/a04a/index.m3u8
+
+#EXTINF:-1 group-title="USA", Golden
+http://8.243.126.131:8000/play/a0k9/index.m3u8
+
+#EXTINF:-1 group-title="USA", Golden Premiere 2 HD
+http://8.243.126.131:8000/play/a0fo/index.m3u8
+
+#EXTINF:-1 group-title="USA", Golden Premiere HD
+http://8.243.126.131:8000/play/a0fn/index.m3u8
+
+#EXTINF:-1 group-title="USA", Golf Channel
+http://8.243.126.131:8000/play/a0fi/index.m3u8
+
+#EXTINF:-1 group-title="USA", Golf Channel HD
+http://8.243.126.131:8000/play/a0ea/index.m3u8
+
+#EXTINF:-1 group-title="USA", HBO Family HD
+http://8.243.126.131:8000/play/a0f6/index.m3u8
+
+#EXTINF:-1 group-title="USA", HBO HD
+http://8.243.126.131:8000/play/a0f3/index.m3u8
+
+#EXTINF:-1 group-title="USA", HBO MUNDI
+http://8.243.126.131:8000/play/a0l2/index.m3u8
+
+#EXTINF:-1 group-title="USA", HBO Plus HD
+http://8.243.126.131:8000/play/a0f5/index.m3u8
+
+#EXTINF:-1 group-title="USA", HBO XTREME
+http://8.243.126.131:8000/play/a0f7/index.m3u8
+
+#EXTINF:-1 group-title="USA", HBO2 HD
+http://8.243.126.131:8000/play/a0f4/index.m3u8
+
+#EXTINF:-1 group-title="USA", HOLA! TV HD
+http://8.243.126.131:8000/play/a0im/index.m3u8
+
+#EXTINF:-1 group-title="USA", Hispan TV
+http://8.243.126.131:8000/play/a0jd/index.m3u8
+
+#EXTINF:-1 group-title="USA", History Channel
+http://8.243.126.131:8000/play/a0gb/index.m3u8
+
+#EXTINF:-1 group-title="USA", Hola!TV
+http://8.243.126.131:8000/play/a0fg/index.m3u8
+
+#EXTINF:-1 group-title="USA", Home & Health HD
+http://8.243.126.131:8000/play/a0il/index.m3u8
+
+#EXTINF:-1 group-title="USA", Home Garden Latino
+http://8.243.126.131:8000/play/a0fe/index.m3u8
+
+#EXTINF:-1 group-title="USA", KANALD DRAMA
+http://8.243.126.131:8000/play/a0m3/index.m3u8
+
+#EXTINF:-1 group-title="USA", Kanal D Drama
+http://8.243.126.131:8000/play/a026/index.m3u8
+
+#EXTINF:-1 group-title="USA", Latin America Sport
+http://8.243.126.131:8000/play/a0jv/index.m3u8
+
+#EXTINF:-1 group-title="USA", MEGA
+http://8.243.126.131:8000/play/a0lk/index.m3u8
+
+#EXTINF:-1 group-title="USA", Mas Chic
+http://8.243.126.131:8000/play/a0fb/index.m3u8
+
+#EXTINF:-1 group-title="USA", Movistar TV
+http://8.243.126.131:8000/play/a0lm/index.m3u8
+
+#EXTINF:-1 group-title="USA", Multicinema
+http://8.243.126.131:8000/play/a0jx/index.m3u8
+
+#EXTINF:-1 group-title="USA", NTV
+http://8.243.126.131:8000/play/a02h/index.m3u8
+
+#EXTINF:-1 group-title="USA", Nat Geo HD
+http://8.243.126.131:8000/play/a0d6/index.m3u8
+
+#EXTINF:-1 group-title="USA", Nick Jr
+http://8.243.126.131:8000/play/a0ll/index.m3u8
+
+#EXTINF:-1 group-title="USA", Pasiones HD
+http://8.243.126.131:8000/play/a0db/index.m3u8
+
+#EXTINF:-1 group-title="USA", Playboy
+http://8.243.126.131:8000/play/a0f8/index.m3u8
+
+#EXTINF:-1 group-title="USA", Plim Plim TV
+http://8.243.126.131:8000/play/a02e/index.m3u8
+
+#EXTINF:-1 group-title="USA", RCN Novelas
+http://8.243.126.131:8000/play/a0jp/index.m3u8
+
+#EXTINF:-1 group-title="USA", SONY
+http://8.243.126.131:8000/play/a0g6/index.m3u8
+
+#EXTINF:-1 group-title="USA", SONY HD
+http://8.243.126.131:8000/play/a0gi/index.m3u8
+
+#EXTINF:-1 group-title="USA", SPACE HD
+http://8.243.126.131:8000/play/a0gz/index.m3u8
+
+#EXTINF:-1 group-title="USA", STAR CHANNEL HD
+http://8.243.126.131:8000/play/a0gg/index.m3u8
+
+#EXTINF:-1 group-title="USA", SUYAPA TV
+http://8.243.126.131:8000/play/a0ji/index.m3u8
+
+#EXTINF:-1 group-title="USA", Sextreme
+http://8.243.126.131:8000/play/a02b/index.m3u8
+
+#EXTINF:-1 group-title="USA", Sin Limites
+http://8.243.126.131:8000/play/a0jw/index.m3u8
+
+#EXTINF:-1 group-title="USA", Sony Movies HD
+http://8.243.126.131:8000/play/a0e6/index.m3u8
+
+#EXTINF:-1 group-title="USA", Star TVE HD
+http://8.243.126.131:8000/play/a0e9/index.m3u8
+
+#EXTINF:-1 group-title="USA", Stingray Concerts
+http://8.243.126.131:8000/play/a0lo/index.m3u8
+
+#EXTINF:-1 group-title="USA", Studio Universal
+http://8.243.126.131:8000/play/a0gw/index.m3u8
+
+#EXTINF:-1 group-title="USA", Studio Universal HD
+http://8.243.126.131:8000/play/a0dx/index.m3u8
+
+#EXTINF:-1 group-title="USA", Sun Channel
+http://8.243.126.131:8000/play/a0jr/index.m3u8
+
+#EXTINF:-1 group-title="USA", TCM
+http://8.243.126.131:8000/play/a0ka/index.m3u8
+
+#EXTINF:-1 group-title="USA", TLC
+http://8.243.126.131:8000/play/a0gc/index.m3u8
+
+#EXTINF:-1 group-title="USA", TLC
+http://8.243.126.131:8000/play/a0gc/index.m3u8
+
+#EXTINF:-1 group-title="USA", TNT HD
+http://8.243.126.131:8000/play/a0ij/index.m3u8
+
+#EXTINF:-1 group-title="USA", TNT SPORTS
+http://8.243.126.131:8000/play/a0k4/index.m3u8
+
+#EXTINF:-1 group-title="USA", TNT Series HD
+http://8.243.126.131:8000/play/a0d8/index.m3u8
+
+#EXTINF:-1 group-title="USA", TV Familia
+http://8.243.126.131:8000/play/a0j9/index.m3u8
+
+#EXTINF:-1 group-title="USA", TVChile
+http://8.243.126.131:8000/play/a0fd/index.m3u8
+
+#EXTINF:-1 group-title="USA", TVE
+http://8.243.126.131:8000/play/a0gx/index.m3u8
+
+#EXTINF:-1 group-title="USA", TVN
+http://8.243.126.131:8000/play/a0lj/index.m3u8
+
+#EXTINF:-1 group-title="USA", Telefe
+http://8.243.126.131:8000/play/a0mc/index.m3u8
+
+#EXTINF:-1 group-title="USA", Telemundo HD
+http://8.243.126.131:8000/play/a0e3/index.m3u8
+
+#EXTINF:-1 group-title="USA", Telesur
+http://8.243.126.131:8000/play/a0kz/index.m3u8
+
+#EXTINF:-1 group-title="USA", Televida RD
+http://8.243.126.131:8000/play/a0ew/index.m3u8
+
+#EXTINF:-1 group-title="USA", Tigo Sports HD
+http://8.243.126.131:8000/play/a0ih/index.m3u8
+
+#EXTINF:-1 group-title="USA", Tooncast
+http://8.243.126.131:8000/play/a0g4/index.m3u8
+
+#EXTINF:-1 group-title="USA", UNIVERSAL CINEMA ESTE HD
+http://8.243.126.131:8000/play/a0de/index.m3u8
+
+#EXTINF:-1 group-title="USA", UNIVERSAL COMEDY HD
+http://8.243.126.131:8000/play/a0iu/index.m3u8
+
+#EXTINF:-1 group-title="USA", UNIVERSAL CRIME HD
+http://8.243.126.131:8000/play/a0it/index.m3u8
+
+#EXTINF:-1 group-title="USA", UNIVERSAL PREMIERE HD
+http://8.243.126.131:8000/play/a0iq/index.m3u8
+
+#EXTINF:-1 group-title="USA", UNIVERSAL PREMIERE O HD
+http://8.243.126.131:8000/play/a0ir/index.m3u8
+
+#EXTINF:-1 group-title="USA", UNIVERSAL REALITY HD
+http://8.243.126.131:8000/play/a0is/index.m3u8
+
+#EXTINF:-1 group-title="USA", Universal
+http://8.243.126.131:8000/play/a0gt/index.m3u8
+
+#EXTINF:-1 group-title="USA", Univision HD
+http://8.243.126.131:8000/play/a0dc/index.m3u8
+
+#EXTINF:-1 group-title="USA", VENUS
+http://8.243.126.131:8000/play/a0jy/index.m3u8
+
+#EXTINF:-1 group-title="USA", Venus
+http://8.243.126.131:8000/play/a04g/index.m3u8
+
+#EXTINF:-1 group-title="USA", WARNER HD
+http://8.243.126.131:8000/play/a0gh/index.m3u8
+
+#EXTINF:-1 group-title="USA", Win Sports+
+http://8.243.126.131:8000/play/a025/index.m3u8
+
+#EXTINF:-1 group-title="USA", ZooMoo
+http://8.243.126.131:8000/play/a0li/index.m3u8
+
 # 🔴🔴🔴🔴 Gh-Pages Channel End Here 🔴🔴🔴🔴
 #🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+
+
+
+
+
+#🟡🟡🟡🟡 Gh-Pages Not Found Thats Channels, Now New Channel Added from 2nd Sourch 🟡🟡🟡🟡
+#EXTINF:-1 group-title="-", DW Español
+http://8.243.126.131:8000/play/a028/index.m3u8
