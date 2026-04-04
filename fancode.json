@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "03:21:24 AM 05-04-2026",
+    "last update time": "03:57:38 AM 05-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -103,20 +103,6 @@
             "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141638_english_hls_be4963802778972_1ta-di_h264/index.m3u8"
         },
         {
-            "event_category": "Football",
-            "title": "Atletico de Madrid vs FC Barcelona (LALIGA 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/131124_5427_ATL_BAR_FC-Web.png",
-            "team_1": "Atletico de Madrid",
-            "team_2": "FC Barcelona",
-            "status": "LIVE",
-            "event_name": "LALIGA 2025-26",
-            "match_name": "Atletico de Madrid vs FC Barcelona",
-            "match_id": 131124,
-            "startTime": "12:30:00 AM 05-04-2026",
-            "dai_url": "https://dai-partner.fancode.com/primary/131124_english_hls_374401ca1c84222_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://dai-partner.fancode.com/primary/131124_english_hls_374401ca1c84222_1ta-di_h264/index.m3u8"
-        },
-        {
             "event_category": "Cricket",
             "title": "Malaysia A vs Hong Kong, China-A (Hong Kong, China-A tour of Malaysia-A 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Hong-Kong,-China-A-tour-of-Malaysia-A-2026-old-card.jpg",
@@ -214,18 +200,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Melbourne Victory vs Wellington Phoenix (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140928_5802_MLV_WEL_fc-web.jpg",
-            "team_1": "Melbourne Victory",
-            "team_2": "Wellington Phoenix",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Melbourne Victory vs Wellington Phoenix",
-            "match_id": 140928,
-            "startTime": "10:30:00 AM 05-04-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Real Oviedo vs Sevilla FC (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131128_5427_RO_SEV_FC-Web.png",
             "team_1": "Real Oviedo",
@@ -235,6 +209,18 @@
             "match_name": "Real Oviedo vs Sevilla FC",
             "match_id": 131128,
             "startTime": "10:00:00 PM 05-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Melbourne Victory vs Wellington Phoenix (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140928_5802_MLV_WEL_fc-web.jpg",
+            "team_1": "Melbourne Victory",
+            "team_2": "Wellington Phoenix",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Melbourne Victory vs Wellington Phoenix",
+            "match_id": 140928,
+            "startTime": "10:30:00 AM 05-04-2026"
         },
         {
             "event_category": "Football",
@@ -381,6 +367,18 @@
             "startTime": "03:30:00 PM 05-04-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Malaysia A vs Hong Kong, China-A (Hong Kong, China-A tour of Malaysia-A 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Hong-Kong,-China-A-tour-of-Malaysia-A-2026-old-card.jpg",
+            "team_1": "Malaysia A",
+            "team_2": "Hong Kong, China-A",
+            "status": "UPCOMING",
+            "event_name": "Hong Kong, China-A tour of Malaysia-A 2026",
+            "match_name": "Malaysia A vs Hong Kong, China-A",
+            "match_id": 141774,
+            "startTime": "07:00:00 AM 06-04-2026"
+        },
+        {
             "event_category": "Tennis",
             "title": "Grand Prix Hassan II - Day 7 vs Marrakech, Morocco (ATP 250 - Grand Prix Hassan ll 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Grand-Prix-Hassan-II-Clay,-ATP-250-old-.png",
@@ -415,18 +413,6 @@
             "match_name": "Featured Holes - Day 4",
             "match_id": 141793,
             "startTime": "08:15:00 PM 05-04-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Malaysia A vs Hong Kong, China-A (Hong Kong, China-A tour of Malaysia-A 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Hong-Kong,-China-A-tour-of-Malaysia-A-2026-old-card.jpg",
-            "team_1": "Malaysia A",
-            "team_2": "Hong Kong, China-A",
-            "status": "UPCOMING",
-            "event_name": "Hong Kong, China-A tour of Malaysia-A 2026",
-            "match_name": "Malaysia A vs Hong Kong, China-A",
-            "match_id": 141774,
-            "startTime": "07:00:00 AM 06-04-2026"
         },
         {
             "event_category": "Golf",
@@ -465,6 +451,18 @@
             "startTime": "10:30:00 PM 05-04-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Iconic Super Knights vs Sydney Kangaroos (Brisbane Champions League 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141745_6028_ISK_SYK_FC-WEB.jpg",
+            "team_1": "Iconic Super Knights",
+            "team_2": "Sydney Kangaroos",
+            "status": "UPCOMING",
+            "event_name": "Brisbane Champions League 2026",
+            "match_name": "Iconic Super Knights vs Sydney Kangaroos",
+            "match_id": 141745,
+            "startTime": "08:30:00 AM 06-04-2026"
+        },
+        {
             "event_category": "Tennis",
             "title": "A Court Feed vs Houston, United States (ATP 250 - Fayez Sarofim & Co. U.S. Men's Clay)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/ATP--250-Clay-Court-Championship_fc-web.jpg",
@@ -477,16 +475,16 @@
             "startTime": "12:00:00 AM 06-04-2026"
         },
         {
-            "event_category": "Cricket",
-            "title": "Iconic Super Knights vs Sydney Kangaroos (Brisbane Champions League 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141745_6028_ISK_SYK_FC-WEB.jpg",
-            "team_1": "Iconic Super Knights",
-            "team_2": "Sydney Kangaroos",
+            "event_category": "Golf",
+            "title": "Day 4 vs Shadow Creek Golf Club (Aramco Championship USA 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(14).png",
+            "team_1": "Day 4",
+            "team_2": "Shadow Creek Golf Club",
             "status": "UPCOMING",
-            "event_name": "Brisbane Champions League 2026",
-            "match_name": "Iconic Super Knights vs Sydney Kangaroos",
-            "match_id": 141745,
-            "startTime": "08:30:00 AM 06-04-2026"
+            "event_name": "Aramco Championship USA 2026",
+            "match_name": "Day 4",
+            "match_id": 141639,
+            "startTime": "02:30:00 AM 06-04-2026"
         }
     ]
 }
