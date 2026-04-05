@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 01:12:27PM - 04-04-2026
-# Total Channel Found: 326 Channel
+# Update Time: 11:23:40AM - 05-04-2026
+# Total Channel Found: 328 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -182,7 +182,7 @@ http://123.175.209.52:9003/hls/5/index.m3u8
 http://123.175.209.52:9003/hls/6/index.m3u8
 
 #EXTINF:-1 tvg-id="CCTV16.cn@SD" tvg-logo="https://i.imgur.com/ZzV6JQp.png" group-title="Sports", CCTV-16
-http://123.175.209.52:9003/hls/17/index.m3u8
+http://74.91.26.218:82/live/cctv16hd.m3u8
 
 #EXTINF:-1 tvg-id="CDNDeportes.do@SD" tvg-logo="https://i.imgur.com/yU5LqTL.png" group-title="Sports", CDN Deportes
 http://200.125.170.122:8000/play/a03j/index.m3u8
@@ -629,7 +629,7 @@ http://103.229.254.25:7001/play/a09q/index.m3u8
 http://103.99.249.139/sonyten3/index.m3u8
 
 #EXTINF:-1 tvg-id="SonySportsTen5.in@HD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SONY_SPORTS_TEN_5/images/LOGO_HD/image.png" group-title="Sports", Sony Sports Ten 5 HD
-http://116.90.120.151:8000/play/a0hb/index.m3u8
+http://103.157.248.140:8000/play/a05x/index.m3u8
 
 #EXTINF:-1 tvg-id="SOSKanalPlus.rs@SD" tvg-logo="https://i.imgur.com/9SD40uH.png" group-title="Sports", SOS Kanal Plus
 https://53be5ef2d13aa.streamlock.net/soskanalplus/soskanalplus.stream/playlist.m3u8
@@ -668,7 +668,7 @@ https://wurl120sports.global.transmit.live/hls/679a907dce42a042c23ace37/v1/stadi
 http://ptu.ridsys.in/riptv/live/STAR_SPORTS_1_HD/index.m3u8
 
 #EXTINF:-1 tvg-id="StarSports1Hindi.in@SD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_SPORTS_1_HINDI/images/LOGO_HD/image.png" group-title="Sports", Star Sports 1 Hindi
-http://116.90.120.151:8000/play/a0h1/index.m3u8
+http://103.157.248.140:8000/play/a00g/index.m3u8
 
 #EXTINF:-1 tvg-id="StarSports1Hindi.in@HD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_SPORTS_1_HD_HINDI/images/LOGO_HD/image.png" group-title="Sports", Star Sports 1 Hindi HD
 http://116.90.120.151:8000/play/a0je/index.m3u8
@@ -683,7 +683,7 @@ http://116.90.120.151:8000/play/a0jb/index.m3u8
 http://116.90.120.151:8000/play/a0jc/index.m3u8
 
 #EXTINF:-1 tvg-id="StarSports2Hindi.in@HD" tvg-logo="https://i.imgur.com/kHerF19.png" group-title="Sports", Star Sports 2 Hindi HD
-http://116.90.120.151:8000/play/a0hi/index.m3u8
+http://103.157.248.140:8000/play/a01m/index.m3u8
 
 #EXTINF:-1 tvg-id="StarSports3.in@SD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_SPORTS_3/images/LOGO_HD/image.png" group-title="Sports", Star Sports 3
 http://103.161.153.165:8000/play/a05p/index.m3u8
@@ -984,6 +984,9 @@ http://183.207.248.71/gitv/live1/G_JSTY/G_JSTY
 #EXTINF:-1 tvg-id="CazeTV.br@SD" tvg-logo="" group-title="Sports", CazeTV
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8
 
+#EXTINF:-1 tvg-id="DeporTV.ar@SD" tvg-logo="https://i.imgur.com/THk9ARS.png" group-title="Sports", DeporTV
+http://201.217.246.42:44310/Live/3fcb6e26785fd8d415571b26dc3cf5d3/deportv_720.m3u8
+
 #EXTINF:-1 tvg-id="FoxSports.ar@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/FOX_Sports_logo.svg/960px-FOX_Sports_logo.svg.png" http-referrer="https://foxsports.com.ar/" group-title="Sports", Fox Sports
 http://201.217.246.42:44310/Live/b10474c9b1ba4a0986b574d1211c065b/local-91.playlist.m3u8
 
@@ -992,6 +995,9 @@ https://shls-live-enc.edgenextcdn.net/out/v1/18cffab0757d448ca6c1a686d330b346/in
 
 #EXTINF:-1 tvg-id="L1Max.pe@SD" tvg-logo="https://i.imgur.com/2fziU2B.png" group-title="Sports", L1 Max
 https://live20.bozztv.com/akamaissh101/ssh101/l1maxhd/playlist.m3u8
+
+#EXTINF:-1 tvg-id="StarSports1Tamil.in@HD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_SPORTS_1_TAMIL/images/LOGO_HD/image.png" group-title="Sports", Star Sports 1 Tamil HD
+http://ajkiptv.ridsys.in/riptv/live/STAR_SPORTS_1_TAMIL_HD/index.m3u8
 
 #EXTINF:-1 tvg-id="WinPlusFutbol.co@SD" tvg-logo="https://i.imgur.com/0UN87vB.png" group-title="Sports", Win+ Futbol
 https://live20.bozztv.com/akamaissh101/ssh101/winsporplusco/playlist.m3u8
