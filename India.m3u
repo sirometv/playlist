@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 01:12:27PM - 04-04-2026
-# Total Channel Found: 846 Channel
+# Update Time: 11:23:40AM - 05-04-2026
+# Total Channel Found: 858 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -23,10 +23,10 @@ http://stvlive.net:8080/starsports2/tracks-v1a1/mono.m3u8
 http://stvlive.net:8080/starsports2/tracks-v1a1/mono.m3u8
 
 #EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrZBygzDovVY_wCvtTy8J8SQogo6-QPwfmGThA4vBFcWXFqXLpCNpQuaG7&s=10" group-title="PSL 2026", PSL 2026
-http://103.175.242.10:8080/tsports1/index.m3u8
+https://psl.bigbaat.app/out/v1/0ef369b90c7b4025b76621e46ee5fb70/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrZBygzDovVY_wCvtTy8J8SQogo6-QPwfmGThA4vBFcWXFqXLpCNpQuaG7&s=10" group-title="PSL 2026", PSL 2026
-http://103.175.242.10:8080/tsports1/index.m3u8
+https://psl.bigbaat.app/out/v1/0ef369b90c7b4025b76621e46ee5fb70/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPCvTmUhiKDs4ehoVpFLh7xwdCNK-N_gNFqnaOM4YRQ&s=10" group-title="Live Sports", Live Sports
 https://stream.snexus.co/live/SHARQ_GAME_TV/main_stream.m3u8
@@ -131,7 +131,7 @@ https://amg01448-samsungin-tv9bangla-samsungin-9lgnh.amagi.tv/playlist/amg01448-
 https://amg01218-republictvfast-amg01218c1-samsung-in-1918.playouts.now.amagi.tv/playlist/amg01218-republictvfast-rbangla-samsungin/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Uncategorized", Sony Pal
-http://116.90.120.151:8000/play/a0km/index.m3u8
+http://45.127.56.3:6699/live/Corpus-POL1/SRV4/2/SONY-PAL/live.mpd
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Star%20Plus.png" group-title="Hindi", Star Plus
 http://103.229.254.25:7001/play/a09z/index.m3u8
@@ -155,7 +155,7 @@ https://cloudfrontnet.vercel.app/tplay/playout/209593/master.m3u8
 https://sis-global.prod.samsungtv.plus/v1/tvpprd/sc-mp2ar4ca425xo.m3u8
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Zee%20Action.png" group-title="Hindi Movies", Zee Action
-http://103.175.73.12:8080/live/270/270_0.m3u8
+http://103.161.153.165:8000/play/a03s/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Star%20Gold%20Select%20HD.jpg" group-title="Hindi Movies", Star Gold Select HD
 http://103.229.254.25:7001/play/a032/index.m3u8
@@ -209,13 +209,13 @@ http://103.229.254.25:7001/play/a09q/index.m3u8
 http://103.99.249.139/sonyten3/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SONY_SPORTS_TEN_5/images/LOGO_HD/image.png" group-title="Sports", Sony Sports Ten 5 HD
-http://116.90.120.151:8000/play/a0hb/index.m3u8
+http://103.157.248.140:8000/play/a05x/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/E5jjKHI.png" group-title="Sports", Star Sports 1 HD
 http://ptu.ridsys.in/riptv/live/STAR_SPORTS_1_HD/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_SPORTS_1_HINDI/images/LOGO_HD/image.png" group-title="Sports", Star Sports 1 Hindi
-http://116.90.120.151:8000/play/a0h1/index.m3u8
+http://103.157.248.140:8000/play/a00g/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_SPORTS_1_HD_HINDI/images/LOGO_HD/image.png" group-title="Sports", Star Sports 1 Hindi HD
 http://116.90.120.151:8000/play/a0je/index.m3u8
@@ -227,7 +227,7 @@ http://116.90.120.151:8000/play/a0jb/index.m3u8
 http://116.90.120.151:8000/play/a0jc/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/kHerF19.png" group-title="Sports", Star Sports 2 Hindi HD
-http://116.90.120.151:8000/play/a0hi/index.m3u8
+http://103.157.248.140:8000/play/a01m/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_SPORTS_3/images/LOGO_HD/image.png" group-title="Sports", Star Sports 3
 http://103.161.153.165:8000/play/a05p/index.m3u8
@@ -287,10 +287,10 @@ https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main
 https://amg00861-amg00861c7-stirr-us-8227.playouts.now.amagi.tv/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://dtil.tmsimg.com/assets/s143574_ld_h15_aa.png?lock=720x540" group-title="Documentary", National Geographic HD
-http://116.90.120.151:8000/play/a0in/index.m3u8
+http://103.157.248.140:8000/play/a012/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_NAT_GEO_WILD/images/LOGO_HD/image.png" group-title="Documentary", National Geographic Wild HD
-http://116.90.120.151:8000/play/a0ie/index.m3u8
+http://103.157.248.140:8000/play/a010/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SAFARI_TV/images/LOGO_HD/image.png" group-title="Documentary", Safari TV
 https://j78dp346yq5r-hls-live.5centscdn.com/safari/live.stream/playlist.m3u8
@@ -527,7 +527,7 @@ https://d3s7x6kmqcnb6b.cloudfront.net/d/distro001a/QK2TKFREGRYXDI8IJGHW/hls3/now
 http://116.90.120.151:8000/play/a0jh/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_COLORS_CINEPLEX_BOLLYWOOD/images/LOGO_HD/image.png" group-title="Movies", Colors Cineplex Bollywood
-http://103.182.170.32:8888/play/a01o
+http://103.157.248.140:8000/play/a00x/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_COLORS_CINEPLEX_HD/images/LOGO_HD/image.png" group-title="Movies", Colors Cineplex HD
 http://116.90.120.151:8000/play/a0ji/index.m3u8
@@ -593,7 +593,7 @@ https://livestream.rajtv.tv/hlslive/Admin/px08241087/live/RajTV_Digital_plus/mas
 https://stream.rojatv.cloud/rojatv/rojatv/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ROMEDY_NOW/images/LOGO_HD/image.png" group-title="Movies", Romedy Now
-http://116.90.120.151:8000/play/a0is/index.m3u8
+http://103.157.248.140:8000/play/a015/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://dtil.tmsimg.com/assets/GNLZZGG00297P3E.png?lock=720x540" group-title="Movies", Shemaroo Josh
 https://airtelapp.shemaroo.com/shemarooChumbakTV/smil:shemarooChumbakTVadp.smil/playlist.m3u8
@@ -614,7 +614,7 @@ http://103.229.254.25:7001/play/a0ed/index.m3u8
 http://116.90.120.151:8000/play/a0kt/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/G0ZfzZr.png" group-title="Movies", Star Gold 2
-http://116.90.120.151:8000/play/a0gz/index.m3u8
+http://103.157.248.140:8000/play/a00e/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/G0ZfzZr.png" group-title="Movies", Star Gold 2 HD
 http://103.229.254.25:7001/play/a0d0/index.m3u8
@@ -623,10 +623,10 @@ http://103.229.254.25:7001/play/a0d0/index.m3u8
 http://103.229.254.25:7001/play/a0dd/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/gSWv9U3.png" group-title="Movies", Star Gold Romance
-http://116.90.120.151:8000/play/a0he/index.m3u8
+http://103.157.248.140:8000/play/a01i/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/azqtpYh.png" group-title="Movies", Star Gold Thrills
-http://116.90.120.151:8000/play/a0gw/index.m3u8
+http://103.157.248.140:8000/play/a00b/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_MOVIES_SELECT_HD/images/LOGO_HD/image.png" group-title="Movies", Star Movies Select HD
 http://116.90.120.151:8000/play/a0ij/index.m3u8
@@ -662,7 +662,7 @@ https://amg17931-zee-amg17931c8-samsung-au-8871.playouts.now.amagi.tv/playlist.m
 http://103.229.254.25:7001/play/a0dk/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ZEE_CINEMA/images/LOGO_HD/LOGO_HD_image.png" group-title="Movies", Zee Cinema HD
-http://103.99.249.139/zeecinema/index.m3u8
+http://103.157.248.140:8000/play/a00q/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://d3bd0tgyk368z1.cloudfront.net/zeelg/LG%20logo%20artwork/400x200/zsouthflix.png" group-title="Movies", Zee South Flix
 https://amg00862-amg00862c9-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c9-amgplt0173/playlist.m3u8
@@ -704,10 +704,10 @@ http://116.90.120.151:8000/play/a0hp/index.m3u8
 http://116.90.120.151:8000/play/a0i3/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_NICK_JUNIOR/images/LOGO_HD/image.png" group-title="Kids", Nick Jr.
-http://116.90.120.151:8000/play/a0h5/index.m3u8
+http://103.157.248.140:8000/play/a00k/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_NICK/images/LOGO_HD/image.png" group-title="Kids", Nickelodeon
-http://116.90.120.151:8000/play/a0hj/index.m3u8
+http://ptu.ridsys.in/riptv/live/NICK/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SONIC/images/LOGO_HD/image.png" group-title="Kids", Sonic
 http://103.229.254.25:7001/play/a0dl/index.m3u8
@@ -911,7 +911,7 @@ https://cdn-3.pishow.tv/live/1253/master.m3u8
 https://mntv.livebox.co.in/mntvhls/live.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_MTV/images/LOGO_HD/image.png" group-title="Entertainment", MTV HD
-http://116.90.120.151:8000/play/a0ig/index.m3u8
+http://103.157.248.140:8000/play/a01p/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://dtil.tmsimg.com/assets/s158303_ld_h15_aa.png?lock=720x540" group-title="Entertainment", Nazara
 https://cc-p1izg43bk7sj5.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-p1izg43bk7sj5/DIYC/PMSL/IN10/Nazara_IN_B/Nazara_IN_B.m3u8
@@ -965,10 +965,10 @@ https://mumt02.tangotv.in/SIRIKANNADAALLTIME/index.m3u8
 http://103.161.153.165:8000/play/sonyatth/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://dtil.tmsimg.com/assets/s159096_ld_h15_aa.png?lock=720x540" group-title="Entertainment", Sony Entertainment Television HD
-http://116.90.120.151:8000/play/a0gp/index.m3u8
+http://103.157.248.140:8000/play/a004/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SONY_PAL/images/LOGO_HD/image.png" group-title="Entertainment", Sony Pal
-http://116.90.120.151:8000/play/a0km/index.m3u8
+http://45.127.56.3:6699/live/Corpus-POL1/SRV4/2/SONY-PAL/live.mpd
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SONY_SAB/images/LOGO_HD/image.png" group-title="Entertainment", Sony SAB HD
 http://103.229.254.25:7001/play/a0db/index.m3u8
@@ -1754,7 +1754,7 @@ https://cc-szivnms4rlah6.akamaized.net/WWBI/Amagi/ETV_Music_IN/playlist.m3u8
 https://mumt04.tangotv.in/INSYNC/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ISAI_ARUVI/images/LOGO_HD/image.png" group-title="Music", Isai Aruvi
-https://segment.yuppcdn.net/140622/isaiaruvi/playlist.m3u8
+http://ptuf.ridsys.in/riptv/live/KALAIGNAR_ISAI_ARUVI/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/lxgXHx4.png" group-title="Music", Mastiii
 https://mumt02.tangotv.in/MASTIII/index.m3u8
@@ -2478,11 +2478,41 @@ https://server.zillarbarta.com/zillarbarta/index.m3u8
 #EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Bangla Music", Bengla Beats
 https://tplay.live/originals/bengali-beats/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Sun%20Bangla.png" group-title="Kolkata Bangla", Sun Bangla HD
+http://103.161.153.165:8000/play/a03k/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Zee%20TV.png" group-title="Hindi", Zee TV
+http://103.161.153.165:8000/play/a01j/index.m3u8
+
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Zee%20TV.png" group-title="Hindi", Zee TV HD
 http://103.229.254.25:7001/play/a0cs/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Sony%20Max.png" group-title="Hindi Movies", Sony Max
+http://103.161.153.165:8000/play/a01k/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Hindi Movies", UTV Gold
+http://103.161.153.165:8000/play/a03c/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Hindi Movies", UTV Classic
+http://103.161.153.165:8000/play/a03d/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Hindi Movies", UTV Pictures
+http://103.161.153.165:8000/play/a03e/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Eurosports.png" group-title="Sports", Eurosports HD
+http://103.161.153.165:8000/play/a01b/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Sports", Bein Sports 1
+http://103.161.153.165:8000/play/a03z/index.m3u8
+
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_SPORTS_1_TAMIL/images/LOGO_HD/image.png" group-title="Sports", Star Sports 1 Tamil
 http://ptu.ridsys.in/riptv/live/STAR_SPORTS_TAMIL/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_SPORTS_1_TAMIL/images/LOGO_HD/image.png" group-title="Sports", Star Sports 1 Tamil HD
+http://ajkiptv.ridsys.in/riptv/live/STAR_SPORTS_1_TAMIL_HD/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://dtil.tmsimg.com/assets/s143799_ld_h15_aa.png?lock=720x540" group-title="Documentary", Sony BBC Earth
+http://ajkiptv.ridsys.in/riptv/live/SONY_BBC_EARTH/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/subirkumarpaul/Logo/main/BBC%20World%20News.png" group-title="English News", BBC World
 http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15
@@ -2490,32 +2520,23 @@ http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15
 #EXTINF:-1 tvg-logo="https://buddytv.netlify.app/img/no-logo.png" group-title="Live Tv", Me-টিভি
 https://iptvbd.live/metv1080/1080.m3u8
 
-#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Cricket 🏏", Sony Sports 1 HD 🇮🇳
-https://ottbanglaplatform.com/tv/toffee/live.php?id=sony_sports_1_hd&e=.m3u8
-
-#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Cricket 🏏", Sony Sports 2 HD 🇮🇳
-https://ottbanglaplatform.com/tv/toffee/live.php?id=sony_sports_2_hd&e=.m3u8
-
-#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Cricket 🏏", Sony Sports 5 HD 🇮🇳
-https://ottbanglaplatform.com/tv/toffee/live.php?id=sony_sports_5_hd&e=.m3u8
-
-#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Cricket 🏏", EuroSports HD 🇮🇳
-https://ottbanglaplatform.com/tv/toffee/live.php?id=euro_sports_hd&e=.m3u8
-
-#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Cricket 🏏", Sony-Ten-Cricket HD
-https://ottbanglaplatform.com/tv/toffee/live.php?id=ten_cricket&e=.m3u8
+#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SONY_MAX/images/LOGO_HD/image.png" group-title="Movies", Sony Max
+http://103.157.248.140:8000/play/a01l/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN3800008CX_20260325T012316SQUARE.png" group-title="Movies", South Station
 https://cc-yw7ztecy8do3q.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-yw7ztecy8do3q/SS_IN.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_MOVIES/images/LOGO_HD/image.png" group-title="Movies", Star Movies HD
-http://ptu.ridsys.in/riptv/live/STAR_MOVIES_HD/index.m3u8
+http://103.157.248.140:8000/play/a01t/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN40000100Y_20260204T004058SQUARE.png" group-title="Movies", The Movie Club +2
 https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-ytipwjqub3kf8/TMC2_IN.m3u8?ads.ads_cdn=cf&ads.cdn=cf
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/3MWm9nD.png" group-title="Movies", Vijay Super
-http://ptu.ridsys.in/riptv/live/VIJAY_SUPER/index.m3u8
+http://ajkiptv.ridsys.in/riptv/live/VIJAY_SUPER/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ZEE_THIRAI/images/LOGO_HD/LOGO_HD_image.png" group-title="Movies", Zee Thirai
+http://ajkiptv.ridsys.in/riptv/live/ZEE_THIRAI/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ZEE_THIRAI/images/LOGO_HD/LOGO_HD_image.png" group-title="Movies", Zee Thirai HD
 http://ptu.ridsys.in/riptv/live/ZEE_THIRAI/index.m3u8
@@ -2523,20 +2544,35 @@ http://ptu.ridsys.in/riptv/live/ZEE_THIRAI/index.m3u8
 #EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="Kids", Unnamed Channel
 https://ddy6new.newkso.ru/ddy6/premium286/mono.m3u8
 
-#EXTINF:-1 tvg-logo="https://images-na.ssl-images-amazon.com/images/I/71CywdrFaZL.png" group-title="ISLAMIC CHANNELS", Peace tv Bangla
-https://dzkyvlfyge.erbvr.com/PeaceTvBangla/tracks-v3a1/mono.m3u8?sid=s7AaNdTzDE2912wNcPLejQ
+#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_HUNGAMA/images/LOGO_HD/image.png" group-title="Kids", Hungama TV
+http://ajkiptv.ridsys.in/riptv/live/HUNGAMA/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="ISLAMIC CHANNELS", Peace Tv English
+https://dzkyvlfyge.erbvr.com/PeaceTvEnglish/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/Wv7MOzg.png" group-title="Entertainment", Asianet HD
+http://103.157.248.140:8000/play/a00s/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_COLORS_TAMIL/images/LOGO_HD/image.png" group-title="Entertainment", Colors Tamil
+http://ajkiptv.ridsys.in/riptv/live/COLORS_TAMIL/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_COLORS_TAMIL/images/LOGO_HD/image.png" group-title="Entertainment", Colors Tamil HD
-http://ptu.ridsys.in/riptv/live/COLORS_TAMIL/index.m3u8
+http://ptuf.ridsys.in/riptv/live/COLORS_TAMIL/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SONY_SAB/images/LOGO_HD/image.png" group-title="Entertainment", Sony SAB
+http://103.157.248.140:8000/play/a05i/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://www.spondontv.com/wp-content/uploads/2025/10/cropped-SPONDON_Blue-Violet_1-copy-300x100.png" group-title="Entertainment", Spondon
 https://nktv.smartstream.video/smartstream-us/spondon/spondon/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/dZtJHAe.png" group-title="Entertainment", Star Vijay
-http://ptu.ridsys.in/riptv/live/STAR_VIJAY/index.m3u8
+http://ajkiptv.ridsys.in/riptv/live/STAR_VIJAY/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://dtil.tmsimg.com/assets/GNLZZGG00233WCL.png?lock=720x540" group-title="Entertainment", Zee Tamil HD
 http://ptu.ridsys.in/riptv/live/ZEE_TAMIL_HD/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="NEWS INTERNASIONAL", BBC News
+https://ythls.armelin.one/channel/UCelk6aHijZq-GJBBB9YpReA.m3u8?v=1
 
 #EXTINF:-1 tvg-logo="https://www.nktvbangla.com/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-12-at-2.59.18-PM.jpg" group-title="News", NK TV Bangla
 https://nktv.smartstream.video/smartstream-us/nkbangla/nkbangla/playlist.m3u8
