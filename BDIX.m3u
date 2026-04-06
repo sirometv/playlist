@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 07:22:58AM - 06-04-2026
-# Total Channel Found: 774 Channel
+# Update Time: 01:17:42PM - 06-04-2026
+# Total Channel Found: 776 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -1520,10 +1520,10 @@ http://204.199.242.203:58000/play/a06q/index.m3u8
 http://8.243.126.131:8000/play/a0jt/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", ESPN 3 HD
-http://8.243.126.131:8000/play/a0d4/index.m3u8
+http://8.243.126.131:8000/play/a0km/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", ESPN 3 HD
-http://8.243.126.131:8000/play/a0d4/index.m3u8
+http://8.243.126.131:8000/play/a0km/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", ESPN 4
 http://8.243.126.131:8000/play/a0ju/index.m3u8
@@ -1541,10 +1541,10 @@ http://204.199.242.203:58000/play/a00p/index.m3u8
 http://8.243.126.131:8000/play/a0kn/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", ESPN HD
-http://8.243.126.131:8000/play/a0d2/index.m3u8
+http://8.243.126.131:8000/play/a0kr/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", ESPN HD
-http://8.243.126.131:8000/play/a0d2/index.m3u8
+http://8.243.126.131:8000/play/a0kr/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", ESPN Premium HD
 http://8.243.126.131:8000/play/a0ku/index.m3u8
@@ -1715,10 +1715,10 @@ http://8.243.126.131:8000/play/a0jr/index.m3u8
 http://8.243.126.131:8000/play/a0ka/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", TLC
-http://8.243.126.131:8000/play/a0gc/index.m3u8
+http://8.243.126.131:8000/play/a0ja/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", TLC
-http://8.243.126.131:8000/play/a0gc/index.m3u8
+http://8.243.126.131:8000/play/a0ja/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", TNT HD
 http://8.243.126.131:8000/play/a0ij/index.m3u8
@@ -2327,6 +2327,12 @@ http://8.243.126.131:8000/play/a028/index.m3u8
 
 #EXTINF:-1 group-title="-", ESPN PRIMUN HD
 http://8.243.126.131:8000/play/a0lu/index.m3u8
+
+#EXTINF:-1 group-title="-", H2
+http://8.243.126.131:8000/play/a0mo/index.m3u8
+
+#EXTINF:-1 group-title="-", KDrama HD
+http://8.243.126.131:8000/play/a0mn/index.m3u8
 
 #EXTINF:-1 group-title="-", CNN Espaæol U
 http://204.199.242.203:58000/play/a02j/index.m3u8
