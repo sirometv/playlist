@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 07:22:54AM - 06-04-2026
-# Total Channel Found: 858 Channel
+# Update Time: 01:17:38PM - 06-04-2026
+# Total Channel Found: 861 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -2532,6 +2532,9 @@ https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68
 #EXTINF:-1 tvg-logo="https://i.imgur.com/3MWm9nD.png" group-title="Movies", Vijay Super
 http://ajkiptv.ridsys.in/riptv/live/VIJAY_SUPER/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://dtil.tmsimg.com/assets/GNLZZGG0022ZEQ9.png?lock=720x540" group-title="Movies", Zee Cinemalu HD
+https://mumbai-edge.smartplaytv.in/ZeeCinemaluHD/index.m3u8
+
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ZEE_THIRAI/images/LOGO_HD/LOGO_HD_image.png" group-title="Movies", Zee Thirai
 http://ajkiptv.ridsys.in/riptv/live/ZEE_THIRAI/index.m3u8
 
@@ -2571,6 +2574,9 @@ http://ajkiptv.ridsys.in/riptv/live/STAR_VIJAY/index.m3u8
 #EXTINF:-1 tvg-logo="https://dtil.tmsimg.com/assets/GNLZZGG00233WCL.png?lock=720x540" group-title="Entertainment", Zee Tamil HD
 http://ptu.ridsys.in/riptv/live/ZEE_TAMIL_HD/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ZEE_TELUGU/images/LOGO_HD/LOGO_HD_image.png" group-title="Entertainment", Zee Telugu HD
+https://mumbai-edge.smartplaytv.in/ZeeTeluguHD/index.m3u8
+
 #EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="NEWS INTERNASIONAL", BBC News
 https://ythls.armelin.one/channel/UCelk6aHijZq-GJBBB9YpReA.m3u8?v=1
 
@@ -2585,6 +2591,9 @@ https://server.thelegitpro.in/tnpnews/tnpnews/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://dtil.tmsimg.com/assets/s144078_ld_h15_aa.png?lock=720x540" group-title="Music", Vijay Takkar
 http://ajkiptv.ridsys.in/riptv/live/VIJAY_TAKKAR/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Divya_Vani.png" group-title="Religious", Divyavani TV
+https://mumbai-edge.smartplaytv.in/Divyavani/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/VillageTV.png" group-title="Religious", Village TV
 https://villagetv.applelive.in/villagetv/villagetv/index.m3u8
