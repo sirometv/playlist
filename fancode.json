@@ -1,23 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "02:47:48 PM 06-04-2026",
+    "last update time": "03:59:45 PM 06-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Cricket",
-            "title": "Malaysia A vs Hong Kong, China-A (Hong Kong, China-A tour of Malaysia-A 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Hong-Kong,-China-A-tour-of-Malaysia-A-2026-old-card.jpg",
-            "team_1": "Malaysia A",
-            "team_2": "Hong Kong, China-A",
-            "status": "LIVE",
-            "event_name": "Hong Kong, China-A tour of Malaysia-A 2026",
-            "match_name": "Malaysia A vs Hong Kong, China-A",
-            "match_id": 141774,
-            "startTime": "07:00:00 AM 06-04-2026",
-            "dai_url": "https://dai-partner.fancode.com/primary/141774_english_hls_2e577d3f956045_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://dai-partner.fancode.com/primary/141774_english_hls_2e577d3f956045_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Cricket",
             "title": "Botswana Women vs Brazil Women (Kalahari Women's T20 2026)",
@@ -45,20 +31,6 @@
             "startTime": "01:00:00 PM 06-04-2026",
             "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141648_english_hls_264ef4d01589624_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141648_english_hls_264ef4d01589624_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Lesotho Women vs Malawi Women (Kalahari Women's T20 2026)",
-            "src": "https://images.fancode.com/aig/match/v1775460202141/141889_CASACARDS_APP.png",
-            "team_1": "Lesotho Women",
-            "team_2": "Malawi Women",
-            "status": "LIVE",
-            "event_name": "Kalahari Women's T20 2026",
-            "match_name": "Lesotho Women vs Malawi Women",
-            "match_id": 141889,
-            "startTime": "01:00:00 PM 06-04-2026",
-            "dai_url": "https://dai-partner.fancode.com/primary/141889_english_hls_d3cccef47651125_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://dai-partner.fancode.com/primary/141889_english_hls_d3cccef47651125_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -501,6 +473,30 @@
             "match_name": "Scotland vs Oman",
             "match_id": 141649,
             "startTime": "01:00:00 PM 08-04-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Brazil Women vs Zambia Women (Kalahari Women's T20 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Kalahari-Women's-T20I-Series--old--psd.png",
+            "team_1": "Brazil Women",
+            "team_2": "Zambia Women",
+            "status": "UPCOMING",
+            "event_name": "Kalahari Women's T20 2026",
+            "match_name": "Brazil Women vs Zambia Women",
+            "match_id": 141897,
+            "startTime": "01:00:00 PM 08-04-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Sydney Kangaroos vs Brisbane Napoleans (Brisbane Champions League 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141744_6028_SYK_BNA_FC-WEB.jpg",
+            "team_1": "Sydney Kangaroos",
+            "team_2": "Brisbane Napoleans",
+            "status": "UPCOMING",
+            "event_name": "Brisbane Champions League 2026",
+            "match_name": "Sydney Kangaroos vs Brisbane Napoleans",
+            "match_id": 141744,
+            "startTime": "01:30:00 PM 08-04-2026"
         }
     ]
 }
