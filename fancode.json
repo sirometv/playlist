@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "04:08:21 PM 10-04-2026",
+    "last update time": "05:12:40 PM 10-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -20,20 +20,6 @@
         },
         {
             "event_category": "Cricket",
-            "title": "Malawi Women vs Lesotho Women (Kalahari Women's T20 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Kalahari-Women's-T20I-Series--old--psd.png",
-            "team_1": "Malawi Women",
-            "team_2": "Lesotho Women",
-            "status": "LIVE",
-            "event_name": "Kalahari Women's T20 2026",
-            "match_name": "Malawi Women vs Lesotho Women",
-            "match_id": 141905,
-            "startTime": "01:00:00 PM 10-04-2026",
-            "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141905_english_hls_f455fe507e61920_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141905_english_hls_f455fe507e61920_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
             "title": "Iconic Super Knights vs Brisbane Stars (Brisbane Champions League 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/141752_6028_ISK_BRS_FC-WEB.jpg",
             "team_1": "Iconic Super Knights",
@@ -45,6 +31,20 @@
             "startTime": "01:30:00 PM 10-04-2026",
             "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141752_english_hls_8f6e60e8ee78292_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141752_english_hls_8f6e60e8ee78292_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "NorthEast United FC vs Sporting Club Delhi (ISL 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140480_5956_NEUFC_SCD_FC-Web_1772964305694.jpg",
+            "team_1": "NorthEast United FC",
+            "team_2": "Sporting Club Delhi",
+            "status": "LIVE",
+            "event_name": "ISL 2025-26",
+            "match_name": "NorthEast United FC vs Sporting Club Delhi",
+            "match_id": 140480,
+            "startTime": "05:00:00 PM 10-04-2026",
+            "dai_url": "https://dai-partner.fancode.com/primary/140480_english_hls_d5a5d32ccc11400_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://dai-partner.fancode.com/primary/140480_english_hls_d5a5d32ccc11400_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Football",
@@ -125,18 +125,6 @@
             "match_name": "Zambia Women vs Malawi Women",
             "match_id": 141907,
             "startTime": "05:45:00 PM 10-04-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "NorthEast United FC vs Sporting Club Delhi (ISL 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140480_5956_NEUFC_SCD_FC-Web_1772964305694.jpg",
-            "team_1": "NorthEast United FC",
-            "team_2": "Sporting Club Delhi",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26",
-            "match_name": "NorthEast United FC vs Sporting Club Delhi",
-            "match_id": 140480,
-            "startTime": "05:00:00 PM 10-04-2026"
         },
         {
             "event_category": "Football",
@@ -295,18 +283,6 @@
             "startTime": "05:00:00 PM 11-04-2026"
         },
         {
-            "event_category": "Football",
-            "title": "TBC vs TBC (AFC U20 Women's Asian Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(6)_1774716160342.png",
-            "team_1": "TBC",
-            "team_2": "TBC",
-            "status": "UPCOMING",
-            "event_name": "AFC U20 Women's Asian Cup 2026",
-            "match_name": "TBC vs TBC",
-            "match_id": 141629,
-            "startTime": "02:30:00 PM 11-04-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "TBC vs TBC (Kalahari Women's T20 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Kalahari-Women's-T20I-Series--old--psd.png",
@@ -317,6 +293,18 @@
             "match_name": "TBC vs TBC",
             "match_id": 141909,
             "startTime": "05:30:00 PM 11-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Japan U20 vs Vietnam U20 (AFC U20 Women's Asian Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(6)_1774716160342.png",
+            "team_1": "Japan U20",
+            "team_2": "Vietnam U20",
+            "status": "UPCOMING",
+            "event_name": "AFC U20 Women's Asian Cup 2026",
+            "match_name": "Japan U20 vs Vietnam U20",
+            "match_id": 141629,
+            "startTime": "02:30:00 PM 11-04-2026"
         },
         {
             "event_category": "Football",
@@ -416,15 +404,27 @@
         },
         {
             "event_category": "Football",
-            "title": "TBC vs TBC (AFC U20 Women's Asian Cup 2026)",
+            "title": "China PR U20 vs Uzbekistan U20 (AFC U20 Women's Asian Cup 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(6)_1774716160342.png",
-            "team_1": "TBC",
-            "team_2": "TBC",
+            "team_1": "China PR U20",
+            "team_2": "Uzbekistan U20",
             "status": "UPCOMING",
             "event_name": "AFC U20 Women's Asian Cup 2026",
-            "match_name": "TBC vs TBC",
+            "match_name": "China PR U20 vs Uzbekistan U20",
             "match_id": 141630,
             "startTime": "06:30:00 PM 11-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "FC Barcelona vs RCD Espanyol (LALIGA 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/131133_5427_BAR_ESL_FC-Web.png",
+            "team_1": "FC Barcelona",
+            "team_2": "RCD Espanyol",
+            "status": "UPCOMING",
+            "event_name": "LALIGA 2025-26",
+            "match_name": "FC Barcelona vs RCD Espanyol",
+            "match_id": 131133,
+            "startTime": "10:00:00 PM 11-04-2026"
         },
         {
             "event_category": "Tennis",
