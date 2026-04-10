@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 07:22:07AM - 10-04-2026
-# Total Channel Found: 378 Channel
+# Update Time: 01:15:09PM - 10-04-2026
+# Total Channel Found: 377 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -380,7 +380,7 @@ https://cdn-globecast.akamaized.net/live/eds/saudi_sunnah/hls_roku/index.m3u8
 https://nl.livekadeh.com/hls2/alwilayah_tv.m3u8
 
 #EXTINF:-1 tvg-logo="https://alaimma.tv/alaimma-logo.png" group-title="Religious", Al-Aimma TV
-http://stream.alaimma.tv/hls/alaimma/h3b1rd584cpq8p60okoj01rnfigdcnia.m3u8
+https://alaimma.tv/live/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/7L0l0iY.png" group-title="Religious", Al-Fady TV
 https://5d658d7e9f562.streamlock.net/alfadytv.tv/alfadytv.smil/playlist.m3u8
@@ -989,7 +989,7 @@ https://5c7b683162943.streamlock.net/live/ngrp:sportsone_all/playlist.m3u8
 https://5c7b683162943.streamlock.net/live/ngrp:bahrainsportstwo_all/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/2EmrZPQ.png" group-title="Sports", Jordan Sport
-https://jrtv-live.ercdn.net/jordansporthd/jordansporthd.m3u8
+http://93.184.10.248/JordanSport/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://static.jrtv.gov.jo/resize-width/380/content/D/yH/2972/Poster.png" group-title="Sports", Jordan Sport 2
 https://jrtv-live.ercdn.net/learning2/learning2.m3u8
@@ -1139,9 +1139,6 @@ https://tgn.bozztv.com/gin-dvrfl05/ga-zeealwan/index.m3u8
 #🟡🟡🟡🟡 Gh-Pages Not Found Thats Channels, Now New Channel Added from 2nd Sourch 🟡🟡🟡🟡
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/75/Murr_tv.png" group-title="General", MTV Lebanon
 https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mtv-lebanon/b8ebb2a5affb812f1541712adde10e26/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.imgur.com/ajsrKzA.png" group-title="General", Syrian Satellite Channel
-https://shd-gcp-live.edgenextcdn.net/live/bitmovin-al-souriya-tv/e3150760fa5fd62776225433b8c3d406/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/VEb631f.png" group-title="General", TV2
 https://viamotionhsi.netplus.ch/live/eds/canalalgerie/browser-dash/canalalgerie.mpd
