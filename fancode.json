@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "06:01:43 PM 10-04-2026",
+    "last update time": "07:50:05 PM 10-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -20,59 +20,31 @@
         },
         {
             "event_category": "Cricket",
-            "title": "Iconic Super Knights vs Brisbane Stars (Brisbane Champions League 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141752_6028_ISK_BRS_FC-WEB.jpg",
-            "team_1": "Iconic Super Knights",
-            "team_2": "Brisbane Stars",
-            "status": "LIVE",
-            "event_name": "Brisbane Champions League 2026",
-            "match_name": "Iconic Super Knights vs Brisbane Stars",
-            "match_id": 141752,
-            "startTime": "01:30:00 PM 10-04-2026",
-            "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141752_english_hls_8f6e60e8ee78292_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141752_english_hls_8f6e60e8ee78292_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Brazil Women vs Mozambique Women (Kalahari Women's T20 2026)",
+            "title": "Zambia Women vs Malawi Women (Kalahari Women's T20 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Kalahari-Women's-T20I-Series--old--psd.png",
-            "team_1": "Brazil Women",
-            "team_2": "Mozambique Women",
+            "team_1": "Zambia Women",
+            "team_2": "Malawi Women",
             "status": "LIVE",
             "event_name": "Kalahari Women's T20 2026",
-            "match_name": "Brazil Women vs Mozambique Women",
-            "match_id": 141906,
-            "startTime": "05:30:00 PM 10-04-2026",
-            "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141906_english_hls_f0272cc28d49327_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141906_english_hls_f0272cc28d49327_1ta-di_h264/index.m3u8"
+            "match_name": "Zambia Women vs Malawi Women",
+            "match_id": 141907,
+            "startTime": "05:45:00 PM 10-04-2026",
+            "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141907_english_hls_ee5f21307079538_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141907_english_hls_ee5f21307079538_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Football",
-            "title": "NorthEast United FC vs Sporting Club Delhi (ISL 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140480_5956_NEUFC_SCD_FC-Web_1772964305694.jpg",
-            "team_1": "NorthEast United FC",
-            "team_2": "Sporting Club Delhi",
+            "title": "FC Goa vs Odisha FC (ISL 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140481_5956_FCG_ODS_FC-Web_1772460981509.jpg",
+            "team_1": "FC Goa",
+            "team_2": "Odisha FC",
             "status": "LIVE",
             "event_name": "ISL 2025-26",
-            "match_name": "NorthEast United FC vs Sporting Club Delhi",
-            "match_id": 140480,
-            "startTime": "05:00:00 PM 10-04-2026",
-            "dai_url": "https://dai-partner.fancode.com/primary/140480_english_hls_d5a5d32ccc11400_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://dai-partner.fancode.com/primary/140480_english_hls_d5a5d32ccc11400_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Central Coast Mariners vs Brisbane Roar (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140929_5802_CCM_BRB_fc-web.jpg",
-            "team_1": "Central Coast Mariners",
-            "team_2": "Brisbane Roar",
-            "status": "LIVE",
-            "event_name": "A League 2025-26",
-            "match_name": "Central Coast Mariners vs Brisbane Roar",
-            "match_id": 140929,
-            "startTime": "03:05:00 PM 10-04-2026",
-            "dai_url": "https://in-mc-fblive.fancode.com/mumbai/140929_english_hls_be087a079b25037_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/140929_english_hls_be087a079b25037_1ta-di_h264/index.m3u8"
+            "match_name": "FC Goa vs Odisha FC",
+            "match_id": 140481,
+            "startTime": "07:30:00 PM 10-04-2026",
+            "dai_url": "https://dai-partner.fancode.com/primary/140481_english_hls_4a776413a863645_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://dai-partner.fancode.com/primary/140481_english_hls_4a776413a863645_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Tennis",
@@ -104,41 +76,17 @@
         },
         {
             "event_category": "Tennis",
-            "title": "Zverev vs Fonseca vs Monaco (ATP Masters Rolex Monte-Carlo 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Alexander-Zverev-vs-Joao-Fonseca_web.jpg",
-            "team_1": "Zverev vs Fonseca",
+            "title": "J. Sinner vs F. Auger-Aliassime vs Monaco (ATP Masters Rolex Monte-Carlo 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Jannik-Sinner-vs-Felix-Auger-Aliassime_web.jpg",
+            "team_1": "J. Sinner vs F. Auger-Aliassime",
             "team_2": "Monaco",
             "status": "LIVE",
             "event_name": "ATP Masters Rolex Monte-Carlo 2026",
-            "match_name": "Zverev vs Fonseca",
+            "match_name": "J. Sinner vs F. Auger-Aliassime",
             "match_id": 141915,
             "startTime": "02:30:00 PM 10-04-2026",
             "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141915_english_hls_f65ff8816626522_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141915_english_hls_f65ff8816626522_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Zambia Women vs Malawi Women (Kalahari Women's T20 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Kalahari-Women's-T20I-Series--old--psd.png",
-            "team_1": "Zambia Women",
-            "team_2": "Malawi Women",
-            "status": "UPCOMING",
-            "event_name": "Kalahari Women's T20 2026",
-            "match_name": "Zambia Women vs Malawi Women",
-            "match_id": 141907,
-            "startTime": "05:45:00 PM 10-04-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "FC Goa vs Odisha FC (ISL 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140481_5956_FCG_ODS_FC-Web_1772460981509.jpg",
-            "team_1": "FC Goa",
-            "team_2": "Odisha FC",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26",
-            "match_name": "FC Goa vs Odisha FC",
-            "match_id": 140481,
-            "startTime": "07:30:00 PM 10-04-2026"
         },
         {
             "event_category": "Football",
@@ -226,18 +174,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Newcastle Jets vs Adelaide United (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140931_5802_NJ_ADL_fc-web.jpg",
-            "team_1": "Newcastle Jets",
-            "team_2": "Adelaide United",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Newcastle Jets vs Adelaide United",
-            "match_id": 140931,
-            "startTime": "12:30:00 PM 11-04-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Chennaiyin FC vs East Bengal FC (ISL 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140482_5956_CFC_EBFC_FC-Web_1772461085009.jpg",
             "team_1": "Chennaiyin FC",
@@ -295,6 +231,18 @@
             "match_name": "TBC vs TBC",
             "match_id": 141909,
             "startTime": "05:30:00 PM 11-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Newcastle Jets vs Adelaide United (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140931_5802_NJ_ADL_fc-web.jpg",
+            "team_1": "Newcastle Jets",
+            "team_2": "Adelaide United",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Newcastle Jets vs Adelaide United",
+            "match_id": 140931,
+            "startTime": "12:30:00 PM 11-04-2026"
         },
         {
             "event_category": "Cricket",
@@ -393,6 +341,18 @@
             "startTime": "07:45:00 PM 11-04-2026"
         },
         {
+            "event_category": "Football",
+            "title": "China PR U20 vs Uzbekistan U20 (AFC U20 Women's Asian Cup 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(6)_1774716160342.png",
+            "team_1": "China PR U20",
+            "team_2": "Uzbekistan U20",
+            "status": "UPCOMING",
+            "event_name": "AFC U20 Women's Asian Cup 2026",
+            "match_name": "China PR U20 vs Uzbekistan U20",
+            "match_id": 141630,
+            "startTime": "06:30:00 PM 11-04-2026"
+        },
+        {
             "event_category": "Golf",
             "title": "Day 2 vs Georgia, USA (The Augusta Masters 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/The-Masters-Augusta-old-card-.jpg",
@@ -406,18 +366,6 @@
         },
         {
             "event_category": "Football",
-            "title": "China PR U20 vs Uzbekistan U20 (AFC U20 Women's Asian Cup 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(6)_1774716160342.png",
-            "team_1": "China PR U20",
-            "team_2": "Uzbekistan U20",
-            "status": "UPCOMING",
-            "event_name": "AFC U20 Women's Asian Cup 2026",
-            "match_name": "China PR U20 vs Uzbekistan U20",
-            "match_id": 141630,
-            "startTime": "06:30:00 PM 11-04-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "FC Barcelona vs RCD Espanyol (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131133_5427_BAR_ESL_FC-Web.png",
             "team_1": "FC Barcelona",
@@ -427,6 +375,18 @@
             "match_name": "FC Barcelona vs RCD Espanyol",
             "match_id": 131133,
             "startTime": "10:00:00 PM 11-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Al-Okhdood Club vs Al-Nassr FC (Roshn Saudi League 2025-2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140729_5655_ALK_ANF_fc-web.jpg",
+            "team_1": "Al-Okhdood Club",
+            "team_2": "Al-Nassr FC",
+            "status": "UPCOMING",
+            "event_name": "Roshn Saudi League 2025-2026",
+            "match_name": "Al-Okhdood Club vs Al-Nassr FC",
+            "match_id": 140729,
+            "startTime": "11:30:00 PM 11-04-2026"
         },
         {
             "event_category": "Tennis",
@@ -463,6 +423,42 @@
             "match_name": "World Feed",
             "match_id": 141918,
             "startTime": "02:30:00 PM 11-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Málaga vs Las Palmas (LALIGA Hypermotion 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1774680543089/141687_CASACARDS_APP.png",
+            "team_1": "Málaga",
+            "team_2": "Las Palmas",
+            "status": "UPCOMING",
+            "event_name": "LALIGA Hypermotion 2025-26",
+            "match_name": "Málaga vs Las Palmas",
+            "match_id": 141687,
+            "startTime": "10:00:00 PM 11-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Sevilla FC vs Atletico de Madrid (LALIGA 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/131138_5427_SEV_ATL_FC-Web.png",
+            "team_1": "Sevilla FC",
+            "team_2": "Atletico de Madrid",
+            "status": "UPCOMING",
+            "event_name": "LALIGA 2025-26",
+            "match_name": "Sevilla FC vs Atletico de Madrid",
+            "match_id": 131138,
+            "startTime": "12:30:00 AM 12-04-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Day 3 vs Georgia, USA (The Augusta Masters 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/The-Masters-Augusta-old-card-.jpg",
+            "team_1": "Day 3",
+            "team_2": "Georgia, USA",
+            "status": "UPCOMING",
+            "event_name": "The Augusta Masters 2026",
+            "match_name": "Day 3",
+            "match_id": 141878,
+            "startTime": "09:30:00 PM 11-04-2026"
         }
     ]
 }
