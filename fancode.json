@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "08:35:53 AM 12-04-2026",
+    "last update time": "11:12:59 AM 12-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -10,11 +10,27 @@
             "src": "https://www.fancode.com/skillup-uploads/cms-media/141755_6028_BNA_MET_FC-WEB.jpg",
             "team_1": "Brisbane Napoleans",
             "team_2": "Melbourne Tuskers",
-            "status": "UPCOMING",
+            "status": "LIVE",
             "event_name": "Brisbane Champions League 2026",
             "match_name": "Brisbane Napoleans vs Melbourne Tuskers",
             "match_id": 141755,
-            "startTime": "08:30:00 AM 12-04-2026"
+            "startTime": "08:30:00 AM 12-04-2026",
+            "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141755_english_hls_fcfcef7f9c96940_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141755_english_hls_fcfcef7f9c96940_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Melbourne City vs Wellington Phoenix (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140933_5802_MLC_WEL_fc-web.jpg",
+            "team_1": "Melbourne City",
+            "team_2": "Wellington Phoenix",
+            "status": "LIVE",
+            "event_name": "A League 2025-26",
+            "match_name": "Melbourne City vs Wellington Phoenix",
+            "match_id": 140933,
+            "startTime": "10:30:00 AM 12-04-2026",
+            "dai_url": "https://in-mc-fblive.fancode.com/mumbai/140933_english_hls_579b7f681412498_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/140933_english_hls_579b7f681412498_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -39,6 +55,30 @@
             "match_name": "Melbourne Pirates vs Everest Falcons",
             "match_id": 141753,
             "startTime": "01:30:00 PM 12-04-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Leeward Islands Hurricanes vs Trinidad & Tobago Red Force (West Indies Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
+            "team_1": "Leeward Islands Hurricanes",
+            "team_2": "Trinidad & Tobago Red Force",
+            "status": "UPCOMING",
+            "event_name": "West Indies Championship 2026",
+            "match_name": "Leeward Islands Hurricanes vs Trinidad & Tobago Red Force",
+            "match_id": 141947,
+            "startTime": "07:30:00 PM 12-04-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Windward Islands Volcanoes vs Guyana Harpy Eagles (West Indies Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
+            "team_1": "Windward Islands Volcanoes",
+            "team_2": "Guyana Harpy Eagles",
+            "status": "UPCOMING",
+            "event_name": "West Indies Championship 2026",
+            "match_name": "Windward Islands Volcanoes vs Guyana Harpy Eagles",
+            "match_id": 141949,
+            "startTime": "07:30:00 PM 12-04-2026"
         },
         {
             "event_category": "Football",
@@ -78,27 +118,15 @@
         },
         {
             "event_category": "Cricket",
-            "title": "Leeward Islands Hurricanes vs Trinidad & Tobago Red Force (West Indies Championship 2026)",
+            "title": "Jamaica Scorpions vs Barbados Pride (West Indies Championship 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
-            "team_1": "Leeward Islands Hurricanes",
-            "team_2": "Trinidad & Tobago Red Force",
+            "team_1": "Jamaica Scorpions",
+            "team_2": "Barbados Pride",
             "status": "UPCOMING",
             "event_name": "West Indies Championship 2026",
-            "match_name": "Leeward Islands Hurricanes vs Trinidad & Tobago Red Force",
-            "match_id": 141947,
-            "startTime": "07:30:00 PM 12-04-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Windward Islands Volcanoes vs Guyana Harpy Eagles (West Indies Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
-            "team_1": "Windward Islands Volcanoes",
-            "team_2": "Guyana Harpy Eagles",
-            "status": "UPCOMING",
-            "event_name": "West Indies Championship 2026",
-            "match_name": "Windward Islands Volcanoes vs Guyana Harpy Eagles",
-            "match_id": 141949,
-            "startTime": "07:30:00 PM 12-04-2026"
+            "match_name": "Jamaica Scorpions vs Barbados Pride",
+            "match_id": 141948,
+            "startTime": "08:30:00 PM 12-04-2026"
         },
         {
             "event_category": "Football",
@@ -111,18 +139,6 @@
             "match_name": "CA Osasuna vs Real Betis",
             "match_id": 131139,
             "startTime": "05:30:00 PM 12-04-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Jamaica Scorpions vs Barbados Pride (West Indies Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
-            "team_1": "Jamaica Scorpions",
-            "team_2": "Barbados Pride",
-            "status": "UPCOMING",
-            "event_name": "West Indies Championship 2026",
-            "match_name": "Jamaica Scorpions vs Barbados Pride",
-            "match_id": 141948,
-            "startTime": "08:30:00 PM 12-04-2026"
         },
         {
             "event_category": "Football",
@@ -183,18 +199,6 @@
             "match_name": "Athletic Club vs Villarreal CF",
             "match_id": 131132,
             "startTime": "12:30:00 AM 13-04-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Melbourne City vs Wellington Phoenix (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140933_5802_MLC_WEL_fc-web.jpg",
-            "team_1": "Melbourne City",
-            "team_2": "Wellington Phoenix",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Melbourne City vs Wellington Phoenix",
-            "match_id": 140933,
-            "startTime": "10:30:00 AM 12-04-2026"
         },
         {
             "event_category": "Football",
@@ -290,43 +294,7 @@
             "event_name": "ATP Masters Rolex Monte-Carlo 2026",
             "match_name": "Doubles - Final",
             "match_id": 141923,
-            "startTime": "02:30:00 PM 12-04-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "World Feed vs Monaco (ATP Masters Rolex Monte-Carlo 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Rolex-Monte-Carlo-Masters_fc-web.jpg",
-            "team_1": "World Feed",
-            "team_2": "Monaco",
-            "status": "UPCOMING",
-            "event_name": "ATP Masters Rolex Monte-Carlo 2026",
-            "match_name": "World Feed",
-            "match_id": 141922,
-            "startTime": "02:30:00 PM 12-04-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "Court 1 vs Monaco (ATP Masters Rolex Monte-Carlo 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Rolex-Monte-Carlo-Masters_fc-web.jpg",
-            "team_1": "Court 1",
-            "team_2": "Monaco",
-            "status": "UPCOMING",
-            "event_name": "ATP Masters Rolex Monte-Carlo 2026",
-            "match_name": "Court 1",
-            "match_id": 141921,
-            "startTime": "02:30:00 PM 12-04-2026"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Day 4 vs Georgia, USA (The Augusta Masters 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/The-Masters-Augusta-old-card-.jpg",
-            "team_1": "Day 4",
-            "team_2": "Georgia, USA",
-            "status": "UPCOMING",
-            "event_name": "The Augusta Masters 2026",
-            "match_name": "Day 4",
-            "match_id": 141879,
-            "startTime": "09:30:00 PM 12-04-2026"
+            "startTime": "03:30:00 PM 12-04-2026"
         },
         {
             "event_category": "Cricket",
@@ -339,6 +307,30 @@
             "match_name": "Melbourne Tuskers vs Brisbane Stars",
             "match_id": 141758,
             "startTime": "01:30:00 PM 13-04-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "Alcaraz vs Sinner vs Monaco (ATP Masters Rolex Monte-Carlo 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Alcaraz-vs-Sinner_fc-web.jpg",
+            "team_1": "Alcaraz vs Sinner",
+            "team_2": "Monaco",
+            "status": "UPCOMING",
+            "event_name": "ATP Masters Rolex Monte-Carlo 2026",
+            "match_name": "Alcaraz vs Sinner",
+            "match_id": 141922,
+            "startTime": "06:30:00 PM 12-04-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Day 4 vs Georgia, USA (The Augusta Masters 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/The-Masters-Augusta-old-card-.jpg",
+            "team_1": "Day 4",
+            "team_2": "Georgia, USA",
+            "status": "UPCOMING",
+            "event_name": "The Augusta Masters 2026",
+            "match_name": "Day 4",
+            "match_id": 141879,
+            "startTime": "09:30:00 PM 12-04-2026"
         },
         {
             "event_category": "Football",
@@ -459,6 +451,18 @@
             "match_name": "Melbourne Pirates vs Genid Royals",
             "match_id": 141760,
             "startTime": "01:30:00 PM 14-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Tractor vs Shabab Al Ahli (AFC Champions League Elite 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140855_5647_TFC_SAA_FC-WEB.png",
+            "team_1": "Tractor",
+            "team_2": "Shabab Al Ahli",
+            "status": "UPCOMING",
+            "event_name": "AFC Champions League Elite 2025-26",
+            "match_name": "Tractor vs Shabab Al Ahli",
+            "match_id": 140855,
+            "startTime": "08:15:00 PM 14-04-2026"
         }
     ]
 }
