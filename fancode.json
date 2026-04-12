@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "04:34:10 PM 12-04-2026",
+    "last update time": "04:59:27 PM 12-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -31,6 +31,20 @@
             "startTime": "01:30:00 PM 12-04-2026",
             "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141753_english_hls_65ac4e962c17903_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141753_english_hls_65ac4e962c17903_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Birmingham City F.C. vs Wrexham A.F.C. (EFL Championship 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141440_5489_BIR_WRX_fc-web.jpg",
+            "team_1": "Birmingham City F.C.",
+            "team_2": "Wrexham A.F.C.",
+            "status": "LIVE",
+            "event_name": "EFL Championship 2025-26",
+            "match_name": "Birmingham City F.C. vs Wrexham A.F.C.",
+            "match_id": 141440,
+            "startTime": "04:30:00 PM 12-04-2026",
+            "dai_url": "https://in-mc-fblive.fancode.com/mumbai/141440_english_hls_2a3eacf62373415_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141440_english_hls_2a3eacf62373415_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Football",
@@ -76,15 +90,27 @@
         },
         {
             "event_category": "Football",
-            "title": "Birmingham City F.C. vs Wrexham A.F.C. (EFL Championship 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141440_5489_BIR_WRX_fc-web.jpg",
-            "team_1": "Birmingham City F.C.",
-            "team_2": "Wrexham A.F.C.",
+            "title": "Inter Kashi vs Mohammedan SC (ISL 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140484_5956_KSHI_MSC_FC-Web_1772461210831.jpg",
+            "team_1": "Inter Kashi",
+            "team_2": "Mohammedan SC",
             "status": "UPCOMING",
-            "event_name": "EFL Championship 2025-26",
-            "match_name": "Birmingham City F.C. vs Wrexham A.F.C.",
-            "match_id": 141440,
-            "startTime": "04:30:00 PM 12-04-2026"
+            "event_name": "ISL 2025-26",
+            "match_name": "Inter Kashi vs Mohammedan SC",
+            "match_id": 140484,
+            "startTime": "05:00:00 PM 12-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Inter Kashi vs Mohammedan SC (ISL 2025-26  - Regional)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/141810_5973_KSHI_MSC_fc-web.jpg",
+            "team_1": "Inter Kashi",
+            "team_2": "Mohammedan SC",
+            "status": "UPCOMING",
+            "event_name": "ISL 2025-26  - Regional",
+            "match_name": "Inter Kashi vs Mohammedan SC",
+            "match_id": 141810,
+            "startTime": "05:00:00 PM 12-04-2026"
         },
         {
             "event_category": "Cricket",
@@ -121,30 +147,6 @@
             "match_name": "Jamaica Scorpions vs Barbados Pride",
             "match_id": 141948,
             "startTime": "08:30:00 PM 12-04-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Inter Kashi vs Mohammedan SC (ISL 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140484_5956_KSHI_MSC_FC-Web_1772461210831.jpg",
-            "team_1": "Inter Kashi",
-            "team_2": "Mohammedan SC",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26",
-            "match_name": "Inter Kashi vs Mohammedan SC",
-            "match_id": 140484,
-            "startTime": "05:00:00 PM 12-04-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Inter Kashi vs Mohammedan SC (ISL 2025-26  - Regional)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/141810_5973_KSHI_MSC_fc-web.jpg",
-            "team_1": "Inter Kashi",
-            "team_2": "Mohammedan SC",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26  - Regional",
-            "match_name": "Inter Kashi vs Mohammedan SC",
-            "match_id": 141810,
-            "startTime": "05:00:00 PM 12-04-2026"
         },
         {
             "event_category": "Football",
