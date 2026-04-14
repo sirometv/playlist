@@ -1,23 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "04:29:29 AM 15-04-2026",
+    "last update time": "05:25:07 AM 15-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Cricket",
-            "title": "Jamaica Scorpions vs Barbados Pride (West Indies Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
-            "team_1": "Jamaica Scorpions",
-            "team_2": "Barbados Pride",
-            "status": "LIVE",
-            "event_name": "West Indies Championship 2026",
-            "match_name": "Jamaica Scorpions vs Barbados Pride",
-            "match_id": 141948,
-            "startTime": "08:30:00 PM 12-04-2026",
-            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/141948_english_hls_81e187044a67116_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141948_english_hls_81e187044a67116_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Cricket",
             "title": "Leeward Islands Hurricanes vs Trinidad & Tobago Red Force (West Indies Championship 2026)",
@@ -41,6 +27,18 @@
             "match_name": "Windward Islands Volcanoes vs Guyana Harpy Eagles",
             "match_id": 141949,
             "startTime": "07:30:00 PM 12-04-2026"
+        },
+        {
+            "event_category": "Cricket",
+            "title": "Jamaica Scorpions vs Barbados Pride (West Indies Championship 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
+            "team_1": "Jamaica Scorpions",
+            "team_2": "Barbados Pride",
+            "status": "PAUSED",
+            "event_name": "West Indies Championship 2026",
+            "match_name": "Jamaica Scorpions vs Barbados Pride",
+            "match_id": 141948,
+            "startTime": "08:30:00 PM 12-04-2026"
         },
         {
             "event_category": "Cricket",
@@ -104,6 +102,18 @@
         },
         {
             "event_category": "Football",
+            "title": "Al-Nassr FC vs Al-Ettifaq (Roshn Saudi League 2025-2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140731_5655_ANF_ETT_fc-web.jpg",
+            "team_1": "Al-Nassr FC",
+            "team_2": "Al-Ettifaq",
+            "status": "UPCOMING",
+            "event_name": "Roshn Saudi League 2025-2026",
+            "match_name": "Al-Nassr FC vs Al-Ettifaq",
+            "match_id": 140731,
+            "startTime": "11:30:00 PM 15-04-2026"
+        },
+        {
+            "event_category": "Football",
             "title": "Cruz Azul vs Los Angeles FC (CONCACAF Champions Cup 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/141884_5954_CRU_LAF_FC-Web.png",
             "team_1": "Cruz Azul",
@@ -125,18 +135,6 @@
             "match_name": "Club América vs Nashville SC",
             "match_id": 141885,
             "startTime": "09:00:00 AM 15-04-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Al-Nassr FC vs Al-Ettifaq (Roshn Saudi League 2025-2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140731_5655_ANF_ETT_fc-web.jpg",
-            "team_1": "Al-Nassr FC",
-            "team_2": "Al-Ettifaq",
-            "status": "UPCOMING",
-            "event_name": "Roshn Saudi League 2025-2026",
-            "match_name": "Al-Nassr FC vs Al-Ettifaq",
-            "match_id": 140731,
-            "startTime": "11:30:00 PM 15-04-2026"
         },
         {
             "event_category": "Football",
@@ -183,20 +181,8 @@
             "status": "UPCOMING",
             "event_name": "ATP 500 - Barcelona Open Banc Sabadell 2026",
             "match_name": "ATP 500 - Barcelona Open Banc Sabadell 2026",
-            "match_id": 141829,
-            "startTime": "05:30:00 PM 15-04-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "ATP 500 - Barcelona Open Banc Sabadell 2026 vs Barcelona (ATP 500 - Barcelona Open Banc Sabadell 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Barcelona-Open-Banc-Sabadell_FC-Web.jpg",
-            "team_1": "ATP 500 - Barcelona Open Banc Sabadell 2026",
-            "team_2": "Barcelona",
-            "status": "UPCOMING",
-            "event_name": "ATP 500 - Barcelona Open Banc Sabadell 2026",
-            "match_name": "ATP 500 - Barcelona Open Banc Sabadell 2026",
             "match_id": 141828,
-            "startTime": "05:30:00 PM 15-04-2026"
+            "startTime": "02:30:00 PM 15-04-2026"
         },
         {
             "event_category": "Tennis",
@@ -208,7 +194,7 @@
             "event_name": "ATP 500 - BMW Open by Bitpanda 2026",
             "match_name": "ATP 500 - BMW Open by Bitpanda 2026",
             "match_id": 141843,
-            "startTime": "05:30:00 PM 15-04-2026"
+            "startTime": "02:30:00 PM 15-04-2026"
         },
         {
             "event_category": "Tennis",
@@ -220,7 +206,19 @@
             "event_name": "ATP 500 - BMW Open by Bitpanda 2026",
             "match_name": "ATP 500 - BMW Open by Bitpanda 2026",
             "match_id": 141842,
-            "startTime": "05:30:00 PM 15-04-2026"
+            "startTime": "02:30:00 PM 15-04-2026"
+        },
+        {
+            "event_category": "Tennis",
+            "title": "ATP 500 - Barcelona Open Banc Sabadell 2026 vs Barcelona (ATP 500 - Barcelona Open Banc Sabadell 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Barcelona-Open-Banc-Sabadell_FC-Web.jpg",
+            "team_1": "ATP 500 - Barcelona Open Banc Sabadell 2026",
+            "team_2": "Barcelona",
+            "status": "UPCOMING",
+            "event_name": "ATP 500 - Barcelona Open Banc Sabadell 2026",
+            "match_name": "ATP 500 - Barcelona Open Banc Sabadell 2026",
+            "match_id": 141829,
+            "startTime": "03:30:00 PM 15-04-2026"
         },
         {
             "event_category": "Cricket",
