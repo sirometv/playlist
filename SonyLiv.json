@@ -1,74 +1,9 @@
 {
     "name": "SonyLiv Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "02:36:53 AM 15-04-2026",
+    "last update time": "03:33:29 AM 15-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Football",
-            "isLive": true,
-            "contentId": "1090526899_ENG",
-            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000016949/1775435407474802_UCL26_QF_leg2_Atletico_vs_Barcelona_5apr_SP_landscape_thumb.jpg",
-            "broadcast_channel": "Sony Sports Ten 2",
-            "audioLanguageName": "ENG",
-            "event_name": "UEFA Champions League 2025-26",
-            "match_name": "Atletico vs Barcelona - Quarter-Final - Leg 2 - 14 Apr 2026 [ENG]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf"
-        },
-        {
-            "event_category": "Football",
-            "isLive": true,
-            "contentId": "1090526899_HIN",
-            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000016949/1775435407474802_UCL26_QF_leg2_Atletico_vs_Barcelona_5apr_SP_landscape_thumb.jpg",
-            "broadcast_channel": "Sony Sports Ten 2",
-            "audioLanguageName": "ENG",
-            "event_name": "UEFA Champions League 2025-26",
-            "match_name": "Atletico vs Barcelona - Quarter-Final - Leg 2 - 14 Apr 2026 [HIN]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/HIN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/HIN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/HIN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf"
-        },
-        {
-            "event_category": "Football",
-            "isLive": true,
-            "contentId": "1090526899_TAM",
-            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000016949/1775435407474802_UCL26_QF_leg2_Atletico_vs_Barcelona_5apr_SP_landscape_thumb.jpg",
-            "broadcast_channel": "Sony Sports Ten 2",
-            "audioLanguageName": "ENG",
-            "event_name": "UEFA Champions League 2025-26",
-            "match_name": "Atletico vs Barcelona - Quarter-Final - Leg 2 - 14 Apr 2026 [TAM]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/TAM/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/TAM/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/TAM/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf"
-        },
-        {
-            "event_category": "Football",
-            "isLive": true,
-            "contentId": "1090526899_TEL",
-            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000016949/1775435407474802_UCL26_QF_leg2_Atletico_vs_Barcelona_5apr_SP_landscape_thumb.jpg",
-            "broadcast_channel": "Sony Sports Ten 2",
-            "audioLanguageName": "ENG",
-            "event_name": "UEFA Champions League 2025-26",
-            "match_name": "Atletico vs Barcelona - Quarter-Final - Leg 2 - 14 Apr 2026 [TEL]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/TEL/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/TEL/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/TEL/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf"
-        },
-        {
-            "event_category": "Football",
-            "isLive": true,
-            "contentId": "1090526899_KAN",
-            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000016949/1775435407474802_UCL26_QF_leg2_Atletico_vs_Barcelona_5apr_SP_landscape_thumb.jpg",
-            "broadcast_channel": "Sony Sports Ten 2",
-            "audioLanguageName": "ENG",
-            "event_name": "UEFA Champions League 2025-26",
-            "match_name": "Atletico vs Barcelona - Quarter-Final - Leg 2 - 14 Apr 2026 [KAN]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/KAN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/KAN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2094588/UCL_Atle1404/KAN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf"
-        },
         {
             "event_category": "Football",
             "isLive": true,
@@ -78,9 +13,9 @@
             "audioLanguageName": "ENG",
             "event_name": "UEFA Champions League 2025-26",
             "match_name": "Liverpool vs PSG - Quarter-Final - Leg 2 - 14 Apr 2026 [ENG]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf"
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63"
         },
         {
             "event_category": "Football",
@@ -91,9 +26,9 @@
             "audioLanguageName": "ENG",
             "event_name": "UEFA Champions League 2025-26",
             "match_name": "Liverpool vs PSG - Quarter-Final - Leg 2 - 14 Apr 2026 [HIN]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/HIN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/HIN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/HIN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf"
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/HIN/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/HIN/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/HIN/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63"
         },
         {
             "event_category": "Football",
@@ -104,9 +39,9 @@
             "audioLanguageName": "ENG",
             "event_name": "UEFA Champions League 2025-26",
             "match_name": "Liverpool vs PSG - Quarter-Final - Leg 2 - 14 Apr 2026 [TAM]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TAM/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TAM/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TAM/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf"
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TAM/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TAM/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TAM/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63"
         },
         {
             "event_category": "Football",
@@ -117,9 +52,9 @@
             "audioLanguageName": "ENG",
             "event_name": "UEFA Champions League 2025-26",
             "match_name": "Liverpool vs PSG - Quarter-Final - Leg 2 - 14 Apr 2026 [TEL]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TEL/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TEL/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TEL/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf"
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TEL/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TEL/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/TEL/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63"
         },
         {
             "event_category": "Football",
@@ -130,9 +65,9 @@
             "audioLanguageName": "ENG",
             "event_name": "UEFA Champions League 2025-26",
             "match_name": "Liverpool vs PSG - Quarter-Final - Leg 2 - 14 Apr 2026 [KAN]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/KAN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/KAN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/KAN/std_lrh-800300010.m3u8?hdnea=exp=1776241661~acl=/*~id=38579958956277237379928735871704~hmac=9c5d8a9b25a85a9a615e53850cafe84f759b1429fb4b5cdc72f5af087667a6bf"
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/KAN/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/KAN/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005444/UCL_Live1404/KAN/std_lrh-800300010.m3u8?hdnea=exp=1776245309~acl=/*~id=01176084506342230740166855684441~hmac=2b8ee17d0019c6cad2efe841f0488236a6d00058099efa26a8bf9ead293b7f63"
         },
         {
             "event_category": "Football",
