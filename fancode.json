@@ -1,23 +1,9 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "01:42:13 AM 16-04-2026",
+    "last update time": "02:29:14 AM 16-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Cricket",
-            "title": "Windward Islands Volcanoes vs Guyana Harpy Eagles (West Indies Championship 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
-            "team_1": "Windward Islands Volcanoes",
-            "team_2": "Guyana Harpy Eagles",
-            "status": "LIVE",
-            "event_name": "West Indies Championship 2026",
-            "match_name": "Windward Islands Volcanoes vs Guyana Harpy Eagles",
-            "match_id": 141949,
-            "startTime": "07:30:00 PM 12-04-2026",
-            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/141949_english_hls_16bf057d1834275_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141949_english_hls_16bf057d1834275_1ta-di_h264/index.m3u8"
-        },
         {
             "event_category": "Cricket",
             "title": "Jamaica Scorpions vs Barbados Pride (West Indies Championship 2026)",
@@ -31,20 +17,6 @@
             "startTime": "08:30:00 PM 12-04-2026",
             "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/141948_english_hls_81e187044a6532_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141948_english_hls_81e187044a6532_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Al-Nassr FC vs Al-Ettifaq (Roshn Saudi League 2025-2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140731_5655_ANF_ETT_fc-web.jpg",
-            "team_1": "Al-Nassr FC",
-            "team_2": "Al-Ettifaq",
-            "status": "LIVE",
-            "event_name": "Roshn Saudi League 2025-2026",
-            "match_name": "Al-Nassr FC vs Al-Ettifaq",
-            "match_id": 140731,
-            "startTime": "11:30:00 PM 15-04-2026",
-            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/140731_english_hls_8250238c9753513_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/140731_english_hls_8250238c9753513_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -239,18 +211,6 @@
             "startTime": "07:30:00 PM 16-04-2026"
         },
         {
-            "event_category": "Golf",
-            "title": "World Feed - Day 1 vs Harbour Town Golf Links - Hilton Head Island, Sout (RBC Heritage 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/RBC_web.jpg",
-            "team_1": "World Feed - Day 1",
-            "team_2": "Harbour Town Golf Links - Hilton Head Island, Sout",
-            "status": "UPCOMING",
-            "event_name": "RBC Heritage 2026",
-            "match_name": "World Feed - Day 1",
-            "match_id": 141930,
-            "startTime": "12:30:00 AM 17-04-2026"
-        },
-        {
             "event_category": "Cricket",
             "title": "Bangladesh vs New Zealand (New Zealand tour of Bangladesh, 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/BAn-vs-NZ_ODIs_fc-web.jpg",
@@ -261,6 +221,18 @@
             "match_name": "Bangladesh vs New Zealand",
             "match_id": 142066,
             "startTime": "10:30:00 AM 17-04-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "World Feed - Day 1 vs Harbour Town Golf Links - Hilton Head Island, Sout (RBC Heritage 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/RBC_web.jpg",
+            "team_1": "World Feed - Day 1",
+            "team_2": "Harbour Town Golf Links - Hilton Head Island, Sout",
+            "status": "UPCOMING",
+            "event_name": "RBC Heritage 2026",
+            "match_name": "World Feed - Day 1",
+            "match_id": 141930,
+            "startTime": "12:30:00 AM 17-04-2026"
         },
         {
             "event_category": "Football",
@@ -464,6 +436,30 @@
             "event_name": "EFL Championship 2025-26",
             "match_name": "Blackburn Rovers F.C. vs Coventry City F.C.",
             "match_id": 141526,
+            "startTime": "12:30:00 AM 18-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Real Sociedad vs Racing Club (LALIGA Hypermotion 2025-26)",
+            "src": "https://images.fancode.com/aig/match/v1776063278978/141959_CASACARDS_APP.png",
+            "team_1": "Real Sociedad",
+            "team_2": "Racing Club",
+            "status": "UPCOMING",
+            "event_name": "LALIGA Hypermotion 2025-26",
+            "match_name": "Real Sociedad vs Racing Club",
+            "match_id": 141959,
+            "startTime": "12:00:00 AM 18-04-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "World Feed - Day 2 vs Harbour Town Golf Links - Hilton Head Island, Sout (RBC Heritage 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/RBC_web.jpg",
+            "team_1": "World Feed - Day 2",
+            "team_2": "Harbour Town Golf Links - Hilton Head Island, Sout",
+            "status": "UPCOMING",
+            "event_name": "RBC Heritage 2026",
+            "match_name": "World Feed - Day 2",
+            "match_id": 141931,
             "startTime": "12:30:00 AM 18-04-2026"
         }
     ]
