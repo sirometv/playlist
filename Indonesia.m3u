@@ -1,6 +1,6 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 07:28:44AM - 16-04-2026
+# Update Time: 01:18:55PM - 16-04-2026
 # Total Channel Found: 5427 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
@@ -16272,6 +16272,9 @@ https://aspaltvpasti.top/11111/9353.mpd
 #EXTINF:-1 tvg-logo="https://www.visionplus.id/images/repository/288/191288-LOGO-l.png" group-title="Sports", V+ Live 6
 https://d84q7nw4qf3j3.cloudfront.net/out/v1/eb98aca0a1be41f7b9c05dac051a250e/index.mpd
 
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/6pycF7Vx/300px-IDTV.png" group-title="News", BeritaSatu
+https://beritasatu.secureswiftcontent.com/han/beritasatu/bsatu10008r/srtoutput/manifest.m3u8
+
 #EXTINF:-1 tvg-logo="https://mimipipi22.github.io/logo/movies/hbo.jpg" group-title="MOVIES", HBO 🇵🇭
 https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_hbohd/default/index.mpd
 
@@ -16295,6 +16298,3 @@ http://122.248.43.242:1935/JTVMADIUN/_definst_/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/mIDWIQk.png" group-title="General", JTV Malang
 http://122.248.43.242:1935/JTVMALANG/_definst_/myStream/playlist.m3u8
-
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/6pycF7Vx/300px-IDTV.png" group-title="Business", BeritaSatu
-https://beritasatu.secureswiftcontent.com/han/beritasatu/bsatu10008r/srtoutput/manifest.m3u8
