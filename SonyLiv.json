@@ -1,21 +1,21 @@
 {
     "name": "SonyLiv Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "06:52:50 PM 17-04-2026",
+    "last update time": "07:58:11 PM 17-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
             "event_category": "Football",
             "isLive": true,
             "contentId": "1090528108_ENG",
-            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000017283/1776353669691827_UYL26_SemiFinal_Leg1_Benfica_vs_Club_Brugge_25mar_landscape_thumb.jpg",
+            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000017315/1776429824542201_UYL26_SemiFinal_Benfica_vs_Club_Brugge_25mar_landscape_thumb.jpg",
             "broadcast_channel": "Sony Sports Ten 2",
             "audioLanguageName": "ENG",
             "event_name": "UEFA Youth League 2025-26",
             "match_name": "Benfica vs Club Brugge - Semi-Final - 17 Apr 2026 [ENG]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2022320/Benfica_1704/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776473334~acl=/*~id=03590756415930039751471686272942~hmac=3b59e785893faa3be6e5a4b1616a482259a19660b7c3d57ecb9fd9f0249244b3",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2022320/Benfica_1704/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776473334~acl=/*~id=03590756415930039751471686272942~hmac=3b59e785893faa3be6e5a4b1616a482259a19660b7c3d57ecb9fd9f0249244b3",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2022320/Benfica_1704/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776473334~acl=/*~id=03590756415930039751471686272942~hmac=3b59e785893faa3be6e5a4b1616a482259a19660b7c3d57ecb9fd9f0249244b3"
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2022320/Benfica_1704/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776476970~acl=/*~id=32688285487723784889849949150468~hmac=12cd0535585254b2112fd07d09f5a0c54ba68ec0077131c37e3dbce71c1c3576",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2022320/Benfica_1704/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776476970~acl=/*~id=32688285487723784889849949150468~hmac=12cd0535585254b2112fd07d09f5a0c54ba68ec0077131c37e3dbce71c1c3576",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2022320/Benfica_1704/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776476970~acl=/*~id=32688285487723784889849949150468~hmac=12cd0535585254b2112fd07d09f5a0c54ba68ec0077131c37e3dbce71c1c3576"
         },
         {
             "event_category": "Football",
