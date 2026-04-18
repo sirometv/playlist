@@ -1,22 +1,9 @@
 {
     "name": "SonyLiv Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "11:59:24 PM 18-04-2026",
+    "last update time": "01:00:30 AM 19-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
-        {
-            "event_category": "Football",
-            "isLive": true,
-            "contentId": "1090528277_ENG",
-            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000016952/1775438832385352_bliga26_MD30_Frankfurt_vs_Leipzig_5apr_landscape_thumb.jpg",
-            "broadcast_channel": "Sony Sports Ten 2",
-            "audioLanguageName": "ENG",
-            "event_name": "Bundesliga 2025-26",
-            "match_name": "Eintracht Frankfurt vs RB Leipzig - MD 30 - 18 Apr 2026 [ENG]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2022319/BLIGA_Ei1804/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776578252~acl=/*~id=88479914087934579195453235137366~hmac=8e5d55d4edb5fa5c114cc7301662947e98dc87e15229de2f9c385b46e53c274b",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2022319/BLIGA_Ei1804/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776578252~acl=/*~id=88479914087934579195453235137366~hmac=8e5d55d4edb5fa5c114cc7301662947e98dc87e15229de2f9c385b46e53c274b",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2022319/BLIGA_Ei1804/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776578252~acl=/*~id=88479914087934579195453235137366~hmac=8e5d55d4edb5fa5c114cc7301662947e98dc87e15229de2f9c385b46e53c274b"
-        },
         {
             "event_category": "Golf",
             "isLive": true,
@@ -26,9 +13,9 @@
             "audioLanguageName": "ENG",
             "event_name": "LIV Golf",
             "match_name": "Mexico City - Day 3 - 18 Apr 2026 [ENG]",
-            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2018458/Golf_Mex1804/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776578252~acl=/*~id=88479914087934579195453235137366~hmac=8e5d55d4edb5fa5c114cc7301662947e98dc87e15229de2f9c385b46e53c274b",
-            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2018458/Golf_Mex1804/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776578252~acl=/*~id=88479914087934579195453235137366~hmac=8e5d55d4edb5fa5c114cc7301662947e98dc87e15229de2f9c385b46e53c274b",
-            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2018458/Golf_Mex1804/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776578252~acl=/*~id=88479914087934579195453235137366~hmac=8e5d55d4edb5fa5c114cc7301662947e98dc87e15229de2f9c385b46e53c274b"
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2018458/Golf_Mex1804/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776581893~acl=/*~id=01816958131965766494177439684330~hmac=bc929b3f5ba74e7fe10b1949322bf5fccef341a3b798a4f28d44c4af88886e5d",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2018458/Golf_Mex1804/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776581893~acl=/*~id=01816958131965766494177439684330~hmac=bc929b3f5ba74e7fe10b1949322bf5fccef341a3b798a4f28d44c4af88886e5d",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2018458/Golf_Mex1804/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776581893~acl=/*~id=01816958131965766494177439684330~hmac=bc929b3f5ba74e7fe10b1949322bf5fccef341a3b798a4f28d44c4af88886e5d"
         },
         {
             "event_category": "Football",
