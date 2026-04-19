@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 01:07:03PM - 19-04-2026
-# Total Channel Found: 862 Channel
+# Update Time: 02:11:03PM - 19-04-2026
+# Total Channel Found: 1008 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -56,10 +56,10 @@ http://103.229.254.25:7001/play/a085/index.m3u8
 http://103.229.254.25:7001/play/a0f5/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 1", ARYDigitalAsia HD
-http://103.229.254.25:7001/play/a07w/index.m3u8
+http://103.76.111.180:7780/play/a06m
 
 #EXTINF:-1 group-title="BDIX 1", ARYZindagi
-http://103.229.254.25:7001/play/a07u/index.m3u8
+http://103.76.111.180:7780/play/a06q
 
 #EXTINF:-1 group-title="BDIX 1", ATN Bangla
 http://103.229.254.25:7001/play/a06b/index.m3u8
@@ -335,7 +335,7 @@ http://103.229.254.25:7001/play/a0ed/index.m3u8
 http://103.229.254.25:7001/play/a082/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 1", PTV-SPORTS-HD
-http://103.229.254.25:7001/play/a084/index.m3u8
+http://103.76.111.180:7780/play/a058
 
 #EXTINF:-1 group-title="BDIX 1", Pogo - Rs 5.00
 http://103.229.254.25:7001/play/a0dh/index.m3u8
@@ -662,7 +662,7 @@ http://103.161.153.165:8000/play/a037/index.m3u8
 http://103.161.153.165:8000/play/a04g/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 2", ARYDigitalAsia HD
-http://103.229.254.25:7001/play/a07w/index.m3u8
+http://103.76.111.180:7780/play/a06m
 
 #EXTINF:-1 group-title="BDIX 2", ATN Bangla
 http://103.229.254.25:7001/play/a06b/index.m3u8
@@ -2603,3 +2603,441 @@ http://38.41.8.1:8000/play/a0rj
 
 #EXTINF:-1, ZOOM
 http://38.41.8.1:8000/play/a0d6
+
+#EXTINF:-1 group-title="-", 24_news
+http://103.76.111.180:7780/play/a002
+
+#EXTINF:-1 group-title="-", 365
+http://103.76.111.180:7780/play/a07h
+
+#EXTINF:-1 group-title="-", 365_187
+http://103.76.111.180:7780/play/a07z
+
+#EXTINF:-1 group-title="-", 7 News HD
+http://103.76.111.180:7780/play/a01y
+
+#EXTINF:-1 group-title="-", 7 news
+http://103.76.111.180:7780/play/a08m
+
+#EXTINF:-1 group-title="-", 8xm HD
+http://103.76.111.180:7780/play/a032
+
+#EXTINF:-1 group-title="-", 92 News Hd
+http://103.76.111.180:7780/play/a06e
+
+#EXTINF:-1 group-title="-", A News
+http://103.76.111.180:7780/play/a060
+
+#EXTINF:-1 group-title="-", A Sports
+http://103.76.111.180:7780/play/a06j
+
+#EXTINF:-1 group-title="-", AAN_Tv
+http://103.76.111.180:7780/play/a00j
+
+#EXTINF:-1 group-title="-", ABN_news
+http://103.76.111.180:7780/play/a04t
+
+#EXTINF:-1 group-title="-", ARYMusik
+http://103.76.111.180:7780/play/a06o
+
+#EXTINF:-1 group-title="-", ARYNewsAsia
+http://103.76.111.180:7780/play/a06p
+
+#EXTINF:-1 group-title="-", ARYQTV
+http://103.76.111.180:7780/play/a06n
+
+#EXTINF:-1 group-title="-", ATV_hd
+http://103.76.111.180:7780/play/a04w
+
+#EXTINF:-1 group-title="-", Abbtakk HD
+http://103.76.111.180:7780/play/a033
+
+#EXTINF:-1 group-title="-", Aik
+http://103.76.111.180:7780/play/a05o
+
+#EXTINF:-1 group-title="-", Alief_tv
+http://103.76.111.180:7780/play/a05q
+
+#EXTINF:-1 group-title="-", Aplus_76.5
+http://103.76.111.180:7780/play/a03q
+
+#EXTINF:-1 group-title="-", Aplus_76.6_76.5
+http://103.76.111.180:7780/play/a071
+
+#EXTINF:-1 group-title="-", Apna HD
+http://103.76.111.180:7780/play/a031
+
+#EXTINF:-1 group-title="-", Atv _187
+http://103.76.111.180:7780/play/a07a
+
+#EXTINF:-1 group-title="-", Aur-Life HD
+http://103.76.111.180:7780/play/a03l
+
+#EXTINF:-1 group-title="-", Avt Khayber HD
+http://103.76.111.180:7780/play/a03e
+
+#EXTINF:-1 group-title="-", BOL Entertainment Urdu_76.5
+http://103.76.111.180:7780/play/a06l
+
+#EXTINF:-1 group-title="-", BOL News Urdu_76.5
+http://103.76.111.180:7780/play/a06k
+
+#EXTINF:-1 group-title="-", Bethat tb
+http://103.76.111.180:7780/play/a064
+
+#EXTINF:-1 group-title="-", CN pakistan
+http://103.76.111.180:7780/play/a08y
+
+#EXTINF:-1 group-title="-", Channel_5_76.6
+http://103.76.111.180:7780/play/a072
+
+#EXTINF:-1 group-title="-", Channel_89
+http://103.76.111.180:7780/play/a05u
+
+#EXTINF:-1 group-title="-", Discover Pakistan
+http://103.76.111.180:7780/play/a01z
+
+#EXTINF:-1 group-title="-", Duniya_news
+http://103.76.111.180:7780/play/a00e
+
+#EXTINF:-1 group-title="-", Exp Entertainment
+http://103.76.111.180:7780/play/a00y
+
+#EXTINF:-1 group-title="-", Exp News
+http://103.76.111.180:7780/play/a00x
+
+#EXTINF:-1 group-title="-", FILMAX
+http://103.76.111.180:7780/play/a085
+
+#EXTINF:-1 group-title="-", FILMAzia
+http://103.76.111.180:7780/play/a086
+
+#EXTINF:-1 group-title="-", FILMAzia punjabi
+http://103.76.111.180:7780/play/a087
+
+#EXTINF:-1 group-title="-", Fast Sports
+http://103.76.111.180:7780/play/a03h
+
+#EXTINF:-1 group-title="-", Filma_max
+http://103.76.111.180:7780/play/a00c
+
+#EXTINF:-1 group-title="-", Filmazia
+http://103.76.111.180:7780/play/a055
+
+#EXTINF:-1 group-title="-", Filmazia_punjabo
+http://103.76.111.180:7780/play/a00b
+
+#EXTINF:-1 group-title="-", Geo news
+http://103.76.111.180:7780/play/a06g
+
+#EXTINF:-1 group-title="-", Geo tez
+http://103.76.111.180:7780/play/a06h
+
+#EXTINF:-1 group-title="-", Gnn_news_hd
+http://103.76.111.180:7780/play/a00h
+
+#EXTINF:-1 group-title="-", Green TV
+http://103.76.111.180:7780/play/a001
+
+#EXTINF:-1 group-title="-", Gtv HD
+http://103.76.111.180:7780/play/a03c
+
+#EXTINF:-1 group-title="-", HADI TV
+http://103.76.111.180:7780/play/a051
+
+#EXTINF:-1 group-title="-", HUM PASHTO-1
+http://103.76.111.180:7780/play/a079
+
+#EXTINF:-1 group-title="-", Hoorah tv
+http://103.76.111.180:7780/play/a067
+
+#EXTINF:-1 group-title="-", Hoorah tv
+http://103.76.111.180:7780/play/a04l
+
+#EXTINF:-1 group-title="-", Jalwa HD
+http://103.76.111.180:7780/play/a034
+
+#EXTINF:-1 group-title="-", Kashish
+http://103.76.111.180:7780/play/a03v
+
+#EXTINF:-1 group-title="-", Kay-2 Tv HD
+http://103.76.111.180:7780/play/a03d
+
+#EXTINF:-1 group-title="-", Khayber News HD
+http://103.76.111.180:7780/play/a03f
+
+#EXTINF:-1 group-title="-", Koh_e_noor
+http://103.76.111.180:7780/play/a00a
+
+#EXTINF:-1 group-title="-", Ktn Ent
+http://103.76.111.180:7780/play/a03u
+
+#EXTINF:-1 group-title="-", Ktn News
+http://103.76.111.180:7780/play/a03w
+
+#EXTINF:-1 group-title="-", LTN FAMILY
+http://103.76.111.180:7780/play/a084
+
+#EXTINF:-1 group-title="-", Lahore rung
+http://103.76.111.180:7780/play/a04v
+
+#EXTINF:-1 group-title="-", Lahore_news
+http://103.76.111.180:7780/play/a00f
+
+#EXTINF:-1 group-title="-", MUN tv HD
+http://103.76.111.180:7780/play/a02x
+
+#EXTINF:-1 group-title="-", Madani Tv
+http://103.76.111.180:7780/play/a019
+
+#EXTINF:-1 group-title="-", Masala tv
+http://103.76.111.180:7780/play/a077
+
+#EXTINF:-1 group-title="-", Mashriq Tv
+http://103.76.111.180:7780/play/a03x
+
+#EXTINF:-1 group-title="-", Metro_1_76.6
+http://103.76.111.180:7780/play/a06x
+
+#EXTINF:-1 group-title="-", Movie one
+http://103.76.111.180:7780/play/a062
+
+#EXTINF:-1 group-title="-", New News HD
+http://103.76.111.180:7780/play/a03k
+
+#EXTINF:-1 group-title="-", News One
+http://103.76.111.180:7780/play/a03s
+
+#EXTINF:-1 group-title="-", PTV-Global
+http://103.76.111.180:7780/play/a059
+
+#EXTINF:-1 group-title="-", PTV-NEWS HD
+http://103.76.111.180:7780/play/a057
+
+#EXTINF:-1 group-title="-", PTV-World
+http://103.76.111.180:7780/play/a05a
+
+#EXTINF:-1 group-title="-", Paigham Pashto
+http://103.76.111.180:7780/play/a011
+
+#EXTINF:-1 group-title="-", Paigham Pashto
+http://103.76.111.180:7780/play/a050
+
+#EXTINF:-1 group-title="-", Paigham Urdu
+http://103.76.111.180:7780/play/a052
+
+#EXTINF:-1 group-title="-", Pashto 1
+http://103.76.111.180:7780/play/a08s
+
+#EXTINF:-1 group-title="-", Play_entertainment_76.5
+http://103.76.111.180:7780/play/a06v
+
+#EXTINF:-1 group-title="-", Press tv
+http://103.76.111.180:7780/play/a061
+
+#EXTINF:-1 group-title="-", RAAVi
+http://103.76.111.180:7780/play/a053
+
+#EXTINF:-1 group-title="-", ROHI
+http://103.76.111.180:7780/play/a005
+
+#EXTINF:-1 group-title="-", Raavi Tv
+http://103.76.111.180:7780/play/a00w
+
+#EXTINF:-1 group-title="-", Roze Tv
+http://103.76.111.180:7780/play/a02z
+
+#EXTINF:-1 group-title="-", Roze excel
+http://103.76.111.180:7780/play/a06c
+
+#EXTINF:-1 group-title="-", SAB_tv_76.6 (
+http://103.76.111.180:7780/play/a06z
+
+#EXTINF:-1 group-title="-", SAUDI CH For Sunnah HD
+http://103.76.111.180:7780/play/a07r
+
+#EXTINF:-1 group-title="-", SAUDI CH For quran
+http://103.76.111.180:7780/play/a080
+
+#EXTINF:-1 group-title="-", Samma_news
+http://103.76.111.180:7780/play/a04u
+
+#EXTINF:-1 group-title="-", See Tv
+http://103.76.111.180:7780/play/a022
+
+#EXTINF:-1 group-title="-", Sindh News
+http://103.76.111.180:7780/play/a021
+
+#EXTINF:-1 group-title="-", Sindh Tv
+http://103.76.111.180:7780/play/a04o
+
+#EXTINF:-1 group-title="-", Specail_tv_76.6
+http://103.76.111.180:7780/play/a06y
+
+#EXTINF:-1 group-title="-", Star News Asia
+http://103.76.111.180:7780/play/a04m
+
+#EXTINF:-1 group-title="-", Tv 2DAY
+http://103.76.111.180:7780/play/a03z
+
+#EXTINF:-1 group-title="-", Tv_2_day_76.6
+http://103.76.111.180:7780/play/a06w
+
+#EXTINF:-1 group-title="-", UK_44
+http://103.76.111.180:7780/play/a006
+
+#EXTINF:-1 group-title="-", Venus_tv_76.6
+http://103.76.111.180:7780/play/a070
+
+#EXTINF:-1 group-title="-", Waseb
+http://103.76.111.180:7780/play/a03t
+
+#EXTINF:-1 group-title="-", a1 tv
+http://103.76.111.180:7780/play/a08q
+
+#EXTINF:-1 group-title="-", aaj_enter
+http://103.76.111.180:7780/play/a08g
+
+#EXTINF:-1 group-title="-", aaj_news
+http://103.76.111.180:7780/play/a08f
+
+#EXTINF:-1 group-title="-", afghan tv
+http://103.76.111.180:7780/play/a08k
+
+#EXTINF:-1 group-title="-", arsh tv
+http://103.76.111.180:7780/play/a08u
+
+#EXTINF:-1 group-title="-", aruj
+http://103.76.111.180:7780/play/a040
+
+#EXTINF:-1 group-title="-", babytv_stream
+http://103.76.111.180:7780/play/a091
+
+#EXTINF:-1 group-title="-", capital_tv
+http://103.76.111.180:7780/play/a083
+
+#EXTINF:-1 group-title="-", cd_1
+http://103.76.111.180:7780/play/a092
+
+#EXTINF:-1 group-title="-", cd_2
+http://103.76.111.180:7780/play/a093
+
+#EXTINF:-1 group-title="-", cd_3
+http://103.76.111.180:7780/play/a094
+
+#EXTINF:-1 group-title="-", cd_4
+http://103.76.111.180:7780/play/a095
+
+#EXTINF:-1 group-title="-", cd_5
+http://103.76.111.180:7780/play/a096
+
+#EXTINF:-1 group-title="-", cd_7
+http://103.76.111.180:7780/play/a098
+
+#EXTINF:-1 group-title="-", city
+http://103.76.111.180:7780/play/a008
+
+#EXTINF:-1 group-title="-", city_21
+http://103.76.111.180:7780/play/a007
+
+#EXTINF:-1 group-title="-", city_41
+http://103.76.111.180:7780/play/a004
+
+#EXTINF:-1 group-title="-", city_42
+http://103.76.111.180:7780/play/a003
+
+#EXTINF:-1 group-title="-", dawn_news
+http://103.76.111.180:7780/play/a04x
+
+#EXTINF:-1 group-title="-", geo_entertainment
+http://103.76.111.180:7780/play/a07k
+
+#EXTINF:-1 group-title="-", geo_kahani_atdloc
+http://103.76.111.180:7780/play/a07j
+
+#EXTINF:-1 group-title="-", geo_super_atdloc
+http://103.76.111.180:7780/play/a07i
+
+#EXTINF:-1 group-title="-", hadayat tv
+http://103.76.111.180:7780/play/a08o
+
+#EXTINF:-1 group-title="-", hum news
+http://103.76.111.180:7780/play/a076
+
+#EXTINF:-1 group-title="-", hum sitary
+http://103.76.111.180:7780/play/a078
+
+#EXTINF:-1 group-title="-", hum tv
+http://103.76.111.180:7780/play/a06u
+
+#EXTINF:-1 group-title="-", i filim english
+http://103.76.111.180:7780/play/a066
+
+#EXTINF:-1 group-title="-", inplus pakistan
+http://103.76.111.180:7780/play/a08v
+
+#EXTINF:-1 group-title="-", kids_zone
+http://103.76.111.180:7780/play/a08t
+
+#EXTINF:-1 group-title="-", m me
+http://103.76.111.180:7780/play/a08h
+
+#EXTINF:-1 group-title="-", m news
+http://103.76.111.180:7780/play/a05w
+
+#EXTINF:-1 group-title="-", m sports
+http://103.76.111.180:7780/play/a05y
+
+#EXTINF:-1 group-title="-", m world
+http://103.76.111.180:7780/play/a05x
+
+#EXTINF:-1 group-title="-", minimax 2
+http://103.76.111.180:7780/play/a08p
+
+#EXTINF:-1 group-title="-", neo news
+http://103.76.111.180:7780/play/a03j
+
+#EXTINF:-1 group-title="-", noor tv
+http://103.76.111.180:7780/play/a08l
+
+#EXTINF:-1 group-title="-", pakistan 1
+http://103.76.111.180:7780/play/a08r
+
+#EXTINF:-1 group-title="-", planet tv
+http://103.76.111.180:7780/play/a08i
+
+#EXTINF:-1 group-title="-", ptv_home
+http://103.76.111.180:7780/play/a056
+
+#EXTINF:-1 group-title="-", public news
+http://103.76.111.180:7780/play/a06f
+
+#EXTINF:-1 group-title="-", quran tv
+http://103.76.111.180:7780/play/a08n
+
+#EXTINF:-1 group-title="-", set pakistan
+http://103.76.111.180:7780/play/a08w
+
+#EXTINF:-1 group-title="-", suno_news_hd
+http://103.76.111.180:7780/play/a00i
+
+#EXTINF:-1 group-title="-", ten sports
+http://103.76.111.180:7780/play/a06t
+
+#EXTINF:-1 group-title="-", test_cric
+http://103.76.111.180:7780/play/a099
+
+#EXTINF:-1 group-title="-", times HD
+http://103.76.111.180:7780/play/a02w
+
+#EXTINF:-1 group-title="-", tv_one
+http://103.76.111.180:7780/play/a04q
+
+#EXTINF:-1 group-title="-", venus enter
+http://103.76.111.180:7780/play/a05r
+
+#EXTINF:-1 group-title="-", vsh
+http://103.76.111.180:7780/play/a07o
+
+#EXTINF:-1 group-title="-", waqt news
+http://103.76.111.180:7780/play/a08x
