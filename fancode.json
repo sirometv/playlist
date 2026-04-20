@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "07:25:33 PM 20-04-2026",
+    "last update time": "08:44:39 PM 20-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -10,11 +10,13 @@
             "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
             "team_1": "Windward Islands Volcanoes",
             "team_2": "Guyana Harpy Eagles",
-            "status": "PAUSED",
+            "status": "LIVE",
             "event_name": "West Indies Championship 2026",
             "match_name": "Windward Islands Volcanoes vs Guyana Harpy Eagles",
             "match_id": 141952,
-            "startTime": "07:30:00 PM 19-04-2026"
+            "startTime": "07:30:00 PM 19-04-2026",
+            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/141952_english_hls_5c3f8113e677175_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141952_english_hls_5c3f8113e677175_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -22,11 +24,27 @@
             "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
             "team_1": "Leeward Islands Hurricanes",
             "team_2": "Trinidad & Tobago Red Force",
-            "status": "PAUSED",
+            "status": "LIVE",
             "event_name": "West Indies Championship 2026",
             "match_name": "Leeward Islands Hurricanes vs Trinidad & Tobago Red Force",
             "match_id": 141950,
-            "startTime": "07:30:00 PM 19-04-2026"
+            "startTime": "07:30:00 PM 19-04-2026",
+            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/141950_english_hls_94dbc5a8c343464_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141950_english_hls_94dbc5a8c343464_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Football",
+            "title": "Punjab FC vs Inter Kashi (ISL 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140493_5956_PFC_KSHI_FC-Web_1772466287509.jpg",
+            "team_1": "Punjab FC",
+            "team_2": "Inter Kashi",
+            "status": "LIVE",
+            "event_name": "ISL 2025-26",
+            "match_name": "Punjab FC vs Inter Kashi",
+            "match_id": 140493,
+            "startTime": "07:30:00 PM 20-04-2026",
+            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/140493_english_hls_dc8dcea2dd24462_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/140493_english_hls_dc8dcea2dd24462_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -39,18 +57,6 @@
             "match_name": "Jamaica Scorpions vs Barbados Pride",
             "match_id": 141951,
             "startTime": "08:30:00 PM 19-04-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Punjab FC vs Inter Kashi (ISL 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140493_5956_PFC_KSHI_FC-Web_1772466287509.jpg",
-            "team_1": "Punjab FC",
-            "team_2": "Inter Kashi",
-            "status": "UPCOMING",
-            "event_name": "ISL 2025-26",
-            "match_name": "Punjab FC vs Inter Kashi",
-            "match_id": 140493,
-            "startTime": "07:30:00 PM 20-04-2026"
         },
         {
             "event_category": "Cricket",
@@ -139,7 +145,7 @@
         {
             "event_category": "Football",
             "title": "Machida Zelvia vs Shabab Al Ahli (AFC Champions League Elite 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Old-Match-Card.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Old-Match-Card_1776694825679.jpg",
             "team_1": "Machida Zelvia",
             "team_2": "Shabab Al Ahli",
             "status": "UPCOMING",
@@ -271,7 +277,7 @@
         {
             "event_category": "Football",
             "title": "Al-Nassr FC vs Al Ahli (QAT) (AFC Champions League Two 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/AFC--(Al-Nassr)-vs-(Al-Ahli-SC)--old.jpg",
             "team_1": "Al-Nassr FC",
             "team_2": "Al Ahli (QAT)",
             "status": "UPCOMING",
@@ -423,6 +429,18 @@
             "match_name": "Featured Holes - Day 1",
             "match_id": 142011,
             "startTime": "07:00:00 PM 23-04-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Featured Groups - Day 1 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Golf-old.jpg",
+            "team_1": "Featured Groups - Day 1",
+            "team_2": "TPC Louisiana - Avondale, Louisiana ",
+            "status": "UPCOMING",
+            "event_name": "Zurich Classic of New Orleans 2026",
+            "match_name": "Featured Groups - Day 1",
+            "match_id": 142007,
+            "startTime": "07:15:00 PM 23-04-2026"
         }
     ]
 }
