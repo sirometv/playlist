@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 01:22:28PM - 21-04-2026
-# Total Channel Found: 1162 Channel
+# Update Time: 06:59:54PM - 21-04-2026
+# Total Channel Found: 1172 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -944,7 +944,7 @@ http://103.161.153.165:8000/play/a015/index.m3u8
 http://103.161.153.165:8000/play/sonyatth/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 2", SONY HD
-http://103.161.153.165:8000/play/a01i/index.m3u8
+http://8.243.126.131:8000/play/a0gi/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 2", SONY MAX HD
 http://103.161.153.165:8000/play/a01k/index.m3u8
@@ -1676,7 +1676,7 @@ http://204.199.242.203:58000/play/a07j/index.m3u8
 http://8.243.126.131:8000/play/a0g6/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", SONY HD
-http://103.161.153.165:8000/play/a01i/index.m3u8
+http://8.243.126.131:8000/play/a0gi/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", SPACE HD
 http://8.243.126.131:8000/play/a0gz/index.m3u8
@@ -3485,6 +3485,36 @@ http://103.161.153.165:8000/play/a061/index.m3u8
 
 #EXTINF:-1 group-title="-", WILLOW CRICKET
 http://103.161.153.165:8000/play/a064/index.m3u8
+
+#EXTINF:-1 group-title="-", 25-UNIVISION HD
+http://8.243.126.131:8000/play/a04w/index.m3u8
+
+#EXTINF:-1 group-title="-", 82 DISNEY CHANNEL
+http://8.243.126.131:8000/play/a0m7/index.m3u8
+
+#EXTINF:-1 group-title="-", CNN Chile
+http://8.243.126.131:8000/play/a0mg/index.m3u8
+
+#EXTINF:-1 group-title="-", Cartoonito
+http://8.243.126.131:8000/play/a0mf/index.m3u8
+
+#EXTINF:-1 group-title="-", Cine Premium HD
+http://8.243.126.131:8000/play/a0mi/index.m3u8
+
+#EXTINF:-1 group-title="-", Disney Jr.
+http://8.243.126.131:8000/play/a0mz/index.m3u8
+
+#EXTINF:-1 group-title="-", ESPN PRIMUN HD
+http://8.243.126.131:8000/play/a0lu/index.m3u8
+
+#EXTINF:-1 group-title="-", H2
+http://8.243.126.131:8000/play/a0mo/index.m3u8
+
+#EXTINF:-1 group-title="-", KDrama HD
+http://8.243.126.131:8000/play/a0mn/index.m3u8
+
+#EXTINF:-1 group-title="-", TelefØ
+http://8.243.126.131:8000/play/a0n3/index.m3u8
 
 #EXTINF:-1 group-title="-", CNN Espaæol U
 http://204.199.242.203:58000/play/a02j/index.m3u8
