@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "11:16:24 AM 21-04-2026",
+    "last update time": "01:10:56 PM 21-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -10,11 +10,13 @@
             "src": "https://www.fancode.com/skillup-uploads/cms-media/142050_6045_RWA-W_USA-W_fc-web.jpg",
             "team_1": "Rwanda Women",
             "team_2": "USA Women",
-            "status": "UPCOMING",
+            "status": "LIVE",
             "event_name": "ICC Women's T20I Challenge Trophy, 2026",
             "match_name": "Rwanda Women vs USA Women",
             "match_id": 142050,
-            "startTime": "12:30:00 PM 21-04-2026"
+            "startTime": "12:30:00 PM 21-04-2026",
+            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/142050_english_hls_5cdbbeebb357143_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/142050_english_hls_5cdbbeebb357143_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -65,6 +67,18 @@
             "startTime": "08:30:00 PM 19-04-2026"
         },
         {
+            "event_category": "Cricket",
+            "title": "Bangladesh Women vs Sri Lanka Women (Sri Lanka Women's tour of Bangladesh, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/BAN-vs-SL_web.jpg",
+            "team_1": "Bangladesh Women",
+            "team_2": "Sri Lanka Women",
+            "status": "UPCOMING",
+            "event_name": "Sri Lanka Women's tour of Bangladesh, 2026",
+            "match_name": "Bangladesh Women vs Sri Lanka Women",
+            "match_id": 142073,
+            "startTime": "09:00:00 AM 22-04-2026"
+        },
+        {
             "event_category": "Football",
             "title": "Chennaiyin FC vs Mohammedan SC (ISL 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140459_5956_CFC_MSC_FC-Web_1772451129165.jpg",
@@ -99,18 +113,6 @@
             "match_name": "Chennaiyin FC vs Mohammedan SC",
             "match_id": 141173,
             "startTime": "07:30:00 PM 21-04-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Bangladesh Women vs Sri Lanka Women (Sri Lanka Women's tour of Bangladesh, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/BAN-vs-SL_web.jpg",
-            "team_1": "Bangladesh Women",
-            "team_2": "Sri Lanka Women",
-            "status": "UPCOMING",
-            "event_name": "Sri Lanka Women's tour of Bangladesh, 2026",
-            "match_name": "Bangladesh Women vs Sri Lanka Women",
-            "match_id": 142073,
-            "startTime": "09:00:00 AM 22-04-2026"
         },
         {
             "event_category": "Football",
