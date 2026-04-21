@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "02:44:01 AM 22-04-2026",
+    "last update time": "03:32:02 AM 22-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -17,20 +17,6 @@
             "startTime": "08:30:00 PM 19-04-2026",
             "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/141951_english_hls_2bb96b873655442_1ta-di_h264/index.m3u8",
             "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141951_english_hls_2bb96b873655442_1ta-di_h264/index.m3u8"
-        },
-        {
-            "event_category": "Football",
-            "title": "Leicester City F.C. vs Hull City (EFL Championship 2025-26)",
-            "src": "https://images.fancode.com/aig/match/v1776773188197/142186_CASACARDS_APP.png",
-            "team_1": "Leicester City F.C.",
-            "team_2": "Hull City",
-            "status": "LIVE",
-            "event_name": "EFL Championship 2025-26",
-            "match_name": "Leicester City F.C. vs Hull City",
-            "match_id": 142186,
-            "startTime": "12:15:00 AM 22-04-2026",
-            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/142186_english_hls_a55fc12faf89537_1ta-di_h264/index.m3u8",
-            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/142186_english_hls_a55fc12faf89537_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Football",
@@ -74,6 +60,18 @@
         },
         {
             "event_category": "Cricket",
+            "title": "Rwanda Women vs Nepal Women (ICC Women's T20I Challenge Trophy, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/142052_6045_RWA-W_NP-W_fc-web.jpg",
+            "team_1": "Rwanda Women",
+            "team_2": "Nepal Women",
+            "status": "UPCOMING",
+            "event_name": "ICC Women's T20I Challenge Trophy, 2026",
+            "match_name": "Rwanda Women vs Nepal Women",
+            "match_id": 142052,
+            "startTime": "12:30:00 PM 22-04-2026"
+        },
+        {
+            "event_category": "Cricket",
             "title": "Windward Islands Volcanoes vs Guyana Harpy Eagles (West Indies Championship 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg",
             "team_1": "Windward Islands Volcanoes",
@@ -95,18 +93,6 @@
             "match_name": "Leeward Islands Hurricanes vs Trinidad & Tobago Red Force",
             "match_id": 141950,
             "startTime": "07:30:00 PM 19-04-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "Rwanda Women vs Nepal Women (ICC Women's T20I Challenge Trophy, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/142052_6045_RWA-W_NP-W_fc-web.jpg",
-            "team_1": "Rwanda Women",
-            "team_2": "Nepal Women",
-            "status": "UPCOMING",
-            "event_name": "ICC Women's T20I Challenge Trophy, 2026",
-            "match_name": "Rwanda Women vs Nepal Women",
-            "match_id": 142052,
-            "startTime": "12:30:00 PM 22-04-2026"
         },
         {
             "event_category": "Cricket",
