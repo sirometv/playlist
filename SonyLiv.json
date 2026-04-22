@@ -1,7 +1,7 @@
 {
     "name": "SonyLiv Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "02:56:18 PM 22-04-2026",
+    "last update time": "04:17:37 PM 22-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -39,6 +39,15 @@
             "broadcast_channel": "Sony Sports Ten 5",
             "audioLanguageName": "ENG",
             "event_name": "Upcoming - Emirates FA Cup - Semifinals - Chelsea vs Leeds United"
+        },
+        {
+            "event_category": "Football",
+            "isLive": false,
+            "contentId": 1090528740,
+            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000017416/1776850459624230_UCL-SF_landscape.jpg",
+            "broadcast_channel": "Sony Sports Ten 2",
+            "audioLanguageName": "ENG",
+            "event_name": "Upcoming - PSG vs Bayern - Semi-Final - UEFA Champions League 2025-26"
         },
         {
             "event_category": "Cricket",
