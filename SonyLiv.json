@@ -1,9 +1,35 @@
 {
     "name": "SonyLiv Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "09:45:49 AM 23-04-2026",
+    "last update time": "12:01:50 PM 23-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
+        {
+            "event_category": "Golf",
+            "isLive": true,
+            "contentId": "1090528586_ENG",
+            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000016950/1775436962084181_DP_World_Tour_Volvo_China_Open_Day1_landscape_thumb.jpg",
+            "broadcast_channel": "LIV",
+            "audioLanguageName": "ENG",
+            "event_name": "DP World Tour",
+            "match_name": "Volvo China Open - Day 1 - 23 Apr 2026 [ENG]",
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2005445/VolvoChi2304/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776966601~acl=/*~id=96853018521642656916218647084520~hmac=1757af7a6a7dcfe33b93f7743adf26c969fc11fc1c06167304b4717209becd1e",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2005445/VolvoChi2304/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776966601~acl=/*~id=96853018521642656916218647084520~hmac=1757af7a6a7dcfe33b93f7743adf26c969fc11fc1c06167304b4717209becd1e",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2005445/VolvoChi2304/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776966601~acl=/*~id=96853018521642656916218647084520~hmac=1757af7a6a7dcfe33b93f7743adf26c969fc11fc1c06167304b4717209becd1e"
+        },
+        {
+            "event_category": "Golf",
+            "isLive": true,
+            "contentId": "1090528662_ENG",
+            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000017371/1776681456886468_Asian_Tour_Singapore_Open_Day1_Live_landscape_thumb.jpg",
+            "broadcast_channel": "LIV",
+            "audioLanguageName": "ENG",
+            "event_name": "Asian Tour 2026",
+            "match_name": "Singapore Open - Day 1 - 23 Apr 2026 [ENG]",
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2094589/Singapor2304/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776966601~acl=/*~id=96853018521642656916218647084520~hmac=1757af7a6a7dcfe33b93f7743adf26c969fc11fc1c06167304b4717209becd1e",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2094589/Singapor2304/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776966601~acl=/*~id=96853018521642656916218647084520~hmac=1757af7a6a7dcfe33b93f7743adf26c969fc11fc1c06167304b4717209becd1e",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2094589/Singapor2304/ENG/std_lrh-800300010.m3u8?hdnea=exp=1776966601~acl=/*~id=96853018521642656916218647084520~hmac=1757af7a6a7dcfe33b93f7743adf26c969fc11fc1c06167304b4717209becd1e"
+        },
         {
             "event_category": "Football",
             "isLive": false,
