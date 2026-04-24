@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:21:47 PM 24-04-2026",
+    "last update time": "06:12:24 PM 24-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -277,54 +277,6 @@
             "startTime": "03:05:00 PM 25-04-2026"
         },
         {
-            "event_category": "Golf",
-            "title": "Featured Groups - Day 2 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
-            "team_1": "Featured Groups - Day 2",
-            "team_2": "TPC Louisiana - Avondale, Louisiana ",
-            "status": "UPCOMING",
-            "event_name": "Zurich Classic of New Orleans 2026",
-            "match_name": "Featured Groups - Day 2",
-            "match_id": 142008,
-            "startTime": "06:45:00 PM 24-04-2026"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Marquee Group - Day 2 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
-            "team_1": "Marquee Group - Day 2",
-            "team_2": "TPC Louisiana - Avondale, Louisiana ",
-            "status": "UPCOMING",
-            "event_name": "Zurich Classic of New Orleans 2026",
-            "match_name": "Marquee Group - Day 2",
-            "match_id": 142004,
-            "startTime": "06:45:00 PM 24-04-2026"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Main Feed - Day 2 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
-            "team_1": "Main Feed - Day 2",
-            "team_2": "TPC Louisiana - Avondale, Louisiana ",
-            "status": "UPCOMING",
-            "event_name": "Zurich Classic of New Orleans 2026",
-            "match_name": "Main Feed - Day 2",
-            "match_id": 142000,
-            "startTime": "07:15:00 PM 24-04-2026"
-        },
-        {
-            "event_category": "Golf",
-            "title": "Featured Holes - Day 2 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
-            "team_1": "Featured Holes - Day 2",
-            "team_2": "TPC Louisiana - Avondale, Louisiana ",
-            "status": "UPCOMING",
-            "event_name": "Zurich Classic of New Orleans 2026",
-            "match_name": "Featured Holes - Day 2",
-            "match_id": 142012,
-            "startTime": "07:45:00 PM 24-04-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Jamshedpur FC vs Chennaiyin FC (ISL 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/140498_5956_JFC_CFC_FC-Web_1772466830393.jpg",
@@ -373,18 +325,6 @@
             "startTime": "05:15:00 PM 25-04-2026"
         },
         {
-            "event_category": "Golf",
-            "title": "World Feed - Day 2 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
-            "team_1": "World Feed - Day 2",
-            "team_2": "TPC Louisiana - Avondale, Louisiana ",
-            "status": "UPCOMING",
-            "event_name": "Zurich Classic of New Orleans 2026",
-            "match_name": "World Feed - Day 2",
-            "match_id": 141996,
-            "startTime": "01:30:00 AM 25-04-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Getafe CF vs FC Barcelona (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131147_5427_GEF_BAR_FC-Web.png",
@@ -397,6 +337,66 @@
             "startTime": "07:45:00 PM 25-04-2026"
         },
         {
+            "event_category": "Golf",
+            "title": "Featured Groups - Day 2 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
+            "team_1": "Featured Groups - Day 2",
+            "team_2": "TPC Louisiana - Avondale, Louisiana ",
+            "status": "UPCOMING",
+            "event_name": "Zurich Classic of New Orleans 2026",
+            "match_name": "Featured Groups - Day 2",
+            "match_id": 142008,
+            "startTime": "06:45:00 PM 24-04-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Marquee Group - Day 2 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
+            "team_1": "Marquee Group - Day 2",
+            "team_2": "TPC Louisiana - Avondale, Louisiana ",
+            "status": "UPCOMING",
+            "event_name": "Zurich Classic of New Orleans 2026",
+            "match_name": "Marquee Group - Day 2",
+            "match_id": 142004,
+            "startTime": "06:45:00 PM 24-04-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Main Feed - Day 2 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
+            "team_1": "Main Feed - Day 2",
+            "team_2": "TPC Louisiana - Avondale, Louisiana ",
+            "status": "UPCOMING",
+            "event_name": "Zurich Classic of New Orleans 2026",
+            "match_name": "Main Feed - Day 2",
+            "match_id": 142000,
+            "startTime": "07:15:00 PM 24-04-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "Featured Holes - Day 2 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
+            "team_1": "Featured Holes - Day 2",
+            "team_2": "TPC Louisiana - Avondale, Louisiana ",
+            "status": "UPCOMING",
+            "event_name": "Zurich Classic of New Orleans 2026",
+            "match_name": "Featured Holes - Day 2",
+            "match_id": 142012,
+            "startTime": "07:45:00 PM 24-04-2026"
+        },
+        {
+            "event_category": "Golf",
+            "title": "World Feed - Day 2 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
+            "team_1": "World Feed - Day 2",
+            "team_2": "TPC Louisiana - Avondale, Louisiana ",
+            "status": "UPCOMING",
+            "event_name": "Zurich Classic of New Orleans 2026",
+            "match_name": "World Feed - Day 2",
+            "match_id": 141996,
+            "startTime": "01:30:00 AM 25-04-2026"
+        },
+        {
             "event_category": "Motorsports",
             "title": "Japan - Day 1 vs Japan (Ferrari Challenge Series 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Ferrari-Challenge-Series_fc-web.jpg",
@@ -407,18 +407,6 @@
             "match_name": "Japan - Day 1",
             "match_id": 142154,
             "startTime": "09:25:00 AM 25-04-2026"
-        },
-        {
-            "event_category": "MotoGP",
-            "title": "Day 2 vs Circuito de Jerez - Ángel Nieto (ESTRELLA GALICIA 0,0 GRAND PRIX OF SPAIN 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/ESTRELLA-GALICIA-_GRAND-PRIX-OF-SPAIN_FC-Web.jpg",
-            "team_1": "Day 2",
-            "team_2": "Circuito de Jerez - Ángel Nieto",
-            "status": "UPCOMING",
-            "event_name": "ESTRELLA GALICIA 0,0 GRAND PRIX OF SPAIN 2026",
-            "match_name": "Spain GP",
-            "match_id": 139937,
-            "startTime": "12:10:00 PM 25-04-2026"
         },
         {
             "event_category": "Football",
@@ -445,18 +433,6 @@
             "startTime": "09:45:00 PM 25-04-2026"
         },
         {
-            "event_category": "Motorsports",
-            "title": "Day 2 - Red Bull Ring vs Red Bull Ring (DTM 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(15).png",
-            "team_1": "Day 2 - Red Bull Ring",
-            "team_2": "Red Bull Ring",
-            "status": "UPCOMING",
-            "event_name": "DTM 2026",
-            "match_name": "Day 2 - Red Bull Ring",
-            "match_id": 142108,
-            "startTime": "01:05:00 PM 25-04-2026"
-        },
-        {
             "event_category": "Football",
             "title": "Valencia CF vs Girona FC (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131140_5427_VAL_GIR_FC-Web.png",
@@ -467,6 +443,30 @@
             "match_name": "Valencia CF vs Girona FC",
             "match_id": 131140,
             "startTime": "10:00:00 PM 25-04-2026"
+        },
+        {
+            "event_category": "MotoGP",
+            "title": "Day 2 vs Circuito de Jerez - Ángel Nieto (ESTRELLA GALICIA 0,0 GRAND PRIX OF SPAIN 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/ESTRELLA-GALICIA-_GRAND-PRIX-OF-SPAIN_FC-Web.jpg",
+            "team_1": "Day 2",
+            "team_2": "Circuito de Jerez - Ángel Nieto",
+            "status": "UPCOMING",
+            "event_name": "ESTRELLA GALICIA 0,0 GRAND PRIX OF SPAIN 2026",
+            "match_name": "Spain GP",
+            "match_id": 139937,
+            "startTime": "12:10:00 PM 25-04-2026"
+        },
+        {
+            "event_category": "Motorsports",
+            "title": "Day 2 - Red Bull Ring vs Red Bull Ring (DTM 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(15).png",
+            "team_1": "Day 2 - Red Bull Ring",
+            "team_2": "Red Bull Ring",
+            "status": "UPCOMING",
+            "event_name": "DTM 2026",
+            "match_name": "Day 2 - Red Bull Ring",
+            "match_id": 142108,
+            "startTime": "01:05:00 PM 25-04-2026"
         },
         {
             "event_category": "Golf",
