@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 12:55:54AM - 24-04-2026
-# Total Channel Found: 1173 Channel
+# Update Time: 07:29:51AM - 24-04-2026
+# Total Channel Found: 1175 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -1520,10 +1520,10 @@ http://204.199.242.203:58000/play/a06q/index.m3u8
 http://8.243.126.131:8000/play/a0jt/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", ESPN 3 HD
-http://8.243.126.131:8000/play/a0d4/index.m3u8
+http://8.243.126.131:8000/play/a0km/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", ESPN 3 HD
-http://8.243.126.131:8000/play/a0d4/index.m3u8
+http://8.243.126.131:8000/play/a0km/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", ESPN 4
 http://8.243.126.131:8000/play/a0ju/index.m3u8
@@ -1556,7 +1556,7 @@ http://8.243.126.131:8000/play/a024/index.m3u8
 http://8.243.126.131:8000/play/a0jq/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", Enlace
-http://8.243.126.131:8000/play/a0n6/index.m3u8
+http://8.243.126.131:8000/play/a0lc/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", Eurochannel
 http://8.243.126.131:8000/play/a023/index.m3u8
@@ -1736,7 +1736,7 @@ http://8.243.126.131:8000/play/a0j9/index.m3u8
 http://8.243.126.131:8000/play/a0fd/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", TVE
-http://8.243.126.131:8000/play/a0n8/index.m3u8
+http://8.243.126.131:8000/play/a0gx/index.m3u8
 
 #EXTINF:-1 group-title="USA 1", TVN
 http://204.199.242.203:58000/play/a06d/index.m3u8
@@ -2129,7 +2129,7 @@ http://204.199.242.203:58000/play/a01f/index.m3u8
 http://204.199.242.203:58000/play/a05z/index.m3u8
 
 #EXTINF:-1 group-title="USA 2", Nick Jr.
-http://8.243.126.131:8000/play/a0n1/index.m3u8
+http://204.199.242.203:58000/play/a02p/index.m3u8
 
 #EXTINF:-1 group-title="USA 2", Nick Music
 http://204.199.242.203:58000/play/a01a/index.m3u8
@@ -2459,7 +2459,7 @@ http://8.243.126.131:8000/play/a0gd/index.m3u8
 http://204.199.242.203:58000/play/a06q/index.m3u8
 
 #EXTINF:-1 group-title="USA 3", ESPN 3 HD
-http://8.243.126.131:8000/play/a0d4/index.m3u8
+http://8.243.126.131:8000/play/a0km/index.m3u8
 
 #EXTINF:-1 group-title="USA 3", ESPN 4
 http://8.243.126.131:8000/play/a0ju/index.m3u8
@@ -2657,7 +2657,7 @@ http://38.41.8.1:8000/play/a0rn
 http://38.41.8.1:8000/play/a0as
 
 #EXTINF:-1 group-title="USA 3", TVE
-http://8.243.126.131:8000/play/a0n8/index.m3u8
+http://8.243.126.131:8000/play/a0gx/index.m3u8
 
 #EXTINF:-1 group-title="USA 3", TVES
 http://38.41.8.1:8000/play/a03k
@@ -3489,11 +3489,17 @@ http://103.161.153.165:8000/play/a064/index.m3u8
 #EXTINF:-1 group-title="-", 25-UNIVISION HD
 http://8.243.126.131:8000/play/a04w/index.m3u8
 
+#EXTINF:-1 group-title="-", 48-ESPN3 HD
+http://8.243.126.131:8000/play/a05j/index.m3u8
+
 #EXTINF:-1 group-title="-", 82 DISNEY CHANNEL
 http://8.243.126.131:8000/play/a0m7/index.m3u8
 
 #EXTINF:-1 group-title="-", CNN Chile
 http://8.243.126.131:8000/play/a0mg/index.m3u8
+
+#EXTINF:-1 group-title="-", CNN Espaæol
+http://8.243.126.131:8000/play/a0nc/index.m3u8
 
 #EXTINF:-1 group-title="-", Cartoonito
 http://8.243.126.131:8000/play/a0mf/index.m3u8
