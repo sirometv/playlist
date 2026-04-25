@@ -1,6 +1,6 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 01:02:34PM - 25-04-2026
+# Update Time: 06:38:47PM - 25-04-2026
 # Total Channel Found: 1178 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
@@ -56,10 +56,10 @@ http://103.229.254.25:7001/play/a085/index.m3u8
 http://103.229.254.25:7001/play/a0f5/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 1", ARYDigitalAsia HD
-http://103.76.111.180:7780/play/a06m
+http://103.161.153.165:8000/play/a069/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 1", ARYZindagi
-http://103.76.111.180:7780/play/a06q
+http://103.229.254.25:7001/play/a07u/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 1", ATN Bangla
 http://103.161.153.165:8000/play/atnbd/index.m3u8
@@ -335,7 +335,7 @@ http://103.229.254.25:7001/play/a0ed/index.m3u8
 http://103.229.254.25:7001/play/a082/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 1", PTV-SPORTS-HD
-http://103.76.111.180:7780/play/a058
+http://103.229.254.25:7001/play/a084/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 1", Pogo - Rs 5.00
 http://103.229.254.25:7001/play/a0dh/index.m3u8
@@ -662,7 +662,7 @@ http://103.161.153.165:8000/play/a037/index.m3u8
 http://103.161.153.165:8000/play/a04g/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 2", ARYDigitalAsia HD
-http://103.76.111.180:7780/play/a06m
+http://103.161.153.165:8000/play/a069/index.m3u8
 
 #EXTINF:-1 group-title="BDIX 2", ATN Bangla
 http://103.161.153.165:8000/play/atnbd/index.m3u8
@@ -2744,7 +2744,7 @@ http://103.76.111.180:7780/play/a00j
 http://103.76.111.180:7780/play/a04t
 
 #EXTINF:-1 group-title="Pakistan", ARYDigitalAsia HD
-http://103.76.111.180:7780/play/a06m
+http://103.161.153.165:8000/play/a069/index.m3u8
 
 #EXTINF:-1 group-title="Pakistan", ARYMusik
 http://103.76.111.180:7780/play/a06o
@@ -2756,7 +2756,7 @@ http://103.76.111.180:7780/play/a06p
 http://103.76.111.180:7780/play/a06n
 
 #EXTINF:-1 group-title="Pakistan", ARYZindagi
-http://103.76.111.180:7780/play/a06q
+http://103.229.254.25:7001/play/a07u/index.m3u8
 
 #EXTINF:-1 group-title="Pakistan", ATV_hd
 http://103.76.111.180:7780/play/a04w
@@ -2861,7 +2861,7 @@ http://103.76.111.180:7780/play/a051
 http://103.76.111.180:7780/play/a079
 
 #EXTINF:-1 group-title="Pakistan", Hoorah tv
-http://103.76.111.180:7780/play/a04l
+http://103.76.111.180:7780/play/a067
 
 #EXTINF:-1 group-title="Pakistan", Hoorah tv
 http://103.76.111.180:7780/play/a04l
@@ -2927,13 +2927,13 @@ http://103.76.111.180:7780/play/a059
 http://103.76.111.180:7780/play/a057
 
 #EXTINF:-1 group-title="-" tvg-id="ptvsports", PTV-SPORTS-HD
-http://103.76.111.180:7780/play/a058
+http://103.229.254.25:7001/play/a084/index.m3u8
 
 #EXTINF:-1 group-title="Pakistan", PTV-World
 http://103.76.111.180:7780/play/a05a
 
 #EXTINF:-1 group-title="Pakistan", Paigham Pashto
-http://103.76.111.180:7780/play/a050
+http://103.76.111.180:7780/play/a011
 
 #EXTINF:-1 group-title="Pakistan", Paigham Pashto
 http://103.76.111.180:7780/play/a050
