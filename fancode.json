@@ -1,7 +1,7 @@
 {
     "name": "Fancode Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:40:34 AM 25-04-2026",
+    "last update time": "10:08:15 AM 25-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
         {
@@ -10,11 +10,13 @@
             "src": "https://www.fancode.com/skillup-uploads/cms-media/BAN-vs-SL_web.jpg",
             "team_1": "Bangladesh Women",
             "team_2": "Sri Lanka Women",
-            "status": "UPCOMING",
+            "status": "LIVE",
             "event_name": "Sri Lanka Women's tour of Bangladesh, 2026",
             "match_name": "Bangladesh Women vs Sri Lanka Women",
             "match_id": 142074,
-            "startTime": "09:00:00 AM 25-04-2026"
+            "startTime": "09:00:00 AM 25-04-2026",
+            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/142074_english_hls_a2c7c6978426018_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/142074_english_hls_a2c7c6978426018_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Cricket",
@@ -22,11 +24,27 @@
             "src": "https://www.fancode.com/skillup-uploads/cms-media/ICC-Nepal_web.jpg",
             "team_1": "Nepal",
             "team_2": "United Arab Emirates",
-            "status": "UPCOMING",
+            "status": "LIVE",
             "event_name": "ICC CWC League 2, Nepal 2026",
             "match_name": "Nepal vs United Arab Emirates",
             "match_id": 141976,
-            "startTime": "09:15:00 AM 25-04-2026"
+            "startTime": "09:15:00 AM 25-04-2026",
+            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/141976_english_hls_c8dc401c8c40318_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/141976_english_hls_c8dc401c8c40318_1ta-di_h264/index.m3u8"
+        },
+        {
+            "event_category": "Motorsports",
+            "title": "Japan - Day 1 vs Japan (Ferrari Challenge Series 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Ferrari-Challenge-Series_fc-web.jpg",
+            "team_1": "Japan - Day 1",
+            "team_2": "Japan",
+            "status": "LIVE",
+            "event_name": "Ferrari Challenge Series 2026",
+            "match_name": "Japan - Day 1",
+            "match_id": 142154,
+            "startTime": "09:10:00 AM 25-04-2026",
+            "dai_url": "https://bd-mc-fblive.fancode.com/mumbai/142154_english_hls_112e4df18d20955_1ta-di_h264/index.m3u8",
+            "adfree_url": "https://bd-mc-fblive.fancode.com/mumbai/142154_english_hls_112e4df18d20955_1ta-di_h264/index.m3u8"
         },
         {
             "event_category": "Football",
@@ -162,18 +180,6 @@
         },
         {
             "event_category": "Football",
-            "title": "Newcastle Jets vs Central Coast Mariners (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140942_5802_NJ_CCM_fc-web.jpg",
-            "team_1": "Newcastle Jets",
-            "team_2": "Central Coast Mariners",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Newcastle Jets vs Central Coast Mariners",
-            "match_id": 140942,
-            "startTime": "12:30:00 PM 25-04-2026"
-        },
-        {
-            "event_category": "Football",
             "title": "Atletico de Madrid vs Athletic Club (LALIGA 2025-26)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/131146_5427_ATL_ATH_FC-Web.png",
             "team_1": "Atletico de Madrid",
@@ -183,6 +189,18 @@
             "match_name": "Atletico de Madrid vs Athletic Club",
             "match_id": 131146,
             "startTime": "12:30:00 AM 26-04-2026"
+        },
+        {
+            "event_category": "Football",
+            "title": "Newcastle Jets vs Central Coast Mariners (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140942_5802_NJ_CCM_fc-web.jpg",
+            "team_1": "Newcastle Jets",
+            "team_2": "Central Coast Mariners",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Newcastle Jets vs Central Coast Mariners",
+            "match_id": 140942,
+            "startTime": "12:30:00 PM 25-04-2026"
         },
         {
             "event_category": "Football",
@@ -221,16 +239,16 @@
             "startTime": "12:30:00 AM 26-04-2026"
         },
         {
-            "event_category": "Motorsports",
-            "title": "Japan - Day 1 vs Japan (Ferrari Challenge Series 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Ferrari-Challenge-Series_fc-web.jpg",
-            "team_1": "Japan - Day 1",
-            "team_2": "Japan",
+            "event_category": "Cricket",
+            "title": "Rwanda Women vs Vanuatu Women (ICC Women's T20I Challenge Trophy, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/142056_6045_RWA-W_VANW_fc-web.jpg",
+            "team_1": "Rwanda Women",
+            "team_2": "Vanuatu Women",
             "status": "UPCOMING",
-            "event_name": "Ferrari Challenge Series 2026",
-            "match_name": "Japan - Day 1",
-            "match_id": 142154,
-            "startTime": "09:10:00 AM 25-04-2026"
+            "event_name": "ICC Women's T20I Challenge Trophy, 2026",
+            "match_name": "Rwanda Women vs Vanuatu Women",
+            "match_id": 142056,
+            "startTime": "12:30:00 PM 26-04-2026"
         },
         {
             "event_category": "MotoGP",
@@ -257,6 +275,18 @@
             "startTime": "01:10:00 PM 25-04-2026"
         },
         {
+            "event_category": "Tennis",
+            "title": "Day 4 - Main Feed vs Madrid, Spain (ATP Masters Mutua Madrid Open 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mutua-Madrid-Open,-ATP-1000-old-_1776846287648.png",
+            "team_1": "Day 4 - Main Feed",
+            "team_2": "Madrid, Spain",
+            "status": "UPCOMING",
+            "event_name": "ATP Masters Mutua Madrid Open 2026",
+            "match_name": "Day 4 - Main Feed",
+            "match_id": 141859,
+            "startTime": "02:30:00 PM 25-04-2026"
+        },
+        {
             "event_category": "Golf",
             "title": "Day 3 vs Royal Cape Golf Club (Investec South African Women's Open 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/South-Africa_web.jpg",
@@ -279,18 +309,6 @@
             "match_name": "Europe - Day 1",
             "match_id": 142183,
             "startTime": "05:20:00 PM 25-04-2026"
-        },
-        {
-            "event_category": "Tennis",
-            "title": "ATP Masters Mutua Madrid Open 2026 vs Madrid, Spain (ATP Masters Mutua Madrid Open 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/Mutua-Madrid-Open,-ATP-1000-old-_1776846287648.png",
-            "team_1": "ATP Masters Mutua Madrid Open 2026",
-            "team_2": "Madrid, Spain",
-            "status": "UPCOMING",
-            "event_name": "ATP Masters Mutua Madrid Open 2026",
-            "match_name": "ATP Masters Mutua Madrid Open 2026",
-            "match_id": 141859,
-            "startTime": "05:30:00 PM 25-04-2026"
         },
         {
             "event_category": "Tennis",
@@ -353,6 +371,18 @@
             "startTime": "08:30:00 PM 25-04-2026"
         },
         {
+            "event_category": "Football",
+            "title": "Sydney FC vs Auckland (A League 2025-26)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/140945_5802_SYD_AFC_fc-web.jpg",
+            "team_1": "Sydney FC",
+            "team_2": "Auckland",
+            "status": "UPCOMING",
+            "event_name": "A League 2025-26",
+            "match_name": "Sydney FC vs Auckland",
+            "match_id": 140945,
+            "startTime": "10:30:00 AM 26-04-2026"
+        },
+        {
             "event_category": "Golf",
             "title": "World Feed - Day 3 vs TPC Louisiana - Avondale, Louisiana  (Zurich Classic of New Orleans 2026)",
             "src": "https://www.fancode.com/skillup-uploads/cms-media/Zurich-Classic-of-New-Orleans_fc-web.jpg",
@@ -366,27 +396,15 @@
         },
         {
             "event_category": "Cricket",
-            "title": "Rwanda Women vs Vanuatu Women (ICC Women's T20I Challenge Trophy, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/142056_6045_RWA-W_VANW_fc-web.jpg",
-            "team_1": "Rwanda Women",
-            "team_2": "Vanuatu Women",
+            "title": "USA Women vs Nepal Women (ICC Women's T20I Challenge Trophy, 2026)",
+            "src": "https://www.fancode.com/skillup-uploads/cms-media/142057_6045_USA-W_NP-W_fc-web.jpg",
+            "team_1": "USA Women",
+            "team_2": "Nepal Women",
             "status": "UPCOMING",
             "event_name": "ICC Women's T20I Challenge Trophy, 2026",
-            "match_name": "Rwanda Women vs Vanuatu Women",
-            "match_id": 142056,
-            "startTime": "12:30:00 PM 26-04-2026"
-        },
-        {
-            "event_category": "Football",
-            "title": "Sydney FC vs Auckland (A League 2025-26)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/140945_5802_SYD_AFC_fc-web.jpg",
-            "team_1": "Sydney FC",
-            "team_2": "Auckland",
-            "status": "UPCOMING",
-            "event_name": "A League 2025-26",
-            "match_name": "Sydney FC vs Auckland",
-            "match_id": 140945,
-            "startTime": "10:30:00 AM 26-04-2026"
+            "match_name": "USA Women vs Nepal Women",
+            "match_id": 142057,
+            "startTime": "04:30:00 PM 26-04-2026"
         },
         {
             "event_category": "Live Events",
@@ -399,18 +417,6 @@
             "match_name": "World Fencing League 2026",
             "match_id": 142163,
             "startTime": "06:00:00 AM 26-04-2026"
-        },
-        {
-            "event_category": "Cricket",
-            "title": "USA Women vs Nepal Women (ICC Women's T20I Challenge Trophy, 2026)",
-            "src": "https://www.fancode.com/skillup-uploads/cms-media/142057_6045_USA-W_NP-W_fc-web.jpg",
-            "team_1": "USA Women",
-            "team_2": "Nepal Women",
-            "status": "UPCOMING",
-            "event_name": "ICC Women's T20I Challenge Trophy, 2026",
-            "match_name": "USA Women vs Nepal Women",
-            "match_id": 142057,
-            "startTime": "04:30:00 PM 26-04-2026"
         },
         {
             "event_category": "Football",

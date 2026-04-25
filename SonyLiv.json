@@ -1,9 +1,35 @@
 {
     "name": "SonyLiv Live Matches Data in Json",
     "telegram": "https://t.me/sirometv",
-    "last update time": "05:40:34 AM 25-04-2026",
+    "last update time": "10:08:16 AM 25-04-2026",
     "webtv": "https://sirometv-tv.vercel.app",
     "matches": [
+        {
+            "event_category": "Golf",
+            "isLive": true,
+            "contentId": "1090528760_ENG",
+            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000016950/1775436994240181_DP_World_Tour_Volvo_China_Open_Day3_landscape_thumb.jpg",
+            "broadcast_channel": "LIV",
+            "audioLanguageName": "ENG",
+            "event_name": "DP World Tour",
+            "match_name": "Volvo China Open - Day 3 - 25 Apr 2026 [ENG]",
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/2094589/DP_World2504/ENG/std_lrh-800300010.m3u8?hdnea=exp=1777133213~acl=/*~id=38735782094273315664811391182331~hmac=658dfe207cf2b8b861bedc20901f09fb1292b9910492bd49a8b274142627bd5b",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/2094589/DP_World2504/ENG/std_lrh-800300010.m3u8?hdnea=exp=1777133213~acl=/*~id=38735782094273315664811391182331~hmac=658dfe207cf2b8b861bedc20901f09fb1292b9910492bd49a8b274142627bd5b",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/2094589/DP_World2504/ENG/std_lrh-800300010.m3u8?hdnea=exp=1777133213~acl=/*~id=38735782094273315664811391182331~hmac=658dfe207cf2b8b861bedc20901f09fb1292b9910492bd49a8b274142627bd5b"
+        },
+        {
+            "event_category": "Golf",
+            "isLive": true,
+            "contentId": "1090528759_ENG",
+            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000017371/1776681481371468_Asian_Tour_Singapore_Open_Day3_Live_landscape_thumb.jpg",
+            "broadcast_channel": "LIV",
+            "audioLanguageName": "ENG",
+            "event_name": "Asian Tour 2026",
+            "match_name": "Singapore Open - Day 3 - 25 Apr 2026 [ENG]",
+            "dai_url": "https://sonydaimenew.akamaized.net/hls/live/20000292/ASIAN_TO2504/ENG/std_lrh-800300010.m3u8?hdnea=exp=1777133213~acl=/*~id=38735782094273315664811391182331~hmac=658dfe207cf2b8b861bedc20901f09fb1292b9910492bd49a8b274142627bd5b",
+            "pub_url": "https://sonydaimenew.akamaized.net/hls/live/20000292/ASIAN_TO2504/ENG/std_lrh-800300010.m3u8?hdnea=exp=1777133213~acl=/*~id=38735782094273315664811391182331~hmac=658dfe207cf2b8b861bedc20901f09fb1292b9910492bd49a8b274142627bd5b",
+            "video_url": "https://sonydaimenew.akamaized.net/hls/live/20000292/ASIAN_TO2504/ENG/std_lrh-800300010.m3u8?hdnea=exp=1777133213~acl=/*~id=38735782094273315664811391182331~hmac=658dfe207cf2b8b861bedc20901f09fb1292b9910492bd49a8b274142627bd5b"
+        },
         {
             "event_category": "Football",
             "isLive": false,
@@ -25,20 +51,20 @@
         {
             "event_category": "Football",
             "isLive": false,
-            "contentId": 1090528342,
-            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000017469/177703586913893_FA_Cup_Semi_Final_Manchester_City_vs_Southampton_promo_landscape_thumbnail_dated.jpg",
-            "broadcast_channel": "Sony Sports Ten 5",
-            "audioLanguageName": "ENG",
-            "event_name": "Upcoming - Emirates FA Cup - Semifinals - Manchester City vs Southampton"
-        },
-        {
-            "event_category": "Football",
-            "isLive": false,
             "contentId": 1090528740,
             "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000017420/1776855200879116_UCL_Semi_Final_Leg1_PSG_vs_Bayern_promo_landscape_thumb_dated.jpg",
             "broadcast_channel": "Sony Sports Ten 2",
             "audioLanguageName": "ENG",
             "event_name": "Upcoming - PSG vs Bayern - Semi-Final - UEFA Champions League 2025-26"
+        },
+        {
+            "event_category": "Football",
+            "isLive": false,
+            "contentId": 1090528342,
+            "src": "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000017469/177703586913893_FA_Cup_Semi_Final_Manchester_City_vs_Southampton_promo_landscape_thumbnail_dated.jpg",
+            "broadcast_channel": "Sony Sports Ten 5",
+            "audioLanguageName": "ENG",
+            "event_name": "Upcoming - Emirates FA Cup - Semifinals - Manchester City vs Southampton"
         },
         {
             "event_category": "Football",
