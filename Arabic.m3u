@@ -1,6 +1,6 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 07:46:52AM - 27-04-2026
+# Update Time: 02:04:18PM - 27-04-2026
 # Total Channel Found: 383 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
@@ -365,7 +365,7 @@ http://media.smc-host.com:1935/alhorreya.tv/mp4:alhorreya3/playlist.m3u8
 https://bucharest.zeuscdn724.com/lb0/CH-AL-MA/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/A2fJysM.png" group-title="Religious", Al Quran Al Kareem TV
-https://cdn-globecast.akamaized.net/live/eds/saudi_quran/hls_roku/index.m3u8
+http://m.live.net.sa:1935/live/quran/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/rjXDCN5.png" group-title="Religious", Al Rafidain
 https://arrafidain.tvplayer.online/arrafidaintv/source/playlist.m3u8
@@ -374,7 +374,7 @@ https://arrafidain.tvplayer.online/arrafidaintv/source/playlist.m3u8
 https://rotana.hibridcdn.net/rotananet/risala_net-7Y83PP5adWixDF93/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/S6LcTJv.png" group-title="Religious", Al Sunnah Al Nabawiyah TV
-https://cdn-globecast.akamaized.net/live/eds/saudi_sunnah/hls_roku/index.m3u8
+http://m.live.net.sa:1935/live/sunnah/playlist.m3u8
 
 #EXTINF:-1 tvg-logo="https://i.imgur.com/OI1HQv5.png" group-title="Religious", Al Wilayah
 https://nl.livekadeh.com/hls2/alwilayah_tv.m3u8
