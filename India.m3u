@@ -1,7 +1,7 @@
 #EXTM3U
 # Sirome TV (2022-2026)
-# Update Time: 07:16:28PM - 27-04-2026
-# Total Channel Found: 985 Channel
+# Update Time: 01:03:48AM - 28-04-2026
+# Total Channel Found: 984 Channel
 # 🔴 এই ফাইলের সমস্ত লিঙ্ক পাবলিক সোর্স থেকে সংগ্রহ করা হয়েছে। যদি কেউ তাদের সোর্স মুছে ফেলতে চান, তাহলে দয়া করে আমাদের জানান। আমরা আপনার মতামত এবং প্রচেষ্টাকে সম্মান করি, তাই আপনার সোর্স মুছে ফেলার ব্যাপারে আমরা আপত্তি করব না।
 # All the links in this file are collected from public sources. If anyone wants to remove their source, please let us know. We respect your opinions and efforts, so we will not object to removing your source.
 
@@ -2717,9 +2717,6 @@ http://103.72.101.252:8080/live/167.m3u8
 
 #EXTINF:-1 tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ZEE_YUVA/images/LOGO_HD/LOGO_HD_image.png" group-title="Entertainment", Zee Yuva
 http://103.72.101.252:8080/live/414.m3u8
-
-#EXTINF:-1 tvg-logo="https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png" group-title="NEWS INTERNASIONAL", BBC News
-https://ythls.armelin.one/channel/UCelk6aHijZq-GJBBB9YpReA.m3u8?v=1
 
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/rpHrRxR5/big_tv_malayalam.png" group-title="News", Big TV 24x7
 https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/chunks.m3u8
